@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpms" class="md-tag">JPMS</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:module" class="md-tag">Module</a>
       
     
   </nav>
@@ -6149,94 +6170,389 @@ Chapter slug: <code>module-system</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Module System</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — JDK, JRE, JVM (jlink)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Class Loader (Platform Class Loader nạp module JDK)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 19 — Reflection (setAccessible bị giới hạn bởi module)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker, JVM Tuning (Phase 8) — jlink dựng runtime image tối giản cho container, dựa trực tiếp trên module</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Đây là chapter cuối cùng của Phase 1 — và nó khép lại đúng vòng tròn đã mở ra từ
+<a href="../02-jdk-jre-jvm/">Chapter 02</a>: "Từ Java 11, JRE không còn được phân phối độc lập nữa" — lúc
+đó chapter đã hẹn "chi tiết đầy đủ ở Chapter 20 (Module System)". Giờ là lúc trả lời trọn vẹn.</p>
+<p>Và <a href="../19-reflection/">Chapter 19</a> cũng để lại một câu hỏi bỏ ngỏ: từ Java 9,
+<code>setAccessible(true)</code> — thứ tưởng như "vượt qua được mọi rào cản" — bắt đầu bị JVM <strong>chặn lại</strong>
+trong một số trường hợp. Thử trực tiếp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Exception in thread &quot;main&quot; java.lang.reflect.InaccessibleObjectException:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Unable to make field private java.lang.String com.example.secret.Secret.value
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>accessible: module modA does not &quot;opens com.example.secret&quot; to unnamed module
+</code></pre></div>
+<p><code>private</code> bị Reflection phá vỡ dễ dàng ở Chapter 19. Giờ có một rào cản <strong>mới</strong>, đứng trên cả
+<code>private</code>, mà ngay cả Reflection cũng không tự động vượt qua được nữa. Rào cản đó chính là chủ
+đề chapter này: <strong>Module System</strong> (JPMS — Java Platform Module System, ra đời Java 9).</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Module System giải quyết vấn đề gì mà package/JAR truyền thống (trước Java 9) không giải
+quyết được? Vì sao nó còn giới hạn được cả sức mạnh của Reflection?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích được "JAR hell" / "classpath hell" — vấn đề cụ thể mà Module System giải
+      quyết</li>
+<li>[ ] Đọc hiểu và tự viết được <code>module-info.java</code> cơ bản (<code>exports</code>, <code>requires</code>)</li>
+<li>[ ] Phân biệt <code>exports</code> (mở API public thông thường) và <code>opens</code> (cho phép Reflection sâu,
+      kể cả <code>private</code>) — hai mức truy cập khác nhau</li>
+<li>[ ] Tự tay tái hiện đúng lỗi ở Story, rồi tự sửa bằng <code>opens</code></li>
+<li>[ ] Biết <code>jlink</code> dùng thông tin module để dựng runtime image tối giản</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 02 — đã biết <code>jlink</code> được nhắc tới như lời giải cho "JRE không còn độc lập".</li>
+<li>Chapter 03 — đã biết Platform Class Loader nạp "module JDK khác <code>java.base</code>".</li>
+<li>Chapter 19 — đã thấy <code>setAccessible()</code> mạnh tới mức bỏ qua <code>private</code>/<code>final</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Docker, JVM Tuning</strong> (Phase 8) — <code>jlink</code> dùng thông tin <code>module-info</code> để dựng một runtime
+  image chỉ chứa đúng những module ứng dụng cần, giảm đáng kể kích thước container image so
+  với đóng gói cả một JDK/JRE đầy đủ.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Trước Java 9, đơn vị đóng gói code Java là <strong>JAR</strong> — về bản chất chỉ là một file zip chứa
+<code>.class</code>, không có khai báo tường minh "JAR này phụ thuộc JAR nào", "JAR này công khai package
+nào cho bên ngoài dùng". Hậu quả trong thực tế, gọi chung là <strong>"JAR hell"</strong>:</p>
+<ul>
+<li>Hai JAR khác nhau có thể chứa <strong>cùng một package</strong> với nội dung khác nhau, đưa cả hai vào
+  classpath — không có cách nào biết chắc lớp nào thực sự được nạp (liên hệ trực tiếp tới bài
+  toán "hai bản của cùng một class" đã gặp ở <a href="../03-class-loader/">Chapter 03</a>).</li>
+<li>Không có gì ngăn code của bạn "thò tay" vào các package <strong>nội bộ</strong> của JDK không nhằm cho
+  ứng dụng dùng (ví dụ <code>sun.misc.*</code>) — nhiều thư viện phổ biến từng làm vậy, khiến JDK không
+  thể tự do thay đổi chi tiết nội bộ vì sợ "phá" hàng loạt ứng dụng đang dựa vào những API
+  không chính thức đó.</li>
+<li>Không thể xây một runtime tối giản — package JRE cũ (trước Chapter 02 đã nhắc) buộc phải là
+  "trọn gói", dù ứng dụng chỉ dùng một phần nhỏ.</li>
+</ul>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Module</strong> là một đơn vị đóng gói bậc cao hơn JAR, có khai báo tường minh trong một file
+<code>module-info.java</code> ở gốc: module này <strong>tên gì</strong>, <strong>phụ thuộc</strong> (requires) module nào,
+<strong>công khai</strong> (exports) package nào cho module khác dùng.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">module</span> <span class="nc">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">greet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kd">exports</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">greet</span><span class="p">;</span><span class="w">   </span><span class="c1">// package nào công khai ra ngoài</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Package <strong>không</strong> được <code>exports</code> là hoàn toàn riêng tư đối với module đó — không module nào
+khác gọi được, kể cả qua API <code>public</code> thông thường (khác hẳn trước Java 9, khi mọi <code>public</code>
+class trên classpath đều gọi được từ bất kỳ đâu).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có khai báo tường minh <code>exports</code>/<code>requires</code>: JVM không có cách nào biết ranh giới
+"API công khai có chủ đích" và "chi tiết nội bộ tình cờ là <code>public</code>" — mọi thứ <code>public</code> đều bị
+coi là API, khiến nhà phát triển JDK (hay bất kỳ thư viện nào) không dám tự do thay đổi bất kỳ
+class <code>public</code> nào, dù nó chưa từng có ý định làm API ổn định. Module System cho phép nói rõ
+"đây là API thật sự, đây chỉ là chi tiết cài đặt nội bộ" — một hình thức Encapsulation
+(Chapter 08) áp dụng ở quy mô <strong>giữa các thư viện/module</strong>, không chỉ giữa các class trong
+cùng một package.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Module tối giản, biên dịch và chạy được (đã kiểm chứng thật):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// module-info.java</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">module</span> <span class="nc">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">greet</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">exports</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">greet</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// com/example/greet/Greeter.java</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.greet</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Greeter</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Xin chao tu module: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Greeter</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getModule</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Biên dịch và chạy bằng <code>--module-path</code>/<code>--module</code> thay vì <code>-cp</code>/tên class trực tiếp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>javac -d out module-info.java com/example/greet/Greeter.java
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>java --module-path out --module com.example.greet/com.example.greet.Greeter
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Xin chao tu module: com.example.greet
+</code></pre></div>
+<p><code>Class.getModule().getName()</code> xác nhận: class này thực sự đang chạy <strong>bên trong</strong> một module
+có tên <code>com.example.greet</code>, không phải "unnamed module" (classpath truyền thống, xem Deep
+Dive).</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Trước Java 9 (classpath truyền thống):
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  Mọi .class trên classpath ─────▶ &quot;UNNAMED MODULE&quot; (một khối lớn,
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                                     không phân biệt ranh giới,
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                                     mọi public class đều gọi được lẫn nhau)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Từ Java 9 (module path):
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  module com.example.greet         module modA
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  ┌─────────────────────┐         ┌──────────────────────┐
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  │ exports              │         │ (không exports gì)    │
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  │  com.example.greet    │◀───────┤ requires               │
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  │                       │ dùng   │  com.example.greet     │
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  │ package NỘI BỘ        │        │                        │
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  │ (không exports)       │───✗───▶│ KHÔNG gọi được, dù     │
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  └─────────────────────┘        │ package đó public       │
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>                                   └──────────────────────┘
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Tái hiện đúng và sửa lỗi ở Story — phân biệt rõ <code>exports</code> (API public thông thường) và
+<code>opens</code> (cho phép Reflection sâu):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// module modA — CHỈ exports, KHÔNG opens</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">module</span> <span class="nc">modA</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">exports</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">secret</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.secret</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Secret</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bi mat&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Từ module/code khác cố dùng Reflection đọc field <code>private</code> này:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.Field</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.secret.Secret</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Hack</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="n">Secret</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Secret</span><span class="p">();</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="n">Field</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Secret</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getDeclaredField</span><span class="p">(</span><span class="s">&quot;value&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// XEM Ở ĐÂY</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Doc duoc: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật khi <code>modA</code> chỉ <code>exports</code> (chưa <code>opens</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Exception in thread &quot;main&quot; java.lang.reflect.InaccessibleObjectException:
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Unable to make field private java.lang.String com.example.secret.Secret.value
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>accessible: module modA does not &quot;opens com.example.secret&quot; to unnamed module
+</code></pre></div>
+<p>Đúng lỗi đã thấy ở Story! Sửa bằng cách thêm <code>opens</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">module</span> <span class="nc">modA</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kd">exports</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">secret</span><span class="p">;</span><span class="w"> </span><span class="c1">// API public thông thường vẫn dùng được</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kd">opens</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">example</span><span class="p">.</span><span class="na">secret</span><span class="p">;</span><span class="w">   </span><span class="c1">// CHO PHÉP Reflection sâu, kể cả private</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Chạy lại, kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Doc duoc: bi mat
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>exports</code> và <code>opens</code> là hai mức truy cập khác nhau, không phải một</strong> — điểm dễ nhầm nhất
+của chapter này:</p>
+<ul>
+<li><strong><code>exports</code></strong> — cho phép code ngoài module gọi <strong>API <code>public</code> thông thường</strong> (gọi method,
+  tạo instance qua constructor <code>public</code>...) — đúng cách lập trình bình thường vẫn làm từ trước
+  tới nay.</li>
+<li><strong><code>opens</code></strong> — cho phép <strong>Reflection sâu</strong> (<code>setAccessible(true)</code>, kể cả vào <code>private</code>) —
+  một mức truy cập mạnh hơn hẳn, cố ý tách riêng khỏi <code>exports</code>.</li>
+</ul>
+<p>Một module có thể <code>exports</code> mà <strong>không</strong> <code>opens</code> (như <code>modA</code> lúc đầu ở Example) — API public
+dùng bình thường được, nhưng Reflection sâu bị chặn. Đây chính là lý do các framework
+dựa nặng vào Reflection (Hibernate đọc field <code>private</code> của Entity — <a href="../19-reflection/">Chapter 19</a>)
+cần module đích phải <code>opens</code> (không chỉ <code>exports</code>) mới hoạt động đúng — một chi tiết cấu hình
+rất thực tế khi làm việc với JPA/Hibernate trên Java 9+ (Phase 6).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao thiết kế tách <code>exports</code>/<code>opens</code> thành hai mức, thay vì một cờ "công khai/không công
+khai" duy nhất?</strong> Vì hai nhu cầu này có <strong>mức độ rủi ro khác hẳn nhau</strong>. Một API <code>public</code>
+thông thường (qua <code>exports</code>) được thiết kế có chủ đích, có hợp đồng rõ ràng (chữ ký method,
+kiểu tham số) — an toàn để module khác phụ thuộc lâu dài. Reflection sâu (qua <code>opens</code>) cho
+phép truy cập <strong>vượt qua mọi ràng buộc thiết kế</strong> (Chapter 19: bỏ qua cả <code>private</code>/<code>final</code>) —
+một framework dùng <code>opens</code> để đọc/ghi field nội bộ của bạn có thể "biết" những chi tiết cài đặt
+mà bạn chưa bao giờ có ý định công khai, và những chi tiết đó có thể đổi bất cứ lúc nào mà
+không được coi là "phá vỡ API" (vì nó chưa bao giờ chính thức là API). Tách hai mức này cho
+phép module tác giả nói rõ: "tôi cho phép dùng bình thường (<code>exports</code>), nhưng KHÔNG cam kết
+ổn định nếu bạn dùng Reflection đào sâu (<code>opens</code>, nếu có, là một nhượng bộ có ý thức, thường
+chỉ mở cho framework cụ thể qua <code>opens ... to ...</code>)".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Trước Java 9
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    ↓
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Classpath truyền thống — mọi .class thuộc &quot;unnamed module&quot; ngầm định,
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>không có exports/opens tường minh, setAccessible() gần như luôn thành công
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    ↓
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Java 9 (2017) — Project Jigsaw / JPMS chính thức ra mắt sau NHIỀU NĂM phát
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>triển (bắt đầu thảo luận từ khoảng 2008) — một trong những thay đổi kiến
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>trúc lớn nhất trong lịch sử JDK, module hoá cả chính JDK thành hàng chục
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>module (java.base, java.sql, java.desktop...)
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    ↓
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>Từ Java 9 đến nay — phần lớn ứng dụng/thư viện VẪN chạy trên &quot;classpath
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>truyền thống&quot; (unnamed module) vì tương thích ngược — module system chủ
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>yếu được tận dụng RÕ RÀNG nhất ở việc module hoá chính JDK và qua jlink,
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>chưa trở thành chuẩn mực bắt buộc cho mọi ứng dụng Java viết mới
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Từ Java 9, mọi dự án Java bắt buộc phải viết <code>module-info.java</code>."
+  <strong>Reality:</strong> Hoàn toàn không bắt buộc — code không có <code>module-info.java</code> chạy trên
+  "unnamed module" (giống hệt classpath truyền thống trước Java 9), vẫn hoạt động bình thường.
+  Module System là <strong>tuỳ chọn</strong>, không phải yêu cầu bắt buộc cho ứng dụng thông thường.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>exports</code> và <code>opens</code> là một, chỉ cần <code>exports</code> là đủ cho mọi framework hoạt
+  động."
+  <strong>Reality:</strong> Xem Example/Deep Dive — thiếu <code>opens</code>, Reflection sâu (mà nhiều framework như
+  Hibernate cần) sẽ thất bại với <code>InaccessibleObjectException</code>, dù package đã <code>exports</code> đầy
+  đủ.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Chỉ <code>exports</code> mà quên <code>opens</code></strong> khi module cần được một framework dựa vào Reflection sâu
+  sử dụng (JPA Entity, Jackson serialize field private...) — đúng lỗi tái hiện ở Story/
+  Example.</li>
+<li><strong>Viết <code>module-info.java</code> cho một dự án không thực sự cần</strong> — với ứng dụng nhỏ, phụ thuộc
+  nhiều thư viện chưa module hoá đầy đủ, việc ép dùng module system có thể gây phức tạp không
+  tương xứng lợi ích, đặc biệt nếu team chưa quen thuộc với JPMS.</li>
+<li><strong>Nhầm lẫn module (JPMS) với package</strong> — một module có thể chứa nhiều package, package
+  không tự động "thuộc về" một module trừ khi nó nằm trong cấu trúc thư mục của module đó.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Nếu dùng framework dựa nặng vào Reflection sâu (Hibernate, một số thư viện JSON), nhớ
+  <code>opens</code> (không chỉ <code>exports</code>) đúng package chứa Entity/DTO liên quan — hoặc dùng
+  <code>opens ... to &lt;module cụ thể&gt;</code> để giới hạn phạm vi nhượng bộ này chỉ cho đúng framework cần,
+  không mở toang cho mọi module khác.</li>
+<li>Không nhất thiết phải áp dụng module system cho mọi dự án — cân nhắc dựa trên quy mô dự án
+  và mức độ sẵn sàng của các thư viện phụ thuộc.</li>
+<li>Khi gặp lỗi liên quan module lúc nâng cấp JDK, đọc kỹ thông báo lỗi — nó luôn chỉ rõ chính
+  xác cần thêm <code>exports</code>/<code>opens</code>/<code>--add-opens</code> nào.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> ứng dụng chạy ổn định trên Java 8, nâng cấp lên Java 17 (hoặc bất kỳ Java 9+ nào)
+thì một thư viện dựa vào Reflection sâu (thường là thư viện cũ, dựa vào chi tiết nội bộ JDK)
+bắt đầu ném <code>InaccessibleObjectException</code> hoặc <code>IllegalAccessError</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> lỗi chỉ xuất hiện sau khi đổi version JDK, không liên quan tới thay đổi code
+  nghiệp vụ nào — đúng tình huống đã nêu ở <a href="../19-reflection/">Chapter 19 — Production Notes</a>.</li>
+<li><strong>Root cause:</strong> thư viện cố truy cập package JDK nội bộ (chưa <code>exports</code>/<code>opens</code> cho unnamed
+  module) hoặc chính module ứng dụng của bạn thiếu <code>opens</code> cho package mà thư viện cần
+  Reflection sâu vào.</li>
+<li><strong>Debug:</strong> đọc chính xác tên package/module trong thông báo lỗi.</li>
+<li><strong>Solution ngắn hạn:</strong> thêm cờ dòng lệnh <code>--add-opens &lt;module&gt;/&lt;package&gt;=ALL-UNNAMED</code> khi
+  chạy JVM (giải pháp tạm, không sửa gốc rễ).</li>
+<li><strong>Solution dài hạn:</strong> nâng cấp thư viện lên phiên bản đã hỗ trợ đúng module system (không
+  còn phụ thuộc Reflection sâu vào chi tiết nội bộ JDK), hoặc thêm <code>opens</code> tường minh trong
+  <code>module-info.java</code> của chính ứng dụng nếu vấn đề nằm ở module của bạn.</li>
+<li><strong>Prevention:</strong> khi nâng cấp version JDK lớn, luôn kiểm tra release note phần liên quan
+  module system, và test kỹ các thư viện dựa nặng vào Reflection trước khi triển khai
+  production.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>InaccessibleObjectException</code>? → thiếu <code>opens</code> cho đúng package/module (xem Example).</li>
+<li>[ ] <code>IllegalAccessError: ... does not export ...</code>? → thiếu <code>exports</code> hoàn toàn (mức nghiêm
+      trọng hơn thiếu <code>opens</code> — package thậm chí chưa công khai API public thông thường).</li>
+<li>[ ] Lỗi module chỉ xuất hiện sau khi nâng cấp JDK? → xem đúng quy trình ở Production Notes.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>module-info.java</code> không biên dịch thành bytecode thông thường như một class — nó biên dịch
+thành một file đặc biệt tên <code>module-info.class</code>, chứa metadata mô tả module (tên, <code>requires</code>,
+<code>exports</code>, <code>opens</code>...) mà JVM đọc <strong>trước cả khi</strong> bắt đầu nạp bất kỳ class nào khác của module
+đó — một bước bổ sung vào đúng giai đoạn Loading đã học ở
+<a href="../03-class-loader/">Chapter 03</a>, giờ có thêm bước kiểm tra ràng buộc module trước khi cho
+phép truy cập xuyên module.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Module System (JPMS, Java 9) giải quyết "JAR hell": khai báo tường minh trong
+<code>module-info.java</code> module nào phụ thuộc (<code>requires</code>) module nào, công khai (<code>exports</code>) package
+nào cho bên ngoài — package không <code>exports</code> hoàn toàn riêng tư, dù <code>public</code>. <code>exports</code> (API
+thông thường) và <code>opens</code> (Reflection sâu, kể cả <code>private</code>) là <strong>hai mức tách biệt</strong> — thiếu
+<code>opens</code> khiến <code>setAccessible()</code> (Chapter 19) thất bại với <code>InaccessibleObjectException</code>, dù
+package đã <code>exports</code> đầy đủ. Module system hoàn toàn tuỳ chọn (không bắt buộc), code không có
+<code>module-info.java</code> vẫn chạy bình thường trên "unnamed module". <code>jlink</code> tận dụng thông tin
+module để dựng runtime image tối giản — lời giải cho câu hỏi bỏ ngỏ từ Chapter 02, khép lại
+trọn vẹn Phase 1 Foundation.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Module System giải quyết vấn đề gì?</li>
+<li>Một dự án Java có bắt buộc phải có <code>module-info.java</code> không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>exports</code> và <code>opens</code> trong <code>module-info.java</code> khác nhau như thế nào?</li>
+<li>"JAR hell" là gì? Cho một ví dụ cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích chính xác vì sao một module <code>exports</code> một package nhưng chưa <code>opens</code> vẫn có thể
+  khiến một thư viện dựa vào Reflection (như Hibernate) thất bại — trong khi code gọi API
+  <code>public</code> thông thường của package đó vẫn hoạt động bình thường.</li>
+<li>Nếu bạn phụ trách nâng cấp một hệ thống lớn từ Java 8 lên Java 17, bạn sẽ lập kế hoạch kiểm
+  tra và xử lý rủi ro liên quan tới Module System như thế nào?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ module <code>com.example.greet</code> ở phần How?, xác nhận
+      <code>getModule().getName()</code> trả về đúng tên module.</li>
+<li>[ ] Tái hiện đúng lỗi <code>InaccessibleObjectException</code> ở Example (chỉ <code>exports</code>, không
+      <code>opens</code>), sau đó tự sửa bằng cách thêm <code>opens</code>, xác nhận Reflection hoạt động trở lại.</li>
+<li>[ ] Thử đổi <code>opens com.example.secret;</code> thành <code>opens com.example.secret to &lt;tên module của
+      Hack, nếu Hack cũng là module&gt;;</code> — tìm hiểu vì sao giới hạn <code>opens ... to ...</code> cụ thể
+      lại an toàn hơn <code>opens</code> mở toang cho mọi module.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khai báo</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>module &lt;tên&gt; { }</code></td>
+<td>Định nghĩa module</td>
+</tr>
+<tr>
+<td><code>requires &lt;module khác&gt;</code></td>
+<td>Module này phụ thuộc module khác</td>
+</tr>
+<tr>
+<td><code>exports &lt;package&gt;</code></td>
+<td>Công khai package cho API public thông thường</td>
+</tr>
+<tr>
+<td><code>opens &lt;package&gt;</code></td>
+<td>Cho phép Reflection sâu (kể cả <code>private</code>) vào package</td>
+</tr>
+<tr>
+<td><code>opens &lt;package&gt; to &lt;module&gt;</code></td>
+<td>Giới hạn nhượng bộ Reflection chỉ cho module cụ thể</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Lỗi</th>
+<th>Nguyên nhân</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IllegalAccessError: does not export</code></td>
+<td>Thiếu <code>exports</code> — API public thông thường cũng bị chặn</td>
+</tr>
+<tr>
+<td><code>InaccessibleObjectException</code></td>
+<td>Có <code>exports</code> nhưng thiếu <code>opens</code> — chỉ Reflection sâu bị chặn</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 7.7: Module Declarations.</li>
+<li>JEP 261: Module System.</li>
+<li>JEP 220: Modular Run-Time Images (liên quan <code>jlink</code>, Chapter 02).</li>
+<li>Oracle: "The Java Tutorials — Trail: Modules".</li>
 </ul>
 
 

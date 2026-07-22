@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:object" class="md-tag">Object</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hashcode" class="md-tag">hashCode</a>
       
     
   </nav>
@@ -6149,15 +6170,16 @@ Chapter slug: <code>hashcode</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hashCode()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — equals()</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HashMap, HashSet, ConcurrentHashMap (Phase 2) — hashCode() quyết định object rơi vào bucket nào</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JPA Entity (Phase 6) — hashCode() cho Entity thừa hưởng đúng những cạm bẫy ở đây</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6187,356 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../12-equals/">Chapter 12</a> — bạn đã học cách override <code>equals()</code> đúng chuẩn theo
+5 quy tắc của hợp đồng.</p>
 </blockquote>
+<p>Giờ thử một tình huống tưởng như vô hại: bạn override <code>equals()</code> đúng chuẩn hoàn toàn (theo
+đúng mọi quy tắc ở Chapter 12), nhưng <strong>quên</strong> không override <code>hashCode()</code> đi kèm. Code biên
+dịch sạch sẽ — không một cảnh báo nào từ trình biên dịch. Rồi bạn dùng class đó với <code>HashSet</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">cart</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Áo thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">cart</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Áo thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span><span class="w"> </span><span class="c1">// &quot;giống hệt&quot; theo equals() vừa viết</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cart</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w"> </span><span class="c1">// bạn đoán: 1 (vì equals() coi hai cái là &quot;bằng nhau&quot;)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">                                   </span><span class="c1">// thực tế: 2</span>
+</code></pre></div>
+<p><code>equals()</code> của bạn khẳng định hai object này "bằng nhau". Nhưng <code>HashSet</code> vẫn lưu cả hai như
+thể chúng khác nhau — nó thậm chí <strong>không bao giờ gọi tới <code>equals()</code></strong> để so sánh hai object
+này, vì chúng đã bị coi là khác nhau ngay từ một bước trước đó. Đây chính là hậu quả của việc
+vi phạm hợp đồng <code>equals()</code>/<code>hashCode()</code> — chủ đề trung tâm của chapter này.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Tại sao phải luôn override cả <code>equals()</code> và <code>hashCode()</code> cùng nhau? Điều gì xảy ra nếu chỉ
+override một trong hai?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Thuộc quy tắc cốt lõi: <strong>hai object bằng nhau theo <code>equals()</code> bắt buộc phải có cùng
+      <code>hashCode()</code></strong></li>
+<li>[ ] Tự tay tái hiện được lỗi ở Story bằng <code>HashSet</code> thật, rồi tự sửa</li>
+<li>[ ] Hiểu vì sao chiều ngược lại (cùng <code>hashCode()</code> chưa chắc <code>equals()</code>) là <strong>được phép</strong></li>
+<li>[ ] Dùng đúng <code>Objects.hash()</code> để viết <code>hashCode()</code> nhất quán với <code>equals()</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 12 — đã biết 5 quy tắc của hợp đồng <code>equals()</code>, đã biết <code>getClass()</code> vs
+  <code>instanceof</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>HashMap, HashSet, ConcurrentHashMap</strong> (Phase 2) — chapter này chỉ dùng <code>HashSet</code> như một
+  "hộp đen" để minh hoạ hậu quả; Phase 2 sẽ mở hộp đen đó ra, giải thích chính xác
+  <code>hashCode()</code> quyết định object rơi vào bucket nào bên trong <code>HashMap</code>.</li>
+<li><strong>JPA Entity</strong> (Phase 6) — Entity có ID sinh tự động bởi database (là <code>null</code> trước khi lưu)
+  khiến việc viết <code>hashCode()</code> nhất quán trở thành một bài toán riêng, phức tạp hơn ví dụ ở
+  đây.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>equals()</code> (Chapter 12) trả lời câu hỏi "hai object có bằng nhau không" bằng cách so sánh đầy
+đủ nội dung — nhưng đây là phép so sánh <strong>tốn kém</strong> nếu phải làm với <strong>mọi cặp</strong> phần tử trong
+một tập hợp lớn (độ phức tạp O(n) nếu duyệt tuần tự so sánh từng phần tử). <code>HashSet</code>/<code>HashMap</code>
+cần một cách <strong>rất nhanh</strong> để thu hẹp phạm vi "có khả năng bằng nhau" xuống một nhóm nhỏ, trước
+khi mới cần gọi tới <code>equals()</code> để so sánh chính xác trong nhóm nhỏ đó.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>hashCode()</code> trả về một số nguyên (<code>int</code>) đại diện cho object — dùng làm "địa chỉ gợi ý"
+(bucket index, sẽ học chi tiết ở Phase 2) để các cấu trúc dữ liệu dựa trên hash tra cứu gần
+như tức thì thay vì duyệt tuần tự. Hợp đồng bắt buộc, chỉ có <strong>một chiều</strong>:</p>
+<blockquote>
+<p>Nếu <code>a.equals(b)</code> là <code>true</code>, thì bắt buộc <code>a.hashCode() == b.hashCode()</code>.</p>
+</blockquote>
+<p>Chiều ngược lại <strong>không</strong> bắt buộc: hai object có cùng <code>hashCode()</code> <strong>không nhất thiết</strong>
+<code>equals()</code> là <code>true</code> (gọi là <strong>hash collision</strong> — hai object khác nhau "tình cờ" trùng mã băm,
+điều này được phép và không thể tránh hoàn toàn vì <code>int</code> chỉ có hữu hạn giá trị trong khi số
+object có thể là vô hạn).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>HashSet.add()</code>/<code>contains()</code> hoạt động theo hai bước: (1) tính <code>hashCode()</code> của object cần
+tìm, nhảy thẳng tới đúng "khu vực" (bucket) tương ứng — cực nhanh, O(1) trung bình; (2) <strong>chỉ
+trong khu vực đó</strong>, mới dùng <code>equals()</code> để so sánh chính xác từng phần tử. Nếu hai object
+"bằng nhau" theo <code>equals()</code> nhưng có <code>hashCode()</code> khác nhau, chúng sẽ bị tính toán rơi vào
+<strong>hai khu vực khác nhau</strong> — bước (2) sẽ <strong>không bao giờ được thực hiện</strong> giữa chúng, vì
+<code>HashSet</code> thậm chí không nghĩ tới việc so sánh hai object ở hai khu vực khác nhau. Đây chính
+xác là lý do ở Story: <code>equals()</code> đúng nhưng không được dùng tới, vì đã "lạc nhau" từ bước (1).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Sửa <code>Product</code> ở Story bằng cách thêm <code>hashCode()</code> <strong>nhất quán</strong> với <code>equals()</code> — quy tắc đơn
+giản: <code>hashCode()</code> phải được tính từ <strong>đúng những field mà <code>equals()</code> đã dùng để so sánh</strong>,
+không hơn không kém:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span> <span class="nc">Product</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Product</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">);</span><span class="w"> </span><span class="c1">// ĐÚNG những field equals() đã dùng</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>Objects.hash(name, price)</code> tự động kết hợp <code>hashCode()</code> của từng field thành một <code>hashCode()</code>
+tổng hợp cho cả object — tương đương viết tay công thức nhân 31 (đã gặp ở
+<a href="../10-string/">Chapter 10</a> khi phân tích <code>String.hashCode()</code>).</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Không override hashCode() (dùng mặc định của Object — dựa trên định danh nội bộ):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  p1 = new Product(&quot;Áo thun&quot;, 199000)  →  hashCode = 7ad041f3  →  bucket #243
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  p2 = new Product(&quot;Áo thun&quot;, 199000)  →  hashCode = 5b6f7a91  →  bucket #109
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                                             (khác nhau dù equals() nói &quot;bằng nhau&quot;!)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  HashSet chỉ so sánh equals() giữa các phần tử CÙNG bucket
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  → p1 và p2 ở hai bucket khác nhau → equals() KHÔNG BAO GIỜ được gọi
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  → cả hai đều được thêm vào, size() = 2
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Sau khi override hashCode() nhất quán:
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  p1 = new Product(&quot;Áo thun&quot;, 199000)  →  hashCode = 1837404  →  bucket #77
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  p2 = new Product(&quot;Áo thun&quot;, 199000)  →  hashCode = 1837404  →  bucket #77
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                                             (GIỐNG NHAU, đúng yêu cầu)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  Cùng bucket #77 → HashSet gọi equals(p1, p2) → true → coi là trùng
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  → chỉ thêm 1 lần, size() = 1
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Tái hiện đúng cả hai tình huống — thiếu override và có override đúng — chạy thật để so sánh:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Objects</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EqualsHashDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">BadProduct</span><span class="o">&gt;</span><span class="w"> </span><span class="n">badSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">badSet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BadProduct</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="n">badSet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BadProduct</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;BadProduct set size (khong override equals/hashCode): &quot;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">badSet</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">GoodProduct</span><span class="o">&gt;</span><span class="w"> </span><span class="n">goodSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="n">goodSet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GoodProduct</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">goodSet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GoodProduct</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;GoodProduct set size (co override dung): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">goodSet</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="kd">class</span> <span class="nc">BadProduct</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="n">BadProduct</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="c1">// KHÔNG override equals()/hashCode() — dùng nguyên mặc định của Object</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="p">}</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="kd">class</span> <span class="nc">GoodProduct</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="n">GoodProduct</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">GoodProduct</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">        </span><span class="n">GoodProduct</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">GoodProduct</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">);</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>BadProduct set size (khong override equals/hashCode): 2
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>GoodProduct set size (co override dung): 1
+</code></pre></div>
+<p>Bằng chứng thực nghiệm trực tiếp: cùng một thao tác (<code>add()</code> hai object "giống hệt nhau" về
+nội dung), kết quả khác hẳn nhau chỉ vì có/không override đúng cặp <code>equals()</code>/<code>hashCode()</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>"Cùng <code>hashCode()</code> không nhất thiết <code>equals()</code>" — vì sao Java chấp nhận điều này thay vì
+đòi hỏi một hàm băm "hoàn hảo"?</strong> Vì điều đó <strong>không thể thực hiện được</strong> về mặt toán học:
+<code>hashCode()</code> trả về <code>int</code> (32-bit, khoảng 4.3 tỷ giá trị khả dĩ), nhưng số lượng object khả dĩ
+(ví dụ số chuỗi <code>String</code> khác nhau có thể tạo ra) là <strong>vô hạn</strong>. Theo nguyên lý Dirichlet
+(pigeonhole principle), nhồi vô hạn giá trị vào một tập hữu hạn kết quả chắc chắn sẽ có nhiều
+giá trị "chung một hộp" (hash collision) — không thể tránh khỏi bằng bất kỳ thuật toán băm
+nào, dù thiết kế tốt tới đâu. Vì vậy hợp đồng chỉ yêu cầu chiều bắt buộc duy nhất
+(equals → cùng hashCode), còn chấp nhận collision xảy ra ở chiều ngược lại như một thực tế
+không tránh khỏi — và <code>equals()</code> chính là công cụ để phân xử chính xác khi có collision (bước
+(2) ở phần Why?).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao lỗi ở Story lại đặc biệt nguy hiểm trong thực tế, so với nhiều lỗi Java khác?</strong> Vì nó
+<strong>không gây lỗi biên dịch, không ném exception, không crash</strong> — chương trình chạy "bình
+thường", chỉ âm thầm cho kết quả sai (như <code>size()</code> = 2 thay vì 1 ở Example). Loại bug này
+thuộc nhóm nguy hiểm nhất trong kỹ thuật phần mềm: <strong>sai lệch dữ liệu âm thầm</strong> (silent data
+corruption) — không có tín hiệu báo động nào để bạn biết cần điều tra, cho tới khi hậu quả
+nghiệp vụ đã xảy ra (ví dụ: hệ thống tính tổng giỏ hàng sai vì tưởng đã loại trùng sản phẩm
+nhưng thực tế chưa). So với <code>NullPointerException</code> (Chapter 15 sắp tới) — vốn ít nhất còn dừng
+chương trình và chỉ thẳng dòng lỗi — vi phạm hợp đồng equals/hashCode "lịch sự" hơn nhiều
+nhưng lại nguy hiểm hơn chính vì sự im lặng đó.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Objects.hash(Object...)</code> xuất hiện từ Java 7 (cùng đợt với <code>Objects.equals()</code>, Chapter 12),
+giúp việc viết <code>hashCode()</code> đúng chuẩn dễ dàng hơn hẳn so với thời Java 5/6, khi lập trình
+viên phải tự tay viết công thức nhân 31 cho từng field (đúng công thức đã phân tích ở
+<a href="../10-string/">Chapter 10</a> cho <code>String.hashCode()</code>) — dễ viết sai, dễ quên field, hoặc quên
+đồng bộ khi thêm field mới vào class về sau.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Hai object có <code>hashCode()</code> giống nhau thì chắc chắn <code>equals()</code> cũng là <code>true</code>."
+  <strong>Reality:</strong> Ngược lại hoàn toàn — đây là hash collision, hoàn toàn hợp lệ và không thể
+  tránh khỏi (xem Deep Dive). Hợp đồng chỉ bắt buộc chiều: equals <code>true</code> ⟹ hashCode giống
+  nhau, không có chiều ngược lại.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "hashCode() càng phức tạp, càng nhiều field tham gia, càng tốt."
+  <strong>Reality:</strong> <code>hashCode()</code> phải dùng <strong>đúng và đủ</strong> những field mà <code>equals()</code> dùng — không
+  thừa, không thiếu. Thêm field không tham gia <code>equals()</code> vào <code>hashCode()</code> (hoặc ngược lại)
+  đều vi phạm nguyên tắc nhất quán, có thể tái tạo đúng lỗi ở Story theo một cách khác.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Override <code>equals()</code> mà quên <code>hashCode()</code></strong> — đúng lỗi trọng tâm của chapter, hầu hết IDE
+  hiện đại (IntelliJ, Eclipse) đều cảnh báo khi phát hiện tình huống này, nhưng vẫn là lỗi rất
+  phổ biến khi tự viết tay hoặc copy-paste code cũ.</li>
+<li><strong><code>hashCode()</code> và <code>equals()</code> dùng field khác nhau</strong> — ví dụ <code>equals()</code> so sánh <code>name</code> và
+  <code>price</code>, nhưng <code>hashCode()</code> chỉ dựa trên <code>name</code> — vẫn vi phạm hợp đồng dù cả hai đều "có
+  override", chỉ là không nhất quán với nhau.</li>
+<li><strong>Dùng field <code>mutable</code> trong <code>hashCode()</code></strong> rồi sửa field đó <strong>sau khi</strong> object đã được thêm
+  vào <code>HashSet</code>/dùng làm key <code>HashMap</code> — object "biến mất" khỏi đúng bucket cũ, tra cứu lại
+  không tìm thấy nữa dù object đó thực sự vẫn còn trong collection (hệ quả trực tiếp liên
+  quan tới <a href="../11-immutable/">Chapter 11 — Immutable</a>: object dùng làm hash key nên bất biến).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn override <code>equals()</code> và <code>hashCode()</code> <strong>cùng lúc</strong>, không bao giờ chỉ một trong hai —
+  hầu hết IDE có tính năng tự sinh cả cặp cùng lúc, nên tận dụng thay vì viết tay.</li>
+<li>Dùng <code>Objects.hash(...)</code> với <strong>đúng và đủ</strong> field đã dùng trong <code>equals()</code>.</li>
+<li>Ưu tiên dùng field <strong>bất biến</strong> (Chapter 11) cho những field tham gia <code>hashCode()</code> — tránh
+  hoàn toàn nguy cơ "object biến mất khỏi bucket cũ" như đã nêu ở Common Mistakes.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một <code>Set</code>/<code>Map</code> dùng để loại trùng hoặc cache tra cứu theo object nghiệp vụ hoạt
+động sai — số liệu thống kê "số lượng duy nhất" luôn cao hơn thực tế, hoặc tra cứu cache luôn
+miss dù rõ ràng đã lưu trước đó.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> không có exception, không crash — chỉ số liệu/kết quả sai một cách âm
+  thầm, đúng như Engineering Insight đã cảnh báo.</li>
+<li><strong>Root cause:</strong> class dùng làm phần tử <code>Set</code>/key <code>Map</code> thiếu <code>hashCode()</code> nhất quán với
+  <code>equals()</code> — giống hệt <code>BadProduct</code> ở Example.</li>
+<li><strong>Debug:</strong> viết một test đơn vị đơn giản: tạo hai object "bằng nhau theo nghiệp vụ", đưa vào
+  <code>HashSet</code>, kiểm tra <code>size()</code> có đúng là 1 không — bug loại này rất dễ bắt được bằng một test
+  case tối thiểu nếu nghĩ tới, nhưng dễ bị bỏ sót nếu không ai từng nghĩ tới viết nó.</li>
+<li><strong>Solution:</strong> thêm <code>hashCode()</code> nhất quán như ở phần How?.</li>
+<li><strong>Prevention:</strong> đưa "mọi class override equals() phải có test kiểm tra kèm hashCode() nhất
+  quán" thành quy tắc bắt buộc trong code review; bật cảnh báo IDE/static analysis
+  (SpotBugs có sẵn detector <code>HE_EQUALS_USE_HASHCODE</code>) cho đúng tình huống này.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>HashSet</code>/<code>HashMap</code> cho kết quả <code>size()</code>/tra cứu sai dù logic <code>equals()</code> trông đúng? →
+      kiểm tra ngay <code>hashCode()</code> có được override và nhất quán không — đây là nghi phạm số
+      một.</li>
+<li>[ ] <code>hashCode()</code> có override nhưng vẫn sai? → so lại field dùng trong <code>hashCode()</code> với field
+      dùng trong <code>equals()</code>, đảm bảo khớp chính xác.</li>
+<li>[ ] Object "biến mất" khỏi <code>Set</code>/<code>Map</code> sau một thời gian dùng? → kiểm tra có field mutable
+      nào tham gia <code>hashCode()</code> bị sửa sau khi object đã được thêm vào collection không.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Giống <a href="../12-equals/">Chapter 12</a>, hợp đồng <code>equals()</code>/<code>hashCode()</code> là một quy ước mô tả trong
+Javadoc, không phải cơ chế có thể trace qua bytecode. Điều <strong>có thể</strong> trace được là cách
+<code>HashSet</code>/<code>HashMap</code> sử dụng <code>hashCode()</code> để chọn bucket — nhưng đó là nội dung thuộc hẳn về
+Phase 2 (chapter HashMap), nơi có đủ ngữ cảnh để đọc đúng <code>putVal()</code>/bucket index calculation
+trong <code>java.util.HashMap</code>. Chapter này dừng lại ở mức hợp đồng, chưa đi vào cơ chế bucket cụ
+thể.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Hợp đồng bắt buộc: <strong><code>a.equals(b)</code> là <code>true</code> thì <code>a.hashCode()</code> phải bằng <code>b.hashCode()</code></strong>
+— chiều ngược lại (cùng hashCode nhưng không equals — hash collision) là hợp lệ và không thể
+tránh khỏi. Vi phạm hợp đồng (thường gặp nhất: override <code>equals()</code> mà quên <code>hashCode()</code>)
+không gây lỗi biên dịch hay exception — nó âm thầm làm <code>HashSet</code>/<code>HashMap</code> cho kết quả sai,
+vì <code>equals()</code> sẽ không bao giờ được gọi tới giữa hai object rơi vào bucket khác nhau. Luôn
+override cả hai cùng lúc, dùng <code>Objects.hash()</code> với đúng field đã dùng trong <code>equals()</code>, và ưu
+tiên field bất biến cho những field tham gia tính hash.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
 <li>Tại sao phải override cả equals() và hashCode()?</li>
+<li>Hai object có cùng <code>hashCode()</code> thì có chắc <code>equals()</code> là <code>true</code> không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích cơ chế <code>HashSet</code> dùng <code>hashCode()</code> như thế nào để quyết định có gọi <code>equals()</code>
+  hay không.</li>
+<li>Vì sao dùng field mutable trong <code>hashCode()</code> rồi sửa nó sau khi object đã ở trong
+  <code>HashSet</code> lại gây lỗi "object biến mất"?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích bằng nguyên lý Dirichlet (pigeonhole) vì sao Java không thể (và không cần) đòi
+  hỏi một hàm <code>hashCode()</code> "hoàn hảo" không bao giờ collision.</li>
+<li>Một hệ thống cache dùng object nghiệp vụ làm key <code>HashMap</code> báo cache-miss bất thường cao.
+  Trình bày quy trình điều tra, liên hệ trực tiếp tới hợp đồng equals/hashCode và tính bất
+  biến (Chapter 11).</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>EqualsHashDemo</code> ở trên, xác nhận kết quả giống hệt (2 và 1).</li>
+<li>[ ] Sửa <code>GoodProduct</code> để <code>hashCode()</code> chỉ dựa trên <code>name</code> (bỏ <code>price</code>) trong khi <code>equals()</code>
+      vẫn so cả hai field — chạy lại, quan sát và giải thích hành vi (gợi ý: đây vẫn là một
+      cách vi phạm hợp đồng, dù "nhẹ" hơn không override gì cả).</li>
+<li>[ ] Viết một class có field <code>mutable</code> tham gia <code>hashCode()</code>, thêm object vào <code>HashSet</code>, sau
+      đó sửa field đó, rồi gọi <code>set.contains(sameObject)</code> — quan sát và giải thích kết quả.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Quy tắc</th>
+<th>Bắt buộc?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a.equals(b)</code> = <code>true</code> ⟹ <code>a.hashCode() == b.hashCode()</code></td>
+<td>Bắt buộc</td>
+</tr>
+<tr>
+<td><code>a.hashCode() == b.hashCode()</code> ⟹ <code>a.equals(b)</code> = <code>true</code></td>
+<td>KHÔNG bắt buộc (hash collision hợp lệ)</td>
+</tr>
+<tr>
+<td><code>hashCode()</code> dùng đúng field như <code>equals()</code></td>
+<td>Nguyên tắc thực hành, không phải luật cứng nhưng bắt buộc để nhất quán</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Công cụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Viết <code>hashCode()</code> nhất quán</td>
+<td><code>Objects.hash(field1, field2, ...)</code></td>
+</tr>
+<tr>
+<td>Kiểm tra nhanh lỗi thiếu override</td>
+<td>IDE cảnh báo, hoặc SpotBugs <code>HE_EQUALS_USE_HASHCODE</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li><code>java.lang.Object#hashCode</code> — Java SE API Documentation (Oracle), phần mô tả hợp đồng đầy
+  đủ.</li>
+<li>Effective Java (Joshua Bloch) — Item 11: "Always override hashCode when you override
+  equals".</li>
+<li>Java Language Specification (JLS) — Chapter 4.3.2.</li>
 </ul>
 
 

@@ -6131,7 +6131,35 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jvm" class="md-tag">JVM</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lifecycle" class="md-tag">Lifecycle</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:object" class="md-tag">Object</a>
       
     
   </nav>
@@ -6149,94 +6177,349 @@ Chapter slug: <code>object-lifecycle</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Object Lifecycle</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Class Loader</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Garbage Collection</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — OOP Fundamentals (super, constructor chain)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bean Lifecycle (Phase 5 — Spring) — Spring bean lifecycle là lớp bọc thêm quanh chính vòng đời này</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity State (Phase 6 — Persistence) — vòng đời một JPA Entity phức tạp hơn dựa trên nền tảng ở đây</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Chín chapter vừa qua, mỗi chapter mổ xẻ <strong>một lát cắt</strong> của việc một object tồn tại trong JVM:
+<a href="../03-class-loader/">Chapter 03</a> nạp thông tin class, <a href="../04-runtime-data-areas/">Chapter 04</a>
+cấp phát bộ nhớ, <a href="../08-oop-fundamentals/">Chapter 08</a> chạy constructor qua <code>super</code>, <a href="../07-garbage-collection/">Chapter
+07</a> dọn dẹp khi không còn ai dùng tới.</p>
+<p>Nhưng chưa chapter nào ghép chúng lại thành <strong>một dòng thời gian liền mạch, đúng thứ tự</strong>. Câu
+hỏi tưởng đơn giản này thực ra dễ trả lời sai: "Static block chạy trước hay <code>static</code> field khởi
+tạo trước? Instance block chạy trước hay constructor chạy trước? Nếu có kế thừa, <code>Parent</code> khởi
+tạo xong hoàn toàn rồi mới tới <code>Child</code>, hay chúng xen kẽ nhau?" Chapter này là chapter tổng
+hợp — không giới thiệu khái niệm JVM mới, mà <strong>ghép lại</strong> đúng thứ tự toàn bộ những gì bạn đã
+học.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Một object trải qua đầy đủ những giai đoạn nào, theo đúng thứ tự nào, từ lúc class của nó
+còn chưa được nạp cho tới lúc bị Garbage Collector dọn dẹp?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Vẽ được dòng thời gian đầy đủ: nạp class → cấp phát bộ nhớ → khởi tạo static → khởi tạo
+      instance → sử dụng → mất reachability → GC</li>
+<li>[ ] Biết chính xác thứ tự chạy giữa static block, instance block, và constructor — đặc
+      biệt khi có kế thừa</li>
+<li>[ ] Tự tay xác nhận thứ tự đó bằng thực nghiệm</li>
+<li>[ ] Giải thích được vì sao <code>static</code> chỉ chạy <strong>đúng một lần</strong> cho cả class, dù tạo bao
+      nhiêu object</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 03 — Class Loader, Loading/Linking/Initialization.</li>
+<li>Chapter 07 — Garbage Collection, reachability.</li>
+<li>Chapter 08 — <code>super()</code>, thứ tự gọi constructor cha trước.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Bean Lifecycle</strong> (Phase 5 — Spring) — vòng đời một Spring Bean (khởi tạo, inject
+  dependency, gọi <code>@PostConstruct</code>, sẵn sàng dùng, gọi <code>@PreDestroy</code>) là một lớp trừu tượng
+  <strong>bọc thêm</strong> quanh chính vòng đời object thuần Java ở chapter này — Spring không thay thế
+  nó, chỉ thêm các "điểm móc" (hook) vào giữa các bước đã có sẵn.</li>
+<li><strong>Entity State</strong> (Phase 6 — Persistence) — một JPA Entity có thêm các trạng thái riêng
+  (Transient, Managed, Detached, Removed) chồng lên trên vòng đời object cơ bản — cần hiểu
+  chapter này trước để không nhầm lẫn hai khái niệm vòng đời khác nhau.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không nắm chắc đúng thứ tự các giai đoạn, rất dễ viết code dựa trên giả định sai — ví dụ
+tưởng rằng một field sẽ có giá trị nhất định khi constructor lớp con chạy, trong khi thực tế
+theo đúng thứ tự, giá trị đó chưa được gán ở thời điểm đó (đúng tình huống rủi ro đã cảnh báo ở
+<a href="../11-immutable/">Chapter 11 — Engineering Insight</a> về việc để <code>this</code> rò rỉ quá sớm).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vòng đời đầy đủ của một object, gộp lại từ các chapter trước:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Loading    — Class Loader (Ch.03) tìm &amp; đọc bytecode, tạo object Class trong Metaspace
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Linking    — Verify, Prepare (cấp phát static field, gán default), Resolve (Ch.03)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. Initialization — chạy static block + gán giá trị THẬT cho static field
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                     (CHỈ CHẠY MỘT LẦN cho cả class, lần đầu class được dùng chủ động)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        │  new Product(...)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        ▼
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>4. Cấp phát bộ nhớ — object được tạo trên Heap (Ch.04)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>5. Khởi tạo instance — instance block + gán giá trị field, THEO ĐÚNG THỨ TỰ
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                        từ lớp cha xuống lớp con (Ch.08, cơ chế super())
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>6. Constructor chạy xong — object sẵn sàng dùng
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        │  ... object được dùng, tham chiếu được truyền đi khắp nơi ...
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        │  không còn tham chiếu nào từ GC Roots trỏ tới object nữa
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        ▼
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>7. Unreachable — object đủ điều kiện bị GC thu hồi (Ch.07), nhưng CHƯA CHẮC bị dọn ngay
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>8. GC thu hồi — bộ nhớ được giải phóng thật sự (thời điểm không xác định trước)
+</code></pre></div>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không tách static (bước 1-3, chạy một lần cho cả class) khỏi instance (bước 4-6, chạy mỗi
+lần <code>new</code>): mọi field sẽ phải khởi tạo lại từ đầu cho mỗi object, kể cả những giá trị dùng
+chung không đổi (như hằng số, cấu hình) — lãng phí và mất khả năng chia sẻ trạng thái giữa các
+instance của cùng một class. Việc tách bạch rõ ràng hai pha này là nền tảng cho rất nhiều cơ
+chế Java dựa vào (singleton qua <code>static</code> field, hằng số <code>static final</code>, đếm số instance đã
+tạo...).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Với kế thừa, thứ tự <strong>static</strong> luôn hoàn tất trước khi bất kỳ <strong>instance</strong> nào bắt đầu — và
+trong mỗi pha, luôn đi từ lớp cha xuống lớp con, không bao giờ ngược lại (đúng nguyên lý
+<code>super()</code> phải là dòng đầu tiên, Chapter 08):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Static (một lần, khi class LẦN ĐẦU được dùng chủ động):
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Parent static block/field  →  Child static block/field
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Instance (mỗi lần &quot;new&quot;, CHỈ SAU KHI static đã xong hoàn toàn):
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  Parent instance block/field  →  Parent constructor  →
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  Child instance block/field   →  Child constructor
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>new Child()
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>     │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>     ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Class Child đã được nạp/khởi tạo (static) chưa?
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>     │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>     ├── Chưa → nạp Parent trước (Ch.03: delegation không liên quan,
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>     │           đây là quan hệ kế thừa, nhưng nguyên tắc &quot;cha trước&quot; giống nhau)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>     │           → chạy static Parent → chạy static Child
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>     │           (CHỈ XẢY RA MỘT LẦN DUY NHẤT, dù sau này new Child() bao nhiêu lần)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>     │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>     └── Rồi (đã init từ trước) → bỏ qua toàn bộ static, đi thẳng xuống dưới
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>     ▼
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>Cấp phát object trên Heap (Ch.04)
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>     ▼
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>instance block + field của Parent  →  constructor Parent chạy
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>     ▼
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>instance block + field của Child   →  constructor Child chạy
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>     ▼
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>new Child() trả về object đã sẵn sàng
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận toàn bộ thứ tự trên bằng thực nghiệm — mỗi dòng in ra đánh số theo đúng dự đoán lý
+thuyết:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LifecycleDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;main() bat dau&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Child</span><span class="p">();</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kd">class</span> <span class="nc">Parent</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;1. Parent static block&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;3. Parent instance block&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="n">Parent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;4. Parent constructor&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="kd">class</span> <span class="nc">Child</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;2. Child static block&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5. Child instance block&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="n">Child</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;6. Child constructor&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17), khớp chính xác 100% với số thứ tự đã dự đoán:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>main() bat dau
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>1. Parent static block
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2. Child static block
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>3. Parent instance block
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>4. Parent constructor
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>5. Child instance block
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>6. Child constructor
+</code></pre></div>
+<p>Static luôn hoàn tất trước (bước 1-2), rồi mới tới instance (bước 3-6) — và trong mỗi nhóm,
+<code>Parent</code> luôn đi trước <code>Child</code>, đúng lý thuyết ở phần How?.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>"Lần đầu class được dùng chủ động" — chính xác là khi nào?</strong> JLS liệt kê cụ thể các tình
+huống kích hoạt Initialization (bước 3): tạo instance đầu tiên (<code>new</code>), gọi static method lần
+đầu, truy cập/gán static field lần đầu (trừ <code>static final</code> là hằng số biên dịch — hằng số này
+được "inline" thẳng vào nơi dùng, không cần khởi tạo class), hoặc class đó là lớp con của một
+class đang được khởi tạo (đúng ví dụ <code>Child</code> kéo theo khởi tạo <code>Parent</code>). Ngược lại, chỉ khai
+báo kiểu (<code>Product p;</code> chưa gán <code>new</code>) hoặc load class qua <code>Class.forName(name, false, loader)</code>
+(tham số thứ hai <code>false</code> = không kích hoạt Initialization) <strong>không</strong> kích hoạt bước 3 — vẫn
+dừng ở Loading/Linking. Sự phân biệt tinh tế này giải thích tại sao đôi khi thấy static block
+"không chạy" dù class rõ ràng "được nhắc tới" ở đâu đó trong code.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao static luôn phải hoàn tất trước instance, không được phép xen kẽ?</strong> Vì static field
+đại diện cho trạng thái <strong>dùng chung</strong> của cả class — nếu instance đầu tiên bắt đầu khởi tạo
+trong khi static còn dang dở, nó có nguy cơ đọc phải static field ở trạng thái <strong>chưa hoàn
+chỉnh</strong> (JVM đã cấp phát default nhưng chưa chạy xong static block gán giá trị thật — đúng
+bước Prepare vs Initialization đã phân biệt ở <a href="../03-class-loader/">Chapter 03</a>). Việc JVM đảm
+bảo tuần tự nghiêm ngặt (static xong hoàn toàn trước khi bất kỳ instance nào bắt đầu) loại bỏ
+hoàn toàn lớp lỗi này — bạn không bao giờ phải tự hỏi "static field này đã sẵn sàng chưa" khi
+đang ở trong constructor, câu trả lời luôn là "chắc chắn rồi".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Trình tự static-trước-instance, cha-trước-con này không đổi kể từ Java 1.0 — đây là một trong
+những quy tắc nền tảng và ổn định nhất của ngôn ngữ, gần như không có tranh cãi hay đề xuất
+thay đổi nào qua các JEP. Điều thực sự thay đổi qua thời gian là các framework xây <strong>thêm</strong>
+các "pha" mới lên trên nền tảng cố định này — ví dụ vòng đời Spring Bean (Phase 5) thêm các
+bước như "gọi <code>@PostConstruct</code> sau khi mọi dependency đã inject xong" — bản thân object Java
+gốc vẫn tuân theo đúng trình tự đã học ở chapter này.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Constructor luôn là nơi đầu tiên code của bạn chạy khi tạo object."
+  <strong>Reality:</strong> Instance block (khối <code>{ ... }</code> không có từ khoá, không phải <code>static { ... }</code>)
+  chạy <strong>trước</strong> constructor, dù thường ít được dùng hơn constructor trong thực tế — xem thứ
+  tự 3-4 và 5-6 ở Example.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Static block chạy khi chương trình khởi động (như <code>main()</code>)."
+  <strong>Reality:</strong> Static block chạy khi class đó <strong>lần đầu được dùng chủ động</strong> — có thể là ngay
+  lúc khởi động (nếu class chứa <code>main()</code>), nhưng cũng có thể trễ hơn nhiều nếu class đó không
+  được dùng tới cho đến giữa chương trình (đúng tinh thần "lazy loading" đã học ở
+  <a href="../03-class-loader/">Chapter 03</a>).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Giả định static field đã có giá trị "thật" ngay khi class được khai báo</strong>, quên rằng phải
+  đợi tới lần dùng chủ động đầu tiên (xem Deep Dive về <code>static final</code> hằng số là ngoại lệ).</li>
+<li><strong>Gọi method có thể bị override trong constructor lớp cha.</strong> Nếu <code>Parent</code> constructor gọi
+  một method mà <code>Child</code> override, method đó sẽ chạy <strong>trước khi</strong> field của <code>Child</code> được khởi
+  tạo (vì theo đúng thứ tự ở Example, constructor <code>Parent</code> luôn chạy trước instance
+  block/constructor của <code>Child</code>) — dễ dẫn tới đọc field <code>Child</code> khi nó vẫn còn giá trị mặc
+  định (<code>null</code>/<code>0</code>), một biến thể tinh vi của vấn đề "để <code>this</code> rò rỉ quá sớm" đã cảnh báo ở
+  <a href="../11-immutable/">Chapter 11</a>.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Tránh gọi method có thể bị override từ trong constructor — nếu bắt buộc cần logic đó, cân
+  nhắc dùng static factory method thay vì đặt trong constructor trực tiếp.</li>
+<li>Dùng static block chỉ cho khởi tạo thật sự cần chạy một lần cho cả class (cấu hình dùng
+  chung, đăng ký driver...); tránh nhồi logic phức tạp/có thể ném exception vào static block
+  — lỗi ở static block gây <code>ExceptionInInitializerError</code>, khó debug hơn lỗi thông thường vì
+  xảy ra ở bước rất sớm trong vòng đời class.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> ứng dụng crash ngay khi khởi động với <code>java.lang.ExceptionInInitializerError</code>,
+stack trace không trỏ rõ ràng tới đoạn code nghiệp vụ nào.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> lỗi xảy ra cực sớm, thường trước cả khi log framework kịp khởi tạo đầy đủ
+  để ghi log chi tiết.</li>
+<li><strong>Root cause:</strong> một static block hoặc khởi tạo <code>static field</code> ném exception (ví dụ đọc file
+  cấu hình không tồn tại ngay trong <code>static { Properties p = ...; }</code>) — vì static
+  Initialization (bước 3) là bắt buộc, nếu nó ném lỗi, JVM bọc lại thành
+  <code>ExceptionInInitializerError</code> và <strong>toàn bộ class đó coi như hỏng vĩnh viễn</strong> cho cả vòng
+  đời chương trình (kể cả nếu sau đó "sửa" được điều kiện gây lỗi, class đã hỏng không tự
+  phục hồi).</li>
+<li><strong>Debug:</strong> đọc kỹ <strong>nguyên nhân gốc</strong> (<code>getCause()</code>) của <code>ExceptionInInitializerError</code>, không
+  chỉ nhìn thông báo lỗi ngoài cùng — nó luôn bọc quanh exception thật sự xảy ra bên trong
+  static block.</li>
+<li><strong>Solution:</strong> sửa nguyên nhân gốc (file cấu hình thiếu, kết nối thất bại...); tránh đặt logic
+  dễ lỗi/phụ thuộc I/O trực tiếp trong static block, chuyển sang khởi tạo lazy (khởi tạo khi
+  cần dùng lần đầu, có xử lý lỗi tường minh) nếu có thể.</li>
+<li><strong>Prevention:</strong> hạn chế tối đa logic phức tạp trong static block; nếu bắt buộc, bọc try-catch
+  và log rõ ràng nguyên nhân thay vì để exception tự lan ra ngoài không kiểm soát.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>ExceptionInInitializerError</code>? → tìm <code>getCause()</code>, kiểm tra static block/static field
+      initializer của class được nhắc tới trong stack trace.</li>
+<li>[ ] Field của lớp con có giá trị <code>null</code>/<code>0</code> bất thường ngay trong logic của lớp cha? → nghi
+      ngờ lớp cha đang gọi một method bị lớp con override quá sớm (trước khi field lớp con
+      khởi tạo) — xem Common Mistakes.</li>
+<li>[ ] Static block "không chạy" dù class có vẻ đã được nhắc tới trong code? → kiểm tra có phải
+      chỉ khai báo kiểu, hay đang dùng <code>static final</code> hằng số biên dịch (xem Deep Dive).</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Trình tự Initialization (bước 3) được đặc tả chính xác trong JLS §12.4 (Initialization of
+Classes and Interfaces) — mô tả bằng ngôn ngữ đặc tả hình thức, không phải bytecode có thể
+<code>javap -c</code> trực tiếp. Điều có thể quan sát qua bytecode: static block và static field
+initializer được <code>javac</code> gộp chung vào một method đặc biệt tên <code>&lt;clinit&gt;</code> (class
+initializer); instance block và field initializer (không static) được gộp vào đầu <strong>mỗi</strong>
+constructor, ngay sau lời gọi <code>super(...)</code> — đây là lý do chính xác vì sao instance block luôn
+chạy trước phần thân constructor bạn tự viết, dù về mặt cú pháp instance block "nằm" ở đâu đó
+giữa class.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vòng đời một object gồm hai pha tách biệt nghiêm ngặt: <strong>static</strong> (Loading → Linking →
+Initialization, chạy đúng một lần khi class lần đầu được dùng chủ động, cha trước con) và
+<strong>instance</strong> (cấp phát bộ nhớ → instance block/field → constructor, chạy mỗi lần <code>new</code>, cũng
+cha trước con) — static luôn hoàn tất hoàn toàn trước khi bất kỳ instance nào bắt đầu. Object
+kết thúc vòng đời khi không còn reachable từ GC Roots, chờ Garbage Collector thu hồi tại một
+thời điểm không xác định trước (Chapter 07). Đây là bức tranh tổng hợp của toàn bộ Chapter
+03-08, là nền tảng mà vòng đời Spring Bean (Phase 5) và JPA Entity (Phase 6) sẽ xây thêm lên
+trên.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Kể tên các giai đoạn chính trong vòng đời một object, từ lúc nạp class tới lúc bị GC.</li>
+<li>Static block chạy khi nào? Chạy một lần hay mỗi lần tạo object?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Với hai class có quan hệ kế thừa, thứ tự chạy static block/instance block/constructor giữa
+  lớp cha và lớp con là gì? Chứng minh bằng ví dụ.</li>
+<li><code>ExceptionInInitializerError</code> xảy ra khi nào? Vì sao nó nguy hiểm hơn một exception thông
+  thường?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao gọi một method có thể bị override từ trong constructor lớp cha là một
+  anti-pattern — liên hệ trực tiếp tới đúng thứ tự vòng đời đã học.</li>
+<li>So sánh vòng đời object Java thuần với vòng đời Spring Bean (nếu bạn đã biết Spring) — những
+  "điểm móc" nào Spring thêm vào, và chúng nằm ở đâu trong dòng thời gian đã học ở đây?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>LifecycleDemo</code> ở trên, xác nhận thứ tự in ra giống hệt.</li>
+<li>[ ] Thêm <code>new Child()</code> lần thứ hai ngay sau lần đầu trong <code>main()</code> — dự đoán trước static
+      block có in ra lần nữa không, sau đó chạy thật để xác nhận.</li>
+<li>[ ] Viết một <code>Parent</code> có constructor gọi một method bị <code>Child</code> override, method đó in ra giá
+      trị một field của <code>Child</code> — quan sát và giải thích tại sao giá trị in ra là <code>null</code>/<code>0</code>
+      thay vì giá trị bạn gán trong field initializer của <code>Child</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Thứ tự đầy đủ (kế thừa Parent → Child):
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>1. Parent: static block + static field initializer     ┐
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>2. Child:  static block + static field initializer      ├─ CHỈ 1 LẦN/class
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>                                                          ┘
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>3. Parent: instance block + field initializer           ┐
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>4. Parent: phần thân constructor                         │
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>5. Child:  instance block + field initializer            ├─ MỖI LẦN &quot;new&quot;
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>6. Child:  phần thân constructor                         ┘
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Tình huống</th>
+<th>Có kích hoạt Initialization (static) không?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new Product()</code></td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Gọi static method</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Đọc/gán static field thường</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Đọc <code>static final</code> hằng số biên dịch</td>
+<td>Không (inline sẵn)</td>
+</tr>
+<tr>
+<td>Chỉ khai báo kiểu (<code>Product p;</code>)</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 12.4: Initialization of Classes and Interfaces.</li>
+<li>Java Language Specification (JLS) — Chapter 8.6, 8.7: Instance/Static Initializers.</li>
 </ul>
 
 

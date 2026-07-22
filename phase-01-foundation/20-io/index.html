@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:io" class="md-tag">IO</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,361 @@ Chapter slug: <code>io</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IO</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 15 — Exception (IOException là checked exception kinh điển)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NIO (Chapter 21) — NIO ra đời để giải quyết đúng những giới hạn IO truyền thống bộc lộ ở đây</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kafka, Redis (Phase 8) — mọi giao tiếp mạng cuối cùng đều quy về đọc/ghi stream byte</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Bạn cần đọc một file text chứa danh sách sản phẩm, mỗi dòng một sản phẩm. Việc tưởng đơn giản
+này trong <code>java.io</code> lại cần <strong>ba lớp lồng nhau</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">BufferedReader</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">file</span><span class="p">));</span>
+</code></pre></div>
+<p><code>FileReader</code> bọc trong <code>BufferedReader</code>. Tại sao không đọc thẳng bằng <code>FileReader</code>? Và tại
+sao có <code>FileReader</code> (đọc ký tự) lại còn có <code>FileInputStream</code> (đọc byte) — không phải chỉ cần
+một cách đọc file là đủ sao? Chapter này giải thích lý do đằng sau cấu trúc "lồng nhau" tưởng
+như rườm rà này — mỗi lớp bọc thêm giải quyết đúng một vấn đề cụ thể, không phải sự phức tạp
+ngẫu nhiên.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vì sao <code>java.io</code> có tới bốn nhóm lớp phân cấp (<code>InputStream</code>/<code>OutputStream</code> và
+<code>Reader</code>/<code>Writer</code>) chỉ để đọc và ghi dữ liệu? Và vì sao gần như luôn cần bọc thêm
+<code>BufferedReader</code>/<code>BufferedWriter</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt được <code>InputStream</code>/<code>OutputStream</code> (byte) với <code>Reader</code>/<code>Writer</code> (ký tự) — và
+      biết chính xác khi nào dùng nhóm nào</li>
+<li>[ ] Giải thích được vì sao buffer (<code>BufferedReader</code>/<code>BufferedWriter</code>) gần như luôn cần thiết</li>
+<li>[ ] Tự tay đo được chênh lệch hiệu năng có/không có buffer</li>
+<li>[ ] Dùng đúng try-with-resources (Java 7+) để không bao giờ quên đóng stream</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 15 — biết <code>IOException</code> là checked exception, biết <code>try-catch-finally</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>NIO</strong> (Chapter 21) — chapter kế tiếp giải quyết chính xác những giới hạn của <code>java.io</code>
+  (blocking, không có bộ nhớ đệm off-heap hiệu quả) mà chapter này sẽ chỉ ra.</li>
+<li><strong>Kafka, Redis</strong> (Phase 8) — về bản chất, mọi giao tiếp qua mạng (kể cả JDBC, HTTP client)
+  cuối cùng đều quy về đọc/ghi luồng byte — nền tảng khái niệm giống hệt chapter này, dù các
+  thư viện cấp cao che giấu chi tiết I/O thô đi.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Dữ liệu bên ngoài JVM (file, mạng, bàn phím) đến dưới dạng <strong>byte thô</strong> — máy tính không có
+khái niệm "ký tự" ở tầng phần cứng. Nhưng phần lớn dữ liệu con người làm việc là <strong>văn bản</strong>
+(ký tự, cần một bảng mã như UTF-8 để biết byte nào ghép thành ký tự nào). Nếu chỉ có một API
+đọc/ghi byte thô duy nhất, mọi thao tác với văn bản sẽ phải tự tay xử lý encoding — dễ sai,
+lặp lại code ở khắp nơi.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>java.io</code> chia làm hai "họ" song song, giải quyết hai bài toán khác nhau:</p>
+<ul>
+<li><strong><code>InputStream</code>/<code>OutputStream</code></strong> — đọc/ghi <strong>byte thô</strong>, không quan tâm ý nghĩa (dùng cho
+  file nhị phân: ảnh, file nén, dữ liệu mạng thô).</li>
+<li><strong><code>Reader</code>/<code>Writer</code></strong> — đọc/ghi <strong>ký tự</strong> (tự động xử lý encoding, ví dụ UTF-8, quy đổi
+  giữa byte và ký tự) — dùng cho văn bản.</li>
+</ul>
+<p><code>FileReader</code>, <code>FileWriter</code>, <code>BufferedReader</code>... đều thuộc họ <code>Reader</code>/<code>Writer</code>. Việc "lồng"
+nhiều lớp (như <code>BufferedReader</code> bọc <code>FileReader</code>) theo đúng <strong>Decorator Pattern</strong>: mỗi lớp
+bọc thêm một khả năng, không phải viết lại từ đầu.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không tách byte và ký tự: mọi lần đọc văn bản đều phải tự chuyển đổi encoding thủ công —
+dễ viết sai (một lỗi encoding rất phổ biến: đọc file UTF-8 bằng encoding mặc định của hệ điều
+hành khác, ra ký tự lỗi (mojibake) — chính là hệ quả của việc lẫn lộn giữa byte thô và ký tự).</p>
+<p>Nếu không có buffer: mỗi lời gọi <code>read()</code> (đọc một byte/ký tự) tương ứng với <strong>một lời gọi hệ
+thống</strong> (system call) xuống hệ điều hành để lấy dữ liệu từ đĩa — cực kỳ tốn kém nếu gọi hàng
+trăm nghìn lần cho một file lớn (đọc từng ký tự một). <code>BufferedReader</code> đọc một khối lớn dữ liệu
+vào bộ nhớ đệm (buffer) trong <strong>một</strong> lời gọi hệ thống, rồi phục vụ các lời gọi <code>read()</code> tiếp
+theo <strong>từ bộ nhớ trong JVM</strong> — nhanh hơn rất nhiều.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Dữ liệu thô (đĩa/mạng)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        ▼
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>InputStream/Reader gốc (FileInputStream/FileReader)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   — đọc TRỰC TIẾP từ hệ điều hành, MỖI LỜI GỌI read() = MỘT SYSTEM CALL
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        │  bọc thêm (Decorator Pattern)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        ▼
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>BufferedInputStream/BufferedReader
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>   — đọc một KHỐI LỚN vào bộ nhớ đệm trong MỘT system call,
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>     các read() tiếp theo phục vụ từ bộ nhớ JVM (nhanh hơn nhiều)
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>                     InputStream/Reader gốc
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                     (FileReader, mỗi read() = 1 system call)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                              │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>     ┌────────────────────────┼────────────────────────┐
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>     │  read() 1 ký tự         read() 1 ký tự           │  ... lặp lại HÀNG NGHÌN LẦN
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>     ▼                        ▼
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  system call              system call    ← RẤT TỐN KÉM nếu gọi nhiều lần
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                     BufferedReader bọc quanh
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                              │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>     ┌────────────────────────┴────────────────────────┐
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>     │         1 system call LỚN → nạp cả khối vào       │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>     │              buffer trong bộ nhớ JVM               │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>     └────────────────────────┬────────────────────────┘
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                              │
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>     read() read() read() ... ← phục vụ TỪ BUFFER, không cần system call nữa
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Ghi và đọc một file văn bản bằng try-with-resources (Java 7+, tự động đóng stream dù có lỗi
+hay không — không cần <code>finally</code> thủ công như Chapter 15):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IoDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;product.txt&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">BufferedWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedWriter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileWriter</span><span class="p">(</span><span class="n">file</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;Ao thun,199000&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="n">writer</span><span class="p">.</span><span class="na">newLine</span><span class="p">();</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;Quan jean,399000&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">file</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Doc: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">file</span><span class="p">.</span><span class="na">delete</span><span class="p">();</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Doc: Ao thun,199000
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Doc: Quan jean,399000
+</code></pre></div>
+<p><strong>Đo chênh lệch hiệu năng có/không có buffer</strong> — đọc cùng một file 50.000 dòng, từng ký tự
+một, có và không có <code>BufferedReader</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;big.txt&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// ghi 50.000 dòng vào file (bỏ qua ở đây, xem đầy đủ ở Exercises)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kt">long</span><span class="w"> </span><span class="n">start1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">FileReader</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">file</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">read</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* đếm */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kt">long</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kt">long</span><span class="w"> </span><span class="n">start2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="n">file</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">read</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* đếm */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="kt">long</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">;</span>
+</code></pre></div>
+<p>Kết quả thật (JDK 17, file ~689.000 ký tự):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Khong buffer (doc tung byte truc tiep tu FileReader): 22 ms, 688890 ky tu
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Co BufferedReader: 4 ms, 688890 ky tu
+</code></pre></div>
+<p>Chênh lệch khoảng <strong>5.5 lần</strong> — bằng chứng thực nghiệm trực tiếp cho lý do ở phần Why?.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Try-with-resources hoạt động như thế nào bên dưới?</strong> Cú pháp <code>try (Resource r = ...) { }</code>
+(Java 7+) yêu cầu <code>Resource</code> implement <code>AutoCloseable</code> (đã nhắc thoáng qua ở
+<a href="../09-object/">Chapter 09</a> khi bàn về thay thế <code>finalize()</code>) — trình biên dịch <strong>tự động</strong> sinh
+ra một khối tương đương <code>try-finally</code> với <code>r.close()</code> được gọi trong <code>finally</code>, đảm bảo stream
+luôn được đóng dù có exception xảy ra hay không, mà không cần tự viết <code>finally</code> thủ công như
+trước Java 7 (và tránh được đúng cạm bẫy <code>finally</code>/<code>return</code> đã học ở
+<a href="../15-exception/">Chapter 15</a>, vì <code>close()</code> sinh tự động không có <code>return</code> gây nuốt exception).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao "buffer" lại hiệu quả đến vậy — bản chất kỹ thuật đằng sau là gì?</strong> Vì system call
+(yêu cầu hệ điều hành thực hiện một thao tác, như đọc dữ liệu từ đĩa) có chi phí <strong>cố định rất
+lớn</strong> so với việc chỉ đọc dữ liệu đã có sẵn trong bộ nhớ JVM (chuyển ngữ cảnh sang kernel, chờ
+kernel xử lý, chuyển ngữ cảnh trở lại — tốn hàng nghìn chu kỳ CPU cho MỖI lần gọi, bất kể đọc
+1 byte hay 8000 byte). Buffer khai thác đúng nguyên lý: "trả giá system call <strong>một lần</strong> cho
+một khối lớn, rồi phục vụ nhiều yêu cầu nhỏ từ bộ nhớ đã có sẵn" — cùng triết lý tối ưu đã gặp
+ở nhiều chapter trước theo những cách khác nhau: JIT Compiler (Chapter 06) trả giá biên dịch
+một lần, dùng lại nhiều lần; String Pool (Chapter 10) trả giá tạo object một lần, dùng chung
+nhiều biến.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Java 1.0 (1996)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>java.io ra đời — mô hình BLOCKING I/O: mỗi lời gọi read()/write() BLOCK
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>(dừng) thread hiện tại cho tới khi thao tác I/O hoàn tất
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    ↓
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Java 1.4 (2002)
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    ↓
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>java.nio (New I/O) ra đời — thêm mô hình NON-BLOCKING, Buffer/Channel
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>(xem Chapter 21) — KHÔNG THAY THẾ java.io, mà bổ sung cho các bài toán
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>cần xử lý rất nhiều kết nối đồng thời mà blocking I/O không đáp ứng nổi
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    ↓
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>Java 7 (2011)
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    ↓
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>NIO.2 (java.nio.file) — Path/Files API hiện đại hơn hẳn File cũ (Chapter 21)
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>FileInputStream</code> và <code>FileReader</code> về cơ bản làm cùng một việc, chỉ khác tên."
+  <strong>Reality:</strong> <code>FileInputStream</code> đọc byte thô; <code>FileReader</code> đọc ký tự (tự xử lý encoding) —
+  dùng sai loại cho văn bản có thể gây lỗi hiển thị ký tự (đặc biệt với tiếng Việt có dấu, nếu
+  encoding không khớp).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Bọc thêm <code>BufferedReader</code> chỉ là thói quen tốt, không thực sự cần thiết trừ file
+  cực lớn."
+  <strong>Reality:</strong> Ngay cả với file vừa phải (Example: chưa tới 700.000 ký tự), chênh lệch đã hơn
+  5 lần — buffer gần như luôn nên dùng mặc định khi đọc/ghi file hoặc stream theo từng
+  đơn vị nhỏ (ký tự, dòng), trừ khi chính API bạn dùng đã tự buffer sẵn bên trong.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên đóng stream</strong> (trước Java 7, quên viết <code>finally { close(); }</code>) — gây rò rỉ file
+  handle, một dạng "leak" khác với memory leak (Chapter 07) nhưng cùng bản chất: giữ tài
+  nguyên không giải phóng. Try-with-resources (Java 7+) gần như loại bỏ hoàn toàn lỗi này nếu
+  dùng đúng.</li>
+<li><strong>Đọc file không qua buffer trong vòng lặp lớn</strong> — đúng lỗi hiệu năng đã đo ở Example.</li>
+<li><strong>Lẫn lộn byte và ký tự</strong>, đặc biệt khi làm việc với encoding không phải mặc định của hệ
+  thống — luôn chỉ định encoding tường minh (<code>new InputStreamReader(in, StandardCharsets.UTF_8)</code>)
+  thay vì dựa vào encoding mặc định của máy đang chạy, vốn có thể khác nhau giữa các môi
+  trường (dev, CI, production).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn dùng try-with-resources cho mọi stream — không viết <code>close()</code> thủ công trong <code>finally</code>.</li>
+<li>Luôn bọc <code>Buffered...</code> khi đọc/ghi theo đơn vị nhỏ (ký tự, dòng) lặp lại nhiều lần.</li>
+<li>Luôn chỉ định encoding tường minh khi làm việc với <code>Reader</code>/<code>Writer</code>, không dựa vào mặc định
+  của hệ điều hành.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> dịch vụ xử lý file log/export dữ liệu lớn (hàng trăm MB) chạy rất chậm, chiếm
+nhiều CPU hơn dự kiến so với khối lượng dữ liệu thực tế.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> thời gian xử lý tăng gần như tuyến tính (hoặc tệ hơn) theo kích thước file,
+  CPU usage cao bất thường trong lúc I/O (thường ngược lại — I/O thường ở trạng thái chờ, ít
+  tốn CPU).</li>
+<li><strong>Root cause:</strong> code đọc/ghi trực tiếp qua <code>FileReader</code>/<code>FileInputStream</code> không qua buffer,
+  từng ký tự/byte một trong vòng lặp — mỗi lần đọc kích hoạt một system call (xem Engineering
+  Insight), tạo áp lực lớn lên cả CPU (chuyển ngữ cảnh liên tục) lẫn thời gian chờ I/O.</li>
+<li><strong>Debug:</strong> review code đọc/ghi file, tìm chỗ dùng trực tiếp lớp gốc
+  (<code>FileReader</code>/<code>FileInputStream</code>/<code>FileWriter</code>/<code>FileOutputStream</code>) mà không có
+  <code>Buffered...</code> bọc quanh.</li>
+<li><strong>Solution:</strong> thêm <code>BufferedReader</code>/<code>BufferedInputStream</code>/<code>BufferedWriter</code>/
+  <code>BufferedOutputStream</code> bọc quanh, hoặc dùng các API cấp cao hơn (như NIO.2's
+  <code>Files.readAllLines()</code>, Chapter 21) đã tự buffer sẵn bên trong.</li>
+<li><strong>Prevention:</strong> đưa "mọi truy cập file phải qua Buffered stream" vào coding standard/code
+  review checklist; với xử lý dữ liệu khối lượng lớn, cân nhắc NIO (Chapter 21) ngay từ đầu.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Xử lý file chậm bất thường, CPU cao khi I/O? → tìm chỗ đọc/ghi trực tiếp không qua
+      <code>Buffered...</code>.</li>
+<li>[ ] Ký tự tiếng Việt/ký tự đặc biệt hiển thị sai (mojibake)? → kiểm tra encoding có được chỉ
+      định tường minh không, có khớp giữa lúc ghi và lúc đọc không.</li>
+<li>[ ] Nghi ngờ rò rỉ file handle (lỗi "too many open files" sau một thời gian chạy)? → tìm
+      những nơi mở stream không dùng try-with-resources, có khả năng quên đóng khi có
+      exception.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>FileInputStream.read()</code> (byte đơn) cuối cùng gọi xuống một method <code>native</code> (hiện thực bằng
+C, tương tự các method <code>native</code> của <code>Object</code> đã gặp ở <a href="../09-object/">Chapter 09</a>) — thực hiện
+system call thật xuống hệ điều hành. <code>BufferedInputStream</code> không override cơ chế đó, mà <strong>bọc
+quanh</strong> một <code>InputStream</code> khác (đúng Decorator Pattern ở phần Concept): nó tự quản lý một mảng
+byte nội bộ, chỉ gọi xuống <code>InputStream</code> gốc khi buffer đã cạn, cần nạp thêm một khối lớn mới —
+đúng cơ chế "trả giá system call một lần cho nhiều lần đọc nhỏ" đã phân tích ở Engineering
+Insight.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>java.io</code> chia thành họ đọc/ghi <strong>byte</strong> (<code>InputStream</code>/<code>OutputStream</code>, cho dữ liệu nhị phân)
+và họ đọc/ghi <strong>ký tự</strong> (<code>Reader</code>/<code>Writer</code>, tự xử lý encoding, cho văn bản) — dùng đúng loại
+tránh lỗi encoding. Các lớp <code>Buffered...</code> bọc thêm bộ nhớ đệm theo đúng Decorator Pattern,
+giảm số lượng system call từ hàng nghìn xuống một vài lần — chênh lệch hiệu năng đo được thực
+tế hơn 5 lần chỉ với một file vừa phải. Try-with-resources (Java 7+) tự động đóng stream đúng
+cách, loại bỏ lớp lỗi "quên đóng tài nguyên" phổ biến trước đó.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>InputStream</code>/<code>OutputStream</code> khác <code>Reader</code>/<code>Writer</code> ở điểm nào?</li>
+<li>Vì sao nên bọc <code>BufferedReader</code> khi đọc file?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Try-with-resources hoạt động như thế nào bên dưới? Nó giải quyết vấn đề gì so với cách viết
+  <code>finally { close(); }</code> thủ công trước Java 7?</li>
+<li>Giải thích vì sao buffer giúp tăng hiệu năng I/O đáng kể — liên hệ khái niệm system call.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Một dịch vụ xử lý file export dữ liệu lớn chạy chậm bất thường, CPU cao trong lúc I/O.
+  Trình bày quy trình điều tra và các giả thuyết bạn sẽ kiểm tra trước.</li>
+<li>So sánh mô hình blocking I/O (<code>java.io</code>) với những gì bạn dự đoán non-blocking I/O
+  (<code>java.nio</code>, Chapter 21 sắp tới) cần giải quyết — tại sao "blocking" lại là một vấn đề khi
+  số lượng kết nối đồng thời rất lớn?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>IoDemo</code> ở trên.</li>
+<li>[ ] Tự viết đoạn code ghi 50.000 dòng vào file, rồi đo chênh lệch thời gian đọc có/không có
+      <code>BufferedReader</code> như ở Example — xác nhận chênh lệch tương tự trên máy bạn.</li>
+<li>[ ] Viết một chương trình đọc một file UTF-8 chứa tiếng Việt có dấu bằng encoding sai
+      (ví dụ <code>ISO-8859-1</code>) để tự mắt thấy hiện tượng mojibake, rồi sửa lại bằng
+      <code>StandardCharsets.UTF_8</code> để xác nhận đọc đúng.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Đọc/ghi gì</th>
+<th>Ví dụ class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InputStream</code>/<code>OutputStream</code></td>
+<td>Byte thô</td>
+<td><code>FileInputStream</code>, <code>FileOutputStream</code></td>
+</tr>
+<tr>
+<td><code>Reader</code>/<code>Writer</code></td>
+<td>Ký tự (tự xử lý encoding)</td>
+<td><code>FileReader</code>, <code>FileWriter</code></td>
+</tr>
+<tr>
+<td><code>Buffered...</code></td>
+<td>Bọc thêm bộ nhớ đệm</td>
+<td><code>BufferedReader</code>, <code>BufferedInputStream</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Nên dùng</th>
+<th>Thay vì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>try (Resource r = ...) { }</code></td>
+<td><code>try { } finally { r.close(); }</code> thủ công</td>
+</tr>
+<tr>
+<td><code>new InputStreamReader(in, StandardCharsets.UTF_8)</code></td>
+<td>Dựa vào encoding mặc định hệ thống</td>
+</tr>
+<tr>
+<td><code>BufferedReader</code>/<code>BufferedWriter</code> khi đọc/ghi lặp nhiều lần</td>
+<td>Đọc/ghi trực tiếp không buffer</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Oracle: "The Java Tutorials — Basic I/O".</li>
+<li>Java SE API Documentation — gói <code>java.io</code>.</li>
+<li>JLS/JVM liên quan <code>AutoCloseable</code>, try-with-resources (JLS Chapter 14.20.3).</li>
 </ul>
 
 

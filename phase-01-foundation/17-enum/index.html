@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:enum" class="md-tag">Enum</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,352 @@ Chapter slug: <code>enum</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enum</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — OOP Fundamentals</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Object</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sealed Class, Pattern Matching (Phase 4) — Enum là &quot;phiên bản hạn chế&quot; của ý tưởng đóng (closed) kiểu dữ liệu</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity, JPA (Phase 6) — Enum làm field Entity là tình huống rất phổ biến, có cạm bẫy riêng</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Trước khi Java có <code>enum</code> (trước Java 5), lập trình viên biểu diễn một tập giá trị cố định
+(trạng thái đơn hàng: chờ xử lý, đã giao, đã huỷ...) bằng hằng số <code>int</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">STATUS_PENDING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">STATUS_SHIPPED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">STATUS_CANCELLED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">updateStatus</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Cách này có hai lỗ hổng nghiêm trọng: (1) <code>updateStatus(99)</code> — một số hoàn toàn vô nghĩa —
+biên dịch được bình thường, lỗi chỉ lộ ra lúc runtime, nếu có ai kiểm tra; (2) in ra
+<code>STATUS_SHIPPED</code> chỉ thấy số <code>1</code>, không có thông tin gì tự giải thích nó là gì.</p>
+<p>Java 5 (2004) giới thiệu <code>enum</code> để giải quyết cả hai vấn đề — nhưng câu hỏi thú vị hơn nhiều
+so với cú pháp là: <strong><code>enum</code> thực chất là gì bên dưới?</strong> Chỉ là hằng số <code>int</code> được "trang trí"
+đẹp hơn, hay là một thứ hoàn toàn khác? Chapter này trả lời bằng cách mở bytecode ra xem trực
+tiếp.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Enum trong Java thực chất là gì bên dưới lớp vỏ cú pháp — chỉ là hằng số <code>int</code> được đặt tên
+đẹp, hay là một cấu trúc hoàn toàn khác?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Biết chính xác: mỗi <code>enum</code> được <code>javac</code> biên dịch thành một <strong>class</strong> kế thừa
+      <code>java.lang.Enum</code></li>
+<li>[ ] Hiểu mỗi hằng số enum (<code>PENDING</code>, <code>SHIPPED</code>...) là một <strong>singleton instance</strong> static,
+      không phải một số</li>
+<li>[ ] Viết được enum có constructor, field, và method riêng cho từng hằng số</li>
+<li>[ ] Biết vì sao <code>enum</code> an toàn hơn hẳn hằng số <code>int</code> cho <code>switch</code>, so sánh, và làm key
+      <code>HashMap</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — hiểu <code>abstract</code>, <code>extends</code>, override method.</li>
+<li>Chapter 09 — hiểu <code>Object</code>, vì <code>Enum</code> cũng kế thừa từ nó (gián tiếp).</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Sealed Class, Pattern Matching</strong> (Phase 4) — <code>enum</code> là dạng sơ khai nhất của ý tưởng "một
+  kiểu dữ liệu chỉ có hữu hạn dạng cố định, biết trước toàn bộ lúc biên dịch" — sealed class
+  (Java 17+) tổng quát hoá ý tưởng này cho trường hợp phức tạp hơn hằng số đơn thuần.</li>
+<li><strong>Entity, JPA</strong> (Phase 6) — dùng <code>enum</code> làm field của Entity ánh xạ xuống database là tình
+  huống cực kỳ phổ biến, có cạm bẫy riêng (lưu theo <code>ORDINAL</code> hay <code>STRING</code>) cần hiểu rõ bản
+  chất enum ở chapter này trước.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Hằng số <code>int</code>/<code>String</code> không có sự ràng buộc nào ở tầng kiểu dữ liệu — bất kỳ số nguyên hay
+chuỗi nào cũng "hợp lệ về mặt cú pháp" dù vô nghĩa về mặt nghiệp vụ. Cần một cách để trình biên
+dịch <strong>tự chặn</strong> việc gán giá trị không nằm trong tập hợp lệ, đồng thời giữ được khả năng tự
+mô tả (đọc code thấy ngay <code>OrderStatus.SHIPPED</code> thay vì con số <code>1</code> vô nghĩa).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>enum</code> định nghĩa một tập <strong>hữu hạn, cố định, biết trước lúc biên dịch</strong> các giá trị khả dĩ.
+Khác biệt cốt lõi so với hằng số nguyên thuỷ: <strong>mỗi hằng số enum là một object thật</strong>, không
+phải một con số — cụ thể là một <strong>singleton instance</strong> của chính class enum đó.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">OrderStatus</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">PENDING</span><span class="p">,</span><span class="w"> </span><span class="n">SHIPPED</span><span class="p">,</span><span class="w"> </span><span class="n">DELIVERED</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu <code>enum</code> chỉ là hằng số <code>int</code> được đổi tên: trình biên dịch vẫn không thể chặn được việc
+truyền một giá trị số ngoài phạm vi hợp lệ (vì bản chất vẫn chỉ là <code>int</code>). Bằng cách biến mỗi
+hằng số thành một <strong>object thuộc đúng kiểu enum đó</strong>, trình biên dịch có thể áp dụng toàn bộ
+cơ chế kiểm tra kiểu thông thường (giống mọi class khác) — tham số khai báo kiểu
+<code>OrderStatus</code> chỉ chấp nhận đúng object <code>PENDING</code>/<code>SHIPPED</code>/<code>DELIVERED</code>, không chấp nhận bất kỳ
+giá trị nào khác, được chặn ngay lúc biên dịch.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Xác nhận trực tiếp: <code>enum</code> được <code>javac</code> biên dịch thành gì. Với khai báo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">OrderStatus</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">PENDING</span><span class="p">,</span><span class="w"> </span><span class="n">PAID</span><span class="p">,</span><span class="w"> </span><span class="n">SHIPPED</span><span class="p">,</span><span class="w"> </span><span class="n">DELIVERED</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Chạy <code>javap OrderStatus.class</code>, kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>public final class OrderStatus extends java.lang.Enum&lt;OrderStatus&gt; {
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  public static final OrderStatus PENDING;
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  public static final OrderStatus PAID;
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  public static final OrderStatus SHIPPED;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  public static final OrderStatus DELIVERED;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  public static OrderStatus[] values();
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  public static OrderStatus valueOf(java.lang.String);
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  static {};
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>}
+</code></pre></div>
+<p>Ba điều then chốt:</p>
+<ol>
+<li><code>enum</code> biên dịch thành một <strong><code>class</code> thật</strong>, <code>final</code> (không cho kế thừa thêm — Java không
+   hỗ trợ đa kế thừa, mỗi enum đã "dùng hết suất" <code>extends</code> để kế thừa <code>Enum</code>, đúng giới hạn
+   đã học ở <a href="../08-oop-fundamentals/">Chapter 08</a>), kế thừa <code>java.lang.Enum&lt;OrderStatus&gt;</code>.</li>
+<li>Mỗi hằng số (<code>PENDING</code>, <code>PAID</code>...) là một field <strong><code>public static final OrderStatus</code></strong> —
+   một singleton instance, không phải số.</li>
+<li><code>javac</code> tự sinh thêm hai method <code>values()</code> (trả về mảng tất cả hằng số) và <code>valueOf(String)</code>
+   (tra cứu theo tên) — bạn không viết chúng, trình biên dịch tự thêm vào.</li>
+</ol>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>enum OrderStatus { PENDING, PAID, SHIPPED, DELIVERED }
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>              │
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>              │  javac biên dịch thành
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>              ▼
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>final class OrderStatus extends Enum&lt;OrderStatus&gt; {
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    public static final OrderStatus PENDING  = new OrderStatus(&quot;PENDING&quot;, 0);
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    public static final OrderStatus PAID     = new OrderStatus(&quot;PAID&quot;, 1);
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    public static final OrderStatus SHIPPED  = new OrderStatus(&quot;SHIPPED&quot;, 2);
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    public static final OrderStatus DELIVERED = new OrderStatus(&quot;DELIVERED&quot;, 3);
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    // + values(), valueOf() tự sinh
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>}
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>       ▲
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>       │  mỗi hằng số = MỘT SINGLETON INSTANCE, khởi tạo trong static block
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>       │  (đúng cơ chế Initialization đã học ở Chapter 14 — CHỈ MỘT LẦN)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Enum với constructor, field riêng, và <strong>method khác nhau cho từng hằng số</strong> (<code>abstract
+method</code> được mỗi hằng số tự override) — tính năng nâng cao nhưng rất thực dụng:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">OrderStatus2</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">PENDING</span><span class="p">(</span><span class="s">&quot;Cho xu ly&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">canCancel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">SHIPPED</span><span class="p">(</span><span class="s">&quot;Da giao van chuyen&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">canCancel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">OrderStatus2</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getLabel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">canCancel</span><span class="p">();</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">OrderStatus2</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">getLabel</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;) canCancel=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">canCancel</span><span class="p">());</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;PENDING == PENDING: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">PENDING</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;PENDING&quot;</span><span class="p">)));</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>PENDING (Cho xu ly) canCancel=true
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>SHIPPED (Da giao van chuyen) canCancel=false
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>PENDING == PENDING: true
+</code></pre></div>
+<p>Mỗi hằng số enum tự override <code>canCancel()</code> theo đúng tinh thần Polymorphism đã học ở
+<a href="../08-oop-fundamentals/">Chapter 08</a> — thay vì một khối <code>switch</code> dài kiểm tra từng loại trạng
+thái, mỗi hằng số "tự biết" hành vi của chính nó. <code>PENDING == valueOf("PENDING")</code> là <code>true</code> —
+xác nhận: vì mỗi hằng số là <strong>singleton</strong> (chỉ tạo một lần duy nhất trong static block), so
+sánh bằng <code>==</code> luôn an toàn và chính xác cho enum, không cần <code>.equals()</code> như <code>String</code> (Chapter
+10) — dù <code>.equals()</code> vẫn hoạt động đúng (kế thừa từ <code>Object</code>, dùng chính <code>==</code> bên trong vì đã
+là singleton).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>enum</code> được phép dùng trong <code>switch</code> mà không cần viết đầy đủ tên enum
+(<code>case PENDING:</code> thay vì <code>case OrderStatus.PENDING:</code>)?</strong> Đây là cú pháp đặc biệt <code>javac</code> dành
+riêng cho <code>enum</code> trong <code>switch</code> — vì trình biên dịch <strong>đã biết chắc chắn</strong> kiểu của biểu thức
+trong <code>switch</code> là <code>OrderStatus</code>, nó tự suy ra <code>case PENDING</code> nghĩa là
+<code>case OrderStatus.PENDING</code>. Quan trọng hơn về mặt an toàn: trình biên dịch <strong>kiểm tra được</strong>
+liệu <code>switch</code> đã xử lý <strong>đủ tất cả</strong> hằng số của enum hay chưa (đặc biệt rõ với <code>switch</code>
+expression hiện đại, Phase 4) — một lợi ích không thể có với hằng số <code>int</code>/<code>String</code>, vì
+compiler không có cách nào biết "tập giá trị hợp lệ" của một <code>int</code> là gì.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao mỗi hằng số enum là singleton lại quan trọng hơn nhiều so với vẻ ngoài "chi tiết cài
+đặt"?</strong> Vì nó là nền tảng cho tính <strong>an toàn tuyệt đối khi dùng làm key <code>HashMap</code>/phần tử
+<code>HashSet</code></strong> (Chapter 12-13, Phase 2): <code>hashCode()</code> mặc định của <code>Enum</code> (kế thừa nguyên xi từ
+<code>Object</code> — Chapter 09, dựa trên định danh nội bộ) không bao giờ đổi trong suốt vòng đời chương
+trình, vì <strong>không thể tạo thêm instance mới</strong> của bất kỳ hằng số nào (constructor enum không
+thể gọi từ bên ngoài, chỉ <code>javac</code> gọi được trong static block, xem Visualization). Đây là lý
+do <code>EnumMap</code>/<code>EnumSet</code> (một biến thể <code>Map</code>/<code>Set</code> tối ưu riêng cho <code>enum</code>, sẽ gặp lại ở Phase 2)
+có thể cài đặt cực nhanh dựa trên chính thứ tự khai báo (<code>ordinal()</code>) thay vì hash bucket thông
+thường — một tối ưu chỉ khả thi nhờ đặc tính "singleton, số lượng cố định, biết trước lúc biên
+dịch" của enum.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Trước Java 5 (2004)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&quot;Typesafe enum pattern&quot; — một pattern thủ công (không phải từ khoá riêng),
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>lập trình viên tự viết class với constructor private + các static final
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>instance, gần giống hệt những gì javac TỰ ĐỘNG sinh ra cho enum ngày nay
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    ↓
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Java 5 (2004)
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    ↓
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Từ khoá enum ra đời — chính thức hoá pattern trên thành cú pháp ngôn ngữ,
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>javac tự sinh values()/valueOf(), tự đảm bảo singleton, hỗ trợ switch
+</code></pre></div>
+<p>Điều thú vị: <code>enum</code> của Java không phải phát minh cú pháp hoàn toàn mới — nó "đóng gói" một
+pattern mà lập trình viên Java kinh nghiệm đã tự viết tay từ trước, thành cú pháp ngôn ngữ
+chính thức, an toàn hơn và ít code hơn.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>enum</code> về bản chất chỉ là hằng số <code>int</code> được đặt tên đẹp hơn."
+  <strong>Reality:</strong> Xem How? — <code>enum</code> biên dịch thành một <strong>class thật</strong>, mỗi hằng số là một
+  <strong>object singleton</strong>, không phải số. Đây là khác biệt về bản chất, không chỉ về cú pháp.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "So sánh enum nên dùng <code>.equals()</code> để an toàn, giống String (Chapter 10)."
+  <strong>Reality:</strong> Ngược lại — vì mỗi hằng số enum là singleton duy nhất (không có "bản sao" như
+  <code>new String(...)</code> từng gây rắc rối ở Chapter 10), so sánh bằng <code>==</code> luôn an toàn và là cách
+  được khuyến nghị cho enum, nhanh hơn <code>.equals()</code> (không cần gọi method, không sợ
+  <code>NullPointerException</code> nếu vế trái là hằng số enum cố định:
+  <code>if (OrderStatus.PENDING == status)</code>).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Lưu enum xuống database bằng <code>ordinal()</code> (vị trí khai báo, 0/1/2...)</strong> thay vì tên
+  (<code>name()</code>/<code>toString()</code>) — nếu sau này thêm/xoá/đổi thứ tự hằng số, toàn bộ dữ liệu cũ trong
+  database sẽ bị đọc sai (ordinal thay đổi ý nghĩa) mà không có bất kỳ lỗi biên dịch/runtime
+  nào báo hiệu — một trong những cạm bẫy Enum + JPA (Phase 6) phổ biến và nguy hiểm nhất.</li>
+<li><strong>Thêm logic <code>switch</code> dài dòng cho từng hằng số ở bên ngoài enum</strong>, thay vì tận dụng
+  <code>abstract method</code> + override riêng cho từng hằng số như ở Example — bỏ lỡ lợi ích chính của
+  Polymorphism đã học ở Chapter 08.</li>
+<li><strong>Cố tạo thêm instance bằng reflection/serialization không đúng cách</strong> — phá vỡ tính chất
+  singleton, gây lỗi khó lường ở những chỗ giả định enum luôn singleton (như so sánh <code>==</code>).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn so sánh enum bằng <code>==</code>, không cần <code>.equals()</code>.</li>
+<li>Khi lưu enum xuống database (JPA, Phase 6), luôn dùng <code>@Enumerated(EnumType.STRING)</code> (lưu
+  theo tên) thay vì <code>EnumType.ORDINAL</code> (mặc định, lưu theo vị trí) — an toàn hơn hẳn khi cấu
+  trúc enum thay đổi theo thời gian.</li>
+<li>Với logic khác nhau đáng kể giữa các hằng số, cân nhắc <code>abstract method</code> + override riêng
+  (như Example) thay vì <code>switch</code> bên ngoài — code gọn hơn, và trình biên dịch tự nhắc bạn nếu
+  quên implement cho hằng số mới thêm vào.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> sau một lần deploy thêm một trạng thái đơn hàng mới vào giữa danh sách enum có
+sẵn, dữ liệu đơn hàng cũ trong database bỗng nhiên hiển thị sai trạng thái hàng loạt.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> đơn hàng "PENDING" cũ hiển thị nhầm thành "SHIPPED" hoặc trạng thái khác
+  hoàn toàn không liên quan, dữ liệu mới tạo thì vẫn đúng.</li>
+<li><strong>Root cause:</strong> enum được lưu bằng <code>EnumType.ORDINAL</code> (vị trí khai báo); thêm một hằng số
+  mới <strong>ở giữa</strong> danh sách (không phải ở cuối) làm dịch chuyển toàn bộ <code>ordinal()</code> của các
+  hằng số phía sau nó — dữ liệu cũ trong database (lưu số nguyên) giờ trỏ sang <strong>ý nghĩa
+  khác</strong> so với lúc được lưu.</li>
+<li><strong>Debug:</strong> kiểm tra annotation <code>@Enumerated</code> trên field enum của Entity liên quan — nếu là
+  <code>ORDINAL</code> (hoặc không có annotation, mặc định chính là <code>ORDINAL</code>), đây gần như chắc chắn là
+  nguyên nhân.</li>
+<li><strong>Solution:</strong> chuyển sang <code>EnumType.STRING</code>, kèm theo một bước migrate dữ liệu cũ (chuyển từ
+  số đang lưu sang đúng tên hằng số tương ứng) — cần làm cẩn thận vì đây chính là bước dễ sai
+  sót nếu thứ tự đã bị dịch chuyển từ trước.</li>
+<li><strong>Prevention:</strong> quy định bắt buộc dùng <code>EnumType.STRING</code> cho mọi enum ánh xạ xuống database
+  ngay từ đầu dự án (Phase 6); nếu bắt buộc phải thêm hằng số enum mới, luôn thêm vào <strong>cuối</strong>
+  danh sách, không chèn vào giữa, kể cả khi đã dùng <code>STRING</code> (thói quen an toàn nói chung).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Dữ liệu enum đọc từ database sai sau khi sửa danh sách enum? → kiểm tra <code>@Enumerated</code>
+      đang dùng <code>ORDINAL</code> hay <code>STRING</code> (xem Production Notes).</li>
+<li>[ ] So sánh enum cho kết quả không mong đợi? → xác nhận đang dùng <code>==</code> (khuyến nghị) hay
+      <code>.equals()</code>, cả hai đều nên cho cùng kết quả nếu không có gì bất thường về serialization/
+      reflection.</li>
+<li>[ ] <code>IllegalArgumentException: No enum constant ...</code>? → <code>valueOf(String)</code> được gọi với một
+      chuỗi không khớp chính xác tên hằng số nào (phân biệt hoa/thường) — kiểm tra nguồn dữ
+      liệu đầu vào.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Đã thực hiện trực tiếp ở phần How?/Visualization bằng <code>javap</code>: <code>enum</code> biên dịch thành class
+<code>final</code> kế thừa <code>java.lang.Enum&lt;T&gt;</code>, các hằng số là field <code>public static final</code>, khởi tạo
+trong static block (<code>static {}</code> xuất hiện trong output <code>javap</code>) — đúng cơ chế Initialization
+đã học ở <a href="../14-object-lifecycle/">Chapter 14</a>, chỉ chạy một lần duy nhất khi class enum lần
+đầu được dùng chủ động.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>enum</code> không phải hằng số <code>int</code> được "trang trí" — nó biên dịch thành một <strong>class thật</strong>
+(<code>final</code>, kế thừa <code>java.lang.Enum&lt;T&gt;</code>), mỗi hằng số là một <strong>singleton instance</strong> được khởi
+tạo đúng một lần trong static block. Chính vì là singleton, so sánh bằng <code>==</code> luôn an toàn
+(khuyến nghị hơn <code>.equals()</code>); vì <code>javac</code> tự sinh <code>values()</code>/<code>valueOf()</code> và kiểm tra kiểu ở
+tầng biên dịch, enum an toàn hơn hẳn hằng số nguyên thuỷ. Enum còn hỗ trợ constructor, field,
+và <code>abstract method</code> override riêng cho từng hằng số — công cụ mạnh để thay thế các khối
+<code>switch</code> dài dòng bằng Polymorphism (Chapter 08). Cạm bẫy quan trọng nhất khi dùng thực tế:
+luôn lưu enum xuống database bằng tên (<code>EnumType.STRING</code>), không bằng vị trí (<code>ORDINAL</code>).</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Enum trong Java thực chất là gì bên dưới?</li>
+<li>So sánh hai giá trị enum nên dùng <code>==</code> hay <code>.equals()</code>?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>javac</code> tự sinh thêm những gì cho một class enum mà bạn không viết tường minh?</li>
+<li>Vì sao lưu enum xuống database bằng <code>ordinal()</code> lại nguy hiểm? Cho một kịch bản cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao mỗi hằng số enum là singleton lại là nền tảng cho việc <code>EnumMap</code>/<code>EnumSet</code>
+  có thể tối ưu hơn <code>HashMap</code>/<code>HashSet</code> thông thường.</li>
+<li>So sánh việc dùng <code>abstract method</code> override riêng cho từng hằng số enum (như ví dụ trong
+  chapter) với việc dùng <code>switch</code> bên ngoài để xử lý logic khác nhau theo từng hằng số — đánh
+  đổi giữa hai cách tiếp cận là gì?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy <code>javap OrderStatus.class</code> trên một enum bạn tự viết, xác nhận cấu trúc giống hệt
+      những gì chapter đã mô tả.</li>
+<li>[ ] Chạy lại đúng ví dụ <code>OrderStatus2</code> ở trên, thêm một hằng số mới <code>DELIVERED</code> với
+      <code>canCancel()</code> trả về <code>false</code>, xác nhận trình biên dịch <strong>bắt buộc</strong> bạn phải implement
+      <code>canCancel()</code> cho hằng số mới (không implement sẽ báo lỗi biên dịch).</li>
+<li>[ ] Viết một <code>switch</code> expression (Phase 4, hoặc <code>switch</code> thường nếu chưa học tới) xử lý đầy
+      đủ mọi hằng số của một enum — thử xoá một <code>case</code>, quan sát cảnh báo/lỗi biên dịch (tuỳ
+      cấu hình trình biên dịch).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Câu hỏi</th>
+<th>Trả lời</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enum biên dịch thành gì?</td>
+<td>Một <code>final class extends java.lang.Enum&lt;T&gt;</code></td>
+</tr>
+<tr>
+<td>Mỗi hằng số là gì?</td>
+<td>Một singleton instance <code>public static final</code></td>
+</tr>
+<tr>
+<td>So sánh bằng gì?</td>
+<td><code>==</code> (khuyến nghị), <code>.equals()</code> cũng đúng nhưng không cần thiết</td>
+</tr>
+<tr>
+<td>Method tự sinh</td>
+<td><code>values()</code>, <code>valueOf(String)</code></td>
+</tr>
+<tr>
+<td>Lưu xuống DB bằng gì?</td>
+<td><code>EnumType.STRING</code>, KHÔNG dùng <code>ORDINAL</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 8.9: Enum Classes.</li>
+<li><code>java.lang.Enum</code> — Java SE API Documentation (Oracle).</li>
+<li>Effective Java (Joshua Bloch) — Item 34: "Use enums instead of int constants".</li>
 </ul>
 
 

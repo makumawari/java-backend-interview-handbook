@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:annotation" class="md-tag">Annotation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,363 @@ Chapter slug: <code>annotation</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Annotation</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — OOP Fundamentals</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reflection (Chapter 19) — annotation RUNTIME chỉ có ý nghĩa khi kết hợp với Reflection</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Toàn bộ Spring (Phase 5) — @Autowired, @Component, @RestController... đều là annotation RUNTIME</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JPA Entity (Phase 6) — @Entity, @Id, @Column là annotation định nghĩa mapping xuống database</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Bạn đã gõ <code>@Override</code> hàng trăm lần (Chapter 08). Thử tự hỏi: dòng <code>@Override</code> đó có <strong>ảnh
+hưởng gì tới hành vi chương trình lúc chạy</strong> không? Xoá nó đi, code có chạy khác đi không?</p>
+<p>Câu trả lời: <strong>không có gì thay đổi lúc runtime cả</strong> — <code>@Override</code> chỉ là một tín hiệu cho
+<code>javac</code> kiểm tra lúc biên dịch (nếu method không thực sự override gì, báo lỗi), rồi <strong>biến mất
+hoàn toàn</strong> sau khi biên dịch xong, giống hệt số phận của thông tin kiểu Generics (đã học ở
+Chapter 16).</p>
+<p>Nhưng bạn cũng đã gõ (hoặc sẽ sớm gõ, khi học Spring ở Phase 5) <code>@Autowired</code>,
+<code>@RestController</code>, <code>@Transactional</code> — những annotation <strong>hoàn toàn thay đổi hành vi runtime</strong>
+của chương trình, dù về mặt cú pháp trông giống hệt <code>@Override</code>. Sự khác biệt này không phải
+ngẫu nhiên — nó nằm ở một khai báo nhỏ, dễ bỏ qua: <code>@Retention</code>. Chapter này giải thích chính
+xác cơ chế đứng sau, để khi học Spring, bạn không còn coi annotation là "phép màu".</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Annotation chỉ là "chú thích trang trí" hay có thể ảnh hưởng thực sự tới hành vi lúc chạy?
+Điều gì quyết định một annotation "biến mất" sau biên dịch hay "sống sót" tới tận runtime?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt 3 mức <code>RetentionPolicy</code>: <code>SOURCE</code>, <code>CLASS</code>, <code>RUNTIME</code> — và biết chính xác
+      <code>@Override</code> thuộc loại nào</li>
+<li>[ ] Tự tay xác nhận bằng thực nghiệm: chỉ annotation <code>RUNTIME</code> mới đọc được qua Reflection</li>
+<li>[ ] Viết được một custom annotation hoàn chỉnh (<code>@Retention</code>, <code>@Target</code>, tham số)</li>
+<li>[ ] Hiểu rằng bản thân annotation <strong>không tự làm gì cả</strong> — nó chỉ là metadata, cần một đoạn
+      code khác (thường dùng Reflection) chủ động đọc và hành động dựa trên nó</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — đã dùng <code>@Override</code> nhiều lần, biết annotation về mặt cú pháp là gì.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Reflection</strong> (Chapter 19) — chapter này giới thiệu annotation RUNTIME "tồn tại được tới
+  đâu"; Chapter 19 sẽ dạy cách <strong>chủ động đọc</strong> chúng bằng Reflection API, hai chapter này
+  luôn đi cùng nhau trong thực tế.</li>
+<li><strong>Spring</strong> (Phase 5) — gần như toàn bộ "phép màu" của Spring (tự động tạo bean, tự động
+  tiêm dependency, tự động map REST endpoint) đều dựa trên việc Spring dùng Reflection quét
+  annotation RUNTIME lúc khởi động ứng dụng — không có gì huyền bí hơn cơ chế học ở chapter
+  này.</li>
+<li><strong>JPA Entity</strong> (Phase 6) — <code>@Entity</code>, <code>@Id</code>, <code>@Column</code> là annotation RUNTIME mà Hibernate
+  đọc để biết cách map object Java xuống bảng database.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Có những thông tin về code (metadata) không thuộc về <strong>logic nghiệp vụ</strong> nhưng vẫn cần gắn
+liền với code đó — ví dụ: "method này ghi đè method cha, hãy kiểm tra giúp tôi"
+(<code>@Override</code>), hoặc "class này nên được đăng ký làm REST controller" (<code>@RestController</code>,
+Spring). Nếu không có cơ chế annotation, cách duy nhất để truyền metadata này là qua tên gọi
+theo quy ước (convention) hoặc file cấu hình riêng (XML) — cả hai đều tách rời khỏi chính đoạn
+code mà metadata đó mô tả, dễ lệch nhau theo thời gian khi code thay đổi mà quên cập nhật.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Annotation là một dạng "chú thích có cấu trúc" gắn trực tiếp vào code (class, method, field,
+tham số...), có thể mang theo dữ liệu (tham số). Vòng đời của một annotation — nó "sống sót"
+qua được bao nhiêu giai đoạn — do chính annotation <strong>định nghĩa nó</strong> quyết định, thông qua
+meta-annotation <code>@Retention</code>:</p>
+<ul>
+<li><strong><code>RetentionPolicy.SOURCE</code></strong> — chỉ tồn tại trong mã nguồn, bị <code>javac</code> loại bỏ hoàn toàn,
+  không xuất hiện trong <code>.class</code>. Ví dụ: <code>@Override</code>, <code>@SuppressWarnings</code>.</li>
+<li><strong><code>RetentionPolicy.CLASS</code></strong> (mặc định nếu không khai báo <code>@Retention</code>) — có mặt trong
+  <code>.class</code> (bytecode), nhưng JVM <strong>không nạp vào bộ nhớ lúc runtime</strong> — không đọc được qua
+  Reflection.</li>
+<li><strong><code>RetentionPolicy.RUNTIME</code></strong> — có mặt trong <code>.class</code> <strong>và</strong> được JVM giữ lại, đọc được qua
+  Reflection lúc chương trình đang chạy. Đây là loại duy nhất Spring/Hibernate/mọi framework
+  dựa vào annotation runtime có thể sử dụng.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu <strong>mọi</strong> annotation đều giữ tới runtime: mỗi annotation (kể cả những cái chỉ có ý nghĩa lúc
+biên dịch như <code>@Override</code>) sẽ tốn thêm bộ nhớ Metaspace (Chapter 04) và một chút overhead khi
+JVM nạp class — lãng phí cho những annotation không bao giờ được đọc lúc chạy. Việc chia 3 mức
+<code>Retention</code> cho phép người viết annotation <strong>chọn đúng chi phí cần thiết</strong>: <code>@Override</code> không
+cần tồn tại quá giai đoạn biên dịch, nên <code>SOURCE</code> là lựa chọn tối ưu; <code>@Autowired</code> (Spring)
+cần Spring đọc được lúc khởi động ứng dụng, bắt buộc phải <code>RUNTIME</code>.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Viết một custom annotation hoàn chỉnh, dùng để đánh dấu method là một "REST endpoint" (mô
+phỏng tối giản ý tưởng <code>@GetMapping</code> của Spring, sẽ gặp đầy đủ ở Phase 5):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.annotation.*</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span><span class="w"> </span><span class="c1">// giữ tới runtime — bắt buộc để đọc được qua Reflection</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nd">@Target</span><span class="p">(</span><span class="n">ElementType</span><span class="p">.</span><span class="na">METHOD</span><span class="p">)</span><span class="w">          </span><span class="c1">// chỉ được gắn lên method</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nd">@interface</span><span class="w"> </span><span class="n">ApiEndpoint</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">path</span><span class="p">();</span><span class="w"> </span><span class="c1">// tham số bắt buộc</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Annotation <strong>tự nó không làm gì cả</strong> — nó chỉ là dữ liệu mô tả. Muốn nó "có tác dụng", cần một
+đoạn code khác chủ động đọc và hành động (Chapter 19 sẽ đi sâu, ở đây chỉ minh hoạ đủ để thấy
+nguyên lý):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Method</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SomeController</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getMethod</span><span class="p">(</span><span class="s">&quot;listProducts&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">ApiEndpoint</span><span class="w"> </span><span class="n">anno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getAnnotation</span><span class="p">(</span><span class="n">ApiEndpoint</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Đường dẫn: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">anno</span><span class="p">.</span><span class="na">path</span><span class="p">());</span><span class="w"> </span><span class="c1">// đọc được dữ liệu annotation lúc runtime</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Mã nguồn (.java)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>     │  gắn @SourceOnly, @ClassOnly, @RuntimeVisible lên cùng một method
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>     ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>javac biên dịch
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>     │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>     ├── @SourceOnly    ──✗── BỊ LOẠI, không vào .class
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>     │
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>     ├── @ClassOnly     ──→── CÓ trong .class, nhưng JVM không nạp lúc runtime
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>     │
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>     └── @RuntimeVisible ──→── CÓ trong .class VÀ JVM giữ lại lúc runtime
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                                        │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                                        ▼
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                          Reflection đọc được (Chapter 19)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận trực tiếp: dù cả 3 annotation cùng được gắn trong mã nguồn, chỉ loại <code>RUNTIME</code> mới
+đọc được qua Reflection lúc chạy:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.annotation.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.*</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">SOURCE</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nd">@interface</span><span class="w"> </span><span class="n">SourceOnly</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">CLASS</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nd">@interface</span><span class="w"> </span><span class="n">ClassOnly</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nd">@Retention</span><span class="p">(</span><span class="n">RetentionPolicy</span><span class="p">.</span><span class="na">RUNTIME</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nd">@interface</span><span class="w"> </span><span class="n">RuntimeVisible</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RetentionDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nd">@SourceOnly</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nd">@ClassOnly</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nd">@RuntimeVisible</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">demo</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="n">Method</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RetentionDemo</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getMethod</span><span class="p">(</span><span class="s">&quot;demo&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="n">Annotation</span><span class="o">[]</span><span class="w"> </span><span class="n">annos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getAnnotations</span><span class="p">();</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;So annotation nhin thay luc runtime: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">annos</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Annotation</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">annos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; - &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>So annotation nhin thay luc runtime: 1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> - @RuntimeVisible()
+</code></pre></div>
+<p>Dù <code>demo()</code> được gắn <strong>3</strong> annotation trong mã nguồn, <code>getAnnotations()</code> chỉ thấy <strong>1</strong> — bằng
+chứng thực nghiệm trực tiếp: <code>@Retention</code> quyết định annotation nào "sống sót" đủ lâu để
+Reflection nhìn thấy.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>@Target</code> giới hạn annotation được gắn ở đâu — vì sao cần thiết?</strong> Nếu không có <code>@Target</code>,
+một annotation thiết kế riêng cho method (như <code>@ApiEndpoint</code>) có thể vô tình bị gắn nhầm lên
+class hoặc field — về mặt cú pháp vẫn biên dịch được, nhưng vô nghĩa về logic (framework đọc
+annotation đó, mong đợi ngữ cảnh method, sẽ xử lý sai hoặc bỏ qua trong im lặng).
+<code>@Target(ElementType.METHOD)</code> khiến <code>javac</code> <strong>chặn ngay lúc biên dịch</strong> nếu ai đó cố gắn
+<code>@ApiEndpoint</code> lên một field — chuyển một lớp lỗi tiềm ẩn từ "phát hiện lúc chạy (nếu may
+mắn)" sang "chặn lúc biên dịch", đúng triết lý chung của Java ưu tiên bắt lỗi sớm đã thấy
+xuyên suốt nhiều chapter trước (Generics — Chapter 16, hợp đồng equals — Chapter 12).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao Spring "thần kỳ" tự động tạo bean, tự động tiêm dependency chỉ từ vài annotation —
+liệu có phép màu nào không?</strong> Không có phép màu nào cả — cơ chế hoàn toàn nằm gọn trong những
+gì chapter này vừa học: annotation RUNTIME (<code>@Component</code>, <code>@Autowired</code>...) chỉ là <strong>dữ liệu
+mô tả</strong>, hoàn toàn thụ động. "Phép màu" thực sự nằm ở một đoạn code Spring viết sẵn (chạy lúc
+ứng dụng khởi động), dùng Reflection (Chapter 19) quét toàn bộ class trong classpath, tìm
+những class/method/field có gắn annotation RUNTIME nó quan tâm, rồi <strong>tự viết code thay bạn</strong>
+dựa trên dữ liệu đọc được (tạo instance, gọi setter/constructor để tiêm dependency...). Nói
+cách khác: annotation là "hợp đồng khai báo ý định", còn Reflection (Chapter 19) là "cơ chế
+thực thi hợp đồng đó" — hai thứ tách biệt nhưng luôn đi cùng nhau trong mọi framework dựa trên
+annotation.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Trước Java 5 (2004)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    ↓
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Metadata gắn với code chủ yếu qua: comment đặc biệt (Javadoc tags),
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>hoặc file cấu hình XML riêng biệt (rất phổ biến trong các framework Java
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>thời kỳ đầu như EJB 2, Struts, Hibernate bản cũ — &quot;XML hell&quot;)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    ↓
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Java 5 (2004) — JSR 175: A Metadata Facility for the Java Programming
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Language — annotation ra đời như một phần cú pháp ngôn ngữ chính thức
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    ↓
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Hệ sinh thái Java dần chuyển từ &quot;cấu hình bằng XML&quot; sang &quot;cấu hình bằng
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>annotation ngay trong code&quot; — Spring, Hibernate, JAX-RS đều đi theo xu
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>hướng này, dù XML vẫn còn hỗ trợ song song ở nhiều nơi vì lý do tương
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>thích ngược
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Annotation tự nó thay đổi hành vi chương trình, giống như một dạng lệnh đặc
+  biệt."
+  <strong>Reality:</strong> Annotation hoàn toàn <strong>thụ động</strong> — nó chỉ là dữ liệu. Hành vi thực tế (nếu
+  có) luôn đến từ một đoạn code khác (thường dùng Reflection) chủ động đọc annotation đó rồi
+  quyết định làm gì — xem Engineering Insight.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Mọi annotation đều đọc được bằng Reflection, vì chúng đều xuất hiện trong code."
+  <strong>Reality:</strong> Chỉ annotation có <code>@Retention(RetentionPolicy.RUNTIME)</code> mới đọc được — bằng
+  chứng trực tiếp ở Example (<code>@SourceOnly</code>/<code>@ClassOnly</code> biến mất hoàn toàn khỏi tầm nhìn của
+  Reflection).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Viết custom annotation quên khai báo <code>@Retention(RetentionPolicy.RUNTIME)</code></strong> — mặc định
+  (không khai báo <code>@Retention</code> gì cả) là <code>CLASS</code>, khiến annotation "có vẻ đúng" lúc biên dịch
+  nhưng Reflection <strong>không bao giờ đọc được</strong> lúc chạy — lỗi rất khó nhận ra vì không có bất
+  kỳ cảnh báo/exception nào, code chỉ âm thầm "không hoạt động như mong đợi".</li>
+<li><strong>Quên <code>@Target</code></strong> — annotation bị gắn nhầm chỗ, framework đọc annotation không tìm thấy ở
+  vị trí mong đợi, gây lỗi khó truy vết.</li>
+<li><strong>Tưởng annotation có "logic" bên trong</strong> — annotation chỉ có thể khai báo tham số (kiểu dữ
+  liệu, giá trị mặc định), <strong>không thể chứa method có thân/logic thực thi</strong> như một class
+  thông thường.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn khai báo tường minh <code>@Retention</code> cho custom annotation, đừng dựa vào giá trị mặc định
+  (<code>CLASS</code>) — dễ gây nhầm lẫn cho người đọc code sau này.</li>
+<li>Luôn khai báo <code>@Target</code> phù hợp để trình biên dịch tự chặn việc gắn sai chỗ.</li>
+<li>Khi thiết kế annotation cho một framework/thư viện nội bộ, luôn viết kèm đoạn code đọc
+  annotation đó (dùng Reflection) ngay từ đầu — annotation không đi kèm code xử lý là một
+  annotation vô dụng.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một tính năng dựa trên custom annotation (ví dụ tự viết validation, tự viết
+audit-logging bằng annotation nội bộ) hoạt động đúng trên máy dev khi test riêng lẻ, nhưng
+"không có tác dụng gì" khi chạy trong ứng dụng thật.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> không có exception, không có log lỗi — annotation "trông như được gắn
+  đúng" trong code nhưng hành vi mong đợi (validate, log...) không bao giờ xảy ra.</li>
+<li><strong>Root cause:</strong> gần như luôn là annotation quên khai báo <code>RetentionPolicy.RUNTIME</code> (mặc
+  định <code>CLASS</code>) — đúng Common Mistakes phổ biến nhất của chapter này.</li>
+<li><strong>Debug:</strong> viết một đoạn code Reflection tối thiểu (giống <code>RetentionDemo</code> ở Example) để tự
+  kiểm tra annotation có thực sự đọc được lúc runtime không, trước khi nghi ngờ bất kỳ logic
+  nào khác.</li>
+<li><strong>Solution:</strong> thêm <code>@Retention(RetentionPolicy.RUNTIME)</code> vào định nghĩa annotation.</li>
+<li><strong>Prevention:</strong> viết unit test riêng cho <strong>chính annotation</strong> (không chỉ test logic nghiệp
+  vụ dùng nó) — xác nhận annotation đọc được qua Reflection như một phần của bộ test, không
+  chỉ ngầm giả định.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Custom annotation "không có tác dụng" dù code trông đúng? → kiểm tra ngay
+      <code>@Retention(RetentionPolicy.RUNTIME)</code> có được khai báo tường minh không.</li>
+<li>[ ] Annotation bị framework "bỏ qua" ở một vị trí cụ thể? → kiểm tra <code>@Target</code> có cho phép
+      gắn ở đúng vị trí đó không.</li>
+<li>[ ] Muốn xác nhận nhanh một annotation có đọc được qua Reflection không? → viết đoạn code
+      tối thiểu như <code>RetentionDemo</code> ở Example, chạy thử trực tiếp.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Annotation <code>RUNTIME</code> được lưu trong <code>.class</code> dưới dạng một cấu trúc dữ liệu riêng gọi là
+<code>RuntimeVisibleAnnotations</code> (một phần của class file format, JVM Specification §4.7.16) —
+đây chính là "kho dữ liệu" mà <code>Method.getAnnotations()</code> (Reflection, Chapter 19) đọc ra lúc
+runtime. Annotation <code>CLASS</code> cũng được lưu trong <code>.class</code> nhưng ở một mục khác
+(<code>RuntimeInvisibleAnnotations</code>) mà JVM không nạp vào cấu trúc <code>Method</code>/<code>Class</code> khả dụng cho
+Reflection lúc chạy — đây là cơ chế cụ thể (không chỉ là quy ước) giải thích chính xác tại sao
+<code>RetentionPolicy</code> lại tạo ra khác biệt rõ ràng đến vậy ở tầng bytecode.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Annotation là metadata gắn vào code, bản thân <strong>hoàn toàn thụ động</strong>, không tự làm gì cả —
+hành vi thực tế (nếu có) luôn tới từ code khác (thường dùng Reflection, Chapter 19) chủ động
+đọc và xử lý nó. <code>@Retention</code> quyết định annotation "sống sót" tới đâu: <code>SOURCE</code> (biến mất
+sau biên dịch, như <code>@Override</code>), <code>CLASS</code> (có trong bytecode nhưng JVM không nạp lúc runtime,
+mặc định nếu không khai báo), <code>RUNTIME</code> (đọc được qua Reflection — bắt buộc cho mọi annotation
+mà framework như Spring/Hibernate cần xử lý lúc chạy). Quên khai báo <code>RUNTIME</code> là lỗi phổ biến
+nhất, âm thầm khiến annotation "vô dụng" mà không có bất kỳ cảnh báo nào.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Annotation là gì? <code>@Override</code> có ảnh hưởng gì tới chương trình lúc chạy không?</li>
+<li><code>@Retention</code> dùng để làm gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Phân biệt <code>RetentionPolicy.SOURCE</code>, <code>CLASS</code>, <code>RUNTIME</code>. Loại nào Spring cần dùng cho
+  <code>@Autowired</code>, vì sao?</li>
+<li>Viết một custom annotation có tham số, khai báo đúng <code>@Retention</code> và <code>@Target</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cơ chế Spring dùng annotation + Reflection để "tự động" tạo bean/tiêm
+  dependency — không có phép màu nào, hãy mô tả từng bước cụ thể.</li>
+<li>Annotation được lưu ở đâu trong file <code>.class</code>? Giải thích vì sao <code>RuntimeVisibleAnnotations</code>
+  và <code>RuntimeInvisibleAnnotations</code> là hai cấu trúc tách biệt, không phải một cờ đơn giản.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>RetentionDemo</code> ở trên, xác nhận chỉ 1/3 annotation đọc được.</li>
+<li>[ ] Viết custom annotation <code>@ApiEndpoint</code> như ở phần How?, gắn lên một vài method của một
+      class tự chọn, viết đoạn code Reflection quét toàn bộ method của class đó, in ra
+      <code>path()</code> của những method có gắn annotation.</li>
+<li>[ ] Cố tình quên <code>@Retention</code> (dùng mặc định) cho một annotation, viết code Reflection cố
+      đọc nó — xác nhận nhận được <code>null</code>/không thấy annotation nào, tự tái hiện đúng lỗi phổ
+      biến đã nêu ở Common Mistakes/Production Notes.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>RetentionPolicy</th>
+<th>Có trong <code>.class</code>?</th>
+<th>Đọc được qua Reflection?</th>
+<th>Ví dụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SOURCE</code></td>
+<td>Không</td>
+<td>Không</td>
+<td><code>@Override</code>, <code>@SuppressWarnings</code></td>
+</tr>
+<tr>
+<td><code>CLASS</code> (mặc định)</td>
+<td>Có</td>
+<td>Không</td>
+<td>Công cụ phân tích bytecode (ít gặp trong code nghiệp vụ)</td>
+</tr>
+<tr>
+<td><code>RUNTIME</code></td>
+<td>Có</td>
+<td>Có</td>
+<td><code>@Autowired</code>, <code>@Entity</code>, mọi annotation Spring/Hibernate cần</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Meta-annotation</th>
+<th>Việc gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Retention</code></td>
+<td>Quyết định vòng đời annotation</td>
+</tr>
+<tr>
+<td><code>@Target</code></td>
+<td>Giới hạn vị trí được phép gắn (method, field, class...)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 9.6: Annotation Types.</li>
+<li>Java Virtual Machine Specification (Oracle) — §4.7.16: The RuntimeVisibleAnnotations
+  Attribute.</li>
+<li>JSR 175: A Metadata Facility for the Java Programming Language.</li>
 </ul>
 
 

@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:generics" class="md-tag">Generics</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,358 @@ Chapter slug: <code>generics</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generics</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Execution Engine (bytecode, javap)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — OOP Fundamentals</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">List, Map, mọi Collection (Phase 2) — Generics là nền tảng của toàn bộ Collection Framework</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional, Stream (Phase 4)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Repository&lt;T, ID&gt; (Phase 6 — Spring Data JPA) — generic interface là trung tâm thiết kế</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Chạy đoạn code sau và đoán kết quả trước khi đọc tiếp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ints</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span>
+</code></pre></div>
+<p>Trực giác nói: <code>List&lt;String&gt;</code> và <code>List&lt;Integer&gt;</code> là hai kiểu khác nhau — trình biên dịch chắc
+chắn không cho gán <code>List&lt;String&gt;</code> vào biến <code>List&lt;Integer&gt;</code>. Vậy kết quả chắc là <code>false</code>?</p>
+<p>Kết quả thật: <strong><code>true</code></strong>. Cả <code>strings</code> lẫn <code>ints</code> đều có <code>getClass()</code> trả về <strong>chính xác cùng
+một object</strong> <code>java.util.ArrayList</code>. Generics — thứ bạn dùng hàng ngày để có được sự an toàn
+kiểu dữ liệu lúc biên dịch — <strong>hoàn toàn biến mất</strong> lúc runtime. Đây không phải bug, mà là một
+quyết định thiết kế có chủ đích, để lại dấu ấn trong gần như mọi ngóc ngách của Generics Java:
+tại sao không tạo được mảng <code>new T[10]</code>, tại sao <code>instanceof List&lt;String&gt;</code> không hợp lệ, tại
+sao có <code>&lt;? extends T&gt;</code> và <code>&lt;? super T&gt;</code> kỳ lạ. Chapter này giải thích tất cả, bắt đầu từ đúng
+cơ chế đứng sau: <strong>type erasure</strong>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vì sao <code>List&lt;String&gt;</code> và <code>List&lt;Integer&gt;</code> có cùng một <code>.class</code> lúc runtime? Type erasure là
+gì, và nó gây ra những giới hạn cụ thể nào khi dùng Generics?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích được type erasure: thông tin kiểu generic chỉ tồn tại lúc compile, bị "xoá"
+      ở bytecode</li>
+<li>[ ] Tự tay xác nhận erasure bằng <code>getClass()</code> và bằng đọc bytecode thật</li>
+<li>[ ] Viết được generic method/class của riêng bạn</li>
+<li>[ ] Dùng đúng wildcard <code>&lt;? extends T&gt;</code> và <code>&lt;? super T&gt;</code>, hiểu vì sao chúng tồn tại (nguyên
+      tắc PECS)</li>
+<li>[ ] Biết những giới hạn cụ thể mà erasure gây ra: không <code>new T[]</code>, không <code>instanceof T</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — biết đọc <code>javap -c</code> ở mức cơ bản.</li>
+<li>Chapter 08 — hiểu Inheritance, để hiểu <code>&lt;? extends T&gt;</code>/<code>&lt;? super T&gt;</code> liên hệ tới quan hệ
+  kế thừa.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>List, Map, mọi Collection</strong> (Phase 2) — toàn bộ Collection Framework được thiết kế dựa
+  trên Generics; hiểu erasure giải thích được một số hành vi "kỳ lạ" của Collection (ví dụ vì
+  sao không thể tạo <code>new ArrayList&lt;String&gt;[10]</code>).</li>
+<li><strong>Repository<T, ID></strong> (Phase 6 — Spring Data JPA) — Spring Data dùng generic interface làm
+  trung tâm thiết kế (<code>JpaRepository&lt;Product, Long&gt;</code>) — hiểu Generics ở mức nguồn gốc giúp
+  đọc hiểu code Spring dễ dàng hơn nhiều.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Trước Java 5 (2004), <code>Collection</code> (Phase 2) không có Generics — một <code>List</code> có thể chứa <strong>bất
+kỳ kiểu gì</strong> lẫn lộn (<code>Object</code>), buộc phải tự ép kiểu (cast) mỗi khi lấy phần tử ra, và lỗi ép
+kiểu sai chỉ lộ ra lúc <strong>runtime</strong> (<code>ClassCastException</code>), không phải lúc biên dịch. Cần một
+cơ chế để trình biên dịch <strong>tự kiểm tra kiểu</strong> ngay lúc viết code, bắt lỗi sớm hơn, nhưng đồng
+thời phải <strong>không phá vỡ</strong> hàng triệu dòng code Java cũ (trước Generics) đã và đang chạy trong
+production trên khắp thế giới.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Type erasure</strong>: trình biên dịch dùng thông tin kiểu generic (<code>&lt;String&gt;</code>, <code>&lt;Integer&gt;</code>...) để
+<strong>kiểm tra</strong> tại thời điểm biên dịch, rồi <strong>xoá bỏ hoàn toàn</strong> thông tin đó khi sinh bytecode
+— thay <code>T</code> bằng <code>Object</code> (hoặc bằng giới hạn cụ thể nếu có <code>extends</code>), và tự động chèn thêm
+lệnh ép kiểu (<code>checkcast</code>) ở đúng những chỗ cần thiết để đảm bảo an toàn.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Sau erasure, bytecode thực chất tương đương (về mặt khái niệm) với:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">class</span> <span class="nc">Box</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu Java giữ nguyên thông tin kiểu generic tới tận runtime (như C# làm — gọi là <em>reified
+generics</em>): mọi thư viện <code>.class</code> đã biên dịch trước Java 5 sẽ <strong>không tương thích</strong> với
+Generics mới, buộc phải biên dịch lại toàn bộ hệ sinh thái Java đang chạy khắp nơi — một chi
+phí không tưởng. Type erasure là lựa chọn có chủ đích để đạt <strong>tương thích ngược hoàn toàn</strong>
+(binary compatibility): code cũ (không dùng Generics) và code mới (có dùng Generics) sinh ra
+bytecode <strong>tương thích lẫn nhau</strong>, có thể trộn lẫn trong cùng một chương trình mà không cần
+biên dịch lại bất cứ thứ gì đã có.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Compile-time (javac kiểm tra kiểu):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  List&lt;String&gt; list = new ArrayList&lt;&gt;();
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  list.add(&quot;ok&quot;);        ✓ đúng kiểu
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  list.add(123);          ✗ LỖI BIÊN DỊCH — javac chặn ngay tại đây
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        │  ERASURE — xoá thông tin kiểu generic
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        ▼
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Runtime (bytecode, sau erasure):
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  List list = new ArrayList();      // không còn &lt;String&gt;
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  list.add(&quot;ok&quot;);
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  String s = (String) list.get(0);  // javac tự chèn checkcast ở ĐIỂM LẤY RA,
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>                                      // không phải điểm thêm vào
+</code></pre></div>
+<p>Đây là lý do <code>ClassCastException</code> (nếu có, ví dụ khi trộn code generic với code cũ không dùng
+Generics) luôn xảy ra ở <strong>điểm lấy phần tử ra và ép kiểu</strong>, không phải điểm thêm vào — vì bản
+thân việc "thêm vào" một <code>List</code> đã erasure không hề kiểm tra kiểu gì ở tầng bytecode.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>                Trước erasure (chỉ tồn tại lúc compile)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                ┌──────────────────────────┐
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>List&lt;String&gt;    │  javac KIỂM TRA KIỂU Ở    │
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>                │  ĐÂY — nếu sai, chặn      │
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>                │  ngay, KHÔNG cho biên     │
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>                │  dịch ra .class           │
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>                └──────────────────────────┘
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>                            │
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>                            │  ERASURE
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                            ▼
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>                ┌──────────────────────────┐
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>List (raw)      │  Bytecode: List           │
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>                │  KHÔNG còn dấu vết         │
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>                │  &lt;String&gt; ở đây nữa        │
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>                └──────────────────────────┘
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận erasure bằng hai cách độc lập — <code>getClass()</code> và đọc bytecode thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ErasureDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ints</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">firstElement</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>true
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>class java.util.ArrayList
+</code></pre></div>
+<p>Và bytecode thật của method generic <code>firstElement</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>static &lt;T&gt; T firstElement(java.util.List&lt;T&gt;);
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  Code:
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>     0: aload_0
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>     1: iconst_0
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>     2: invokeinterface #29,  2  // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>     7: areturn
+</code></pre></div>
+<p>Chú ý dòng <code>invokeinterface</code>: nó gọi <code>List.get(I)</code> và khai báo kiểu trả về là
+<strong><code>Ljava/lang/Object;</code></strong> — không phải <code>T</code>, vì bytecode không có khái niệm <code>T</code>. Điểm ép kiểu về
+đúng <code>T</code> (thành <code>Object</code> cụ thể tuỳ ngữ cảnh gọi) xảy ra ở <strong>phía người gọi</strong>, không phải bên
+trong <code>firstElement</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao không thể viết <code>new T[10]</code> bên trong một class generic?</strong> Vì tạo mảng
+(<code>anewarray</code> trong bytecode) cần biết <strong>chính xác kiểu phần tử ngay lúc runtime</strong> để JVM gắn
+đúng metadata kiểu cho mảng đó (mảng trong Java, khác <code>List</code>, có kiểm tra kiểu lúc runtime khi
+gán phần tử — gọi là <em>covariant array with runtime checks</em>, một chi tiết riêng của mảng Java).
+Nhưng sau erasure, <code>T</code> <strong>không còn tồn tại</strong> ở bytecode — JVM không có cách nào biết "tạo mảng
+kiểu gì" tại điểm đó. Đây là giới hạn trực tiếp, cụ thể, dễ kiểm chứng nhất của type erasure —
+không phải một quy tắc tuỳ tiện, mà là hệ quả tất yếu của thiết kế đã học ở phần Concept.</p>
+<p>Tương tự, <code>instanceof List&lt;String&gt;</code> không hợp lệ (chỉ <code>instanceof List</code> hợp lệ) — vì lúc
+runtime, JVM chỉ còn biết đó là một <code>List</code>, không còn biết <code>&lt;String&gt;</code> hay <code>&lt;Integer&gt;</code> để so
+sánh.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Wildcard <code>&lt;? extends T&gt;</code> và <code>&lt;? super T&gt;</code> giải quyết vấn đề gì mà <code>&lt;T&gt;</code> thường không giải
+quyết được?</strong> Xét bài toán: một method nhận <code>List&lt;Product&gt;</code> để <strong>đọc</strong> dữ liệu, nhưng bạn
+muốn truyền vào cả <code>List&lt;DiscountedProduct&gt;</code> (lớp con — Chapter 08). Với khai báo
+<code>List&lt;Product&gt;</code> thông thường, điều này <strong>không được phép</strong> (dù <code>DiscountedProduct extends
+Product</code>) — vì Generics không tự động "hiệp biến" (covariant) như mảng: nếu cho phép, code bên
+trong method có thể <code>list.add(new Product(...))</code> vào một <code>List</code> mà thực chất chỉ nên chứa
+<code>DiscountedProduct</code>, phá vỡ an toàn kiểu ngay lúc runtime.</p>
+<p><code>&lt;? extends Product&gt;</code> giải quyết đúng bài toán "chỉ đọc từ list của Product hoặc lớp con nào
+đó" mà không quan tâm chính xác là lớp con nào — đổi lại, bên trong method <strong>không được phép
+<code>add()</code></strong> gì vào list đó nữa (trình biên dịch không biết chính xác kiểu cụ thể, không thể đảm
+bảo an toàn nếu cho thêm vào). Nguyên tắc ghi nhớ kinh điển là <strong>PECS</strong> — <em>Producer Extends,
+Consumer Super</em>: dùng <code>&lt;? extends T&gt;</code> khi list chỉ <strong>sản xuất</strong> (đưa) dữ liệu ra cho bạn đọc;
+dùng <code>&lt;? super T&gt;</code> khi list chỉ <strong>tiêu thụ</strong> (nhận) dữ liệu bạn đưa vào.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Trước Java 5 (2004)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Collection không có Generics — List chứa Object, phải tự ép kiểu thủ công,
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>lỗi ép kiểu sai chỉ lộ ra lúc RUNTIME (ClassCastException)
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    ↓
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Java 5 (2004) — Generics ra đời, dùng TYPE ERASURE để giữ tương thích ngược
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>hoàn toàn với toàn bộ code/thư viện đã biên dịch trước đó
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    ↓
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Từ đó tới nay — thiết kế erasure không đổi, dù gây một số giới hạn (Deep Dive)
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>được đánh đổi lấy khả năng tương thích ngược tuyệt đối — một quyết định vẫn
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>còn gây tranh luận trong cộng đồng Java về việc có nên đổi sang reified
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>generics hay không, nhưng chưa có thay đổi chính thức nào
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>List&lt;String&gt;</code> và <code>List&lt;Integer&gt;</code> là hai kiểu khác nhau lúc runtime, giống như
+  hai class khác nhau."
+  <strong>Reality:</strong> Xem Example — cả hai đều là cùng một <code>java.util.ArrayList</code> lúc runtime, khác
+  biệt <strong>chỉ tồn tại lúc biên dịch</strong>, hoàn toàn biến mất sau erasure.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Generics làm chương trình chạy chậm hơn vì phải kiểm tra kiểu lúc runtime."
+  <strong>Reality:</strong> Ngược lại — vì erasure loại bỏ thông tin kiểu khỏi bytecode, <strong>không có</strong> kiểm
+  tra kiểu generic nào xảy ra lúc runtime (chỉ có <code>checkcast</code> ở đúng những điểm cần thiết, y
+  hệt như code Java cũ tự ép kiểu thủ công trước Java 5) — Generics không thêm chi phí runtime
+  đáng kể nào so với cách viết code thủ công tương đương trước đó.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Nhầm lẫn lỗi biên dịch (compile-time) với an toàn tuyệt đối lúc runtime.</strong> Generics chỉ
+  bảo vệ ở tầng biên dịch; nếu trộn lẫn code generic với code "raw type" cũ (không dùng
+  Generics) một cách cẩu thả, <code>ClassCastException</code> vẫn có thể xảy ra lúc runtime — Generics
+  không phải "phép màu" loại bỏ hoàn toàn khả năng lỗi kiểu.</li>
+<li><strong>Cố tạo mảng generic</strong> (<code>new T[10]</code> hoặc <code>new List&lt;String&gt;[10]</code>) rồi bối rối vì lỗi biên
+  dịch — xem lý do chính xác ở Deep Dive.</li>
+<li><strong>Dùng <code>&lt;? extends T&gt;</code> rồi cố <code>add()</code> vào nó</strong> — vi phạm đúng nguyên tắc PECS ở Engineering
+  Insight, trình biên dịch sẽ chặn ngay.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn khai báo kiểu generic cụ thể (<code>List&lt;Product&gt;</code>), tránh dùng "raw type" (<code>List</code> không có
+  <code>&lt;&gt;</code>) trong code mới — raw type chỉ nên gặp khi tương tác với code rất cũ, trước Java 5.</li>
+<li>Áp dụng đúng PECS khi thiết kế method nhận tham số kiểu Collection: <code>&lt;? extends T&gt;</code> cho
+  tham số chỉ đọc, <code>&lt;? super T&gt;</code> cho tham số chỉ ghi vào.</li>
+<li>Không cần lo lắng về "chi phí hiệu năng của Generics" — như Myth vs Reality đã làm rõ, gần
+  như không có chi phí runtime đáng kể.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p>Type erasure hiếm khi trực tiếp gây sự cố production nghiêm trọng như các chapter JVM trước
+đó (Chapter 04-07) — ảnh hưởng thực tế chủ yếu là <strong>cảnh báo lúc biên dịch</strong> (<code>unchecked cast</code>
+warning) khi trộn code generic với code cũ/thư viện không dùng Generics đúng cách. Ảnh hưởng
+gián tiếp đáng chú ý nhất: serialization/deserialization JSON (sẽ gặp ở Phase 5 — Spring REST)
+với kiểu generic phức tạp (<code>List&lt;Product&gt;</code>) đôi khi gặp vấn đề chính xác vì thông tin kiểu đã
+bị erasure — các thư viện như Jackson phải dùng kỹ thuật đặc biệt (<code>TypeReference</code>) để "vòng
+qua" giới hạn erasure này khi deserialize.</p>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Cảnh báo biên dịch "unchecked cast" hoặc "raw type"? → thường là dấu hiệu đang trộn code
+      generic với code cũ không dùng <code>&lt;&gt;</code> — nên rà soát và thêm kiểu cụ thể.</li>
+<li>[ ] <code>ClassCastException</code> xảy ra dù code "trông có vẻ" dùng Generics đúng? → tìm điểm nào
+      trong luồng dữ liệu có dùng raw type hoặc ép kiểu thủ công, đó thường là nơi an toàn
+      kiểu bị phá vỡ.</li>
+<li>[ ] Deserialize JSON vào <code>List&lt;CustomType&gt;</code> nhưng nhận được lỗi/kiểu sai? → nghi ngờ mất
+      thông tin kiểu generic do erasure, tìm giải pháp kiểu <code>TypeReference</code> của thư viện JSON
+      đang dùng (Phase 5).</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Đã thực hiện trực tiếp ở phần Example: bytecode của một generic method (<code>firstElement</code>) không
+chứa bất kỳ dấu vết nào của tham số kiểu <code>T</code> — chỉ có <code>Ljava/lang/Object;</code>. Đây là bằng chứng
+bytecode cụ thể, tự kiểm chứng được bằng <code>javap -c</code> trên bất kỳ generic method nào bạn tự viết,
+không cần đọc source OpenJDK.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Type erasure</strong>: <code>javac</code> dùng thông tin kiểu generic để kiểm tra an toàn lúc biên dịch, rồi
+xoá bỏ hoàn toàn khi sinh bytecode (thay <code>T</code> bằng <code>Object</code>, tự chèn <code>checkcast</code> ở điểm lấy dữ
+liệu ra) — mục đích là giữ <strong>tương thích ngược hoàn toàn</strong> với code Java trước Java 5. Hệ quả
+trực tiếp: <code>List&lt;String&gt;</code> và <code>List&lt;Integer&gt;</code> có cùng <code>.class</code> lúc runtime; không thể
+<code>new T[]</code>; không thể <code>instanceof List&lt;String&gt;</code>. Wildcard <code>&lt;? extends T&gt;</code>/<code>&lt;? super T&gt;</code> giải
+quyết bài toán kế thừa trong Generics (không hiệp biến tự động như mảng), theo nguyên tắc
+PECS: Producer Extends, Consumer Super.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Type erasure là gì?</li>
+<li><code>List&lt;String&gt;</code> và <code>List&lt;Integer&gt;</code> có phải hai kiểu khác nhau lúc runtime không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao không thể viết <code>new T[10]</code> bên trong một class generic?</li>
+<li><code>&lt;? extends T&gt;</code> và <code>&lt;? super T&gt;</code> khác nhau như thế nào? Cho ví dụ khi nào dùng cái nào.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích nguyên tắc PECS (Producer Extends, Consumer Super) bằng một ví dụ cụ thể bạn tự
+  nghĩ ra, không phải ví dụ trong chapter.</li>
+<li>So sánh type erasure (Java) với reified generics (C#) — đánh đổi chính giữa hai cách tiếp
+  cận là gì? Nếu Java thiết kế lại từ đầu hôm nay, bạn nghĩ nên chọn cách nào?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ErasureDemo</code> ở trên, xác nhận <code>getClass()</code> giống hệt và đọc
+      bytecode bằng <code>javap -c</code> để tự thấy <code>Ljava/lang/Object;</code>.</li>
+<li>[ ] Viết một class generic <code>Box&lt;T&gt;</code> với method <code>T get()</code>/<code>void set(T value)</code>, dùng
+      <code>javap -c</code> xem bytecode, xác nhận field bên trong thực chất là kiểu <code>Object</code>.</li>
+<li>[ ] Viết một method <code>static void copy(List&lt;? extends Number&gt; src, List&lt;? super Number&gt; dst)</code>
+      — thử cố tình <code>add()</code> vào <code>src</code> để tự thấy lỗi biên dịch PECS ngăn chặn.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Giới hạn do erasure</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Không <code>new T[10]</code></td>
+<td>JVM cần biết kiểu chính xác lúc tạo mảng, <code>T</code> đã bị xoá</td>
+</tr>
+<tr>
+<td>Không <code>instanceof List&lt;String&gt;</code></td>
+<td>Lúc runtime chỉ còn biết là <code>List</code>, không còn <code>&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td>Không tạo <code>static</code> field kiểu <code>T</code></td>
+<td>Field static dùng chung cho MỌI tham số hoá kiểu của class</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Wildcard</th>
+<th>Dùng khi</th>
+<th>Được phép</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;? extends T&gt;</code></td>
+<td>Chỉ đọc (Producer)</td>
+<td><code>get()</code>, không <code>add()</code></td>
+</tr>
+<tr>
+<td><code>&lt;? super T&gt;</code></td>
+<td>Chỉ ghi (Consumer)</td>
+<td><code>add()</code>, <code>get()</code> trả về <code>Object</code></td>
+</tr>
+<tr>
+<td><code>&lt;T&gt;</code></td>
+<td>Cả đọc lẫn ghi, kiểu cố định</td>
+<td><code>get()</code> và <code>add()</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 4.6: Type Erasure.</li>
+<li>Oracle: "The Java Tutorials — Generics" (phần Type Erasure, Wildcards).</li>
+<li>Effective Java (Joshua Bloch) — Item 28: "Prefer lists to arrays", Item 31: "Use bounded
+  wildcards to increase API flexibility" (nguồn gốc thuật ngữ PECS).</li>
 </ul>
 
 
