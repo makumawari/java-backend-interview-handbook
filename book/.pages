@@ -1,0 +1,14 @@
+nav:
+  - phase-01-foundation
+  - phase-02-collections
+  - phase-03-concurrency
+  - phase-04-modern-java
+  - phase-05-spring
+  - phase-06-persistence
+  - phase-07-database
+  - phase-08-production
+  - phase-09-architecture
+  - phase-10-interview
+  - glossary.md
+  - cross-reference-index.md
+  - production-playbook.md

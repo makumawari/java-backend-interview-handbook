@@ -1,0 +1,60 @@
+site_name: Java Backend Engineering Handbook
+site_description: Handbook Java Backend bằng tiếng Việt — JVM, Collections, Concurrency, Spring, Persistence, Production, Architecture, Interview.
+# site_url / repo_url: điền khi đã có GitHub remote, cần cho sitemap.xml và nút "Edit this page".
+# site_url: https://<user>.github.io/<repo>/
+# repo_url: https://github.com/<user>/<repo>
+
+docs_dir: book
+
+theme:
+  name: material
+  language: vi
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Chuyển sang chế độ tối
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Chuyển sang chế độ sáng
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+plugins:
+  - search:
+      lang:
+        - vi
+        - en
+  - tags
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true

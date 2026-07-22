@@ -9,7 +9,7 @@
 
 ## API chậm
 
-TODO — xem [cross-reference-index.md](cross-reference-index.md#api-chậm-ở-production)
+TODO — xem hàng "API chậm ở production" trong [cross-reference-index.md](cross-reference-index.md)
 
 ## Memory Leak
 
