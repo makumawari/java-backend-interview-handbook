@@ -2,12 +2,13 @@
 
 ## Project Specification
 
-Version: 1.2
+Version: 1.3
 
-> **v1.2 (2026-07-23)**: thêm 3 chapter (Reactive Programming, NoSQL, Messaging) sau khi so
-> sánh phạm vi với *Modern Java in Action* và *Spring in Action*. **v1.1**: sửa các mâu
-> thuẫn/gap phát hiện khi scaffold repo lần đầu. Chi tiết từng thay đổi ở
-> [`spec/CHANGELOG.md`](CHANGELOG.md).
+> **v1.3 (2026-07-23)**: Tags của mỗi chapter chuyển sang YAML front matter thật (để
+> MkDocs Material tag-filter chạy được), tách khỏi block Metadata trong thân bài. **v1.2**:
+> thêm 3 chapter (Reactive Programming, NoSQL, Messaging) sau khi so sánh phạm vi với
+> *Modern Java in Action* và *Spring in Action*. **v1.1**: sửa các mâu thuẫn/gap phát hiện
+> khi scaffold repo lần đầu. Chi tiết từng thay đổi ở [`spec/CHANGELOG.md`](CHANGELOG.md).
 
 ---
 

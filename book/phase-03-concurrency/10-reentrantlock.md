@@ -1,3 +1,8 @@
+---
+tags:
+  - TODO
+---
+
 # ReentrantLock
 
 > Phase: Phase 3 — Concurrency
@@ -15,11 +20,12 @@ Prerequisites:
   - TODO
 Used Later:
   - TODO
-Tags:
-  - TODO
 Estimated Reading: TODO
 Estimated Practice: TODO
 ```
+
+> Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
+> filter trên site MkDocs, không lặp lại trong block Metadata này.
 
 ## Story
 

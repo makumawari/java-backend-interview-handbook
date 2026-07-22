@@ -1,5 +1,27 @@
 # Specification Changelog
 
+## v1.3 (2026-07-23)
+
+Bật tag filter thật trên site MkDocs (`mkdocs.yml` plugin `tags`).
+
+### Part 5 — Knowledge Graph
+
+- §17 "Chapter Tags": làm rõ Tags phải nằm ở **YAML front matter thật** (khối `---` đầu
+  file, trước H1) chứ không chỉ trong code block "Metadata" ở thân bài — MkDocs Material
+  chỉ đọc tag từ front matter thật, không đọc được YAML lồng trong fenced code block.
+
+### book/ scaffold + mkdocs.yml
+
+- Mỗi chapter giờ có front matter `---\ntags:\n  - TODO\n---` ở đầu file; dòng `Tags:`
+  trong block Metadata thân bài được thay bằng ghi chú trỏ sang front matter (tránh 2
+  nguồn sự thật).
+- `mkdocs.yml`: bỏ option `tags_file` (đã deprecated ở mkdocs-material 9.7.7), thay bằng
+  trang `book/tags.md` chứa directive `<!-- material/tags -->` — cú pháp đúng của phiên
+  bản plugin hiện tại.
+- Đã verify bằng `mkdocs serve` + browser thật: trang `/tags/` hiển thị đúng danh sách
+  139 chapter dưới tag "TODO" (placeholder, sẽ tách nhỏ khi viết tag thật cho từng
+  chapter); mở một chapter (HashMap) thấy chip tag ngay trên tiêu đề.
+
 ## v1.2 (2026-07-23)
 
 Sau khi so sánh phạm vi roadmap với hai cuốn sách được tham chiếu ở Part 1

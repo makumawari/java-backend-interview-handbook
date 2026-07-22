@@ -791,6 +791,27 @@ Production
 
 Giúp tìm kiếm nhanh.
 
+> **Bổ sung v1.3**: để công cụ dựng site (MkDocs Material — xem `mkdocs.yml` ở repo gốc)
+> lọc được theo tag thật sự, danh sách Tags phải nằm ở **YAML front matter thật** — khối
+> `---` đầu tiên của file, trước cả H1 — chứ không phải chỉ nằm trong code block "Metadata"
+> ở thân bài (khối đó vẫn giữ Difficulty/Importance/Prerequisites/Used Later/Estimated
+> Reading/Estimated Practice như Part 5 §2, nhưng không lặp lại Tags nữa để tránh hai nguồn
+> sự thật). Ví dụ đầu file thật:
+>
+> ```markdown
+> ---
+> tags:
+>   - HashMap
+>   - Collections
+>   - Interview
+> ---
+>
+> # HashMap
+> ```
+>
+> Front matter vẫn hiển thị được khi xem raw file trên GitHub (dạng khối kẻ ngang), không
+> vi phạm quy chuẩn "dễ render trên GitHub" ở Part 3 §4.
+
 ---
 
 # 18. Estimated Time
