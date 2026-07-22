@@ -22,20 +22,23 @@ book/    Nội dung handbook, chia theo Phase → Chapter
 | [raw-interview-questions.md](spec/raw-interview-questions.md) | Danh sách câu hỏi phỏng vấn thô — đã được phân phối vào `book/` |
 | [CHANGELOG.md](spec/CHANGELOG.md) | Lịch sử thay đổi specification (v1.0 → v1.1) |
 
-## book/ — 10 Phase, 136 chapter
+## book/ — 10 Phase, 139 chapter
 
-Cấu trúc thư mục đi theo đúng dependency graph ở Part 4 v1.1 (không theo package Java):
+Cấu trúc thư mục đi theo đúng dependency graph ở Part 4 v1.2 (không theo package Java):
 
 1. `phase-01-foundation` (22 chapter) — Java Core / JVM — có thêm OOP Fundamentals, Enum
 2. `phase-02-collections` (19 chapter) — có thêm Comparable vs Comparator
 3. `phase-03-concurrency` (19 chapter) — có thêm Callable vs Runnable
 4. `phase-04-modern-java` (9 chapter)
-5. `phase-05-spring` (17 chapter)
+5. `phase-05-spring` (18 chapter) — có thêm Reactive Programming (Project Reactor, WebFlux)
 6. `phase-06-persistence` (14 chapter) — có thêm Multi-Datasource Configuration
-7. `phase-07-database` (9 chapter)
-8. `phase-08-production` (11 chapter)
+7. `phase-07-database` (10 chapter) — có thêm NoSQL & Non-Relational Data
+8. `phase-08-production` (12 chapter) — có thêm Messaging (JMS, RabbitMQ, Spring Integration)
 9. `phase-09-architecture` (10 chapter) — có thêm Resilience Patterns
 10. `phase-10-interview` (6 chapter + 1 file gap-log)
+
+v1.2 thêm 3 chapter trên sau khi so sánh phạm vi với *Modern Java in Action* và
+*Spring in Action* — chi tiết ở [spec/CHANGELOG.md](spec/CHANGELOG.md).
 
 Mỗi file chapter đã được sinh sẵn theo đúng khung 20 mục của
 [part-2-chapter-standard.md](spec/part-2-chapter-standard.md) (Story → Objectives →

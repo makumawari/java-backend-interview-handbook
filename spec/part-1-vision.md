@@ -2,10 +2,12 @@
 
 ## Project Specification
 
-Version: 1.1
+Version: 1.2
 
-> **v1.1 (2026-07-23)**: sửa các mâu thuẫn/gap phát hiện khi scaffold repo lần đầu — xem
-> [`spec/CHANGELOG.md`](CHANGELOG.md) để biết chi tiết từng thay đổi.
+> **v1.2 (2026-07-23)**: thêm 3 chapter (Reactive Programming, NoSQL, Messaging) sau khi so
+> sánh phạm vi với *Modern Java in Action* và *Spring in Action*. **v1.1**: sửa các mâu
+> thuẫn/gap phát hiện khi scaffold repo lần đầu. Chi tiết từng thay đổi ở
+> [`spec/CHANGELOG.md`](CHANGELOG.md).
 
 ---
 

@@ -658,7 +658,17 @@ Sau đó.
 ↓
 
 17 Security
+
+↓
+
+18 Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
 ```
+
+> **v1.2**: chèn thêm `18 Reactive Programming` — gap lộ ra khi so sánh với Spring in
+> Action (nguyên Part 3 "Reactive Spring" của sách đó không có tương đương nào trong
+> roadmap trước v1.2). Chapter này nên nói rõ quan hệ với `19 Virtual Thread` (Phase 3):
+> Virtual Thread giải quyết bài toán blocking I/O mà không cần code reactive — người đọc
+> cần hiểu khi nào chọn cái nào.
 
 ---
 
@@ -766,11 +776,26 @@ Sau đó.
 ↓
 
 09 Optimization
+
+↓
+
+10 NoSQL & Non-Relational Data (Document / Key-Value / Column-Family / Graph, khi nào chọn NoSQL thay vì SQL)
 ```
+
+> **v1.2**: chèn thêm `10 NoSQL & Non-Relational Data` — gap lộ ra khi so sánh với Spring
+> in Action (ch. "Working with nonrelational data": MongoDB, Cassandra). Đặt ở cuối Phase 7
+> vì cần hiểu SQL/Transaction/Isolation/MVCC trước để so sánh trade-off đối lập
+> (CAP theorem, eventual consistency) — không dạy NoSQL như một khởi đầu độc lập.
 
 ---
 
 # 12. Phase 8 — Production
+
+> **v1.2**: chèn thêm `07 Messaging` — gap lộ ra khi so sánh với Spring in Action (ch.
+> "Sending messages asynchronously" + "Integrating Spring": JMS, RabbitMQ, Spring
+> Integration). Đặt ngay sau Kafka vì cùng nhóm "giao tiếp bất đồng bộ giữa service", nên
+> so sánh trực tiếp: khi nào chọn Kafka (event streaming, replay log) vs RabbitMQ/JMS
+> (message queue truyền thống, routing phức tạp).
 
 ```
 01 Logging
@@ -797,23 +822,27 @@ Sau đó.
 
 ↓
 
-07 Docker
+07 Messaging (JMS, RabbitMQ, Spring Integration)
 
 ↓
 
-08 Kubernetes
+08 Docker
 
 ↓
 
-09 CI/CD
+09 Kubernetes
 
 ↓
 
-10 JVM Tuning
+10 CI/CD
 
 ↓
 
-11 Performance Tuning
+11 JVM Tuning
+
+↓
+
+12 Performance Tuning
 ```
 
 ---

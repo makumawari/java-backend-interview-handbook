@@ -1,5 +1,21 @@
 # Specification Changelog
 
+## v1.2 (2026-07-23)
+
+Sau khi so sánh phạm vi roadmap với hai cuốn sách được tham chiếu ở Part 1
+(*Modern Java in Action*, *Spring in Action* 6th ed.), phát hiện 3 mảng hoàn toàn vắng mặt
+dù cả hai sách đều dành riêng nhiều chapter cho chúng. Thêm vào Part 4:
+
+- Phase 5 Spring: `18 Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)`
+  — tương ứng Part 3 "Reactive Spring" (4 chapter) của Spring in Action.
+- Phase 7 Database: `10 NoSQL & Non-Relational Data` — tương ứng ch. "Working with
+  nonrelational data" của Spring in Action.
+- Phase 8 Production: `07 Messaging (JMS, RabbitMQ, Spring Integration)` — tương ứng ch.
+  "Sending messages asynchronously" + "Integrating Spring" của Spring in Action; đặt cạnh
+  Kafka (đã có từ v1.0) để so sánh trade-off trực tiếp.
+
+`book/` regenerate lại: 139 chapter (từ 136).
+
 ## v1.1 (2026-07-23)
 
 Sửa các vấn đề phát hiện khi scaffold repo `book/` lần đầu từ v1.0.
