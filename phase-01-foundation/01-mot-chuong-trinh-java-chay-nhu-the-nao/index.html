@@ -6129,7 +6129,35 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:bytecode" class="md-tag">Bytecode</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:compilation" class="md-tag">Compilation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jvm" class="md-tag">JVM</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6147,94 +6175,464 @@ Chapter slug: <code>mot-chuong-trinh-java-chay-nhu-the-nao</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Một chương trình Java chạy như thế nào?</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Biết cú pháp Java cơ bản (class, method, biến) — không cần biết gì về JVM</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JDK, JRE, JVM (Chapter 02)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Class Loader (Chapter 03)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Runtime Data Areas (Chapter 04)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Execution Engine (Chapter 05)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JIT Compiler (Chapter 06)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Garbage Collection (Chapter 07)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JVM Tuning, Docker (Phase 8 — Production)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
+<p>Bạn mở terminal, gõ hai lệnh quen thuộc:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>javac Main.java
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>java Main
+</code></pre></div>
+<p>Chữ <code>Hello World</code> hiện ra sau chưa đầy một giây. Bạn đã gõ hai lệnh này hàng trăm lần, nhưng
+thử dừng lại 3 giây và tự hỏi: <strong>giữa hai lệnh đó, máy tính đã làm những gì?</strong></p>
+<p>Nếu bạn từng học qua Python, bạn sẽ thấy lạ: Python chỉ cần <code>python main.py</code> — một lệnh
+duy nhất, chạy thẳng. Nếu bạn từng học qua C, bạn sẽ thấy lạ theo cách khác: C biên dịch ra
+một file thực thi (<code>.exe</code>, <code>a.out</code>) chạy thẳng trên hệ điều hành đó, không chạy được trên hệ
+điều hành khác.</p>
+<p>Java thì làm cả hai việc, theo một cách khác hẳn: <strong>biên dịch (như C) nhưng không biên dịch
+ra máy thật — mà biên dịch ra một "máy giả lập".</strong> File <code>Main.class</code> sinh ra sau <code>javac</code>
+không phải là chương trình chạy được trên Windows/Linux/macOS. Nó là chương trình chạy được
+trên <strong>JVM</strong> — một chiếc máy tính không tồn tại vật lý.</p>
+<p>Câu hỏi thật sự của chapter này không phải "làm sao chạy được Java", mà là:</p>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Tại sao Java lại chọn con đường vòng này — biên dịch ra một máy giả lập, rồi máy giả lập
+đó mới thực sự chạy chương trình? Cái giá phải trả và cái lợi nhận được là gì?</p>
 </blockquote>
+<p>Trả lời được câu hỏi này, bạn sẽ hiểu vì sao toàn bộ Phase 1 của handbook được xếp theo đúng
+thứ tự: JDK/JRE/JVM là gì (Chapter 02) → JVM tìm và nạp class như thế nào (Chapter 03) → JVM
+cấp phát bộ nhớ ở đâu (Chapter 04) → JVM thực thi bytecode ra sao (Chapter 05-06) → JVM dọn
+rác thế nào (Chapter 07). Chapter này là tấm bản đồ; các chapter sau là từng vùng đất trên
+bản đồ đó.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Khi bạn gõ <code>java Main</code> trong terminal, điều gì thực sự xảy ra — từ lúc gõ Enter đến lúc
+<code>Hello World</code> xuất hiện trên màn hình?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt được rạch ròi hai giai đoạn: <strong>biên dịch</strong> (<code>javac</code>) và <strong>thực thi</strong> (<code>java</code>)</li>
+<li>[ ] Giải thích được bytecode là gì, vì sao nó không phải là "mã máy" và không phải là
+      "mã nguồn"</li>
+<li>[ ] Kể tên được 4 việc chính mà JVM làm khi chạy một chương trình: nạp class, cấp phát bộ
+      nhớ, thực thi bytecode, dọn rác — làm tiền đề để đi sâu từng việc ở các chapter sau</li>
+<li>[ ] Tự tay quan sát được bytecode thật bằng <code>javap -c</code> và quá trình nạp class thật bằng
+      <code>-Xlog:class+load</code></li>
+<li>[ ] Giải thích được vì sao "Java chậm vì là ngôn ngữ thông dịch" là một quan niệm sai</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Từng viết và chạy được một chương trình Java trước đây, kể cả chỉ nhớ mang máng cú pháp
+  <code>class</code>, <code>public static void main</code>, khai báo biến. Chapter này <strong>không yêu cầu</strong> bạn đã
+  biết gì về JVM, bytecode, hay compiler — đó chính là thứ chapter này sẽ xây từ đầu.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
+<p>Bức tranh tổng thể ở chapter này sẽ được zoom vào từng mảnh ở các chapter kế tiếp:</p>
 <ul>
-<li>TODO</li>
+<li><strong>JDK, JRE, JVM</strong> (Chapter 02) — <code>javac</code> nằm ở đâu trong JDK, <code>java</code> chạy trên thành phần
+  nào.</li>
+<li><strong>Class Loader</strong> (Chapter 03) — bước "nạp class" ở phần How? bên dưới thực chất diễn ra
+  như thế nào.</li>
+<li><strong>Runtime Data Areas</strong> (Chapter 04) — "cấp phát bộ nhớ" gồm những vùng nào, Heap khác
+  Stack ra sao.</li>
+<li><strong>Execution Engine, JIT Compiler</strong> (Chapter 05-06) — Interpreter và JIT được nhắc ở đây
+  chỉ là lời giới thiệu, cơ chế thật sẽ được mổ xẻ kỹ.</li>
+<li><strong>Garbage Collection</strong> (Chapter 07) — vì sao Java không cần bạn tự giải phóng bộ nhớ như C.</li>
+<li><strong>JVM Tuning, Docker</strong> (Phase 8) — thời gian khởi động JVM (điều bạn vừa thấy khi gõ
+  <code>java Main</code>) là một vấn đề thật trong production khi chạy hàng trăm container.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Giả sử bạn viết đúng một file <code>Main.java</code>. Bạn có hai lựa chọn thiết kế nếu là người tạo ra
+ngôn ngữ Java vào năm 1995:</p>
+<ol>
+<li><strong>Biên dịch thẳng ra mã máy</strong> (giống C): nhanh, nhưng file thực thi sinh ra trên macOS sẽ
+   không chạy được trên Windows — phải biên dịch lại cho từng hệ điều hành.</li>
+<li><strong>Thông dịch từng dòng source code</strong> (giống Python thời kỳ đầu): chạy được ở mọi nơi có
+   trình thông dịch, nhưng chậm vì phải phân tích cú pháp lại mỗi lần chạy.</li>
+</ol>
+<p>Java cần chạy được trên mọi thiết bị — máy chủ, máy tính cá nhân, và (mục tiêu ban đầu của
+Java) cả tivi, lò vi sóng. Chọn phương án 1 thì mất tính di động. Chọn phương án 2 thì mất
+tốc độ. Java phải giải quyết bài toán tưởng như không thể: vừa chạy được ở mọi nơi, vừa
+nhanh.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Java giải bài toán trên bằng cách <strong>chèn thêm một tầng trung gian</strong>: thay vì biên dịch thẳng
+ra mã máy của CPU thật, <code>javac</code> biên dịch ra <strong>bytecode</strong> — một tập lệnh cho một "CPU ảo"
+không tồn tại vật lý, gọi là <strong>JVM (Java Virtual Machine)</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Mã nguồn (.java)  →  Bytecode (.class)  →  JVM thông dịch/biên dịch bytecode → CPU thật
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>     con người đọc        JVM đọc              (khác nhau tuỳ Windows/Linux/macOS)
+</code></pre></div>
+<p>Bytecode giống mã nguồn ở chỗ nó không phụ thuộc hệ điều hành hay CPU — file <code>Main.class</code>
+sinh ra trên macOS chạy y hệt trên Windows, miễn là máy đó có JVM. Bytecode giống mã máy ở
+chỗ nó đã được biên dịch sẵn — JVM không cần phân tích cú pháp <code>if</code>, <code>for</code>, dấu ngoặc như
+lúc thông dịch source code, nên nhanh hơn thông dịch source thuần tuý rất nhiều.</p>
+<p>Đây chính là khẩu hiệu nổi tiếng của Java: <strong>"Write Once, Run Anywhere"</strong> — viết một lần,
+chạy ở bất kỳ đâu có JVM.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có tầng bytecode/JVM này:</p>
+<ul>
+<li>Mỗi công ty viết phần mềm Java sẽ phải build ra nhiều bản khác nhau cho từng hệ điều hành
+  khách hàng dùng — đúng vấn đề mà C/C++ gặp phải và Java sinh ra để giải quyết.</li>
+<li>Không thể có JIT Compiler tối ưu lúc runtime dựa trên hành vi thực tế của chương trình
+  (xem Chapter 06) — vì compiler tĩnh của C chỉ nhìn thấy mã nguồn, không nhìn thấy chương
+  trình đang chạy nhanh/chậm ở đâu.</li>
+<li>Không thể có Garbage Collector đứng giữa chương trình và bộ nhớ thật để tự động dọn rác
+  (xem Chapter 07) — vì C biên dịch thẳng ra mã máy, không có "người đứng giữa" để can thiệp.</li>
+</ul>
+<p>Tầng JVM chính là thứ cho phép toàn bộ những khả năng đó tồn tại. Cái giá phải trả: mỗi lần
+chạy <code>java Main</code>, JVM phải khởi động từ đầu (nạp class, cấp phát bộ nhớ...) — không có sẵn
+một file thực thi để chạy thẳng như C. Đây là gốc rễ của "JVM startup time", một vấn đề rất
+thật trong production (xem phần Production Notes).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Toàn bộ hành trình từ <code>javac Main.java</code> đến <code>Hello World</code> xuất hiện trên màn hình gồm hai
+giai đoạn tách biệt:</p>
+<p><strong>Giai đoạn 1 — Compile-time (chỉ chạy một lần, bởi <code>javac</code>):</strong></p>
+<ol>
+<li><code>javac</code> đọc <code>Main.java</code>, kiểm tra cú pháp và kiểu dữ liệu (type checking).</li>
+<li>Sinh ra bytecode, lưu vào file <code>.class</code> — mỗi class (kể cả class không phải <code>public</code>)
+   sinh ra một file <code>.class</code> riêng.</li>
+</ol>
+<p><strong>Giai đoạn 2 — Run-time (chạy lại từ đầu mỗi lần gõ <code>java</code>):</strong></p>
+<ol>
+<li>Lệnh <code>java Main</code> khởi động một <strong>tiến trình JVM</strong> mới.</li>
+<li><strong>Class Loader</strong> tìm file <code>Main.class</code>, đọc, kiểm tra tính hợp lệ (verify), rồi nạp vào
+   bộ nhớ JVM.</li>
+<li>JVM cấp phát các vùng nhớ runtime (<strong>Runtime Data Areas</strong>): Method Area/Metaspace chứa
+   thông tin class, Heap chứa object, Stack chứa biến cục bộ và lời gọi method.</li>
+<li><strong>Execution Engine</strong> bắt đầu chạy method <code>main()</code>: phần lớn bytecode được <strong>Interpreter</strong>
+   thông dịch từng lệnh; những đoạn code chạy đi chạy lại nhiều lần ("hot code") được
+   <strong>JIT Compiler</strong> biên dịch sang mã máy thật để chạy nhanh hơn ở những lần sau.</li>
+<li><strong>Garbage Collector</strong> âm thầm chạy nền, dọn các object trong Heap không còn được tham
+   chiếu tới nữa.</li>
+<li>Chương trình kết thúc, JVM thoát.</li>
+</ol>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Main.java  (con người đọc được)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>     │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>     │  javac Main.java
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>     ▼
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Main.class  (bytecode — JVM đọc được, không phụ thuộc OS/CPU)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>     │
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>     │  java Main   ← khởi động một tiến trình JVM MỚI, mỗi lần chạy lại từ đầu
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>     ▼
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>┌────────────────────────── Tiến trình JVM ───────────────────────────┐
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│                                                                       │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│  (1) Class Loader                                                    │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│       └─ tìm, đọc, verify Main.class            [chi tiết: Ch. 03]  │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│                          │                                           │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│                          ▼                                           │
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│  (2) Runtime Data Areas                                              │
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│       └─ cấp phát Method Area / Heap / Stack     [chi tiết: Ch. 04]  │
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│                          │                                           │
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│                          ▼                                           │
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>│  (3) Execution Engine                                                │
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>│       ├─ Interpreter: thông dịch bytecode        [chi tiết: Ch. 05] │
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>│       └─ JIT Compiler: biên dịch &quot;hot code&quot;                          │
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>│          sang mã máy thật                        [chi tiết: Ch. 06] │
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>│                          │                                           │
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>│                          ▼                                           │
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>│  (4) Garbage Collector (chạy nền song song)      [chi tiết: Ch. 07] │
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>│                                                                       │
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>└───────────────────────────────────────────────────────────────────┘
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>     │
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>     ▼
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>&quot;Hello World&quot; in ra màn hình, JVM thoát
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Áo thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199_000</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sản phẩm: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; - Giá: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="na">getPrice</span><span class="p">());</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kd">class</span> <span class="nc">Product</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPrice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span>
 </code></pre></div>
+<p>Biên dịch và chạy:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>javac Main.java
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>java Main
+</code></pre></div>
+<p>Kết quả:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Sản phẩm: Áo thun - Giá: 199000
+</code></pre></div>
+<p><strong>Thử ngay:</strong> sau khi <code>javac Main.java</code>, chạy <code>ls *.class</code>. Bạn sẽ thấy <strong>hai</strong> file:
+<code>Main.class</code> và <code>Product.class</code> — dù cả hai class cùng nằm trong một file <code>.java</code>. Đây là
+manh mối đầu tiên cho Chapter 03 (Class Loader): JVM nạp class theo đơn vị <code>.class</code>, không
+theo đơn vị file <code>.java</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Nhìn thẳng vào bytecode.</strong> Chạy <code>javap -c Main.class</code> trên đúng ví dụ ở trên, bạn sẽ thấy
+method <code>main</code> được biên dịch thành (output thật, đã chạy thử):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>public static void main(java.lang.String[]);
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    Code:
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>       0: new           #7    // class Product
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>       3: dup
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>       4: ldc           #9    // String Áo thun
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>       6: ldc           #11   // int 199000
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>       8: invokespecial #12   // Method Product.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>      11: astore_1
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>      12: getstatic     #15   // Field java/lang/System.out:Ljava/io/PrintStream;
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>      15: aload_1
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>      16: invokevirtual #21   // Method Product.getName:()Ljava/lang/String;
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>      19: aload_1
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>      20: invokevirtual #25   // Method Product.getPrice:()I
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>      23: invokedynamic #29,0 // InvokeDynamic makeConcatWithConstants:(...)Ljava/lang/String;
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>      28: invokevirtual #33   // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>      31: return
+</code></pre></div>
+<p>Đây không phải mã máy (CPU không hiểu <code>invokespecial</code>), cũng không phải mã nguồn (không còn
+dấu vết <code>new Product(...)</code> như một khối, mà tách thành <code>new</code> + <code>dup</code> + gọi constructor riêng)
+— nó nằm ở giữa. Mỗi lệnh bytecode là một hành động rất nhỏ, rất tường minh: <code>new</code> (cấp phát
+object rỗng trên Heap), <code>invokespecial</code> (gọi constructor), <code>getstatic</code> (lấy field tĩnh),
+<code>invokevirtual</code> (gọi method thông qua cơ chế đa hình)... Chính vì bytecode đã "chặt nhỏ"
+chương trình thành các bước tường minh như vậy, JVM thông dịch nó nhanh hơn nhiều so với việc
+thông dịch trực tiếp cú pháp <code>.java</code>.</p>
+<p>Chú ý lệnh <code>23: invokedynamic</code> — đây là cách trình biên dịch hiện đại (Java 9+) dịch phép nối
+chuỗi <code>"..." + product.getName() + ...</code>. Thay vì sinh sẵn code <code>StringBuilder.append(...)</code> lặp
+đi lặp lại như các phiên bản Java cũ, <code>javac</code> để lại một "chỗ trống" (<code>invokedynamic</code>) và để
+JVM tự quyết định chiến lược nối chuỗi tối ưu nhất <strong>lúc chạy</strong> — một ví dụ rất cụ thể cho ý
+"JVM tối ưu lúc runtime" ở phần Engineering Insight bên dưới.</p>
+<p><strong>Nhìn thẳng vào quá trình nạp class.</strong> Chạy chương trình với cờ:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>java -Xlog:class+load=info Main
+</code></pre></div>
+<p>Bạn sẽ thấy hàng trăm dòng log, trong đó có <code>Main</code> và <code>Product</code> — đúng thứ tự JVM nạp chúng
+vào bộ nhớ. (<code>-Xlog:class+load</code> là cờ logging hợp nhất từ Java 9+/JEP 158; JVM cũ hơn dùng
+<code>-verbose:class</code>, vẫn còn hoạt động như một alias.) Đây chính là hành vi của Class Loader mà
+Chapter 03 sẽ mổ xẻ chi tiết: JVM không nạp toàn bộ class ngay từ đầu, mà nạp "lazy" — class
+nào được dùng tới mới nạp.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Tại sao không compile thẳng ra mã máy như C, rồi cứ thế mà chạy — nhanh hơn hẳn?</strong></p>
+<p>Vì compiler tĩnh (như <code>gcc</code>) chỉ nhìn thấy <em>mã nguồn</em>, không nhìn thấy <em>chương trình đang
+chạy</em>. Nó không biết được: vòng lặp nào chạy 3 lần, vòng lặp nào chạy 3 triệu lần; nhánh
+<code>if</code> nào gần như luôn đúng, nhánh nào gần như không bao giờ vào. JIT Compiler của JVM (xem
+Chapter 06) đứng ở vị trí đặc biệt: nó quan sát chương trình <strong>khi đang chạy thật</strong>, đo đếm
+method nào được gọi nhiều, rồi mới quyết định bỏ công biên dịch tối ưu phần đó sang mã máy.
+Đổi lại, JVM phải trả giá bằng thời gian khởi động (phải nạp class, thông dịch, "làm nóng"
+trước khi JIT phát huy tác dụng) — điều bạn sẽ gặp lại ở Phase 8 khi bàn về JVM Tuning và cold
+start của container.</p>
+<p>Nói cách khác: C tối ưu <strong>lúc biên dịch</strong>, dựa trên thông tin tĩnh. JVM tối ưu <strong>lúc chạy</strong>,
+dựa trên hành vi thật. Đây không phải Java "chậm hơn hay nhanh hơn" C một cách tuyệt đối — đó
+là hai triết lý tối ưu khác nhau, đánh đổi khác nhau.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Java 1.0 (1996)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    ↓  Thuần thông dịch bytecode, không có JIT — rất chậm, bị chê &quot;Java chậm&quot;
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>J2SE 1.3 / HotSpot (2000)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    ↓  Giới thiệu JIT Compiler thích ứng (adaptive) — tốc độ tăng vọt
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Java 9 (2017)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    ↓  JEP 158 — Unified JVM Logging (-Xlog thay cho các cờ -verbose/-XX rời rạc)
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Java 11 (2018)
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    ↓  JEP 330 — chạy thẳng &quot;java Main.java&quot; không cần javac tường minh (xem Cheat Sheet)
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>GraalVM Native Image (Spring Boot 3+)
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    ↓  Biên dịch AOT (Ahead-Of-Time) thẳng ra file thực thi native — bỏ hẳn bước
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>       &quot;khởi động JVM&quot; để có cold-start gần như tức thì trong container
+</code></pre></div>
+<p>Định kiến "Java chậm" bắt nguồn từ Java 1.0 — thời chưa có JIT. Định kiến đó đã lỗi thời hơn
+20 năm nhưng vẫn còn phổ biến (xem Myth vs Reality). Dòng cuối (GraalVM) cho thấy: ngay cả
+bản thân hệ sinh thái Java cũng đang tối ưu tiếp cái giá "khởi động JVM" mà chapter này vừa
+nói tới — không phải để phủ nhận JVM, mà để có thêm lựa chọn khi cold-start quan trọng hơn
+peak performance (ví dụ: serverless function).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Java là ngôn ngữ thông dịch (interpreted), nên chậm hơn C."
+  <strong>Reality:</strong> Java là mô hình <strong>lai (hybrid)</strong> — bytecode được cả thông dịch lẫn JIT biên
+  dịch sang mã máy thật. Với "hot code", tốc độ sau khi JIT "làm nóng" tiệm cận mã native.
+  Cái chậm thật sự nằm ở giai đoạn khởi động (nạp class, chưa kịp JIT), không nằm ở bản chất
+  ngôn ngữ.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>javac</code> biên dịch ra chương trình chạy được, giống hệt C biên dịch ra <code>.exe</code>."
+  <strong>Reality:</strong> <code>javac</code> chỉ biên dịch ra bytecode trung gian. Bytecode <strong>không tự chạy được</strong>
+  trên hệ điều hành — nó cần JVM làm "người phiên dịch" lúc runtime. Đây là khác biệt cốt lõi
+  so với C.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
-<h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li><strong>Nhầm <code>javac</code> với <code>java</code>.</strong> Người mới thường không phân biệt rõ: <code>javac</code> chỉ biên dịch
+  (không chạy chương trình), <code>java</code> chỉ chạy (cần đã có sẵn <code>.class</code>, hoặc dùng cách chạy
+  file nguồn trực tiếp ở Cheat Sheet bên dưới).</li>
+<li><strong>Đổi tên file <code>.java</code> không khớp tên class <code>public</code>.</strong> Java bắt buộc: nếu class là
+  <code>public</code>, tên file phải trùng tên class (<code>Main.java</code> cho <code>class Main</code>). Sai tên → lỗi biên
+  dịch khó hiểu với người mới.</li>
+<li><strong>Biên dịch bằng JDK version cao, chạy bằng JRE/JVM version thấp hơn</strong> → gặp
+  <code>UnsupportedClassVersionError</code> (xem Debug Checklist) — vì bytecode có đánh số phiên bản,
+  JVM cũ không đọc được bytecode "từ tương lai".</li>
+</ul>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dùng <code>java -version</code> để xác nhận đang chạy đúng JDK/JVM mong muốn — đặc biệt quan trọng
+  khi máy cài song song nhiều phiên bản JDK (rất phổ biến khi làm nhiều dự án).</li>
+<li>Khi chỉ muốn thử nhanh một file <code>.java</code> (script, học tập, demo), dùng cách chạy trực tiếp
+  ở Cheat Sheet thay vì <code>javac</code> rồi <code>java</code> hai bước — đỡ sinh file <code>.class</code> rác.</li>
+<li>Khi build để deploy production, luôn chỉ định rõ <code>--release &lt;version&gt;</code> cho <code>javac</code> thay vì
+  để mặc định theo máy build — tránh trường hợp máy build và máy chạy production lệch version
+  JDK mà không ai để ý.</li>
+</ul>
+<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
+<p><strong>Vấn đề:</strong> ứng dụng chạy tốt trên máy dev, nhưng khi deploy lên server production thì crash
+ngay lúc khởi động với <code>java.lang.UnsupportedClassVersionError</code> hoặc
+<code>NoClassDefFoundError</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> ứng dụng không khởi động được; log báo lỗi ngay trong vài trăm
+  mili-giây đầu tiên, trước khi bất kỳ dòng log nghiệp vụ nào kịp in ra.</li>
+<li><strong>Nguyên nhân gốc (<code>UnsupportedClassVersionError</code>):</strong> file <code>.class</code> được biên dịch bằng
+  JDK mới hơn JVM đang chạy trên server (ví dụ: build bằng JDK 21, server production vẫn cài
+  JRE 17). Bytecode có major version number; JVM cũ từ chối nạp bytecode "từ tương lai".</li>
+<li><strong>Nguyên nhân gốc (<code>NoClassDefFoundError</code>):</strong> class từng biên dịch thành công (có mặt lúc
+  <code>javac</code>), nhưng <strong>lúc runtime</strong>, Class Loader không tìm thấy file <code>.class</code> tương ứng trên
+  classpath — thường do thiếu <code>.jar</code> dependency lúc deploy, hoặc classpath cấu hình sai.</li>
+<li><strong>Debug:</strong> so sánh <code>java -version</code> giữa máy build (CI/CD) và máy production; kiểm tra
+  classpath thực tế lúc chạy (<code>java -verbose:class</code> hoặc <code>-Xlog:class+load=info</code> như ở phần
+  Deep Dive để xem class nào JVM thực sự tìm thấy/không tìm thấy).</li>
+<li><strong>Solution:</strong> thống nhất version JDK giữa build và runtime (Docker image cố định version
+  là cách phổ biến nhất); đảm bảo mọi dependency được đóng gói đầy đủ (fat jar/uber jar hoặc
+  layer đúng trong image).</li>
+<li><strong>Prevention:</strong> pin chính xác version JDK trong Dockerfile/CI pipeline, không dùng
+  <code>latest</code>; thêm bước kiểm tra <code>java -version</code> như một health check ngay đầu pipeline deploy.</li>
+</ul>
+<h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
+<p>Chương trình không chạy được ngay từ bước khởi động — kiểm tra theo đúng thứ tự pipeline ở
+phần How?:</p>
+<ul>
+<li>[ ] Lỗi xảy ra lúc <code>javac</code> (compile-time) hay lúc <code>java</code> (run-time)? Đọc kỹ thông báo lỗi —
+      compile-time luôn báo rõ số dòng trong <code>.java</code>.</li>
+<li>[ ] Nếu là <code>ClassNotFoundException</code>/<code>NoClassDefFoundError</code>: classpath có trỏ đúng chỗ chứa
+      <code>.class</code>/<code>.jar</code> không?</li>
+<li>[ ] Nếu là <code>UnsupportedClassVersionError</code>: so <code>java -version</code> (runtime) với version JDK lúc
+      build.</li>
+<li>[ ] Nếu báo lỗi tên class không khớp file: tên file <code>.java</code> có trùng tên <code>public class</code>
+      bên trong không?</li>
+<li>[ ] Nếu nghi ngờ sai class được nạp (ví dụ có 2 bản <code>.jar</code> cùng chứa 1 class): chạy với
+      <code>-Xlog:class+load=info</code> để xem chính xác JVM nạp class đó từ file nào.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Ở mức tổng quan (chưa cần đọc source C++ của HotSpot — việc đó dành cho các chapter sau khi
+đã có đủ nền tảng), trình tự khi gõ <code>java Main</code> là:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>java (launcher, src/java.base/share/native/launcher/main.c trong OpenJDK)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>   ↓
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>JNI_CreateJavaVM()          — tạo tiến trình JVM
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>   ↓
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Class Loader nạp Main.class
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>   ↓
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>JVM tìm method &quot;public static void main(String[])&quot; trong class Main
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>   ↓
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>Execution Engine bắt đầu thực thi bytecode của main()
+</code></pre></div>
+<p>Chapter 03 (Class Loader) sẽ đi sâu vào bước "Class Loader nạp Main.class" — cụ thể là ba
+class loader phân cấp (Bootstrap, Platform, Application) và cơ chế delegation giữa chúng.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một chương trình Java chạy qua hai giai đoạn tách biệt: <strong>compile-time</strong> (<code>javac</code> biến
+<code>.java</code> thành bytecode <code>.class</code>, chạy một lần) và <strong>run-time</strong> (<code>java</code> khởi động một tiến
+trình JVM mới mỗi lần, nạp class, cấp phát bộ nhớ, thực thi bytecode qua Interpreter + JIT,
+và dọn rác qua GC). Tầng bytecode/JVM ở giữa chính là thứ đánh đổi lấy tính di động
+("Write Once, Run Anywhere") và khả năng tối ưu lúc runtime (JIT, GC) — đổi lại bằng chi phí
+khởi động mà C không có. Bốn việc JVM làm mỗi lần chạy — nạp class, cấp phát bộ nhớ, thực thi,
+dọn rác — chính là bốn chủ đề của Chapter 03 đến 07.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>javac</code> và <code>java</code> khác nhau như thế nào? Cái nào tạo ra file, cái nào không?</li>
+<li>Bytecode là gì? Nó có phải là mã máy (machine code) không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Khi bạn gõ <code>java Main</code>, liệt kê các bước JVM thực hiện cho tới khi chương trình bắt đầu
+  chạy <code>main()</code>.</li>
+<li>Vì sao file <code>.class</code> biên dịch bằng JDK 21 lại không chạy được trên máy chỉ cài JRE 8?</li>
+<li>Một file <code>.java</code> chứa 2 class thì sinh ra bao nhiêu file <code>.class</code>? Vì sao?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>JIT Compiler giải quyết vấn đề gì mà một compiler tĩnh như <code>gcc</code> không giải quyết được?
+  Đánh đổi là gì?</li>
+<li>So sánh mô hình thực thi của Java (bytecode + JVM), Python (thông dịch thuần), và C
+  (biên dịch thẳng ra native). Trong bối cảnh nào mỗi mô hình có lợi thế?</li>
+<li>Vì sao GraalVM Native Image lại hấp dẫn với các ứng dụng chạy trên serverless/container,
+  trong khi JVM truyền thống thì không?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Viết một file <code>.java</code> chứa 2 class như ví dụ ở trên. Biên dịch, đếm số file <code>.class</code>
+      sinh ra, giải thích vì sao.</li>
+<li>[ ] Chạy <code>javap -c</code> lên file <code>.class</code> vừa biên dịch. Đối chiếu từng nhóm lệnh bytecode với
+      dòng source code tương ứng — đặc biệt tìm lệnh <code>invokevirtual</code> ứng với
+      <code>System.out.println(...)</code>.</li>
+<li>[ ] Cố tình biên dịch bằng <code>javac --release 21 Main.java</code>, sau đó tìm cách chạy bằng một
+      JVM cũ hơn (nếu có sẵn) hoặc tra cứu thông báo lỗi <code>UnsupportedClassVersionError</code> sẽ
+      trông như thế nào — tự giải thích ý nghĩa từng phần trong thông báo lỗi đó.</li>
+<li>[ ] Chạy chương trình với <code>java -Xlog:class+load=info Main</code>, lọc (<code>grep</code>) ra các dòng có
+      chữ "Product" — xác nhận <code>Product</code> được nạp trước hay sau khi <code>main()</code> bắt đầu chạy.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Lệnh</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>javac Main.java</code></td>
+<td>Biên dịch, sinh ra <code>Main.class</code> (và <code>.class</code> cho mọi class khác trong file)</td>
+</tr>
+<tr>
+<td><code>java Main</code></td>
+<td>Chạy — cần <strong>tên class</strong> đã biên dịch, không phải tên file</td>
+</tr>
+<tr>
+<td><code>java Main.java</code></td>
+<td>(Java 11+, JEP 330) Biên dịch + chạy trong một bước, không ghi <code>.class</code> ra đĩa — tiện cho script/demo nhanh</td>
+</tr>
+<tr>
+<td><code>javap -c Main.class</code></td>
+<td>Xem bytecode dạng người đọc được</td>
+</tr>
+<tr>
+<td><code>java -version</code></td>
+<td>Kiểm tra đang chạy JDK/JVM phiên bản nào</td>
+</tr>
+<tr>
+<td><code>java -Xlog:class+load=info Main</code></td>
+<td>Xem JVM nạp class nào, theo thứ tự nào (Java 9+; bản cũ hơn dùng <code>-verbose:class</code>)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Virtual Machine Specification (Oracle) — Chapter 5: Loading, Linking, and
+  Initializing.</li>
+<li>JEP 158: Unified JVM Logging.</li>
+<li>JEP 330: Launch Single-File Source-Code Programs.</li>
+<li>OpenJDK source — <code>src/java.base/share/native/launcher/main.c</code> (điểm khởi đầu của lệnh
+  <code>java</code>).</li>
 </ul>
 
 
