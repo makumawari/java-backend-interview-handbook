@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:classloader" class="md-tag">ClassLoader</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jvm" class="md-tag">JVM</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,15 +6170,18 @@ Chapter slug: <code>class-loader</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Class Loader</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Một chương trình Java chạy như thế nào?</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — JDK, JRE, JVM</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Runtime Data Areas (Chapter 04) — Metaspace là nơi Class Loader lưu class đã nạp</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reflection (Chapter 17)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Spring (Phase 5) — Spring Boot dùng custom ClassLoader để nạp lại code khi DevTools reload</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6189,370 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-mot-chuong-trinh-java-chay-nhu-the-nao/">Chapter 01</a> — bạn đã chạy
+<code>java -Xlog:class+load=info Main</code> và thấy <code>Main</code> và <code>Product</code> xuất hiện trong log, cùng với
+hàng trăm class khác bạn chưa từng viết.</p>
 </blockquote>
+<p>Hàng trăm class đó đến từ đâu? Ai quyết định thứ tự nạp chúng? Và đây mới là câu hỏi thú vị
+nhất: <strong>nếu bạn tự viết một class tên là <code>java.lang.String</code> trong project của mình, chuyện gì
+sẽ xảy ra khi chương trình chạy?</strong></p>
+<p>Trực giác có thể nói: "class của tôi sẽ ghi đè lên <code>String</code> thật, làm hỏng toàn bộ chương
+trình — kể cả code Java tôi không hề đụng tới." Nếu điều đó đúng, Java sẽ là một ngôn ngữ cực
+kỳ nguy hiểm: bất kỳ thư viện bên thứ ba nào cũng có thể âm thầm thay thế <code>String</code>, <code>Object</code>,
+hay bất kỳ class lõi nào để chèn mã độc.</p>
+<p>Điều đó <strong>không</strong> xảy ra. Và cơ chế ngăn nó xảy ra chính là chủ đề chương này: Class Loader
+không phải một, mà là một <strong>hệ thống phân cấp có chủ đích</strong>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Class Loader hoạt động như thế nào? Tại sao JVM dùng tới 3 loại Class Loader phân cấp thay
+vì chỉ một?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Kể tên 3 loại Class Loader chuẩn (Bootstrap, Platform, Application) và biết loại nào
+      nạp loại class nào</li>
+<li>[ ] Giải thích được cơ chế <strong>Parent Delegation Model</strong> và vì sao nó tồn tại (bảo mật)</li>
+<li>[ ] Phân biệt được 3 giai đoạn Loading → Linking (Verify/Prepare/Resolve) → Initialization</li>
+<li>[ ] Tự tay quan sát được <code>getClassLoader()</code> trả về gì cho class hệ thống và class tự viết</li>
+<li>[ ] Đọc hiểu (ở mức khái niệm) thuật toán <code>loadClass()</code> thật trong <code>java.lang.ClassLoader</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu khái niệm nạp class (class loading) ở mức tổng quan.</li>
+<li>Chapter 02 — hiểu JVM là gì, để phân biệt "Class Loader" là một thành phần <em>bên trong</em> JVM.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Runtime Data Areas</strong> (Chapter 04) — thông tin class do Class Loader nạp được lưu ở vùng
+  nhớ gọi là Metaspace; chapter đó sẽ giải thích Metaspace nằm ở đâu, khác Heap ra sao.</li>
+<li><strong>Reflection</strong> (Chapter 17) — API Reflection thao tác trực tiếp lên các đối tượng <code>Class</code>
+  mà Class Loader tạo ra.</li>
+<li><strong>Spring</strong> (Phase 5) — Spring Boot DevTools và các application server (Tomcat) dùng
+  Class Loader tuỳ chỉnh để hỗ trợ hot-reload, cô lập class giữa các ứng dụng web khác nhau
+  chạy chung một JVM.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JVM cần nạp class từ nhiều nguồn khác nhau: class lõi của chính Java (<code>java.lang.String</code>,
+<code>java.util.List</code>...), class thuộc các module JDK nội bộ, và class do bạn/thư viện bên thứ ba
+viết. Nếu dùng chung một cơ chế nạp không phân biệt nguồn gốc, hai vấn đề nghiêm trọng xảy ra:</p>
+<ol>
+<li><strong>Bảo mật:</strong> code của bạn (hoặc một thư viện độc hại) có thể tự định nghĩa một class tên
+   <code>java.lang.String</code>, "giả mạo" class lõi để đánh cắp dữ liệu đi qua nó.</li>
+<li><strong>Xung đột:</strong> hai thư viện bên thứ ba khác nhau có thể chứa class trùng tên — JVM cần biết
+   dùng bản nào, từ đâu.</li>
+</ol>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JVM giải quyết bằng cách chia việc nạp class cho <strong>nhiều Class Loader xếp theo tầng</strong>, mỗi
+tầng chỉ tin tưởng những nguồn nhất định, và bắt buộc tầng con phải <strong>hỏi tầng cha trước</strong> khi
+tự nạp — gọi là <strong>Parent Delegation Model</strong>.</p>
+<p>Ba Class Loader chuẩn (từ trong ra ngoài, từ tin cậy nhất đến ít tin cậy nhất):</p>
+<ul>
+<li><strong>Bootstrap Class Loader</strong> — nạp class lõi tuyệt đối (<code>java.lang.*</code>, <code>java.util.*</code>...,
+  nằm trong module <code>java.base</code>). Viết bằng native code (không phải Java), không có "class
+  loader cha" — đây là gốc của toàn bộ hệ thống. Đây là lý do
+  <code>String.class.getClassLoader()</code> trả về <code>null</code> (Chapter 01 đã thấy hiện tượng "class được
+  nạp trước main()" — Bootstrap chính là loader đứng sau phần lớn class đó).</li>
+<li><strong>Platform Class Loader</strong> (tên cũ trước Java 9: <em>Extension Class Loader</em>) — nạp các module
+  JDK không thuộc lõi tuyệt đối (ví dụ các API bổ trợ đi kèm JDK).</li>
+<li><strong>Application Class Loader</strong> (còn gọi <em>System Class Loader</em>) — nạp class từ classpath của
+  chính ứng dụng bạn viết. Đây là loader nạp <code>Main</code>, <code>Product</code> ở Chapter 01.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có Parent Delegation:</p>
+<ul>
+<li>Một <code>class Hacker extends ClassLoader</code> có thể tự định nghĩa <code>java.lang.String</code> phiên bản
+  giả, nạp nó <em>trước</em> khi JVM kịp nạp <code>String</code> thật từ Bootstrap — và mọi đoạn code dùng
+  <code>String</code> trong toàn bộ chương trình (kể cả code bạn không viết) sẽ chạy trên phiên bản giả
+  đó.</li>
+<li>Với Parent Delegation, <code>Hacker</code> classloader dù có tự định nghĩa <code>java.lang.String</code>, khi có
+  ai đó yêu cầu nạp <code>java.lang.String</code>, yêu cầu luôn bị đẩy lên Bootstrap trước — Bootstrap
+  đã có sẵn <code>String</code> thật, nạp nó, và <strong>không bao giờ hỏi xuống</strong> class loader con nữa. Bản
+  giả của <code>Hacker</code> không bao giờ có cơ hội được dùng cho namespace <code>java.lang.*</code>.</li>
+</ul>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Việc nạp một class gồm 3 giai đoạn tách biệt:</p>
+<ol>
+<li><strong>Loading</strong> — tìm file <code>.class</code> (từ classpath, jar, mạng...), đọc bytes, tạo đối tượng
+   <code>Class</code> tương ứng trong bộ nhớ.</li>
+<li><strong>Linking</strong>, gồm 3 bước con:</li>
+<li><em>Verify</em> — kiểm tra bytecode hợp lệ, không vi phạm quy tắc an toàn của JVM (không nhảy
+     lung tung, không truy cập bộ nhớ trái phép).</li>
+<li><em>Prepare</em> — cấp phát bộ nhớ cho các static field, gán giá trị mặc định (0, <code>null</code>...).</li>
+<li><em>Resolve</em> — phân giải các tham chiếu symbolic (tên class/method dạng chuỗi trong
+     bytecode) thành tham chiếu trực tiếp trong bộ nhớ.</li>
+<li><strong>Initialization</strong> — chạy static initializer và gán giá trị thật cho static field (đoạn
+   code trong khối <code>static { ... }</code> hoặc <code>static int x = 5;</code>).</li>
+</ol>
+<p>Còn thứ tự <strong>ai hỏi ai</strong> khi cần nạp một class (Parent Delegation):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Application Class Loader cần nạp class X
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        │  (1) hỏi cha trước, KHÔNG tự nạp ngay
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        ▼
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Platform Class Loader
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        │  (2) hỏi cha trước
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        ▼
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Bootstrap Class Loader
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        │  (3) Bootstrap có X không?
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        ├── Có → nạp, trả kết quả xuống. DỪNG Ở ĐÂY.
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        └── Không → báo lại cho Platform
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                       │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                       │  (4) Platform có X không (trong phạm vi nó phụ trách)?
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                       ├── Có → nạp, trả kết quả xuống. DỪNG Ở ĐÂY.
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>                       └── Không → báo lại cho Application
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                                      │
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                                      │  (5) Application tự tìm X trên classpath
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>                                      ├── Có → nạp
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>                                      └── Không → ClassNotFoundException
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Bootstrap Class Loader          (nạp java.lang.*, java.util.* — lõi tuyệt đối)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        ▲  delegation (hỏi lên)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        │
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Platform Class Loader           (nạp các module JDK khác)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        ▲  delegation (hỏi lên)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Application Class Loader        (nạp class của BẠN — Main, Product, thư viện bên thứ ba)
 </code></pre></div>
+<p>Mũi tên hướng LÊN vì đó là hướng <strong>yêu cầu được hỏi tới</strong> (delegation) — còn việc <strong>thực sự
+nạp</strong> thì luôn cố gắng xảy ra ở tầng cao nhất (gần Bootstrap nhất) có khả năng, rồi kết quả
+mới "chảy" ngược xuống.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ClassLoaderDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;String&#39;s loader: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">());</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ClassLoaderDemo&#39;s loader: &quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">ClassLoaderDemo</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">());</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ClassLoaderDemo loader&#39;s parent: &quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">ClassLoaderDemo</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">().</span><span class="na">getParent</span><span class="p">());</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </code></pre></div>
+<p>Chạy <code>javac ClassLoaderDemo.java &amp;&amp; java ClassLoaderDemo</code>, kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>String&#39;s loader: null
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ClassLoaderDemo&#39;s loader: jdk.internal.loader.ClassLoaders$AppClassLoader@22d8cfe0
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ClassLoaderDemo loader&#39;s parent: jdk.internal.loader.ClassLoaders$PlatformClassLoader@331bc1aa
+</code></pre></div>
+<p>Ba điều xác nhận đúng lý thuyết ở trên:</p>
+<ul>
+<li><code>String</code> được nạp bởi Bootstrap — nhưng Bootstrap không phải một object Java thật (nó là
+  native code), nên <code>getClassLoader()</code> trả về <code>null</code> thay vì tên một class loader.</li>
+<li>Class tự viết (<code>ClassLoaderDemo</code>) được nạp bởi <code>AppClassLoader</code> — đúng là Application Class
+  Loader.</li>
+<li>Cha của <code>AppClassLoader</code> là <code>PlatformClassLoader</code> — đúng thứ tự phân cấp.</li>
+</ul>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao gọi là "Parent Delegation", không phải "Parent chỉ đạo"?</strong> Vì Application Class
+Loader không hề bị Bootstrap ra lệnh — nó <strong>chủ động</strong> chọn hỏi cha trước. Đây là quy ước
+được cài trong hành vi mặc định của <code>java.lang.ClassLoader.loadClass()</code> (xem Source Code
+Walkthrough), không phải luật cứng của JVM. Điều này có nghĩa: bạn <strong>có thể</strong> viết một
+ClassLoader tuỳ chỉnh phá vỡ quy tắc delegation (một số application server làm vậy để cô lập
+class giữa các ứng dụng web) — nhưng đó là ngoại lệ có chủ đích, không phải hành vi mặc định.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao Platform Class Loader tồn tại — tại sao không gộp thẳng Bootstrap và Application?</strong></p>
+<p>Trước Java 9, lớp giữa này tên là <em>Extension Class Loader</em>, phụ trách nạp các thư viện "mở
+rộng" đặt trong thư mục <code>jre/lib/ext</code>. Sau Project Jigsaw (Java 9, module hoá JDK — xem
+Chapter 02 Engineering Insight), vai trò đổi thành nạp các <strong>module JDK chuẩn nhưng không
+thuộc <code>java.base</code></strong> (module lõi tuyệt đối do Bootstrap giữ). Việc tách một tầng trung gian
+cho phép JDK tự tổ chức nội bộ thành nhiều module rời rạc mà không phải chọn giữa hai thái
+cực: hoặc coi mọi thứ đều "lõi tuyệt đối" (Bootstrap phải ôm hết, mất linh hoạt), hoặc coi mọi
+thứ đều "do ứng dụng cung cấp" (mất ranh giới tin cậy). Tầng Platform là vùng đệm cho những
+thứ "thuộc JDK nhưng không phải lõi tuyệt đối".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Trước Java 9
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    ↓
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Extension Class Loader — nạp thư viện trong jre/lib/ext
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    ↓
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Java 9 (Project Jigsaw, module hoá JDK)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    ↓
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Đổi tên thành Platform Class Loader — nạp các module JDK không thuộc java.base
+</code></pre></div>
+<blockquote>
+<p>Metaspace (nơi lưu thông tin class do các Class Loader này nạp) cũng đổi lớn ở Java 8 —
+xem chi tiết ở <a href="../04-runtime-data-areas/">Chapter 04 — Runtime Data Areas</a>, không nhắc lại
+ở đây để tránh trùng lặp.</p>
+</blockquote>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Tất cả class trong chương trình được nạp ngay khi JVM khởi động."
+  <strong>Reality:</strong> JVM nạp <strong>lazy</strong> — một class chỉ được nạp khi lần đầu tiên nó được <em>dùng chủ
+  động</em> (tạo instance, gọi static method, truy cập static field...). Đây là lý do log
+  <code>-Xlog:class+load</code> ở Chapter 01 tiếp tục xuất hiện thêm dòng mới trong lúc chương trình
+  đang chạy, không chỉ ngay lúc khởi động.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Class Loader chỉ đơn giản là đọc file <code>.class</code> từ đĩa."
+  <strong>Reality:</strong> Class Loader còn thực hiện Verify (kiểm tra bytecode hợp lệ, chống bytecode
+  bị chỉnh sửa/độc hại) — một bước bảo mật quan trọng, không chỉ đọc file.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Nhầm <code>ClassNotFoundException</code> với <code>NoClassDefFoundError</code>.</strong><blockquote>
+<p>Xem lại: <a href="../01-mot-chuong-trinh-java-chay-nhu-the-nao/">Chapter 01 — Production Notes</a>
+  đã phân biệt hai lỗi này ở mức triệu chứng; ở đây bổ sung góc nhìn Class Loader:
+  <code>ClassNotFoundException</code> xảy ra khi <strong>chính Class Loader</strong> chủ động tìm nhưng không thấy
+  class (ví dụ gọi <code>Class.forName("...")</code> sai tên). <code>NoClassDefFoundError</code> xảy ra khi class
+  <em>đã từng được resolve thành công lúc compile</em>, nhưng lúc runtime, Class Loader không tìm
+  lại được nó nữa (thường do classpath lúc chạy khác lúc build).</p>
+</blockquote>
+</li>
+<li><strong>Tưởng rằng hai class cùng tên, cùng nội dung, do hai Class Loader khác nhau nạp là "cùng
+  một class".</strong> JVM coi định danh đầy đủ của một class là <strong>(tên class, Class Loader nạp
+  nó)</strong> — cùng tên nhưng khác Class Loader là hai class khác nhau, gây lỗi khó hiểu dạng
+  <code>ClassCastException</code> dù tên class in ra giống hệt nhau.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Khi gặp lỗi liên quan tới class bị trùng/lệch version giữa các thư viện (rất phổ biến với
+  Maven/Gradle dependency conflict), dùng <code>-Xlog:class+load=info</code> (Chapter 01) kèm việc kiểm
+  tra Class Loader nạp class đó để xác định chính xác nó đến từ jar nào.</li>
+<li>Không tự viết Class Loader tuỳ chỉnh trừ khi thật sự cần cô lập (plugin system, hot reload,
+  multi-tenant) — đa số ứng dụng backend không cần đụng tới tầng này.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> ứng dụng chạy được cục bộ, nhưng khi deploy lên môi trường có nhiều thư viện
+dùng chung (ví dụ application server chạy nhiều app, hoặc "uber jar" gộp nhiều dependency),
+gặp <code>ClassCastException: X cannot be cast to X</code> — <strong>dòng chữ y hệt hai bên <code>cannot be cast
+to</code></strong>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> exception có vẻ vô lý — class được cast trông giống hệt class đích.</li>
+<li><strong>Root cause:</strong> đúng như Common Mistakes đã nói — có <strong>hai bản</strong> của cùng một class được
+  nạp bởi <strong>hai Class Loader khác nhau</strong> (ví dụ: một bản trong jar ứng dụng, một bản trong
+  jar của framework/app server). JVM coi chúng là hai kiểu dữ liệu khác nhau dù tên giống hệt.</li>
+<li><strong>Debug:</strong> in ra <code>object.getClass().getClassLoader()</code> và so sánh với
+  <code>TargetType.class.getClassLoader()</code> — nếu khác nhau, đây chính là nguyên nhân.</li>
+<li><strong>Solution:</strong> loại bỏ bản trùng lặp của thư viện (kiểm tra cây dependency:
+  <code>mvn dependency:tree</code> / <code>gradle dependencies</code>), đảm bảo chỉ một bản được nạp bởi cùng một
+  Class Loader.</li>
+<li><strong>Prevention:</strong> quét dependency conflict như một bước CI thường xuyên, đặc biệt sau khi
+  thêm thư viện mới.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lỗi là <code>ClassNotFoundException</code> hay <code>NoClassDefFoundError</code>? → xem phân biệt ở Common
+      Mistakes.</li>
+<li>[ ] Lỗi là <code>ClassCastException</code> với tên class hai bên giống hệt nhau? → nghi ngờ class bị
+      nạp bởi hai Class Loader khác nhau (xem Production Notes).</li>
+<li>[ ] Muốn biết một class cụ thể được nạp từ đâu? → <code>SomeClass.class.getClassLoader()</code> rồi
+      <code>.getResource(...)</code>, hoặc chạy với <code>-Xlog:class+load=info</code>.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Thuật toán delegation mặc định nằm trong <code>java.lang.ClassLoader.loadClass()</code>, về bản chất
+(diễn giải theo hành vi thật, không chép nguyên văn source):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>loadClass(tên class):
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    đã nạp rồi? → trả về luôn, không nạp lại
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    chưa nạp:
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        có class loader cha? → gọi parent.loadClass(tên class)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        không có cha (đây là Bootstrap) → tự tìm trong lõi JDK
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        nếu cha trả về lỗi &quot;không tìm thấy&quot;:
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            tự gọi findClass(tên class) — bước này mới THỰC SỰ đọc bytecode
+</code></pre></div>
+<p>Điểm mấu chốt: bước "tự tìm" (<code>findClass</code>) chỉ được gọi <strong>sau khi</strong> cha đã từ chối — đúng
+tinh thần Parent Delegation ở phần How?. Đây cũng là method bạn override khi viết Class
+Loader tuỳ chỉnh (không override <code>loadClass()</code> trực tiếp, mà override <code>findClass()</code>, để không
+vô tình phá vỡ cơ chế delegation).</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JVM dùng 3 Class Loader phân cấp — Bootstrap (lõi tuyệt đối), Platform (module JDK khác),
+Application (class của bạn) — thay vì một Class Loader duy nhất, để tạo ra ranh giới tin cậy:
+nhờ <strong>Parent Delegation Model</strong>, yêu cầu nạp một class luôn bị đẩy lên tầng cao nhất có thể
+trước, khiến code ứng dụng không bao giờ "ghi đè" được các class lõi. Việc nạp một class gồm
+3 giai đoạn (Loading → Linking → Initialization) và diễn ra <strong>lazy</strong> — chỉ khi class được
+dùng lần đầu, không phải ngay lúc JVM khởi động.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Kể tên 3 loại Class Loader chuẩn trong JVM. Loại nào nạp <code>java.lang.String</code>?</li>
+<li><code>ClassNotFoundException</code> và <code>NoClassDefFoundError</code> khác nhau ở điểm nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Parent Delegation Model là gì? Nó giải quyết vấn đề bảo mật gì?</li>
+<li>Một class được nạp "lazy" nghĩa là gì? Cho ví dụ chứng minh bằng <code>-Xlog:class+load</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao hai object có class cùng tên, cùng nội dung bytecode, do hai Class Loader khác nhau
+  nạp, lại không thể cast qua lại (<code>ClassCastException</code>)? JVM định danh một class dựa trên
+  những gì?</li>
+<li>Nếu bạn cần viết một hệ thống plugin cho phép nạp/gỡ plugin lúc runtime mà không restart
+  ứng dụng, Class Loader đóng vai trò gì trong thiết kế đó?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ClassLoaderDemo</code> ở trên trên máy bạn, xác nhận kết quả giống hệt.</li>
+<li>[ ] Viết một chương trình gọi <code>Class.forName("com.khong.ton.tai.Gi.Ca")</code> (tên chắc chắn
+      không tồn tại), bắt <code>ClassNotFoundException</code>, in ra thông điệp lỗi — đọc kỹ nó nói gì.</li>
+<li>[ ] Tìm trong project Java thật (nếu có) một trường hợp dùng <code>Thread.currentThread()
+      .getContextClassLoader()</code> — thử giải thích vì sao code đó không dùng
+      <code>this.getClass().getClassLoader()</code> thay thế.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Class Loader</th>
+<th>Nạp gì</th>
+<th><code>getClassLoader()</code> trả về</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bootstrap</td>
+<td><code>java.lang.*</code>, <code>java.util.*</code> (module <code>java.base</code>)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>Module JDK khác (tên cũ: Extension)</td>
+<td><code>PlatformClassLoader</code></td>
+</tr>
+<tr>
+<td>Application</td>
+<td>Class của bạn, thư viện bên thứ ba</td>
+<td><code>AppClassLoader</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Giai đoạn</th>
+<th>Việc gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loading</td>
+<td>Tìm + đọc bytecode, tạo object <code>Class</code></td>
+</tr>
+<tr>
+<td>Linking → Verify</td>
+<td>Kiểm tra bytecode hợp lệ</td>
+</tr>
+<tr>
+<td>Linking → Prepare</td>
+<td>Cấp phát bộ nhớ static field, gán default</td>
+</tr>
+<tr>
+<td>Linking → Resolve</td>
+<td>Phân giải tham chiếu symbolic → tham chiếu thật</td>
+</tr>
+<tr>
+<td>Initialization</td>
+<td>Chạy static initializer, gán giá trị thật</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Virtual Machine Specification (Oracle) — Chapter 5: Loading, Linking, and
+  Initializing.</li>
+<li><code>java.lang.ClassLoader</code> — Java SE API Documentation (Oracle).</li>
+<li>JEP 220: Modular Run-Time Images.</li>
 </ul>
 
 

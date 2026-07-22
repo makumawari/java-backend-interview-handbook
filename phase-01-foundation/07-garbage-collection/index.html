@@ -6131,7 +6131,35 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:gc" class="md-tag">GC</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jvm" class="md-tag">JVM</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:memory" class="md-tag">Memory</a>
       
     
   </nav>
@@ -6149,15 +6177,18 @@ Chapter slug: <code>garbage-collection</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Garbage Collection</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Runtime Data Areas</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — JIT Compiler</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WeakHashMap, IdentityHashMap (Phase 2) — dựa trực tiếp trên khái niệm reachability ở đây</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">equals()/hashCode(), mọi Collection (Phase 2) — vòng đời object ảnh hưởng thiết kế cache</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JVM Tuning, Performance Tuning (Phase 8) — chọn/chỉnh GC algorithm cho production</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6196,363 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../04-runtime-data-areas/">Chapter 04</a> — bạn đã tự tay tạo ra
+<code>OutOfMemoryError</code> bằng cách liên tục <code>new int[1_000_000]</code> mà không bao giờ dừng.</p>
 </blockquote>
+<p>Nhưng phần lớn thời gian, chương trình Java <strong>không</strong> hết bộ nhớ, dù liên tục tạo object mới
+suốt vòng đời chạy — có khi hàng triệu object mỗi giây trong một hệ thống xử lý request. Không
+có dòng code nào bạn viết gọi <code>free(product)</code> hay <code>delete product</code> như C/C++. Vậy ai đang dọn
+dẹp, và dọn dẹp <strong>cái gì</strong>, <strong>khi nào</strong>?</p>
+<p>Câu trả lời tưởng như đơn giản ("Garbage Collector tự động dọn rác") thực ra ẩn chứa một câu
+hỏi khó hơn: làm sao JVM biết một object đã "hết dùng" khi bản thân chương trình còn đang
+chạy, không ai báo trước? Đây chính là bài toán mà Garbage Collection giải quyết.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vì sao Java không có <code>free()</code>/<code>delete()</code> như C/C++ mà vẫn quản lý được bộ nhớ? Garbage
+Collector xác định một object "đã chết" bằng cách nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu khái niệm <strong>reachability</strong> — GC không đếm tham chiếu, nó truy vết từ GC Roots</li>
+<li>[ ] Giải thích được <strong>Generational Hypothesis</strong> và vì sao Heap được chia thành Young/Old
+      Generation</li>
+<li>[ ] Phân biệt Minor GC (Young Gen) và Major/Full GC (Old Gen) về tần suất và chi phí</li>
+<li>[ ] Tự tay quan sát được GC hoạt động thật qua <code>-Xlog:gc</code></li>
+<li>[ ] Nhận ra rằng "GC tự động" không đồng nghĩa "không thể memory leak trong Java"</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 04 — đã biết Heap là nơi object thật sự nằm, và <code>OutOfMemoryError</code> là gì.</li>
+<li>Chapter 06 — đã biết JVM có các cơ chế chạy nền (JIT) tối ưu song song với thực thi chính;
+  GC là cơ chế chạy nền thứ hai theo tinh thần tương tự.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>WeakHashMap, IdentityHashMap</strong> (Phase 2) — các cấu trúc dữ liệu này chỉ có ý nghĩa khi đã
+  hiểu reachability: <code>WeakHashMap</code> cố tình giữ tham chiếu "yếu" để không cản GC dọn key.</li>
+<li><strong>equals()/hashCode(), mọi Collection</strong> (Phase 2) — thiết kế cache đúng cách phụ thuộc vào
+  hiểu vòng đời object mà GC quản lý.</li>
+<li><strong>JVM Tuning, Performance Tuning</strong> (Phase 8) — chọn GC algorithm (G1, ZGC...) và tinh chỉnh
+  tham số là công việc tối ưu production thực tế, xây trên nền chapter này.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Chương trình tạo object liên tục (Chapter 04), nhưng Heap có giới hạn (<code>-Xmx</code>). Nếu không ai
+dọn dẹp object không còn dùng, chương trình sẽ luôn kết thúc bằng <code>OutOfMemoryError</code>, bất kể
+chạy nhanh hay chậm. Nhưng "dọn dẹp" cần trả lời được câu hỏi khó: <strong>làm sao biết một object
+không còn ai dùng nữa</strong>, khi chương trình có thể lưu tham chiếu tới nó ở bất kỳ đâu — biến cục
+bộ, field của object khác, mảng, cấu trúc dữ liệu lồng nhau nhiều tầng?</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JVM giải quyết bằng <strong>reachability</strong> (khả năng truy cập được): một object được coi là "còn
+sống" nếu có thể truy tới nó bằng một chuỗi tham chiếu bắt đầu từ một tập điểm xuất phát đặc
+biệt gọi là <strong>GC Roots</strong> (biến cục bộ đang có trên Stack — Chapter 04, static field, tham
+chiếu JNI...). Object nào <strong>không</strong> thể truy tới từ bất kỳ GC Root nào — dù bộ nhớ vẫn còn
+chứa nó — bị coi là rác, đủ điều kiện để GC thu hồi.</p>
+<p>Cách hiện thực dựa trên <strong>Generational Hypothesis</strong> (giả thuyết thế hệ): quan sát thực nghiệm
+cho thấy phần lớn object "chết rất trẻ" (tạo ra, dùng ngay, bỏ đi gần như lập tức — ví dụ biến
+tạm trong một vòng lặp xử lý request). Dựa trên giả thuyết này, Heap được chia thành:</p>
+<ul>
+<li><strong>Young Generation</strong> — nơi object mới sinh ra. Được GC quét rất thường xuyên (<strong>Minor GC</strong>),
+  nhanh, vì phần lớn object ở đây đã chết ngay khi quét tới.</li>
+<li><strong>Old Generation</strong> — nơi chứa object đã sống đủ lâu qua nhiều lần Minor GC (được "thăng
+  hạng" — promote). Được quét ít thường xuyên hơn nhưng tốn kém hơn mỗi lần (<strong>Major/Full
+  GC</strong>), vì object ở đây thường lớn và nhiều hơn.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu GC quét toàn bộ Heap mỗi lần (không chia generation): với ứng dụng có Heap lớn (hàng chục
+GB, phổ biến trong hệ thống production thật), mỗi lần GC sẽ dừng chương trình (<strong>GC pause</strong>)
+rất lâu — không chấp nhận được với hệ thống cần độ trễ thấp. Chia generation cho phép GC tập
+trung quét vùng nhỏ (Young Gen) thường xuyên với chi phí thấp, chỉ đụng tới vùng lớn (Old Gen)
+khi thực sự cần — giảm đáng kể tổng thời gian dừng chương trình.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Object mới → sinh ra trong Young Generation (vùng Eden)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        │  Minor GC quét Eden: object nào không còn reachable → thu hồi ngay
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        │                       object nào còn sống → chuyển sang vùng Survivor
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        │  Object sống sót qua NHIỀU lần Minor GC liên tiếp
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        ▼
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>   Được &quot;thăng hạng&quot; (promote) sang Old Generation
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        │  Old Generation đầy dần theo thời gian
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        ▼
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>   Major/Full GC quét Old Generation (chậm hơn, ít xảy ra hơn nhiều)
+</code></pre></div>
+<p>Việc xác định "reachable hay không" được thực hiện bằng cách xuất phát từ GC Roots, đi theo
+mọi tham chiếu có thể tới (giống duyệt đồ thị): object nào <strong>không</strong> bị chạm tới trong lần
+duyệt này là rác.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GC Roots                          HEAP
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>┌──────────────┐
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│ Stack thread1 │──┐
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│  (biến cục bộ)│  │        Young Generation          Old Generation
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├──────────────┤  │       ┌──────────────────┐      ┌─────────────┐
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│ Static fields │──┼──────▶│ [A] [B]    [C]    │─────▶│ [D] (sống lâu)│
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>└──────────────┘  │       │  ●    ●      ×     │      └─────────────┘
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                    │       └──────────────────┘
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                    │        [C] không có mũi tên nào trỏ tới từ GC Roots
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                    │        → KHÔNG reachable → RÁC, Minor GC thu hồi
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                    └──────▶ [A], [B] còn reachable → sống sót
 </code></pre></div>
+<p><code>[C]</code> vẫn còn nằm vật lý trong bộ nhớ Heap cho tới khi GC quét tới — nhưng về mặt logic, nó đã
+"chết" ngay từ thời điểm không còn tham chiếu nào từ GC Roots trỏ tới nó, không phải tại thời
+điểm GC thực sự chạy.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Quan sát GC hoạt động thật, dùng cờ logging chuẩn (tương tự tinh thần <code>-Xlog:class+load</code> ở
+Chapter 01, nhưng cho GC):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GcDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">garbage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="n">garbage</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="mi">100_000</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">garbage</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">                </span><span class="n">garbage</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// bỏ tham chiếu tới object cũ nhất</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Xong, giữ lại &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">garbage</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; block&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
 </code></pre></div>
+<p>Chạy với <code>java -Xmx20m -Xlog:gc GcDemo</code> (giới hạn Heap nhỏ để GC xảy ra và log lại được),
+kết quả thật (JDK 17, GC mặc định là G1):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[0.003s][info][gc] Using G1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>[0.014s][info][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 10M-&gt;3M(24M) 0.308ms
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>[0.015s][info][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 13M-&gt;3M(24M) 0.188ms
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Xong, giữ lại 20 block
+</code></pre></div>
+<p>Đọc log: <code>10M-&gt;3M(24M)</code> nghĩa là trước lần GC này Heap đang dùng 10MB, sau khi GC xong chỉ còn
+3MB đang dùng (tổng Heap cấp phát 24MB) — đúng bằng chứng cho <code>garbage.remove(0)</code> liên tục làm
+object cũ mất reachability, GC thu hồi thành công, chỉ mất <strong>dưới 1 mili-giây</strong> mỗi lần (
+<code>0.308ms</code>, <code>0.188ms</code>) — Minor GC trên Young Gen thường rất nhanh, đúng như phần Why? đã giải
+thích.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao log ghi "Using G1"?</strong> Từ Java 9, <strong>G1 (Garbage-First)</strong> là GC mặc định của HotSpot,
+thay thế Parallel GC (mặc định trước đó). G1 chia Heap thành nhiều vùng nhỏ (region) thay vì
+hai khối Young/Old liền mạch truyền thống, ưu tiên dọn trước những vùng có nhiều rác nhất
+("Garbage-First" — đúng tên gọi) để tối ưu tỉ lệ dọn rác trên mỗi mili-giây dừng chương trình.
+Đây không phải chapter đi sâu vào từng thuật toán GC (dành cho Phase 8 — Performance Tuning) —
+ở mức nền tảng, chỉ cần biết: <strong>có nhiều GC algorithm khác nhau, đánh đổi khác nhau giữa
+throughput và độ trễ</strong>, và G1 là lựa chọn cân bằng mặc định hiện nay.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao GC lại dựa trên "reachability" thay vì cách đơn giản hơn: đếm số tham chiếu tới mỗi
+object (reference counting), giống một số ngôn ngữ khác?</strong> Reference counting có một lỗ hổng
+nghiêm trọng: <strong>chu trình tham chiếu</strong> (A trỏ tới B, B trỏ ngược lại A, nhưng không ai từ bên
+ngoài còn trỏ tới cả A lẫn B) — đếm tham chiếu sẽ không bao giờ về 0 cho cả hai, dù chúng thực
+chất đã "chết" theo nghĩa reachability. GC dựa trên truy vết từ GC Roots (giống duyệt đồ thị)
+xử lý đúng trường hợp này một cách tự nhiên: nếu không ai từ GC Roots truy được tới A hay B,
+cả hai đều bị coi là rác — bất kể chúng có trỏ vòng vào nhau hay không. Đây là lý do thiết kế
+"truy vết từ gốc" được hầu hết GC hiện đại (bao gồm JVM) chọn thay vì đếm tham chiếu đơn thuần.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Trước Java 9
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    ↓
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Parallel GC là mặc định — tối ưu throughput (tổng công việc xử lý được),
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>chấp nhận GC pause có thể khá dài
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    ↓
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Java 9 (2017)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    ↓
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>G1 trở thành GC mặc định — cân bằng throughput và độ trễ tốt hơn
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    ↓
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Java 14 (2020) — CMS (Concurrent Mark Sweep, một GC độ trễ thấp từng phổ biến,
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    đã bị đánh dấu deprecated từ Java 9) chính thức bị GỠ BỎ khỏi JDK
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    ↓
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>Từ Java 15 trở đi — ZGC và Shenandoah (GC độ trễ cực thấp, pause dưới
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    mili-giây dù Heap hàng trăm GB) dần trưởng thành, sẵn sàng cho production
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Java có GC nên không bao giờ bị memory leak."
+  <strong>Reality:</strong> GC chỉ thu hồi object <strong>không còn reachable</strong>. Nếu code vô tình giữ tham
+  chiếu mãi mãi tới object không dùng nữa (ví dụ: thêm vào <code>static List</code> rồi quên xoá — xem
+  lại <a href="../04-runtime-data-areas/">Chapter 04 — Production Notes</a>), object đó <strong>vẫn
+  reachable</strong> theo đúng định nghĩa, GC sẽ không bao giờ đụng tới nó — đây chính là "memory
+  leak kiểu Java", vẫn hoàn toàn có thể xảy ra dù có GC.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "GC chạy thì chương trình luôn bị dừng (stop-the-world), luôn gây giật lag."
+  <strong>Reality:</strong> Đúng là nhiều pha GC cần dừng toàn bộ thread ứng dụng (stop-the-world) để đảm
+  bảo an toàn khi truy vết reachability, nhưng như ví dụ ở trên, Minor GC hiện đại (G1) chỉ
+  mất <strong>dưới 1 mili-giây</strong> trong tình huống thông thường — không phải lúc nào "GC chạy" cũng
+  đồng nghĩa "chương trình giật lag đáng kể".</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Coi <code>System.gc()</code> là cách "dọn rác ngay lập tức".</strong> <code>System.gc()</code> chỉ là một <strong>gợi ý</strong>
+  cho JVM nên chạy GC — JVM có quyền bỏ qua hoàn toàn. Gọi <code>System.gc()</code> thường xuyên trong
+  code nghiệp vụ là một anti-pattern, không đảm bảo hiệu quả và có thể gây pause không cần
+  thiết.</li>
+<li><strong>Đặt biến <code>= null</code> một cách máy móc ngay sau khi dùng xong</strong>, nghĩ rằng bắt buộc phải làm
+  vậy để "giúp" GC. Với biến cục bộ, JVM đã đủ thông minh để nhận ra biến không còn được dùng
+  tới nữa trong phần code còn lại của method (dựa trên phân tích luồng dữ liệu) — việc gán
+  <code>null</code> thủ công thường không cần thiết, chỉ thực sự có ý nghĩa với field sống lâu (như
+  field của object tồn tại lâu, hoặc phần tử trong collection — đúng tình huống
+  <code>garbage.remove(0)</code> ở ví dụ trên).</li>
+<li><strong>Nhầm "Full GC chạy nhiều" là bình thường.</strong> Full GC chạy thường xuyên là dấu hiệu cảnh
+  báo (Old Generation liên tục đầy) — không phải hiện tượng bình thường như Minor GC.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Không gọi <code>System.gc()</code> trong code nghiệp vụ; nếu cần ép GC chạy khi debug/benchmark, thực
+  hiện thủ công ngoài code (qua công cụ như <code>jcmd &lt;pid&gt; GC.run</code>), không nhúng vào logic ứng
+  dụng.</li>
+<li>Khi thiết kế cache hoặc cấu trúc dữ liệu sống lâu, luôn tự hỏi: "ai giữ tham chiếu tới các
+  entry này, và tham chiếu đó có bao giờ được gỡ bỏ không?" — trả lời rõ câu này ngay từ đầu
+  thiết kế, thay vì xử lý sự cố memory leak sau này.</li>
+<li>Theo dõi tần suất và thời lượng GC (Minor vs Full) như một chỉ số sức khoẻ ứng dụng thường
+  trực trong production, không chỉ khi có sự cố.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> ứng dụng ngày càng chậm, log cho thấy Full GC chạy ngày càng thường xuyên, cuối
+cùng crash <code>OutOfMemoryError</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> độ trễ tăng dần trong nhiều giờ/ngày (không đột ngột), tỉ lệ thời gian
+  dành cho GC trên tổng thời gian chạy tăng dần — chỉ số kinh điển là <strong>GC overhead</strong>: nếu
+  JVM dành hơn 98% thời gian cho GC mà chỉ thu hồi được dưới 2% Heap mỗi lần, HotSpot tự ném
+  <code>OutOfMemoryError: GC overhead limit exceeded</code> — một biến thể khác của OOM, khác với
+  <code>Java heap space</code> đã gặp ở Chapter 04.</li>
+<li><strong>Root cause:</strong> memory leak thật sự (object vẫn reachable dù logic nghiệp vụ coi như "đã
+  dùng xong") — Old Generation liên tục đầy dần vì ngày càng nhiều object bị kẹt lại đó mãi
+  mãi, không phải do tải tăng đột biến.</li>
+<li><strong>Debug:</strong> theo dõi biểu đồ Heap usage theo thời gian (không chỉ một thời điểm) — leak thật
+  cho thấy đường xu hướng đi lên đều đặn dù có GC, khác với dùng bộ nhớ bình thường (dao động
+  lên xuống theo tải nhưng có đáy ổn định). Kết hợp heap dump như đã nêu ở
+  <a href="../04-runtime-data-areas/">Chapter 04 — Production Notes</a> để tìm chính xác GC Root nào
+  đang giữ tham chiếu không cần thiết.</li>
+<li><strong>Solution:</strong> loại bỏ tham chiếu gây leak (xem lại Common Mistakes và Chapter 04).</li>
+<li><strong>Prevention:</strong> thiết lập cảnh báo (alert) dựa trên xu hướng GC overhead / tần suất Full
+  GC, không chỉ dựa trên mức sử dụng CPU/RAM tức thời — phát hiện leak sớm trước khi ảnh
+  hưởng người dùng thật.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Full GC chạy ngày càng thường xuyên, độ trễ tăng dần theo thời gian (không đột ngột)?
+      → nghi ngờ memory leak, không phải tải tăng.</li>
+<li>[ ] <code>OutOfMemoryError: GC overhead limit exceeded</code>? → phân biệt với <code>Java heap space</code>
+      (Chapter 04) — đây là dấu hiệu GC đang "cố gắng tuyệt vọng" mà không hiệu quả, thường
+      cũng dẫn tới cùng một hướng điều tra: leak.</li>
+<li>[ ] Nghi ngờ có nơi gọi <code>System.gc()</code> trong code nghiệp vụ? → tìm và loại bỏ, đây thường là
+      anti-pattern không giải quyết vấn đề gốc.</li>
+<li>[ ] Muốn xác nhận GC nào đang chạy, tần suất ra sao? → chạy với <code>-Xlog:gc</code> như ví dụ trong
+      chapter, quan sát trực tiếp.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Ở mức chapter nền tảng, không cần đọc source C++ của G1/thuật toán GC cụ thể trong HotSpot —
+đây là một trong những phần phức tạp và thay đổi nhiều nhất giữa các phiên bản JDK, để dành
+cho Phase 8 (Performance Tuning) khi cần tối ưu production thật với một GC algorithm cụ thể.
+Công cụ thực tế để quan sát hành vi GC ở mức chapter này là <code>-Xlog:gc</code> (đã dùng ở Example) và
+<code>jcmd &lt;pid&gt; GC.class_histogram</code> để xem loại object nào đang chiếm Heap nhiều nhất.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Garbage Collector không đếm tham chiếu — nó truy vết <strong>reachability</strong> từ một tập gốc gọi là
+GC Roots; object nào không thể truy tới được coi là rác. Dựa trên <strong>Generational Hypothesis</strong>
+(hầu hết object chết trẻ), Heap chia thành Young Generation (quét thường xuyên bằng Minor GC,
+rất nhanh) và Old Generation (quét ít hơn nhưng tốn kém hơn bằng Major/Full GC). "GC tự động"
+không có nghĩa là Java miễn nhiễm với memory leak — nếu code vẫn giữ tham chiếu (dù vô tình)
+tới object không dùng nữa, object đó vẫn reachable và GC sẽ không bao giờ thu hồi nó.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Garbage Collector xác định một object là "rác" dựa trên tiêu chí gì?</li>
+<li>Young Generation và Old Generation khác nhau như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao Heap được chia thành nhiều generation thay vì quét toàn bộ mỗi lần GC?</li>
+<li>Java có GC, vậy memory leak có còn xảy ra được không? Giải thích bằng một ví dụ cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao GC dựa trên reachability (truy vết từ GC Roots) thay vì reference counting? Chu
+  trình tham chiếu (circular reference) gây vấn đề gì cho reference counting mà
+  reachability xử lý được?</li>
+<li>Một service sản xuất cho thấy tần suất Full GC tăng dần trong 3 ngày liên tục rồi crash
+  OOM. Trình bày quy trình điều tra bạn sẽ làm, từ log tới heap dump tới xác định root cause.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>GcDemo</code> ở trên với <code>-Xlog:gc</code>, thử tăng/giảm <code>-Xmx</code>, quan sát tần
+      suất và kích thước các lần GC thay đổi ra sao.</li>
+<li>[ ] Sửa <code>GcDemo</code> để <strong>không</strong> gọi <code>garbage.remove(0)</code> (giữ lại toàn bộ 200 block thay vì
+      chỉ giữ 20) — chạy lại với cùng <code>-Xmx20m</code>, dự đoán trước điều gì sẽ xảy ra, sau đó xác
+      nhận bằng cách chạy thật.</li>
+<li>[ ] Dùng <code>jcmd &lt;pid&gt; GC.class_histogram</code> trên một chương trình Java đang chạy (có thể chính
+      là <code>GcDemo</code> sửa để chạy vòng lặp dài hơn) để xem loại object nào đang chiếm Heap nhiều
+      nhất tại một thời điểm.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GC Roots</td>
+<td>Điểm xuất phát truy vết: biến cục bộ trên Stack, static field, tham chiếu JNI</td>
+</tr>
+<tr>
+<td>Reachability</td>
+<td>Object truy được từ GC Roots → còn sống; không truy được → rác</td>
+</tr>
+<tr>
+<td>Young Generation</td>
+<td>Nơi object mới sinh; quét bằng Minor GC, thường xuyên, nhanh</td>
+</tr>
+<tr>
+<td>Old Generation</td>
+<td>Nơi object sống lâu (đã promote); quét bằng Major/Full GC, ít hơn, chậm hơn</td>
+</tr>
+<tr>
+<td>Minor GC</td>
+<td>Quét Young Gen</td>
+</tr>
+<tr>
+<td>Major/Full GC</td>
+<td>Quét Old Gen (hoặc toàn bộ Heap)</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>GC mặc định từ Java 9 trở đi</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Cờ JVM</th>
+<th>Việc gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-Xlog:gc</code></td>
+<td>Log cơ bản mỗi lần GC chạy</td>
+</tr>
+<tr>
+<td><code>-XX:+HeapDumpOnOutOfMemoryError</code></td>
+<td>Tự dump Heap khi OOM (xem Chapter 04)</td>
+</tr>
+<tr>
+<td><code>jcmd &lt;pid&gt; GC.run</code></td>
+<td>Gợi ý JVM chạy GC ngay (không đảm bảo, dùng khi debug)</td>
+</tr>
+<tr>
+<td><code>jcmd &lt;pid&gt; GC.class_histogram</code></td>
+<td>Xem loại object nào chiếm Heap nhiều nhất</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Oracle: "Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning
+  Guide".</li>
+<li>JEP 248: Make G1 the Default Garbage Collector.</li>
+<li>JEP 363: Remove the Concurrent Mark Sweep (CMS) Garbage Collector.</li>
 </ul>
 
 

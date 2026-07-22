@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:foundation" class="md-tag">Foundation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:immutable" class="md-tag">Immutable</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:string" class="md-tag">String</a>
       
     
   </nav>
@@ -6149,94 +6170,390 @@ Chapter slug: <code>string</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">String</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1 — Java Foundation</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Runtime Data Areas (Heap, Metaspace)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Object (toString/equals/hashCode)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Immutable (Chapter 11) — String là ví dụ mở đầu cho nguyên tắc thiết kế immutable object</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">equals()/hashCode() (Chapter 12-13) — String là ví dụ override chuẩn mực</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HashMap (Phase 2) — String làm key phổ biến nhất, dựa trên hashCode cached ở đây</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Toàn bộ handbook — String xuất hiện trong hầu hết mọi ví dụ code</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Thử tưởng tượng — chỉ là giả định — <code>String</code> trong Java là <strong>mutable</strong> (có thể sửa nội dung
+sau khi tạo), giống như một mảng ký tự bình thường. Chuyện gì sẽ xảy ra?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;admin&quot; được dùng làm key trong HashMap lưu quyền hạn người dùng
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Ai đó (một đoạn code ở rất xa, không liên quan) sửa nội dung chuỗi &quot;admin&quot; thành &quot;guest&quot;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        ↓
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>HashMap tính lại hashCode dựa trên nội dung mới → tra cứu key &quot;admin&quot; giờ TRẢ VỀ SAI CHỖ,
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>hoặc không tìm thấy nữa — toàn bộ cấu trúc dữ liệu bên trong HashMap bị hỏng
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        ↓
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Nếu &quot;admin&quot; từng được dùng làm tên class truyền vào ClassLoader (Chapter 03)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        ↓
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Việc sửa được chuỗi SAU KHI đã truyền cho hệ thống bảo mật là một lỗ hổng nghiêm trọng —
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>kẻ tấn công có thể &quot;đánh tráo&quot; giá trị sau khi đã qua bước kiểm tra
+</code></pre></div>
+<p>Đây không phải chuyện viễn tưởng — nó là chính xác lý do các nhà thiết kế Java quyết định
+<code>String</code> phải <strong>immutable</strong> (bất biến) tuyệt đối ngay từ Java 1.0. Chapter này giải thích rõ
+ba điều: <code>String</code> bất biến nghĩa là gì, vì sao bất biến lại quan trọng đến mức đó, và bên
+trong nó thực sự hoạt động ra sao.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vì sao String trong Java là immutable? Nếu String mutable thì điều gì sẽ thực sự xảy ra?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích được <code>String</code> immutable nghĩa là gì (khác với biến tham chiếu tới <code>String</code>
+      có thể đổi)</li>
+<li>[ ] Nêu được 3 lý do cụ thể String phải bất biến: bảo mật, thread-safety, String Pool</li>
+<li>[ ] Hiểu <strong>String Pool</strong> hoạt động ra sao, phân biệt <code>"a" == "a"</code> với
+      <code>new String("a") == "a"</code></li>
+<li>[ ] Biết <code>hashCode()</code> của <code>String</code> được <strong>cache</strong> — hệ quả trực tiếp của tính bất biến</li>
+<li>[ ] Dùng đúng <code>StringBuilder</code> khi cần nối chuỗi nhiều lần trong vòng lặp</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 04 — biết Heap/Metaspace là gì, để hiểu String Pool nằm ở đâu.</li>
+<li>Chapter 09 — biết <code>equals()</code>/<code>hashCode()</code>/<code>toString()</code> mặc định của <code>Object</code>, để so sánh
+  với cách <code>String</code> override chúng.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Immutable</strong> (Chapter 11) — chapter đó tổng quát hoá nguyên tắc thiết kế immutable object
+  cho <strong>class của riêng bạn</strong>; <code>String</code> ở chapter này là ví dụ nền tảng, sống động nhất.</li>
+<li><strong>equals()/hashCode()</strong> (Chapter 12-13) — <code>String</code> là ví dụ kinh điển của một class override
+  đúng cặp <code>equals()</code>/<code>hashCode()</code> theo nội dung, không theo tham chiếu (khác <code>Object</code> mặc
+  định — Chapter 09).</li>
+<li><strong>HashMap</strong> (Phase 2) — <code>String</code> là loại key phổ biến nhất trong thực tế; hiểu
+  <code>hashCode()</code> được cache ở đây giải thích một phần vì sao dùng <code>String</code> làm key hiệu quả.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>String</code> được dùng ở khắp mọi nơi trong một chương trình Java: tên class truyền cho
+<code>ClassLoader</code> (Chapter 03), key trong <code>HashMap</code>, nội dung SQL query, đường dẫn file, dữ liệu
+người dùng nhập vào. Rất nhiều trong số này là <strong>dữ liệu nhạy cảm về mặt an toàn</strong> — nếu giá
+trị chuỗi có thể bị thay đổi bởi bất kỳ đoạn code nào đang giữ tham chiếu tới nó, sau khi đã
+được một hệ thống khác (bảo mật, classloader, hash-based collection) kiểm tra/xử lý, hậu quả
+có thể rất nghiêm trọng (xem Story).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Immutable</strong> nghĩa là: một khi object <code>String</code> đã được tạo ra, <strong>nội dung bên trong nó không
+bao giờ thay đổi được nữa</strong> trong suốt vòng đời object đó. Mọi method trông như "sửa" chuỗi
+(<code>concat()</code>, <code>replace()</code>, <code>toUpperCase()</code>...) thực chất <strong>luôn tạo ra một object <code>String</code> mới</strong>,
+không đụng vào object cũ.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot; world&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Dòng 2 <strong>không</strong> sửa object <code>"hello"</code> — nó tạo một object <code>String</code> hoàn toàn mới chứa
+<code>"hello world"</code>, rồi gán <strong>tham chiếu</strong> <code>a</code> sang trỏ tới object mới đó. Object <code>"hello"</code> cũ
+vẫn còn nguyên vẹn, không đổi (chỉ là không còn ai giữ tham chiếu tới nó nữa — đủ điều kiện
+để GC dọn, xem lại <a href="../07-garbage-collection/">Chapter 07</a>).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Ba lý do cụ thể <code>String</code> phải bất biến:</p>
+<ol>
+<li><strong>Bảo mật.</strong> Tham số kiểu <code>String</code> (tên file, tên class, URL, câu lệnh SQL...) thường được
+   kiểm tra/validate <strong>trước</strong> khi dùng. Nếu <code>String</code> mutable, một đoạn code độc hại giữ tham
+   chiếu tới cùng object có thể sửa nội dung <strong>sau khi</strong> đã qua bước kiểm tra nhưng
+   <strong>trước khi</strong> thực sự được dùng — một dạng tấn công TOCTOU (Time-Of-Check to
+   Time-Of-Use).</li>
+<li><strong>Thread-safety.</strong> Một object bất biến có thể được nhiều thread cùng đọc <strong>an toàn tuyệt
+   đối</strong> mà không cần <code>synchronized</code> (sẽ gặp ở Phase 3) — vì không có ai sửa được nó, không
+   có khái niệm "race condition" khi đọc dữ liệu bất biến.</li>
+<li><strong>String Pool an toàn.</strong> Xem phần How? — nếu <code>String</code> mutable, việc nhiều biến cùng trỏ
+   tới <strong>một object dùng chung</strong> trong String Pool sẽ cực kỳ nguy hiểm: sửa một biến sẽ vô
+   tình làm thay đổi giá trị của mọi biến khác đang "vô tình" trỏ chung object đó.</li>
+</ol>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>String Pool</strong> (còn gọi String Intern Pool) là một vùng nhớ đặc biệt (nằm trong Heap từ Java
+7 trở đi — xem Historical Note) nơi JVM lưu các chuỗi literal (viết trực tiếp bằng dấu
+<code>"..."</code>) để <strong>dùng chung</strong>, tránh tạo nhiều object trùng nội dung một cách lãng phí:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">       </span><span class="c1">// literal → JVM tìm/tạo trong String Pool</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">       </span><span class="c1">// literal giống hệt → TÁI SỬ DỤNG object trong Pool, không tạo mới</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// &quot;new&quot; → LUÔN tạo object MỚI ngoài Pool, dù nội dung giống</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">String</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">    </span><span class="c1">// ép lấy (hoặc thêm vào) bản trong Pool ứng với nội dung &quot;hello&quot;</span>
+</code></pre></div>
+<p>Việc dùng chung này <strong>chỉ an toàn</strong> vì <code>String</code> bất biến — nếu <code>a</code> sửa được nội dung, <code>b</code>
+(đang trỏ chung một object) sẽ bị ảnh hưởng theo dù code không hề đụng tới biến <code>b</code>.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>String Pool (trong Heap, dùng chung)          Heap (object thường)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>┌─────────────────────┐
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>│   &quot;hello&quot;  ◀─────────┼──── a (biến, chỉ là tham chiếu)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│      ▲                │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>└──────┼───────────────┘
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>       └──────────────────── b (biến khác, TRỎ CHUNG object với a)
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                                               ┌─────────────────┐
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                                    c ─────────▶│  &quot;hello&quot; (bản   │
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                                               │   RIÊNG, do new) │
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                               └─────────────────┘
 </code></pre></div>
+<p><code>a</code> và <code>b</code> trỏ chung <strong>một</strong> object trong Pool (<code>a == b</code> là <code>true</code>). <code>c</code> là một object hoàn
+toàn khác, nằm ngoài Pool (<code>a == c</code> là <code>false</code>), dù nội dung ký tự giống hệt nhau
+(<code>a.equals(c)</code> vẫn là <code>true</code>).</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận toàn bộ lý thuyết trên bằng thực nghiệm thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringPoolDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == b: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">));</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == c: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">));</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == d: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">));</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a.equals(c): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>a == b: true
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>a == c: false
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>a == d: true
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>a.equals(c): true
+</code></pre></div>
+<p>Khớp chính xác với sơ đồ ở phần Visualization: <code>a</code>/<code>b</code> cùng một object trong Pool (<code>==</code> true);
+<code>c</code> là object riêng do <code>new</code> (<code>==</code> false với <code>a</code>); <code>d</code> là kết quả <code>intern()</code> — ép lấy bản
+trong Pool, nên lại <code>==</code> với <code>a</code>; nhưng <code>equals()</code> luôn <code>true</code> vì so sánh <strong>nội dung</strong>, không
+phụ thuộc object nào đang giữ nội dung đó.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>hashCode()</code> của <code>String</code> được cache — hệ quả trực tiếp của bất biến.</strong> Vì nội dung
+<code>String</code> không bao giờ đổi, <code>hashCode()</code> của nó cũng <strong>không bao giờ đổi</strong> trong suốt vòng đời
+object — JVM tận dụng điều này bằng cách chỉ tính <code>hashCode()</code> <strong>một lần duy nhất</strong> (lần đầu
+được gọi), lưu lại kết quả trong một field nội bộ, các lần gọi sau chỉ trả về giá trị đã lưu,
+không tính lại. Đây là tối ưu <strong>chỉ có thể thực hiện được vì bất biến</strong> — nếu <code>String</code> mutable,
+việc cache <code>hashCode()</code> sẽ sai ngay khi nội dung bị sửa mà không tính lại. Tối ưu này có ảnh
+hưởng thực tế: dùng <code>String</code> làm key trong <code>HashMap</code> (Phase 2) với cùng nội dung được tra cứu
+lặp lại nhiều lần sẽ hưởng lợi trực tiếp từ việc không phải tính lại hash mỗi lần.</p>
+<p><strong>Compact Strings (Java 9, JEP 254).</strong> Trước Java 9, <code>String</code> lưu nội dung bằng <code>char[]</code>
+(mỗi ký tự chiếm 2 byte, kể cả ký tự ASCII thuần chỉ cần 1 byte). Từ Java 9, <code>String</code> chuyển
+sang lưu bằng <code>byte[]</code> kèm một cờ <code>coder</code> đánh dấu encoding (Latin-1 một byte/ký tự, hoặc
+UTF-16 hai byte/ký tự khi cần) — với chuỗi chủ yếu là ký tự ASCII/Latin-1 (rất phổ biến trong
+thực tế), thay đổi này giảm gần một nửa bộ nhớ dùng cho <code>String</code> trên toàn hệ thống mà không
+cần đổi bất kỳ dòng code nào ở tầng ứng dụng.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao nối chuỗi bằng <code>+</code> trong vòng lặp bị coi là anti-pattern, trong khi Chapter 01 lại
+cho thấy <code>+</code> được biên dịch thành <code>invokedynamic</code> tối ưu?</strong> Hai điều này không mâu thuẫn — mấu
+chốt nằm ở <strong>số lượng phép nối</strong> và <strong>phạm vi biên dịch</strong>. <code>invokedynamic</code>/
+<code>StringConcatFactory</code> (Chapter 01) tối ưu tốt cho một biểu thức nối chuỗi <strong>cố định trong một
+dòng code</strong> (như <code>"a" + b + "c"</code>), vì <code>javac</code> biết chính xác tại thời điểm biên dịch cần nối
+bao nhiêu phần. Nhưng trong vòng lặp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">  </span><span class="c1">// MỖI VÒNG LẶP tạo một String MỚI (vì bất biến!), object cũ thành rác</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>— mỗi lần <code>result += i</code> chạy là một lần gọi nối chuỗi <strong>độc lập</strong> (một <code>invokedynamic</code> riêng
+mỗi vòng lặp), tạo ra một <code>String</code> mới mỗi lần, bỏ object cũ làm rác cho GC dọn (Chapter 07).
+Với 1000 vòng lặp, chương trình tạo ra <strong>tới 1000 object <code>String</code> trung gian</strong> chỉ để cuối
+cùng dùng đúng một object cuối. Đây chính là hệ quả trực tiếp của tính bất biến: không thể
+"sửa tại chỗ", bắt buộc phải tạo mới liên tục. Giải pháp là <code>StringBuilder</code> — một class
+<strong>mutable</strong> riêng biệt, dùng một buffer nội bộ có thể sửa tại chỗ, chỉ tạo <code>String</code> bất biến
+<strong>một lần duy nhất</strong> ở bước cuối (<code>.toString()</code>).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Trước Java 7
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>String Pool nằm trong PermGen (xem Chapter 03/04) — kích thước cố định,
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>dễ gây OutOfMemoryError: PermGen space nếu chương trình intern() quá nhiều
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>chuỗi khác nhau
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    ↓
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Java 7 (2011)
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    ↓
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>String Pool chuyển sang nằm trong HEAP thường — tận dụng khả năng mở rộng
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>linh hoạt của Heap, cũng được GC dọn như object thường nếu không còn ai giữ
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>tham chiếu (kể cả từ trong Pool)
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    ↓
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>Java 9 (2017)
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    ↓
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>JEP 254: Compact Strings — đổi cách lưu trữ nội bộ char[] → byte[] + coder
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>(xem Deep Dive), giảm đáng kể bộ nhớ dùng cho String trên toàn hệ thống
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>String</code> immutable nghĩa là biến kiểu <code>String</code> không đổi được giá trị."
+  <strong>Reality:</strong> Biến <code>String</code> (tham chiếu) đổi được bình thường
+  (<code>a = a.concat(" world")</code> ở phần Concept hoàn toàn hợp lệ). Cái <strong>không đổi được</strong> là
+  <strong>nội dung của chính object</strong> <code>String</code> đã tạo ra — object cũ luôn giữ nguyên, biến chỉ trỏ
+  sang object mới.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Dùng <code>+</code> để nối chuỗi luôn kém hiệu quả, phải luôn dùng <code>StringBuilder</code>."
+  <strong>Reality:</strong> Với một biểu thức nối chuỗi cố định trong một dòng, <code>javac</code> (từ Java 9) đã tự
+  tối ưu bằng <code>invokedynamic</code>/<code>StringConcatFactory</code> (Chapter 01) — hiệu quả tương đương hoặc
+  tốt hơn tự viết <code>StringBuilder</code> thủ công. Vấn đề hiệu năng chỉ thật sự xảy ra khi nối chuỗi
+  <strong>lặp lại nhiều lần trong vòng lặp</strong> (xem Engineering Insight).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>==</code> để so sánh nội dung <code>String</code> thay vì <code>.equals()</code>.</strong> Lỗi cực kỳ phổ biến với
+  người mới, đặc biệt nguy hiểm vì <code>==</code> <strong>có thể</strong> cho kết quả "đúng" tình cờ (khi cả hai đều
+  là literal, cùng nằm trong Pool — như <code>a == b</code> ở Example) khiến bug không lộ ra ngay, chỉ
+  xuất hiện khi một trong hai chuỗi đến từ <code>new String(...)</code> hoặc được ghép/đọc từ nguồn khác
+  (file, network, user input — luôn tạo object mới, không tự động vào Pool).</li>
+<li><strong>Nối chuỗi bằng <code>+</code> trong vòng lặp lớn</strong> — xem Engineering Insight, nên dùng
+  <code>StringBuilder</code> thay thế.</li>
+<li><strong>Gọi <code>intern()</code> bừa bãi</strong> nghĩ rằng sẽ luôn tiết kiệm bộ nhớ — <code>intern()</code> cũng có chi phí
+  (tra cứu trong Pool), và nếu chương trình intern quá nhiều chuỗi <strong>khác nhau</strong>, Pool có thể
+  phình to không kiểm soát, phản tác dụng.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn dùng <code>.equals()</code> (hoặc <code>Objects.equals()</code> nếu có thể <code>null</code>) để so sánh nội dung
+  <code>String</code>, không bao giờ dùng <code>==</code> trừ khi <strong>cố ý</strong> muốn so sánh định danh object.</li>
+<li>Dùng <code>StringBuilder</code> khi nối chuỗi trong vòng lặp; dùng <code>+</code> bình thường cho biểu thức nối
+  cố định, ngắn gọn trong một dòng — không cần lo lắng thái quá về hiệu năng ở trường hợp
+  này (xem Myth vs Reality).</li>
+<li>Cẩn trọng khi nối <code>String</code> chứa dữ liệu nhạy cảm (mật khẩu) — vì bất biến, các bản <code>String</code>
+  trung gian có thể tồn tại trong bộ nhớ lâu hơn dự kiến cho tới khi GC dọn (không có cách
+  nào "xoá sạch" nội dung <code>String</code> ngay lập tức như có thể làm với <code>char[]</code>) — đây là lý do
+  API xử lý mật khẩu (như JDBC, một số thư viện bảo mật) thường dùng <code>char[]</code> thay vì
+  <code>String</code>.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> dịch vụ xử lý dữ liệu dạng text (log processing, báo cáo, export CSV...) tiêu tốn
+Heap và thời gian GC (Chapter 07) tăng bất thường khi lượng dữ liệu tăng.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> GC (đặc biệt Minor GC — Chapter 07) chạy thường xuyên hơn hẳn so với dự
+  kiến dựa trên lượng dữ liệu thực tế đang xử lý.</li>
+<li><strong>Root cause phổ biến:</strong> nối chuỗi lớn bằng <code>+</code> bên trong vòng lặp xử lý dữ liệu (xem
+  Engineering Insight) — mỗi vòng lặp tạo một <code>String</code> trung gian mới, hàng nghìn/triệu object
+  ngắn hạn đổ vào Young Generation, buộc Minor GC phải làm việc nhiều hơn hẳn mức cần thiết.</li>
+<li><strong>Debug:</strong> dùng <code>jcmd &lt;pid&gt; GC.class_histogram</code> (Chapter 07) trong lúc xử lý — nếu thấy số
+  lượng object <code>java.lang.String</code>/<code>char[]</code>/<code>byte[]</code> áp đảo bất thường, đây là dấu hiệu rõ
+  ràng.</li>
+<li><strong>Solution:</strong> thay <code>+</code> bằng <code>StringBuilder</code> ở đúng những vòng lặp nối chuỗi lớn/nhiều lần.</li>
+<li><strong>Prevention:</strong> đưa việc review "nối chuỗi trong vòng lặp" vào code review checklist cho
+  các đoạn code xử lý dữ liệu khối lượng lớn; hầu hết công cụ static analysis
+  (SpotBugs/SonarQube — sẽ gặp ở giai đoạn sau) cũng có sẵn rule cảnh báo mẫu hình này.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] So sánh hai chuỗi cho kết quả sai/không nhất quán? → kiểm tra có đang dùng <code>==</code> thay vì
+      <code>.equals()</code> không.</li>
+<li>[ ] Nghi ngờ tốn nhiều bộ nhớ/GC vì xử lý chuỗi? → tìm vòng lặp có <code>+=</code> hoặc <code>+</code> nối
+      <code>String</code>, cân nhắc đổi sang <code>StringBuilder</code>.</li>
+<li>[ ] Cần biết một <code>String</code> cụ thể có đang trong Pool hay không? → so sánh bằng <code>==</code> với một
+      literal cùng nội dung, hoặc gọi <code>.intern()</code> rồi so <code>==</code>.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>String.hashCode()
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Kiểm tra field nội bộ &quot;hash&quot; đã tính chưa (mặc định 0, nghĩa là chưa)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    ↓
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Chưa tính → duyệt qua từng ký tự, áp dụng công thức
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>             s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>             LƯU kết quả vào field &quot;hash&quot;
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    ↓
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Đã tính rồi (lần gọi sau) → TRẢ VỀ NGAY giá trị đã lưu, không tính lại
+</code></pre></div>
+<p>Công thức nhân với 31 (một số nguyên tố) là lựa chọn có chủ đích của các nhà thiết kế Java —
+giảm khả năng đụng độ hash (hash collision) cho các chuỗi thường gặp, đồng thời <code>31 * i</code> có
+thể được JIT Compiler (Chapter 06) tối ưu thành phép dịch bit <code>(i &lt;&lt; 5) - i</code>, nhanh hơn phép
+nhân thông thường trên nhiều kiến trúc CPU.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>String</code> bất biến (immutable): mọi method "sửa" chuỗi thực chất luôn tạo object mới, không
+đụng vào object cũ. Bất biến tồn tại vì ba lý do cụ thể — bảo mật (chống sửa dữ liệu sau khi
+đã kiểm tra), thread-safety (đọc an toàn không cần khoá), và <strong>String Pool</strong> (nhiều biến dùng
+chung một object literal một cách an toàn). Bất biến còn cho phép JVM cache sẵn <code>hashCode()</code>,
+tối ưu hiệu năng khi dùng <code>String</code> làm key <code>HashMap</code>. Đánh đổi: mỗi phép "sửa" đều tạo rác mới
+— với vòng lặp nối chuỗi nhiều lần, dùng <code>StringBuilder</code> (mutable, có chủ đích) thay vì <code>+</code>.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
 <li>Why is String immutable in Java?</li>
+<li><code>==</code> và <code>.equals()</code> khi so sánh <code>String</code> khác nhau như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>String Pool là gì? Giải thích sự khác nhau giữa <code>"a" == "a"</code> và <code>new String("a") == "a"</code>.</li>
+<li>Vì sao nối chuỗi bằng <code>+</code> trong vòng lặp lớn bị coi là không hiệu quả? Giải pháp là gì?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Nếu <code>String</code> là mutable, hãy mô tả cụ thể một kịch bản tấn công bảo mật có thể xảy ra
+  (liên hệ ClassLoader ở Chapter 03 hoặc HashMap ở Phase 2).</li>
+<li>Giải thích vì sao <code>hashCode()</code> của <code>String</code> có thể được cache an toàn, trong khi
+  <code>hashCode()</code> mặc định của một object mutable bất kỳ (Chapter 09) thì không nên làm vậy.</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>StringPoolDemo</code> ở trên, xác nhận kết quả giống hệt trên máy bạn.</li>
+<li>[ ] Viết hai đoạn code nối 100.000 số nguyên thành một chuỗi — một bằng <code>+</code> trong vòng lặp,
+      một bằng <code>StringBuilder</code>. Đo thời gian chạy bằng <code>System.nanoTime()</code> (nhớ bài học
+      warmup ở <a href="../06-jit-compiler/">Chapter 06</a>), so sánh chênh lệch.</li>
+<li>[ ] Dùng <code>javap -c</code> xem bytecode của cả hai đoạn code trên — tìm điểm khác biệt rõ nhất
+      (gợi ý: đếm số lần <code>invokedynamic</code>/<code>StringConcatFactory</code> xuất hiện ở mỗi bên).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>So sánh</th>
+<th><code>==</code></th>
+<th><code>.equals()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>So sánh gì</td>
+<td>Tham chiếu (địa chỉ object)</td>
+<td>Nội dung ký tự</td>
+</tr>
+<tr>
+<td><code>"a" == "a"</code></td>
+<td><code>true</code> (cùng object trong Pool)</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>new String("a") == "a"</code></td>
+<td><code>false</code> (object khác nhau)</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Muốn</th>
+<th>Dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>So sánh nội dung String</td>
+<td><code>.equals()</code>, không bao giờ <code>==</code></td>
+</tr>
+<tr>
+<td>Nối chuỗi cố định, ít lần</td>
+<td><code>+</code> (đã được <code>javac</code> tối ưu — Chapter 01)</td>
+</tr>
+<tr>
+<td>Nối chuỗi nhiều lần trong vòng lặp</td>
+<td><code>StringBuilder</code></td>
+</tr>
+<tr>
+<td>Ép một String vào String Pool</td>
+<td><code>.intern()</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 3.10.5: String Literals.</li>
+<li><code>java.lang.String</code> — Java SE API Documentation (Oracle).</li>
+<li>JEP 254: Compact Strings.</li>
+<li>Effective Java (Joshua Bloch) — Item 17: "Minimize mutability".</li>
 </ul>
 
 
