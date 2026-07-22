@@ -1,8 +1,8 @@
 site_name: Java Backend Engineering Handbook
 site_description: Handbook Java Backend bằng tiếng Việt — JVM, Collections, Concurrency, Spring, Persistence, Production, Architecture, Interview.
-# site_url / repo_url: điền khi đã có GitHub remote, cần cho sitemap.xml và nút "Edit this page".
-# site_url: https://<user>.github.io/<repo>/
-# repo_url: https://github.com/<user>/<repo>
+site_url: https://makumawari.github.io/java-backend-interview-handbook/
+repo_url: https://github.com/makumawari/java-backend-interview-handbook
+repo_name: makumawari/java-backend-interview-handbook
 
 docs_dir: book
 
