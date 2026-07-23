@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2712,7 +2712,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -2991,32 +2991,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3157,7 +3135,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collector" class="md-tag">Collector</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
       
     
   </nav>
@@ -6149,94 +6119,291 @@ Chapter slug: <code>collector</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collector</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Stream</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truy vấn/tổng hợp dữ liệu trong tầng service (Phase 5+)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../04-stream/">Chapter 04</a> — <code>collect()</code> là terminal operation phổ biến nhất để gộp
+kết quả Stream. Nhưng <code>collect()</code> cần một tham số kiểu <code>Collector</code> — chính xác nó "biết" cách
+gộp một <code>List&lt;Product&gt;</code> thành <code>Map&lt;String, List&lt;Product&gt;&gt;</code> như thế nào?</p>
 </blockquote>
+<p>Thử nhóm danh sách sản phẩm theo <code>category</code>, rồi thử "gộp" theo một field có key <strong>trùng nhau</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">Product</span><span class="p">::</span><span class="n">name</span><span class="p">));</span>
+</code></pre></div>
+<p>Với 2 sản phẩm cùng category "Electronics":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>toMap voi key trung nem: Duplicate key Electronics (attempted merging values Laptop and Mouse)
+</code></pre></div>
+<p><code>Collectors.toMap()</code> không tự động "gộp" các giá trị trùng key — nó <strong>ném lỗi ngay lập tức</strong>
+trừ khi bạn cung cấp tường minh cách xử lý xung đột.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Collectors.groupingBy()</code> khác <code>Collectors.toMap()</code> như thế nào? Điều gì xảy ra khi
+<code>toMap()</code> gặp key trùng nhau?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>groupingBy</code>, <code>toMap</code>, <code>joining</code>, <code>partitioningBy</code>, downstream collector
+      (<code>counting</code>, <code>summingDouble</code>)</li>
+<li>[ ] Tự tay chứng minh <code>toMap()</code> ném <code>IllegalStateException</code> với key trùng, và cách sửa bằng
+      merge function</li>
+<li>[ ] Hiểu <code>Collector</code> là một đối tượng mô tả "cách gộp" (supplier, accumulator, combiner,
+      finisher) chứ không phải một thao tác đơn lẻ</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 04 — hiểu <code>collect()</code> là terminal operation, cần một <code>Collector</code> làm tham số.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Truy vấn/tổng hợp dữ liệu trong tầng service</strong> (Phase 5+) — <code>groupingBy</code>/<code>toMap</code> là công cụ
+  tiêu chuẩn để biến đổi kết quả truy vấn database thành cấu trúc dữ liệu phù hợp cho response
+  API.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>collect()</code> (Stream, Chapter 04) cần biết chính xác <strong>cách</strong> gộp các phần tử thành kết quả cuối
+— gộp thành <code>List</code>? <code>Map</code>? Nhóm theo tiêu chí nào? Nếu để lập trình viên tự viết logic gộp thủ
+công (một biến tích luỹ + vòng lặp) cho mỗi trường hợp, sẽ mất hết lợi ích khai báo (declarative)
+mà Stream API mang lại.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>Collector&lt;T, A, R&gt;</code></strong> là một đối tượng đóng gói <strong>chiến lược gộp</strong> — gồm 4 thành phần:
+<code>supplier</code> (tạo cấu trúc chứa kết quả rỗng ban đầu), <code>accumulator</code> (thêm một phần tử vào cấu trúc
+đó), <code>combiner</code> (gộp hai cấu trúc con lại, dùng khi xử lý song song), <code>finisher</code> (biến đổi cấu
+trúc trung gian thành kết quả cuối cùng). <code>Collectors</code> là lớp tiện ích cung cấp sẵn các
+<code>Collector</code> thông dụng: <code>toList()</code>, <code>toMap()</code>, <code>groupingBy()</code>, <code>joining()</code>, <code>partitioningBy()</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Đóng gói chiến lược gộp thành một đối tượng <code>Collector</code> (thay vì để <code>collect()</code> nhận nhiều tham
+số rời rạc) cho phép <strong>tái sử dụng và kết hợp</strong> các chiến lược một cách linh hoạt — ví dụ
+<code>groupingBy(classifier, downstream)</code> nhận một <code>Collector</code> khác làm tham số thứ hai
+(<code>downstream</code>), cho phép "nhóm rồi đếm", "nhóm rồi tính tổng" mà không cần viết một
+<code>Collector</code> hoàn toàn mới cho mỗi tổ hợp. Việc tách 4 thành phần (supplier/accumulator/combiner/
+finisher) rõ ràng cũng chính là điều kiện để <code>Collector</code> hoạt động đúng cả trong Stream tuần tự
+lẫn Stream song song (<code>combiner</code> chỉ cần thiết khi chạy song song).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">byCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">));</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">countByCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">()));</span><span class="w"> </span><span class="c1">// downstream collector</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Collector&lt;T, A, R&gt; = chien luoc gop:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  supplier:    () -&gt; A           (tao cau truc rong ban dau, VD: new ArrayList&lt;&gt;())
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  accumulator: (A, T) -&gt; void    (them 1 phan tu T vao cau truc A)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  combiner:    (A, A) -&gt; A       (gop 2 cau truc A lai, dung khi chay song song)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  finisher:    (A) -&gt; R          (bien doi A thanh ket qua cuoi R)
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>groupingBy + downstream (VD: counting):
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  Product 1 (Electronics) ──┐
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  Product 2 (Electronics) ──┼──► groupingBy(category) ──► {Electronics: [P1,P2,P3], Furniture: [P4,P5]}
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  Product 3 (Electronics) ──┤         │
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  Product 4 (Furniture)   ──┤    downstream: counting()
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  Product 5 (Furniture)   ──┘         ▼
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                                {Electronics: 3, Furniture: 2}
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.*</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CollectorDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">record</span> <span class="nc">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Laptop&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1200</span><span class="p">),</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Mouse&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">),</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Desk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Furniture&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">),</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Chair&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Furniture&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">),</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Monitor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">byCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">));</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;groupingBy: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">byCategory</span><span class="p">.</span><span class="na">keySet</span><span class="p">());</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">countByCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">()));</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;groupingBy + counting: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">countByCategory</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">totalByCategory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">Collectors</span><span class="p">.</span><span class="na">summingDouble</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">price</span><span class="p">)));</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;groupingBy + summingDouble: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">totalByCategory</span><span class="p">);</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;joining: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">names</span><span class="p">);</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">partitioned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">partitioningBy</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">200</span><span class="p">));</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;partitioningBy (gia &gt; 200): true=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">partitioned</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">size</span><span class="p">()</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, false=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">partitioned</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>groupingBy: [Electronics, Furniture]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>groupingBy + counting: {Electronics=3, Furniture=2}
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>groupingBy + summingDouble: {Electronics=1625.0, Furniture=450.0}
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>joining: [Laptop, Mouse, Desk, Chair, Monitor]
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>partitioningBy (gia &gt; 200): true=3, false=2
+</code></pre></div>
+<p><strong><code>toMap()</code> với key trùng — lỗi thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Laptop&quot;</span><span class="p">),</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mouse&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// trung key!</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">);</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">dup</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">Product</span><span class="p">::</span><span class="n">name</span><span class="p">));</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>toMap voi key trung nem: Duplicate key Electronics (attempted merging values Laptop and Mouse)
+</code></pre></div>
+<p>Sửa bằng cách cung cấp tường minh <strong>merge function</strong> (tham số thứ 3):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">merged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dup</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">Product</span><span class="p">::</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">));</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>toMap voi merge function: {Electronics=Laptop, Mouse}
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>toMap()</code> ném lỗi ngay lập tức thay vì tự động "ghi đè" giá trị cũ (giống hành vi
+<code>HashMap.put()</code> thông thường)?</strong> Đây là quyết định thiết kế có chủ đích: <code>Map.put()</code> ghi đè âm
+thầm là một nguồn lỗi tiềm ẩn phổ biến (dữ liệu bị mất mà không có cảnh báo). <code>Collectors.toMap()</code>
+buộc lập trình viên phải <strong>quyết định tường minh</strong> cách xử lý xung đột key — ném lỗi ngay để lộ
+diện vấn đề (dữ liệu có key trùng ngoài dự kiến) thay vì để nó âm thầm gây mất dữ liệu. Đây cùng
+triết lý với "fail fast" đã gặp ở <code>@FunctionalInterface</code> (Chapter 02) — phát hiện lỗi thiết kế/dữ
+liệu càng sớm càng tốt, thay vì để hậu quả xuất hiện mơ hồ ở nơi khác.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>groupingBy</code> mặc định trả về <code>HashMap</code> — điều này có ý nghĩa gì khi cần thứ tự key ổn định
+hoặc cần một loại Map khác (ví dụ <code>TreeMap</code> để key được sắp xếp)?</strong> <code>Collectors.groupingBy(classifier)</code> (không có thêm tham số) dùng <code>HashMap</code> bên dưới — thứ tự các key khi duyệt <strong>không
+đảm bảo</strong> (giống hạn chế đã học ở Phase 2, Chapter 08 HashMap). Với nhu cầu cần <code>Map</code> được sắp
+xếp theo key, JDK cung cấp biến thể 3 tham số:
+<code>groupingBy(classifier, mapFactory, downstream)</code>, cho phép truyền <code>TreeMap::new</code> làm
+<code>mapFactory</code>. Đây là một ví dụ cụ thể cho thấy kiến thức Phase 2 (đặc tính từng loại Map) vẫn áp
+dụng trực tiếp khi làm việc với Collector — Stream API không "thay thế" kiến thức nền tảng về
+collection, mà xây dựng trên đó.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Collectors</code> ra đời cùng Stream API ở Java 8 (2014). <code>Collectors.teeing()</code> (gộp kết quả từ hai
+collector độc lập chạy song song trên cùng Stream) được bổ sung muộn hơn nhiều, ở Java 12
+(2019) — phản ánh Stream API tiếp tục được mở rộng dần qua nhiều phiên bản sau khi ra mắt.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>toMap()</code> tự động xử lý key trùng bằng cách giữ giá trị cuối cùng, giống
+  <code>HashMap.put()</code>."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — nó ném <code>IllegalStateException</code> ngay lập tức trừ
+  khi có merge function tường minh.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>groupingBy</code> luôn trả về kết quả có thứ tự key giống thứ tự xuất hiện trong dữ liệu
+  gốc."
+  <strong>Reality:</strong> Mặc định dùng <code>HashMap</code> bên dưới — không đảm bảo thứ tự, xem Engineering Insight
+  để biết cách khắc phục.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>toMap()</code> mà không lường trước khả năng key trùng</strong> — gây <code>IllegalStateException</code> bất
+  ngờ ở production khi dữ liệu thực tế có key trùng (dù dữ liệu test không có).</li>
+<li><strong>Kỳ vọng thứ tự ổn định từ <code>groupingBy()</code> mặc định</strong> — cần chỉ định <code>mapFactory</code> (ví dụ
+  <code>TreeMap::new</code>) nếu thực sự cần thứ tự.</li>
+<li><strong>Viết downstream collector phức tạp thủ công thay vì kết hợp các collector có sẵn</strong> — JDK đã
+  cung cấp sẵn <code>counting()</code>, <code>summingDouble()</code>, <code>averagingDouble()</code>, <code>mapping()</code>, <code>teeing()</code> cho
+  hầu hết nhu cầu tổng hợp thông dụng.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn cân nhắc khả năng key trùng khi dùng <code>toMap()</code> — cung cấp merge function tường minh nếu
+  có khả năng xảy ra, thay vì để lỗi bất ngờ ở production.</li>
+<li>Dùng biến thể <code>groupingBy(classifier, mapFactory, downstream)</code> khi cần kiểm soát loại <code>Map</code>
+  trả về (ví dụ <code>TreeMap</code> để có thứ tự key).</li>
+<li>Kết hợp <code>groupingBy</code> với downstream collector có sẵn (<code>counting</code>, <code>summingDouble</code>, <code>mapping</code>)
+  thay vì tự viết logic tổng hợp thủ công sau khi group.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>IllegalStateException: Duplicate key</code> từ <code>toMap()</code>? → cung cấp merge function (tham số
+      thứ 3) hoặc chuyển sang <code>groupingBy()</code> nếu thực sự cần giữ nhiều giá trị cho cùng key.</li>
+<li>[ ] Kết quả <code>groupingBy()</code> có thứ tự key không ổn định giữa các lần chạy? → dùng
+      <code>groupingBy(classifier, TreeMap::new, downstream)</code> nếu cần thứ tự.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Collector</code> đóng gói chiến lược gộp Stream thành kết quả cuối (supplier/accumulator/combiner/
+finisher). <code>Collectors</code> cung cấp sẵn các collector thông dụng: <code>toList</code>, <code>toMap</code>, <code>groupingBy</code>
+(có thể kết hợp downstream collector như <code>counting</code>, <code>summingDouble</code>), <code>joining</code>,
+<code>partitioningBy</code>. Đã chứng minh bằng thực nghiệm: <code>toMap()</code> ném <code>IllegalStateException</code> ngay khi
+gặp key trùng (thiết kế "fail fast" có chủ đích) — cần cung cấp merge function tường minh để xử
+lý xung đột. <code>groupingBy</code> mặc định dùng <code>HashMap</code>, không đảm bảo thứ tự key.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>Collectors.groupingBy()</code> khác <code>Collectors.toMap()</code> như thế nào?</li>
+<li>Điều gì xảy ra khi <code>toMap()</code> gặp key trùng nhau? Cách khắc phục?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích 4 thành phần của <code>Collector</code> (supplier, accumulator, combiner, finisher). Thành
+  phần nào chỉ thực sự cần thiết khi chạy Stream song song?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>CollectorDemo</code> và <code>ToMapDuplicateDemo</code> ở trên, xác nhận kết quả đúng như mô tả.</li>
+<li>[ ] Dùng <code>groupingBy(Product::category, TreeMap::new, Collectors.toList())</code> để nhóm sản phẩm
+      theo category với thứ tự key được sắp xếp.</li>
+<li>[ ] Thử viết một <code>Collector</code> tuỳ chỉnh bằng <code>Collector.of()</code> để tính giá trung bình, so sánh
+      với <code>Collectors.averagingDouble()</code> có sẵn.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Collector</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>toList()</code> / <code>toSet()</code></td>
+<td><code>List&lt;T&gt;</code> / <code>Set&lt;T&gt;</code></td>
+</tr>
+<tr>
+<td><code>toMap(keyFn, valueFn)</code></td>
+<td><code>Map&lt;K,V&gt;</code>, ném lỗi nếu key trùng</td>
+</tr>
+<tr>
+<td><code>toMap(keyFn, valueFn, mergeFn)</code></td>
+<td><code>Map&lt;K,V&gt;</code>, dùng mergeFn khi key trùng</td>
+</tr>
+<tr>
+<td><code>groupingBy(classifier)</code></td>
+<td><code>Map&lt;K, List&lt;T&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><code>groupingBy(classifier, downstream)</code></td>
+<td><code>Map&lt;K, ketQuaDownstream&gt;</code></td>
+</tr>
+<tr>
+<td><code>joining(delim, prefix, suffix)</code></td>
+<td><code>String</code></td>
+</tr>
+<tr>
+<td><code>partitioningBy(predicate)</code></td>
+<td><code>Map&lt;Boolean, List&lt;T&gt;&gt;</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.stream.Collectors</code>.</li>
 </ul>
 
 

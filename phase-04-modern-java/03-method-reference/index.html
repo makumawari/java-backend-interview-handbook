@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2935,32 +2935,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3045,7 +3023,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -3157,7 +3135,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:methodreference" class="md-tag">MethodReference</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
       
     
   </nav>
@@ -6149,94 +6119,253 @@ Chapter slug: <code>method-reference</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Method Reference</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Lambda</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — Functional Interface</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Stream</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-lambda/">Chapter 01</a> — lambda <code>x -&gt; square(x)</code> chỉ đơn giản <strong>gọi lại</strong> một
+phương thức đã tồn tại sẵn, không thêm logic gì mới. Viết <code>x -&gt; square(x)</code> có vẻ hơi thừa —
+tại sao phải "bọc" một lời gọi phương thức đã có sẵn vào một lambda mới?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">IntUnaryOperator</span><span class="w"> </span><span class="n">sq1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MethodReferenceDemo</span><span class="p">::</span><span class="n">square</span><span class="p">;</span><span class="w"> </span><span class="c1">// method reference</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">IntUnaryOperator</span><span class="w"> </span><span class="n">sq2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">               </span><span class="c1">// lambda tuong duong</span>
+</code></pre></div>
+<p>Cả hai hoạt động giống hệt nhau, nhưng <code>ClassName::square</code> ngắn gọn hơn và nói rõ ý định:
+"dùng thẳng phương thức này", không cần đặt tên tham số giả <code>x</code> chỉ để chuyển tiếp nó.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Method reference là gì? Có bao nhiêu loại method reference trong Java, và khi nào nên dùng nó
+thay vì lambda?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt 4 loại method reference: static, instance trên object cụ thể, instance trên kiểu
+      bất kỳ, constructor reference</li>
+<li>[ ] Tự tay chạy được ví dụ thật cho cả 4 loại</li>
+<li>[ ] Biết khi nào method reference làm code rõ ràng hơn, khi nào lambda vẫn là lựa chọn tốt hơn</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01, 02 — hiểu lambda expression và functional interface.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 04 (Stream)</strong> — method reference thường được dùng trong <code>map()</code>, <code>filter()</code>,
+  <code>forEach()</code> khi logic chỉ là gọi lại một phương thức có sẵn.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nhiều lambda chỉ đơn giản chuyển tiếp tham số cho một phương thức đã tồn tại
+(<code>x -&gt; ClassName.method(x)</code>, <code>obj -&gt; obj.method()</code>) — không có logic mới nào được thêm vào.
+Viết đầy đủ cú pháp lambda cho trường hợp này (đặt tên tham số giả, viết lại lời gọi) là thừa
+thãi, làm giảm khả năng đọc code so với việc nói thẳng "dùng phương thức này".</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Method reference</strong> (<code>::</code>) là cú pháp rút gọn hơn nữa cho lambda, khi thân lambda chỉ là một
+lời gọi phương thức (hoặc constructor) đã tồn tại sẵn — không thêm logic gì khác. Có 4 loại:
+<code>ClassName::staticMethod</code>, <code>instance::instanceMethod</code>, <code>ClassName::instanceMethod</code>,
+<code>ClassName::new</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Method reference không thêm khả năng mới nào so với lambda (chương trình vẫn có thể viết bằng
+lambda tương đương) — giá trị của nó thuần tuý là <strong>khả năng đọc hiểu (readability)</strong>: khi thân
+lambda chỉ là "gọi lại một phương thức có sẵn", việc đặt tên tham số giả rồi viết lại lời gọi là
+một tầng gián tiếp không cần thiết. <code>ClassName::method</code> nói thẳng "dùng phương thức này" mà
+không cần người đọc phải tự suy luận qua tên tham số trung gian.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nl">ClassName</span><span class="p">::</span><span class="n">staticMethod</span><span class="w">       </span><span class="c1">// 1. static method</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nl">instance</span><span class="p">::</span><span class="n">instanceMethod</span><span class="w">      </span><span class="c1">// 2. instance method tren OBJECT CU THE (bound)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nl">ClassName</span><span class="p">::</span><span class="n">instanceMethod</span><span class="w">     </span><span class="c1">// 3. instance method tren KIEU BAT KY (unbound)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nl">ClassName</span><span class="p">::</span><span class="k">new</span><span class="w">                </span><span class="c1">// 4. constructor reference</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. Static:              ClassName::staticMethod
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                         tuong duong: (args) -&gt; ClassName.staticMethod(args)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2. Bound instance:       instance::instanceMethod
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                         tuong duong: (args) -&gt; instance.instanceMethod(args)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                         (object &quot;instance&quot; da CO SAN, duoc &quot;bound&quot; san)
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>3. Unbound instance:     ClassName::instanceMethod
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                         tuong duong: (obj, args) -&gt; obj.instanceMethod(args)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                         (object la THAM SO DAU TIEN, chua biet truoc la object nao)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>4. Constructor:          ClassName::new
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                         tuong duong: (args) -&gt; new ClassName(args)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.function.*</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MethodReferenceDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Product</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="n">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">startsWithA</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="c1">// 1. Static method reference</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">IntUnaryOperator</span><span class="w"> </span><span class="n">sq1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MethodReferenceDemo</span><span class="p">::</span><span class="n">square</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Static method ref: square(5) = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sq1</span><span class="p">.</span><span class="na">applyAsInt</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="c1">// 2. Bound instance method reference (tren object cu the)</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Order-&quot;</span><span class="p">;</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lenSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prefix</span><span class="p">::</span><span class="n">length</span><span class="p">;</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Bound instance method ref: prefix.length() = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenSupplier</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="c1">// 3. Unbound instance method reference (tren kieu bat ky)</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Banana&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Avocado&quot;</span><span class="p">));</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">countA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">startsWithA</span><span class="p">).</span><span class="na">count</span><span class="p">();</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Unbound instance method ref: so san pham bat dau bang A = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">countA</span><span class="p">);</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">        </span><span class="c1">// 4. Constructor reference</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">productFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Product</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">productFactory</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="s">&quot;Cherry&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Constructor reference: tao Product ten = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Static method ref: square(5) = 25
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Bound instance method ref: prefix.length() = 6
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Unbound instance method ref: so san pham bat dau bang A = 2
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Constructor reference: tao Product ten = Cherry
+</code></pre></div>
+<p><code>Product::startsWithA</code> (loại 3, unbound) đếm đúng 2 sản phẩm bắt đầu bằng "A" (Apple, Avocado) —
+ở đây <code>Product</code> (object) chính là tham số ẩn đầu tiên mà <code>filter()</code> truyền vào, khác hẳn loại 2
+(<code>prefix::length</code>) nơi <code>prefix</code> đã là một object cụ thể được "gắn sẵn" từ trước.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Làm sao trình biên dịch phân biệt được loại 2 (bound) và loại 3 (unbound) khi cú pháp
+<code>ClassName::method</code> và <code>instance::method</code> trông tương tự?</strong> Trình biên dịch dựa vào <strong>kiểu của
+danh từ đứng trước <code>::</code></strong>: nếu đó là tên một <strong>biến/object</strong> đã tồn tại (ví dụ <code>prefix</code>, một
+<code>String</code> cụ thể) → bound reference, tương đương lambda không tham số bổ sung nào ngoài các tham
+số của interface đích. Nếu đó là tên một <strong>class</strong> (ví dụ <code>Product</code>) → unbound reference, và
+trình biên dịch tự động chèn thêm một tham số ẩn đầu tiên (kiểu <code>Product</code>) để "trở thành" object
+gọi phương thức — đây là lý do <code>Product::startsWithA</code> (chữ ký <code>boolean startsWithA()</code>, không
+tham số) lại khớp được với <code>Predicate&lt;Product&gt;</code> (chữ ký <code>boolean test(Product p)</code>, một tham số)
+— tham số đó chính là object <code>Product</code> sẽ gọi <code>startsWithA()</code> lên chính nó.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Khi nào method reference thực sự làm code rõ ràng hơn, khi nào nó làm code khó đọc hơn?</strong>
+Method reference tốt nhất khi tên phương thức đã tự giải thích rõ ý định (<code>Product::startsWithA</code>,
+<code>String::trim</code>) — người đọc hiểu ngay không cần suy nghĩ. Nhưng với method reference loại 3
+(unbound) trên phương thức có tên <strong>không rõ ràng về việc "ai gọi lên ai"</strong> (ví dụ
+<code>String::compareTo</code> dùng trong <code>Comparator</code>, chữ ký <code>int compareTo(String other)</code> nhưng khi dùng
+làm <code>Comparator&lt;String&gt;</code> lại dễ nhầm tham số nào là "this", tham số nào là "other"), lambda
+tường minh (<code>(a, b) -&gt; a.compareTo(b)</code>) đôi khi dễ đọc hơn hẳn — đặc biệt với người mới, chưa
+quen quy tắc "tham số ẩn đầu tiên trở thành object gọi phương thức" đã nêu ở Deep Dive.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Method reference ra đời cùng đợt với lambda (Java 8, 2014, JSR 335) — về bản chất chúng dùng
+chung cơ chế biên dịch <code>invokedynamic</code>/<code>LambdaMetafactory</code> đã học ở Chapter 01, chỉ khác ở cách
+trình biên dịch tổng hợp phần thân "lambda ẩn" (gọi thẳng phương thức có sẵn thay vì biên dịch
+một khối lệnh mới).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Method reference là một tính năng ngôn ngữ hoàn toàn khác, tách biệt với lambda."
+  <strong>Reality:</strong> Method reference chỉ là cú pháp rút gọn hơn nữa cho một trường hợp đặc biệt của
+  lambda (thân lambda chỉ gọi lại một phương thức có sẵn) — cùng cơ chế biên dịch
+  <code>invokedynamic</code> bên dưới.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Method reference luôn nhanh hơn lambda tương đương về hiệu năng runtime."
+  <strong>Reality:</strong> Không có sự khác biệt hiệu năng đáng kể — cả hai đều biên dịch qua cùng cơ chế
+  <code>LambdaMetafactory</code>. Lợi ích của method reference thuần tuý là khả năng đọc hiểu code.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Nhầm lẫn loại 2 (bound) và loại 3 (unbound)</strong> — đặc biệt khi cả hai đều dùng cú pháp có vẻ
+  giống nhau; luôn kiểm tra danh từ trước <code>::</code> là tên biến (bound) hay tên class (unbound).</li>
+<li><strong>Ép dùng method reference cho mọi lambda, kể cả khi làm giảm khả năng đọc</strong> — xem Engineering
+  Insight, không phải lúc nào cũng là lựa chọn tốt hơn.</li>
+<li><strong>Dùng method reference cho phương thức có tác dụng phụ (side effect) không rõ ràng qua tên
+  gọi</strong> — làm người đọc khó đoán được hành vi thực sự nếu chỉ nhìn <code>ClassName::methodName</code>.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng method reference khi tên phương thức tự giải thích rõ ý định và không gây nhầm lẫn về
+  "ai là object gọi phương thức".</li>
+<li>Với <code>Comparator</code> hoặc các trường hợp thứ tự tham số dễ gây nhầm lẫn, cân nhắc lambda tường
+  minh thay vì method reference.</li>
+<li>Ưu tiên constructor reference (<code>ClassName::new</code>) khi truyền một factory method cho API nhận
+  <code>Supplier</code>/<code>Function</code> — rõ ràng hơn lambda <code>() -&gt; new ClassName()</code>.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Method reference không khớp kiểu functional interface đích (lỗi biên dịch)? → kiểm tra
+      đang dùng đúng loại (bound/unbound) — số lượng tham số thực tế của interface đích có thể
+      khác với số tham số hiển thị của phương thức do quy tắc "tham số ẩn" ở loại 3.</li>
+<li>[ ] Không chắc method reference đang trỏ tới static hay instance method? → kiểm tra danh từ
+      trước <code>::</code>: tên class không có object cụ thể → có thể là static HOẶC unbound instance,
+      tuỳ chữ ký phương thức có khớp static method không trước.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Method reference (<code>::</code>) là cú pháp rút gọn hơn nữa cho lambda khi thân lambda chỉ gọi lại một
+phương thức/constructor có sẵn — có 4 loại: static, bound instance (trên object cụ thể), unbound
+instance (trên kiểu bất kỳ, object là tham số ẩn đầu tiên), và constructor reference. Đã chứng
+minh bằng thực nghiệm cả 4 loại hoạt động đúng, cùng chung cơ chế biên dịch với lambda (Chapter
+01). Lợi ích chính là khả năng đọc hiểu — chỉ nên dùng khi thực sự làm code rõ ràng hơn, không
+ép dùng máy móc.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Có bao nhiêu loại method reference trong Java? Cho ví dụ mỗi loại.</li>
+<li>Method reference khác lambda như thế nào về bản chất kỹ thuật?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>MethodReferenceDemo</code> ở trên, xác nhận cả 4 loại method reference hoạt động
+      đúng.</li>
+<li>[ ] Viết lại từng method reference trong ví dụ trên dưới dạng lambda tường minh tương đương,
+      so sánh khả năng đọc hiểu.</li>
+<li>[ ] Dùng <code>Comparator.comparing(Product::getName)</code> (cần thêm getter) để sắp xếp danh sách
+      <code>Product</code> theo tên.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Cú pháp</th>
+<th>Tương đương lambda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Static</td>
+<td><code>ClassName::staticMethod</code></td>
+<td><code>(args) -&gt; ClassName.staticMethod(args)</code></td>
+</tr>
+<tr>
+<td>2. Bound instance</td>
+<td><code>instance::instanceMethod</code></td>
+<td><code>(args) -&gt; instance.instanceMethod(args)</code></td>
+</tr>
+<tr>
+<td>3. Unbound instance</td>
+<td><code>ClassName::instanceMethod</code></td>
+<td><code>(obj, args) -&gt; obj.instanceMethod(args)</code></td>
+</tr>
+<tr>
+<td>4. Constructor</td>
+<td><code>ClassName::new</code></td>
+<td><code>(args) -&gt; new ClassName(args)</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JLS §15.13 — Method Reference Expressions.</li>
+<li>Java SE API Documentation — <code>java.util.function</code>.</li>
 </ul>
 
 

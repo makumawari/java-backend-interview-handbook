@@ -27,7 +27,7 @@
     
     
       
-        <title>Lambda - Java Backend Engineering Handbook</title>
+        <title>Lambda Expression - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lambda" class="md-skip">
+        <a href="#lambda-expression" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lambda
+              Lambda Expression
             
           </span>
         </div>
@@ -2637,7 +2637,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2655,7 +2655,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2879,32 +2879,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3045,7 +3023,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -3157,7 +3135,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lambda" class="md-tag">Lambda</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="lambda">Lambda<a class="headerlink" href="#lambda" title="Permanent link">&para;</a></h1>
+<h1 id="lambda-expression">Lambda Expression<a class="headerlink" href="#lambda-expression" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 4 — Modern Java
 Chapter slug: <code>lambda</code></p>
@@ -6149,94 +6119,296 @@ Chapter slug: <code>lambda</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lambda</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 08 — OOP Fundamentals (anonymous class)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — Functional Interface</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Stream</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 1, Chapter 08 (OOP Fundamentals) — muốn truyền một "hành vi" (một đoạn logic)
+như tham số cho một phương thức khác, cách duy nhất trước Java 8 là viết một <strong>anonymous
+class</strong> implement một interface có một phương thức duy nhất.</p>
 </blockquote>
+<p>So sánh trực tiếp hai cách viết cùng một logic (tính tổng các chữ số của một số):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">DigitSum</span><span class="w"> </span><span class="n">anon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DigitSum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">total</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">};</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">DigitSum</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">total</span><span class="p">;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">};</span>
+</code></pre></div>
+<p>Cả hai cho ra đúng cùng một kết quả (<code>sum(12345) = 15</code>), nhưng lambda ngắn hơn hẳn — không cần
+lặp lại tên interface, tên phương thức, hay từ khoá <code>@Override</code>. Nhìn sâu hơn vào bytecode sinh
+ra, sự khác biệt còn lớn hơn nhiều so với vẻ ngoài "chỉ là cú pháp gọn hơn".</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Lambda expression trong Java là gì? Nó khác anonymous class như thế nào — cả về cú pháp lẫn
+cách JVM biên dịch/thực thi?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Viết được lambda expression đúng cú pháp cho một functional interface (Chapter 02)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: anonymous class sinh ra một <code>.class</code> file riêng,
+      lambda thì không (dùng <code>invokedynamic</code>)</li>
+<li>[ ] Hiểu khái niệm "effectively final" khi lambda capture biến từ scope bên ngoài</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 1, Chapter 08 — hiểu anonymous class, interface với một phương thức trừu tượng.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 02 (Functional Interface)</strong> — lambda chỉ có thể gán cho một functional interface.</li>
+<li><strong>Chapter 04 (Stream)</strong> — hầu hết thao tác trên Stream nhận lambda làm tham số.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Trước Java 8, cách duy nhất để truyền một đoạn logic (không phải dữ liệu) như tham số là viết
+một anonymous class implement một interface. Cú pháp này cồng kềnh: phải lặp lại tên interface,
+tên phương thức, từ khoá <code>new</code>/<code>@Override</code> — cho một logic có thể chỉ vỏn vẹn một dòng. Ngoài
+ra, mỗi anonymous class thực sự sinh ra một <strong><code>.class</code> file riêng</strong> tại thời điểm biên dịch,
+tăng số lượng class phải nạp khi ứng dụng khởi động.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Lambda expression</strong> là cú pháp ngắn gọn để biểu diễn một <strong>instance của functional interface</strong>
+(interface có đúng một phương thức trừu tượng, Chapter 02) — chỉ cần viết tham số và thân logic,
+không cần khai báo lại tên interface/phương thức. Cú pháp: <code>(tham_so) -&gt; bieu_thuc_hoac_khoi_lenh</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lambda không chỉ là "đường cú pháp" (syntactic sugar) thuần tuý cho anonymous class — nó được
+biên dịch theo cơ chế <strong>khác hẳn</strong>: dùng lệnh bytecode <code>invokedynamic</code> cùng <code>LambdaMetafactory</code>,
+<strong>trì hoãn</strong> việc tạo class thực tế cho lambda tới tận <strong>runtime</strong> (lần đầu lambda đó được thực
+thi), thay vì tạo sẵn một <code>.class</code> file tại thời điểm biên dịch như anonymous class. Thiết kế
+này giúp giảm số lượng class phải nạp khi khởi động ứng dụng (đặc biệt quan trọng khi một
+codebase có hàng nghìn lambda), đồng thời cho JVM có cơ hội tối ưu hoá việc tạo instance lambda
+tại runtime.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Cu phap day du (khoi lenh, co return tuong minh)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Runnable</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// Cu phap rut gon (bieu thuc don, tu dong return)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">square</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Nhieu tham so</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">BiFunction</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Anonymous class:                    Lambda:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Bien dich:                          Bien dich:
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   -&gt; sinh NGAY 1 file .class          -&gt; KHONG sinh file .class rieng
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      (ClassName$1.class)                 chi sinh 1 lenh &quot;invokedynamic&quot;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  Runtime:                            Runtime:
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   -&gt; new ClassName$1() nhu           -&gt; LAN DAU goi toi, LambdaMetafactory
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      class binh thuong                  MOI tao ra instance implement
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                                          functional interface (lazy)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.function.Function</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.function.IntBinaryOperator</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LambdaDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">interface</span> <span class="nc">DigitSum</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">DigitSum</span><span class="w"> </span><span class="n">anon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DigitSum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="nd">@Override</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">total</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="n">DigitSum</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">total</span><span class="p">;</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Anonymous class: sum(12345) = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">anon</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="mi">12345</span><span class="p">));</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Lambda: sum(12345) = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lambda</span><span class="p">.</span><span class="na">sum</span><span class="p">(</span><span class="mi">12345</span><span class="p">));</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">multiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// effectively final</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">multiply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">multiplier</span><span class="p">;</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Lambda capture &#39;multiplier&#39;: multiply(5) = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">multiply</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">        </span><span class="n">IntBinaryOperator</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;IntBinaryOperator: add(3, 4) = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">add</span><span class="p">.</span><span class="na">applyAsInt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">));</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Anonymous class: sum(12345) = 15
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Lambda: sum(12345) = 15
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Lambda capture &#39;multiplier&#39;: multiply(5) = 50
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>IntBinaryOperator: add(3, 4) = 7
+</code></pre></div>
+<p>Cả hai cách viết cho đúng <code>15</code>. Nhưng kiểm tra các file <code>.class</code> thực tế sinh ra sau biên dịch:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ ls LambdaDemo*.class
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>LambdaDemo$1.class          &lt;- anonymous class: MOT class file rieng
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>LambdaDemo$DigitSum.class   &lt;- interface
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>LambdaDemo.class            &lt;- class chinh, KHONG co LambdaDemo$2.class cho lambda!
+</code></pre></div>
+<p>Chỉ có <strong><code>LambdaDemo$1.class</code></strong> (cho anonymous class) — không hề có <code>LambdaDemo$2.class</code> hay bất
+kỳ file nào khác cho lambda, dù cả hai đều implement cùng interface <code>DigitSum</code>. Xem bytecode của
+<code>main()</code> bằng <code>javap -c</code> xác nhận trực tiếp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>0: new           #7        // class LambdaDemo$1        &lt;- anonymous class: new object binh thuong
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>...
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>8: invokedynamic #10,  0   // InvokeDynamic #0:sum:()LLambdaDemo$DigitSup;  &lt;- lambda: invokedynamic!
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao lambda không sinh <code>.class</code> file tại thời điểm biên dịch?</strong> Trình biên dịch <code>javac</code>
+chỉ sinh ra một lệnh <code>invokedynamic</code> trỏ tới một <strong>bootstrap method</strong> (<code>LambdaMetafactory.metafactory</code>)
+cùng phần thân lambda được biên dịch thành một <strong>phương thức private tĩnh ẩn</strong> trong chính class
+chứa nó (không phải một class riêng). Lần đầu tiên JVM thực thi lệnh <code>invokedynamic</code> đó (runtime,
+không phải compile-time), nó gọi <code>LambdaMetafactory</code> để <strong>tạo động</strong> (dùng kỹ thuật tương tự
+Reflection nhưng hiệu quả hơn — dùng <code>MethodHandle</code>) một class implement functional interface
+tương ứng, rồi cache lại kết quả này (<code>CallSite</code>) để các lần gọi tiếp theo không phải tạo lại.
+Đây là lý do lambda thường có overhead khởi tạo lần đầu cao hơn một chút so với anonymous class
+đã có sẵn class, nhưng từ lần thứ hai trở đi (đã cache) không có sự khác biệt đáng kể.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>"Effectively final" nghĩa là gì, và vì sao lambda bắt buộc yêu cầu nó?</strong> Một biến local được
+gọi là "effectively final" nếu nó <strong>chỉ được gán giá trị đúng một lần</strong> (dù không có từ khoá
+<code>final</code> tường minh) — như <code>multiplier</code> trong Example. Lambda chỉ được phép "capture" (dùng) biến
+local thoả điều kiện này. Lý do: lambda có thể được thực thi <strong>sau này</strong>, có thể trên một thread
+<strong>khác</strong> hoàn toàn với thread đã tạo ra nó (điển hình khi truyền lambda vào một task bất đồng bộ,
+Phase 3) — nếu biến local gốc đã bị thay đổi hoặc thậm chí đã ra khỏi scope (biến local nằm trên
+stack, có thể đã bị giải phóng), lambda sẽ đọc một giá trị sai hoặc không tồn tại. Yêu cầu
+"effectively final" đảm bảo lambda luôn nắm giữ đúng <strong>giá trị đã được sao chép tại thời điểm
+tạo</strong>, loại bỏ hoàn toàn khả năng đọc sai giá trị do thay đổi sau đó — bất kể lambda được thực
+thi khi nào, trên thread nào.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Lambda expression ra đời ở Java 8 (2014, JSR 335) — một trong những thay đổi ngôn ngữ lớn nhất
+kể từ Generics (Java 5, 2004). Động lực chính là hỗ trợ Stream API (Chapter 04) theo phong cách
+lập trình hàm (functional programming), vốn đã phổ biến ở các ngôn ngữ khác (Scala, JavaScript)
+từ trước đó nhiều năm.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Lambda chỉ là cú pháp gọn hơn cho anonymous class, về bản chất kỹ thuật giống hệt
+  nhau."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — cơ chế biên dịch hoàn toàn khác nhau (sinh sẵn
+  <code>.class</code> file vs <code>invokedynamic</code> trì hoãn tới runtime), dẫn tới khác biệt về số lượng class
+  nạp khi khởi động và thời điểm class thực sự được tạo.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Lambda có thể dùng bất kỳ biến local nào từ scope bên ngoài, giống hệt closure
+  trong JavaScript."
+  <strong>Reality:</strong> Chỉ được dùng biến "effectively final" — xem Engineering Insight để hiểu lý do kỹ
+  thuật đằng sau giới hạn này.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Cố gán lại giá trị cho biến local đã bị lambda capture</strong> — lỗi biên dịch "variable used in
+  lambda expression should be final or effectively final", vì gán lại phá vỡ điều kiện
+  "effectively final".</li>
+<li><strong>Viết lambda quá dài, nhiều dòng logic phức tạp</strong> — làm giảm khả năng đọc hiểu, nên tách
+  thành một phương thức riêng và dùng method reference (Chapter 03) khi logic đủ phức tạp.</li>
+<li><strong>Nhầm lẫn lambda có thể thay đổi (mutate) biến local bên ngoài</strong> — lambda chỉ đọc được giá
+  trị đã sao chép, không thể gán lại biến local gốc (khác với field của object, vẫn thay đổi
+  được bình thường).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Ưu tiên lambda ngắn gọn, một biểu thức duy nhất khi có thể; tách thành phương thức riêng +
+  method reference (Chapter 03) khi logic dài hơn vài dòng.</li>
+<li>Nhớ rằng lambda chỉ capture giá trị "effectively final" — không dùng lambda để thay đổi trạng
+  thái biến local bên ngoài; dùng một object có field (ví dụ mảng 1 phần tử, hoặc <code>AtomicInteger</code>
+  — Phase 3, Chapter 12) nếu thực sự cần một "hộp chứa" thay đổi được.</li>
+<li>Không nên "ép" mọi anonymous class thành lambda một cách máy móc — với logic phức tạp, đa
+  phương thức, class thông thường vẫn là lựa chọn rõ ràng hơn.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lỗi biên dịch "variable ... should be final or effectively final"? → kiểm tra biến local
+      có bị gán lại ở đâu đó trong cùng scope không.</li>
+<li>[ ] Lambda chạy chậm bất thường ở lần gọi đầu tiên? → bình thường, do chi phí khởi tạo
+      <code>LambdaMetafactory</code> lần đầu (xem Deep Dive) — các lần gọi sau đã được cache, không còn
+      overhead này.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lambda expression cho phép viết ngắn gọn một instance của functional interface, thay thế
+anonymous class cồng kềnh. Đã chứng minh bằng thực nghiệm: anonymous class sinh ra một <code>.class</code>
+file riêng ngay lúc biên dịch, trong khi lambda dùng <code>invokedynamic</code>, trì hoãn việc tạo class
+thực tế tới lần đầu thực thi tại runtime — không sinh thêm file <code>.class</code> nào. Lambda chỉ được
+phép capture biến local "effectively final" (chỉ gán một lần), đảm bảo giá trị nhất quán bất kể
+lambda được thực thi khi nào, trên thread nào.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Coding: Write a Lambda expression to find the sum of digits of a number.</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Lambda khác anonymous class như thế nào về cách biên dịch và thực thi?</li>
+<li>"Effectively final" là gì? Vì sao lambda yêu cầu điều kiện này?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>LambdaDemo</code> ở trên, tự kiểm tra bằng <code>ls *.class</code> và <code>javap -c</code> để xác nhận sự
+      khác biệt bytecode giữa anonymous class và lambda.</li>
+<li>[ ] Viết một lambda implement <code>Comparator&lt;String&gt;</code> để sắp xếp danh sách chuỗi theo độ dài
+      giảm dần.</li>
+<li>[ ] Thử cố tình gán lại một biến local đã bị lambda capture, quan sát lỗi biên dịch chính
+      xác.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Anonymous Class</th>
+<th>Lambda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.class</code> file</td>
+<td>Sinh ngay lúc biên dịch</td>
+<td>Không sinh riêng (dùng <code>invokedynamic</code>)</td>
+</tr>
+<tr>
+<td>Cú pháp</td>
+<td>Dài (lặp lại tên interface/method)</td>
+<td>Ngắn gọn</td>
+</tr>
+<tr>
+<td><code>this</code> bên trong</td>
+<td>Trỏ tới chính anonymous class</td>
+<td>Trỏ tới class bao quanh (lexical scoping)</td>
+</tr>
+<tr>
+<td>Capture biến local</td>
+<td>Phải final/effectively final</td>
+<td>Phải final/effectively final</td>
+</tr>
+<tr>
+<td>Đa phương thức trừu tượng</td>
+<td>Được</td>
+<td>Không (chỉ functional interface)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JLS §15.27 — Lambda Expressions.</li>
+<li>JSR 335 — Lambda Expressions for the Java Programming Language.</li>
 </ul>
 
 

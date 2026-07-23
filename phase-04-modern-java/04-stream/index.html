@@ -27,7 +27,7 @@
     
     
       
-        <title>Stream - Java Backend Engineering Handbook</title>
+        <title>Stream API - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stream" class="md-skip">
+        <a href="#stream-api" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stream
+              Stream API
             
           </span>
         </div>
@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2721,7 +2721,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -2739,7 +2739,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -2963,32 +2963,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3157,7 +3135,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:stream" class="md-tag">Stream</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="stream">Stream<a class="headerlink" href="#stream" title="Permanent link">&para;</a></h1>
+<h1 id="stream-api">Stream API<a class="headerlink" href="#stream-api" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 4 — Modern Java
 Chapter slug: <code>stream</code></p>
@@ -6149,94 +6119,302 @@ Chapter slug: <code>stream</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stream</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Lambda</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — Functional Interface</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Method Reference</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Collector</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-lambda/">Chapter 01-03</a> — lambda và method reference cho phép truyền hành vi
+ngắn gọn. Nhưng viết <code>for</code> loop lồng nhau để lọc, biến đổi, rồi gộp dữ liệu từ một collection
+vẫn còn khá dài dòng và dễ lẫn logic "làm gì" với logic "lặp như thế nào".</p>
 </blockquote>
+<p>Thử nghiệm thực tế: tạo một Stream, gọi <code>filter()</code>, nhưng <strong>chưa</strong> gọi thao tác cuối cùng
+(terminal operation):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lazyStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="p">.</span><span class="na">peek</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;peek: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">()))</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Da tao xong stream, peek() CHUA IN GI CA&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Da tao xong stream, peek() CHUA IN GI CA (lazy)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>--- Bay gio goi terminal operation (count()) ---
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>peek (intermediate) thay: Laptop
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>peek (intermediate) thay: Mouse
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>count() = 4
+</code></pre></div>
+<p><code>peek()</code> — dù đã được gọi trong code — <strong>không in gì cả</strong> cho tới khi có một <strong>terminal
+operation</strong> (<code>count()</code>) được gọi. Đây chính là "lazy evaluation" — điểm khác biệt căn bản giữa
+Stream và một vòng lặp thông thường.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Stream API có lazy evaluation là gì? Vì sao các thao tác trung gian (<code>filter</code>, <code>map</code>, <code>peek</code>)
+không thực thi ngay khi được gọi?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt intermediate operation (lazy) và terminal operation (kích hoạt thực thi)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>peek()</code> không chạy tới khi có terminal operation</li>
+<li>[ ] Tự tay chứng minh short-circuiting: <code>findFirst()</code> dừng ngay khi tìm thấy, không duyệt hết
+      collection</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01-03 — hiểu lambda, functional interface, method reference (dùng làm tham số cho các
+  thao tác Stream).</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 05 (Collector)</strong> — <code>collect()</code> là terminal operation phổ biến nhất để gộp kết quả
+  Stream thành collection/giá trị tổng hợp.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Viết <code>for</code> loop để lọc + biến đổi + gộp dữ liệu từ collection thường lồng ghép "làm gì" (logic
+nghiệp vụ) với "lặp như thế nào" (chi tiết kỹ thuật của vòng lặp) trong cùng một khối code, làm
+giảm khả năng đọc hiểu ý định. Ngoài ra, viết tay các thao tác kết hợp (lọc rồi biến đổi rồi
+giới hạn số lượng) thường phải duyệt collection nhiều lần hoặc dùng biến trung gian không cần
+thiết.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Stream</strong> là một chuỗi các phần tử hỗ trợ thao tác kiểu functional (map, filter, reduce, ...)
+được <strong>tính toán lười (lazy)</strong>: các <strong>intermediate operation</strong> (<code>filter</code>, <code>map</code>, <code>peek</code>, <code>sorted</code>,
+...) chỉ <strong>mô tả</strong> một "công thức xử lý", không thực thi ngay — chúng chỉ thực sự chạy khi có
+một <strong>terminal operation</strong> (<code>collect</code>, <code>count</code>, <code>forEach</code>, <code>findFirst</code>, <code>reduce</code>, ...) được gọi,
+và Stream xử lý <strong>từng phần tử một, xuyên suốt toàn bộ chuỗi thao tác</strong> (không xử lý theo từng
+giai đoạn riêng biệt cho toàn bộ collection).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lazy evaluation cho phép JVM <strong>tối ưu hoá toàn bộ chuỗi thao tác</strong> trước khi thực sự chạy — ví
+dụ kết hợp nhiều intermediate operation thành một lượt duyệt duy nhất (thay vì duyệt riêng cho
+<code>filter</code>, rồi duyệt riêng cho <code>map</code>), và cho phép <strong>short-circuiting</strong>: nếu terminal operation
+chỉ cần một phần kết quả (<code>findFirst</code>, <code>limit</code>, <code>anyMatch</code>), Stream có thể dừng xử lý ngay khi
+đủ điều kiện, không cần duyệt hết toàn bộ nguồn dữ liệu — điều mà một chuỗi vòng lặp viết tay,
+xử lý tuần tự từng giai đoạn, khó đạt được tự nhiên.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">   </span><span class="c1">// 1. tao Stream tu collection</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">          </span><span class="c1">// 2. intermediate: LAZY, chi &quot;mo ta&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">name</span><span class="p">)</span><span class="w">                    </span><span class="c1">//    intermediate: LAZY</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span><span class="w">                              </span><span class="c1">//    intermediate: LAZY</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">         </span><span class="c1">// 3. terminal: KICH HOAT toan bo chuoi chay</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Khai bao chuoi (KHONG chay gi):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  stream() -&gt; filter() -&gt; map() -&gt; sorted() -&gt; [CHUA CO terminal operation]
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>     (chi la mo ta &quot;cong thuc&quot;, chua thuc thi)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Goi terminal operation (VD: collect()):
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  Voi TUNG PHAN TU mot, chay QUA CA CHUOI truoc khi sang phan tu tiep theo:
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  phan_tu_1 -&gt; filter? -&gt; map -&gt; sorted (buffer) ...
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  phan_tu_2 -&gt; filter? -&gt; map -&gt; sorted (buffer) ...
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  ...
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  =&gt; collect() gop ket qua cuoi cung
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>Short-circuit (findFirst, limit, anyMatch):
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  phan_tu_1 -&gt; filter (khong khop) -&gt; BO QUA
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>  phan_tu_2 -&gt; filter (khong khop) -&gt; BO QUA
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>  phan_tu_3 -&gt; filter (KHOP!) -&gt; DUNG NGAY, khong xu ly phan_tu_4, 5, ...
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.*</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StreamDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">record</span> <span class="nc">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Laptop&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1200</span><span class="p">),</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Mouse&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">),</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Desk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Furniture&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">),</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Chair&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Furniture&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">),</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Monitor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--- Tao stream, GOI map/filter, CHUA goi terminal op ---&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lazyStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="p">.</span><span class="na">peek</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;peek (intermediate) thay: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">()))</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Da tao xong stream, peek() CHUA IN GI CA (lazy)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--- Bay gio goi terminal operation (count()) ---&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lazyStream</span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;count() = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (gio peek() moi thuc su chay)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">totalElectronics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">category</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Electronics&quot;</span><span class="p">))</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Product</span><span class="p">::</span><span class="n">price</span><span class="p">)</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">            </span><span class="p">.</span><span class="na">sum</span><span class="p">();</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Tong gia Electronics: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">totalElectronics</span><span class="p">);</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">firstFurniture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">            </span><span class="p">.</span><span class="na">peek</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;peek (short-circuit test): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">()))</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">category</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Furniture&quot;</span><span class="p">))</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">            </span><span class="p">.</span><span class="na">findFirst</span><span class="p">();</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;San pham Furniture dau tien: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstFurniture</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">name</span><span class="p">());</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>--- Tao stream, GOI map/filter, CHUA goi terminal op ---
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Da tao xong stream, peek() CHUA IN GI CA (lazy)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>--- Bay gio goi terminal operation (count()) ---
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>peek (intermediate) thay: Laptop
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>peek (intermediate) thay: Mouse
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>peek (intermediate) thay: Desk
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>peek (intermediate) thay: Chair
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>peek (intermediate) thay: Monitor
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>count() = 4 (gio peek() moi thuc su chay)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Tong gia Electronics: 1625.0
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>peek (short-circuit test): Laptop
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>peek (short-circuit test): Mouse
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>peek (short-circuit test): Desk
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>San pham Furniture dau tien: Desk
+</code></pre></div>
+<p>Bằng chứng lazy evaluation: dòng <code>"Da tao xong stream..."</code> in <strong>trước</strong> bất kỳ dòng <code>peek</code> nào —
+<code>filter()</code> đã được gọi trong code nhưng chưa hề thực thi. Chỉ khi <code>count()</code> (terminal operation)
+được gọi, cả 5 dòng <code>peek</code> mới xuất hiện.</p>
+<p>Bằng chứng short-circuiting: <code>findFirst()</code> chỉ in ra 3 dòng <code>peek</code> (Laptop, Mouse, Desk) rồi
+<strong>dừng ngay</strong> khi tìm thấy "Desk" (sản phẩm Furniture đầu tiên) — không hề xử lý "Chair" hay
+"Monitor" dù chúng vẫn còn trong danh sách gốc.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao Stream xử lý "từng phần tử xuyên suốt cả chuỗi" thay vì "từng giai đoạn cho toàn bộ
+collection"?</strong> Đây gọi là kỹ thuật <strong>fusion</strong> (hợp nhất các thao tác trung gian). Nếu Stream xử
+lý theo giai đoạn (chạy <code>filter</code> cho toàn bộ 5 phần tử trước, rồi mới chạy <code>map</code> cho kết quả),
+nó sẽ cần một cấu trúc dữ liệu trung gian để lưu kết quả sau mỗi giai đoạn — tốn thêm bộ nhớ và
+thêm một lượt duyệt cho mỗi thao tác. Bằng cách xử lý từng phần tử đi "xuyên suốt" toàn bộ chuỗi
+thao tác trước khi sang phần tử tiếp theo (<code>filter</code> → <code>map</code> → <code>sorted</code>-buffer, tất cả cho
+<code>Laptop</code> trước khi xét <code>Mouse</code>), Stream chỉ cần <strong>một lượt duyệt duy nhất</strong> qua nguồn dữ liệu
+gốc (trừ các thao tác cần toàn bộ dữ liệu trước khi tiếp tục, như <code>sorted()</code> — buộc phải đợi hết
+rồi mới sắp xếp).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao "quên gọi terminal operation" là lỗi phổ biến khi mới học Stream, và hậu quả của nó là
+gì?</strong> Vì Stream lazy, code như <code>products.stream().filter(...).map(...)</code> (không có <code>.collect()</code>
+hay bất kỳ terminal operation nào ở cuối) <strong>biên dịch được, chạy được, nhưng không làm gì cả</strong> —
+không có exception, không có cảnh báo runtime, chỉ đơn giản là logic filter/map không bao giờ
+thực thi. Đây là một trong những lỗi khó phát hiện nhất với người mới dùng Stream, vì không có
+tín hiệu lỗi rõ ràng nào — hậu quả (dữ liệu "biến mất" một cách âm thầm) chỉ lộ ra khi kiểm tra
+kết quả cuối cùng và thấy nó rỗng/sai một cách khó hiểu.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Stream API ra đời ở Java 8 (2014), cùng lambda (Chapter 01) và <code>CompletableFuture</code> (Phase 3,
+Chapter 18) — phản ánh làn sóng chuyển dịch sang phong cách lập trình hàm của JDK giai đoạn này.
+Trước đó, thư viện bên thứ ba như Google Guava đã có các tiện ích tương tự (<code>FluentIterable</code>)
+nhưng không tích hợp sâu vào ngôn ngữ như Stream API.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Stream luôn nhanh hơn vòng lặp <code>for</code> truyền thống."
+  <strong>Reality:</strong> Với dữ liệu nhỏ, Stream thường <strong>chậm hơn</strong> <code>for</code> loop do overhead tạo object
+  trung gian (mỗi bước <code>filter</code>/<code>map</code> tạo một <code>Stream</code> wrapper mới) — lợi ích thực sự của Stream
+  là khả năng đọc hiểu và biểu đạt ý định rõ ràng hơn, không phải luôn luôn nhanh hơn về hiệu
+  năng thô. <code>parallelStream()</code> (Phase 3, Chapter 17) chỉ có lợi khi dữ liệu đủ lớn và công việc
+  mỗi phần tử đủ nặng.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Gọi <code>filter()</code>/<code>map()</code> trên Stream là đã xử lý dữ liệu ngay lập tức."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm ở Example — chúng chỉ thực sự chạy khi có terminal
+  operation.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên gọi terminal operation</strong> — xem Engineering Insight, code chạy "im lặng", không làm gì
+  cả mà không có bất kỳ tín hiệu lỗi nào.</li>
+<li><strong>Tái sử dụng một Stream đã bị "tiêu thụ" (đã gọi terminal operation)</strong> — Stream chỉ dùng được
+  <strong>một lần</strong>; gọi lại một terminal operation khác trên cùng Stream ném
+  <code>IllegalStateException: stream has already been operated upon or closed</code>.</li>
+<li><strong>Dùng <code>peek()</code> cho logic nghiệp vụ thực sự (không chỉ để debug)</strong> — <code>peek()</code> được thiết kế
+  cho mục đích quan sát/debug, JDK không đảm bảo nó luôn chạy đúng số lần dự kiến trong mọi
+  trường hợp tối ưu hoá của JVM.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn đảm bảo mỗi chuỗi Stream kết thúc bằng đúng một terminal operation.</li>
+<li>Dùng <code>peek()</code> chỉ cho mục đích debug tạm thời, không dùng nó để thực hiện logic nghiệp vụ có
+  tác dụng phụ quan trọng.</li>
+<li>Với dữ liệu nhỏ hoặc logic đơn giản, cân nhắc <code>for</code> loop truyền thống nếu nó rõ ràng hơn Stream
+  — không ép dùng Stream cho mọi trường hợp.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Logic trong <code>filter()</code>/<code>map()</code> "không chạy", không có lỗi nào? → kiểm tra chuỗi Stream có
+      terminal operation ở cuối không.</li>
+<li>[ ] <code>IllegalStateException: stream has already been operated upon</code>? → kiểm tra có đang tái sử
+      dụng một biến Stream đã gọi terminal operation trước đó không — tạo Stream mới từ
+      collection gốc thay vì tái sử dụng.</li>
+<li>[ ] Cần dừng xử lý sớm khi tìm thấy kết quả đầu tiên? → dùng <code>findFirst()</code>/<code>anyMatch()</code>/<code>limit()</code> để tận dụng short-circuiting thay vì <code>collect()</code> rồi lọc thủ công sau.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Stream API xử lý dữ liệu theo mô hình lazy: intermediate operation (<code>filter</code>, <code>map</code>, <code>peek</code>)
+chỉ mô tả công thức xử lý, terminal operation (<code>collect</code>, <code>count</code>, <code>findFirst</code>) mới thực sự kích
+hoạt toàn bộ chuỗi chạy — đã chứng minh bằng thực nghiệm: <code>peek()</code> không in gì cho tới khi có
+terminal operation. Stream xử lý từng phần tử xuyên suốt cả chuỗi thao tác (kỹ thuật fusion),
+cho phép short-circuiting — <code>findFirst()</code> dừng ngay khi tìm thấy kết quả, không duyệt hết
+collection (đã chứng minh: chỉ 3/5 phần tử được xử lý). Quên terminal operation là lỗi phổ biến
+và khó phát hiện vì không có tín hiệu lỗi nào.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Stream API có lazy evaluation là gì?</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Intermediate operation và terminal operation khác nhau như thế nào? Cho ví dụ mỗi loại.</li>
+<li>Short-circuiting trong Stream là gì? Thao tác nào tận dụng được nó?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao Stream xử lý "từng phần tử xuyên suốt cả chuỗi thao tác" thay vì "từng giai
+  đoạn cho toàn bộ dữ liệu". Điều này có lợi ích gì?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>StreamDemo</code> ở trên, xác nhận thứ tự các dòng in ra đúng như mô tả (lazy +
+      short-circuit).</li>
+<li>[ ] Viết một đoạn code Stream cố ý quên terminal operation, xác nhận không có lỗi/cảnh báo
+      nào xuất hiện khi chạy.</li>
+<li>[ ] Thử gọi <code>.count()</code> hai lần trên cùng một biến Stream, quan sát <code>IllegalStateException</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Ví dụ</th>
+<th>Đặc điểm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intermediate</td>
+<td><code>filter</code>, <code>map</code>, <code>peek</code>, <code>sorted</code>, <code>distinct</code>, <code>limit</code></td>
+<td>Lazy, trả về Stream mới</td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td><code>collect</code>, <code>forEach</code>, <code>count</code>, <code>reduce</code>, <code>findFirst</code>, <code>anyMatch</code></td>
+<td>Kích hoạt thực thi, kết thúc Stream</td>
+</tr>
+<tr>
+<td>Short-circuit</td>
+<td><code>findFirst</code>, <code>findAny</code>, <code>anyMatch</code>, <code>limit</code></td>
+<td>Có thể dừng sớm, không duyệt hết</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.stream.Stream</code>.</li>
+<li>JEP tổng quan Java 8 — https://openjdk.org/projects/jdk8/</li>
 </ul>
 
 

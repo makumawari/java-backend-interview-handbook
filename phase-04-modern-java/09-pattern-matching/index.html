@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2712,7 +2712,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -2824,7 +2824,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -3103,32 +3103,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:patternmatching" class="md-tag">PatternMatching</a>
       
     
   </nav>
@@ -6149,94 +6119,328 @@ Chapter slug: <code>pattern-matching</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pattern Matching</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Record</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — Sealed Class</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Xử lý phản hồi API đa dạng kiểu dữ liệu (Phase 5+)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../08-sealed-class/">Chapter 08</a> — sealed hierarchy cho phép <code>switch</code> biết trước
+toàn bộ tập hợp subtype. Nhưng viết <code>case CreditCard c -&gt; c.cardNumber()</code> mới chỉ "bắt được
+loại", còn phải tự gọi <code>c.cardNumber()</code> để lấy ra field bên trong — nếu <code>record</code> có nhiều
+field lồng nhau, việc "lấy ra" từng field vẫn cần nhiều dòng.</p>
 </blockquote>
+<p>So sánh cách viết kiểm tra kiểu <strong>trước và sau</strong> pattern matching:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Truoc Java 16: kiem tra kieu roi TU CAST thu cong</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Do dai: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// Tu Java 16: pattern matching, bien duoc gan TU DONG neu kiem tra dung</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Do dai: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Cả hai cho cùng kết quả, nhưng pattern matching loại bỏ hoàn toàn bước cast thủ công — và biến
+<code>s</code> còn có một hành vi bất ngờ hơn nữa: nó vẫn "sống" được <strong>ngoài</strong> khối <code>if</code> trong một số
+trường hợp.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Pattern matching trong Java (<code>instanceof</code>, <code>switch</code>, record pattern) là gì? Nó khác kiểm tra
+kiểu + cast thủ công truyền thống như thế nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>instanceof</code> pattern matching, hiểu khái niệm "flow scoping"</li>
+<li>[ ] Dùng thành thạo <code>switch</code> pattern matching kết hợp record pattern để "destructure" trực
+      tiếp field của record</li>
+<li>[ ] Dùng guarded pattern (<code>when</code>) để thêm điều kiện lọc trong từng nhánh <code>case</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 07 — hiểu record, vì record pattern destructure trực tiếp field của record.</li>
+<li>Chapter 08 — hiểu sealed hierarchy, vì <code>switch</code> pattern matching thường kết hợp với nó để đạt
+  tính exhaustive.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Xử lý phản hồi API đa dạng kiểu dữ liệu</strong> (Phase 5+) — pattern matching kết hợp sealed
+  interface là công cụ mạnh để xử lý các loại response/event khác nhau một cách an toàn kiểu.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Kiểm tra kiểu truyền thống (<code>instanceof</code> + cast thủ công) tách rời hai bước lẽ ra luôn đi cùng
+nhau: "kiểm tra kiểu có đúng không" và "nếu đúng, lấy ra giá trị đã cast". Việc phải viết cast
+thủ công không chỉ dài dòng mà còn có thể gây lỗi nếu quên hoặc cast sai kiểu. Với dữ liệu lồng
+nhau (record chứa record khác), việc "lấy ra" từng field lồng sâu bên trong còn phức tạp hơn
+nữa nếu chỉ dùng kiểm tra kiểu + cast + gọi accessor thủ công từng bước.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Pattern matching</strong> hợp nhất "kiểm tra kiểu/cấu trúc" và "trích xuất giá trị" thành một bước
+duy nhất. Có 3 dạng chính: <strong><code>instanceof</code> pattern</strong> (Java 16) — kiểm tra kiểu và gán biến cùng
+lúc; <strong><code>switch</code> pattern matching</strong> (Java 21) — mở rộng <code>switch</code> để so khớp theo kiểu, không chỉ
+giá trị hằng số; <strong>record pattern</strong> (Java 21) — "destructure" trực tiếp các field của record
+ngay trong pattern, không cần gọi accessor riêng.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Hợp nhất kiểm tra kiểu và trích xuất giá trị vào một cú pháp duy nhất loại bỏ toàn bộ khả năng
+lỗi "cast sai kiểu" (vì trình biên dịch tự đảm bảo biến pattern luôn đúng kiểu đã kiểm tra) và
+giảm đáng kể boilerplate khi xử lý dữ liệu lồng nhau. Kết hợp với sealed hierarchy (Chapter 08),
+<code>switch</code> pattern matching cho phép biểu đạt logic "xử lý khác nhau tuỳ loại dữ liệu" theo cách
+<strong>khai báo, an toàn kiểu, và được compiler xác nhận đầy đủ</strong> — một phong cách lập trình gần với
+"xử lý theo cấu trúc dữ liệu" (structural processing) phổ biến ở các ngôn ngữ hàm.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// instanceof pattern (Java 16+)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// switch pattern matching + record pattern (Java 21+)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w">           </span><span class="c1">// destructure truc tiep field r</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w">         </span><span class="c1">// destructure w, h cung luc</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// guarded pattern (them dieu kien loc bang &#39;when&#39;)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Circle</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">radius</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hinh tron lon&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">Circle</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hinh tron nho&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Khac&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">};</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>instanceof truyen thong:              instanceof pattern matching:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  if (obj instanceof String) {          if (obj instanceof String s) {
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      String s = (String) obj;              // s TU DONG co san, DA duoc cast
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      ...                                   ...
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  }                                      }
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>record pattern (destructure):
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  case Circle(double r) -&gt; ...
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>         │        │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>         │        └── lay TRUC TIEP field &quot;radius&quot; cua Circle, dat ten la r
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>         └── kiem tra dung la Circle
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>Flow scoping (bien pattern &quot;song sot&quot; ngoai khoi if):
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  if (!(obj instanceof String s)) {
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>      return &quot;khong phai String&quot;;  // nhanh nay return/throw -&gt; &quot;cat&quot; luong
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  }
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  // s VAN CON HIEU LUC o day! vi nhanh khong-match da return truoc do
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>  return &quot;do dai: &quot; + s.length();
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong><code>instanceof</code> pattern matching:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describeOld</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Chuoi dai: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Khac&quot;</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
 </code></pre></div>
+<p><strong><code>switch</code> pattern matching + record pattern:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Shape</span><span class="w"> </span><span class="kd">permits</span><span class="w"> </span><span class="n">Circle</span><span class="p">,</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">record</span> <span class="nc">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">record</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="n">Shape</span><span class="w"> </span><span class="n">shape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span><span class="n">Shape</span><span class="w"> </span><span class="n">shape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Circle</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">radius</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hinh tron LON (r=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">radius</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Circle</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hinh tron nho (r=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">radius</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">height</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hinh vuong (canh=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hinh chu nhat (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">width</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">height</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (Temurin 26, <code>switch</code> pattern matching + record pattern ổn định từ Java 21):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Chuoi dai: Hello World
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Khac
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>area(Circle(5)) = 78.53981633974483
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>area(Rectangle(4,4)) = 16.0
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Hinh tron LON (r=15.0)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Hinh tron nho (r=3.0)
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Hinh vuong (canh=5.0)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Hinh chu nhat (3.0x7.0)
+</code></pre></div>
+<p><code>case Circle(double r) -&gt; Math.PI * r * r</code> lấy trực tiếp field <code>radius</code> của <code>Circle</code> (đặt tên
+<code>r</code>) mà <strong>không cần</strong> gọi <code>circle.radius()</code> — trình biên dịch tự "mở" record ngay trong pattern.
+Guarded pattern (<code>when</code>) cho phép phân biệt "hình tròn lớn" và "hình tròn nhỏ" <strong>cùng kiểu</strong>
+<code>Circle</code> nhưng theo điều kiện giá trị field — điều mà <code>switch</code> truyền thống (chỉ so khớp theo
+kiểu hoặc hằng số) không làm được.</p>
+<p><strong>Flow scoping — biến pattern "sống" ngoài khối <code>if</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">newStyle</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Khong phai String&quot;</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Do dai: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="c1">// s VAN hieu luc o day</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Do dai: 5
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Do dai: 5
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Khong phai String
+</code></pre></div>
+<p><code>s</code> được dùng ở dòng <code>return "Do dai: " + s.length()</code> — nằm <strong>ngoài</strong> khối <code>if</code> ban đầu — vẫn
+biên dịch và chạy đúng, vì trình biên dịch chứng minh được: nếu luồng thực thi tới được dòng đó,
+điều kiện <code>!(obj instanceof String s)</code> chắc chắn đã là <code>false</code> (vì nhánh <code>true</code> đã <code>return</code>
+trước đó), nên <code>s</code> chắc chắn đã được gán và hợp lệ.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>"Flow scoping" hoạt động dựa trên nguyên lý gì để trình biên dịch xác nhận biến pattern an
+toàn ngoài khối kiểm tra ban đầu?</strong> Trình biên dịch phân tích <strong>luồng điều khiển</strong> (control flow
+analysis): một biến pattern được coi là "definitely matched" (chắc chắn đã khớp) tại một điểm
+trong code nếu <strong>mọi đường đi có thể tới điểm đó</strong> đều đã đi qua nhánh mà pattern khớp thành
+công. Với <code>if (!(obj instanceof String s)) { return ...; }</code>, chỉ có <strong>một đường đi duy nhất</strong> để
+tới dòng code sau khối <code>if</code> — đó là khi điều kiện <code>!(...)</code> là <code>false</code>, tức <code>obj instanceof String
+s</code> là <code>true</code>, tức <code>s</code> chắc chắn đã được gán. Đây là lý do flow scoping hoạt động với <code>return</code>/<code>throw</code>/<code>continue</code>/<code>break</code> (các lệnh "cắt luồng" một cách chắc chắn) nhưng không hoạt động nếu
+nhánh không-khớp không cắt luồng rõ ràng — trình biên dịch sẽ báo lỗi biến "có thể chưa được gán"
+nếu không chứng minh được tính an toàn này.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao "record pattern" + "sealed interface" (Chapter 08) được coi là bước tiến quan trọng
+nhất của Java hướng tới phong cách lập trình hàm, so với các tính năng riêng lẻ trước đó (lambda,
+Stream)?</strong> Lambda và Stream (Chapter 01, 04) mang phong cách hàm vào việc <strong>xử lý tập hợp dữ
+liệu</strong> (collection). Sealed + record + pattern matching mang phong cách hàm vào việc <strong>định
+nghĩa và xử lý cấu trúc dữ liệu</strong> — cho phép biểu diễn "một giá trị chỉ có thể là một trong số
+các dạng cố định, mỗi dạng có cấu trúc riêng" (sum type, Chapter 08) và xử lý nó bằng cách "so
+khớp theo cấu trúc" (pattern matching) thay vì polymorphism truyền thống (mỗi subtype tự override
+một phương thức xử lý bản thân nó). Đây là hai triết lý thiết kế khác nhau tồn tại song song
+trong Java hiện đại: OOP cổ điển (polymorphism, đóng gói hành vi vào object) và structural pattern
+matching (tách dữ liệu khỏi hành vi, xử lý tập trung theo cấu trúc) — mỗi cách phù hợp với ngữ
+cảnh khác nhau.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>instanceof</code> pattern matching ổn định ở Java 16 (JEP 394, 2021). <code>switch</code> pattern matching và
+record pattern trải qua nhiều vòng preview (Java 17, 19, 20) trước khi cùng ổn định ở <strong>Java 21</strong>
+(JEP 441, JEP 440, tháng 9/2023) — cùng đợt với Virtual Thread (Phase 3, Chapter 19), khiến Java
+21 trở thành một bản LTS đặc biệt quan trọng với nhiều tính năng nền tảng hội tụ cùng lúc.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Pattern matching chỉ là cú pháp gọn hơn cho <code>instanceof</code> + cast, không có gì khác
+  biệt về mặt an toàn."
+  <strong>Reality:</strong> Ngoài việc gọn hơn, nó loại bỏ hoàn toàn khả năng cast sai kiểu (compiler tự đảm
+  bảo), và flow scoping (xem Deep Dive) mang lại hành vi biến pattern thông minh hơn nhiều so
+  với biến cast thủ công thông thường.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Record pattern chỉ hoạt động với record đơn giản, không destructure được dữ liệu
+  lồng nhau."
+  <strong>Reality:</strong> Record pattern hỗ trợ <strong>lồng nhau</strong> — có thể viết
+  <code>case Order(Customer(String name), List&lt;Item&gt; items) -&gt; ...</code> để destructure trực tiếp cả
+  field bên trong một record lồng trong record khác, dù ví dụ trong chapter này chỉ dùng trường
+  hợp đơn giản để minh hoạ nguyên lý cốt lõi.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Vẫn viết cast thủ công sau khi đã dùng <code>instanceof</code> pattern</strong> — mất hết lợi ích của pattern
+  matching; biến pattern đã có sẵn, đúng kiểu, không cần cast lại.</li>
+<li><strong>Dùng quá nhiều điều kiện phức tạp trong guarded pattern (<code>when</code>)</strong> — làm giảm khả năng đọc;
+  nếu điều kiện quá dài, cân nhắc tách thành một phương thức boolean riêng.</li>
+<li><strong>Nhầm lẫn thứ tự <code>case</code> trong guarded pattern</strong> — như Example, <code>case Circle c when
+  c.radius() &gt; 10</code> phải đứng <strong>trước</strong> <code>case Circle c</code> (không điều kiện) — nếu đảo ngược, nhánh
+  không điều kiện sẽ luôn khớp trước, khiến nhánh có điều kiện không bao giờ được chạy tới.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Ưu tiên <code>instanceof</code> pattern matching thay vì kiểm tra kiểu + cast thủ công cho mọi code mới.</li>
+<li>Kết hợp <code>switch</code> pattern matching với sealed hierarchy (Chapter 08) để tận dụng tính
+  exhaustive, để trình biên dịch tự bảo vệ khi có subtype mới.</li>
+<li>Sắp xếp <code>case</code> có <code>when</code> (điều kiện cụ thể hơn) trước <code>case</code> không điều kiện (tổng quát hơn)
+  của cùng một kiểu.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Nhánh <code>case</code> có <code>when</code> không bao giờ được chạy tới? → kiểm tra thứ tự <code>case</code>, nhánh cụ thể
+      hơn phải đứng trước nhánh tổng quát của cùng kiểu.</li>
+<li>[ ] Lỗi biên dịch "variable might not have been initialized" khi dùng biến pattern ngoài khối
+      <code>if</code>? → xác nhận nhánh không-khớp có thực sự "cắt luồng" (return/throw/continue/break)
+      một cách chắc chắn không.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Pattern matching hợp nhất kiểm tra kiểu/cấu trúc và trích xuất giá trị thành một bước:
+<code>instanceof</code> pattern (Java 16) loại bỏ cast thủ công, <code>switch</code> pattern matching + record pattern
+(Java 21) cho phép "destructure" trực tiếp field của record ngay trong <code>case</code>. Đã chứng minh
+bằng thực nghiệm: <code>case Circle(double r)</code> lấy trực tiếp field <code>radius</code> không cần gọi accessor;
+guarded pattern (<code>when</code>) phân biệt theo điều kiện giá trị trong cùng một kiểu; flow scoping cho
+phép biến pattern "sống" ngoài khối kiểm tra ban đầu khi trình biên dịch chứng minh được tính an
+toàn qua phân tích luồng điều khiển. Kết hợp với sealed interface (Chapter 08), đây là bước tiến
+quan trọng của Java hướng tới phong cách xử lý dữ liệu theo cấu trúc (structural processing).</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Pattern matching trong Java là gì? Nó khác <code>instanceof</code> + cast truyền thống như thế nào?</li>
+<li>Record pattern là gì? Cho ví dụ destructure một record trong <code>switch</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích "flow scoping" — vì sao một biến pattern có thể "sống" ngoài khối <code>if</code> ban đầu
+  trong một số trường hợp nhưng không phải mọi trường hợp?</li>
+<li>Kết hợp sealed interface + record + pattern matching mang lại lợi ích gì so với thiết kế OOP
+  truyền thống dùng polymorphism?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>PatternMatchingDemo</code> và <code>FlowScopingDemo</code> ở trên (cần JDK 21+), xác nhận kết
+      quả đúng như mô tả.</li>
+<li>[ ] Viết một sealed interface <code>Event</code> với các loại con <code>LoginEvent(String user)</code>,
+      <code>LogoutEvent(String user, long durationSeconds)</code>, dùng record pattern trong <code>switch</code> để xử
+      lý từng loại.</li>
+<li>[ ] Thử đảo ngược thứ tự hai nhánh <code>case Circle c when ...</code> và <code>case Circle c</code>, quan sát lỗi
+      biên dịch "this case label is dominated by a preceding case label".</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Tính năng</th>
+<th>Từ Java</th>
+<th>Cú pháp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>instanceof</code> pattern</td>
+<td>16</td>
+<td><code>if (obj instanceof String s)</code></td>
+</tr>
+<tr>
+<td><code>switch</code> pattern matching</td>
+<td>21</td>
+<td><code>case String s -&gt; ...</code></td>
+</tr>
+<tr>
+<td>Record pattern</td>
+<td>21</td>
+<td><code>case Circle(double r) -&gt; ...</code></td>
+</tr>
+<tr>
+<td>Guarded pattern</td>
+<td>21</td>
+<td><code>case Circle c when c.radius() &gt; 10 -&gt; ...</code></td>
+</tr>
+<tr>
+<td>Flow scoping</td>
+<td>16</td>
+<td>Biến pattern hợp lệ ngoài khối kiểm tra nếu compiler chứng minh được luồng an toàn</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JEP 394: Pattern Matching for instanceof — https://openjdk.org/jeps/394</li>
+<li>JEP 441: Pattern Matching for switch — https://openjdk.org/jeps/441</li>
+<li>JEP 440: Record Patterns — https://openjdk.org/jeps/440</li>
 </ul>
 
 

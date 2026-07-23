@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2907,32 +2907,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3045,7 +3023,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -3157,7 +3135,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:functionalinterface" class="md-tag">FunctionalInterface</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
       
     
   </nav>
@@ -6149,94 +6119,302 @@ Chapter slug: <code>functional-interface</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Functional Interface</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Lambda</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Stream</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Collector</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-lambda/">Chapter 01</a> — lambda expression phải được gán cho <strong>một kiểu cụ thể</strong>.
+Nhưng kiểu đó phải thoả điều kiện gì để trình biên dịch chấp nhận một lambda gán vào nó?</p>
 </blockquote>
+<p>Thử khai báo một interface có <strong>hai</strong> phương thức trừu tượng, đánh dấu <code>@FunctionalInterface</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@FunctionalInterface</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">interface</span> <span class="nc">TwoMethodInterface</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">method1</span><span class="p">();</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">method2</span><span class="p">();</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Biên dịch thử:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>error: Unexpected @FunctionalInterface annotation
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  TwoMethodInterface is not a functional interface
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    multiple non-overriding abstract methods found in interface TwoMethodInterface
+</code></pre></div>
+<p>Trình biên dịch <strong>từ chối ngay lập tức</strong> — không đợi tới lúc gán lambda mới báo lỗi.
+<code>@FunctionalInterface</code> không chỉ là tài liệu, nó là một ràng buộc được kiểm tra thật.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>@FunctionalInterface</code> là gì? Điều kiện gì để một interface được coi là functional interface?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác điều kiện: đúng một phương thức trừu tượng (default/static/method từ
+      <code>Object</code> không tính)</li>
+<li>[ ] Tự tay chứng minh lỗi biên dịch khi interface có 2 phương thức trừu tượng nhưng vẫn gắn
+      <code>@FunctionalInterface</code></li>
+<li>[ ] Dùng thành thạo các functional interface chuẩn của JDK: <code>Supplier</code>, <code>Consumer</code>,
+      <code>Function</code>, <code>Predicate</code>, <code>BiFunction</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu lambda expression, cú pháp cơ bản.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 04 (Stream)</strong>, <strong>Chapter 05 (Collector)</strong> — hầu hết API của Stream nhận tham số kiểu
+  <code>Function</code>, <code>Predicate</code>, <code>Consumer</code>, ...</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lambda expression cần một "khuôn" để trình biên dịch biết nó implement interface nào, phương
+thức nào, chữ ký tham số/kiểu trả về ra sao. Nếu một interface có <strong>nhiều hơn một</strong> phương thức
+trừu tượng, trình biên dịch không thể xác định lambda đang implement phương thức nào trong số
+đó — mơ hồ không thể giải quyết.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Functional interface</strong> là một interface có <strong>đúng một phương thức trừu tượng</strong> (SAM — Single
+Abstract Method). <code>@FunctionalInterface</code> là annotation tuỳ chọn nhưng được khuyến nghị — nó yêu
+cầu trình biên dịch <strong>kiểm tra và báo lỗi ngay khi biên dịch</strong> nếu interface không thoả điều
+kiện SAM, thay vì để lỗi xuất hiện muộn hơn (khi ai đó cố gán lambda vào một interface không phù
+hợp).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Ràng buộc "đúng một phương thức trừu tượng" chính là điều kiện toán học cần thiết để cú pháp
+lambda (<code>(tham_so) -&gt; than_logic</code>) có thể ánh xạ <strong>không mơ hồ</strong> vào đúng một phương thức. Việc
+đưa <code>@FunctionalInterface</code> thành annotation kiểm tra được (thay vì chỉ là quy ước không chính
+thức) giúp phát hiện lỗi thiết kế <strong>sớm nhất có thể</strong> — ngay tại nơi định nghĩa interface, không
+phải đợi tới khi có người dùng cố gán lambda và gặp lỗi khó hiểu ở một nơi hoàn toàn khác trong
+codebase.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@FunctionalInterface</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">interface</span> <span class="nc">Validator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValid</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// default method KHONG tinh vao SAM, van hop le</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">and</span><span class="p">(</span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Interface hop le (SAM - Single Abstract Method):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  interface Validator&lt;T&gt; {
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>      boolean isValid(T t);     &lt;- CHI 1 phuong thuc TRUU TUONG
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>      default Validator&lt;T&gt; and(...) { ... }  &lt;- default KHONG tinh
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  }
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  =&gt; @FunctionalInterface OK, lambda gan duoc
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Interface KHONG hop le:
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  interface TwoMethodInterface {
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>      void method1();   &lt;- abstract #1
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>      void method2();   &lt;- abstract #2   =&gt; MO HO, khong biet lambda la cai nao
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  }
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  =&gt; @FunctionalInterface BAO LOI BIEN DICH ngay lap tuc
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.function.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FunctionalInterfaceDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nd">@FunctionalInterface</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">interface</span> <span class="nc">Validator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValid</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">and</span><span class="p">(</span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxLen10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="n">Validator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">notEmpty</span><span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">maxLen10</span><span class="p">);</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;combined.isValid(\&quot;\&quot;): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">combined</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;combined.isValid(\&quot;hello\&quot;): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">combined</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;combined.isValid(\&quot;qua dai qua dai\&quot;): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">combined</span><span class="p">.</span><span class="na">isValid</span><span class="p">(</span><span class="s">&quot;qua dai qua dai&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">supplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;gia tri tao moi&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Consumer nhan: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;So la: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">predicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="n">BiFunction</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">biFunction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Supplier: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">supplier</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Function: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">function</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Predicate(4 chan?): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">predicate</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;BiFunction(3*5): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">biFunction</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>combined.isValid(&quot;&quot;): false
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>combined.isValid(&quot;hello&quot;): true
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>combined.isValid(&quot;qua dai qua dai&quot;): false
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Supplier: gia tri tao moi
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Consumer nhan: test
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Function: So la: 42
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Predicate(4 chan?): true
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>BiFunction(3*5): 15
+</code></pre></div>
+<p><code>combined = notEmpty.and(maxLen10)</code> kết hợp đúng hai validator: chuỗi rỗng thất bại (không thoả
+<code>notEmpty</code>), chuỗi "hello" (5 ký tự) hợp lệ, chuỗi dài hơn 10 ký tự thất bại (không thoả
+<code>maxLen10</code>) — chứng minh <code>and()</code> (default method) hoạt động đúng dù <code>Validator</code> chỉ có một
+phương thức trừu tượng.</p>
+<p>Và với interface vi phạm điều kiện SAM:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@FunctionalInterface</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">interface</span> <span class="nc">TwoMethodInterface</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">method1</span><span class="p">();</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">method2</span><span class="p">();</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả biên dịch thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TwoMethodInterface.java:1: error: Unexpected @FunctionalInterface annotation
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>@FunctionalInterface
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>^
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  TwoMethodInterface is not a functional interface
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    multiple non-overriding abstract methods found in interface TwoMethodInterface
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>1 error
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao default method và static method không tính vào điều kiện SAM, nhưng phương thức trừu
+tượng trùng tên với <code>Object</code> (như <code>equals</code>, <code>hashCode</code>, <code>toString</code>) cũng không tính?</strong> Default
+method và static method đã có <strong>sẵn phần thân</strong> (implementation) — chúng không cần lambda cung
+cấp logic, nên không góp phần vào sự mơ hồ. Phương thức trừu tượng trùng chữ ký với các phương
+thức public của <code>Object</code> (<code>equals(Object)</code>, <code>hashCode()</code>, <code>toString()</code>) được coi là "đã có cách
+implement" vì <strong>mọi class Java đều kế thừa <code>Object</code></strong>, nên bất kỳ implementation nào của
+interface (kể cả implementation ẩn sinh ra cho lambda) cũng tự động có sẵn các phương thức đó —
+compiler loại chúng ra khỏi việc đếm SAM vì về bản chất chúng không cần lambda "điền vào".</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao nên luôn gắn <code>@FunctionalInterface</code> dù về mặt kỹ thuật interface vẫn hoạt động được
+nếu thiếu nó (miễn thực sự chỉ có một phương thức trừu tượng)?</strong> Không có annotation, không có
+gì ngăn một đồng nghiệp sau này vô tình thêm phương thức trừu tượng thứ hai vào interface — lỗi
+chỉ xuất hiện ở nơi <strong>hoàn toàn khác</strong> (nơi có người cố gán lambda vào interface đó), với thông
+điệp lỗi khó liên hệ ngược lại nguyên nhân gốc. <code>@FunctionalInterface</code> biến ràng buộc thiết kế
+"interface này PHẢI mãi mãi chỉ có một phương thức trừu tượng" thành một điều kiện được compiler
+<strong>tự động bảo vệ</strong> ngay tại nơi định nghĩa — đúng nguyên tắc "fail fast, fail near the source"
+(báo lỗi sớm, càng gần nguồn gốc vấn đề càng tốt).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>@FunctionalInterface</code> ra đời cùng Java 8 (2014), cùng lambda và Stream API. JDK 8 đồng thời bổ
+sung gói <code>java.util.function</code> với hơn 40 functional interface chuẩn (<code>Function</code>, <code>BiFunction</code>,
+<code>Supplier</code>, <code>Consumer</code>, <code>Predicate</code>, và các biến thể chuyên biệt cho primitive như
+<code>IntFunction</code>, <code>ToIntFunction</code> để tránh autoboxing) — giảm nhu cầu tự định nghĩa interface riêng
+cho hầu hết trường hợp thông dụng.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>@FunctionalInterface</code> là annotation bắt buộc để một interface dùng được với
+  lambda."
+  <strong>Reality:</strong> Không bắt buộc về mặt kỹ thuật — bất kỳ interface nào thoả điều kiện SAM (một
+  phương thức trừu tượng) đều dùng được với lambda dù có annotation hay không.
+  <code>@FunctionalInterface</code> chỉ thêm một lớp kiểm tra biên dịch để bảo vệ ràng buộc này.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Interface có nhiều default method thì không còn là functional interface."
+  <strong>Reality:</strong> Xem Example — số lượng default/static method không giới hạn, chỉ có đúng MỘT
+  phương thức trừu tượng là điều kiện duy nhất.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Thêm phương thức trừu tượng thứ hai vào một functional interface đang được dùng rộng rãi mà
+  quên gắn <code>@FunctionalInterface</code> để compiler cảnh báo sớm</strong> — dẫn tới lỗi biên dịch rải rác ở
+  nhiều nơi dùng interface đó.</li>
+<li><strong>Tự định nghĩa functional interface trùng chức năng với interface chuẩn có sẵn trong
+  <code>java.util.function</code></strong> — không cần thiết, nên kiểm tra gói này trước khi tự viết.</li>
+<li><strong>Dùng <code>Function&lt;Integer, Integer&gt;</code> cho các phép toán trên <code>int</code> thay vì
+  <code>IntUnaryOperator</code>/<code>IntFunction</code></strong> — gây autoboxing/unboxing không cần thiết, ảnh hưởng hiệu
+  năng khi gọi số lượng lớn.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn gắn <code>@FunctionalInterface</code> khi tự định nghĩa một functional interface, để compiler bảo
+  vệ ràng buộc thiết kế.</li>
+<li>Ưu tiên dùng functional interface chuẩn của JDK (<code>Function</code>, <code>Predicate</code>, <code>Consumer</code>,
+  <code>Supplier</code>, ...) trước khi tự định nghĩa interface mới.</li>
+<li>Với các phép toán trên kiểu nguyên thủy, dùng biến thể chuyên biệt (<code>IntPredicate</code>,
+  <code>ToLongFunction</code>, ...) để tránh chi phí autoboxing.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lỗi "multiple non-overriding abstract methods found"? → kiểm tra interface có đúng một
+      phương thức trừu tượng không (default/static/phương thức trùng <code>Object</code> không tính).</li>
+<li>[ ] Không chắc nên dùng functional interface chuẩn nào? → tra <code>java.util.function</code>: cần trả
+      về giá trị và nhận tham số → <code>Function</code>; chỉ nhận tham số không trả về → <code>Consumer</code>; chỉ
+      trả về không nhận tham số → <code>Supplier</code>; trả về <code>boolean</code> → <code>Predicate</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Functional interface là interface có đúng một phương thức trừu tượng (SAM) — điều kiện bắt buộc
+để lambda có thể ánh xạ không mơ hồ vào nó. <code>@FunctionalInterface</code> không phải annotation trang
+trí — đã chứng minh bằng thực nghiệm: gắn nó vào một interface có 2 phương thức trừu tượng gây
+lỗi biên dịch ngay lập tức, giúp phát hiện lỗi thiết kế sớm thay vì để lỗi xuất hiện mơ hồ ở nơi
+khác. default method và static method không tính vào điều kiện SAM. JDK cung cấp sẵn hơn 40
+functional interface chuẩn trong <code>java.util.function</code>, nên ưu tiên dùng trước khi tự định
+nghĩa.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>What is a @FunctionalInterface?</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Điều kiện gì để một interface được coi là functional interface? default method có tính vào
+  điều kiện đó không?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>FunctionalInterfaceDemo</code> và thử biên dịch <code>TwoMethodInterface</code> ở trên, xác nhận
+      lỗi biên dịch đúng như mô tả.</li>
+<li>[ ] Tự viết một functional interface <code>TriFunction&lt;A, B, C, R&gt;</code> (nhận 3 tham số, trả về 1 giá
+      trị) — kiểu chưa có sẵn trong <code>java.util.function</code>.</li>
+<li>[ ] Thử thêm một phương thức trùng chữ ký với <code>Object.toString()</code> vào một functional
+      interface đã có, xác nhận nó vẫn biên dịch được (không tính vào SAM).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Interface chuẩn</th>
+<th>Chữ ký</th>
+<th>Dùng khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Supplier&lt;T&gt;</code></td>
+<td><code>T get()</code></td>
+<td>Chỉ cần tạo/trả về giá trị</td>
+</tr>
+<tr>
+<td><code>Consumer&lt;T&gt;</code></td>
+<td><code>void accept(T t)</code></td>
+<td>Chỉ cần thực hiện hành động với giá trị</td>
+</tr>
+<tr>
+<td><code>Function&lt;T,R&gt;</code></td>
+<td><code>R apply(T t)</code></td>
+<td>Biến đổi giá trị T thành R</td>
+</tr>
+<tr>
+<td><code>Predicate&lt;T&gt;</code></td>
+<td><code>boolean test(T t)</code></td>
+<td>Kiểm tra điều kiện, trả về boolean</td>
+</tr>
+<tr>
+<td><code>BiFunction&lt;T,U,R&gt;</code></td>
+<td><code>R apply(T t, U u)</code></td>
+<td>Biến đổi 2 giá trị thành 1 kết quả</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JLS §9.8 — Functional Interfaces.</li>
+<li>Java SE API Documentation — <code>java.util.function</code>.</li>
 </ul>
 
 

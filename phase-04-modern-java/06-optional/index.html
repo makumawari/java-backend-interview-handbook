@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2712,7 +2712,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -3019,32 +3019,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3157,7 +3135,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:optional" class="md-tag">Optional</a>
       
     
   </nav>
@@ -6149,94 +6119,283 @@ Chapter slug: <code>optional</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Lambda</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Stream (findFirst/findAny trả về Optional)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Mọi lập trình viên Java đều từng gặp <code>NullPointerException</code> — ném ra ở một dòng code hoàn
+toàn không liên quan tới nơi giá trị <code>null</code> thực sự được tạo ra, khiến việc debug mất nhiều
+thời gian truy ngược nguồn gốc.</p>
 </blockquote>
+<p>Với hai cách cung cấp giá trị mặc định trông có vẻ tương đương:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">present</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="n">expensiveDefault</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">));</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">present</span><span class="p">.</span><span class="na">orElseGet</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">expensiveDefault</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p>Thử đo xem hàm <code>expensiveDefault</code> có thực sự được gọi hay không, ngay cả khi <code>present</code> <strong>đã có
+giá trị</strong> (không cần dùng tới giá trị mặc định):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>--- orElse: LUON danh gia tham so, du Optional co gia tri ---
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  -&gt; expensiveDefault(orElse, Optional CO gia tri) DUOC GOI!
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>--- orElseGet: CHI danh gia (lazy) khi Optional RONG ---
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  (khong thay dong &#39;-&gt; expensiveDefault&#39; o tren vi orElseGet LAZY)
+</code></pre></div>
+<p><code>orElse()</code> <strong>luôn</strong> gọi <code>expensiveDefault()</code>, dù giá trị đó cuối cùng không được dùng tới.
+<code>orElseGet()</code> thì không — nó chỉ gọi khi thực sự cần.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Optional dùng khi nào, có nên dùng làm field trong Entity không?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu đúng mục đích thiết kế của <code>Optional</code>: kiểu trả về, không phải kiểu dữ liệu để lưu
+      trữ</li>
+<li>[ ] Tự tay chứng minh khác biệt <code>orElse()</code> (luôn đánh giá) và <code>orElseGet()</code> (lazy, chỉ đánh
+      giá khi cần)</li>
+<li>[ ] Giải thích chính xác vì sao KHÔNG nên dùng <code>Optional</code> làm field của Entity/class thông
+      thường</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu lambda, vì <code>orElseGet</code>, <code>map</code>, <code>flatMap</code> đều nhận lambda làm tham số.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 04 (Stream)</strong> — <code>findFirst()</code>, <code>findAny()</code>, <code>reduce()</code> trả về <code>Optional</code>.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>null</code> trong Java không phân biệt được hai ý nghĩa hoàn toàn khác nhau: "giá trị chưa được gán"
+(lỗi lập trình, cần sửa) và "giá trị hợp lệ nhưng không tồn tại" (trạng thái hợp lệ của dữ liệu,
+ví dụ một <code>Order</code> chưa có <code>discountCode</code>). Vì không có gì trong <strong>kiểu trả về</strong> của một phương
+thức báo hiệu "phương thức này có thể trả về null", lập trình viên gọi nó dễ quên kiểm tra, dẫn
+tới <code>NullPointerException</code> xuất hiện ở một nơi hoàn toàn khác so với nơi giá trị null được tạo
+ra.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>Optional&lt;T&gt;</code></strong> là một wrapper object biểu diễn tường minh "có thể có hoặc không có giá trị" —
+dùng làm <strong>kiểu trả về</strong> của phương thức để báo hiệu rõ ràng ngay tại chữ ký phương thức: "kết
+quả này có thể không tồn tại, bạn PHẢI xử lý trường hợp đó". Nó cung cấp các phương thức
+(<code>map</code>, <code>flatMap</code>, <code>filter</code>, <code>orElse</code>, <code>orElseGet</code>, <code>ifPresent</code>) để xử lý cả hai trường hợp
+(có/không có giá trị) một cách khai báo (declarative), không cần <code>if (x != null)</code> tường minh.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Optional</code> chuyển vấn đề "có thể null" từ một <strong>quy ước ngầm</strong> (phải đọc Javadoc hoặc đoán) sang
+một <strong>ràng buộc tường minh trong kiểu dữ liệu</strong> — chữ ký phương thức <code>Optional&lt;String&gt; findEmail()</code>
+tự nó đã nói rõ "có thể không có email" ngay tại điểm khai báo, thay vì <code>String findEmail()</code> mơ
+hồ (không rõ có thể trả <code>null</code> hay không nếu không đọc tài liệu). Đây là ứng dụng trực tiếp của
+nguyên tắc "làm cho lỗi tiềm ẩn không thể biên dịch được" — dù <code>Optional</code> không loại bỏ hoàn toàn
+khả năng lỗi (vẫn có thể gọi <code>.get()</code> mù quáng), nó buộc lập trình viên phải <strong>chủ động</strong> đối mặt
+với trường hợp rỗng ngay khi viết code, thay vì vô tình bỏ sót.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">maybeEmail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findEmail</span><span class="p">(</span><span class="n">userId</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maybeEmail</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;no-email@example.com&quot;</span><span class="p">);</span><span class="w">       </span><span class="c1">// gia tri mac dinh CO SAN</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">String</span><span class="w"> </span><span class="n">email2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maybeEmail</span><span class="p">.</span><span class="na">orElseGet</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">tinhToanMacDinh</span><span class="p">());</span><span class="w">  </span><span class="c1">// gia tri mac dinh TON KEM, lazy</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">maybeEmail</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Email: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">));</span><span class="w">   </span><span class="c1">// chi chay neu CO gia tri</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">String</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maybeEmail</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">toUpperCase</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;N/A&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// bien doi neu CO gia tri</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>orElse(expensiveDefault()):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Optional CO gia tri  -&gt; VAN goi expensiveDefault() (lang phi, roi bo ket qua)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  Optional RONG        -&gt; goi expensiveDefault(), dung ket qua
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>orElseGet(() -&gt; expensiveDefault()):
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  Optional CO gia tri  -&gt; KHONG goi expensiveDefault() (lazy, tiet kiem)
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Optional RONG        -&gt; goi expensiveDefault(), dung ket qua
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OptionalDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">expensiveDefault</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  -&gt; expensiveDefault(&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;) DUOC GOI!&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;gia tri mac dinh&quot;</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="kd">record</span> <span class="nc">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">discountCode</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;gia tri that&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--- orElse: LUON danh gia tham so ---&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">present</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="n">expensiveDefault</span><span class="p">(</span><span class="s">&quot;orElse, Optional CO gia tri&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--- orElseGet: CHI danh gia (lazy) khi RONG ---&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="n">present</span><span class="p">.</span><span class="na">orElseGet</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">expensiveDefault</span><span class="p">(</span><span class="s">&quot;orElseGet, Optional CO gia tri&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  (khong thay dong &#39;-&gt; expensiveDefault&#39; o tren vi orElseGet LAZY)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Laptop&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;SALE10&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Mouse&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">());</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">code1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="na">discountCode</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Ma: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;Khong co ma giam gia&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">code2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="na">discountCode</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Ma: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="s">&quot;Khong co ma giam gia&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="na">name</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; -&gt; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">code1</span><span class="p">);</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="na">name</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; -&gt; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">code2</span><span class="p">);</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">            </span><span class="n">empty</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NoSuchElementException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;get() tren Optional rong nem: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>--- orElse: LUON danh gia tham so ---
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  -&gt; expensiveDefault(orElse, Optional CO gia tri) DUOC GOI!
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>--- orElseGet: CHI danh gia (lazy) khi RONG ---
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  (khong thay dong &#39;-&gt; expensiveDefault&#39; o tren vi orElseGet LAZY)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Laptop -&gt; Ma: SALE10
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Mouse -&gt; Khong co ma giam gia
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>get() tren Optional rong nem: NoSuchElementException
+</code></pre></div>
+<p>Bằng chứng rõ ràng: dù <code>present</code> đã có giá trị (không cần dùng tới default), <code>orElse()</code> <strong>vẫn
+gọi</strong> <code>expensiveDefault()</code> (in ra dòng "DUOC GOI!"). <code>orElseGet()</code> với cùng điều kiện <strong>không hề
+gọi</strong> hàm bên trong — vì tham số của nó là một <code>Supplier</code> (lambda), chỉ được gọi khi
+<code>Optional</code> thực sự rỗng.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao KHÔNG nên dùng <code>Optional</code> làm field của một Entity (ví dụ JPA <code>@Entity</code>)?</strong> Có ba lý do
+kỹ thuật cụ thể: (1) <code>Optional</code> <strong>không implement <code>Serializable</code></strong> — nếu Entity cần serialize
+(cache phân tán, session replication), field kiểu <code>Optional</code> sẽ gây lỗi runtime. (2) JPA/Hibernate
+không có cách ánh xạ <code>Optional&lt;String&gt;</code> trực tiếp thành cột database theo kiểu tự nhiên — cần
+converter tuỳ chỉnh, thêm phức tạp không cần thiết. (3) Bản thân tài liệu chính thức của
+<code>Optional</code> (Javadoc từ Brian Goetz, kiến trúc sư trưởng của tính năng này) nói rõ nó được thiết
+kế <strong>chỉ</strong> cho kiểu trả về của phương thức, để biểu diễn "có thể không có kết quả" ở API công
+khai — không phải để làm kiểu lưu trữ trạng thái nội bộ của object. Field/property/tham số
+phương thức nên dùng <code>null</code> (khi thực sự cần "không có giá trị") kèm kiểm tra tường minh hoặc
+annotation (<code>@Nullable</code>), không phải <code>Optional</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>Optional</code> giải quyết được vấn đề gì, và KHÔNG giải quyết được vấn đề gì?</strong> Nó buộc lập trình
+viên <strong>đối mặt</strong> với khả năng "không có giá trị" ngay tại điểm gọi (nhờ kiểu trả về tường minh),
+nhưng nó <strong>không ngăn được</strong> việc lập trình viên gọi <code>.get()</code> một cách mù quáng mà không kiểm
+tra <code>isPresent()</code> trước — khi đó vẫn nhận <code>NoSuchElementException</code>, về bản chất là cùng một loại
+lỗi với <code>NullPointerException</code>, chỉ khác tên exception. Giá trị thực sự của <code>Optional</code> nằm ở
+việc nó <strong>thay đổi API contract</strong> một cách tường minh (chữ ký phương thức tự nói lên ý định), và
+khuyến khích phong cách xử lý khai báo (<code>map</code>/<code>orElse</code> thay vì <code>if-else</code> lồng nhau) — không phải
+một "lá chắn" tuyệt đối chống lại mọi lỗi liên quan tới giá trị rỗng.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Optional</code> ra đời ở Java 8 (2014), lấy cảm hứng từ <code>Option</code>/<code>Maybe</code> trong các ngôn ngữ hàm
+(Scala, Haskell). Brian Goetz (kiến trúc sư ngôn ngữ Java) đã công khai nhấn mạnh nhiều lần rằng
+<code>Optional</code> được thiết kế <strong>hạn chế</strong> — chỉ dành cho kiểu trả về API công khai, không phải giải
+pháp chung để thay thế mọi <code>null</code> trong toàn bộ codebase (khác với cách một số ngôn ngữ khác coi
+kiểu "optional/maybe" là công dân hạng nhất ở khắp mọi nơi).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Nên dùng <code>Optional</code> cho mọi field có thể null, mọi tham số phương thức, để tránh
+  <code>NullPointerException</code> hoàn toàn."
+  <strong>Reality:</strong> Xem Deep Dive — chỉ nên dùng cho kiểu trả về của phương thức. Dùng làm field
+  Entity hoặc tham số phương thức là chống chỉ định theo đúng thiết kế gốc của tính năng.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>orElse()</code> và <code>orElseGet()</code> hoàn toàn tương đương, chỉ khác cú pháp."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — <code>orElse()</code> luôn đánh giá tham số (eager),
+  <code>orElseGet()</code> chỉ đánh giá khi cần (lazy). Với giá trị mặc định tốn kém tính toán (gọi API,
+  query DB), dùng nhầm <code>orElse()</code> gây lãng phí không cần thiết.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>Optional</code> làm field của Entity/class thông thường</strong> — xem Deep Dive, gây vấn đề
+  serialization và không cần thiết theo đúng thiết kế gốc.</li>
+<li><strong>Dùng <code>orElse(tinhToanTonKem())</code> thay vì <code>orElseGet(() -&gt; tinhToanTonKem())</code></strong> — gây lãng phí
+  hiệu năng không cần thiết khi Optional đã có giá trị, đã chứng minh bằng thực nghiệm ở Example.</li>
+<li><strong>Gọi <code>.get()</code> mà không kiểm tra <code>isPresent()</code></strong> — mất hết lợi ích của <code>Optional</code>, quay lại
+  đúng vấn đề <code>NullPointerException</code> ban đầu (chỉ đổi tên thành <code>NoSuchElementException</code>).</li>
+<li><strong>Dùng <code>Optional</code> làm tham số phương thức</strong> — làm phức tạp API không cần thiết; nếu tham số có
+  thể thiếu, thường tốt hơn nên dùng method overloading hoặc giá trị mặc định rõ ràng.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Chỉ dùng <code>Optional</code> làm kiểu trả về của phương thức public, khi kết quả thực sự có thể không
+  tồn tại theo logic nghiệp vụ.</li>
+<li>Dùng <code>orElseGet()</code> (không phải <code>orElse()</code>) khi giá trị mặc định tốn kém để tính toán/tạo ra.</li>
+<li>Ưu tiên <code>map</code>/<code>flatMap</code>/<code>filter</code> theo phong cách khai báo thay vì gọi <code>isPresent()</code> rồi
+  <code>if-else</code> thủ công.</li>
+<li>Không dùng <code>Optional</code> cho field, tham số phương thức, hoặc kiểu dữ liệu trong collection
+  (<code>List&lt;Optional&lt;T&gt;&gt;</code> thường là dấu hiệu thiết kế có vấn đề).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>NoSuchElementException</code> từ <code>Optional.get()</code>? → kiểm tra đã gọi <code>isPresent()</code> hoặc dùng
+      <code>orElse</code>/<code>orElseGet</code>/<code>ifPresent</code> thay vì <code>get()</code> trực tiếp chưa.</li>
+<li>[ ] Hiệu năng giảm bất thường ở nơi dùng <code>Optional.orElse()</code> với logic tính toán phức tạp bên
+      trong? → đổi sang <code>orElseGet()</code> để tránh đánh giá không cần thiết.</li>
+<li>[ ] Lỗi serialization liên quan tới field kiểu <code>Optional</code>? → loại bỏ <code>Optional</code> khỏi field,
+      chuyển về <code>null</code> truyền thống hoặc tách logic "optional" ra khỏi tầng lưu trữ.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Optional&lt;T&gt;</code> là kiểu trả về tường minh cho "có thể không có giá trị", buộc lập trình viên đối
+mặt với trường hợp rỗng ngay tại chữ ký phương thức thay vì quy ước ngầm dễ quên. Đã chứng minh
+bằng thực nghiệm: <code>orElse()</code> luôn đánh giá tham số (eager), <code>orElseGet()</code> chỉ đánh giá khi thực
+sự cần (lazy) — quan trọng khi giá trị mặc định tốn kém. Chỉ nên dùng cho kiểu trả về của
+phương thức public — <strong>không</strong> dùng làm field Entity (vấn đề serialization, không có ánh xạ ORM
+tự nhiên) hay tham số phương thức, đúng theo thiết kế gốc mà Brian Goetz đã công khai nhấn
+mạnh.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Optional dùng khi nào, có nên dùng làm field trong Entity không?</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>orElse()</code> khác <code>orElseGet()</code> như thế nào? Khi nào sự khác biệt này thực sự quan trọng?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>OptionalDemo</code> ở trên, xác nhận <code>orElse()</code> luôn gọi hàm còn <code>orElseGet()</code> thì
+      không, đúng như mô tả.</li>
+<li>[ ] Viết một phương thức <code>findUserById(long id)</code> trả về <code>Optional&lt;User&gt;</code>, dùng <code>map</code>/<code>orElseThrow</code> để chuyển thành response API rõ ràng (200 OK hoặc 404 Not Found).</li>
+<li>[ ] Thử dùng <code>Optional</code> làm field trong một class implement <code>Serializable</code>, quan sát lỗi hoặc
+      hành vi bất thường khi serialize.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Phương thức</th>
+<th>Hành vi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>orElse(giaTri)</code></td>
+<td>Trả về giá trị nếu có, ngược lại dùng giá trị mặc định — LUÔN đánh giá tham số</td>
+</tr>
+<tr>
+<td><code>orElseGet(supplier)</code></td>
+<td>Như trên nhưng LAZY — chỉ gọi supplier khi rỗng</td>
+</tr>
+<tr>
+<td><code>orElseThrow()</code></td>
+<td>Trả về giá trị hoặc ném <code>NoSuchElementException</code>/exception tuỳ chỉnh</td>
+</tr>
+<tr>
+<td><code>map(fn)</code></td>
+<td>Biến đổi giá trị nếu có, giữ nguyên rỗng nếu không</td>
+</tr>
+<tr>
+<td><code>ifPresent(consumer)</code></td>
+<td>Chạy consumer chỉ khi có giá trị</td>
+</tr>
+<tr>
+<td><code>.get()</code></td>
+<td>Lấy giá trị trực tiếp — TRÁNH dùng nếu chưa kiểm tra <code>isPresent()</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Không nên dùng <code>Optional</code> cho:</strong> field của Entity/class, tham số phương thức, phần tử trong
+collection.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.Optional</code>.</li>
+<li>Brian Goetz — "Optional: How to Use It" (bài viết chính thức về thiết kế của Optional).</li>
 </ul>
 
 

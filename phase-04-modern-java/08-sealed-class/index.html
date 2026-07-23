@@ -27,7 +27,7 @@
     
     
       
-        <title>Sealed Class - Java Backend Engineering Handbook</title>
+        <title>Sealed Class/Interface - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sealed-class" class="md-skip">
+        <a href="#sealed-classinterface" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sealed Class
+              Sealed Class/Interface
             
           </span>
         </div>
@@ -2628,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Lambda
+    Lambda Expression
   
 
     
@@ -2712,7 +2712,7 @@
   <span class="md-ellipsis">
     
   
-    Stream
+    Stream API
   
 
     
@@ -2833,7 +2833,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -2851,7 +2851,7 @@
   <span class="md-ellipsis">
     
   
-    Sealed Class
+    Sealed Class/Interface
   
 
     
@@ -3075,32 +3075,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:modernjava" class="md-tag">ModernJava</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sealedclass" class="md-tag">SealedClass</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="sealed-class">Sealed Class<a class="headerlink" href="#sealed-class" title="Permanent link">&para;</a></h1>
+<h1 id="sealed-classinterface">Sealed Class/Interface<a class="headerlink" href="#sealed-classinterface" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 4 — Modern Java
 Chapter slug: <code>sealed-class</code></p>
@@ -6149,94 +6119,282 @@ Chapter slug: <code>sealed-class</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sealed Class</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4 — Modern Java</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Record</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 08 — OOP Fundamentals (inheritance, interface)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Pattern Matching (exhaustive switch trên sealed hierarchy)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 1, Chapter 08 (OOP Fundamentals) — <code>interface</code>/class thông thường cho phép
+<strong>bất kỳ ai, ở bất kỳ đâu</strong> implement/kế thừa nó. Điều đó linh hoạt, nhưng với những trường
+hợp bạn biết chắc "tập hợp các loại con là cố định, đã biết trước" (ví dụ một phương thức
+thanh toán chỉ có thể là thẻ tín dụng, chuyển khoản, hoặc ví điện tử — không có loại thứ tư),
+sự linh hoạt đó lại thành một lỗ hổng.</p>
 </blockquote>
+<p>Thử khai báo một interface với danh sách con <strong>cố định</strong>, rồi cố thêm một loại con <strong>không</strong> có
+trong danh sách:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Shape</span><span class="w"> </span><span class="kd">permits</span><span class="w"> </span><span class="n">Circle</span><span class="p">,</span><span class="w"> </span><span class="n">Square</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">record</span> <span class="nc">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">record</span> <span class="nc">Square</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">side</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">record</span> <span class="nc">Triangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// KHONG co trong permits!</span>
+</code></pre></div>
+<p>Kết quả biên dịch thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>error: class is not allowed to extend sealed class: Shape (as it is not listed in its &#39;permits&#39; clause)
+</code></pre></div>
+<p>Trình biên dịch <strong>từ chối ngay lập tức</strong> — không đợi tới runtime.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Sealed class/interface là gì? Nó giải quyết vấn đề gì mà interface thông thường không giải
+quyết được?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích cú pháp <code>sealed ... permits</code> và ý nghĩa của việc giới hạn tập hợp subtype</li>
+<li>[ ] Tự tay chứng minh lỗi biên dịch khi thêm subtype không có trong <code>permits</code></li>
+<li>[ ] Tự tay chứng minh <code>switch</code> trên sealed hierarchy có thể <strong>exhaustive</strong> (đầy đủ) mà không
+      cần <code>default</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 07 — hiểu record, vì sealed interface thường kết hợp trực tiếp với record để mô hình
+  hoá các loại con.</li>
+<li>Phase 1, Chapter 08 — hiểu <code>interface</code>, kế thừa.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Pattern Matching)</strong> — <code>switch</code> trên sealed hierarchy kết hợp record pattern là
+  một trong những ứng dụng mạnh nhất của cả hai tính năng.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Với <code>interface</code> thông thường, trình biên dịch <strong>không thể biết</strong> tập hợp đầy đủ các subtype tồn
+tại — bất kỳ class nào, ở bất kỳ module nào, cũng có thể implement nó bất cứ lúc nào (kể cả sau
+khi code gốc đã được biên dịch và triển khai). Điều này có nghĩa một <code>switch</code> xử lý theo từng
+loại con <strong>không bao giờ</strong> được coi là "đầy đủ" một cách an toàn — luôn cần một nhánh
+<code>default</code> phòng hờ cho loại con chưa biết, dù về mặt logic nghiệp vụ, tập hợp loại con thực sự
+đã cố định và đầy đủ từ đầu.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Sealed class/interface</strong> (Java 17+) cho phép khai báo tường minh <strong>danh sách đầy đủ</strong> các
+subtype được phép (<code>permits</code>) — không class/interface nào khác, ở bất kỳ đâu, có thể
+implement/kế thừa nó ngoài danh sách đó. Trình biên dịch dùng thông tin này để xác nhận một
+<code>switch</code> xử lý hết mọi subtype trong <code>permits</code> là <strong>exhaustive</strong> (đầy đủ), không cần nhánh
+<code>default</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Sealed hierarchy chuyển một ràng buộc thiết kế ("tập hợp loại con này là cố định, đã biết trước
+— không mở rộng thêm") từ <strong>quy ước không chính thức</strong> (comment, tài liệu, hy vọng đồng nghiệp
+đọc và tuân theo) sang <strong>ràng buộc được compiler kiểm tra và bảo vệ thật</strong>. Lợi ích trực tiếp
+nhất: <code>switch</code> exhaustive — nếu sau này có ai thêm một subtype mới vào <code>permits</code>, mọi <code>switch</code>
+xử lý sealed hierarchy đó ở khắp codebase mà <strong>quên</strong> xử lý loại mới sẽ <strong>báo lỗi biên dịch
+ngay lập tức</strong>, thay vì âm thầm rơi vào một nhánh <code>default</code> xử lý sai hoặc bị bỏ sót hoàn toàn.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PaymentMethod</span><span class="w"> </span><span class="kd">permits</span><span class="w"> </span><span class="n">CreditCard</span><span class="p">,</span><span class="w"> </span><span class="n">BankTransfer</span><span class="p">,</span><span class="w"> </span><span class="n">EWallet</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">record</span> <span class="nc">CreditCard</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">cardNumber</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">record</span> <span class="nc">BankTransfer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">accountNumber</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">record</span> <span class="nc">EWallet</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">walletId</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">PaymentMethod</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// EXHAUSTIVE, khong can default</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">CreditCard</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;The tin dung: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">cardNumber</span><span class="p">();</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">BankTransfer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Chuyen khoan: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">accountNumber</span><span class="p">();</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">EWallet</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Vi dien tu: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">walletId</span><span class="p">();</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface thong thuong:                sealed interface:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Shape                                   sealed interface Shape
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    ▲  ▲  ▲  ▲ (AI CUNG implement duoc)      permits Circle, Square
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    │  │  │  └── ??? (khong biet truoc)        ▲         ▲
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    │  │  └── Triangle (them sau)          Circle      Square
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    │  └── Circle                        (CHI HAI loai nay, KHONG THEM DUOC nua)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    └── Square
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  switch CAN default (khong biet het loai con)
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                          switch KHONG CAN default (biet het, exhaustive)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SealedDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kd">sealed</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PaymentMethod</span><span class="w"> </span><span class="kd">permits</span><span class="w"> </span><span class="n">CreditCard</span><span class="p">,</span><span class="w"> </span><span class="n">BankTransfer</span><span class="p">,</span><span class="w"> </span><span class="n">EWallet</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">record</span> <span class="nc">CreditCard</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">cardNumber</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">record</span> <span class="nc">BankTransfer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">accountNumber</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">record</span> <span class="nc">EWallet</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">walletId</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentMethod</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="n">PaymentMethod</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">CreditCard</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;The tin dung: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">cardNumber</span><span class="p">();</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">BankTransfer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Chuyen khoan: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">accountNumber</span><span class="p">();</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EWallet</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Vi dien tu: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">walletId</span><span class="p">();</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">describe</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreditCard</span><span class="p">(</span><span class="s">&quot;1234-5678&quot;</span><span class="p">)));</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">describe</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BankTransfer</span><span class="p">(</span><span class="s">&quot;VCB-001&quot;</span><span class="p">)));</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">describe</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EWallet</span><span class="p">(</span><span class="s">&quot;MOMO-999&quot;</span><span class="p">)));</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (chạy trên JDK có switch pattern matching ổn định — xem Chapter 09):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>The tin dung: 1234-5678
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Chuyen khoan: VCB-001
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Vi dien tu: MOMO-999
+</code></pre></div>
+<p><code>switch (method)</code> <strong>biên dịch được mà không có nhánh <code>default</code></strong> — trình biên dịch xác nhận 3
+<code>case</code> đã bao phủ toàn bộ <code>permits</code> (<code>CreditCard</code>, <code>BankTransfer</code>, <code>EWallet</code>), không còn khả
+năng nào khác.</p>
+<p><strong>Cố thêm subtype không có trong <code>permits</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">sealed</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Shape</span><span class="w"> </span><span class="kd">permits</span><span class="w"> </span><span class="n">Circle</span><span class="p">,</span><span class="w"> </span><span class="n">Square</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">record</span> <span class="nc">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">record</span> <span class="nc">Square</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">side</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">record</span> <span class="nc">Triangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// KHONG trong permits!</span>
+</code></pre></div>
+<p>Kết quả biên dịch thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>error: class is not allowed to extend sealed class: Shape (as it is not listed in its &#39;permits&#39; clause)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>record Triangle(double base, double height) implements Shape {}
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>^
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>switch</code> trên sealed hierarchy có thể an toàn bỏ qua <code>default</code>, trong khi <code>switch</code> trên
+<code>enum</code> (Phase 1, Chapter 17) truyền thống vẫn thường được khuyến nghị có <code>default</code>?</strong> Về bản
+chất, cả hai đều dựa trên "tập hợp giá trị/loại cố định, biết trước" — nhưng <code>enum</code> vẫn có thể
+bị thêm <strong>hằng số mới</strong> trong một class file được biên dịch riêng rồi thay thế (JAR cũ có thể bị
+thay bằng JAR mới có thêm enum constant) mà không biên dịch lại toàn bộ codebase gọi tới nó —
+đây là lý do một số style guide vẫn khuyến nghị <code>default</code> cho <code>enum</code> switch để phòng ngừa lỗi
+runtime khi các module được biên dịch/triển khai độc lập. Sealed hierarchy có ràng buộc chặt hơn
+ở cấp <strong>biên dịch</strong>: mọi subtype trong <code>permits</code> phải nằm trong cùng module (hoặc cùng package,
+tuỳ cấu hình), khiến trình biên dịch có đủ thông tin để đảm bảo tính đầy đủ tại thời điểm biên
+dịch của chính module đó — chặt chẽ hơn giả định ngầm của <code>enum</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Sealed hierarchy + record là mô hình gần nhất Java có được với "algebraic data type" (kiểu dữ
+liệu đại số) của các ngôn ngữ hàm như Scala/Kotlin/Haskell.</strong> <code>sealed interface</code> đóng vai trò
+"sum type" (một giá trị chỉ có thể là MỘT trong số các loại con cố định), còn <code>record</code> đóng vai
+trò "product type" (gói nhiều field lại thành một). Kết hợp cả hai (như <code>PaymentMethod</code> ở
+Example) cho phép mô hình hoá dữ liệu nghiệp vụ theo cách <strong>an toàn kiểu (type-safe)</strong> hơn hẳn
+cách truyền thống dùng một trường "type" dạng String/enum kèm các trường tuỳ chọn khác nhau tuỳ
+loại (dễ dẫn tới trạng thái không hợp lệ — ví dụ trường <code>cardNumber</code> bị điền dù <code>type =
+"BANK_TRANSFER"</code>). Với sealed + record, mỗi loại con chỉ có đúng những field thuộc về nó, không
+thể tồn tại trạng thái lai không hợp lệ.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Sealed class/interface trải qua 2 vòng preview (JEP 360 ở Java 15, JEP 397 ở Java 16) trước khi
+chính thức ổn định ở <strong>Java 17</strong> (JEP 409, tháng 9/2021) — cùng phiên bản LTS với Record (dù
+Record đã ổn định từ Java 16). Cả hai đều thuộc Project Amber, cùng hướng giảm boilerplate và
+tăng tính an toàn kiểu của ngôn ngữ Java.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Sealed class chỉ có ý nghĩa về mặt tài liệu (documentation), không có tác dụng kỹ
+  thuật thực sự."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — nó là ràng buộc được trình biên dịch <strong>kiểm
+  tra và ép buộc thật</strong>, không chỉ là quy ước, và trực tiếp cho phép <code>switch</code> exhaustive không
+  cần <code>default</code>.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Mọi subtype của sealed interface đều phải là record."
+  <strong>Reality:</strong> <code>permits</code> có thể liệt kê bất kỳ loại nào: <code>record</code>, class thông thường (miễn
+  khai báo <code>final</code>, <code>sealed</code>, hoặc <code>non-sealed</code>), thậm chí interface khác — record chỉ là lựa
+  chọn phổ biến nhất vì phù hợp tự nhiên với mô hình "mỗi loại con là một gói dữ liệu".</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Cố implement một sealed interface từ một module/package không được phép</strong> — gây lỗi biên
+  dịch; các subtype trong <code>permits</code> thường phải nằm cùng module hoặc cùng package với sealed
+  type.</li>
+<li><strong>Quên đánh dấu subtype là <code>final</code>/<code>sealed</code>/<code>non-sealed</code></strong> — mỗi subtype trực tiếp của một
+  sealed type bắt buộc phải khai báo rõ nó có cho phép kế thừa tiếp hay không (record ngầm định
+  <code>final</code>, nên tự động thoả điều kiện này).</li>
+<li><strong>Vẫn thêm nhánh <code>default</code> "cho chắc" trong switch exhaustive</strong> — làm mất chính lợi ích quan
+  trọng nhất của sealed hierarchy (compiler tự phát hiện thiếu case khi có subtype mới).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng sealed interface/class khi tập hợp loại con thực sự cố định theo logic nghiệp vụ (không
+  phải một khiếm khuyết thiết kế cần "đóng" tạm thời).</li>
+<li>Kết hợp sealed interface với record cho các subtype — mô hình "algebraic data type" giúp mã
+  nguồn an toàn kiểu hơn (xem Engineering Insight).</li>
+<li>KHÔNG thêm <code>default</code> vào switch exhaustive trên sealed hierarchy — để trình biên dịch tự bảo
+  vệ tính đầy đủ khi có subtype mới trong tương lai.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lỗi "class is not allowed to extend sealed class ... not listed in its 'permits' clause"?
+      → thêm subtype đó vào danh sách <code>permits</code>, hoặc xác nhận nó thực sự nên là một loại con
+      hợp lệ.</li>
+<li>[ ] <code>switch</code> trên sealed hierarchy báo lỗi "the switch statement does not cover all possible
+      input values"? → thêm subtype còn thiếu vào chuỗi <code>case</code>, không nên "chữa cháy" bằng
+      <code>default</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Sealed class/interface (<code>sealed ... permits</code>) giới hạn tường minh, được compiler bảo vệ, tập
+hợp đầy đủ các subtype được phép — đã chứng minh bằng thực nghiệm: thêm subtype ngoài <code>permits</code>
+gây lỗi biên dịch ngay lập tức. Lợi ích chính là cho phép <code>switch</code> <strong>exhaustive</strong> trên sealed
+hierarchy mà không cần <code>default</code> — nếu quên xử lý một loại con, compiler báo lỗi ngay thay vì
+để lỗi âm thầm rơi vào nhánh mặc định. Kết hợp sealed interface với record (Chapter 07) tạo ra
+mô hình gần với "algebraic data type" của các ngôn ngữ hàm, giúp biểu diễn dữ liệu nghiệp vụ an
+toàn kiểu hơn cách dùng trường "type" truyền thống.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sealed class/interface là gì? Nó giải quyết vấn đề gì mà interface thông thường không giải
+  quyết được?</li>
+<li>Vì sao <code>switch</code> trên sealed hierarchy có thể bỏ qua nhánh <code>default</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích mô hình "algebraic data type" khi kết hợp sealed interface với record. Nó giúp gì
+  so với cách biểu diễn dữ liệu nghiệp vụ truyền thống (dùng trường "type")?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>SealedDemo</code> ở trên (cần JDK hỗ trợ switch pattern matching ổn định, xem Chapter
+      09), xác nhận kết quả đúng như mô tả.</li>
+<li>[ ] Thử biên dịch một subtype ngoài <code>permits</code>, xác nhận lỗi biên dịch đúng như mô tả.</li>
+<li>[ ] Mô hình hoá một sealed hierarchy <code>Notification</code> với các loại con <code>EmailNotification</code>,
+      <code>SmsNotification</code>, <code>PushNotification</code> (dùng record), viết một <code>switch</code> exhaustive xử lý
+      từng loại.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Từ khoá</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sealed</code></td>
+<td>Class/interface giới hạn tập hợp subtype qua <code>permits</code></td>
+</tr>
+<tr>
+<td><code>permits A, B, C</code></td>
+<td>Danh sách đầy đủ, tường minh các subtype được phép</td>
+</tr>
+<tr>
+<td><code>final</code> (trên subtype)</td>
+<td>Subtype này không cho phép kế thừa tiếp</td>
+</tr>
+<tr>
+<td><code>sealed</code> (trên subtype)</td>
+<td>Subtype này tiếp tục giới hạn tập hợp con của chính nó</td>
+</tr>
+<tr>
+<td><code>non-sealed</code> (trên subtype)</td>
+<td>Subtype này mở lại, cho phép kế thừa tự do như bình thường</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JEP 409: Sealed Classes — https://openjdk.org/jeps/409</li>
+<li>JLS §8.1.1.2, §9.1.1.4 — Sealed Classes and Interfaces.</li>
 </ul>
 
 
