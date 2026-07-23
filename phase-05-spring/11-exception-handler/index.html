@@ -27,7 +27,7 @@
     
     
       
-        <title>Exception Handler - Java Backend Engineering Handbook</title>
+        <title>Xử lý lỗi tập trung với @RestControllerAdvice - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exception-handler" class="md-skip">
+        <a href="#xu-ly-loi-tap-trung-voi-restcontrolleradvice" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exception Handler
+              Xử lý lỗi tập trung với @RestControllerAdvice
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3227,7 +3227,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3264,7 +3264,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3282,7 +3282,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3506,32 +3506,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3616,7 +3594,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:exceptionhandler" class="md-tag">ExceptionHandler</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6141,7 +6104,7 @@
   
 
 
-<h1 id="exception-handler">Exception Handler<a class="headerlink" href="#exception-handler" title="Permanent link">&para;</a></h1>
+<h1 id="xu-ly-loi-tap-trung-voi-restcontrolleradvice">Xử lý lỗi tập trung với @RestControllerAdvice<a class="headerlink" href="#xu-ly-loi-tap-trung-voi-restcontrolleradvice" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>exception-handler</code></p>
@@ -6149,94 +6112,273 @@ Chapter slug: <code>exception-handler</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Exception Handler</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — REST</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — Validation</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 13 — Transaction (exception quyết định rollback)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../10-validation/">Chapter 10</a> — <code>MethodArgumentNotValidException</code> (khi <code>@Valid</code>
+thất bại) đã tự động trả về response lỗi có cấu trúc rõ ràng. Nhưng đó là nhờ đã có sẵn một
+<code>@ExceptionHandler</code> xử lý riêng cho nó. Điều gì xảy ra với một exception <strong>không ai xử lý</strong>?</p>
 </blockquote>
+<p>Gọi một endpoint cố tình ném ra một exception không có <code>@ExceptionHandler</code> nào bắt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== Exception KHONG duoc @ExceptionHandler nao xu ly (default Spring Boot error) ===
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>{&quot;timestamp&quot;:&quot;2026-07-23T08:43:38.925+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;path&quot;:&quot;/api/boom&quot;}
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>HTTP_STATUS:500
+</code></pre></div>
+<p>So sánh với một exception nghiệp vụ <strong>có</strong> handler xử lý riêng (<code>ProductNotFoundException</code>, đã
+gặp ở Chapter 09):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{&quot;timestamp&quot;:&quot;2026-07-23T08:07:59.566161Z&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;Khong tim thay san pham voi id=999&quot;}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HTTP_STATUS:404
+</code></pre></div>
+<p>Cùng là lỗi, nhưng một cái trả về <code>500</code> chung chung, không rõ nguyên nhân thật; cái còn lại trả
+về đúng <code>404</code> với thông điệp cụ thể ("không tìm thấy sản phẩm với id=999") — sự khác biệt hoàn
+toàn nằm ở việc có <code>@ExceptionHandler</code> xử lý riêng hay không.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>@ExceptionHandler</code>/<code>@RestControllerAdvice</code> hoạt động như thế nào? Nếu không xử lý exception
+tường minh, Spring Boot trả về response gì mặc định?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>@RestControllerAdvice</code> + <code>@ExceptionHandler</code> để xử lý lỗi tập trung</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm khác biệt giữa response mặc định (<code>500</code>, chung chung)
+      và response từ handler tường minh (status code + message đúng ngữ cảnh)</li>
+<li>[ ] Hiểu vì sao xử lý lỗi tập trung (một nơi duy nhất) tốt hơn xử lý rải rác trong từng
+      controller</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 09 — hiểu REST controller cơ bản, nơi exception có thể xảy ra.</li>
+<li>Chapter 10 — đã thấy một ví dụ <code>@ExceptionHandler</code> cụ thể cho lỗi validation.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 13 (Transaction)</strong> — loại exception (checked/unchecked) quyết định transaction có tự
+  động rollback hay không, liên quan trực tiếp tới cách thiết kế exception hierarchy.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có cơ chế xử lý lỗi tập trung, mỗi controller method phải tự bọc <code>try-catch</code> để trả về
+response lỗi đúng định dạng (status code phù hợp, thông điệp rõ ràng) — dẫn tới code lặp lại ở
+khắp nơi, và dễ <strong>quên</strong> xử lý một loại exception nào đó, khiến nó "lọt" ra ngoài dưới dạng lỗi
+<code>500</code> chung chung, không có thông tin hữu ích cho client (và có nguy cơ lộ thông tin nhạy cảm
+qua stack trace nếu không cấu hình cẩn thận).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>@RestControllerAdvice</code></strong> đánh dấu một class là nơi xử lý lỗi <strong>tập trung cho toàn bộ ứng
+dụng</strong> (không gắn với một controller cụ thể). Bên trong nó, mỗi phương thức đánh dấu
+<strong><code>@ExceptionHandler(ExceptionType.class)</code></strong> sẽ được gọi tự động <strong>bất cứ khi nào</strong> một exception
+kiểu đó (hoặc kiểu con của nó) được ném ra từ bất kỳ controller nào trong ứng dụng — DispatcherServlet chặn exception trước khi nó lan ra client, tìm handler phù hợp, và gọi nó để tạo response
+lỗi theo đúng ý muốn.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách xử lý lỗi ra khỏi từng controller (gom vào một nơi duy nhất) áp dụng đúng nguyên tắc DRY
+(Don't Repeat Yourself) và Separation of Concerns: controller chỉ cần tập trung viết logic
+"đường đi thành công" (happy path), ném ra exception mang ý nghĩa nghiệp vụ rõ ràng khi có lỗi
+(<code>ProductNotFoundException</code>, không phải tự dàn dựng response lỗi tại chỗ) — còn việc "biến
+exception đó thành response HTTP đúng chuẩn" là trách nhiệm của một nơi duy nhất, dễ kiểm soát,
+dễ đảm bảo mọi lỗi đều được xử lý nhất quán trên toàn ứng dụng.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@RestControllerAdvice</span><span class="w"> </span><span class="c1">// xu ly loi cho TOAN BO ung dung, khong rieng 1 controller</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">ProductNotFoundException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">handleNotFound</span><span class="p">(</span><span class="n">ProductNotFoundException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">NOT_FOUND</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">()));</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">MethodArgumentNotValidException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">handleValidation</span><span class="p">(</span><span class="n">MethodArgumentNotValidException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="c1">// ... (Chapter 10)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Exception KHONG co handler:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Controller nem RuntimeException ──► DispatcherServlet khong tim thay @ExceptionHandler khop
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       ──► forward noi bo toi &quot;/error&quot; ──► BasicErrorController (mac dinh cua Spring Boot)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       ──► {&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;path&quot;:&quot;...&quot;}  (CHUNG CHUNG, mat thong tin)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Exception CO handler:
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Controller nem ProductNotFoundException ──► DispatcherServlet TIM THAY @ExceptionHandler khop
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>       ──► goi handleNotFound(ex) ──► {&quot;status&quot;:404,&quot;message&quot;:&quot;Khong tim thay san pham voi id=999&quot;}
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                        (RO RANG, dung ngu canh nghiep vu)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@RestControllerAdvice</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">ProductNotFoundException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">handleNotFound</span><span class="p">(</span><span class="n">ProductNotFoundException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">body</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;timestamp&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">body</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">404</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">body</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Not Found&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="n">body</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">NOT_FOUND</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1">// Mot endpoint KHAC, cố tinh nem loi khong co handler rieng</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/boom&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">String</span><span class="w"> </span><span class="nf">boom</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;loi khong ai xu ly ca!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Boot 3.3.4):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=== /api/boom (IllegalStateException, KHONG co handler) ===
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>{&quot;timestamp&quot;:&quot;2026-07-23T08:43:38.925+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;path&quot;:&quot;/api/boom&quot;}
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>HTTP_STATUS:500
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>=== /api/products/999 (ProductNotFoundException, CO handler) ===
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>{&quot;timestamp&quot;:&quot;2026-07-23T08:07:59.566161Z&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;Khong tim thay san pham voi id=999&quot;}
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>HTTP_STATUS:404
+</code></pre></div>
+<p>Response mặc định (<code>/api/boom</code>) chỉ có <code>"error":"Internal Server Error"</code> — hoàn toàn không có
+thông tin về nguyên nhân thật (<code>"loi khong ai xu ly ca!"</code> bị <strong>giấu đi</strong>, không xuất hiện trong
+response, dù nó có trong log server). Response từ handler tường minh (<code>/api/products/999</code>) có
+đúng status <code>404</code> và message mô tả chính xác vấn đề — sự khác biệt hoàn toàn do có/không có
+<code>@ExceptionHandler</code> xử lý riêng cho loại exception đó.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao message thật (<code>"loi khong ai xu ly ca!"</code>) không xuất hiện trong response <code>500</code> mặc
+định, dù nó chắc chắn có trong log server?</strong> Đây là hành vi <strong>bảo mật có chủ đích</strong> của Spring
+Boot: <code>BasicErrorController</code> (class xử lý lỗi mặc định) không lộ chi tiết exception nội bộ ra
+response cho client theo mặc định — vì thông điệp exception có thể vô tình tiết lộ thông tin
+nhạy cảm (cấu trúc database, đường dẫn file nội bộ, logic nghiệp vụ) cho bất kỳ ai gọi API, kể
+cả kẻ tấn công đang dò tìm lỗ hổng. Có thể bật <code>server.error.include-message=always</code> trong cấu
+hình để hiện thông điệp exception ra response, nhưng đây là điều cần cân nhắc kỹ — chỉ nên bật
+trong môi trường phát triển, không nên bật mặc định ở production.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Thiết kế exception hierarchy hợp lý ảnh hưởng thế nào tới <code>@ExceptionHandler</code>?</strong> Vì
+<code>@ExceptionHandler(X.class)</code> bắt cả <strong>subtype</strong> của <code>X</code> (tính đa hình, Phase 1 Chapter 08), thiết
+kế một exception hierarchy có ý nghĩa (ví dụ <code>BusinessException</code> là lớp cha chung cho mọi lỗi
+nghiệp vụ, <code>ProductNotFoundException</code>/<code>InsufficientStockException</code> kế thừa từ nó) cho phép viết
+<strong>một</strong> handler chung xử lý toàn bộ nhóm lỗi nghiệp vụ (<code>@ExceptionHandler(BusinessException.class)</code>), đồng thời vẫn có thể viết handler <strong>riêng biệt, cụ thể hơn</strong> cho một exception con nếu
+cần xử lý khác biệt — Spring tự động chọn handler khớp <strong>cụ thể nhất</strong> (specific nhất) khi có
+nhiều handler cùng áp dụng được cho một exception. Đây là lý do các dự án lớn thường xây dựng
+một exception hierarchy rõ ràng ngay từ đầu, thay vì dùng <code>RuntimeException</code> trần trụi cho mọi
+lỗi nghiệp vụ.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>@ExceptionHandler</code> có từ Spring 3.0 (2009), ban đầu chỉ áp dụng <strong>trong phạm vi một
+controller</strong> (đặt trực tiếp trong class controller đó). <code>@ControllerAdvice</code> (Spring 3.2, 2013)
+mở rộng phạm vi áp dụng ra <strong>toàn ứng dụng</strong> — giải quyết đúng vấn đề lặp lại code xử lý lỗi
+giữa nhiều controller khác nhau. <code>@RestControllerAdvice</code> (Spring 4.3, 2016) là tổ hợp
+<code>@ControllerAdvice</code> + <code>@ResponseBody</code>, cùng logic với <code>@RestController</code> (Chapter 09) đã học.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Không xử lý exception tường minh nghĩa là ứng dụng sẽ crash hoặc không phản hồi."
+  <strong>Reality:</strong> Đã chứng minh — Spring Boot luôn có một response mặc định (<code>500 Internal Server
+  Error</code>) cho mọi exception không được xử lý riêng, ứng dụng không hề "crash", chỉ là response
+  không có thông tin hữu ích cho client.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Thông điệp exception (<code>ex.getMessage()</code>) luôn xuất hiện trong response lỗi mặc
+  định, tiện cho việc debug từ phía client."
+  <strong>Reality:</strong> Xem Deep Dive — đây là hành vi bảo mật có chủ đích, mặc định <strong>ẩn</strong> thông điệp
+  chi tiết khỏi response.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Không có <code>@RestControllerAdvice</code> nào trong ứng dụng, để mọi lỗi rơi vào response <code>500</code> mặc
+  định</strong> — client nhận được thông tin vô nghĩa, khó debug từ phía client, và không phân biệt
+  được lỗi do client (4xx) hay do server (5xx).</li>
+<li><strong>Bật <code>server.error.include-message=always</code> ở production</strong> — có nguy cơ lộ thông tin nhạy cảm
+  qua thông điệp exception cho bất kỳ client nào gọi API.</li>
+<li><strong>Viết <code>try-catch</code> xử lý lỗi rải rác trong từng controller thay vì tập trung vào
+  <code>@RestControllerAdvice</code></strong> — lặp lại code, dễ thiếu nhất quán giữa các endpoint.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn có ít nhất một <code>@RestControllerAdvice</code> xử lý các loại exception nghiệp vụ phổ biến, và
+  một handler "catch-all" cho <code>Exception.class</code> để đảm bảo mọi lỗi đều có response nhất quán
+  (dù là lỗi không lường trước).</li>
+<li>Thiết kế exception hierarchy có ý nghĩa cho lỗi nghiệp vụ, tận dụng tính đa hình để viết handler
+  gọn gàng hơn.</li>
+<li>Không lộ thông tin nhạy cảm (message exception chi tiết, stack trace) trong response ở
+  production; log đầy đủ chi tiết ở phía server để debug nội bộ.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Client nhận <code>500 Internal Server Error</code> không rõ nguyên nhân? → kiểm tra log server để
+      thấy exception thật, cân nhắc thêm <code>@ExceptionHandler</code> riêng cho loại exception đó.</li>
+<li>[ ] <code>@ExceptionHandler</code> không được gọi dù đúng loại exception? → kiểm tra exception có được
+      ném ra <strong>trong luồng xử lý của Spring MVC</strong> không (ví dụ exception ném trong một thread
+      riêng, Phase 3, sẽ không được <code>@ExceptionHandler</code> bắt vì nó không nằm trong luồng request
+      gốc).</li>
+<li>[ ] Cần ẩn/hiện thông điệp lỗi chi tiết tuỳ môi trường? → cấu hình
+      <code>server.error.include-message</code> khác nhau giữa profile development và production.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>@RestControllerAdvice</code> + <code>@ExceptionHandler</code> xử lý lỗi tập trung cho toàn ứng dụng — mỗi
+handler tự động được gọi khi đúng loại exception (hoặc subtype) được ném ra từ bất kỳ
+controller nào. Đã chứng minh bằng thực nghiệm đối chiếu trực tiếp: exception không có handler
+riêng trả về <code>500</code> chung chung, ẩn hoàn toàn thông điệp thật (hành vi bảo mật có chủ đích); exception có handler trả về đúng status code và message rõ ràng theo ngữ cảnh nghiệp vụ. Thiết kế
+exception hierarchy hợp lý cho phép viết handler chung cho một nhóm lỗi, đồng thời vẫn xử lý
+riêng được các trường hợp cụ thể cần khác biệt.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>@ExceptionHandler</code>/<code>@RestControllerAdvice</code> hoạt động như thế nào?</li>
+<li>Nếu không xử lý exception tường minh, Spring Boot trả về response gì mặc định?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao thông điệp exception mặc định không xuất hiện trong response <code>500</code>? Khi nào nên/không
+  nên bật hiển thị nó?</li>
+<li>Thiết kế exception hierarchy ảnh hưởng thế nào tới việc viết <code>@ExceptionHandler</code> hiệu quả?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại ví dụ trên, so sánh trực tiếp response của <code>/api/boom</code> (không handler) và
+      <code>/api/products/999</code> (có handler).</li>
+<li>[ ] Thêm một <code>@ExceptionHandler(Exception.class)</code> "catch-all" ở cuối <code>GlobalExceptionHandler</code>,
+      xác nhận nó chỉ được gọi khi không có handler cụ thể hơn nào khớp.</li>
+<li>[ ] Thiết kế một exception hierarchy đơn giản (<code>BusinessException</code> là cha,
+      <code>ProductNotFoundException</code>/<code>InsufficientStockException</code> là con), viết một handler chung
+      cho <code>BusinessException</code> và quan sát nó bắt được cả hai loại con.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Không có handler</th>
+<th>Có <code>@ExceptionHandler</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status code</td>
+<td>Luôn <code>500</code></td>
+<td>Tuỳ chỉnh theo ngữ cảnh (<code>404</code>, <code>400</code>, ...)</td>
+</tr>
+<tr>
+<td>Message trả về client</td>
+<td>Ẩn (chỉ "Internal Server Error")</td>
+<td>Tuỳ chỉnh, rõ ràng</td>
+</tr>
+<tr>
+<td>Xử lý</td>
+<td><code>BasicErrorController</code> mặc định</td>
+<td>Method do bạn viết trong <code>@RestControllerAdvice</code></td>
+</tr>
+<tr>
+<td>Phạm vi</td>
+<td>Toàn ứng dụng (fallback)</td>
+<td>Tuỳ khai báo loại exception</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Exception Handling: https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-exceptionhandler.html</li>
+<li>Spring Boot Documentation — Error Handling.</li>
 </ul>
 
 

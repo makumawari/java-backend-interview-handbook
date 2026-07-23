@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3422,32 +3422,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3532,7 +3510,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3560,7 +3538,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3588,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3616,7 +3594,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:springboot" class="md-tag">SpringBoot</a>
       
     
   </nav>
@@ -6149,94 +6112,262 @@ Chapter slug: <code>spring-boot</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Spring Boot</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Auto Configuration</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — REST</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 17 — Security</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../07-auto-configuration/">Chapter 07</a> — Auto Configuration là một trong ba trụ cột
+của Spring Boot. Nhưng có một câu hỏi thực tế hơn: chạy <code>mvn spring-boot:run</code>, không cài
+Tomcat riêng, không deploy file WAR vào bất kỳ server nào — làm sao ứng dụng lại phục vụ HTTP
+request được ngay lập tức?</p>
 </blockquote>
+<p>Đóng gói ứng dụng thành file JAR rồi kiểm tra <strong>bên trong</strong> nó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ unzip -l target/demo-0.0.1-SNAPSHOT.jar | grep tomcat-embed-core
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  3556312  ...  BOOT-INF/lib/tomcat-embed-core-10.1.30.jar
+</code></pre></div>
+<p>Chính <strong>Tomcat</strong> — cùng server đã chạy hàng triệu ứng dụng Java EE truyền thống — nằm sẵn <strong>bên
+trong</strong> file JAR của ứng dụng, dưới dạng một thư viện thông thường. Khởi động ứng dụng:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Tomcat initialized with port 8080 (http)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Tomcat started on port 8080 (http) with context path &#39;/&#39;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Started DemoApplication in 1.147 seconds (process running for 1.256)
+</code></pre></div>
+<p>Ứng dụng tự khởi động Tomcat như một phần của chính nó — không cần cài đặt, cấu hình, hay deploy
+riêng biệt.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Spring Boot khác Spring Framework như thế nào? Ba trụ cột chính của Spring Boot là gì?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt rõ Spring Framework (lõi) và Spring Boot (lớp tiện ích xây trên lõi)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: Tomcat được đóng gói <strong>bên trong</strong> file JAR của ứng
+      dụng (embedded server)</li>
+<li>[ ] Giải thích <code>@SpringBootApplication</code> thực chất là tổ hợp của 3 annotation khác</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 07 — hiểu Auto Configuration, một trong ba trụ cột của Spring Boot.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (REST)</strong> — REST API xây trên nền Spring Boot với embedded server đã học ở
+  chapter này.</li>
+<li><strong>Chapter 17 (Security)</strong> — Spring Security tích hợp tự động qua chính cơ chế Auto
+  Configuration + Spring Boot.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Triển khai một ứng dụng Java EE truyền thống (trước Spring Boot) đòi hỏi: cài đặt server (Tomcat/
+JBoss/WebLogic) riêng biệt trên máy chủ, đóng gói ứng dụng thành file WAR, deploy WAR vào server
+đó, rồi cấu hình khớp giữa phiên bản server và ứng dụng. Quy trình này cồng kềnh, dễ xảy ra lỗi
+"chạy được trên máy tôi nhưng không chạy trên server" do khác biệt môi trường/phiên bản giữa máy
+phát triển và server triển khai thực tế.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Spring Boot</strong> là một lớp tiện ích xây dựng trên Spring Framework, giải quyết đúng vấn đề triển
+khai bằng ba trụ cột: <strong>Embedded Server</strong> (Tomcat/Jetty/Undertow được đóng gói ngay bên trong
+JAR ứng dụng, không cần cài server riêng), <strong>Auto Configuration</strong> (Chapter 07, tự động cấu hình
+hợp lý dựa trên classpath), và <strong>Starter Dependencies</strong> (các gói phụ thuộc gộp sẵn, ví dụ
+<code>spring-boot-starter-web</code> kéo theo toàn bộ thư viện cần thiết cho web app mà không cần khai báo
+từng thư viện riêng lẻ).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Đóng gói server vào cùng JAR ứng dụng (thay vì deploy vào server cài sẵn) đảo ngược mô hình
+triển khai truyền thống: thay vì "một server, nhiều ứng dụng deploy vào đó" (dễ xung đột phiên
+bản giữa các ứng dụng dùng chung server), Spring Boot theo mô hình "mỗi ứng dụng tự mang server
+riêng của mình" — đúng triết lý phù hợp với container hoá (Docker) và microservice: mỗi service
+là một tiến trình độc lập hoàn toàn, <code>java -jar app.jar</code> là đủ để chạy, không phụ thuộc bất kỳ
+phần mềm nào đã cài sẵn trên máy chủ ngoài JVM.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@SpringBootApplication</span><span class="w"> </span><span class="c1">// = @Configuration + @ComponentScan + @EnableAutoConfiguration</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DemoApplication</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">DemoApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mvn<span class="w"> </span>package<span class="w">                          </span><span class="c1"># dong goi thanh 1 file JAR duy nhat</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>java<span class="w"> </span>-jar<span class="w"> </span>target/demo-0.0.1-SNAPSHOT.jar<span class="w">   </span><span class="c1"># chay, KHONG can cai Tomcat rieng</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Java EE truyen thong (WAR):              Spring Boot (JAR + embedded server):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Server (Tomcat) cai san tren may        app.jar
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>       │                                     ├── BOOT-INF/classes/  (code cua ban)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>       ▼ deploy vao                          └── BOOT-INF/lib/
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  app.war                                        ├── tomcat-embed-core.jar  &lt;- Tomcat O DAY
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>       │                                         └── ... (moi thu vien khac)
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  Server phai duoc cai, cau hinh
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  KHOP phien ban voi ung dung TRUOC       java -jar app.jar
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  khi deploy duoc                         =&gt; Tomcat TU KHOI DONG BEN TRONG chinh JVM nay,
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>                                              khong can cai gi them ngoai JVM
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@SpringBootApplication</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DemoApplication</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">DemoApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
 </code></pre></div>
+<p>Đóng gói và kiểm tra nội dung JAR:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ mvn package
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$ unzip -l target/demo-0.0.1-SNAPSHOT.jar | grep tomcat-embed-core
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  3556312  ...  BOOT-INF/lib/tomcat-embed-core-10.1.30.jar
+</code></pre></div>
+<p>Khởi động:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ java -jar target/demo-0.0.1-SNAPSHOT.jar
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>...
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Tomcat initialized with port 8080 (http)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Tomcat started on port 8080 (http) with context path &#39;/&#39;
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Started DemoApplication in 1.147 seconds (process running for 1.256)
+</code></pre></div>
+<p><code>tomcat-embed-core-10.1.30.jar</code> nằm thật sự bên trong file JAR ứng dụng (thư mục
+<code>BOOT-INF/lib/</code>), xác nhận Tomcat là một <strong>thư viện được đóng gói cùng</strong>, không phải một server
+cài đặt riêng biệt trên máy. Ứng dụng khởi động và tự phục vụ HTTP chỉ với <code>java -jar</code>, sẵn sàng
+sau <strong>1.147 giây</strong>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>@SpringBootApplication</code> thực chất "giải nén" thành những gì?</strong> Đây là một
+meta-annotation (Phase 1, Chapter 18) tổ hợp của 3 annotation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@SpringBootConfiguration</span><span class="w"> </span><span class="c1">// ban chat la @Configuration, danh dau day la class cau hinh chinh</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nd">@ComponentScan</span><span class="w">          </span><span class="c1">// tu dong quet package hien tai + cac package con de tim @Component</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nd">@EnableAutoConfiguration</span><span class="w"> </span><span class="c1">// kich hoat co che Auto Configuration (Chapter 07)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">SpringBootApplication</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Việc gộp 3 annotation thành một giúp class chính (<code>DemoApplication</code>) chỉ cần một dòng annotation
+duy nhất để kích hoạt đầy đủ: (1) bản thân nó là một <code>@Configuration</code>, (2) tự động quét mọi
+<code>@Component</code> trong package của nó và các package con, (3) kích hoạt toàn bộ cơ chế Auto
+Configuration đã học ở Chapter 07. Đây là lý do class chứa <code>@SpringBootApplication</code> theo quy
+ước <strong>nên đặt ở package gốc</strong> (root package) của ứng dụng — <code>@ComponentScan</code> mặc định chỉ quét
+package của chính class đó trở xuống, đặt sai vị trí sẽ khiến nhiều bean không được phát hiện.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Fat JAR ("uber JAR") hoạt động thế nào để một file <code>.jar</code> duy nhất chứa được cả code lẫn hàng
+trăm thư viện phụ thuộc, trong khi cấu trúc JAR tiêu chuẩn của Java không hỗ trợ JAR lồng trong
+JAR?</strong> Định dạng JAR tiêu chuẩn (dựa trên ZIP) và cơ chế classloader mặc định của JVM <strong>không hỗ
+trợ trực tiếp</strong> việc nạp class từ một JAR nằm lồng bên trong JAR khác. Spring Boot giải quyết
+bằng <code>spring-boot-maven-plugin</code>: đóng gói theo cấu trúc đặc biệt (<code>BOOT-INF/classes/</code> cho code
+của bạn, <code>BOOT-INF/lib/</code> cho từng JAR phụ thuộc <strong>nguyên vẹn</strong>, không giải nén), rồi cung cấp một
+<strong>custom <code>ClassLoader</code></strong> (<code>LaunchedURLClassLoader</code>) biết cách đọc trực tiếp từ các JAR lồng bên
+trong mà không cần giải nén ra đĩa trước — toàn bộ cơ chế này được kích hoạt tự động qua
+<code>Main-Class</code> đặc biệt (<code>JarLauncher</code>) khai báo trong <code>MANIFEST.MF</code> của fat JAR.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Spring Boot ra mắt năm 2014 (Spring Boot 1.0), do đội ngũ Pivotal phát triển — ra đời trong bối
+cảnh microservice bắt đầu trở thành xu hướng kiến trúc chủ đạo, nơi mô hình "một server dùng
+chung nhiều ứng dụng" của Java EE truyền thống trở nên bất tiện (mỗi microservice cần triển khai
+độc lập). Embedded server (ban đầu chỉ hỗ trợ Tomcat, sau mở rộng Jetty/Undertow) chính là tính
+năng cốt lõi giải quyết đúng nhu cầu đó ngay từ phiên bản đầu tiên.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Spring Boot là một framework hoàn toàn khác, thay thế Spring Framework."
+  <strong>Reality:</strong> Spring Boot xây dựng <strong>trên</strong> Spring Framework (dùng <code>ApplicationContext</code>, DI,
+  AOP y hệt Chapter 02-03, 12), không thay thế nó — Spring Boot chỉ thêm auto-configuration,
+  embedded server, và starter dependencies để giảm công sức thiết lập ban đầu.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Cần cài Tomcat trên máy chủ trước khi triển khai một ứng dụng Spring Boot."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — Tomcat nằm sẵn bên trong JAR ứng dụng, chỉ cần
+  JVM cài sẵn trên máy chủ, không cần cài thêm bất kỳ server nào khác.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đặt class <code>@SpringBootApplication</code> không ở package gốc</strong> — <code>@ComponentScan</code> ngầm định chỉ
+  quét từ package đó trở xuống, bean ở package "anh em" (sibling) sẽ không được phát hiện.</li>
+<li><strong>Nhầm lẫn Spring Boot và Spring Framework là một, dẫn tới hiểu sai phạm vi kiến thức khi ôn
+  phỏng vấn</strong> — nên phân biệt rõ ràng như Myth vs Reality đã nêu.</li>
+<li><strong>Cố cài đặt Tomcat riêng rồi deploy WAR của ứng dụng Spring Boot vào đó</strong> — đi ngược lại triết
+  lý embedded server, chỉ cần thiết trong số ít trường hợp đặc biệt (yêu cầu hạ tầng doanh
+  nghiệp bắt buộc dùng server dùng chung).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Đặt class <code>@SpringBootApplication</code> ở package gốc của ứng dụng để <code>@ComponentScan</code> hoạt động
+  đúng phạm vi.</li>
+<li>Tận dụng embedded server và fat JAR cho mô hình triển khai container hoá (Docker) — mỗi
+  ứng dụng một tiến trình độc lập, không phụ thuộc phần mềm cài sẵn ngoài JVM.</li>
+<li>Hiểu rõ ranh giới Spring Framework/Spring Boot để trả lời chính xác khi phỏng vấn hỏi "Spring
+  Boot khác Spring như thế nào".</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Một số bean không được phát hiện dù đã đánh dấu đúng stereotype annotation? → kiểm tra vị
+      trí package của class <code>@SpringBootApplication</code> so với package chứa bean đó.</li>
+<li>[ ] Muốn xác nhận server nào đang chạy bên trong ứng dụng? → kiểm tra log khởi động (dòng
+      "Tomcat started..."/"Netty started..." tuỳ starter đang dùng) hoặc mở JAR kiểm tra
+      <code>BOOT-INF/lib/</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Spring Boot xây trên Spring Framework, thêm ba trụ cột: Embedded Server, Auto Configuration
+(Chapter 07), Starter Dependencies. Đã chứng minh bằng thực nghiệm: Tomcat được đóng gói <strong>thật
+sự bên trong</strong> file JAR ứng dụng (<code>BOOT-INF/lib/tomcat-embed-core-*.jar</code>), cho phép
+<code>java -jar app.jar</code> tự khởi động và phục vụ HTTP mà không cần cài server riêng — khởi động chỉ
+mất ~1.1 giây trong thực nghiệm. <code>@SpringBootApplication</code> là tổ hợp của
+<code>@SpringBootConfiguration</code> + <code>@ComponentScan</code> + <code>@EnableAutoConfiguration</code>. Cơ chế fat JAR dùng
+custom <code>ClassLoader</code> để nạp trực tiếp từ các JAR lồng bên trong, vượt qua giới hạn của classloader
+tiêu chuẩn.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Spring Boot khác Spring Framework như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Ba trụ cột chính của Spring Boot là gì?</li>
+<li><code>@SpringBootApplication</code> thực chất là tổ hợp của những annotation nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cơ chế fat JAR cho phép một file <code>.jar</code> duy nhất chứa cả code lẫn hàng trăm thư
+  viện phụ thuộc, vượt qua giới hạn classloader tiêu chuẩn của JVM như thế nào.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Đóng gói một ứng dụng Spring Boot (<code>mvn package</code>), mở file JAR bằng <code>unzip -l</code>, xác nhận
+      cấu trúc <code>BOOT-INF/classes/</code> và <code>BOOT-INF/lib/</code>.</li>
+<li>[ ] Chạy <code>java -jar app.jar</code> trên một máy không cài Tomcat/JDK server nào khác, xác nhận ứng
+      dụng vẫn khởi động và phục vụ HTTP bình thường.</li>
+<li>[ ] Đổi <code>spring-boot-starter-web</code> thành <code>spring-boot-starter-webflux</code> (hoặc thêm dependency
+      Jetty/Undertow theo tài liệu chính thức), quan sát dòng log embedded server đổi từ Tomcat
+      sang server khác.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Trụ cột</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedded Server</td>
+<td>Tomcat/Jetty/Undertow đóng gói cùng JAR, không cần cài server riêng</td>
+</tr>
+<tr>
+<td>Auto Configuration</td>
+<td>Tự động cấu hình bean hợp lý dựa trên classpath (Chapter 07)</td>
+</tr>
+<tr>
+<td>Starter Dependencies</td>
+<td>Gộp sẵn các thư viện liên quan (<code>spring-boot-starter-web</code>, ...)</td>
+</tr>
+<tr>
+<td><code>@SpringBootApplication</code></td>
+<td>= <code>@SpringBootConfiguration</code> + <code>@ComponentScan</code> + <code>@EnableAutoConfiguration</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Boot Documentation — https://docs.spring.io/spring-boot/index.html</li>
+<li>Spring Boot Documentation — Packaging Executable Archives.</li>
 </ul>
 
 

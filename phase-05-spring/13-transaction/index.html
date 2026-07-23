@@ -27,7 +27,7 @@
     
     
       
-        <title>Transaction (Spring Transaction Management) - Java Backend Engineering Handbook</title>
+        <title>Spring Transaction Management (@Transactional) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transaction-spring-transaction-management" class="md-skip">
+        <a href="#spring-transaction-management-transactional" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Transaction (Spring Transaction Management)
+              Spring Transaction Management (@Transactional)
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3227,7 +3227,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3255,7 +3255,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3283,7 +3283,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3320,7 +3320,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3338,7 +3338,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3584,17 +3584,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3672,7 +3661,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3689,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3717,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3745,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3773,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6045,17 +6034,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6131,7 +6109,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:transaction" class="md-tag">Transaction</a>
       
     
   </nav>
@@ -6141,7 +6126,7 @@
   
 
 
-<h1 id="transaction-spring-transaction-management">Transaction (Spring Transaction Management)<a class="headerlink" href="#transaction-spring-transaction-management" title="Permanent link">&para;</a></h1>
+<h1 id="spring-transaction-management-transactional">Spring Transaction Management (@Transactional)<a class="headerlink" href="#spring-transaction-management-transactional" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>transaction</code></p>
@@ -6149,95 +6134,328 @@ Chapter slug: <code>transaction</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transaction (Spring Transaction Management)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — AOP</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence (JPA/Hibernate)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../12-aop/">Chapter 12</a> — self-invocation (<code>this.method()</code>) khiến AOP proxy bị bỏ
+qua hoàn toàn. <code>@Transactional</code> <strong>chính là một dạng AOP advice</strong> — nghĩa là nó chịu <strong>đúng
+giới hạn tương tự</strong>. Điều này có thể gây ra một trong những lỗi khó phát hiện nhất trong lập
+trình Spring: API trả về <code>200 OK</code> thành công, nhưng dữ liệu cập nhật lại <strong>không bao giờ</strong>
+được ghi xuống database.</p>
 </blockquote>
+<p>Chuyển 100 từ tài khoản Alice sang Bob, cố tình ném lỗi <strong>sau khi</strong> đã ghi cả hai tài khoản, so
+sánh 4 kịch bản:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== Goi TRUC TIEP internalTransferTx() qua proxy (co @Transactional that su) ===
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Alice balance (ky vong ROLLBACK ve 1000): 1000.0
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>=== Unchecked exception (RuntimeException) ===
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Alice balance SAU khi loi (ky vong ROLLBACK ve 1000): 1000.0
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>=== Goi placeOrderNoTx() -&gt; TU GOI internalTransferTx() qua &#39;this&#39; (SELF-INVOCATION) ===
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Alice balance (self-invocation, @Transactional bi BO QUA, KHONG rollback?): 900.0
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>=== Checked exception (Exception thuong) ===
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Alice balance SAU khi loi (MAC DINH KHONG rollback): 900.0
+</code></pre></div>
+<p>Hai kịch bản đầu rollback đúng (balance quay về <code>1000.0</code>). Nhưng <strong>self-invocation</strong> và
+<strong>checked exception</strong> đều khiến balance dừng lại ở <code>900.0</code> — tiền đã "biến mất" khỏi tài khoản
+Alice mà <strong>không hề rollback</strong>, dù cả hai đều ném ra exception.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Your <code>@Transactional</code> method is executing, but the transaction is not rolling back. Why? Your
+REST API returns 200 OK, but the database update never happens. How is that possible?
+(self-invocation / proxy)</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích <code>@Transactional</code> được hiện thực hoá qua AOP proxy, chịu chung giới hạn
+      self-invocation đã học ở Chapter 12</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: self-invocation khiến <code>@Transactional</code> bị bỏ qua hoàn
+      toàn — dữ liệu không rollback dù có exception</li>
+<li>[ ] Tự tay chứng minh quy tắc rollback mặc định: unchecked exception rollback, checked
+      exception thì KHÔNG (trừ khi khai báo tường minh)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 12 — bắt buộc phải hiểu AOP proxy và self-invocation limitation trước chapter này.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Phase 6 (Persistence)</strong> — transaction management là nền tảng bắt buộc khi làm việc với
+  JPA/Hibernate.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một thao tác nghiệp vụ thường gồm <strong>nhiều bước ghi dữ liệu liên quan tới nhau</strong> (trừ tiền tài
+khoản A, cộng tiền tài khoản B) — nếu chỉ một bước thất bại giữa chừng, để lại các bước đã thành
+công trước đó <strong>không được hoàn tác</strong>, dữ liệu rơi vào trạng thái không nhất quán (tiền "biến
+mất" hoặc "tự nhân đôi"). Quản lý điều này thủ công (tự viết <code>try-catch</code> gọi rollback từng bước)
+cực kỳ dễ sai sót và lặp lại nhiều nơi.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>@Transactional</code></strong> đánh dấu một method cần chạy trong <strong>một transaction database duy nhất</strong> —
+Spring tự động <code>begin transaction</code> trước khi method chạy, <code>commit</code> nếu method hoàn tất bình
+thường, hoặc <strong><code>rollback</code></strong> (hoàn tác mọi thay đổi đã thực hiện trong method đó) nếu có exception
+xảy ra. Cơ chế này hiện thực hoá qua <strong>AOP proxy</strong> (chính xác đúng cơ chế đã học ở Chapter 12) —
+một <code>TransactionInterceptor</code> bọc quanh method, mở transaction trước khi gọi method thật, và
+quyết định commit/rollback sau khi method đó chạy xong (thành công hoặc ném exception).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì <code>@Transactional</code> dùng chung cơ chế AOP proxy với mọi advice khác (Chapter 12), nó <strong>kế thừa
+chính xác</strong> giới hạn self-invocation: proxy chỉ chặn được lời gọi <strong>từ bên ngoài</strong> class, không
+chặn được khi method tự gọi chính nó (hoặc method khác trong cùng class) qua <code>this</code>. Về quy tắc
+rollback: Spring mặc định chỉ rollback khi gặp <strong>unchecked exception</strong> (<code>RuntimeException</code>,
+<code>Error</code>) — phản ánh triết lý thiết kế của Spring: checked exception (Phase 1, Chapter 15) thường
+đại diện cho một điều kiện <strong>có thể phục hồi/xử lý được</strong> trong logic nghiệp vụ (ví dụ hiển thị
+thông báo cho người dùng), trong khi unchecked exception thường đại diện cho <strong>lỗi không lường
+trước</strong>, cần huỷ bỏ toàn bộ thao tác đang dở dang.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Transactional</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// moi thay doi trong method nay CUNG mot transaction</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">from</span><span class="p">.</span><span class="na">setBalance</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="na">getBalance</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kd">to</span><span class="p">.</span><span class="na">setBalance</span><span class="p">(</span><span class="kd">to</span><span class="p">.</span><span class="na">getBalance</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="kd">to</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// neu co RuntimeException nem ra o day -&gt; TU DONG rollback CA HAI thay doi tren</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">rollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="c1">// BAT rollback ca checked exception</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">transferStrict</span><span class="p">(...)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Truong hop 1: Goi TU BEN NGOAI qua proxy (dung):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Client ──► Proxy.internalTransferTx() ──► [BEGIN TX] ──► method that chay, nem RuntimeException
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                                                 │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                                            [ROLLBACK] (proxy bat duoc exception, huy giao dich)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  =&gt; Alice balance: 1000.0 (dung nhu ban dau)
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Truong hop 2: SELF-INVOCATION (this.internalTransferTx() tu ben trong):
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  Client ──► Proxy.placeOrderNoTx() ──► [KHONG CO @Transactional tren placeOrderNoTx]
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                                            │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                                       instance GOC.placeOrderNoTx() dang chay
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                                            │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>                                       this.internalTransferTx()  &lt;- KHONG QUA PROXY!
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                                            │
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>                                       chay TRUC TIEP, KHONG CO transaction nao duoc mo
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>                                       repo.save() COMMIT NGAY (auto-commit tung cau lenh)
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                                            │
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>                                       nem RuntimeException -&gt; KHONG AI rollback duoc nua!
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  =&gt; Alice balance: 900.0 (DA MAT TIEN, khong rollback duoc)
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>Truong hop 3: Checked exception (KHONG khai bao rollbackFor):
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>  Proxy.transferCheckedFails() ──► [BEGIN TX] ──► method nem Exception (checked)
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>                                        │
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>                                   Proxy THAY: day la checked exception
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>                                        │
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>                                   MAC DINH: COMMIT (khong rollback!)
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>  =&gt; Alice balance: 900.0 (DA MAT TIEN, vi checked exception KHONG kich hoat rollback mac dinh)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Service</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TransferService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nd">@Transactional</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">internalTransferTx</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">doTransfer</span><span class="p">(</span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;Loi trong internalTransferTx!&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">// KHONG co @Transactional, tu goi internalTransferTx() qua &#39;this&#39;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrderNoTx</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">internalTransferTx</span><span class="p">(</span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span><span class="w"> </span><span class="c1">// SELF-INVOCATION!</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nd">@Transactional</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">transferCheckedFails</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">doTransfer</span><span class="p">(</span><span class="n">fromId</span><span class="p">,</span><span class="w"> </span><span class="n">toId</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">&quot;Loi nghiep vu (checked)!&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// checked exception</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Boot 3.3.4, H2 in-memory database):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>=== Goi TRUC TIEP internalTransferTx() qua proxy (co @Transactional that su) ===
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Alice balance (ky vong ROLLBACK ve 1000): 1000.0
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>=== Goi placeOrderNoTx() -&gt; TU GOI internalTransferTx() qua &#39;this&#39; (SELF-INVOCATION) ===
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Alice balance (self-invocation, @Transactional bi BO QUA, KHONG rollback?): 900.0
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>=== Checked exception (Exception thuong) ===
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Alice balance SAU khi loi (MAC DINH KHONG rollback): 900.0
+</code></pre></div>
+<p>Gọi trực tiếp <code>internalTransferTx()</code> từ bên ngoài (qua proxy thật): rollback đúng, balance quay
+về <code>1000.0</code>. Gọi qua <code>placeOrderNoTx()</code> (self-invocation): balance dừng ở <code>900.0</code> — tiền đã bị
+trừ khỏi Alice <strong>vĩnh viễn</strong>, dù <code>RuntimeException</code> đã được ném ra — vì <code>@Transactional</code> trên
+<code>internalTransferTx()</code> <strong>hoàn toàn không được kích hoạt</strong> khi gọi qua <code>this</code>. Với checked
+exception (<code>transferCheckedFails</code>, không khai báo <code>rollbackFor</code>): balance cũng dừng ở <code>900.0</code> —
+transaction <strong>commit bình thường</strong> dù có exception, vì mặc định Spring chỉ rollback cho unchecked
+exception.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao self-invocation trong ngữ cảnh <code>@Transactional</code> nguy hiểm hơn hẳn so với AOP logging
+đơn thuần (Chapter 12)?</strong> Với AOP logging, self-invocation chỉ khiến <strong>mất một vài dòng log</strong> —
+gây bất tiện nhưng vô hại về mặt dữ liệu. Với <code>@Transactional</code>, self-invocation khiến method
+<strong>hoàn toàn không chạy trong transaction nào cả</strong> — mỗi câu lệnh <code>repo.save()</code> bên trong đó chạy
+theo chế độ <strong>auto-commit</strong> của database (commit ngay lập tức, độc lập với nhau). Khi exception
+xảy ra <strong>sau khi</strong> một số câu lệnh đã auto-commit, không có transaction nào để rollback — dữ liệu
+đã ghi vĩnh viễn ở trạng thái <strong>không nhất quán</strong> (Alice mất tiền nhưng Bob không nhận được, tuỳ
+thứ tự thao tác), và ứng dụng <strong>không hề biết</strong> điều này đã xảy ra — không có exception nào báo
+hiệu "transaction không hoạt động", vì về mặt cú pháp, code hoàn toàn hợp lệ, chỉ là annotation
+đã bị bỏ qua một cách âm thầm.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao Spring mặc định chỉ rollback cho unchecked exception — quyết định này có phải một cạm
+bẫy thiết kế, hay có lý do chính đáng?</strong> Đây thực chất là điểm khác biệt lớn với hành vi mặc
+định của EJB (chuẩn Java EE cũ) — EJB mặc định <strong>rollback cho mọi exception</strong>. Spring cố tình
+chọn ngược lại: checked exception, theo triết lý thiết kế Java (Phase 1, Chapter 15), thường
+biểu thị một điều kiện nghiệp vụ có thể <strong>dự đoán trước và xử lý được</strong> (ví dụ
+<code>InsufficientFundsException</code> — số dư không đủ, một tình huống hợp lệ về nghiệp vụ, không phải
+lỗi hệ thống) — code gọi có thể muốn <strong>giữ lại</strong> một phần thay đổi đã thực hiện (ví dụ ghi log
+audit về lần thử chuyển tiền thất bại) thay vì rollback toàn bộ. Dù có lý do thiết kế hợp lý,
+đây vẫn là một trong những "cạm bẫy" gây nhầm lẫn nhiều nhất cho lập trình viên mới chuyển từ
+nền tảng khác — khuyến nghị thực tế phổ biến nhất là <strong>luôn khai báo tường minh</strong>
+<code>@Transactional(rollbackFor = Exception.class)</code> khi có bất kỳ khả năng nào ném checked exception
+bên trong, thay vì dựa vào hành vi mặc định dễ gây hiểu lầm.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>@Transactional</code> (annotation-based) xuất hiện từ Spring 2.0 (2006) — trước đó, transaction phải
+khai báo qua XML (<code>&lt;tx:advice&gt;</code>) hoặc lập trình thủ công với <code>TransactionTemplate</code>. Việc kế thừa
+cùng cơ chế AOP proxy (thay vì một cơ chế hoàn toàn riêng biệt) là quyết định thiết kế nhất quán
+của Spring — cùng một nền tảng kỹ thuật (<code>BeanPostProcessor</code> tạo proxy, Chapter 05-06) phục vụ
+cho cả logging, security, caching (Chapter 16), và transaction — giúp toàn bộ hệ sinh thái Spring
+AOP-based dễ học và dễ đoán hành vi hơn khi đã hiểu rõ nguyên lý gốc.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>@Transactional</code> đảm bảo rollback cho MỌI loại exception."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — mặc định chỉ rollback cho unchecked exception
+  (<code>RuntimeException</code>/<code>Error</code>); checked exception yêu cầu khai báo tường minh <code>rollbackFor</code>.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ cần đánh dấu <code>@Transactional</code> trên method là chắc chắn transaction hoạt động,
+  bất kể method đó được gọi từ đâu."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — self-invocation khiến <code>@Transactional</code> bị bỏ
+  qua hoàn toàn, không có bất kỳ cảnh báo hay exception nào báo hiệu điều này.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi một method <code>@Transactional</code> qua <code>this</code> từ bên trong cùng class</strong> — lỗi self-invocation
+  phổ biến nhất, gây mất dữ liệu âm thầm như đã chứng minh.</li>
+<li><strong>Ném checked exception bên trong method <code>@Transactional</code> mà không khai báo <code>rollbackFor</code></strong> —
+  dữ liệu commit dù có lỗi, một trong những nguồn gốc phổ biến của bug "dữ liệu không nhất quán"
+  khó tái hiện trong production.</li>
+<li><strong>Đặt <code>@Transactional</code> ở tầng Controller thay vì tầng Service</strong> — làm transaction kéo dài
+  không cần thiết qua cả logic xử lý HTTP request/response, tăng nguy cơ giữ kết nối database
+  lâu hơn mức cần thiết.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn đặt <code>@Transactional</code> ở tầng Service, trên method public (self-invocation không phải vấn
+  đề khi gọi từ Controller — đó là lời gọi từ bên ngoài, đi qua proxy đúng cách).</li>
+<li>Khai báo tường minh <code>@Transactional(rollbackFor = Exception.class)</code> khi method có khả năng
+  ném checked exception mà bạn muốn rollback.</li>
+<li>Tránh gọi các method <code>@Transactional</code> khác qua <code>this</code> trong cùng class — tách ra bean riêng
+  nếu cần (đúng giải pháp đã học ở Chapter 12).</li>
+<li>Viết test tích hợp (integration test) xác nhận rollback hoạt động đúng cho các luồng nghiệp vụ
+  quan trọng, thay vì chỉ tin tưởng annotation "chắc chắn đúng".</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một API chuyển khoản trả về <code>200 OK</code> thành công, nhưng thỉnh thoảng người dùng báo
+cáo bị trừ tiền mà bên nhận không nhận được.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> không có exception nào xuất hiện trong log ứng dụng (vì self-invocation không
+  gây lỗi biên dịch/runtime rõ ràng), chỉ phát hiện qua đối chiếu số liệu kế toán định kỳ.</li>
+<li><strong>Root cause:</strong> method xử lý chuyển khoản chính (<code>@Transactional</code>) được một method khác trong
+  cùng Service gọi qua <code>this</code> (self-invocation), khiến transaction không bao giờ thực sự mở —
+  mỗi bước ghi dữ liệu auto-commit độc lập.</li>
+<li><strong>Debug:</strong> viết test tích hợp cố tình ném exception giữa chừng, xác nhận dữ liệu có rollback
+  đúng không; kiểm tra code có lời gọi <code>this.methodTransactional()</code> nào trong cùng class không.</li>
+<li><strong>Solution:</strong> tách method <code>@Transactional</code> ra một bean riêng, gọi qua dependency injection
+  thay vì <code>this</code>.</li>
+<li><strong>Prevention:</strong> thiết lập quy tắc code review bắt buộc kiểm tra self-invocation cho mọi method
+  <code>@Transactional</code>; viết test tích hợp cho mọi luồng nghiệp vụ có thao tác ghi dữ liệu nhiều
+  bước.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] API trả về thành công nhưng dữ liệu không nhất quán/không được ghi đúng? → kiểm tra
+      method <code>@Transactional</code> có bị gọi qua self-invocation không.</li>
+<li>[ ] Transaction không rollback dù có exception rõ ràng? → kiểm tra exception đó là checked hay
+      unchecked; nếu checked, cần khai báo <code>rollbackFor</code> tường minh.</li>
+<li>[ ] Cần xác nhận transaction có thực sự đang hoạt động? → kiểm tra
+      <code>TransactionSynchronizationManager.isActualTransactionActive()</code> hoặc bật log
+      <code>logging.level.org.springframework.transaction=DEBUG</code> để theo dõi begin/commit/rollback.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>@Transactional</code> hiện thực hoá qua AOP proxy (Chapter 12) — mở transaction trước khi method
+chạy, commit nếu thành công, rollback nếu có unchecked exception. Đã chứng minh bằng thực
+nghiệm bốn kịch bản: gọi trực tiếp qua proxy rollback đúng; <strong>self-invocation</strong> (<code>this.method()</code>
+từ bên trong cùng class) khiến <code>@Transactional</code> bị bỏ qua hoàn toàn, dữ liệu commit từng phần
+không thể rollback; <strong>checked exception</strong> không khai báo <code>rollbackFor</code> cũng khiến transaction
+commit thay vì rollback theo đúng mặc định của Spring. Cả hai đều là nguồn gốc phổ biến của lỗi
+"API trả về thành công nhưng dữ liệu sai" — cực kỳ khó phát hiện vì không có exception/cảnh báo
+nào lộ ra ngoài.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Your "@Transactional" method is executing, but the transaction is not rolling back. Why?</li>
-<li>Your REST API returns 200 OK, but the database update never happens. How is that possible? (self-invocation / proxy)</li>
+<li>Your REST API returns 200 OK, but the database update never happens. How is that possible?
+  (self-invocation / proxy)</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích chi tiết vì sao self-invocation khiến <code>@Transactional</code> bị bỏ qua, dựa trên cơ chế
+  AOP proxy đã học.</li>
+<li>Vì sao Spring mặc định không rollback cho checked exception? Đây có phải một quyết định thiết
+  kế hợp lý không?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>TransactionRollbackTest</code> ở trên, xác nhận cả 4 kịch bản cho kết quả đúng như mô
+      tả.</li>
+<li>[ ] Sửa <code>transferCheckedFails</code> thêm <code>@Transactional(rollbackFor = Exception.class)</code>, chạy lại,
+      xác nhận balance rollback đúng về giá trị ban đầu.</li>
+<li>[ ] Tách <code>internalTransferTx()</code> ra một bean <code>TransactionalTransferExecutor</code> riêng, tiêm vào
+      <code>TransferService</code>, gọi qua bean đó thay vì <code>this</code> trong <code>placeOrderNoTx()</code>, xác nhận
+      rollback hoạt động đúng.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Kịch bản</th>
+<th>Rollback?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gọi từ bên ngoài (qua proxy), unchecked exception</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Gọi từ bên ngoài (qua proxy), checked exception, không khai báo <code>rollbackFor</code></td>
+<td><strong>Không</strong></td>
+</tr>
+<tr>
+<td>Gọi từ bên ngoài (qua proxy), checked exception, có <code>rollbackFor = Exception.class</code></td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Self-invocation (<code>this.method()</code>), bất kỳ loại exception nào</td>
+<td><strong>Không</strong> (proxy bị bỏ qua hoàn toàn)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Transaction Management: https://docs.spring.io/spring-framework/reference/data-access/transaction.html</li>
+<li>Spring Framework Documentation — "Understanding AOP Proxies" (self-invocation limitation, cùng
+  áp dụng cho Transaction).</li>
 </ul>
 
 

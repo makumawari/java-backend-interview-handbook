@@ -27,7 +27,7 @@
     
     
       
-        <title>IoC - Java Backend Engineering Handbook</title>
+        <title>Inversion of Control (IoC) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ioc" class="md-skip">
+        <a href="#inversion-of-control-ioc" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IoC
+              Inversion of Control (IoC)
             
           </span>
         </div>
@@ -3012,7 +3012,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3030,7 +3030,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3243,43 +3243,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3364,7 +3331,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3392,7 +3359,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3448,7 +3415,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3532,7 +3499,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3560,7 +3527,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3588,7 +3555,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3616,7 +3583,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3611,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3639,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3667,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3695,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3723,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3751,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6012,43 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:ioc" class="md-tag">IoC</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6141,7 +6082,7 @@
   
 
 
-<h1 id="ioc">IoC<a class="headerlink" href="#ioc" title="Permanent link">&para;</a></h1>
+<h1 id="inversion-of-control-ioc">Inversion of Control (IoC)<a class="headerlink" href="#inversion-of-control-ioc" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>ioc</code></p>
@@ -6149,94 +6090,275 @@ Chapter slug: <code>ioc</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IoC</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Spring Core</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — DI</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Bean</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Bean Lifecycle</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-spring-core/">Chapter 01</a> — <code>OrderService</code> cần một <code>PaymentService</code> để hoạt
+động. Theo cách viết thông thường, ai là người quyết định <strong>khi nào</strong> và <strong>bằng cách nào</strong>
+<code>PaymentService</code> được tạo ra?</p>
 </blockquote>
+<p>So sánh hai cách viết cùng một quan hệ phụ thuộc:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PaymentService</span><span class="p">();</span><span class="w"> </span><span class="c1">// Cach 1</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">OrderService</span><span class="p">(</span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">paymentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paymentService</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Cach 2</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Ở Cách 1, <code>OrderService</code> <strong>tự quyết định</strong> tạo ra <code>PaymentService</code> cụ thể nào, khi nào. Ở Cách 2,
+<code>OrderService</code> chỉ khai báo "tôi cần một <code>PaymentService</code>" — <strong>ai đó khác</strong> (container) quyết
+định đưa instance nào vào, khi nào. Chạy thử với Spring container quản lý theo Cách 2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=== Cach 2: IoC container tu tao va noi cac bean ===
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>PaymentService constructor chay!
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>OrderService nhan PaymentService tu BEN NGOAI (khong tu new)
+</code></pre></div>
+<p><code>PaymentService</code> được tạo ra <strong>trước khi</strong> <code>OrderService</code> yêu cầu — quyền quyết định "khi nào
+tạo, tạo ra sao" đã bị <strong>đảo ngược</strong> từ <code>OrderService</code> sang container.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Inversion of Control (IoC) là gì? Nó "đảo ngược" điều gì so với cách lập trình thông thường?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác "control" nào bị "đảo ngược" trong IoC</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: container tạo bean trước, tiêm vào nơi cần, không phải
+      nơi cần tự tạo</li>
+<li>[ ] Phân biệt IoC (nguyên lý) và Dependency Injection (một trong các cách hiện thực hoá IoC,
+      Chapter 03)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu Spring Framework quản lý bean qua container.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 03 (DI)</strong> — cách cụ thể IoC container "tiêm" dependency vào bean.</li>
+<li><strong>Chapter 04 (Bean)</strong>, <strong>Chapter 05 (Bean Lifecycle)</strong> — chi tiết cách container tạo và quản lý
+  vòng đời bean.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Trong lập trình thủ tục thông thường, một object <strong>chủ động</strong> kiểm soát toàn bộ luồng: nó quyết
+định khi nào tạo dependency, tạo bằng cách nào, dùng implementation cụ thể nào. Điều này khiến
+object đó <strong>gắn chặt</strong> (tightly coupled) với các quyết định khởi tạo — muốn đổi implementation
+(ví dụ đổi từ gọi API thật sang mock khi test), phải sửa trực tiếp code bên trong object đó.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Inversion of Control (IoC)</strong> là nguyên lý thiết kế: thay vì một object tự kiểm soát việc tạo
+và quản lý các dependency của nó, quyền kiểm soát đó được <strong>chuyển giao</strong> (đảo ngược) cho một
+thực thể bên ngoài — trong Spring, đó là <strong>IoC Container</strong> (<code>ApplicationContext</code>). Object chỉ
+cần khai báo "tôi cần gì" (qua constructor, field, hoặc setter), container chịu trách nhiệm
+"cung cấp cái gì, khi nào, bằng cách nào".</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>"Control" bị đảo ngược cụ thể là: quyền quyết định <strong>thời điểm tạo</strong> (khi nào một
+<code>PaymentService</code> được khởi tạo) và <strong>cách tạo</strong> (dùng implementation nào, cấu hình ra sao) —
+trước đây thuộc về chính object cần dependency đó (<code>OrderService</code> tự <code>new</code>), giờ thuộc về
+container. Lợi ích trực tiếp: <code>OrderService</code> không còn biết (và không cần biết) <code>PaymentService</code>
+được tạo ra như thế nào — cho phép <strong>thay thế</strong> hoàn toàn cách tạo (ví dụ dùng implementation
+khác khi test) mà không sửa một dòng nào trong <code>OrderService</code>. Đây chính là nguyên lý làm nền
+tảng cho khả năng test dễ dàng và thiết kế loose-coupling của toàn bộ hệ sinh thái Spring.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">PaymentService</span><span class="w"> </span><span class="nf">paymentService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PaymentService</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">OrderService</span><span class="w"> </span><span class="nf">orderService</span><span class="p">(</span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderService</span><span class="p">(</span><span class="n">paymentService</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">OrderService</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="n">OrderService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// KHONG tu new, lay tu container</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>KHONG co IoC (control nam o OrderService):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  OrderService quyet dinh:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    - Khi nao tao PaymentService?     -&gt; luc OrderService duoc tao
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    - Tao implementation nao?          -&gt; OrderService tu chon trong code
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  new OrderService() ──► ben trong tu goi ──► new PaymentService()
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>CO IoC (control nam o Container):
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  Container quyet dinh:
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    - Khi nao tao PaymentService?     -&gt; theo lifecycle cua container (Chapter 05)
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    - Tao implementation nao?          -&gt; theo cau hinh (Chapter 06), co the doi khong sua code
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  Container: tao PaymentService TRUOC ──► tiem vao ──► OrderService (chi &quot;nhan&quot;, khong &quot;tu tao&quot;)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IocDemoTest</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">PaymentService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;PaymentService constructor chay!&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">OrderService</span><span class="p">(</span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">paymentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paymentService</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;OrderService nhan PaymentService tu BEN NGOAI (khong tu new)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nd">@Configuration</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="nd">@Bean</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="nf">paymentService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PaymentService</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="nd">@Bean</span><span class="w"> </span><span class="n">OrderService</span><span class="w"> </span><span class="nf">orderService</span><span class="p">(</span><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OrderService</span><span class="p">(</span><span class="n">paymentService</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">            </span><span class="n">OrderService</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="n">OrderService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Lay OrderService tu container: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">order</span><span class="p">);</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Framework 6.1.13):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=== Cach 2: IoC container tu tao va noi cac bean ===
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>PaymentService constructor chay!
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>OrderService nhan PaymentService tu BEN NGOAI (khong tu new)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Lay OrderService tu container: com.handbook.demo.IocDemoTest$OrderService@55dfcc6
+</code></pre></div>
+<p>Thứ tự quan trọng: <code>"PaymentService constructor chay!"</code> in ra <strong>trước</strong> khi code gọi
+<code>ctx.getBean(OrderService.class)</code> — container đã tự quyết định tạo <code>PaymentService</code> (và
+<code>OrderService</code>) ngay khi khởi tạo (<code>new AnnotationConfigApplicationContext(...)</code>), không đợi tới
+khi có ai gọi <code>getBean()</code>. <code>OrderService</code> chỉ đơn thuần <strong>nhận</strong> <code>PaymentService</code> qua constructor,
+không hề gọi <code>new PaymentService()</code> ở bất kỳ đâu bên trong chính nó.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao container tạo bean "ngay khi khởi tạo" thay vì đợi tới lúc <code>getBean()</code> được gọi?</strong> Mặc
+định, Spring container tạo <strong>eager</strong> (ngay lập tức, không trì hoãn) mọi bean có scope
+<code>singleton</code> (Chapter 04) khi <code>ApplicationContext</code> được refresh (khởi tạo) — không đợi tới khi có
+ai thực sự cần dùng bean đó. Quyết định thiết kế này (khác với việc trì hoãn tạo tới khi thực sự
+cần, gọi là "lazy") giúp phát hiện lỗi cấu hình (dependency thiếu, circular dependency — Chapter
+03) <strong>ngay khi ứng dụng khởi động</strong>, thay vì để lỗi xuất hiện bất ngờ giữa lúc phục vụ request
+thực tế — một ứng dụng "khởi động thành công" gần như đảm bảo mọi bean singleton đã được tạo và
+kết nối đúng.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>IoC là một nguyên lý (principle), Dependency Injection là một pattern (khuôn mẫu) hiện thực
+hoá nguyên lý đó — vì sao phân biệt hai khái niệm này quan trọng khi trả lời phỏng vấn?</strong> IoC
+chỉ nói "quyền kiểm soát việc tạo dependency thuộc về bên ngoài", nhưng <strong>không quy định cách cụ
+thể</strong> để làm điều đó — có nhiều cách hiện thực hoá IoC khác nhau: Dependency Injection (Chapter
+03, phổ biến nhất trong Spring), Service Locator pattern (object chủ động "hỏi" một registry
+trung tâm để lấy dependency, ít phổ biến hơn, có nhược điểm che giấu dependency thực sự), hay
+Template Method pattern (framework gọi ngược lại code của bạn tại các điểm định sẵn). Nhầm lẫn
+"IoC" và "DI" là đồng nghĩa hoàn toàn là một lỗi khái niệm phổ biến — DI chỉ là <strong>một cách cụ
+thể</strong> (dù là cách phổ biến nhất trong hệ sinh thái Spring) để đạt được Inversion of Control.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Thuật ngữ "Inversion of Control" xuất hiện từ trước Spring rất lâu, gắn liền với nguyên lý
+"Hollywood Principle" ("Don't call us, we'll call you" — đừng chủ động gọi framework, framework
+sẽ gọi lại code của bạn khi cần) trong thiết kế framework nói chung. Martin Fowler viết bài luận
+nổi tiếng "Inversion of Control Containers and the Dependency Injection pattern" (2004) — chính
+bài viết này góp phần phổ biến và làm rõ ranh giới giữa IoC (nguyên lý) và DI (một pattern cụ
+thể) mà ngành công nghiệp dùng tới ngày nay.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "IoC và Dependency Injection là hai tên gọi khác nhau cho cùng một khái niệm."
+  <strong>Reality:</strong> Xem Engineering Insight — DI chỉ là một trong nhiều cách hiện thực hoá nguyên lý
+  IoC tổng quát hơn.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "IoC container tạo bean khi nào cần thì tạo (lazy), giống hệt việc gọi <code>new</code> thông
+  thường chỉ là được container làm hộ."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — mặc định container tạo mọi bean singleton
+  <strong>ngay khi khởi tạo</strong>, không đợi tới lúc cần dùng (xem Deep Dive).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li><strong>Đồng nhất hoàn toàn IoC với DI khi trả lời phỏng vấn</strong> — bỏ lỡ cơ hội thể hiện hiểu biết sâu
+  hơn về các cách hiện thực hoá IoC khác (Service Locator, Template Method).</li>
+<li><strong>Nghĩ rằng bean chỉ được tạo khi thực sự cần dùng (<code>getBean()</code>)</strong> — mặc định sai với bean
+  singleton, gây hiểu lầm khi debug thời điểm một constructor thực sự chạy.</li>
+<li><strong>Không hiểu vì sao ứng dụng "khởi động chậm hơn"</strong> khi thêm nhiều bean — vì mọi bean singleton
+  được tạo eager ngay lúc khởi động, không phải lazy.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Constructor của một bean chạy sớm hơn dự kiến (trước khi có request nào tới)? → bình
+      thường với bean singleton mặc định eager, xem Deep Dive.</li>
+<li>[ ] Ứng dụng khởi động chậm khi có nhiều bean nặng (kết nối DB, load config lớn)? → cân nhắc
+      đánh dấu <code>@Lazy</code> cho các bean không cần thiết ngay lúc khởi động.</li>
+<li>[ ] Nhầm lẫn IoC và DI khi thiết kế/trả lời phỏng vấn? → nhớ: IoC là nguyên lý tổng quát, DI là
+      một cách cụ thể (phổ biến nhất trong Spring) để đạt được nó.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Inversion of Control (IoC) đảo ngược quyền kiểm soát việc tạo và quản lý dependency — từ chính
+object cần dependency đó, chuyển sang một thực thể bên ngoài (IoC Container trong Spring). Đã
+chứng minh bằng thực nghiệm: <code>PaymentService</code> được container tạo ra <strong>trước</strong> khi <code>OrderService</code>
+yêu cầu, và <code>OrderService</code> chỉ nhận, không tự tạo. Mặc định mọi bean singleton được tạo eager
+ngay khi container khởi tạo, giúp phát hiện lỗi cấu hình sớm. IoC là nguyên lý tổng quát; Dependency Injection (Chapter 03) chỉ là một trong các cách hiện thực hoá nó.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Inversion of Control (IoC) là gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>IoC khác Dependency Injection như thế nào? Vì sao không nên coi chúng là đồng nghĩa?</li>
+<li>Bean singleton được container tạo ra khi nào — ngay lúc khởi động hay khi thực sự cần dùng?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>IocDemoTest</code> ở trên, quan sát thứ tự các dòng in ra để xác nhận container tạo
+      bean trước khi có ai gọi <code>getBean()</code>.</li>
+<li>[ ] Thêm <code>@Lazy</code> vào bean <code>PaymentService</code>, chạy lại, quan sát constructor chỉ chạy khi
+      <code>getBean()</code> (hoặc bean phụ thuộc nó) thực sự được gọi.</li>
+<li>[ ] Tìm hiểu Service Locator pattern, viết một ví dụ đơn giản minh hoạ nó cũng là một cách
+      hiện thực hoá IoC nhưng khác Dependency Injection.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IoC</td>
+<td>Nguyên lý: quyền tạo/quản lý dependency thuộc về bên ngoài, không phải chính object cần nó</td>
+</tr>
+<tr>
+<td>DI</td>
+<td>Một pattern cụ thể hiện thực hoá IoC — dependency được "tiêm" vào (constructor/field/setter)</td>
+</tr>
+<tr>
+<td>IoC Container</td>
+<td>Cơ chế cụ thể của Spring quản lý vòng đời và kết nối bean</td>
+</tr>
+<tr>
+<td>Service Locator</td>
+<td>Cách hiện thực hoá IoC khác — object chủ động hỏi registry để lấy dependency</td>
+</tr>
+<tr>
+<td>Bean singleton mặc định</td>
+<td>Được tạo eager, ngay khi container khởi tạo</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — IoC Container: https://docs.spring.io/spring-framework/reference/core/beans.html</li>
+<li>Martin Fowler — "Inversion of Control Containers and the Dependency Injection pattern" (2004).</li>
 </ul>
 
 

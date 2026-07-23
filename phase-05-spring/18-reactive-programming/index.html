@@ -27,7 +27,7 @@
     
     
       
-        <title>Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket) - Java Backend Engineering Handbook</title>
+        <title>Reactive Programming với Project Reactor (Mono/Flux) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reactive-programming-project-reactor-webflux-monoflux-rsocket" class="md-skip">
+        <a href="#reactive-programming-voi-project-reactor-monoflux" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+              Reactive Programming với Project Reactor (Mono/Flux)
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3227,7 +3227,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3255,7 +3255,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3283,7 +3283,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3311,7 +3311,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3339,7 +3339,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3367,7 +3367,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3395,7 +3395,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3423,7 +3423,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3460,7 +3460,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -3478,7 +3478,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -3702,32 +3702,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:reactive" class="md-tag">Reactive</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:webflux" class="md-tag">WebFlux</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="reactive-programming-project-reactor-webflux-monoflux-rsocket">Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)<a class="headerlink" href="#reactive-programming-project-reactor-webflux-monoflux-rsocket" title="Permanent link">&para;</a></h1>
+<h1 id="reactive-programming-voi-project-reactor-monoflux">Reactive Programming với Project Reactor (Mono/Flux)<a class="headerlink" href="#reactive-programming-voi-project-reactor-monoflux" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>reactive-programming</code></p>
@@ -6149,94 +6119,302 @@ Chapter slug: <code>reactive-programming</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — REST</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4, Chapter 04 — Stream</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 18 — CompletableFuture</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kiến trúc hệ thống hiệu năng cao, độ trễ thấp (Phase 8)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 4, Chapter 04 (Stream) — <code>Stream</code> là <strong>lazy</strong>: <code>map()</code>/<code>filter()</code> không chạy
+cho tới khi có terminal operation. <code>Mono</code>/<code>Flux</code> (Project Reactor, nền tảng của Spring
+WebFlux) mang chính xác nguyên lý đó sang thế giới <strong>bất đồng bộ</strong>.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mono</span><span class="p">.</span><span class="na">just</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;map() DANG CHAY&quot;</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Da tao xong Mono, map() CHUA CHAY (lazy)&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">mono</span><span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ket qua: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">));</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Da tao xong Mono, map() CHUA CHAY (lazy)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>=== Goi subscribe() ===
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  map() DANG CHAY
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Ket qua: 20
+</code></pre></div>
+<p>Giống hệt <code>Stream</code>: khai báo <code>.map()</code> không chạy gì cả — chỉ khi <code>subscribe()</code> (tương đương
+terminal operation) được gọi, toàn bộ chuỗi mới thực sự thực thi.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Mono</code> và <code>Flux</code> khác nhau như thế nào? Vì sao lập trình reactive (Project Reactor) được coi
+là "lazy" và "non-blocking" — điều này thể hiện qua bằng chứng cụ thể nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt <code>Mono&lt;T&gt;</code> (0 hoặc 1 phần tử) và <code>Flux&lt;T&gt;</code> (0 tới N phần tử)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>Mono</code>/<code>Flux</code> lazy giống <code>Stream</code>, và hỗ trợ
+      short-circuit qua <code>take()</code></li>
+<li>[ ] Hiểu vì sao có cả <code>spring-boot-starter-web</code> (Servlet/Tomcat) và <code>spring-boot-starter-webflux</code> (Reactive/Netty) trên classpath khiến Spring Boot <strong>ưu tiên</strong> Servlet stack theo mặc định</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 09 — hiểu REST controller truyền thống, để so sánh với REST controller kiểu reactive.</li>
+<li>Phase 4, Chapter 04 — hiểu Stream lazy evaluation, nguyên lý tương tự áp dụng cho Reactor.</li>
+<li>Phase 3, Chapter 18 — hiểu <code>CompletableFuture</code>, một cách tiếp cận bất đồng bộ khác để so sánh.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Kiến trúc hệ thống hiệu năng cao, độ trễ thấp</strong> (Phase 8) — reactive stack phù hợp cho hệ
+  thống cần xử lý số lượng kết nối đồng thời cực lớn với tài nguyên thread hạn chế.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Mô hình "mỗi request một thread" truyền thống (Servlet/Tomcat, Chapter 09) chặn (block) thread
+xử lý trong suốt thời gian chờ I/O (gọi database, gọi API khác) — với số lượng kết nối đồng thời
+rất lớn, số thread cần thiết tăng tương ứng, tốn tài nguyên (dù Virtual Thread, Phase 3 Chapter
+19, đã giảm nhẹ vấn đề này ở tầng JVM). Lập trình reactive giải quyết cùng vấn đề I/O-bound này
+theo một hướng khác: xử lý bất đồng bộ, non-blocking hoàn toàn, dựa trên một số ít thread xử lý
+event.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Project Reactor</strong> (<code>Mono&lt;T&gt;</code>, <code>Flux&lt;T&gt;</code>) là thư viện lập trình reactive nền tảng của Spring
+WebFlux — implement chuẩn <strong>Reactive Streams</strong>. <code>Mono&lt;T&gt;</code> đại diện cho một luồng dữ liệu phát ra
+<strong>0 hoặc 1</strong> phần tử (tương tự <code>Optional</code>/<code>CompletableFuture&lt;T&gt;</code>, nhưng bất đồng bộ và lazy).
+<code>Flux&lt;T&gt;</code> đại diện cho luồng phát ra <strong>0 tới N</strong> phần tử (tương tự <code>Stream&lt;T&gt;</code>, nhưng bất đồng
+bộ). Cả hai đều <strong>lazy</strong> — không có gì thực thi cho tới khi có ai <code>subscribe()</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Thiết kế lazy (giống Stream) cho phép Reactor xây dựng toàn bộ "đường ống xử lý" (pipeline) như
+một mô tả thuần tuý trước khi thực thi, từ đó tối ưu hoá và hỗ trợ <strong>backpressure</strong> (subscriber
+có thể báo cho publisher "chậm lại, tôi chưa xử lý kịp") — điều mà mô hình push đơn giản (publisher tự động đẩy dữ liệu, không quan tâm subscriber có theo kịp không) không làm được. Toàn bộ mô
+hình reactive dựa trên non-blocking I/O ở tầng thấp nhất (Netty thay vì Tomcat) để một số ít
+thread có thể phục vụ số lượng kết nối đồng thời rất lớn, mỗi thread không bao giờ bị "khoá cứng"
+chờ I/O.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mono</span><span class="p">.</span><span class="na">just</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">mono</span><span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">));</span><span class="w"> </span><span class="c1">// CHI luc nay moi chay</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">Flux</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Flux</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">.</span><span class="na">take</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// CHI can 3 phan tu dau, KHONG xu ly het 100</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">flux</span><span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">// WebFlux controller: tra ve Flux/Mono truc tiep</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/reactive/numbers&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">Flux</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">numbers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Flux</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="na">delayElements</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMillis</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Mono/Flux (LAZY, giong Stream):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Mono.just(10).map(...) ──► CHI mo ta &quot;cong thuc&quot;, CHUA chay
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  subscribe() ──► BAY GIO moi thuc su chay toan bo chuoi
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Flux voi take() (short-circuit, giong Stream.findFirst):
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Flux.range(1, 100).filter(...).map(...).take(3)
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>       │
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  Chi xu ly DEN KHI du 3 phan tu khop dieu kien, KHONG can xu ly het 100 phan tu
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Lazy evaluation:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Mono</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mono</span><span class="p">.</span><span class="na">just</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  map() DANG CHAY&quot;</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Da tao xong Mono, map() CHUA CHAY (lazy)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">mono</span><span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ket qua: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">));</span>
 </code></pre></div>
+<p>Kết quả thật (Project Reactor, Spring Boot 3.3.4):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Da tao xong Mono, map() CHUA CHAY (lazy)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>=== Goi subscribe() ===
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  map() DANG CHAY
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Ket qua: 20
+</code></pre></div>
+<p><strong>Xử lý lỗi và bất đồng bộ thật (không block):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mono</span><span class="p">.</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="n">error</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;loi gia lap&quot;</span><span class="p">))</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="p">.</span><span class="na">onErrorReturn</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="p">.</span><span class="na">block</span><span class="p">();</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ket qua khi co loi (fallback): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"> </span><span class="c1">// -1</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ticks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Flux</span><span class="p">.</span><span class="na">interval</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMillis</span><span class="p">(</span><span class="mi">100</span><span class="p">)).</span><span class="na">take</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="na">collectList</span><span class="p">().</span><span class="na">block</span><span class="p">();</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">// Ticks: [0, 1, 2], thoi gian: 327ms (dung nhu ky vong ~300ms - Flux.interval THAT SU cho)</span>
+</code></pre></div>
+<p><strong>WebFlux controller thật, gọi qua HTTP:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/reactive/numbers&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Flux</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">numbers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Flux</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="na">delayElements</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMillis</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ time curl http://localhost:8080/api/reactive/numbers
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[1,2,3,4,5]
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>... 0.410 total
+</code></pre></div>
+<p><code>Flux.interval</code> thực sự <strong>chờ</strong> đúng khoảng thời gian đã khai báo (327ms cho 3 tick × 100ms,
+không phải trả về ngay lập tức) — xác nhận đây là xử lý bất đồng bộ thật, không phải giả lập.
+Endpoint HTTP trả về mảng JSON sau khi đã đợi đủ 5 phần tử × 50ms trễ.</p>
+<p><strong>Kiểm tra server nào thực sự chạy — Tomcat hay Netty?</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ grep -i tomcat app.log
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Tomcat initialized with port 8080 (http)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Tomcat started on port 8080 (http) with context path &#39;/&#39;
+</code></pre></div>
+<p>Dù có cả <code>spring-boot-starter-web</code> <strong>và</strong> <code>spring-boot-starter-webflux</code> trên classpath, log khởi
+động xác nhận <strong>Tomcat</strong> (Servlet stack) đang chạy, không phải Netty.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao có cả hai starter (<code>web</code> và <code>webflux</code>) trên classpath nhưng Tomcat vẫn được chọn thay vì
+Netty?</strong> Đây là hệ quả trực tiếp của cơ chế Auto Configuration (Chapter 07):
+<code>WebMvcAutoConfiguration</code> (Servlet stack) và <code>WebFluxAutoConfiguration</code> (Reactive stack) đều tồn
+tại trong <code>AutoConfiguration.imports</code>, nhưng Spring Boot có logic <strong>ưu tiên Servlet stack khi cả
+hai đều khả dụng</strong> trên classpath (dùng <code>@ConditionalOnMissingBean</code>/thứ tự đánh giá đặc biệt cho
+tình huống này) — giả định rằng nếu một dự án cố tình thêm <code>spring-boot-starter-web</code>, đó là lựa
+chọn có chủ đích. Điều này giải thích tại sao ví dụ WebFlux <code>Flux&lt;Integer&gt;</code> trong chapter này vẫn
+hoạt động đúng (<code>curl</code> nhận đúng JSON) dù chạy trên Tomcat — Spring MVC (Chapter 09) có hỗ trợ
+sẵn khả năng nhận diện kiểu trả về <code>Mono</code>/<code>Flux</code> và tự thích ứng (adapt) chúng, dù bản thân
+Tomcat/Servlet API không phải reactive/non-blocking thuần tuý ở tầng thấp nhất. Muốn thực sự chạy
+trên Netty (WebFlux đầy đủ, non-blocking từ tầng network trở lên), cần loại bỏ hẳn
+<code>spring-boot-starter-web</code> khỏi dependency.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Khi nào nên chọn Reactive stack (WebFlux) thay vì Servlet stack (MVC) truyền thống, và khi nào
+không nên?</strong> Reactive stack mang lại lợi ích rõ rệt khi: (1) ứng dụng cần xử lý <strong>số lượng kết
+nối đồng thời cực lớn</strong> với tài nguyên hạn chế (ví dụ API gateway, streaming data), và (2) toàn
+bộ chuỗi phụ thuộc (database driver, HTTP client gọi service khác) đều hỗ trợ non-blocking thật
+sự — nếu chỉ một mắt xích trong chuỗi vẫn dùng driver blocking truyền thống (ví dụ JDBC thông
+thường, không phải R2DBC), lợi ích non-blocking của WebFlux bị <strong>phá vỡ hoàn toàn</strong> ở chính điểm
+đó, thậm chí có thể gây hại (block một trong số ít thread event-loop khiến toàn bộ ứng dụng bị
+ảnh hưởng, không giống mô hình Servlet nơi mỗi request có thread riêng, một request bị block
+không ảnh hưởng request khác). Đây là lý do các chuyên gia Spring thường khuyến nghị: <strong>chỉ</strong>
+chọn WebFlux khi thực sự cần và toàn bộ hệ sinh thái phụ thuộc đã sẵn sàng reactive; với phần lớn
+ứng dụng backend thông thường, đặc biệt từ khi có Virtual Thread (Phase 3, Chapter 19), Servlet
+stack truyền thống vẫn là lựa chọn đơn giản, dễ debug hơn nhiều.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Project Reactor ra đời khoảng 2013, chuẩn hoá theo đặc tả <strong>Reactive Streams</strong> (2015, hợp tác
+giữa Netflix, Pivotal/Spring, Lightbend, và nhiều bên khác) — một nỗ lực thống nhất API cho lập
+trình reactive trên JVM (trước đó có nhiều thư viện cạnh tranh không tương thích: RxJava, Akka
+Streams, Reactor). Spring WebFlux chính thức ra mắt cùng Spring Framework 5.0 (2017) — muộn hơn
+đáng kể so với Spring MVC (2007), phản ánh đây là một bổ sung cho các trường hợp sử dụng chuyên
+biệt, không phải thay thế hoàn toàn mô hình MVC truyền thống.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "WebFlux/Reactive luôn nhanh hơn Spring MVC truyền thống."
+  <strong>Reality:</strong> Xem Engineering Insight — chỉ có lợi khi toàn bộ chuỗi phụ thuộc đều non-blocking;
+  nếu có bất kỳ điểm blocking nào trong chuỗi, WebFlux có thể <strong>tệ hơn</strong> MVC truyền thống.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Có <code>spring-boot-starter-webflux</code> trên classpath nghĩa là ứng dụng đang chạy trên
+  Netty, non-blocking hoàn toàn."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — nếu <code>spring-boot-starter-web</code> cũng có mặt, Spring
+  Boot mặc định vẫn chọn Tomcat (Servlet stack), không phải Netty.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Trộn lẫn code blocking (JDBC thông thường) vào một luồng xử lý WebFlux</strong> — phá vỡ hoàn toàn
+  lợi ích non-blocking, có thể gây hại nghiêm trọng hơn dùng MVC truyền thống.</li>
+<li><strong>Chọn WebFlux "vì nghe nói nó nhanh hơn" mà không đánh giá liệu use case thực sự cần</strong> — thêm
+  độ phức tạp đáng kể (lập trình reactive khó debug, khó viết đúng hơn code tuần tự) mà không có
+  lợi ích tương xứng.</li>
+<li><strong>Gọi <code>.block()</code> bên trong một luồng xử lý reactive</strong> — về cơ bản "biến" reactive code thành
+  blocking code, mất hết ý nghĩa của việc dùng Mono/Flux ngay từ đầu (chỉ nên dùng <code>.block()</code>
+  ở test hoặc code hoàn toàn nằm ngoài luồng reactive).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Chỉ chọn WebFlux khi thực sự cần xử lý lượng kết nối đồng thời cực lớn và toàn bộ chuỗi phụ
+  thuộc đã hỗ trợ non-blocking (R2DBC thay vì JDBC, WebClient thay vì RestTemplate).</li>
+<li>Không gọi <code>.block()</code> bên trong luồng xử lý reactive thực tế — chỉ dùng ở ranh giới (test, hoặc
+  điểm chuyển đổi từ code đồng bộ sang bất đồng bộ).</li>
+<li>Với phần lớn ứng dụng backend, cân nhắc Servlet stack + Virtual Thread (Phase 3, Chapter 19)
+  trước khi quyết định chuyển sang WebFlux — đơn giản hơn nhiều để viết đúng và debug.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Không chắc ứng dụng đang chạy trên Tomcat hay Netty? → kiểm tra log khởi động, tìm dòng
+      "Tomcat started" hoặc "Netty started".</li>
+<li>[ ] Hiệu năng WebFlux tệ hơn dự kiến? → kiểm tra có lời gọi blocking nào (JDBC, <code>.block()</code>,
+      thư viện đồng bộ) lẫn trong luồng xử lý reactive không.</li>
+<li>[ ] <code>Mono</code>/<code>Flux</code> không "chạy" dù đã khai báo đầy đủ pipeline? → kiểm tra có quên gọi
+      <code>subscribe()</code> (hoặc <code>.block()</code> trong test) không — giống lỗi quên terminal operation của
+      Stream.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Mono&lt;T&gt;</code> (0-1 phần tử) và <code>Flux&lt;T&gt;</code> (0-N phần tử) của Project Reactor mang nguyên lý lazy
+evaluation của Stream (Phase 4) sang thế giới bất đồng bộ, non-blocking. Đã chứng minh bằng thực
+nghiệm: <code>.map()</code> không chạy cho tới khi <code>subscribe()</code>; <code>.take(3)</code> short-circuit giống
+<code>Stream.findFirst</code>; <code>Flux.interval</code> thực sự chờ đúng thời gian đã khai báo (327ms cho 3×100ms),
+xác nhận đây là xử lý bất đồng bộ thật. Dù có cả <code>spring-boot-starter-web</code> và
+<code>spring-boot-starter-webflux</code>, Spring Boot mặc định vẫn chọn chạy trên Tomcat (Servlet stack),
+không phải Netty — WebFlux chỉ thực sự phát huy lợi ích khi loại bỏ hoàn toàn dependency Servlet
+và toàn bộ chuỗi phụ thuộc đều non-blocking.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>Mono</code> và <code>Flux</code> khác nhau như thế nào?</li>
+<li>Vì sao lập trình reactive được coi là "lazy" và "non-blocking"?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Khi nào nên chọn WebFlux thay vì Spring MVC truyền thống? Rủi ro gì nếu trộn code blocking vào
+  luồng xử lý reactive?</li>
+<li>Giải thích vì sao có cả <code>spring-boot-starter-web</code> và <code>spring-boot-starter-webflux</code> trên
+  classpath, Spring Boot vẫn mặc định chạy trên Tomcat.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>ReactiveDemoTest</code> ở trên, xác nhận cả 4 kết quả (lazy evaluation, short-circuit,
+      error handling, timing thật) đúng như mô tả.</li>
+<li>[ ] Gọi endpoint <code>/api/reactive/numbers</code> qua <code>curl</code>, đo thời gian phản hồi, xác nhận nó tương
+      ứng với tổng độ trễ <code>delayElements</code> đã khai báo.</li>
+<li>[ ] Loại bỏ hẳn <code>spring-boot-starter-web</code> khỏi dependency, giữ lại <code>webflux</code>, chạy lại ứng
+      dụng, xác nhận log khởi động đổi từ "Tomcat started" sang "Netty started".</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>Mono&lt;T&gt;</code></th>
+<th><code>Flux&lt;T&gt;</code></th>
+<th><code>Stream&lt;T&gt;</code> (Phase 4)</th>
+<th><code>CompletableFuture&lt;T&gt;</code> (Phase 3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Số phần tử</td>
+<td>0-1</td>
+<td>0-N</td>
+<td>0-N</td>
+<td>1 (kết quả cuối)</td>
+</tr>
+<tr>
+<td>Lazy</td>
+<td>Có</td>
+<td>Có</td>
+<td>Có</td>
+<td>Không (thực thi ngay khi tạo)</td>
+</tr>
+<tr>
+<td>Bất đồng bộ</td>
+<td>Có</td>
+<td>Có</td>
+<td>Không</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Backpressure</td>
+<td>Có</td>
+<td>Có</td>
+<td>Không áp dụng</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Project Reactor Documentation — https://projectreactor.io/docs/core/release/reference/</li>
+<li>Spring Framework Documentation — Web on Reactive Stack (WebFlux): https://docs.spring.io/spring-framework/reference/web/webflux.html</li>
+<li>Reactive Streams Specification — https://www.reactive-streams.org/</li>
 </ul>
 
 

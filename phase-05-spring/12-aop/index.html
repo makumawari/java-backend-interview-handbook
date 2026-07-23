@@ -27,7 +27,7 @@
     
     
       
-        <title>AOP - Java Backend Engineering Handbook</title>
+        <title>Aspect-Oriented Programming (AOP) và Self-Invocation - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aop" class="md-skip">
+        <a href="#aspect-oriented-programming-aop-va-self-invocation" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AOP
+              Aspect-Oriented Programming (AOP) và Self-Invocation
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3227,7 +3227,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3255,7 +3255,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3292,7 +3292,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3310,7 +3310,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3534,32 +3534,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3644,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:aop" class="md-tag">AOP</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6141,7 +6104,7 @@
   
 
 
-<h1 id="aop">AOP<a class="headerlink" href="#aop" title="Permanent link">&para;</a></h1>
+<h1 id="aspect-oriented-programming-aop-va-self-invocation">Aspect-Oriented Programming (AOP) và Self-Invocation<a class="headerlink" href="#aspect-oriented-programming-aop-va-self-invocation" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>aop</code></p>
@@ -6149,94 +6112,306 @@ Chapter slug: <code>aop</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AOP</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Bean Lifecycle</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Configuration</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 13 — Transaction</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 14 — Async</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-bean-lifecycle/">Chapter 05</a> — bean nhận qua <code>@Autowired</code> có thể là một
+<strong>proxy</strong>, không phải instance gốc, tạo ra bởi <code>BeanPostProcessor</code> tại bước
+<code>postProcessAfterInitialization</code>. AOP chính là ứng dụng thực tế của cơ chế đó — nhưng proxy
+chỉ "chặn" được lời gọi <strong>từ bên ngoài</strong>. Điều gì xảy ra khi một method tự gọi một method khác
+<strong>trong cùng class</strong>?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">confirmOrder</span><span class="p">();</span><span class="w"> </span><span class="c1">// goi qua &#39;this&#39;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">confirmOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Với một <code>@Aspect</code> ghi log trước/sau mỗi method của <code>OrderService</code>, gọi trực tiếp
+<code>confirmOrder()</code> từ bên ngoài và gọi <code>placeOrder()</code> (tự gọi <code>confirmOrder()</code> bên trong) cho ra
+kết quả khác nhau:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=== Goi TRUC TIEP confirmOrder() TU BEN NGOAI (qua proxy) ===
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  [AOP] TRUOC: confirmOrder
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>confirmOrder() dang chay
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  [AOP] SAU: confirmOrder
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>=== Goi placeOrder() (se tu goi confirmOrder() qua &#39;this&#39; o BEN TRONG) ===
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  [AOP] TRUOC: placeOrder
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>placeOrder() dang chay, tu goi confirmOrder() qua &#39;this&#39;...
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>confirmOrder() dang chay
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  [AOP] SAU: placeOrder
+</code></pre></div>
+<p>Khi gọi từ bên ngoài, <code>confirmOrder()</code> có đủ cả <code>[AOP] TRUOC</code>/<code>[AOP] SAU</code>. Nhưng khi
+<code>placeOrder()</code> tự gọi <code>confirmOrder()</code> bên trong, <strong>không hề</strong> có dòng <code>[AOP]</code> nào cho
+<code>confirmOrder()</code> — dù cùng một method, cùng một aspect.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>AOP trong Spring hoạt động dựa trên cơ chế proxy như thế nào? Vì sao gọi một method có AOP từ
+bên trong cùng class (self-invocation) lại không kích hoạt advice?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích các khái niệm cốt lõi của AOP: Aspect, Advice, Pointcut, Join Point</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: self-invocation (<code>this.method()</code>) không kích hoạt AOP
+      advice, trong khi gọi từ bên ngoài thì có</li>
+<li>[ ] Hiểu đây chính là "self-invocation limitation" — nền tảng để hiểu đúng các cạm bẫy tương
+      tự ở <code>@Transactional</code> (Chapter 13) và <code>@Async</code> (Chapter 14)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — hiểu <code>BeanPostProcessor</code> là nơi proxy được tạo.</li>
+<li>Chapter 06 — hiểu CGLIB proxy, cùng kỹ thuật nền tảng AOP sử dụng.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 13 (Transaction)</strong>, <strong>Chapter 14 (Async)</strong> — cả hai đều xây trên AOP, chịu chung giới
+  hạn self-invocation đã học ở chapter này.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nhiều mối quan tâm (concern) trong một ứng dụng thực tế <strong>cắt ngang</strong> (cross-cutting) qua nhiều
+class/method khác nhau, không thuộc về logic nghiệp vụ cốt lõi của bất kỳ class nào riêng lẻ:
+logging, đo thời gian thực thi, kiểm tra quyền truy cập, quản lý transaction (Chapter 13). Nếu
+viết logic này lặp lại thủ công trong từng method cần nó, code nghiệp vụ bị "nhiễu" bởi logic hạ
+tầng không liên quan, và dễ bỏ sót khi thêm method mới.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>AOP (Aspect-Oriented Programming)</strong> cho phép tách các "cross-cutting concern" ra thành một
+<strong>Aspect</strong> riêng biệt, rồi khai báo <strong>Advice</strong> (logic cần chèn thêm, ví dụ log trước/sau) áp
+dụng vào các <strong>Join Point</strong> (điểm trong luồng thực thi, thường là lời gọi method) khớp với một
+<strong>Pointcut</strong> (biểu thức mô tả "áp dụng cho những method nào"). Spring AOP hiện thực hoá cơ chế
+này bằng <strong>proxy</strong> (JDK dynamic proxy hoặc CGLIB, đã gặp ở Chapter 06) — bọc quanh bean gốc, chặn
+lời gọi method để chèn logic advice trước khi (hoặc sau khi) gọi method thật.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì AOP dựa trên proxy — một object <strong>bọc bên ngoài</strong> bean gốc — nó chỉ có thể chặn được các lời
+gọi method đi <strong>qua chính proxy đó</strong>, tức là các lời gọi <strong>từ bên ngoài</strong> class (ai đó cầm
+reference tới proxy, gọi <code>service.confirmOrder()</code>). Khi một method bên trong class tự gọi
+<code>this.confirmOrder()</code>, lời gọi đó đi <strong>thẳng</strong> tới instance gốc (chính <code>this</code> bên trong method
+đang chạy — không phải là proxy!), hoàn toàn <strong>bỏ qua</strong> proxy bọc bên ngoài — đây là giới hạn cố
+hữu, không phải lỗi cấu hình, của mọi kỹ thuật AOP dựa trên proxy.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Aspect</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">class</span> <span class="nc">LoggingAspect</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nd">@Around</span><span class="p">(</span><span class="s">&quot;execution(* com.handbook.demo.OrderService.*(..))&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="nf">logAround</span><span class="p">(</span><span class="n">ProceedingJoinPoint</span><span class="w"> </span><span class="n">pjp</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;TRUOC: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pjp</span><span class="p">.</span><span class="na">getSignature</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pjp</span><span class="p">.</span><span class="na">proceed</span><span class="p">();</span><span class="w"> </span><span class="c1">// goi method that</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;SAU: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pjp</span><span class="p">.</span><span class="na">getSignature</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nd">@EnableAspectJAutoProxy</span><span class="w"> </span><span class="c1">// BAT BUOC de kich hoat AOP</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Goi TU BEN NGOAI (qua proxy):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Client ──► Proxy.confirmOrder() ──► [AOP TRUOC] ──► OrderService that.confirmOrder() ──► [AOP SAU]
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>             (proxy CHAN duoc, chen advice)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Goi TU BEN TRONG (self-invocation, KHONG qua proxy):
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  Client ──► Proxy.placeOrder() ──► [AOP TRUOC placeOrder]
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                                        │
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                                   OrderService THAT.placeOrder() dang chay
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                        │
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                                   this.confirmOrder()  &lt;- &#39;this&#39; la INSTANCE GOC, KHONG PHAI proxy!
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>                                        │
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>                                   OrderService THAT.confirmOrder() chay TRUC TIEP
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                                        │           (KHONG co [AOP TRUOC/SAU confirmOrder] nao!)
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>                                   quay lai placeOrder()
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>                                        │
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                                   [AOP SAU placeOrder]
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Aspect</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@Component</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LoggingAspect</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nd">@Around</span><span class="p">(</span><span class="s">&quot;execution(* com.handbook.demo.AopSelfInvocationTest.OrderService.*(..))&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">Object</span><span class="w"> </span><span class="nf">logAround</span><span class="p">(</span><span class="n">ProceedingJoinPoint</span><span class="w"> </span><span class="n">pjp</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  [AOP] TRUOC: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pjp</span><span class="p">.</span><span class="na">getSignature</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pjp</span><span class="p">.</span><span class="na">proceed</span><span class="p">();</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  [AOP] SAU: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pjp</span><span class="p">.</span><span class="na">getSignature</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nd">@Component</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;placeOrder() dang chay, tu goi confirmOrder() qua &#39;this&#39;...&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">confirmOrder</span><span class="p">();</span><span class="w"> </span><span class="c1">// goi qua &#39;this&#39; - KHONG di qua proxy!</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">confirmOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;confirmOrder() dang chay&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Framework 6.1.13, <code>@EnableAspectJAutoProxy</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Class thuc te cua bean: ...OrderService$$SpringCGLIB$$0
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>=== Goi TRUC TIEP confirmOrder() TU BEN NGOAI (qua proxy) ===
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  [AOP] TRUOC: confirmOrder
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>confirmOrder() dang chay
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  [AOP] SAU: confirmOrder
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>=== Goi placeOrder() (se tu goi confirmOrder() qua &#39;this&#39; o BEN TRONG) ===
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  [AOP] TRUOC: placeOrder
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>placeOrder() dang chay, tu goi confirmOrder() qua &#39;this&#39;...
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>confirmOrder() dang chay
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  [AOP] SAU: placeOrder
+</code></pre></div>
+<p>Class thực tế của bean là <code>OrderService$$SpringCGLIB$$0</code> — xác nhận đây là CGLIB proxy, cùng cơ
+chế đã học ở Chapter 06. Gọi <code>confirmOrder()</code> trực tiếp từ bên ngoài kích hoạt đủ cả
+<code>[AOP] TRUOC</code>/<code>[AOP] SAU</code>. Nhưng bên trong <code>placeOrder()</code>, dòng <code>this.confirmOrder()</code> chạy
+<strong>hoàn toàn không có</strong> log AOP nào bao quanh nó — chỉ có <code>"confirmOrder() dang chay"</code> (log của
+chính method) xuất hiện, chứng minh trực tiếp advice đã bị bỏ qua cho lời gọi self-invocation
+này.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>this</code> bên trong một method lại là instance gốc, không phải proxy — dù bean được lấy
+ra từ container ban đầu chính là proxy?</strong> Khi Spring tạo proxy (CGLIB subclass hoặc JDK dynamic
+proxy) bọc quanh bean gốc, proxy đó <strong>giữ một tham chiếu nội bộ</strong> tới instance gốc, và mỗi lời
+gọi method trên proxy sẽ <strong>uỷ quyền</strong> (delegate) cho instance gốc sau khi chạy advice. Nhưng khi
+đoạn code <strong>bên trong chính instance gốc</strong> đó thực thi (ví dụ thân method <code>placeOrder()</code>), từ
+khoá <code>this</code> trong ngữ cảnh đó luôn tham chiếu tới <strong>chính instance đang chạy</strong> — tức instance
+gốc, không phải proxy bọc bên ngoài nó. Proxy hoàn toàn "vô hình" đối với chính bản thân object
+nó đang bọc — đây là bản chất kỹ thuật cố hữu, không có cách nào "sửa" bằng cấu hình mà không
+thay đổi cách viết code.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Có những cách nào để né tránh self-invocation limitation khi thực sự cần?</strong> (1) <strong>Tách method
+cần advice ra một bean/class khác</strong> — cách rõ ràng nhất: nếu <code>confirmOrder()</code> cần AOP hoạt động
+khi được gọi từ <code>placeOrder()</code>, tách <code>confirmOrder()</code> sang một bean riêng, rồi <code>OrderService</code>
+tiêm bean đó vào và gọi nó (lúc này là lời gọi từ bên ngoài, đi qua proxy đúng cách). (2) <strong>Tự
+lấy proxy của chính mình</strong> qua <code>AopContext.currentProxy()</code> (yêu cầu bật
+<code>exposeProxy = true</code>) rồi gọi qua proxy đó thay vì qua <code>this</code> — cách này hoạt động nhưng làm code
+phụ thuộc chặt vào chi tiết triển khai AOP, thường không được khuyến khích vì làm giảm khả năng
+đọc hiểu code. Cách (1) — tái cấu trúc tách method ra bean riêng — hầu như luôn là lựa chọn tốt
+hơn, và thường <strong>cũng chính là dấu hiệu</strong> cho thấy <code>confirmOrder()</code> xứng đáng là một trách nhiệm
+độc lập, không nên gộp chung với <code>placeOrder()</code> trong cùng class ngay từ đầu.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Spring AOP (dựa trên proxy runtime, chỉ áp dụng cho bean do Spring quản lý) khác với AspectJ đầy
+đủ (compile-time hoặc load-time weaving, áp dụng được cho <strong>mọi</strong> object, kể cả object không do
+Spring tạo) — Spring AOP dùng lại cú pháp pointcut của AspectJ (<code>execution(...)</code>, đã thấy trong
+Example) để quen thuộc và tương thích, nhưng cơ chế thực thi bên dưới hoàn toàn khác (proxy thay
+vì chèn bytecode trực tiếp vào class file). Đây là lý do self-invocation limitation chỉ tồn tại
+với Spring AOP — AspectJ weaving đầy đủ (ít dùng hơn trong dự án Spring Boot thông thường vì cần
+cấu hình build phức tạp hơn) không gặp giới hạn này vì nó chèn logic trực tiếp vào bytecode của
+class, không qua proxy bên ngoài.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "AOP luôn hoạt động bất kể method được gọi từ đâu, miễn method đó khớp pointcut."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — self-invocation (gọi qua <code>this</code> từ bên trong
+  cùng class) hoàn toàn bỏ qua advice, dù method đó khớp pointcut một cách chính xác.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Self-invocation limitation là một lỗi/thiếu sót của Spring AOP, sẽ được sửa ở phiên
+  bản sau."
+  <strong>Reality:</strong> Đây là giới hạn <strong>cố hữu</strong> của kỹ thuật proxy-based AOP nói chung (không riêng
+  Spring) — không phải lỗi, mà là hệ quả tất yếu của cách proxy hoạt động, đã tồn tại xuyên suốt
+  lịch sử Spring AOP và sẽ luôn tồn tại với cách tiếp cận proxy.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi method có <code>@Transactional</code>/<code>@Async</code>/AOP tuỳ chỉnh qua <code>this</code> từ bên trong cùng class,
+  kỳ vọng advice vẫn hoạt động</strong> — đây là cạm bẫy phổ biến nhất liên quan tới AOP trong Spring,
+  sẽ gặp lại chính xác vấn đề này ở Chapter 13-14.</li>
+<li><strong>Không hiểu vì sao class chứa method có AOP không được khai báo <code>final</code></strong> — giống lý do đã
+  học ở Chapter 06, CGLIB cần tạo subclass.</li>
+<li><strong>Viết pointcut quá rộng</strong> (ví dụ khớp mọi method của mọi class trong một package lớn) — có
+  thể vô tình áp dụng advice cho các method không nên bị ảnh hưởng, gây tác dụng phụ khó lường.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Khi thiết kế class có method cần AOP (transaction, cache, async, ...), luôn nhớ self-invocation limitation — tách method thành bean riêng nếu cần gọi từ bên trong cùng class mà vẫn muốn
+  advice hoạt động.</li>
+<li>Viết pointcut expression cụ thể, rõ ràng, tránh áp dụng advice nhầm phạm vi.</li>
+<li>Cân nhắc self-invocation limitation như một tín hiệu thiết kế: nếu gặp nó thường xuyên, có thể
+  class đang gánh quá nhiều trách nhiệm, nên tách nhỏ (tương tự bài học về constructor quá dài ở
+  Chapter 03).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Advice AOP (log, transaction, cache) không hoạt động dù đã đánh dấu đúng annotation? →
+      kiểm tra method đó có đang được gọi qua <code>this</code> từ bên trong cùng class không (self-invocation).</li>
+<li>[ ] Cần xác nhận một bean có đang là AOP proxy không? → in <code>bean.getClass().getName()</code>, tìm
+      hậu tố <code>$$SpringCGLIB$$</code> hoặc kiểm tra qua <code>AopUtils.isAopProxy(bean)</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Spring AOP dùng proxy (CGLIB/JDK dynamic proxy, Chapter 06) để chèn Advice vào các method khớp
+Pointcut. Đã chứng minh bằng thực nghiệm: gọi method từ <strong>bên ngoài</strong> (qua proxy) kích hoạt đúng
+advice, nhưng self-invocation (<code>this.method()</code> từ <strong>bên trong</strong> cùng class) hoàn toàn <strong>bỏ qua</strong>
+advice — vì <code>this</code> bên trong instance gốc không phải là proxy bọc bên ngoài nó, cơ chế này vô
+hình đối với chính bản thân object. Đây là giới hạn cố hữu của mọi kỹ thuật proxy-based AOP,
+không phải lỗi cấu hình — cách khắc phục phổ biến nhất là tách method cần advice ra một bean
+riêng. Kiến thức này là nền tảng bắt buộc trước khi học <code>@Transactional</code> (Chapter 13) và
+<code>@Async</code> (Chapter 14), cả hai đều gặp đúng giới hạn này.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Senior</strong></p>
+<ul>
+<li>AOP trong Spring hoạt động dựa trên cơ chế proxy như thế nào?</li>
+<li>Vì sao gọi một method có AOP từ bên trong cùng class (self-invocation) lại không kích hoạt
+  advice? Giải thích bằng cơ chế kỹ thuật cụ thể.</li>
+<li>Có những cách nào để né tránh self-invocation limitation khi thực sự cần advice hoạt động?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>AopSelfInvocationTest</code> ở trên, xác nhận kết quả đúng như mô tả.</li>
+<li>[ ] Tách <code>confirmOrder()</code> ra một bean <code>ConfirmationService</code> riêng, tiêm vào <code>OrderService</code>, xác
+      nhận advice hoạt động đúng khi gọi qua bean riêng đó từ bên trong <code>placeOrder()</code>.</li>
+<li>[ ] Thử dùng <code>AopContext.currentProxy()</code> (kèm <code>exposeProxy = true</code>) để gọi
+      <code>confirmOrder()</code> qua proxy từ bên trong <code>placeOrder()</code>, xác nhận advice hoạt động đúng
+      theo cách này.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aspect</td>
+<td>Class đóng gói một cross-cutting concern (<code>@Aspect</code>)</td>
+</tr>
+<tr>
+<td>Advice</td>
+<td>Logic thực thi tại join point (<code>@Before</code>, <code>@After</code>, <code>@Around</code>, ...)</td>
+</tr>
+<tr>
+<td>Pointcut</td>
+<td>Biểu thức mô tả tập hợp join point áp dụng advice (<code>execution(...)</code>)</td>
+</tr>
+<tr>
+<td>Join Point</td>
+<td>Một điểm cụ thể trong luồng thực thi (thường là lời gọi method)</td>
+</tr>
+<tr>
+<td>Self-invocation</td>
+<td>Gọi method qua <code>this</code> từ bên trong cùng class — <strong>bỏ qua</strong> AOP proxy</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Aspect Oriented Programming with Spring: https://docs.spring.io/spring-framework/reference/core/aop.html</li>
+<li>Spring Framework Documentation — "Understanding AOP Proxies" (giải thích chính thức về
+  self-invocation limitation).</li>
 </ul>
 
 

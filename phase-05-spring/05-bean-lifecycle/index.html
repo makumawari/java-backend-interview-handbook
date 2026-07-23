@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3327,43 +3327,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3448,7 +3415,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3532,7 +3499,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3560,7 +3527,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3588,7 +3555,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3616,7 +3583,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3611,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3639,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3667,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3695,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3723,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3751,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6012,43 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:beanlifecycle" class="md-tag">BeanLifecycle</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6149,94 +6090,334 @@ Chapter slug: <code>bean-lifecycle</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bean Lifecycle</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Bean</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — AOP (proxy được tạo trong giai đoạn initialization)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../04-bean/">Chapter 04</a> — một bean singleton chỉ được tạo một lần. Nhưng "tạo" thực
+ra gồm nhiều <strong>bước riêng biệt</strong>: gọi constructor, tiêm dependency, rồi mới thực sự sẵn sàng
+dùng. Có tới <strong>3 cách khác nhau</strong> để "chạy logic khi bean vừa khởi tạo xong"
+(<code>@PostConstruct</code>, <code>InitializingBean</code>, <code>init-method</code> tuỳ chỉnh) — chúng có chạy theo thứ tự
+nào?</p>
 </blockquote>
+<p>Đăng ký cả 3 cách cùng lúc trên một bean, kèm một <code>BeanPostProcessor</code> quan sát "trước" và "sau"
+giai đoạn khởi tạo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== KHOI TAO ===
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1. Constructor
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>0. BeanPostProcessor.postProcessBeforeInitialization
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2. @PostConstruct
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>3. InitializingBean.afterPropertiesSet()
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>4. custom init-method (khai bao trong @Bean)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>5. BeanPostProcessor.postProcessAfterInitialization
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>=== DONG CONTEXT ===
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>A. @PreDestroy
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>B. DisposableBean.destroy()
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>C. custom destroy-method
+</code></pre></div>
+<p>Thứ tự cố định, lặp lại đúng như vậy mỗi lần chạy — không phải ngẫu nhiên.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vòng đời của một bean trong Spring gồm những giai đoạn nào? <code>@PostConstruct</code>,
+<code>InitializingBean</code>, và <code>init-method</code> tuỳ chỉnh chạy theo thứ tự nào nếu dùng cùng lúc?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Liệt kê đúng thứ tự các bước trong vòng đời khởi tạo và huỷ bean</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm thứ tự thực thi của <code>BeanPostProcessor</code>,
+      <code>@PostConstruct</code>, <code>InitializingBean</code>, <code>init-method</code></li>
+<li>[ ] Hiểu vai trò của <code>BeanPostProcessor</code> — điểm móc nối (hook) mà nhiều tính năng nâng cao của
+      Spring (bao gồm AOP, Chapter 12) dựa vào</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 04 — hiểu bean và scope, nền tảng để hiểu "khởi tạo" một bean gồm những gì.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 12 (AOP)</strong> — cơ chế tạo proxy (bọc bean gốc để thêm hành vi) diễn ra chính xác trong
+  giai đoạn <code>postProcessAfterInitialization</code> của một <code>BeanPostProcessor</code> đặc biệt.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>"Tạo bean" nghe có vẻ là một hành động đơn giản, nhưng thực tế cần nhiều bước tách biệt: tạo
+object trần (constructor), điền dependency (DI, Chapter 03), rồi mới thực sự "khởi tạo hoàn tất"
+(chạy logic setup cần dependency đã sẵn sàng — ví dụ mở kết nối, load cache ban đầu). Nếu không
+hiểu rõ thứ tự các bước này, dễ viết logic khởi tạo sai chỗ — ví dụ đặt logic cần dependency vào
+constructor (khi dependency <strong>chưa</strong> được tiêm xong với field injection).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Bean Lifecycle</strong> là chuỗi các giai đoạn Spring container thực hiện khi tạo và huỷ một bean:
+<strong>Instantiation</strong> (gọi constructor) → <strong>Populate properties</strong> (tiêm dependency) →
+<strong><code>BeanPostProcessor.postProcessBeforeInitialization</code></strong> → <strong>Initialization</strong>
+(<code>@PostConstruct</code> → <code>InitializingBean.afterPropertiesSet()</code> → <code>init-method</code> tuỳ chỉnh) →
+<strong><code>BeanPostProcessor.postProcessAfterInitialization</code></strong> → bean sẵn sàng dùng → (khi container
+đóng) <strong>Destruction</strong> (<code>@PreDestroy</code> → <code>DisposableBean.destroy()</code> → <code>destroy-method</code> tuỳ chỉnh).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách rõ "tạo object" (constructor) khỏi "khởi tạo hoàn tất" (initialization callbacks) giải
+quyết đúng vấn đề đã nêu ở Problem: constructor chỉ nên tạo object ở trạng thái tối thiểu (chưa
+chắc đã có mọi dependency, đặc biệt với field injection — Chapter 03), còn logic setup cần
+dependency đầy đủ (ví dụ validate cấu hình, mở kết nối) nên đặt ở giai đoạn initialization — nơi
+Spring <strong>đảm bảo</strong> mọi dependency đã được tiêm xong. <code>BeanPostProcessor</code> tồn tại như một điểm
+móc nối (hook) tổng quát, cho phép framework (hoặc chính lập trình viên) can thiệp vào <strong>mọi</strong>
+bean tại đúng thời điểm trước/sau khởi tạo — đây chính là nền tảng kỹ thuật mà nhiều tính năng
+nâng cao của Spring (AOP, Chapter 12) dựa vào để hoạt động mà không cần sửa code của từng bean
+riêng lẻ.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">class</span> <span class="nc">LifecycleBean</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InitializingBean</span><span class="p">,</span><span class="w"> </span><span class="n">DisposableBean</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">LifecycleBean</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* constructor: object TOI THIEU */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nd">@PostConstruct</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">postConstruct</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* chay SAU khi dependency da duoc tiem */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterPropertiesSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* tuong tu @PostConstruct, cach cu hon */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">destroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* don dep khi container dong */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nd">@Bean</span><span class="p">(</span><span class="n">initMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customInit&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">destroyMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customDestroy&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// cach thu 3, khai bao trong @Bean</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>KHOI TAO (thu tu CO DINH):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  1. Constructor
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  2. Tiem dependency (DI)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  3. BeanPostProcessor.postProcessBeforeInitialization  &lt;- TRUOC
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  4. @PostConstruct
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  5. InitializingBean.afterPropertiesSet()
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  6. init-method tuy chinh (khai bao trong @Bean)
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  7. BeanPostProcessor.postProcessAfterInitialization   &lt;- SAU (AOP proxy tao o day!)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  8. Bean SAN SANG dung
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>HUY (khi container dong, chi ap dung cho singleton):
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  A. @PreDestroy
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  B. DisposableBean.destroy()
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  C. destroy-method tuy chinh
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LifecycleBean</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InitializingBean</span><span class="p">,</span><span class="w"> </span><span class="n">DisposableBean</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">LifecycleBean</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;1. Constructor&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nd">@PostConstruct</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">postConstruct</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;2. @PostConstruct&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterPropertiesSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;3. InitializingBean.afterPropertiesSet()&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">customInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;4. custom init-method&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nd">@PreDestroy</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">preDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;A. @PreDestroy&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">destroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;B. DisposableBean.destroy()&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">customDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;C. custom destroy-method&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LoggingBeanPostProcessor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BeanPostProcessor</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">postProcessBeforeInitialization</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">LifecycleBean</span><span class="p">)</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0. BeanPostProcessor.before&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">postProcessAfterInitialization</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">bean</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bean</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">LifecycleBean</span><span class="p">)</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5. BeanPostProcessor.after&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bean</span><span class="p">;</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="p">}</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="nd">@Bean</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">LoggingBeanPostProcessor</span><span class="w"> </span><span class="nf">bpp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoggingBeanPostProcessor</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">initMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customInit&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">destroyMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customDestroy&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="n">LifecycleBean</span><span class="w"> </span><span class="nf">lifecycleBean</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LifecycleBean</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Framework 6.1.13):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>=== KHOI TAO ===
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>1. Constructor
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>0. BeanPostProcessor.postProcessBeforeInitialization
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>2. @PostConstruct
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>3. InitializingBean.afterPropertiesSet()
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>4. custom init-method (khai bao trong @Bean)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>5. BeanPostProcessor.postProcessAfterInitialization
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>=== DONG CONTEXT ===
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>A. @PreDestroy
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>B. DisposableBean.destroy()
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>C. custom destroy-method
+</code></pre></div>
+<p>Thứ tự khởi tạo xác nhận chính xác: <code>BeanPostProcessor.before</code> chạy <strong>trước</strong> cả
+<code>@PostConstruct</code>; và trong 3 cách "init callback", <code>@PostConstruct</code> chạy trước
+<code>InitializingBean.afterPropertiesSet()</code>, rồi mới tới <code>init-method</code> tuỳ chỉnh khai báo trong
+<code>@Bean</code>. Thứ tự huỷ cũng theo đúng mẫu tương tự: <code>@PreDestroy</code> → <code>DisposableBean.destroy()</code> →
+<code>destroy-method</code> tuỳ chỉnh.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao có tới 3 cách khai báo "init callback" (<code>@PostConstruct</code>, <code>InitializingBean</code>,
+<code>init-method</code>) — chúng có lịch sử phát triển khác nhau ra sao, và thứ tự cố định đó phản ánh
+điều gì?</strong> <code>InitializingBean</code> (interface) là cách <strong>cũ nhất</strong>, có từ những phiên bản Spring đầu
+tiên — nhược điểm là bắt buộc class phải implement một interface của Spring (coupling trực tiếp
+vào framework). <code>init-method</code> (khai bao qua XML hoặc <code>@Bean(initMethod=...)</code>) ra đời để tránh
+coupling đó — cho phép dùng bất kỳ phương thức nào, không cần implement interface, nhưng phải
+khai báo tên phương thức riêng biệt khỏi chính class đó. <code>@PostConstruct</code> (chuẩn Java EE/Jakarta,
+không phải riêng của Spring) ra đời sau, tận dụng annotation để đánh dấu ngay trên phương thức mà
+không cần coupling vào Spring hay khai báo tách rời — đây là lý do nó chạy <strong>đầu tiên</strong> trong 3
+cách: về mặt triết lý thiết kế, <code>@PostConstruct</code> được ưu tiên là "chuẩn hiện đại", trong khi
+<code>InitializingBean</code>/<code>init-method</code> được giữ lại chủ yếu vì tương thích ngược với codebase cũ.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>BeanPostProcessor</code> là nền tảng kỹ thuật cho AOP (Chapter 12) như thế nào?</strong> Khi Spring tạo
+proxy để thêm hành vi cho một bean (ví dụ logging tự động, transaction tự động — Chapter 13),
+proxy đó <strong>không</strong> được tạo trong constructor hay trong <code>@PostConstruct</code> của chính bean — nó
+được tạo bởi một <code>BeanPostProcessor</code> đặc biệt
+(<code>AnnotationAwareAspectJAutoProxyCreator</code>) tại đúng bước
+<code>postProcessAfterInitialization</code> (bước số 5 trong Example) — <strong>sau khi</strong> bean gốc đã hoàn toàn
+khởi tạo xong. Bean trả về từ <code>postProcessAfterInitialization</code> có thể là một object <strong>khác hoàn
+toàn</strong> với bean gốc (một proxy bọc quanh bean gốc) — đây chính là lý do khi bạn <code>@Autowired</code> một
+bean có AOP, bạn thực chất nhận về proxy, không phải instance gốc do chính constructor tạo ra —
+kiến thức nền tảng bắt buộc phải hiểu trước khi học AOP.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>@PostConstruct</code>/<code>@PreDestroy</code> là annotation chuẩn từ JSR-250 (Common Annotations for the Java
+Platform, 2006) — không phải annotation riêng của Spring, cũng được các framework Java EE khác
+hỗ trợ. Từ Java 9 trở đi, các annotation này bị loại khỏi JDK core (do module hoá — Phase 1,
+Chapter 22), chuyển sang gói <code>javax.annotation-api</code> riêng, và từ Spring Boot 3
+(Jakarta EE 9+) đổi thành <code>jakarta.annotation.PostConstruct</code>.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ cần dùng một trong 3 cách init callback là đủ, thứ tự giữa chúng không quan
+  trọng vì hiếm khi dùng chung."
+  <strong>Reality:</strong> Đúng là hiếm khi cần cả 3 cùng lúc trong thực tế, nhưng hiểu thứ tự chính xác
+  quan trọng khi đọc code kế thừa từ một lớp cha đã dùng một cách, còn lớp con dùng cách khác —
+  tình huống này xảy ra thường xuyên hơn tưởng tượng trong codebase lớn, lâu năm.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>@Autowired</code> một bean luôn trả về đúng instance gốc do constructor tạo ra."
+  <strong>Reality:</strong> Xem Engineering Insight — nếu bean đó có AOP áp dụng, bạn nhận về một proxy, khác
+  với instance gốc — điểm này sẽ trở nên cực kỳ quan trọng khi học self-invocation limitation ở
+  Chapter 12-14.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li><strong>Đặt logic cần dependency đầy đủ vào constructor thay vì <code>@PostConstruct</code></strong> — với field
+  injection, dependency chưa chắc đã sẵn sàng lúc constructor chạy (constructor chạy trước bước
+  populate properties).</li>
+<li><strong>Quên rằng <code>@PreDestroy</code> chỉ chạy với bean scope <code>singleton</code></strong> — bean <code>prototype</code> (Chapter
+  04) không được container quản lý việc huỷ, <code>@PreDestroy</code> sẽ không được gọi tự động.</li>
+<li><strong>Nhầm lẫn thứ tự <code>BeanPostProcessor</code> với init callback</strong> — <code>postProcessBeforeInitialization</code>
+  chạy <strong>trước</strong> mọi init callback, <code>postProcessAfterInitialization</code> chạy <strong>sau</strong> tất cả.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Logic trong constructor báo lỗi <code>NullPointerException</code> liên quan tới một dependency được
+      field-inject? → chuyển logic đó sang <code>@PostConstruct</code>, vì dependency chưa chắc sẵn sàng
+      lúc constructor chạy.</li>
+<li>[ ] <code>@PreDestroy</code> không được gọi khi mong đợi? → kiểm tra scope của bean có phải <code>prototype</code>
+      không — Spring không quản lý việc huỷ bean prototype.</li>
+<li>[ ] Bean nhận được qua <code>@Autowired</code> có hành vi khác instance gốc (ví dụ có thêm log tự động)?
+      → có thể đây là proxy do <code>BeanPostProcessor</code> tạo (AOP, Chapter 12), không phải instance
+      gốc.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vòng đời bean gồm các giai đoạn cố định: constructor → tiêm dependency →
+<code>BeanPostProcessor.before</code> → init callback (<code>@PostConstruct</code> → <code>InitializingBean</code> →
+<code>init-method</code>, theo đúng thứ tự này) → <code>BeanPostProcessor.after</code> → sẵn sàng dùng → (khi đóng
+container) <code>@PreDestroy</code> → <code>DisposableBean.destroy()</code> → <code>destroy-method</code>. Đã chứng minh bằng
+thực nghiệm đúng thứ tự này. <code>BeanPostProcessor</code> là nền tảng kỹ thuật cho AOP — proxy được tạo
+tại bước <code>postProcessAfterInitialization</code>, nghĩa là bean bạn nhận qua <code>@Autowired</code> có thể là
+proxy, không phải instance gốc do constructor tạo ra.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vòng đời của một bean trong Spring gồm những giai đoạn nào?</li>
+<li><code>@PostConstruct</code>, <code>InitializingBean</code>, và <code>init-method</code> tuỳ chỉnh chạy theo thứ tự nào nếu dùng
+  cùng lúc?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vai trò của <code>BeanPostProcessor</code> trong việc Spring hiện thực hoá AOP. Vì sao bean
+  nhận được qua <code>@Autowired</code> có thể không phải là instance gốc do constructor tạo ra?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>BeanLifecycleTest</code> ở trên, xác nhận đúng thứ tự các bước khởi tạo và huỷ.</li>
+<li>[ ] Viết một <code>BeanPostProcessor</code> tuỳ chỉnh in ra tên class của mọi bean được tạo trong
+      container, quan sát thứ tự các bean được khởi tạo.</li>
+<li>[ ] Thử tạo một bean scope <code>prototype</code> với <code>@PreDestroy</code>, xác nhận nó không được gọi khi
+      container đóng (khác với singleton).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Thứ tự</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Constructor</td>
+<td>1</td>
+<td>Object tối thiểu, dependency chưa chắc sẵn sàng (field injection)</td>
+</tr>
+<tr>
+<td>Tiêm dependency</td>
+<td>2</td>
+<td>DI hoàn tất</td>
+</tr>
+<tr>
+<td><code>BeanPostProcessor.before</code></td>
+<td>3</td>
+<td>Trước mọi init callback</td>
+</tr>
+<tr>
+<td><code>@PostConstruct</code></td>
+<td>4</td>
+<td>Chuẩn JSR-250, ưu tiên dùng</td>
+</tr>
+<tr>
+<td><code>InitializingBean.afterPropertiesSet()</code></td>
+<td>5</td>
+<td>Cách cũ, coupling vào Spring</td>
+</tr>
+<tr>
+<td><code>init-method</code> tuỳ chỉnh</td>
+<td>6</td>
+<td>Khai báo qua <code>@Bean(initMethod=...)</code></td>
+</tr>
+<tr>
+<td><code>BeanPostProcessor.after</code></td>
+<td>7</td>
+<td>AOP proxy được tạo ở đây</td>
+</tr>
+<tr>
+<td><code>@PreDestroy</code></td>
+<td>Huỷ, bước 1</td>
+<td>Chỉ với singleton</td>
+</tr>
+<tr>
+<td><code>DisposableBean.destroy()</code></td>
+<td>Huỷ, bước 2</td>
+<td>Chỉ với singleton</td>
+</tr>
+<tr>
+<td><code>destroy-method</code> tuỳ chỉnh</td>
+<td>Huỷ, bước 3</td>
+<td>Chỉ với singleton</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Bean Lifecycle: https://docs.spring.io/spring-framework/reference/core/beans/factory-nature.html</li>
+<li>JSR-250 — Common Annotations for the Java Platform.</li>
 </ul>
 
 

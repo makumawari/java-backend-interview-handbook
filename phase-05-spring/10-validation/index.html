@@ -27,7 +27,7 @@
     
     
       
-        <title>Validation - Java Backend Engineering Handbook</title>
+        <title>Validation với Bean Validation (@Valid) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#validation" class="md-skip">
+        <a href="#validation-voi-bean-validation-valid" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Validation
+              Validation với Bean Validation (@Valid)
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3236,7 +3236,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3254,7 +3254,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3478,32 +3478,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3588,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3616,7 +3594,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:validation" class="md-tag">Validation</a>
       
     
   </nav>
@@ -6141,7 +6104,7 @@
   
 
 
-<h1 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h1>
+<h1 id="validation-voi-bean-validation-valid">Validation với Bean Validation (@Valid)<a class="headerlink" href="#validation-voi-bean-validation-valid" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>validation</code></p>
@@ -6149,94 +6112,268 @@ Chapter slug: <code>validation</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Validation</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — REST</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 11 — Exception Handler</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../09-rest/">Chapter 09</a> — <code>@RequestBody Product input</code> tự động parse JSON thành
+record Java. Nhưng "parse thành công" không có nghĩa là "dữ liệu hợp lệ" — client hoàn toàn
+có thể gửi <code>name</code> rỗng hoặc <code>price</code> âm, những giá trị <strong>cú pháp đúng nhưng vô nghĩa về nghiệp
+vụ</strong>.</p>
 </blockquote>
+<p>Thử gửi dữ liệu rõ ràng vô lý (<code>name</code> rỗng, <code>price</code> âm) tới endpoint <strong>không có</strong> <code>@Valid</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== POST khong co @Valid, du lieu KHONG hop le van duoc chap nhan ===
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>{&quot;id&quot;:2,&quot;name&quot;:&quot;&quot;,&quot;price&quot;:-999.0}
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>HTTP_STATUS:201
+</code></pre></div>
+<p>Server chấp nhận và lưu lại một "sản phẩm" tên rỗng, giá <strong>âm 999</strong> — hoàn toàn vô nghĩa về mặt
+nghiệp vụ, nhưng không có cơ chế nào ngăn nó. Thêm <code>@Valid</code> vào đúng cùng endpoint, gửi lại đúng
+dữ liệu đó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=== POST /api/products (KHONG hop le: name rong, price am) ===
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{&quot;timestamp&quot;:&quot;...&quot;,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;fieldErrors&quot;:{&quot;name&quot;:&quot;ten san pham khong duoc de trong&quot;,&quot;price&quot;:&quot;gia phai lon hon 0&quot;}}
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>HTTP_STATUS:400
+</code></pre></div>
+<p>Cùng dữ liệu, cùng endpoint — chỉ thêm một annotation <code>@Valid</code> đã thay đổi hoàn toàn kết quả.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>@Valid</code> hoạt động như thế nào trong Spring MVC? Điều gì xảy ra nếu quên thêm nó vào tham số
+<code>@RequestBody</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo các annotation validation phổ biến: <code>@NotBlank</code>, <code>@NotNull</code>, <code>@Positive</code>,
+      <code>@Size</code>, <code>@Email</code></li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: thiếu <code>@Valid</code>, dữ liệu vô lý vẫn được chấp nhận; có
+      <code>@Valid</code>, request bị từ chối với thông tin lỗi chi tiết theo từng field</li>
+<li>[ ] Hiểu <code>@Valid</code> chỉ là một "công tắc" kích hoạt Bean Validation, bản thân validation logic
+      nằm trong annotation gắn trên field</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 09 — hiểu <code>@RequestBody</code>, luồng parse JSON thành object Java.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 11 (Exception Handler)</strong> — xử lý <code>MethodArgumentNotValidException</code> (lỗi ném ra khi
+  <code>@Valid</code> thất bại) để trả về response lỗi có định dạng nhất quán.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>@RequestBody</code> (Chapter 09) chỉ đảm bảo dữ liệu <strong>đúng cú pháp JSON</strong> và <strong>đúng kiểu dữ liệu</strong>
+Java — nó hoàn toàn không biết (và không nên biết) về các quy tắc nghiệp vụ như "tên không được
+rỗng" hay "giá phải dương". Nếu không có cơ chế validate riêng, mọi endpoint phải tự viết logic
+kiểm tra thủ công (<code>if (input.name().isBlank()) throw ...</code>), lặp lại ở khắp nơi, dễ bỏ sót.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Bean Validation</strong> (chuẩn Jakarta, không phải riêng của Spring) cho phép khai báo quy tắc hợp
+lệ <strong>ngay trên field</strong> của một class/record bằng annotation (<code>@NotBlank</code>, <code>@NotNull</code>,
+<code>@Positive</code>, <code>@Size</code>, <code>@Email</code>, ...). <code>@Valid</code> (đặt trước tham số <code>@RequestBody</code> trong
+controller) là "công tắc" báo cho Spring MVC: "hãy chạy Bean Validation trên object này trước
+khi vào thân method" — nếu có vi phạm, Spring ném <code>MethodArgumentNotValidException</code> <strong>trước
+khi</strong> code trong controller method được thực thi.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách quy tắc validation ra khỏi logic controller (đặt trực tiếp trên field của DTO) cho phép
+<strong>tái sử dụng</strong> cùng một quy tắc ở nhiều nơi dùng chung DTO đó, và giữ controller method tập
+trung vào logic nghiệp vụ thực sự — không lẫn lộn với hàng loạt câu lệnh <code>if</code> kiểm tra dữ liệu.
+<code>@Valid</code> như một bước gác cổng tự động trước khi vào thân method đảm bảo: nếu code bên trong
+method chạy được, dữ liệu <strong>chắc chắn</strong> đã hợp lệ theo mọi quy tắc khai báo — loại bỏ hoàn toàn
+khả năng quên kiểm tra một trường hợp nào đó.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">record</span> <span class="nc">Product</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ten san pham khong duoc de trong&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nd">@Positive</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gia phai lon hon 0&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nd">@PostMapping</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// &quot;cong tac&quot; kich hoat validation</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="c1">// Neu code chay toi day, input DA CHAC CHAN hop le</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>KHONG co @Valid:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  JSON request ──► parse thanh Product ──► THANG vao than method
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                                             (KHONG kiem tra gi ca, du lieu vo ly van lot qua)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>CO @Valid:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  JSON request ──► parse thanh Product ──► Bean Validation kiem tra TUNG field
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                                                  │
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                                    Hop le ──► vao than method (DAM BAO du lieu dung)
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                    KHONG hop le ──► nem MethodArgumentNotValidException
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                                                      (than method KHONG BAO GIO chay toi)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">record</span> <span class="nc">Product</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ten san pham khong duoc de trong&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nd">@Positive</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gia phai lon hon 0&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nd">@PostMapping</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idSeq</span><span class="p">.</span><span class="na">getAndIncrement</span><span class="p">();</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="n">Product</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">name</span><span class="p">(),</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">price</span><span class="p">());</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">store</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">created</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CREATED</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="n">created</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">}</span>
 </code></pre></div>
+<p><strong>Không có <code>@Valid</code></strong> — gửi dữ liệu vô lý:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ curl -X POST http://localhost:8080/api/products -d &#39;{&quot;name&quot;:&quot;&quot;,&quot;price&quot;:-999}&#39;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>{&quot;id&quot;:2,&quot;name&quot;:&quot;&quot;,&quot;price&quot;:-999.0}
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>HTTP_STATUS:201
+</code></pre></div>
+<p>Server chấp nhận và lưu — hoàn toàn không có kiểm tra nào.</p>
+<p><strong>Có <code>@Valid</code></strong> — gửi đúng dữ liệu đó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ curl -X POST http://localhost:8080/api/products -d &#39;{&quot;name&quot;:&quot;&quot;,&quot;price&quot;:-999}&#39;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>{&quot;timestamp&quot;:&quot;2026-07-23T08:00:52.85Z&quot;,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a> &quot;fieldErrors&quot;:{&quot;name&quot;:&quot;ten san pham khong duoc de trong&quot;,&quot;price&quot;:&quot;gia phai lon hon 0&quot;}}
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>HTTP_STATUS:400
+</code></pre></div>
+<p>Cùng payload, chỉ khác một annotation <code>@Valid</code> trong chữ ký method — request bị từ chối với
+<code>400 Bad Request</code>, kèm thông tin lỗi <strong>cho từng field cụ thể</strong> (lấy từ <code>message</code> khai báo trong
+annotation validation tương ứng). Đối chiếu trực tiếp hai kết quả xác nhận <code>@Valid</code> chính là yếu
+tố quyết định duy nhất tạo ra khác biệt này.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>MethodArgumentNotValidException</code> được ném ra ở đâu trong luồng xử lý request, và vì sao thân
+method <code>create()</code> "không bao giờ chạy tới" khi validation thất bại?</strong> <code>@Valid</code> được xử lý bởi
+<code>ArgumentResolver</code> của Spring MVC — thành phần chịu trách nhiệm "chuẩn bị" từng tham số của
+controller method <strong>trước khi</strong> gọi chính method đó. Khi resolver này thấy <code>@Valid</code>, nó chạy
+Bean Validation (thông qua implementation mặc định — Hibernate Validator, đã thấy log
+<code>"HV000001: Hibernate Validator 8.0.1.Final"</code> khi ứng dụng khởi động) trên object vừa parse
+được; nếu có vi phạm, nó <strong>ném exception ngay tại bước chuẩn bị tham số này</strong> — trước khi
+<code>DispatcherServlet</code> thực sự gọi <code>create(input)</code>. Đây là lý do có thể khẳng định chắc chắn: nếu
+logic bên trong <code>create()</code> chạy, <code>input</code> chắc chắn đã hợp lệ — không cần thêm bất kỳ <code>if</code> kiểm
+tra nào trong thân method.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Validation ở tầng API (<code>@Valid</code> + Bean Validation) có thay thế được validation ở tầng
+database (constraint, ví dụ <code>NOT NULL</code>/<code>CHECK</code>) không?</strong> Không nên. Đây là hai lớp phòng thủ độc
+lập, bảo vệ trước các nguồn dữ liệu khác nhau: <code>@Valid</code> chỉ bảo vệ đường đi <strong>qua chính REST API
+này</strong> — nếu có một đường ghi dữ liệu khác vào cùng bảng (batch job, migration script, một service
+khác trong hệ thống ghi trực tiếp vào database dùng chung), <code>@Valid</code> hoàn toàn không có tác dụng
+gì. Nguyên tắc "defense in depth" (phòng thủ nhiều lớp) khuyến nghị <strong>cả hai</strong> lớp validation
+cùng tồn tại: <code>@Valid</code> cho trải nghiệm người dùng tốt (phản hồi lỗi rõ ràng, nhanh, đúng field
+ngay tại tầng API), và constraint tầng database như lớp bảo vệ cuối cùng không thể bị "lách qua"
+dù dữ liệu tới từ đường nào.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Bean Validation là một đặc tả chuẩn (JSR 303, sau đó JSR 380 cho phiên bản 2.0) thuộc Java EE/
+Jakarta EE — không phải sáng tạo riêng của Spring. Hibernate Validator (dù tên có "Hibernate")
+là implementation tham chiếu phổ biến nhất, độc lập hoàn toàn với Hibernate ORM (Phase 6) dù
+cùng do nhóm phát triển Hibernate duy trì — một điểm dễ gây nhầm lẫn tên gọi phổ biến.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>@RequestBody</code> tự động validate dữ liệu, không cần thêm gì khác."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — thiếu <code>@Valid</code>, dữ liệu vô lý (tên rỗng, giá âm)
+  vẫn được chấp nhận hoàn toàn. <code>@Valid</code> là bước bắt buộc phải thêm tường minh.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Validate dữ liệu ở tầng API (<code>@Valid</code>) là đủ, không cần validate lại ở tầng
+  database."
+  <strong>Reality:</strong> Xem Engineering Insight — đây là hai lớp phòng thủ độc lập, bảo vệ các đường đi
+  dữ liệu khác nhau.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên <code>@Valid</code> trên tham số <code>@RequestBody</code></strong> — annotation validation trên field (<code>@NotBlank</code>,
+  ...) hoàn toàn vô tác dụng nếu thiếu <code>@Valid</code>, đã chứng minh bằng thực nghiệm.</li>
+<li><strong>Không cung cấp <code>message</code> tuỳ chỉnh cho annotation validation</strong> — thông điệp lỗi mặc định của
+  Bean Validation thường là tiếng Anh chung chung, không thân thiện với người dùng cuối.</li>
+<li><strong>Chỉ validate ở tầng API mà bỏ qua constraint tầng database</strong> — mất lớp phòng thủ cuối cùng
+  cho các đường ghi dữ liệu khác ngoài API.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn thêm <code>@Valid</code> cho mọi tham số <code>@RequestBody</code> cần đảm bảo tính hợp lệ dữ liệu.</li>
+<li>Khai báo <code>message</code> tường minh, rõ ràng bằng ngôn ngữ người dùng cuối hiểu được cho mỗi
+  annotation validation.</li>
+<li>Kết hợp validation tầng API với constraint tầng database (Phase 6) theo nguyên tắc phòng thủ
+  nhiều lớp.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Dữ liệu vô lý vẫn được chấp nhận qua API dù đã khai báo <code>@NotBlank</code>/<code>@Positive</code> trên
+      field? → kiểm tra tham số <code>@RequestBody</code> có thiếu <code>@Valid</code> không.</li>
+<li>[ ] Response lỗi validation không có thông tin rõ ràng cho từng field? → cần
+      <code>@ExceptionHandler(MethodArgumentNotValidException.class)</code> (Chapter 11) để định dạng lại
+      response, tránh trả về stack trace mặc định.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Bean Validation (chuẩn Jakarta, không riêng Spring) cho phép khai báo quy tắc hợp lệ trực tiếp
+trên field của DTO (<code>@NotBlank</code>, <code>@Positive</code>, ...). <code>@Valid</code> là công tắc kích hoạt validation đó
+tại tầng controller — đã chứng minh bằng thực nghiệm đối chiếu trực tiếp: thiếu <code>@Valid</code>, dữ
+liệu vô lý (tên rỗng, giá âm 999) được chấp nhận với <code>201 Created</code>; có <code>@Valid</code>, cùng dữ liệu bị
+từ chối với <code>400 Bad Request</code> kèm thông tin lỗi chi tiết từng field. Validation thất bại ném
+<code>MethodArgumentNotValidException</code> <strong>trước khi</strong> thân controller method được gọi, đảm bảo logic
+nghiệp vụ luôn làm việc với dữ liệu đã hợp lệ. Nên kết hợp với constraint tầng database cho
+phòng thủ nhiều lớp.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>@Valid</code> hoạt động như thế nào trong Spring MVC? Điều gì xảy ra nếu quên thêm nó vào tham số
+  <code>@RequestBody</code>?</li>
+<li>Validate dữ liệu ở tầng API có thay thế được validate ở tầng database không? Vì sao?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại ví dụ trên (có và không có <code>@Valid</code>), xác nhận sự khác biệt đúng như mô tả.</li>
+<li>[ ] Thêm annotation <code>@Size(min = 3, max = 50)</code> cho field <code>name</code>, thử gửi tên quá ngắn/quá dài,
+      quan sát thông điệp lỗi.</li>
+<li>[ ] Tạo một class validation tuỳ chỉnh (<code>@Constraint</code>) kiểm tra một quy tắc nghiệp vụ phức tạp
+      hơn (ví dụ giá phải là bội số của 1000).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Điều kiện hợp lệ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@NotNull</code></td>
+<td>Không được <code>null</code></td>
+</tr>
+<tr>
+<td><code>@NotBlank</code></td>
+<td>Không <code>null</code>, không rỗng, không chỉ toàn khoảng trắng (chỉ cho <code>String</code>)</td>
+</tr>
+<tr>
+<td><code>@NotEmpty</code></td>
+<td>Không <code>null</code>, không rỗng (cho <code>String</code>/<code>Collection</code>/<code>Map</code>/mảng)</td>
+</tr>
+<tr>
+<td><code>@Positive</code> / <code>@PositiveOrZero</code></td>
+<td>Số dương / số dương hoặc 0</td>
+</tr>
+<tr>
+<td><code>@Size(min=, max=)</code></td>
+<td>Độ dài/kích thước trong khoảng</td>
+</tr>
+<tr>
+<td><code>@Email</code></td>
+<td>Đúng định dạng email</td>
+</tr>
+<tr>
+<td><code>@Valid</code></td>
+<td>Kích hoạt validation trên object (đặt ở tham số method)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Bean Validation Specification — https://beanvalidation.org/</li>
+<li>Spring Framework Documentation — Validation: https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html</li>
 </ul>
 
 

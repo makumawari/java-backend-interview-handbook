@@ -27,7 +27,7 @@
     
     
       
-        <title>Security - Java Backend Engineering Handbook</title>
+        <title>Spring Security cơ bản - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#security" class="md-skip">
+        <a href="#spring-security-co-ban" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Security
+              Spring Security cơ bản
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3227,7 +3227,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3255,7 +3255,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3283,7 +3283,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3311,7 +3311,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3339,7 +3339,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3367,7 +3367,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3395,7 +3395,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3432,7 +3432,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3450,7 +3450,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3674,32 +3674,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:security" class="md-tag">Security</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6141,7 +6104,7 @@
   
 
 
-<h1 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h1>
+<h1 id="spring-security-co-ban">Spring Security cơ bản<a class="headerlink" href="#spring-security-co-ban" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>security</code></p>
@@ -6149,94 +6112,281 @@ Chapter slug: <code>security</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Security</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — AOP</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — REST</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kiến trúc bảo mật API (Phase 8)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Chỉ cần thêm <code>spring-boot-starter-security</code> vào <code>pom.xml</code> — không viết một dòng cấu hình nào —
+khởi động lại ứng dụng, và <strong>mọi</strong> endpoint trước đó mở tự do bỗng nhiên yêu cầu đăng nhập.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Using generated security password: 6d690f55-0319-4095-a579-0fb2e4f048a3
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>This generated password is for development use only. Your security configuration must be
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>updated before running your application in production.
+</code></pre></div>
+<p>Gọi thử endpoint không kèm thông tin đăng nhập:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ curl -i http://localhost:8080/api/secure/whoami
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HTTP/1.1 401
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>WWW-Authenticate: Basic realm=&quot;Realm&quot;
+</code></pre></div>
+<p>Gọi lại với đúng username <code>user</code> và password vừa in trong log:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ curl -i -u &quot;user:6d690f55-0319-4095-a579-0fb2e4f048a3&quot; http://localhost:8080/api/secure/whoami
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Xin chao, user! Quyen: []
+</code></pre></div>
+<p>Không có bất kỳ <code>@Bean</code> hay class cấu hình nào được viết — toàn bộ hành vi này tới từ đúng cơ
+chế Auto Configuration đã học ở Chapter 07.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Chỉ cần thêm dependency <code>spring-boot-starter-security</code>, ứng dụng đã có hành vi bảo mật gì mặc
+định? Làm sao để tuỳ chỉnh nó?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu hành vi mặc định khi thêm Spring Security: mọi endpoint yêu cầu xác thực, một user
+      tạm với password sinh ngẫu nhiên mỗi lần khởi động</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: request không có credential nhận <code>401</code>; đúng credential
+      nhận <code>200</code>; sai credential vẫn <code>401</code></li>
+<li>[ ] Dùng <code>SecurityFilterChain</code> để tuỳ chỉnh endpoint nào cần xác thực, endpoint nào mở tự do</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 12 — hiểu AOP, vì Spring Security dùng Servlet Filter (không hoàn toàn giống AOP proxy
+  nhưng cùng triết lý "chặn trước khi vào logic nghiệp vụ").</li>
+<li>Chapter 09 — hiểu REST controller cơ bản, nơi Security áp dụng bảo vệ.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Kiến trúc bảo mật API</strong> (Phase 8) — nền tảng cho JWT, OAuth2, và các cơ chế xác thực nâng
+  cao hơn trong hệ thống thực tế.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một API không được bảo vệ đồng nghĩa <strong>bất kỳ ai</strong> trên internet đều có thể gọi nó — với các
+API chỉ đọc dữ liệu công khai, điều này có thể chấp nhận được, nhưng với API thao tác dữ liệu
+nhạy cảm (thông tin cá nhân, giao dịch tài chính), việc quên bảo vệ dù chỉ một endpoint có thể
+gây hậu quả nghiêm trọng.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Spring Security</strong> là module bảo mật của hệ sinh thái Spring — khi có mặt trên classpath
+(<code>spring-boot-starter-security</code>), Auto Configuration (Chapter 07) tự động áp dụng một cấu hình
+bảo mật <strong>mặc định an toàn</strong> (secure by default): mọi endpoint yêu cầu xác thực (authentication),
+một user tạm thời (<code>user</code>) với password <strong>sinh ngẫu nhiên</strong> mỗi lần khởi động (in ra log, chỉ
+dùng được tới khi ứng dụng restart). <code>SecurityFilterChain</code> là nơi lập trình viên <strong>ghi đè</strong> cấu
+hình mặc định này, khai báo tường minh endpoint nào cần xác thực, endpoint nào mở tự do
+(<code>permitAll()</code>), và cơ chế xác thực nào được dùng (HTTP Basic, form login, JWT, ...).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Thiết kế "an toàn theo mặc định" (secure by default) — thay vì "mở theo mặc định, phải tự thêm
+bảo mật" — phản ánh nguyên tắc bảo mật cơ bản: <strong>lỗi trong việc "quên bật bảo mật" nguy hiểm hơn
+nhiều</strong> so với lỗi "quên tắt bảo mật cho một endpoint công khai" (dễ nhận ra ngay khi test —
+endpoint trả về 401 dù đáng lẽ phải công khai — trong khi endpoint bị lộ vì quên bảo mật có thể
+không bị phát hiện cho tới khi bị khai thác trong thực tế). Password sinh ngẫu nhiên mỗi lần khởi
+động (thay vì một password mặc định cố định như <code>admin</code>/<code>password</code>) ngăn chặn trực tiếp việc vô
+tình để lại một cấu hình bảo mật "giả" (trông như có bảo mật nhưng dùng credential ai cũng biết)
+trong production nếu lập trình viên quên cấu hình tường minh.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">class</span> <span class="nc">SecurityConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">SecurityFilterChain</span><span class="w"> </span><span class="nf">filterChain</span><span class="p">(</span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">http</span><span class="p">.</span><span class="na">authorizeHttpRequests</span><span class="p">(</span><span class="n">auth</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">auth</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">                </span><span class="p">.</span><span class="na">requestMatchers</span><span class="p">(</span><span class="s">&quot;/api/products/**&quot;</span><span class="p">).</span><span class="na">permitAll</span><span class="p">()</span><span class="w"> </span><span class="c1">// MO TU DO</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">                </span><span class="p">.</span><span class="na">anyRequest</span><span class="p">().</span><span class="na">authenticated</span><span class="p">())</span><span class="w">                   </span><span class="c1">// con lai PHAI xac thuc</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="p">.</span><span class="na">httpBasic</span><span class="p">(</span><span class="n">Customizer</span><span class="p">.</span><span class="na">withDefaults</span><span class="p">());</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">http</span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>KHONG co SecurityConfig tuy chinh (mac dinh cua Auto Configuration):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  MOI request ──► yeu cau xac thuc (HTTP Basic)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>                       │
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>              Dung credential (user / password sinh ngau nhien trong log) ──► cho qua
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>              Sai/thieu credential ──► 401 Unauthorized
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>CO SecurityConfig tuy chinh:
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  Request toi /api/products/** ──► permitAll() ──► KHONG can xac thuc, cho qua NGAY
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  Request toi endpoint KHAC     ──► authenticated() ──► van yeu cau xac thuc nhu mac dinh
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecureController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/secure/whoami&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">whoami</span><span class="p">(</span><span class="n">Authentication</span><span class="w"> </span><span class="n">auth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Xin chao, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">auth</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;! Quyen: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">auth</span><span class="p">.</span><span class="na">getAuthorities</span><span class="p">();</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
 </code></pre></div>
+<p>Log khi khởi động (Spring Boot 3.3.4, chỉ thêm <code>spring-boot-starter-security</code>, chưa cấu hình gì):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Using generated security password: 6d690f55-0319-4095-a579-0fb2e4f048a3
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>This generated password is for development use only. Your security configuration must be
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>updated before running your application in production.
+</code></pre></div>
+<p>Gọi thử với <code>curl</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ curl -i http://localhost:8080/api/secure/whoami
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>HTTP/1.1 401
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>WWW-Authenticate: Basic realm=&quot;Realm&quot;
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>$ curl -i -u &quot;user:6d690f55-0319-4095-a579-0fb2e4f048a3&quot; http://localhost:8080/api/secure/whoami
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Xin chao, user! Quyen: []
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>$ curl -i -u &quot;user:sai-mat-khau&quot; http://localhost:8080/api/secure/whoami
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>HTTP/1.1 401
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>WWW-Authenticate: Basic realm=&quot;Realm&quot;
+</code></pre></div>
+<p>Không có credential: <code>401</code> kèm header <code>WWW-Authenticate: Basic realm="Realm"</code> — chính header này
+báo cho client biết "cần xác thực kiểu HTTP Basic". Đúng username/password: <code>200</code>, trả về
+<code>"Xin chao, user!"</code> — <code>Authentication</code> được tiêm thẳng vào tham số method, lấy được từ chính
+context bảo mật mà Spring Security đã xác thực trước đó. Sai password: vẫn <code>401</code>, không phân
+biệt "sai username" hay "sai password" (một quyết định bảo mật có chủ đích — không tiết lộ
+username nào tồn tại).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Spring Security hoạt động ở tầng nào trong luồng xử lý request — trước hay sau
+<code>DispatcherServlet</code>/Spring MVC (Chapter 09)?</strong> Spring Security dựa trên chuỗi <strong>Servlet Filter</strong>
+(<code>FilterChainProxy</code>) — một cơ chế tồn tại <strong>ở tầng Servlet</strong>, <strong>trước khi</strong> request tới được
+<code>DispatcherServlet</code> (nơi Spring MVC xử lý routing, Chapter 09). Đây là lý do một request bị chặn
+bởi Spring Security (ví dụ thiếu credential) <strong>không bao giờ chạm tới</strong> logic controller — kể cả
+<code>@ExceptionHandler</code> (Chapter 11) cũng không can thiệp được vào các lỗi xảy ra ở tầng Filter này
+(đây chính là nguyên nhân của hiện tượng đã gặp ở Chapter 11: một request bị exception xảy ra
+trong Servlet Filter, khi forward nội bộ tới <code>/error</code>, vẫn phải đi qua lại chính Security Filter
+Chain — nếu <code>/error</code> không được <code>permitAll()</code>, response lỗi cũng bị chặn bởi Security).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao đôi khi một exception không liên quan gì tới bảo mật lại trả về <code>403 Forbidden</code> thay vì
+mã lỗi mong đợi?</strong> Đây là một cạm bẫy thực tế phổ biến: khi một exception không được xử lý xảy ra
+trong luồng xử lý request, Spring Boot forward nội bộ request đó tới <code>/error</code> để tạo response lỗi
+mặc định (Chapter 11) — nhưng vì <code>/error</code> là một <strong>request HTTP mới</strong> (dù chỉ nội bộ), nó
+<strong>cũng phải đi qua Security Filter Chain</strong> như bất kỳ request nào khác. Nếu cấu hình
+<code>SecurityFilterChain</code> chỉ <code>permitAll()</code> cho các endpoint nghiệp vụ mà quên <code>/error</code>, response lỗi
+nội bộ đó bị chính Security chặn lại, trả về <code>403</code> — che giấu hoàn toàn nguyên nhân lỗi gốc, gây
+nhầm lẫn nghiêm trọng khi debug (nhìn thấy <code>403</code> dễ khiến người debug nghĩ sai hướng, tưởng đây là
+vấn đề phân quyền, trong khi nguyên nhân thật là một exception hoàn toàn khác ở tầng logic nghiệp
+vụ). Luôn nhớ thêm <code>/error</code> vào danh sách <code>permitAll()</code> khi tuỳ chỉnh <code>SecurityFilterChain</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Spring Security (ban đầu tên "Acegi Security") ra đời độc lập với Spring Framework, được tích
+hợp chính thức vào hệ sinh thái Spring từ năm 2004. Cơ chế "generated security password" (mật
+khẩu sinh ngẫu nhiên mỗi lần khởi động khi chưa cấu hình <code>UserDetailsService</code> tường minh) là một
+cải tiến của Spring Boot (không phải Spring Security thuần) — thiết kế này khuyến khích lập trình
+viên <strong>luôn</strong> phải chủ động cấu hình bảo mật thật trước khi triển khai production, thay vì vô
+tình để lại một credential mặc định dễ đoán.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Không thêm <code>spring-boot-starter-security</code> là ứng dụng không có bảo mật gì cả, cần
+  tự viết mọi thứ từ đầu."
+  <strong>Reality:</strong> Ngược lại — chỉ cần thêm dependency, Auto Configuration (Chapter 07) đã tự động
+  bảo vệ <strong>mọi</strong> endpoint theo mặc định, đã chứng minh bằng thực nghiệm.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>403 Forbidden</code> luôn có nghĩa là vấn đề phân quyền."
+  <strong>Reality:</strong> Xem Engineering Insight — đôi khi nó là hệ quả của một exception hoàn toàn không
+  liên quan, bị Security chặn khi forward nội bộ tới <code>/error</code>.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên thêm <code>/error</code> vào <code>permitAll()</code> khi tuỳ chỉnh <code>SecurityFilterChain</code></strong> — gây <code>403</code> gây
+  nhầm lẫn cho mọi exception không được xử lý, thay vì response lỗi đúng như Chapter 11 mô tả.</li>
+<li><strong>Để mật khẩu sinh ngẫu nhiên (chỉ dành cho development) chạy trong môi trường production</strong> —
+  vì mật khẩu đổi mỗi lần restart, ứng dụng thực tế không thể vận hành được với cấu hình này,
+  nhưng nếu vô tình để <code>UserDetailsService</code> tạm thời khác dễ đoán, đó là lỗ hổng nghiêm trọng.</li>
+<li><strong>Không phân biệt Authentication (bạn là ai) và Authorization (bạn được phép làm gì)</strong> — Spring
+  Security xử lý cả hai nhưng là hai khái niệm tách biệt, nhầm lẫn dễ dẫn tới cấu hình sai.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn viết <code>SecurityFilterChain</code> tường minh cho mọi ứng dụng thực tế, không dựa vào cấu hình
+  mặc định (chỉ phù hợp cho phát triển/demo nhanh).</li>
+<li>Thêm <code>/error</code> vào danh sách <code>permitAll()</code> để tránh response lỗi bị Security che giấu.</li>
+<li>Với API thực tế, cân nhắc cơ chế xác thực phù hợp hơn HTTP Basic cho production (JWT, OAuth2)
+  — HTTP Basic gửi credential dưới dạng base64 (không mã hoá) trong mỗi request, chỉ an toàn khi
+  kết hợp HTTPS.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Nhận <code>403 Forbidden</code> không rõ nguyên nhân cho một request không liên quan tới phân quyền?
+      → kiểm tra <code>/error</code> có nằm trong <code>permitAll()</code> không — đây có thể là exception khác bị
+      Security che giấu.</li>
+<li>[ ] Cần biết password tạm thời để test local? → tìm dòng log "Using generated security
+      password" khi khởi động ứng dụng.</li>
+<li>[ ] Endpoint công khai vẫn yêu cầu xác thực dù đã <code>permitAll()</code>? → kiểm tra thứ tự các
+      <code>requestMatchers</code> — quy tắc cụ thể hơn nên khai báo trước quy tắc tổng quát hơn.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Spring Security, khi có trên classpath, tự động bảo vệ <strong>mọi</strong> endpoint theo mặc định (secure by
+default) qua Auto Configuration — đã chứng minh bằng thực nghiệm: không credential nhận <code>401</code>
+kèm <code>WWW-Authenticate: Basic</code>; đúng username/password (sinh ngẫu nhiên, in trong log khởi động)
+nhận <code>200</code>; sai password vẫn <code>401</code>, không phân biệt lý do. <code>SecurityFilterChain</code> cho phép tuỳ
+chỉnh endpoint nào công khai (<code>permitAll()</code>), endpoint nào cần xác thực. Security hoạt động ở
+tầng Servlet Filter, <strong>trước</strong> Spring MVC (Chapter 09) — dẫn tới cạm bẫy thực tế: exception
+không xử lý được forward tới <code>/error</code> vẫn phải qua Security Filter Chain, nếu quên <code>permitAll()</code>
+cho <code>/error</code> sẽ trả về <code>403</code> gây nhầm lẫn hoàn toàn với nguyên nhân lỗi gốc.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Chỉ cần thêm dependency <code>spring-boot-starter-security</code>, ứng dụng đã có hành vi bảo mật gì mặc
+  định?</li>
+<li>Authentication và Authorization khác nhau như thế nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Spring Security hoạt động ở tầng nào so với Spring MVC/DispatcherServlet? Điều này ảnh hưởng
+  gì tới <code>@ExceptionHandler</code> (Chapter 11)?</li>
+<li>Vì sao một exception không liên quan tới bảo mật đôi khi lại trả về <code>403 Forbidden</code>?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy thử ứng dụng chỉ với <code>spring-boot-starter-security</code> (không cấu hình gì thêm), xác
+      nhận hành vi mặc định đúng như mô tả.</li>
+<li>[ ] Viết <code>SecurityFilterChain</code> tuỳ chỉnh, mở tự do một endpoint cụ thể, giữ nguyên các endpoint
+      khác yêu cầu xác thực, xác nhận bằng <code>curl</code>.</li>
+<li>[ ] Cố tình gây ra một exception không liên quan tới bảo mật trong một <code>SecurityFilterChain</code>
+      chưa <code>permitAll()</code> cho <code>/error</code>, quan sát response <code>403</code> gây nhầm lẫn.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Mặc định (chưa cấu hình)</th>
+<th>Sau khi tuỳ chỉnh <code>SecurityFilterChain</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Endpoint được bảo vệ</td>
+<td>Tất cả</td>
+<td>Tuỳ khai báo (<code>permitAll()</code>/<code>authenticated()</code>)</td>
+</tr>
+<tr>
+<td>Username</td>
+<td><code>user</code></td>
+<td>Tuỳ cấu hình <code>UserDetailsService</code></td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Sinh ngẫu nhiên, in log mỗi lần khởi động</td>
+<td>Tuỳ cấu hình</td>
+</tr>
+<tr>
+<td>Cơ chế xác thực</td>
+<td>HTTP Basic</td>
+<td>Tuỳ chọn (Basic, form login, JWT, OAuth2, ...)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Security Documentation — https://docs.spring.io/spring-security/reference/</li>
+<li>Spring Boot Documentation — Security: https://docs.spring.io/spring-boot/reference/web/spring-security.html</li>
 </ul>
 
 

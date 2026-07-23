@@ -27,7 +27,7 @@
     
     
       
-        <title>REST - Java Backend Engineering Handbook</title>
+        <title>Xây dựng REST API với Spring MVC - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rest" class="md-skip">
+        <a href="#xay-dung-rest-api-voi-spring-mvc" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              REST
+              Xây dựng REST API với Spring MVC
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3208,7 +3208,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3226,7 +3226,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3450,32 +3450,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3560,7 +3538,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3588,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3616,7 +3594,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:rest" class="md-tag">REST</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:springmvc" class="md-tag">SpringMVC</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link">&para;</a></h1>
+<h1 id="xay-dung-rest-api-voi-spring-mvc">Xây dựng REST API với Spring MVC<a class="headerlink" href="#xay-dung-rest-api-voi-spring-mvc" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>rest</code></p>
@@ -6149,94 +6119,294 @@ Chapter slug: <code>rest</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REST</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — Spring Boot</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — Validation</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 11 — Exception Handler</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../08-spring-boot/">Chapter 08</a> — embedded Tomcat đã sẵn sàng phục vụ HTTP. Nhưng
+làm sao một method Java bình thường (<code>List&lt;Product&gt; findAll()</code>) lại "trở thành" một endpoint
+HTTP, và giá trị trả về (một <code>List&lt;Product&gt;</code>) tự động biến thành JSON mà không cần viết một
+dòng code serialize thủ công nào?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/products&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">class</span> <span class="nc">ProductController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nd">@GetMapping</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">store</span><span class="p">.</span><span class="na">values</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>Gọi thử:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ curl http://localhost:8080/api/products
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[{&quot;id&quot;:1,&quot;name&quot;:&quot;Laptop&quot;,&quot;price&quot;:1200.0}]
+</code></pre></div>
+<p>Một <code>List&lt;Product&gt;</code> (kiểu dữ liệu Java thuần) tự động trở thành JSON hợp lệ trong response HTTP
+— không có <code>ObjectMapper.writeValueAsString()</code> nào được gọi tường minh trong code.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>@RestController</code> khác <code>@Controller</code> như thế nào? Spring MVC chuyển đổi giá trị trả về của
+một method Java thành JSON response bằng cơ chế nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>@RestController</code>, <code>@GetMapping</code>/<code>@PostMapping</code>, <code>@PathVariable</code>,
+      <code>@RequestBody</code></li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm luồng request/response đầy đủ: GET danh sách, GET theo
+      id, POST tạo mới</li>
+<li>[ ] Hiểu cơ chế <code>HttpMessageConverter</code> đứng sau việc tự động chuyển đổi Java object ↔ JSON</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — hiểu Spring Boot đã có embedded server sẵn sàng nhận HTTP request.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 10 (Validation)</strong> — validate dữ liệu đầu vào của request body.</li>
+<li><strong>Chapter 11 (Exception Handler)</strong> — xử lý lỗi tập trung, trả về response lỗi nhất quán.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Xây dựng một REST API theo cách thủ công (không có framework) đòi hỏi tự viết: parse URL để lấy
+path variable, parse JSON request body thành object Java, serialize object Java trả về thành
+JSON, set đúng HTTP status code và header — tất cả đều là logic <strong>lặp lại giống hệt nhau</strong> giữa
+các endpoint khác nhau, chỉ khác phần logic nghiệp vụ thực sự.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Spring MVC</strong> (module xử lý web của Spring Framework, được Spring Boot tự động cấu hình qua
+Auto Configuration, Chapter 07) cho phép khai báo một REST endpoint chỉ bằng annotation:
+<code>@RestController</code> (đánh dấu class xử lý HTTP, mọi method trả về sẽ tự động serialize thành
+response body thay vì tên view), <code>@GetMapping</code>/<code>@PostMapping</code>/... (ánh xạ method Java với một
+route HTTP cụ thể), <code>@PathVariable</code> (lấy giá trị từ URL), <code>@RequestBody</code> (parse JSON request
+body thành object Java).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách "khai báo route" (annotation) khỏi "logic xử lý" (thân method) cho phép Spring MVC tự động
+hoá toàn bộ phần lặp lại (parse URL, parse/serialize JSON, set HTTP status) thông qua một cơ chế
+tổng quát — <code>HttpMessageConverter</code> — chỉ cần khai báo <strong>kiểu dữ liệu</strong> Java mong muốn
+(<code>Product</code>, <code>List&lt;Product&gt;</code>), framework tự tìm converter phù hợp (mặc định là Jackson cho JSON)
+để chuyển đổi hai chiều. Lập trình viên chỉ cần tập trung vào logic nghiệp vụ thực sự, không lặp
+lại code hạ tầng.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@RestController</span><span class="w"> </span><span class="c1">// = @Controller + @ResponseBody tren MOI method</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/products&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">class</span> <span class="nc">ProductController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nd">@GetMapping</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">Product</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// id lay tu URL</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nd">@PostMapping</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// input tu JSON body</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CREATED</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="n">created</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HTTP Request                          Spring MVC                        Java method
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>GET /api/products/1        ──►   DispatcherServlet dinh tuyen  ──►   findById(1L)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                                  (khop @GetMapping(&quot;/{id}&quot;))              │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                                  {id} -&gt; chuyen doi String-&gt;Long          │
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                                                                            ▼
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>HTTP Response  &lt;──   HttpMessageConverter (Jackson)  &lt;──   return Product(&quot;Laptop&quot;, 1200.0)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>{&quot;id&quot;:1,&quot;name&quot;:&quot;Laptop&quot;,&quot;price&quot;:1200.0}   serialize Java object -&gt; JSON
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/products&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProductController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span><span class="w"> </span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AtomicLong</span><span class="w"> </span><span class="n">idSeq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicLong</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ProductController</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">store</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">1L</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="mi">1L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Laptop&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1200.0</span><span class="p">));</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nd">@GetMapping</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">store</span><span class="p">.</span><span class="na">values</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">store</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProductNotFoundException</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="nd">@PostMapping</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idSeq</span><span class="p">.</span><span class="na">getAndIncrement</span><span class="p">();</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">Product</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">name</span><span class="p">(),</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">price</span><span class="p">());</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="n">store</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">created</span><span class="p">);</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CREATED</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="n">created</span><span class="p">);</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Boot 3.3.4, <code>curl</code> gọi trực tiếp ứng dụng đang chạy trên <code>localhost:8080</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=== GET /api/products ===
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>[{&quot;id&quot;: 1, &quot;name&quot;: &quot;Laptop&quot;, &quot;price&quot;: 1200.0}]
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>=== GET /api/products/1 ===
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>{&quot;id&quot;: 1, &quot;name&quot;: &quot;Laptop&quot;, &quot;price&quot;: 1200.0}
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>=== POST /api/products (hop le) ===
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>{&quot;id&quot;:2,&quot;name&quot;:&quot;Mouse&quot;,&quot;price&quot;:25.0}
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>HTTP_STATUS:201
+</code></pre></div>
+<p><code>@PathVariable Long id</code> tự động chuyển <code>"1"</code> (chuỗi trong URL) thành <code>1L</code> (kiểu <code>Long</code>).
+<code>@RequestBody Product input</code> tự động parse <code>{"name":"Mouse","price":25}</code> (JSON) thành một record
+<code>Product</code> Java. Response trả về status <code>201 Created</code> (theo <code>ResponseEntity.status(...)</code> khai báo
+tường minh trong code) kèm body JSON của sản phẩm vừa tạo, với <code>id</code> mới do server tự sinh.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>HttpMessageConverter</code> hoạt động thế nào để "biết" chuyển <code>Product</code> (Java) ↔ JSON?</strong> Khi Spring
+MVC cần serialize giá trị trả về (hoặc deserialize <code>@RequestBody</code>), nó xem xét header
+<code>Content-Type</code>/<code>Accept</code> của request và duyệt qua danh sách <code>HttpMessageConverter</code> đã đăng ký
+(được Auto Configuration, Chapter 07, tự động thêm <code>MappingJackson2HttpMessageConverter</code> nếu
+Jackson có trên classpath — mặc định đúng vậy với <code>spring-boot-starter-web</code>), tìm converter đầu
+tiên <strong>hỗ trợ</strong> kiểu dữ liệu Java đó và loại <code>Content-Type</code> đó. Với JSON, <code>Jackson</code>
+(<code>ObjectMapper</code>) làm việc thực sự: dùng Reflection (Phase 1, Chapter 19) để đọc/ghi field của
+record/class Java. Đây là lý do đổi <code>Content-Type</code> của request (ví dụ sang <code>application/xml</code>)
+có thể khiến Spring MVC chọn một converter khác hoàn toàn (nếu có <code>MappingJackson2XmlHttpMessageConverter</code> trên classpath) mà không cần sửa bất kỳ dòng code nào trong controller — logic
+nghiệp vụ hoàn toàn tách biệt khỏi định dạng truyền tải dữ liệu.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao dùng <code>record</code> (Phase 4, Chapter 07) làm DTO cho request/response API là lựa chọn tự
+nhiên, và nó tương tác với <code>HttpMessageConverter</code> như thế nào?</strong> Jackson (từ phiên bản 2.12+, và
+đặc biệt hỗ trợ tốt hơn ở các bản mới) nhận diện được các "accessor" đặc biệt của record (<code>name()</code>
+thay vì <code>getName()</code>, đã học ở Phase 4 Chapter 07) để serialize, và dùng <strong>compact constructor</strong>
+(hoặc canonical constructor) để deserialize — nghĩa là mọi validation đặt trong compact
+constructor của record (ví dụ kiểm tra giá trị âm) sẽ <strong>tự động</strong> áp dụng ngay cả khi dữ liệu tới
+từ một JSON request body, không cần thêm bước validate thủ công riêng cho tầng API. Đây là một
+minh chứng cụ thể cho việc kiến thức Phase 4 (record) trực tiếp nâng cao chất lượng thiết kế API
+ở Phase 5, không phải hai mảng kiến thức tách rời.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Spring MVC ra đời từ Spring Framework 2.5 (2007) dựa trên mô hình Servlet truyền thống của Java
+EE. <code>@RestController</code> (gộp <code>@Controller</code> + <code>@ResponseBody</code>) chỉ xuất hiện từ Spring 4.0 (2013) —
+trước đó, mọi method trong một <code>@Controller</code> phải tự đánh dấu <code>@ResponseBody</code> riêng lẻ nếu muốn
+trả JSON thay vì tên view (mô hình MVC truyền thống, trả về HTML template) — sự xuất hiện của
+<code>@RestController</code> phản ánh REST API dần trở thành mô hình chủ đạo, lấn át MVC trả HTML truyền
+thống trong phần lớn ứng dụng backend hiện đại.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>@RestController</code> là một loại annotation hoàn toàn khác biệt với <code>@Controller</code>."
+  <strong>Reality:</strong> <code>@RestController</code> chỉ đơn giản là <code>@Controller</code> + <code>@ResponseBody</code> gộp lại — nếu
+  bạn tự thêm <code>@ResponseBody</code> cho từng method của một <code>@Controller</code> thông thường, hành vi hoàn
+  toàn tương đương.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Spring MVC chỉ hỗ trợ JSON, muốn trả XML hay định dạng khác phải tự viết logic
+  chuyển đổi."
+  <strong>Reality:</strong> Xem Deep Dive — cơ chế <code>HttpMessageConverter</code> là tổng quát, hỗ trợ nhiều định
+  dạng nếu converter tương ứng có trên classpath, không cần sửa code controller.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Trả về entity JPA trực tiếp làm response API thay vì DTO/record riêng</strong> — vô tình lộ cấu
+  trúc database ra ngoài, khó kiểm soát field nào thực sự nên public qua API.</li>
+<li><strong>Không set đúng HTTP status code, luôn mặc định trả <code>200 OK</code> kể cả khi tạo mới thành công</strong>
+  (nên là <code>201 Created</code>) hoặc khi có lỗi (nên trả <code>4xx</code>/<code>5xx</code> phù hợp).</li>
+<li><strong>Dùng <code>@PathVariable</code> với kiểu không khớp và không xử lý lỗi chuyển đổi</strong> — dữ liệu URL không
+  hợp lệ (ví dụ chữ thay vì số) gây lỗi chuyển đổi kiểu cần được xử lý tường minh (Chapter 11).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng DTO/record riêng cho request/response, không trả trực tiếp entity JPA (Phase 6) ra API.</li>
+<li>Trả đúng HTTP status code theo ngữ nghĩa REST chuẩn (<code>200</code> đọc thành công, <code>201</code> tạo mới,
+  <code>204</code> xoá thành công không có nội dung trả về, <code>4xx</code> lỗi phía client, <code>5xx</code> lỗi phía server).</li>
+<li>Tận dụng record (Phase 4, Chapter 07) cho DTO để có validation tích hợp qua compact
+  constructor, tương tác tự nhiên với Jackson.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Response trả về không đúng định dạng mong đợi (JSON/XML)? → kiểm tra header
+      <code>Content-Type</code>/<code>Accept</code> của request và các <code>HttpMessageConverter</code> có trên classpath.</li>
+<li>[ ] <code>@RequestBody</code> không parse đúng dữ liệu? → kiểm tra JSON gửi lên có khớp cấu trúc record/
+      class Java (tên field, kiểu dữ liệu) không.</li>
+<li>[ ] <code>@PathVariable</code> gây lỗi khi giá trị URL không hợp lệ? → cần <code>@ExceptionHandler</code> xử lý
+      <code>MethodArgumentTypeMismatchException</code> (Chapter 11).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Spring MVC cho phép khai báo REST endpoint chỉ bằng annotation
+(<code>@RestController</code>/<code>@GetMapping</code>/<code>@PathVariable</code>/<code>@RequestBody</code>), tự động hoá việc parse URL và
+chuyển đổi Java object ↔ JSON qua cơ chế <code>HttpMessageConverter</code> (mặc định dùng Jackson). Đã
+chứng minh bằng thực nghiệm luồng đầy đủ: GET danh sách trả về JSON tự động, GET theo id chuyển
+đổi path variable thành <code>Long</code>, POST parse JSON request body thành record Java và trả về đúng
+status <code>201 Created</code>. <code>@RestController</code> chỉ là <code>@Controller</code> + <code>@ResponseBody</code> gộp lại. Dùng
+record (Phase 4) cho DTO tận dụng được validation tích hợp qua compact constructor khi Jackson
+deserialize.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>@RestController</code> khác <code>@Controller</code> như thế nào?</li>
+<li><code>@PathVariable</code> và <code>@RequestBody</code> dùng để làm gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Spring MVC chuyển đổi giá trị trả về của một method Java thành JSON response bằng cơ chế nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cách <code>HttpMessageConverter</code> chọn converter phù hợp dựa trên header
+  <code>Content-Type</code>/<code>Accept</code>. Điều gì xảy ra nếu không có converter nào phù hợp?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>ProductController</code> ở trên, dùng <code>curl</code> để tự gọi GET/POST và xác nhận kết quả
+      đúng như mô tả.</li>
+<li>[ ] Thêm một endpoint <code>DELETE /api/products/{id}</code>, trả về status <code>204 No Content</code> khi thành
+      công.</li>
+<li>[ ] Thử gửi request với header <code>Content-Type: application/json</code> nhưng body không phải JSON
+      hợp lệ (ví dụ thiếu dấu ngoặc), quan sát lỗi Spring MVC trả về.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@RestController</code></td>
+<td><code>@Controller</code> + <code>@ResponseBody</code>, mọi method trả JSON/data trực tiếp</td>
+</tr>
+<tr>
+<td><code>@RequestMapping</code></td>
+<td>Ánh xạ tiền tố URL chung cho cả class</td>
+</tr>
+<tr>
+<td><code>@GetMapping</code>/<code>@PostMapping</code>/...</td>
+<td>Ánh xạ method với route + HTTP method cụ thể</td>
+</tr>
+<tr>
+<td><code>@PathVariable</code></td>
+<td>Lấy giá trị từ URL (<code>/products/{id}</code>)</td>
+</tr>
+<tr>
+<td><code>@RequestBody</code></td>
+<td>Parse JSON request body thành object Java</td>
+</tr>
+<tr>
+<td><code>@RequestParam</code></td>
+<td>Lấy query parameter (<code>?key=value</code>)</td>
+</tr>
+<tr>
+<td><code>ResponseEntity&lt;T&gt;</code></td>
+<td>Kiểm soát tường minh status code + header + body</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Web on Servlet Stack (Spring MVC): https://docs.spring.io/spring-framework/reference/web/webmvc.html</li>
+<li>Jackson Documentation — Java JSON binding.</li>
 </ul>
 
 

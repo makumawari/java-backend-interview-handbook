@@ -27,7 +27,7 @@
     
     
       
-        <title>Bean - Java Backend Engineering Handbook</title>
+        <title>Bean và Bean Scope - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bean" class="md-skip">
+        <a href="#bean-va-bean-scope" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bean
+              Bean và Bean Scope
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3068,7 +3068,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3086,7 +3086,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3310,32 +3310,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3448,7 +3426,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3532,7 +3510,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3560,7 +3538,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3588,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3616,7 +3594,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3644,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3672,7 +3650,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:bean" class="md-tag">Bean</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6141,7 +6104,7 @@
   
 
 
-<h1 id="bean">Bean<a class="headerlink" href="#bean" title="Permanent link">&para;</a></h1>
+<h1 id="bean-va-bean-scope">Bean và Bean Scope<a class="headerlink" href="#bean-va-bean-scope" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>bean</code></p>
@@ -6149,94 +6112,280 @@ Chapter slug: <code>bean</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bean</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — IoC</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — DI</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Bean Lifecycle</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Configuration</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../02-ioc/">Chapter 02</a> — mọi ví dụ trước giờ gọi <code>ctx.getBean(X.class)</code> nhiều lần
+và ngầm giả định nhận về <strong>cùng một object</strong>. Điều đó có phải luôn đúng không?</p>
 </blockquote>
+<p>Khai báo hai bean giống hệt nhau về code, chỉ khác annotation <code>@Scope</code>, rồi gọi <code>getBean()</code> hai
+lần cho mỗi loại:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Bean</span><span class="w"> </span><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;singleton&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="nf">singletonCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@Bean</span><span class="w"> </span><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;prototype&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="nf">prototypeCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>--- Singleton: lay 2 lan ---
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>s1 == s2: true
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>s2.value (sau khi s1.value=100): 100
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>--- Prototype: lay 2 lan ---
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Counter constructor chay! (instance moi)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Counter constructor chay! (instance moi)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>p1 == p2: false
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>p2.value (sau khi p1.value=999): 0
+</code></pre></div>
+<p><code>s1 == s2</code> là <code>true</code> — cùng một object. <code>p1 == p2</code> là <code>false</code> — hai object hoàn toàn khác nhau,
+và <strong>constructor chạy riêng cho mỗi lần</strong> <code>getBean()</code>. Cùng một class, cùng cách khai báo
+<code>@Bean</code>, nhưng hành vi khác nhau hoàn toàn chỉ vì một annotation <code>@Scope</code>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Bean trong Spring là gì? Bean scope <code>singleton</code> và <code>prototype</code> khác nhau như thế nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Định nghĩa chính xác "bean" trong ngữ cảnh Spring (khác với khái niệm JavaBean truyền
+      thống)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm sự khác biệt giữa scope <code>singleton</code> (mặc định) và
+      <code>prototype</code></li>
+<li>[ ] Biết các scope khác (<code>request</code>, <code>session</code>) và ngữ cảnh áp dụng của chúng</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 02, 03 — hiểu IoC container và cách nó tạo/tiêm bean.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 05 (Bean Lifecycle)</strong> — chi tiết các bước container thực hiện khi tạo một bean.</li>
+<li><strong>Chapter 06 (Configuration)</strong> — cách khai báo bean tường minh qua <code>@Bean</code>.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Không phải mọi object trong một ứng dụng nên được <strong>chia sẻ dùng chung</strong> một instance duy nhất.
+Một <code>PaymentService</code> không giữ trạng thái (stateless) hoàn toàn có thể dùng chung một instance
+cho mọi request — tiết kiệm bộ nhớ, tránh tạo lại liên tục. Nhưng một object <strong>có trạng thái
+riêng cho mỗi lần dùng</strong> (ví dụ một "builder" tích luỹ dữ liệu tạm thời) mà bị chia sẻ dùng chung
+nhầm sẽ gây lỗi nghiêm trọng: dữ liệu của lần dùng này "rò rỉ" sang lần dùng khác.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Bean</strong> trong Spring là một object được IoC Container quản lý toàn bộ vòng đời (tạo, cấu hình,
+tiêm dependency, huỷ) — khác với khái niệm "JavaBean" truyền thống (chỉ là một quy ước đặt tên:
+constructor không tham số, field private + getter/setter). <strong>Bean scope</strong> quyết định <strong>số lượng
+instance</strong> và <strong>thời điểm tạo</strong> cho một bean: <code>singleton</code> (mặc định) — đúng một instance duy
+nhất cho toàn bộ container, chia sẻ dùng chung; <code>prototype</code> — một instance <strong>mới hoàn toàn</strong> cho
+mỗi lần <code>getBean()</code>/được tiêm vào nơi khác.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Mặc định <code>singleton</code> phù hợp với đa số bean trong một ứng dụng backend thông thường —
+<code>Service</code>, <code>Repository</code>, <code>Controller</code> thường <strong>không giữ trạng thái riêng theo từng lần gọi</strong>
+(stateless), nên chia sẻ một instance duy nhất vừa tiết kiệm tài nguyên vừa an toàn. <code>prototype</code>
+tồn tại cho trường hợp ngược lại — bean <strong>có trạng thái</strong> cần tách biệt hoàn toàn giữa các lần
+sử dụng, ví dụ một object đại diện cho một "phiên xử lý" tạm thời, tích luỹ dữ liệu riêng mà
+không được phép lẫn với phiên khác.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Bean</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;singleton&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// hoac khong can khai bao, day la MAC DINH</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">Counter</span><span class="w"> </span><span class="nf">singletonCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nd">@Bean</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;prototype&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">Counter</span><span class="w"> </span><span class="nf">prototypeCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">// Hoac dung annotation rieng cho ngan gon:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nd">@Scope</span><span class="p">(</span><span class="n">ConfigurableBeanFactory</span><span class="p">.</span><span class="na">SCOPE_PROTOTYPE</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Singleton (MAC DINH):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  getBean() lan 1 ──┐
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  getBean() lan 2 ──┼──► CUNG MOT instance (tao 1 lan duy nhat, luc container khoi dong)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  getBean() lan 3 ──┘
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Prototype:
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  getBean() lan 1 ──► instance MOI #1 (constructor chay)
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  getBean() lan 2 ──► instance MOI #2 (constructor chay LAI)
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  getBean() lan 3 ──► instance MOI #3 (constructor chay LAI)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BeanScopeTest</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">Counter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Counter constructor chay! (instance moi)&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nd">@Configuration</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="nd">@Bean</span><span class="w"> </span><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;singleton&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="nf">singletonCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="nd">@Bean</span><span class="w"> </span><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;prototype&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="nf">prototypeCounter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="na">class</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="n">Counter</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&quot;singletonCounter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="n">Counter</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&quot;singletonCounter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">            </span><span class="n">s1</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;s1 == s2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">));</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;s2.value (sau khi s1.value=100): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">            </span><span class="n">Counter</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&quot;prototypeCounter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">            </span><span class="n">Counter</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="s">&quot;prototypeCounter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">            </span><span class="n">p1</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">999</span><span class="p">;</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;p1 == p2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">p1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p2</span><span class="p">));</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;p2.value (sau khi p1.value=999): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Framework 6.1.13):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Counter constructor chay! (instance moi)    &lt;- singleton: chay LUC KHOI DONG container
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>--- Singleton: lay 2 lan ---
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>s1 == s2: true
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>s2.value (sau khi s1.value=100): 100        &lt;- s2 THAY DOI theo s1, vi CUNG mot object
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>--- Prototype: lay 2 lan ---
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Counter constructor chay! (instance moi)    &lt;- prototype: chay MOI LAN getBean()
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Counter constructor chay! (instance moi)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>p1 == p2: false
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>p2.value (sau khi p1.value=999): 0          &lt;- p2 KHONG doi, vi la object KHAC hoan toan
+</code></pre></div>
+<p>Bằng chứng rõ ràng: sửa <code>s1.value</code> cũng làm thay đổi <code>s2.value</code> (vì <code>s1 == s2</code>), nhưng sửa
+<code>p1.value</code> <strong>không hề</strong> ảnh hưởng <code>p2.value</code> (vì chúng là hai object độc lập).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao constructor của singleton bean chỉ chạy MỘT lần dù <code>getBean()</code> được gọi nhiều lần?</strong>
+Container lưu instance singleton đã tạo vào một cache nội bộ (singleton registry, cũng chính là
+"first-level cache" trong cơ chế "three-level cache" đã nhắc ở Chapter 03) — mọi lời gọi
+<code>getBean()</code> sau lần tạo đầu tiên chỉ <strong>tra cache</strong> và trả về instance đã có, không tạo lại.
+Prototype bean <strong>không được cache</strong> theo cách này — container chỉ nhớ <strong>cách tạo</strong> (bean
+definition), mỗi lần <code>getBean()</code> là một lần thực thi lại toàn bộ quá trình tạo từ đầu (constructor,
+điền dependency, các bước khởi tạo ở Chapter 05).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Tiêm một bean <code>prototype</code> vào một bean <code>singleton</code> — điều gì thực sự xảy ra, và đây có phải
+cạm bẫy phổ biến không?</strong> Đây là một trong những cạm bẫy phổ biến nhất về bean scope: nếu
+<code>SingletonService</code> (scope mặc định) có một field kiểu <code>PrototypeBean</code> được tiêm qua constructor/
+field injection thông thường, Spring chỉ tiêm <strong>một lần duy nhất</strong> — đúng vào lúc <code>SingletonService</code>
+được tạo (vì bản thân <code>SingletonService</code> chỉ được tạo một lần). Từ đó về sau, mọi lần dùng
+<code>PrototypeBean</code> bên trong <code>SingletonService</code> đều dùng lại <strong>instance đầu tiên</strong> đó — hoàn toàn
+mất đi ý nghĩa "mỗi lần dùng một instance mới" của scope <code>prototype</code>. Để tiêm đúng một
+<code>prototype</code> bean mới mỗi lần cần dùng bên trong một singleton, cần một cơ chế đặc biệt: dùng
+<code>ObjectFactory&lt;PrototypeBean&gt;</code>/<code>Provider&lt;PrototypeBean&gt;</code> (gọi <code>.getObject()</code>/<code>.get()</code> mỗi lần
+cần instance mới) hoặc annotation <code>@Lookup</code> — cả hai đều trì hoãn việc gọi <code>getBean()</code> tới đúng
+thời điểm cần dùng, thay vì gọi một lần duy nhất lúc tiêm.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Bean scope <code>singleton</code>/<code>prototype</code> có từ những phiên bản Spring rất sớm. Các scope
+<code>request</code>/<code>session</code>/<code>application</code> (chỉ có ý nghĩa trong ứng dụng web, gắn với vòng đời một HTTP
+request/session) được bổ sung khi Spring MVC phát triển, phản ánh nhu cầu quản lý trạng thái
+riêng cho từng request/session người dùng mà không phải tự tay dùng <code>ThreadLocal</code> thủ công.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "'Bean' trong Spring nghĩa giống hệt 'JavaBean' truyền thống (class với
+  getter/setter theo quy ước)."
+  <strong>Reality:</strong> Bean trong Spring chỉ đơn giản là "object được container quản lý" — không yêu
+  cầu tuân theo quy ước JavaBean (constructor không tham số, getter/setter) như tên gọi có thể
+  gây nhầm lẫn.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Tiêm một <code>prototype</code> bean vào <code>singleton</code> bean sẽ luôn cho instance mới mỗi lần
+  dùng."
+  <strong>Reality:</strong> Xem Engineering Insight — mặc định chỉ tiêm một lần lúc singleton được tạo, cần
+  <code>ObjectFactory</code>/<code>@Lookup</code> để thực sự có instance mới mỗi lần.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Giả định mọi bean đều là singleton mà không kiểm tra khi thiết kế bean có trạng thái riêng
+  theo từng lần dùng</strong> — dẫn tới rò rỉ dữ liệu giữa các lần sử dụng nếu vô tình chia sẻ instance.</li>
+<li><strong>Tiêm <code>prototype</code> bean vào <code>singleton</code> bean qua constructor/field injection thông thường, kỳ
+  vọng có instance mới mỗi lần</strong> — chỉ nhận đúng một instance duy nhất (xem Engineering Insight).</li>
+<li><strong>Dùng scope <code>prototype</code> cho mọi bean "để an toàn"</strong> — mất lợi ích chia sẻ tài nguyên của
+  singleton mà không có lý do thực sự cần thiết.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Mặc định coi bean là <code>singleton</code> — chỉ chuyển sang <code>prototype</code> khi bean thực sự cần trạng thái
+  riêng biệt cho mỗi lần sử dụng.</li>
+<li>Khi cần <code>prototype</code> bean bên trong một <code>singleton</code>, dùng <code>ObjectFactory</code>/<code>Provider</code>/<code>@Lookup</code>
+  thay vì tiêm trực tiếp.</li>
+<li>Chỉ dùng scope <code>request</code>/<code>session</code> khi thực sự có ngữ cảnh web và cần trạng thái gắn với vòng
+  đời request/session cụ thể.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Dữ liệu "rò rỉ" giữa các request/lần gọi khác nhau dù expect mỗi lần độc lập? → kiểm tra
+      bean có scope <code>singleton</code> (mặc định) trong khi lẽ ra cần <code>prototype</code> không.</li>
+<li>[ ] Tiêm <code>prototype</code> bean vào <code>singleton</code> bean nhưng luôn nhận cùng instance? → dùng
+      <code>ObjectFactory</code>/<code>@Lookup</code> thay vì tiêm trực tiếp — xem Engineering Insight.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Bean là object được IoC Container quản lý toàn bộ vòng đời — khác với "JavaBean" truyền thống.
+Bean scope quyết định số lượng instance: <code>singleton</code> (mặc định, một instance chia sẻ dùng
+chung, cache sau lần tạo đầu) và <code>prototype</code> (instance mới mỗi lần <code>getBean()</code>, không cache). Đã
+chứng minh bằng thực nghiệm: sửa giá trị trên singleton ảnh hưởng mọi nơi dùng nó, còn prototype
+thì hoàn toàn độc lập. Tiêm <code>prototype</code> vào <code>singleton</code> qua cách thông thường chỉ tiêm một lần
+duy nhất — cần <code>ObjectFactory</code>/<code>@Lookup</code> để thực sự có instance mới mỗi lần cần dùng.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Bean trong Spring là gì? Bean scope <code>singleton</code> và <code>prototype</code> khác nhau như thế nào?</li>
+<li>Điều gì xảy ra khi tiêm một <code>prototype</code> bean vào một <code>singleton</code> bean theo cách thông thường?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>BeanScopeTest</code> ở trên, xác nhận singleton chia sẻ instance còn prototype thì
+      không, đúng như mô tả.</li>
+<li>[ ] Viết một <code>singleton</code> bean tiêm một <code>prototype</code> bean qua <code>ObjectFactory&lt;T&gt;</code>, xác nhận mỗi
+      lần gọi <code>.getObject()</code> cho ra instance khác nhau.</li>
+<li>[ ] Tìm hiểu scope <code>request</code>, viết một ví dụ Spring MVC đơn giản minh hoạ bean được tạo mới
+      cho mỗi HTTP request.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Số instance</th>
+<th>Thời điểm tạo</th>
+<th>Dùng khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>singleton</code> (mặc định)</td>
+<td>1, chia sẻ toàn container</td>
+<td>Eager, lúc container khởi động</td>
+<td>Bean stateless (đa số Service/Repository)</td>
+</tr>
+<tr>
+<td><code>prototype</code></td>
+<td>Mới mỗi lần <code>getBean()</code></td>
+<td>Lazy, mỗi lần cần</td>
+<td>Bean có trạng thái riêng từng lần dùng</td>
+</tr>
+<tr>
+<td><code>request</code></td>
+<td>1 mỗi HTTP request</td>
+<td>Mỗi request</td>
+<td>Dữ liệu gắn với 1 request (chỉ web)</td>
+</tr>
+<tr>
+<td><code>session</code></td>
+<td>1 mỗi HTTP session</td>
+<td>Mỗi session</td>
+<td>Dữ liệu gắn với 1 session người dùng (chỉ web)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Bean Scopes: https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html</li>
 </ul>
 
 

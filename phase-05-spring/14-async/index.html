@@ -27,7 +27,7 @@
     
     
       
-        <title>Async - Java Backend Engineering Handbook</title>
+        <title>@Async - Java Backend Engineering Handbook</title>
       
     
     
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Async
+              @Async
             
           </span>
         </div>
@@ -3003,7 +3003,7 @@
   <span class="md-ellipsis">
     
   
-    IoC
+    Inversion of Control (IoC)
   
 
     
@@ -3031,7 +3031,7 @@
   <span class="md-ellipsis">
     
   
-    DI
+    Dependency Injection (DI)
   
 
     
@@ -3059,7 +3059,7 @@
   <span class="md-ellipsis">
     
   
-    Bean
+    Bean và Bean Scope
   
 
     
@@ -3115,7 +3115,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    @Configuration và CGLIB Proxy
   
 
     
@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    REST
+    Xây dựng REST API với Spring MVC
   
 
     
@@ -3227,7 +3227,7 @@
   <span class="md-ellipsis">
     
   
-    Validation
+    Validation với Bean Validation (@Valid)
   
 
     
@@ -3255,7 +3255,7 @@
   <span class="md-ellipsis">
     
   
-    Exception Handler
+    Xử lý lỗi tập trung với @RestControllerAdvice
   
 
     
@@ -3283,7 +3283,7 @@
   <span class="md-ellipsis">
     
   
-    AOP
+    Aspect-Oriented Programming (AOP) và Self-Invocation
   
 
     
@@ -3311,7 +3311,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (Spring Transaction Management)
+    Spring Transaction Management (@Transactional)
   
 
     
@@ -3348,7 +3348,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3366,7 +3366,7 @@
   <span class="md-ellipsis">
     
   
-    Async
+    @Async
   
 
     
@@ -3590,32 +3590,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3700,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    @Scheduled
   
 
     
@@ -3728,7 +3706,7 @@
   <span class="md-ellipsis">
     
   
-    Cache (Spring Cache Abstraction)
+    Spring Cache Abstraction (@Cacheable)
   
 
     
@@ -3756,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Security
+    Spring Security cơ bản
   
 
     
@@ -3784,7 +3762,7 @@
   <span class="md-ellipsis">
     
   
-    Reactive Programming (Project Reactor, WebFlux, Mono/Flux, RSocket)
+    Reactive Programming với Project Reactor (Mono/Flux)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,14 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:async" class="md-tag">Async</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:spring" class="md-tag">Spring</a>
       
     
   </nav>
@@ -6141,7 +6104,7 @@
   
 
 
-<h1 id="async">Async<a class="headerlink" href="#async" title="Permanent link">&para;</a></h1>
+<h1 id="async">@Async<a class="headerlink" href="#async" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 5 — Spring
 Chapter slug: <code>async</code></p>
@@ -6149,94 +6112,265 @@ Chapter slug: <code>async</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Async</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5 — Spring</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — AOP</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 15 — Thread Pool</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 15 — Scheduler</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../12-aop/">Chapter 12</a>, <a href="../13-transaction/">Chapter 13</a> — cả hai đều là AOP advice,
+đều chịu giới hạn self-invocation. <code>@Async</code> cũng không ngoại lệ. Interview Question điển hình
+cho tính năng này: <strong>"<code>@Async</code> đã bật, nhưng method vẫn chạy đồng bộ. Vì sao?"</strong></p>
 </blockquote>
+<p>Gọi trực tiếp một method <code>@Async</code> từ bên ngoài, rồi thử gọi nó <strong>gián tiếp</strong> qua một method khác
+trong cùng class (self-invocation) — in ra tên thread thực thi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== Goi TRUC TIEP sendEmailAsync() qua proxy ===
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Main test thread: main
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  sendEmailAsync(alice@example.com) chay tren thread: task-1
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>=== Goi placeOrderNoAsync() -&gt; tu goi sendEmailAsync() qua &#39;this&#39; ===
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Main test thread: main
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>placeOrderNoAsync chay tren thread: main
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  sendEmailAsync(bob@example.com) chay tren thread: main
+</code></pre></div>
+<p>Gọi trực tiếp: <code>sendEmailAsync</code> chạy trên thread <code>task-1</code> — khác hẳn thread <code>main</code> gọi nó, đúng
+bản chất bất đồng bộ. Gọi qua self-invocation: <code>sendEmailAsync</code> chạy <strong>ngay trên thread <code>main</code></strong>
+— hoàn toàn đồng bộ, dù annotation <code>@Async</code> vẫn còn nguyên trên method đó.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>"@Async" is enabled, but the method still executes synchronously. What could be wrong?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu <code>@Async</code> cũng là AOP advice, chịu chung giới hạn self-invocation đã học ở Chapter 12</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: gọi trực tiếp <code>@Async</code> method chạy trên thread pool
+      riêng; self-invocation khiến nó chạy đồng bộ trên chính thread gọi</li>
+<li>[ ] Biết các nguyên nhân khác khiến <code>@Async</code> "không hoạt động": thiếu <code>@EnableAsync</code>, gọi
+      trong cùng thread do cấu hình <code>SimpleAsyncTaskExecutor</code> không đúng</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 12 — bắt buộc hiểu AOP proxy và self-invocation trước chapter này.</li>
+<li>Phase 3, Chapter 15 — hiểu Thread Pool, vì <code>@Async</code> mặc định chạy task trên một thread pool
+  quản lý bởi Spring.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 15 (Scheduler)</strong> — <code>@Scheduled</code> có thể kết hợp <code>@Async</code> để không chặn thread lập lịch
+  chính khi task chạy lâu.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Gọi một tác vụ tốn thời gian (gửi email, gọi API bên ngoài) theo cách đồng bộ khiến thread hiện
+tại (ví dụ thread xử lý HTTP request) bị <strong>chặn đứng</strong> chờ tác vụ đó hoàn thành, dù bản thân tác
+vụ không ảnh hưởng tới kết quả trả về ngay lập tức cho client. <code>@Async</code> cho phép "giao" tác vụ đó
+cho một thread khác xử lý, để thread hiện tại tiếp tục ngay — nhưng cũng như mọi tính năng dựa
+trên AOP proxy khác, nó có thể bị vô hiệu hoá một cách âm thầm nếu gọi sai cách.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>@Async</code></strong> đánh dấu một method sẽ được thực thi <strong>bất đồng bộ</strong> — khi được gọi (từ bên ngoài,
+qua proxy), Spring không chạy thân method trên thread gọi, mà <strong>giao</strong> nó cho một thread khác
+(lấy từ thread pool, mặc định là <code>SimpleAsyncTaskExecutor</code> — tạo thread mới mỗi lần, nên khuyến
+nghị cấu hình <code>ThreadPoolTaskExecutor</code> riêng cho production, Phase 3 Chapter 15) — thread gọi
+nhận lại quyền điều khiển <strong>ngay lập tức</strong>, không chờ tác vụ đó hoàn thành.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>@Async</code> cũng hiện thực hoá qua AOP proxy — hoàn toàn cùng cơ chế với <code>@Transactional</code> (Chapter
+13) và AOP tuỳ chỉnh (Chapter 12): proxy chặn lời gọi từ bên ngoài, giao task cho executor thay
+vì chạy trực tiếp. Vì vậy nó <strong>kế thừa chính xác</strong> giới hạn self-invocation: khi gọi qua <code>this</code>
+từ bên trong cùng class, lời gọi đi thẳng tới instance gốc, bỏ qua hoàn toàn lớp logic "giao cho
+thread khác" của proxy — method chạy <strong>ngay tại chỗ, đồng bộ</strong>, y hệt như annotation <code>@Async</code>
+không hề tồn tại.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@EnableAsync</span><span class="w"> </span><span class="c1">// BAT BUOC, dat tren mot @Configuration class</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">class</span> <span class="nc">AsyncConfig</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nd">@Service</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">class</span> <span class="nc">NotificationService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nd">@Async</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendEmailAsync</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="kd">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="c1">// chay tren thread KHAC, khong chan thread goi</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Goi TU BEN NGOAI qua proxy:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Thread &quot;main&quot; ──► Proxy.sendEmailAsync() ──► GIAO cho thread pool
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       │                                              │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Thread &quot;main&quot; TIEP TUC NGAY                    Thread &quot;task-1&quot; chay sendEmailAsync() that
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  (khong cho doi)
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Self-invocation (goi qua &#39;this&#39;):
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  Thread &quot;main&quot; ──► Proxy.placeOrderNoAsync() ──► instance GOC dang chay
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                                                        │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                                                   this.sendEmailAsync() &lt;- KHONG QUA PROXY!
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                                                        │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>                                                   chay TRUC TIEP tren CHINH thread &quot;main&quot;
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                                                   (dong bo, KHONG giao cho thread nao khac)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Service</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NotificationService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nd">@Async</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendEmailAsync</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="kd">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  sendEmailAsync(&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kd">to</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;) chay tren thread: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrderNoAsync</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="kd">to</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;placeOrderNoAsync chay tren thread: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">sendEmailAsync</span><span class="p">(</span><span class="kd">to</span><span class="p">);</span><span class="w"> </span><span class="c1">// SELF-INVOCATION</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Spring Boot 3.3.4):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>=== Goi TRUC TIEP sendEmailAsync() qua proxy ===
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Main test thread: main
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  sendEmailAsync(alice@example.com) chay tren thread: task-1
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>=== Goi placeOrderNoAsync() -&gt; tu goi sendEmailAsync() qua &#39;this&#39; ===
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Main test thread: main
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>placeOrderNoAsync chay tren thread: main
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  sendEmailAsync(bob@example.com) chay tren thread: main
+</code></pre></div>
+<p>Gọi trực tiếp <code>sendEmailAsync()</code> từ test (thread <code>main</code>): thân method thực thi trên thread
+<code>task-1</code> — một thread hoàn toàn khác, xác nhận đúng hành vi bất đồng bộ. Gọi qua
+<code>placeOrderNoAsync()</code> (tự gọi <code>sendEmailAsync()</code> bên trong qua <code>this</code>): thân method của
+<code>sendEmailAsync</code> chạy <strong>ngay trên thread <code>main</code></strong> — giống hệt thread của <code>placeOrderNoAsync</code> gọi
+nó, chứng minh <code>@Async</code> đã bị bỏ qua hoàn toàn, method chạy đồng bộ như một lời gọi Java thông
+thường.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao lỗi self-invocation với <code>@Async</code> thường khó phát hiện hơn cả với <code>@Transactional</code>
+(Chapter 13)?</strong> Với <code>@Transactional</code>, hậu quả (dữ liệu không rollback) thường lộ ra tương đối rõ
+qua kiểm tra dữ liệu sai lệch. Với <code>@Async</code>, hậu quả <strong>chỉ là hiệu năng</strong> — method vẫn chạy
+<strong>đúng logic</strong>, cho <strong>đúng kết quả</strong>, chỉ là chạy đồng bộ thay vì bất đồng bộ. Ứng dụng vẫn hoạt
+động "đúng" về mặt chức năng, chỉ <strong>chậm hơn dự kiến</strong> (thread gọi bị chặn chờ tác vụ hoàn thành
+thay vì trả về ngay) — loại lỗi thuần về hiệu năng này cực kỳ khó phát hiện qua test chức năng
+thông thường (mọi test case đều pass), chỉ lộ ra khi đo lường thời gian phản hồi thực tế hoặc
+theo dõi tên thread thực thi.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>@Async</code> trả về <code>void</code> so với trả về <code>CompletableFuture&lt;T&gt;</code> (Phase 3, Chapter 18) — khác biệt
+quan trọng nào cần lưu ý?</strong> Method <code>@Async</code> trả về <code>void</code> là "fire-and-forget" hoàn toàn — code
+gọi <strong>không có cách nào</strong> biết task đã hoàn thành hay thất bại (exception ném ra bên trong bị
+"nuốt" mất, chỉ log lại nếu có cấu hình <code>AsyncUncaughtExceptionHandler</code> riêng, mặc định gần như
+im lặng). Method <code>@Async</code> trả về <code>CompletableFuture&lt;T&gt;</code> cho phép code gọi <strong>theo dõi</strong> kết quả
+(<code>thenApply</code>, <code>exceptionally</code>, đã học ở Phase 3 Chapter 18) khi cần thiết — kết hợp hai kiến thức
+này (AOP self-invocation + CompletableFuture) là nền tảng để thiết kế đúng các luồng xử lý bất
+đồng bộ phức tạp trong một ứng dụng Spring thực tế, tránh tình trạng "gọi async nhưng không biết
+bao giờ xong, có lỗi hay không".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>@Async</code> xuất hiện từ Spring 3.0 (2009), cùng thời điểm Java-based configuration
+(<code>@Configuration</code>, Chapter 06) ra đời — phản ánh xu hướng chung của Spring giai đoạn này: chuyển
+dần các tính năng vốn phải cấu hình XML phức tạp (task executor, thread pool) sang annotation đơn
+giản hơn.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ cần đánh dấu <code>@Async</code> trên method là đảm bảo nó luôn chạy bất đồng bộ."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — self-invocation khiến nó chạy hoàn toàn đồng bộ,
+  không có bất kỳ cảnh báo nào.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Exception xảy ra bên trong method <code>@Async</code> sẽ làm crash ứng dụng hoặc lộ rõ lỗi
+  ngay lập tức."
+  <strong>Reality:</strong> Với method trả về <code>void</code>, exception bị "nuốt" âm thầm (chỉ log nếu có cấu hình
+  riêng) — đây là một cạm bẫy khác cần lưu ý khi thiết kế method <code>@Async</code>.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi method <code>@Async</code> qua <code>this</code> từ bên trong cùng class</strong> — lỗi self-invocation, giống hệt
+  mẫu hình đã gặp ở <code>@Transactional</code> (Chapter 13).</li>
+<li><strong>Quên <code>@EnableAsync</code></strong> — annotation <code>@Async</code> hoàn toàn không có tác dụng nếu thiếu bước kích
+  hoạt này ở một <code>@Configuration</code> class.</li>
+<li><strong>Không cấu hình <code>ThreadPoolTaskExecutor</code> riêng, để mặc định <code>SimpleAsyncTaskExecutor</code></strong> — mỗi
+  lời gọi <code>@Async</code> tạo một thread mới hoàn toàn (không tái sử dụng), lặp lại đúng vấn đề hiệu
+  năng đã học ở Phase 3, Chapter 15 (Thread Pool).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Tránh gọi method <code>@Async</code> qua <code>this</code> — tách ra bean riêng nếu cần gọi từ bên trong cùng class,
+  đúng giải pháp đã học ở Chapter 12.</li>
+<li>Luôn cấu hình <code>ThreadPoolTaskExecutor</code> riêng cho <code>@Async</code> trong production, không dùng mặc
+  định <code>SimpleAsyncTaskExecutor</code>.</li>
+<li>Cân nhắc trả về <code>CompletableFuture&lt;T&gt;</code> thay vì <code>void</code> khi code gọi cần biết kết quả/lỗi của
+  tác vụ bất đồng bộ.</li>
+<li>Cấu hình <code>AsyncUncaughtExceptionHandler</code> để không bỏ lỡ exception xảy ra trong method <code>@Async</code>
+  trả về <code>void</code>.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Method <code>@Async</code> vẫn chạy trên cùng thread với nơi gọi nó? → kiểm tra có đang gọi qua <code>this</code>
+      (self-invocation) không; kiểm tra <code>@EnableAsync</code> đã được khai báo chưa.</li>
+<li>[ ] Không rõ một tác vụ <code>@Async</code> có lỗi hay không, không thấy log nào? → kiểm tra method có
+      trả về <code>void</code> không (exception bị nuốt âm thầm); cân nhắc đổi sang
+      <code>CompletableFuture&lt;T&gt;</code> hoặc cấu hình <code>AsyncUncaughtExceptionHandler</code>.</li>
+<li>[ ] Hiệu năng kém dù đã dùng <code>@Async</code>? → kiểm tra executor đang dùng có phải
+      <code>SimpleAsyncTaskExecutor</code> mặc định (tạo thread mới mỗi lần) không.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>@Async</code> là AOP advice (giống <code>@Transactional</code>, Chapter 13), giao method cho một thread khác
+thực thi thay vì chạy trên thread gọi. Đã chứng minh bằng thực nghiệm: gọi trực tiếp từ bên
+ngoài (qua proxy) chạy đúng trên thread pool riêng (<code>task-1</code>); self-invocation (<code>this.method()</code>)
+khiến nó chạy đồng bộ trên chính thread gọi (<code>main</code>), dù annotation vẫn còn nguyên — đúng câu
+trả lời cho câu hỏi phỏng vấn kinh điển "<code>@Async</code> đã bật nhưng vẫn chạy đồng bộ". Lỗi này khó
+phát hiện hơn self-invocation của <code>@Transactional</code> vì kết quả logic vẫn đúng, chỉ chậm hơn dự
+kiến. Method trả về <code>void</code> khiến exception bên trong bị nuốt âm thầm — nên cân nhắc
+<code>CompletableFuture&lt;T&gt;</code> khi cần theo dõi kết quả/lỗi.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>"@Async" is enabled, but the method still executes synchronously. What could be wrong?</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao self-invocation khiến <code>@Async</code> không hoạt động?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>So sánh <code>@Async</code> trả về <code>void</code> và trả về <code>CompletableFuture&lt;T&gt;</code> — khác biệt quan trọng nào cần
+  lưu ý khi thiết kế method bất đồng bộ trong Spring?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>AsyncSelfInvocationTest</code> ở trên, xác nhận kết quả tên thread đúng như mô tả.</li>
+<li>[ ] Đổi <code>sendEmailAsync</code> để trả về <code>CompletableFuture&lt;Void&gt;</code>, viết code gọi
+      <code>.thenRun()</code>/<code>.exceptionally()</code> để xử lý kết quả.</li>
+<li>[ ] Cấu hình một <code>ThreadPoolTaskExecutor</code> riêng cho <code>@Async</code>, xác nhận tên thread thực thi đổi
+      theo tên pool đã cấu hình (thay vì <code>task-N</code> mặc định).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Kịch bản</th>
+<th>Thread thực thi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gọi từ bên ngoài (qua proxy)</td>
+<td>Thread khác (từ async executor)</td>
+</tr>
+<tr>
+<td>Self-invocation (<code>this.method()</code>)</td>
+<td>Cùng thread với nơi gọi (đồng bộ, <code>@Async</code> bị bỏ qua)</td>
+</tr>
+<tr>
+<td>Thiếu <code>@EnableAsync</code></td>
+<td>Cùng thread (annotation hoàn toàn vô tác dụng)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Framework Documentation — Task Execution and Scheduling: https://docs.spring.io/spring-framework/reference/integration/scheduling.html</li>
+<li>Spring Framework Documentation — "Understanding AOP Proxies" (self-invocation, chung cho
+  <code>@Async</code>/<code>@Transactional</code>/AOP tuỳ chỉnh).</li>
 </ul>
 
 
