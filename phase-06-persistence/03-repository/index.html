@@ -27,7 +27,7 @@
     
     
       
-        <title>Repository - Java Backend Engineering Handbook</title>
+        <title>Spring Data JPA Repository - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#repository" class="md-skip">
+        <a href="#spring-data-jpa-repository" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Repository
+              Spring Data JPA Repository
             
           </span>
         </div>
@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3631,7 +3631,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3649,7 +3649,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3873,32 +3873,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4011,7 +3989,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -4067,7 +4045,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -4151,7 +4129,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4207,7 +4185,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4213,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:repository" class="md-tag">Repository</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:springdatajpa" class="md-tag">SpringDataJPA</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="repository">Repository<a class="headerlink" href="#repository" title="Permanent link">&para;</a></h1>
+<h1 id="spring-data-jpa-repository">Spring Data JPA Repository<a class="headerlink" href="#spring-data-jpa-repository" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 6 — Persistence
 Chapter slug: <code>repository</code></p>
@@ -6149,94 +6119,278 @@ Chapter slug: <code>repository</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Repository</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — Entity</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 19 — Reflection</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Fetch Join</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — N+1</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 1, Chapter 19 (Reflection) — annotation tự nó không thực thi gì cả. Vậy làm
+sao chỉ khai báo một <strong>interface</strong> — không viết bất kỳ implementation nào — lại có được đầy
+đủ các phương thức <code>save()</code>, <code>findById()</code>, và thậm chí một phương thức <strong>chưa từng viết logic</strong>
+như <code>findByName(String name)</code> vẫn hoạt động đúng?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CustomerRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// KHONG CO THAN METHOD!</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Gọi thử và xem SQL thật được sinh ra:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>=== Derived query method: findByName (Spring TU SINH JPQL tu TEN method) ===
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.name=?
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Ket qua: Nguyen Van A
+</code></pre></div>
+<p>Chỉ từ <strong>tên phương thức</strong> (<code>findByName</code>), Spring Data JPA tự suy luận ra chính xác câu lệnh
+<code>WHERE c1_0.name = ?</code> — không một dòng SQL/JPQL nào được viết tay.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>What is the use of the @Query annotation in Spring Data JPA?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo derived query method (Spring tự sinh query từ tên phương thức)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm SQL thật sinh ra từ <code>findByName</code>,
+      <code>findByNameContaining</code>, và <code>@Query</code> tuỳ chỉnh</li>
+<li>[ ] Hiểu vì sao <code>@Query</code> cần thiết khi derived query method không đủ biểu đạt (join fetch, câu
+      lệnh phức tạp)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 02 — hiểu Entity, đối tượng mà Repository thao tác lên.</li>
+<li>Phase 1, Chapter 19 — hiểu Reflection, cơ chế nền tảng Spring dùng để tạo implementation cho
+  interface Repository lúc runtime.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Fetch Join)</strong>, <strong>Chapter 10 (N+1)</strong> — cả hai đều dùng <code>@Query</code> để kiểm soát chính
+  xác câu lệnh JPQL, giải quyết vấn đề hiệu năng khi truy vấn dữ liệu liên kết.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Viết tay code CRUD (Create, Read, Update, Delete) cơ bản cho mỗi Entity — <code>save</code>, <code>findById</code>,
+<code>deleteById</code>, <code>findAll</code> — là logic <strong>lặp lại gần như giống hệt nhau</strong> giữa các Entity khác nhau,
+chỉ khác kiểu dữ liệu. Ngoài ra, viết các câu truy vấn đơn giản (tìm theo một field, tìm theo
+khoảng giá trị) bằng JPQL/SQL thủ công cho mỗi trường hợp cũng là một dạng boilerplate không cần
+thiết khi bản thân điều kiện tìm kiếm có thể suy luận trực tiếp từ tên phương thức.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Spring Data JPA Repository</strong> cho phép khai báo một <strong>interface</strong> kế thừa <code>JpaRepository&lt;Entity,
+IdType&gt;</code> — Spring <strong>tự động tạo implementation</strong> lúc runtime (dùng JDK dynamic proxy, tương tự
+cơ chế đã học ở Phase 5, Chapter 12), cung cấp sẵn các phương thức CRUD cơ bản. <strong>Derived query
+method</strong> (tên phương thức theo quy ước <code>findBy...</code>, <code>countBy...</code>, <code>deleteBy...</code>) được Spring
+<strong>phân tích tên phương thức</strong> để tự sinh JPQL tương ứng — không cần viết thân method.
+<strong><code>@Query</code></strong> cho phép khai báo tường minh JPQL/SQL khi câu truy vấn phức tạp hơn khả năng suy
+luận từ tên phương thức (join, group by, subquery).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Cơ chế "chỉ khai báo interface, tự động sinh implementation" tận dụng đúng khả năng Reflection
+và dynamic proxy đã học trước đó: Spring quét interface, dùng Reflection đọc <strong>tên</strong> và <strong>chữ ký</strong>
+của từng phương thức, phân tích cú pháp tên đó (<code>findBy</code> + <code>Name</code> → <code>WHERE name = ?</code>,
+<code>findBy</code> + <code>NameContaining</code> → <code>WHERE name LIKE ?</code>) để xây dựng JPQL tương ứng lúc khởi động —
+loại bỏ hoàn toàn boilerplate CRUD và các câu truy vấn đơn giản. Với truy vấn phức tạp vượt quá
+khả năng biểu đạt của tên phương thức (join nhiều bảng, tổng hợp dữ liệu), <code>@Query</code> cho phép
+"thoát" khỏi cơ chế suy luận tự động, viết JPQL/SQL tường minh khi thực sự cần kiểm soát chi
+tiết.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CustomerRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="c1">// Derived query method - Spring TU SINH JPQL tu ten</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByNameContaining</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">keyword</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// @Query - JPQL tuong minh, khi ten phuong thuc khong du bieu dat</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select c from Customer c join fetch c.orders where c.id = :id&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findWithOrdersById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface CustomerRepository extends JpaRepository&lt;Customer, Long&gt; {
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    Optional&lt;Customer&gt; findByName(String name);
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>}
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       ▼  Spring quet bang REFLECTION, phan tich TEN phuong thuc
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  &quot;findBy&quot; + &quot;Name&quot;
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       │
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>       ▼  sinh JPQL tuong ung
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  select c from Customer c where c.name = :name
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>       │
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>       ▼  tao PROXY implement interface nay luc runtime
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  CustomerRepository customerRepo = (proxy tu dong tao, KHONG AI viet class nay thu cong)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CustomerRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Customer</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByNameContaining</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">keyword</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select c from Customer c join fetch c.orders where c.id = :id&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findWithOrdersById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final, <code>spring.jpa.show-sql=true</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=== Derived query method: findByName ===
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.name=?
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Ket qua: Nguyen Van A
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>=== Derived query method: findByNameContaining ===
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.name like ? escape &#39;\&#39;
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Ket qua: [Nguyen Van A, Nguyen Van C]
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>=== @Query tuy chinh (JPQL) voi join fetch ===
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Hibernate: select c1_0.id,c1_0.name,o1_0.customer_id,o1_0.id,o1_0.status,o1_0.version
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>           from customer c1_0 join orders o1_0 on c1_0.id=o1_0.customer_id where c1_0.id=?
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Ket qua: Nguyen Van A
+</code></pre></div>
+<p><code>findByName</code> sinh đúng <code>WHERE c1_0.name=?</code>. <code>findByNameContaining</code> sinh đúng <code>LIKE ? escape '\'</code>
+(tự thêm ký tự escape để xử lý an toàn các ký tự đặc biệt trong <code>LIKE</code>). <code>@Query</code> tuỳ chỉnh sinh
+chính xác câu <code>JOIN</code> đã viết trong JPQL — không thể đạt được chỉ bằng đặt tên phương thức, vì
+<code>join fetch</code> (nạp sẵn dữ liệu liên kết, Chapter 09) là một chỉ thị không có tương đương tự nhiên
+trong quy ước đặt tên <code>findBy...</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Spring Data JPA thực sự "sinh" implementation cho interface như thế nào lúc runtime?</strong> Không
+có bất kỳ file <code>.java</code>/<code>.class</code> nào được sinh ra trước khi biên dịch — Spring dùng <strong>JDK dynamic
+proxy</strong> (Phase 5, Chapter 12 đã nhắc AOP dùng CGLIB cho class cụ thể; ở đây vì <code>CustomerRepository</code>
+là <strong>interface</strong>, JDK dynamic proxy thuần tuý là đủ, không cần CGLIB) tạo một proxy implement
+<code>CustomerRepository</code> lúc khởi động ứng dụng. Mọi lời gọi phương thức trên proxy đó được chuyển
+tới một <code>InvocationHandler</code> trung tâm (cụ thể là <code>SimpleJpaRepository</code> cho các phương thức CRUD
+kế thừa, hoặc một <code>QueryExecutor</code> được xây dựng sẵn cho mỗi derived query method dựa trên phân
+tích tên lúc khởi động) — không có code Java "thật" nào implement <code>findByName</code> theo nghĩa
+truyền thống, toàn bộ hành vi được tổng hợp động từ metadata (tên phương thức + kiểu Entity).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Khi nào derived query method trở nên "quá tải" và nên chuyển sang <code>@Query</code>?</strong> Derived query
+method rất mạnh cho điều kiện đơn giản (<code>findByNameAndStatus</code>, <code>findByPriceGreaterThan</code>), nhưng
+tên phương thức trở nên <strong>cực kỳ dài và khó đọc</strong> khi điều kiện phức tạp hơn (nhiều điều kiện
+kết hợp <code>AND</code>/<code>OR</code>, sắp xếp, phân trang tuỳ chỉnh) — đây chính là lúc code trở nên khó bảo trì
+hơn chính JPQL tường minh mà nó đang cố tránh viết. Ngoài ra, derived query method <strong>không thể</strong>
+biểu đạt các chỉ thị JPQL đặc biệt như <code>JOIN FETCH</code> (Chapter 09, giải quyết N+1 — Chapter 10),
+<code>GROUP BY</code>, hay subquery — với những trường hợp này, <code>@Query</code> không chỉ là lựa chọn thay thế, mà
+là <strong>cách duy nhất</strong> để đạt được hành vi mong muốn. Kinh nghiệm thực tế: dùng derived query
+method cho điều kiện đơn giản, rõ ràng; chuyển sang <code>@Query</code> ngay khi tên phương thức bắt đầu
+vượt quá 3-4 điều kiện hoặc cần join/fetch tường minh.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Spring Data JPA ra đời năm 2011, xây dựng trên nền tảng Spring Data Commons (dự án chung cho
+nhiều loại datastore — JPA, MongoDB, Redis, ... đều dùng chung quy ước derived query method).
+Cơ chế phân tích tên phương thức (<code>findBy</code>, <code>countBy</code>, <code>existsBy</code>, <code>deleteBy</code> kết hợp
+<code>And</code>/<code>Or</code>/<code>Containing</code>/<code>GreaterThan</code>/<code>OrderBy</code>) đã trở thành một trong những "dấu ấn" API dễ
+nhận biết nhất của hệ sinh thái Spring, được nhiều framework khác học hỏi theo.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Derived query method chỉ là 'ma thuật', không có gì đảm bảo nó sinh đúng SQL mong
+  muốn."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — SQL sinh ra hoàn toàn có thể quan sát trực tiếp
+  qua <code>show-sql</code>, và tuân theo quy tắc phân tích tên phương thức nhất quán, có thể dự đoán
+  được.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>@Query</code> chỉ là một cách viết khác của derived query method, không có khác biệt về
+  khả năng."
+  <strong>Reality:</strong> Xem Engineering Insight — <code>@Query</code> là cách <strong>duy nhất</strong> để dùng <code>JOIN FETCH</code>
+  hoặc các chỉ thị JPQL phức tạp mà derived query method không biểu đạt được.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Viết tên phương thức quá dài, quá nhiều điều kiện kết hợp</strong> — khó đọc hơn cả JPQL tường
+  minh; nên chuyển sang <code>@Query</code> khi vượt quá 3-4 điều kiện.</li>
+<li><strong>Không biết derived query method không hỗ trợ <code>JOIN FETCH</code></strong> — dẫn tới cố gắng đặt tên
+  phương thức phức tạp một cách vô ích thay vì dùng <code>@Query</code> ngay từ đầu.</li>
+<li><strong>Quên <code>@Param</code> khi dùng tham số đặt tên (<code>:id</code>) trong <code>@Query</code></strong> — gây lỗi runtime vì
+  Hibernate không biết ánh xạ tham số method nào vào placeholder nào (thường cần bật
+  <code>-parameters</code> khi biên dịch, hoặc dùng <code>@Param</code> tường minh).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng derived query method cho điều kiện đơn giản, rõ ràng (1-3 điều kiện).</li>
+<li>Chuyển sang <code>@Query</code> khi cần <code>JOIN FETCH</code>, <code>GROUP BY</code>, subquery, hoặc khi tên phương thức trở
+  nên khó đọc.</li>
+<li>Luôn kiểm tra SQL thật sinh ra qua <code>show-sql</code> khi không chắc derived query method có suy luận
+  đúng điều kiện mong muốn không.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Không chắc derived query method có sinh đúng SQL mong muốn không? → bật
+      <code>spring.jpa.show-sql=true</code>, quan sát SQL thật sinh ra.</li>
+<li>[ ] Cần join dữ liệu liên kết trong một query nhưng derived query method không hỗ trợ? → dùng
+      <code>@Query</code> với <code>JOIN FETCH</code> (Chapter 09).</li>
+<li>[ ] Lỗi runtime liên quan tới tham số trong <code>@Query</code>? → kiểm tra <code>@Param</code> đã khai báo đúng
+      tên khớp với <code>:paramName</code> trong JPQL chưa.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Spring Data JPA Repository chỉ cần khai báo interface kế thừa <code>JpaRepository</code> — Spring dùng JDK
+dynamic proxy (Reflection) tạo implementation lúc runtime. Derived query method suy luận JPQL
+trực tiếp từ tên phương thức (<code>findByName</code> → <code>WHERE name = ?</code>) — đã chứng minh bằng thực nghiệm,
+quan sát trực tiếp SQL thật sinh ra qua <code>show-sql</code>. <code>@Query</code> cho phép khai báo JPQL tường minh
+khi điều kiện phức tạp hơn khả năng biểu đạt của tên phương thức — đặc biệt là <code>JOIN FETCH</code>
+(Chapter 09), một chỉ thị derived query method hoàn toàn không hỗ trợ được.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>What is the use of the @Query annotation in Spring Data JPA?</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Derived query method hoạt động như thế nào? Spring "hiểu" tên phương thức bằng cách nào?</li>
+<li>Khi nào nên dùng <code>@Query</code> thay vì derived query method?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>RepositoryDemoTest</code> ở trên, xác nhận SQL sinh ra đúng như mô tả cho cả 3
+      trường hợp.</li>
+<li>[ ] Viết một derived query method <code>findByNameAndStatus</code> kết hợp điều kiện trên hai Entity liên
+      kết (<code>Customer</code>/<code>Order</code>), quan sát JPQL sinh ra.</li>
+<li>[ ] Viết một <code>@Query</code> dùng native SQL (<code>nativeQuery = true</code>) thay vì JPQL, so sánh sự khác
+      biệt về khả năng portable giữa các loại database.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Tiền tố derived query</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>findBy</code></td>
+<td><code>SELECT ... WHERE ...</code></td>
+</tr>
+<tr>
+<td><code>countBy</code></td>
+<td><code>SELECT COUNT(...) WHERE ...</code></td>
+</tr>
+<tr>
+<td><code>existsBy</code></td>
+<td>Kiểm tra tồn tại</td>
+</tr>
+<tr>
+<td><code>deleteBy</code></td>
+<td><code>DELETE ... WHERE ...</code></td>
+</tr>
+<tr>
+<td><code>...Containing</code></td>
+<td><code>LIKE %...%</code></td>
+</tr>
+<tr>
+<td><code>...GreaterThan</code>/<code>...LessThan</code></td>
+<td>So sánh lớn hơn/nhỏ hơn</td>
+</tr>
+<tr>
+<td><code>...OrderBy...Asc/Desc</code></td>
+<td>Sắp xếp kết quả</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Khi nào dùng <code>@Query</code>:</strong> cần <code>JOIN FETCH</code>, <code>GROUP BY</code>, subquery, hoặc tên phương thức quá dài/
+khó đọc.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Data JPA Documentation — Query Methods: https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html</li>
+<li>Spring Data JPA Documentation — @Query.</li>
 </ul>
 
 

@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3734,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -3818,7 +3818,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4097,32 +4097,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4207,7 +4185,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4213,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:cascade" class="md-tag">Cascade</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
       
     
   </nav>
@@ -6149,94 +6119,270 @@ Chapter slug: <code>cascade</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cascade</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Entity State</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thiết kế mô hình quan hệ dữ liệu phức tạp (Phase 8)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../07-entity-state/">Chapter 07</a> — một entity <code>Transient</code> (vừa <code>new</code>) cần
+<code>persist()</code>/<code>save()</code> tường minh để trở thành Managed. Nhưng nếu <code>Customer</code> có một <code>Order</code> mới
+tạo, gắn vào <code>List&lt;Order&gt;</code> của nó — có cần gọi <code>orderRepo.save(order)</code> <strong>riêng</strong> không?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Cascade Test&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">c</span><span class="p">.</span><span class="na">addOrder</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(</span><span class="s">&quot;NEW&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// CHUA HE goi orderRepo.save() rieng</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">customerRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// CHI save Customer</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Hibernate: insert into customer (name,id) values (?,default)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hibernate: insert into orders (customer_id,status,version,id) values (?,?,?,default)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>c.getOrders().get(0).getId() = 3 (Order DA co ID, du chua goi save() rieng)
+</code></pre></div>
+<p>Chỉ gọi <code>customerRepo.save(c)</code> — nhưng cả <code>Order</code> cũng được <code>INSERT</code> tự động, có ID thật, dù
+chưa từng gọi <code>orderRepo.save()</code>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Cascade trong JPA là gì? <code>orphanRemoval</code> khác các loại <code>CascadeType</code> khác như thế nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>CascadeType.ALL</code> để tự động lan truyền thao tác persist/remove từ entity
+      cha sang entity con</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>save()</code> entity cha tự động <code>INSERT</code> cả entity con
+      chưa từng được lưu riêng</li>
+<li>[ ] Tự tay chứng minh <code>orphanRemoval=true</code>: xoá entity con khỏi collection của cha (không gọi
+      <code>delete()</code> riêng) tự động xoá nó khỏi database</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 07 — hiểu trạng thái Transient/Managed, nền tảng để hiểu cascade "lan truyền" các
+  thao tác chuyển trạng thái đó.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Thiết kế mô hình quan hệ dữ liệu phức tạp</strong> (Phase 8) — cascade là công cụ cốt lõi khi thiết
+  kế quan hệ cha-con (aggregate) trong domain model.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Với một quan hệ "cha sở hữu con" thực sự (ví dụ <code>Order</code> sở hữu <code>OrderItem</code> — <code>OrderItem</code> không
+có ý nghĩa tồn tại độc lập nếu tách khỏi <code>Order</code>), buộc lập trình viên phải tự tay gọi
+<code>save()</code>/<code>delete()</code> riêng biệt cho <strong>từng</strong> entity con mỗi khi thao tác trên entity cha là lặp
+lại không cần thiết, và dễ <strong>quên</strong> — dẫn tới entity con "mồ côi" (tồn tại trong database, không
+còn cha nào tham chiếu) hoặc lỗi do quên lưu entity con trước khi lưu cha.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Cascade</strong> (<code>cascade = CascadeType.ALL</code>/<code>PERSIST</code>/<code>REMOVE</code>/...) khai báo trên quan hệ
+(<code>@OneToMany</code>, <code>@ManyToOne</code>, ...) cho phép <strong>lan truyền tự động</strong> một thao tác từ entity cha sang
+entity con — gọi <code>persist()</code>/<code>save()</code> trên cha tự động <code>persist()</code> mọi entity con trong quan hệ
+đó (nếu có <code>PERSIST</code> hoặc <code>ALL</code> trong cascade), tương tự với <code>remove()</code>. <strong><code>orphanRemoval = true</code></strong>
+là một cơ chế <strong>riêng biệt</strong>, mạnh hơn: tự động <code>DELETE</code> một entity con ngay khi nó bị <strong>loại bỏ
+khỏi collection</strong> của cha (không cần gọi <code>remove()</code> tường minh trên chính entity con đó).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Cascade phản ánh đúng ngữ nghĩa quan hệ "sở hữu" (ownership/composition trong thuật ngữ OOP) —
+nếu entity con <strong>không có ý nghĩa tồn tại độc lập</strong> khỏi entity cha, việc thao tác trên cha nên
+tự động áp dụng cho con, giảm boilerplate và giảm nguy cơ quên đồng bộ giữa hai bên.
+<code>orphanRemoval</code> đi xa hơn <code>CascadeType.REMOVE</code>: <code>REMOVE</code> chỉ lan truyền khi <strong>chính entity cha</strong>
+bị xoá, còn <code>orphanRemoval</code> phản ứng với việc con bị "ly khai" khỏi cha (bị xoá khỏi collection)
+ngay cả khi bản thân cha vẫn tồn tại — đúng ngữ nghĩa "con không có cha thì không nên tồn tại".</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">class</span> <span class="nc">Customer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nd">@OneToMany</span><span class="p">(</span><span class="n">mappedBy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customer&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cascade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CascadeType</span><span class="p">.</span><span class="na">ALL</span><span class="p">,</span><span class="w"> </span><span class="n">orphanRemoval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Customer</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">c</span><span class="p">.</span><span class="na">addOrder</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(</span><span class="s">&quot;NEW&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// CHUA persist rieng</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">customerRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c1">// CascadeType.ALL -&gt; Order TU DONG duoc persist theo</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">managed</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">remove</span><span class="p">(</span><span class="n">someOrder</span><span class="p">);</span><span class="w"> </span><span class="c1">// orphanRemoval=true -&gt; Order do TU DONG bi DELETE khi commit</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>CascadeType.PERSIST/ALL:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  customerRepo.save(customer) ──► Hibernate THAY customer co orders CHUA persist
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                                        │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                                   TU DONG persist() TUNG Order trong orders
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                                        │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                                   INSERT customer, INSERT moi Order
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>orphanRemoval = true:
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  managed.getOrders().remove(order)  &lt;- CHI thao tac tren List Java trong bo nho
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>       │
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>       ▼  luc flush/commit, Hibernate PHAT HIEN Order nay khong con trong collection cua cha
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>       │
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>       ▼  TU DONG: DELETE FROM orders WHERE id = ?  (du KHONG goi orderRepo.delete())
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Cascade persist:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Cascade Test&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">c</span><span class="p">.</span><span class="na">addOrder</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(</span><span class="s">&quot;NEW&quot;</span><span class="p">));</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">customerRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Order id: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">getId</span><span class="p">());</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Hibernate: insert into customer (name,id) values (?,default)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Hibernate: insert into orders (customer_id,status,version,id) values (?,?,?,default)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>c.getOrders().get(0).getId() = 3 (Order DA co ID, du chua goi save() rieng)
+</code></pre></div>
+<p><strong>orphanRemoval:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">managed</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">removeIf</span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">orderId1</span><span class="p">));</span><span class="w"> </span><span class="c1">// CHI xoa khoi List</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">tx</span><span class="p">);</span><span class="w"> </span><span class="c1">// orphanRemoval kich hoat o day</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">Order</span><span class="w"> </span><span class="n">stillExists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Order</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">orderId1</span><span class="p">);</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau khi xoa khoi List + commit: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stillExists</span><span class="p">);</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Da xoa Order khoi List trong bo nho, CHUA goi orderRepo.delete() nao ca
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Hibernate: delete from orders where id=? and version=?
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>em.find(Order.class, orderId1) SAU KHI xoa khoi List + commit: null
+</code></pre></div>
+<p>Chỉ gọi <code>List.removeIf(...)</code> (thao tác Java thuần trên collection trong bộ nhớ) — không hề gọi
+<code>orderRepo.delete()</code>/<code>em.remove()</code> cho <code>Order</code> — nhưng lúc <code>commit()</code>, Hibernate tự phát hiện
+<code>Order</code> đó đã "ly khai" khỏi <code>orders</code> của <code>Customer</code> và tự sinh <code>DELETE</code>. Xác nhận bằng
+<code>em.find()</code> cho <code>Order</code> đó trả về <code>null</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao câu <code>DELETE</code> trong ví dụ orphanRemoval có điều kiện <code>and version=?</code> — điều này liên
+quan gì tới các chapter sau?</strong> Đây là dấu hiệu trực tiếp của <strong>Optimistic Locking</strong>
+(<code>@Version</code>, Chapter 13) — <code>Order</code> trong domain model của chapter này có field <code>@Version</code>, và
+Hibernate tự động thêm điều kiện kiểm tra version vào mọi câu <code>UPDATE</code>/<code>DELETE</code> để đảm bảo không
+xoá/sửa nhầm một bản ghi đã bị thay đổi bởi giao dịch khác kể từ lần đọc gần nhất — một cơ chế
+hoàn toàn độc lập với cascade, nhưng tự động áp dụng cho <strong>mọi</strong> thao tác ghi trên entity có
+<code>@Version</code>, kể cả thao tác do cascade/orphanRemoval kích hoạt.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>CascadeType.ALL</code> trên quan hệ <code>@ManyToOne</code>/<code>@ManyToMany</code> thường là một quyết định
+thiết kế nguy hiểm, trong khi hoàn toàn hợp lý trên <code>@OneToMany</code> (như ví dụ <code>Customer</code> →
+<code>Order</code>)?</strong> Cascade phản ánh đúng ngữ nghĩa "sở hữu" — một <code>Customer</code> <strong>sở hữu</strong> các <code>Order</code> của
+nó (Order không có ý nghĩa tồn tại độc lập khỏi Customer), nên cascade trên hướng
+<code>Customer → Order</code> là hợp lý. Nhưng nếu đặt <code>CascadeType.ALL</code>/<code>REMOVE</code> trên phía
+<code>@ManyToOne</code>/<code>@ManyToMany</code> (ví dụ nhiều <code>Order</code> cùng tham chiếu một <code>Product</code> chung), xoá <strong>một</strong>
+<code>Order</code> sẽ vô tình cascade xoá luôn <code>Product</code> — dù <code>Product</code> đó vẫn đang được <strong>các</strong> <code>Order</code>
+khác tham chiếu! Đây là lỗi thiết kế cascade phổ biến và nguy hiểm nhất: áp dụng cascade cho quan
+hệ "chia sẻ" (nhiều entity cùng tham chiếu một entity khác) thay vì chỉ áp dụng đúng cho quan hệ
+"sở hữu độc quyền" (composition, đúng 1-nhiều mà con chỉ thuộc về đúng một cha).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Cascade trong JPA lấy cảm hứng trực tiếp từ khái niệm "cascade" trong ràng buộc khoá ngoại của
+SQL chuẩn (<code>ON DELETE CASCADE</code>) — nhưng cascade của JPA hoạt động <strong>ở tầng ứng dụng</strong> (Hibernate
+tự quyết định khi nào lan truyền, dựa trên trạng thái entity trong Persistence Context), khác
+với <code>ON DELETE CASCADE</code> của database (hoạt động hoàn toàn ở tầng database, độc lập với bất kỳ
+ứng dụng nào). Hai cơ chế này có thể <strong>xung đột hoặc trùng lặp</strong> nếu dùng cùng lúc — một quyết
+định kiến trúc cần cân nhắc kỹ khi thiết kế schema.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Phải gọi <code>save()</code>/<code>persist()</code> riêng cho mọi entity, kể cả entity con trong một quan
+  hệ cascade."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — <code>CascadeType.ALL</code>/<code>PERSIST</code> tự động lan truyền,
+  không cần gọi riêng.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>CascadeType.REMOVE</code> và <code>orphanRemoval</code> là hai cách viết khác nhau cho cùng một
+  hành vi."
+  <strong>Reality:</strong> Khác nhau — <code>REMOVE</code> chỉ kích hoạt khi chính entity cha bị xoá; <code>orphanRemoval</code>
+  kích hoạt ngay khi con bị loại khỏi collection, dù cha vẫn tồn tại (đã chứng minh bằng thực
+  nghiệm).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đặt <code>CascadeType.ALL</code> trên quan hệ <code>@ManyToOne</code>/<code>@ManyToMany</code> (quan hệ chia sẻ)</strong> — nguy cơ
+  xoá nhầm entity vẫn đang được tham chiếu bởi entity khác, xem Engineering Insight.</li>
+<li><strong>Quên <code>orphanRemoval=true</code> khi thực sự cần "xoá con khi ly khai khỏi cha"</strong> — chỉ dùng
+  <code>CascadeType.REMOVE</code> không đủ, xoá khỏi collection mà không xoá bản thân entity cha sẽ không
+  kích hoạt xoá con.</li>
+<li><strong>Dùng cascade cho quan hệ không thực sự là "sở hữu"</strong> — vi phạm ngữ nghĩa composition, dẫn
+  tới hành vi bất ngờ khi thao tác trên entity cha ảnh hưởng entity con không nên bị ảnh hưởng.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Chỉ dùng <code>CascadeType.ALL</code>/<code>orphanRemoval</code> cho quan hệ thực sự là "sở hữu độc quyền"
+  (composition) — con không có ý nghĩa tồn tại độc lập khỏi cha.</li>
+<li>Tránh cascade trên quan hệ chia sẻ (<code>@ManyToOne</code>/<code>@ManyToMany</code> trỏ tới entity dùng chung).</li>
+<li>Cân nhắc kỹ việc kết hợp cascade JPA với <code>ON DELETE CASCADE</code> của database — tránh xung đột
+  hoặc trùng lặp logic giữa hai tầng.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Entity bị xoá ngoài ý muốn khi xoá một entity khác? → kiểm tra cascade có đang đặt trên
+      quan hệ chia sẻ (nhiều entity cùng tham chiếu) không.</li>
+<li>[ ] Xoá entity khỏi collection của cha nhưng nó vẫn còn trong database? → kiểm tra đã bật
+      <code>orphanRemoval=true</code> chưa — <code>CascadeType.REMOVE</code> một mình không đủ cho trường hợp này.</li>
+<li>[ ] Câu <code>DELETE</code>/<code>UPDATE</code> do cascade sinh ra có điều kiện <code>version=?</code> bất ngờ? → bình thường
+      nếu entity có <code>@Version</code> (Optimistic Locking, Chapter 13).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Cascade (<code>CascadeType.ALL</code>/<code>PERSIST</code>/<code>REMOVE</code>) lan truyền tự động thao tác từ entity cha sang
+entity con, phản ánh ngữ nghĩa "sở hữu" (composition). Đã chứng minh bằng thực nghiệm:
+<code>customerRepo.save(customer)</code> tự động <code>INSERT</code> cả <code>Order</code> con chưa từng <code>save()</code> riêng.
+<code>orphanRemoval=true</code> là cơ chế riêng biệt, mạnh hơn <code>CascadeType.REMOVE</code>: xoá entity con khỏi
+collection của cha (không gọi <code>delete()</code> riêng) tự động <code>DELETE</code> nó khi commit — đã chứng minh
+trực tiếp qua <code>em.find()</code> trả về <code>null</code> sau khi chỉ thao tác trên <code>List</code> Java. Cascade nguy hiểm
+khi áp dụng sai cho quan hệ chia sẻ (<code>@ManyToOne</code>/<code>@ManyToMany</code>) thay vì chỉ dùng cho quan hệ sở
+hữu độc quyền.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Cascade trong JPA là gì?</li>
+<li><code>orphanRemoval</code> khác các loại <code>CascadeType</code> khác như thế nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao đặt <code>CascadeType.ALL</code> trên quan hệ <code>@ManyToOne</code>/<code>@ManyToMany</code> thường là quyết định
+  thiết kế nguy hiểm?</li>
+<li>So sánh cascade của JPA (tầng ứng dụng) với <code>ON DELETE CASCADE</code> của SQL (tầng database). Rủi
+  ro gì nếu dùng cả hai cùng lúc?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>CascadeTest</code> ở trên, xác nhận cả cascade persist và orphanRemoval hoạt động
+      đúng như mô tả.</li>
+<li>[ ] Thử đặt <code>CascadeType.ALL</code> trên một quan hệ <code>@ManyToMany</code> giả lập (ví dụ <code>Order</code> và
+      <code>Product</code> dùng chung), xoá một <code>Order</code>, quan sát <code>Product</code> có bị xoá nhầm không.</li>
+<li>[ ] Viết một entity <code>Order</code> có <code>@Version</code>, xoá một <code>Order</code> qua orphanRemoval trong khi một
+      transaction khác đang sửa cùng <code>Order</code> đó, quan sát <code>OptimisticLockException</code> (Chapter 13).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>CascadeType.PERSIST</code></th>
+<th><code>CascadeType.REMOVE</code></th>
+<th><code>orphanRemoval=true</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kích hoạt khi</td>
+<td><code>persist()</code>/<code>save()</code> cha</td>
+<td><code>remove()</code> cha</td>
+<td>Con bị loại khỏi collection của cha</td>
+</tr>
+<tr>
+<td>Cha có bị xoá không?</td>
+<td>N/A</td>
+<td>Có (đây là điều kiện)</td>
+<td>Không cần</td>
+</tr>
+<tr>
+<td>Con tự động persist/xoá theo</td>
+<td>Có</td>
+<td>Có (khi cha bị xoá)</td>
+<td>Có (dù cha vẫn tồn tại)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Persistence Specification — Cascading Operations.</li>
+<li>Hibernate ORM Documentation — Cascade types, <code>orphanRemoval</code>.</li>
 </ul>
 
 

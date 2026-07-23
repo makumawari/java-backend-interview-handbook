@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3946,43 +3946,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4067,7 +4034,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -4151,7 +4118,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4207,7 +4174,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4202,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6012,43 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:dirtychecking" class="md-tag">DirtyChecking</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
       
     
   </nav>
@@ -6149,94 +6097,253 @@ Chapter slug: <code>dirty-checking</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dirty Checking</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Persistence Context</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Entity State</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — Transaction (JPA Transaction Boundary)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-persistence-context/">Chapter 05</a> — Persistence Context giữ tham chiếu tới mọi
+entity đã load. Thử sửa trực tiếp một field của entity đó — <strong>không gọi bất kỳ phương thức
+<code>save()</code>/<code>update()</code> nào</strong> — rồi commit transaction.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">managed</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Ten Moi - KHONG goi save()&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// KHONG goi customerRepo.save(managed), KHONG goi em.merge(managed)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">tx</span><span class="p">);</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Da sua managed.setName(), CHUA goi save()/update() nao ca
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Sap goi commit()...
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Hibernate: update customer set name=? where id=?
+</code></pre></div>
+<p>Ngay khi <code>commit()</code> được gọi — không phải trước đó — một câu lệnh <code>UPDATE</code> <strong>tự động</strong> xuất
+hiện, dù không có bất kỳ lời gọi <code>save()</code> nào trong toàn bộ đoạn code.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Dirty Checking trong JPA/Hibernate là gì? Vì sao sửa một entity đã load mà không gọi <code>save()</code>
+vẫn được cập nhật xuống database?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu cơ chế Dirty Checking: Hibernate tự động phát hiện thay đổi trên entity Managed</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>UPDATE</code> tự động xuất hiện khi commit, dù không gọi
+      <code>save()</code>/<code>update()</code> tường minh</li>
+<li>[ ] Hiểu vì sao Dirty Checking chỉ hoạt động với entity <strong>Managed</strong> (nằm trong Persistence
+      Context), không hoạt động với entity Detached</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — bắt buộc phải hiểu Persistence Context trước, vì Dirty Checking chính là hành vi
+  Hibernate thực hiện dựa trên dữ liệu Persistence Context lưu giữ.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 07 (Entity State)</strong> — Dirty Checking chỉ áp dụng cho entity ở trạng thái Managed,
+  chapter tiếp theo định nghĩa chính xác trạng thái này.</li>
+<li><strong>Chapter 12 (Transaction - JPA Transaction Boundary)</strong> — thời điểm Dirty Checking thực sự
+  chạy (flush) liên quan trực tiếp tới ranh giới transaction.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Với JDBC thuần hoặc nhiều ORM đơn giản hơn, mọi thay đổi dữ liệu đều cần một lệnh ghi <strong>tường
+minh</strong> (<code>UPDATE ... SET ...</code>) — lập trình viên phải tự nhớ gọi đúng lệnh ghi sau mỗi lần sửa đổi
+dữ liệu trong bộ nhớ, dễ <strong>quên</strong> dẫn tới thay đổi "biến mất" (chỉ tồn tại trong object Java,
+không bao giờ tới database).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Dirty Checking</strong> ("kiểm tra bẩn" — phát hiện thay đổi) là cơ chế Hibernate <strong>tự động so sánh</strong>
+trạng thái hiện tại của mọi entity <strong>Managed</strong> (đang nằm trong Persistence Context) với "ảnh
+chụp" (snapshot) trạng thái của nó tại thời điểm mới được load — nếu phát hiện khác biệt, Hibernate
+tự sinh câu lệnh <code>UPDATE</code> tương ứng, thường vào lúc <strong>flush</strong> (đồng bộ hoá Persistence Context
+xuống database, xảy ra trước khi commit hoặc trước khi chạy một truy vấn liên quan).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Dirty Checking chuyển trách nhiệm "nhớ gọi UPDATE" từ lập trình viên sang framework — vì
+Persistence Context (Chapter 05) đã giữ <strong>cả hai</strong> phiên bản dữ liệu (snapshot ban đầu và trạng
+thái hiện tại của entity trong bộ nhớ), Hibernate có đủ thông tin để <strong>tự suy luận</strong> chính xác
+những gì đã thay đổi, không cần lập trình viên khai báo tường minh. Đây là một ứng dụng cụ thể
+của nguyên lý "tận dụng thông tin đã có sẵn thay vì bắt người dùng khai báo lại" — cùng triết lý
+với cách Spring tự sinh JPQL từ tên phương thức (Chapter 03).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@PersistenceContext</span><span class="w"> </span><span class="n">EntityManager</span><span class="w"> </span><span class="n">em</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">Customer</span><span class="w"> </span><span class="n">managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="c1">// entity o trang thai MANAGED</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">managed</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Ten Moi&quot;</span><span class="p">);</span><span class="w">                      </span><span class="c1">// CHI sua field Java, KHONG goi gi them</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// ... transaction tiep tuc, hoac ket thuc</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// Luc FLUSH (thuong la luc commit), Hibernate TU DONG:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">//   1. So sanh managed hien tai voi snapshot luc load</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">//   2. Phat hien &quot;name&quot; da doi</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">//   3. Tu sinh: UPDATE customer SET name = ? WHERE id = ?</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>em.find(Customer.class, id)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>     │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>     ▼ Hibernate luu LAI 2 thu vao Persistence Context:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        - snapshot: {name: &quot;Ten Cu&quot;}       &lt;- &quot;anh chup&quot; luc vua load
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        - entity that: managed (Java object) &lt;- se bi sua doi sau nay
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>managed.setName(&quot;Ten Moi&quot;)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     │
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     ▼ CHI sua entity THAT trong bo nho, snapshot VAN GIU nguyen &quot;Ten Cu&quot;
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>FLUSH (thuong o thoi diem commit):
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>     │
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>     ▼ Hibernate SO SANH: entity that (&quot;Ten Moi&quot;) vs snapshot (&quot;Ten Cu&quot;)
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>     │
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>     ▼ KHAC NHAU -&gt; tu dong sinh: UPDATE customer SET name=&#39;Ten Moi&#39; WHERE id=?
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">managed</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Ten Moi - KHONG goi save()&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Da sua managed.setName(), CHUA goi save()/update() nao ca&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sap goi commit()...&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">tx</span><span class="p">);</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.id=?
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Da sua managed.setName(), CHUA goi save()/update() nao ca
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Sap goi commit()...
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Hibernate: update customer set name=? where id=?
+</code></pre></div>
+<p>Xác nhận lại từ một transaction hoàn toàn mới (đảm bảo đọc thật từ database, không phải cache):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>=== Kiem tra lai tu mot transaction moi ===
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.id=?
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Ten sau khi reload tu DB: Ten Moi - KHONG goi save()
+</code></pre></div>
+<p>Câu lệnh <code>UPDATE</code> chỉ xuất hiện <strong>sau</strong> dòng log <code>"Sap goi commit()..."</code> — xác nhận nó được sinh
+ra chính xác tại thời điểm <code>commit()</code> (flush), không phải ngay khi <code>setName()</code> được gọi. Dữ liệu
+mới thực sự đã được ghi xuống database — xác nhận qua việc đọc lại từ một transaction hoàn toàn
+mới (Persistence Context khác, không thể "gian lận" bằng cách chỉ đọc từ bộ nhớ cùng transaction,
+đã học ở Chapter 05).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Hibernate so sánh "trạng thái hiện tại" và "snapshot" bằng cách nào — so sánh từng field một,
+hay có cơ chế tối ưu hơn?</strong> Mặc định, Hibernate thực hiện so sánh <strong>từng field</strong> giữa entity
+hiện tại và snapshot đã lưu khi load — với entity có nhiều field, đây có thể là một chi phí đáng
+kể nếu gọi thường xuyên. Hibernate cung cấp annotation <code>@DynamicUpdate</code> (đặc thù Hibernate, đã
+nhắc tới ở Chapter 01 như một ví dụ về việc dự án khó "đổi implementation JPA" do phụ thuộc tính
+năng riêng) để chỉ đưa <strong>những cột thực sự thay đổi</strong> vào câu <code>UPDATE</code> sinh ra (mặc định không
+có <code>@DynamicUpdate</code>, Hibernate luôn <code>UPDATE</code> <strong>toàn bộ</strong> các cột, kể cả cột không đổi) — hữu ích
+khi entity có nhiều field nhưng mỗi lần chỉ thường sửa một vài field, giảm kích thước câu lệnh
+SQL thực thi.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Dirty Checking có thể gây ra vấn đề hiệu năng nào trong thực tế, và cách nhận biết?</strong> Với một
+transaction load <strong>rất nhiều</strong> entity (ví dụ một vòng lặp xử lý hàng nghìn bản ghi), Hibernate
+phải so sánh <strong>từng entity</strong> với snapshot của nó tại mỗi lần flush — chi phí này tăng tuyến tính
+theo số lượng entity đang Managed trong Persistence Context, có thể trở thành điểm nghẽn hiệu
+năng thực sự với batch job xử lý khối lượng lớn dữ liệu. Đây là lý do các thao tác xử lý hàng
+loạt (bulk update/delete) thường được khuyến nghị dùng JPQL/<code>@Modifying</code> tường minh (bỏ qua hoàn
+toàn Dirty Checking, tác động trực tiếp xuống database) thay vì load từng entity rồi sửa từng
+cái một trong vòng lặp — hoặc gọi <code>em.clear()</code> định kỳ trong batch job để giải phóng Persistence
+Context, đánh đổi mất khả năng dirty checking cho các entity đã xử lý xong lấy hiệu năng tốt hơn.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Dirty Checking là một trong những tính năng "gây ấn tượng mạnh" nhất khi Hibernate mới ra đời
+(2001) — vào thời điểm phần lớn lập trình viên Java vẫn quen thuộc với JDBC thuần (viết tay mọi
+câu <code>UPDATE</code>), khả năng "tự động phát hiện và lưu thay đổi" là một cải tiến năng suất rất lớn,
+góp phần quan trọng vào sự phổ biến nhanh chóng của Hibernate trong cộng đồng Java giai đoạn
+2001-2006, trước khi JPA (2006) chuẩn hoá hành vi này thành một phần của đặc tả chung.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Phải gọi <code>save()</code>/<code>update()</code> tường minh mỗi khi sửa dữ liệu, giống như JDBC thuần."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — với entity Managed, chỉ cần sửa field Java trực
+  tiếp, Hibernate tự động sinh <code>UPDATE</code> khi flush, không cần gọi bất kỳ phương thức lưu nào.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>UPDATE</code> được sinh ra ngay lập tức khi gọi setter, không phải đợi tới flush/commit."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — <code>UPDATE</code> chỉ xuất hiện <strong>sau</strong> dòng log trước
+  <code>commit()</code>, xác nhận nó chạy tại thời điểm flush, không phải ngay lúc <code>setName()</code>.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li><strong>Gọi <code>save()</code> tường minh một cách không cần thiết cho entity đã Managed</strong> — không sai về mặt
+  logic (Spring Data JPA xử lý đúng), nhưng thể hiện hiểu lầm về cơ chế Dirty Checking, có thể
+  gây nhầm lẫn khi đọc code (tưởng cần thiết trong khi Hibernate tự lo).</li>
+<li><strong>Sửa đổi entity trong một vòng lặp xử lý hàng loạt mà không cân nhắc chi phí Dirty Checking</strong>
+  — gây vấn đề hiệu năng với batch job lớn, nên dùng bulk update JPQL thay thế.</li>
+<li><strong>Không hiểu vì sao <code>@DynamicUpdate</code> hữu ích</strong> — bỏ lỡ cơ hội tối ưu SQL cho entity nhiều
+  field, thường xuyên chỉ sửa một vài field.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Sửa entity nhưng thay đổi không xuất hiện trong database? → kiểm tra entity có đang ở
+      trạng thái Managed không (Chapter 07) — Dirty Checking chỉ hoạt động với Managed entity.</li>
+<li>[ ] Không chắc <code>UPDATE</code> sinh ra ở đâu, khi nào? → bật <code>show-sql</code>, quan sát thời điểm chính xác
+      câu lệnh xuất hiện (thường ngay trước commit, hoặc trước một truy vấn liên quan kích hoạt
+      flush sớm).</li>
+<li>[ ] Hiệu năng batch job xử lý entity kém? → cân nhắc bulk update JPQL/<code>@Modifying</code> thay vì
+      sửa từng entity trong vòng lặp, hoặc gọi <code>em.clear()</code> định kỳ.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Dirty Checking là cơ chế Hibernate tự động phát hiện thay đổi trên entity Managed (so sánh với
+snapshot lúc load) và tự sinh <code>UPDATE</code> tương ứng lúc flush — không cần gọi <code>save()</code>/<code>update()</code>
+tường minh. Đã chứng minh bằng thực nghiệm: sửa trực tiếp field của entity Managed, không gọi
+bất kỳ phương thức lưu nào, <code>UPDATE</code> vẫn tự động xuất hiện chính xác tại thời điểm <code>commit()</code>
+(flush) — xác nhận dữ liệu thực sự đã lưu bằng cách đọc lại từ transaction mới. Cơ chế này có
+chi phí tăng theo số lượng entity Managed, nên với batch job lớn, thường khuyến nghị bulk update
+JPQL tường minh thay vì sửa từng entity trong vòng lặp.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Dirty Checking trong JPA/Hibernate là gì?</li>
+<li>Vì sao sửa một entity đã load mà không gọi <code>save()</code> vẫn được cập nhật xuống database?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Dirty Checking có thể gây vấn đề hiệu năng gì với batch job xử lý khối lượng lớn dữ liệu? Đề
+  xuất giải pháp thay thế.</li>
+<li><code>@DynamicUpdate</code> giải quyết vấn đề gì? Khi nào nên dùng nó?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>DirtyCheckingTest</code> ở trên, xác nhận <code>UPDATE</code> xuất hiện đúng thời điểm và dữ liệu
+      thực sự được lưu.</li>
+<li>[ ] Thêm <code>@DynamicUpdate</code> vào entity <code>Customer</code>, sửa chỉ một trong nhiều field, quan sát câu
+      <code>UPDATE</code> sinh ra chỉ chứa đúng cột đã đổi (so với mặc định chứa mọi cột).</li>
+<li>[ ] Viết một batch job giả lập sửa 1000 entity trong một transaction, đo thời gian flush, so
+      sánh với cách dùng bulk update JPQL cho cùng thao tác.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sửa entity Managed</th>
+<th>Bulk update JPQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cần gọi <code>save()</code>?</td>
+<td>Không (Dirty Checking tự lo)</td>
+<td>N/A (<code>@Modifying</code> + <code>executeUpdate()</code>)</td>
+</tr>
+<tr>
+<td>Thời điểm SQL chạy</td>
+<td>Lúc flush (thường trước commit)</td>
+<td>Ngay lập tức khi gọi</td>
+</tr>
+<tr>
+<td>Phù hợp cho</td>
+<td>Sửa từng entity, số lượng nhỏ-vừa</td>
+<td>Sửa hàng loạt, số lượng lớn</td>
+</tr>
+<tr>
+<td>Chi phí</td>
+<td>Tăng theo số entity Managed</td>
+<td>Cố định, không phụ thuộc Persistence Context</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Hibernate ORM Documentation — Dirty Checking, <code>@DynamicUpdate</code>.</li>
+<li>Jakarta Persistence Specification — Flush.</li>
 </ul>
 
 

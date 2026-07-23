@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3734,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -4002,43 +4002,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4151,7 +4118,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4207,7 +4174,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4202,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6012,43 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lazyloading" class="md-tag">LazyLoading</a>
       
     
   </nav>
@@ -6149,94 +6097,281 @@ Chapter slug: <code>lazy-loading</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lazy Loading</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Persistence Context</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Entity State</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Fetch Join</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — N+1</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../07-entity-state/">Chapter 07</a> — entity Detached không còn được Persistence Context
+theo dõi. Nếu entity đó có một quan hệ <code>@OneToMany</code> <strong>chưa từng được truy cập</strong>, và bạn cố
+truy cập nó <strong>sau khi</strong> đã Detached — điều gì xảy ra?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">detachedLater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">tx2</span><span class="p">);</span><span class="w"> </span><span class="c1">// transaction DONG o day, entity tro thanh DETACHED</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">detachedLater</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// truy cap SAU KHI transaction da dong</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>LazyInitializationException: failed to lazily initialize a collection of role:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>com.handbook.demo.jpa.Customer.orders: could not initialize proxy - no Session
+</code></pre></div>
+<p>So sánh với truy cập <strong>trong</strong> transaction:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Hibernate.isInitialized(orders) NGAY SAU find(): false
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Hibernate: select o1_0.customer_id,o1_0.id,o1_0.status,o1_0.version from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>orders.size() TRONG transaction: 1 (lazy load THANH CONG)
+</code></pre></div>
+<p>Cùng một dòng code (<code>getOrders().size()</code>), nhưng kết quả hoàn toàn khác nhau tuỳ vào entity còn
+Managed hay đã Detached.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Lazy Loading trong JPA là gì? <code>LazyInitializationException</code> xảy ra khi nào, và làm sao khắc
+phục?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu cơ chế lazy loading: quan hệ <code>FetchType.LAZY</code> không load ngay, chỉ load khi thực sự
+      truy cập</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>Hibernate.isInitialized()</code> trả về <code>false</code> ngay sau
+      <code>find()</code>, và truy cập collection lazy trong transaction hoạt động bình thường</li>
+<li>[ ] Tự tay tái hiện <code>LazyInitializationException</code> khi truy cập lazy collection sau khi entity
+      đã Detached</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — hiểu Persistence Context, nơi lazy proxy cần một Session còn "sống" để load dữ
+  liệu thật.</li>
+<li>Chapter 07 — hiểu trạng thái Detached, điều kiện chính xác gây ra
+  <code>LazyInitializationException</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Fetch Join)</strong> — một trong các giải pháp chính để tránh
+  <code>LazyInitializationException</code>, chủ động load trước dữ liệu cần dùng.</li>
+<li><strong>Chapter 10 (N+1)</strong> — lazy loading, nếu dùng không cẩn thận trong vòng lặp, chính là nguyên
+  nhân trực tiếp gây ra vấn đề N+1.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Load một entity kèm <strong>toàn bộ</strong> dữ liệu liên quan tới nó (mọi quan hệ <code>@OneToMany</code>/<code>@ManyToOne</code>)
+ngay lập tức, dù phần lớn trường hợp code chỉ cần dữ liệu entity gốc, là lãng phí hiệu năng
+nghiêm trọng — đặc biệt với các quan hệ có thể chứa hàng nghìn bản ghi liên quan. Nhưng nếu trì
+hoãn việc load đó, cần một cơ chế đảm bảo dữ liệu thật sự có sẵn <strong>đúng lúc</strong> code cần dùng tới
+nó — và báo lỗi rõ ràng nếu không thể làm được điều đó.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Lazy Loading</strong> (<code>FetchType.LAZY</code>, mặc định cho <code>@OneToMany</code>/<code>@ManyToMany</code>) trì hoãn việc load
+dữ liệu quan hệ cho tới khi code thực sự <strong>truy cập</strong> nó (gọi <code>getOrders()</code>, <code>.size()</code>, lặp qua
+collection, ...) — tại thời điểm đó, Hibernate mới thực sự chạy một câu <code>SELECT</code> bổ sung để lấy
+dữ liệu. Việc này chỉ khả thi khi entity vẫn <strong>Managed</strong> (Persistence Context, tức "Session" của
+Hibernate, còn tồn tại) — nếu entity đã <strong>Detached</strong> (Chapter 07), Hibernate không còn cách nào
+kết nối tới database để thực hiện lazy load đó, dẫn tới <code>LazyInitializationException</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lazy loading là sự đánh đổi có chủ đích giữa hiệu năng (không load dữ liệu không cần thiết) và
+sự phức tạp thêm vào (phải quản lý đúng thời điểm entity còn Managed khi truy cập quan hệ lazy).
+Hibernate hiện thực hoá bằng cách trả về một <strong>proxy</strong> (đối tượng "vỏ rỗng", tương tự cơ chế CGLIB
+proxy đã gặp nhiều lần ở Phase 5) thay vì dữ liệu thật — proxy này giữ một tham chiếu tới Session
+tạo ra nó; khi bị truy cập lần đầu, nó dùng Session đó để chạy câu <code>SELECT</code> thật, "lấp đầy" chính
+nó với dữ liệu thật. Nếu Session đó đã đóng (entity Detached), proxy không còn cách nào lấy dữ
+liệu — nó <strong>buộc phải</strong> báo lỗi thay vì âm thầm trả về dữ liệu sai hoặc rỗng, tránh việc code
+nhầm tưởng "không có order nào" trong khi thực ra chỉ là chưa load được.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">class</span> <span class="nc">Customer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nd">@OneToMany</span><span class="p">(</span><span class="n">mappedBy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;customer&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fetch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FetchType</span><span class="p">.</span><span class="na">LAZY</span><span class="p">)</span><span class="w"> </span><span class="c1">// MAC DINH cho @OneToMany</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="c1">// Customer duoc load NGAY, orders thi CHUA</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">Hibernate</span><span class="p">.</span><span class="na">isInitialized</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">());</span><span class="w"> </span><span class="c1">// false - orders VAN la proxy rong</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// TRUY CAP LAN DAU -&gt; Hibernate chay SELECT that de load orders</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Truy cap TRONG transaction (entity con MANAGED):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  em.find(Customer.class, id) ──► Customer load NGAY, orders la PROXY rong (chua init)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  c.getOrders().size() ──► Session VAN CON SONG ──► SELECT that ──► orders duoc &quot;lap day&quot;
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>                                                                       ──► size() tra ve dung
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Truy cap SAU KHI transaction dong (entity da DETACHED):
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  em.find(Customer.class, id) ──► Customer load NGAY, orders la PROXY rong
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  txManager.commit() ──► Session DONG, Persistence Context bien mat
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>  c.getOrders().size() ──► Session KHONG CON ──► LazyInitializationException!
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Lazy Test&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">c</span><span class="p">.</span><span class="na">addOrder</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(</span><span class="s">&quot;NEW&quot;</span><span class="p">));</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">customerRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">setup</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== TRONG transaction ===&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">txManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DefaultTransactionDefinition</span><span class="p">());</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">Customer</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;isInitialized NGAY SAU find(): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Hibernate</span><span class="p">.</span><span class="na">isInitialized</span><span class="p">(</span><span class="n">inside</span><span class="p">.</span><span class="na">getOrders</span><span class="p">()));</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inside</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;orders.size() TRONG transaction: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">tx</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== SAU KHI transaction dong ===&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">tx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">txManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DefaultTransactionDefinition</span><span class="p">());</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">Customer</span><span class="w"> </span><span class="n">detachedLater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Customer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">tx2</span><span class="p">);</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="n">detachedLater</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">LazyInitializationException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;LazyInitializationException: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>=== TRONG transaction ===
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.id=?
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>isInitialized NGAY SAU find(): false
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Hibernate: select o1_0.customer_id,o1_0.id,o1_0.status,o1_0.version from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>orders.size() TRONG transaction: 1 (lazy load THANH CONG)
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>=== SAU KHI transaction dong ===
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0 where c1_0.id=?
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>LazyInitializationException: failed to lazily initialize a collection of role:
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>com.handbook.demo.jpa.Customer.orders: could not initialize proxy - no Session
+</code></pre></div>
+<p>Ngay sau <code>find()</code>, <code>orders</code> <strong>chưa</strong> initialize (<code>false</code>). Truy cập <code>.size()</code> trong transaction
+kích hoạt một câu <code>SELECT</code> bổ sung thành công. Với cùng thao tác nhưng <strong>sau khi</strong> transaction đã
+đóng, chính xác cùng một dòng code (<code>getOrders().size()</code>) ném <code>LazyInitializationException</code> —
+thông điệp lỗi nói rõ nguyên nhân: <code>"could not initialize proxy - no Session"</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao thông điệp lỗi cụ thể nói "no Session" — "Session" ở đây chính xác là gì?</strong> "Session"
+là thuật ngữ gốc của Hibernate cho khái niệm mà JPA gọi là <code>EntityManager</code> (đã thấy ở Chapter 01,
+<code>em.getDelegate()</code> trả về <code>SessionImpl</code>) — nó đại diện cho <strong>kết nối tới database và Persistence
+Context</strong> đang hoạt động. Khi transaction kết thúc, Session đó bị đóng (hoặc trả về connection
+pool) — proxy lazy (giữ tham chiếu tới đúng Session đó) không còn cách nào "hỏi" Session để lấy
+dữ liệu, dẫn tới thông điệp lỗi chính xác này. Đây là lý do lazy loading về bản chất là một
+<strong>ràng buộc thời gian</strong> (temporal coupling) — code truy cập quan hệ lazy phải chạy trong đúng
+"cửa sổ thời gian" khi Session/transaction vẫn còn sống, một ràng buộc dễ vi phạm khi kiến trúc
+ứng dụng tách rời tầng load dữ liệu và tầng sử dụng dữ liệu (ví dụ Controller dùng dữ liệu
+Service đã load nhưng transaction đã đóng).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>spring.jpa.open-in-view</code> (mặc định <code>true</code> trong Spring Boot — đã thấy cảnh báo này trong log
+khởi động xuyên suốt Phase 6) "giải quyết" vấn đề <code>LazyInitializationException</code> như thế nào,
+và vì sao nó gây tranh cãi trong cộng đồng?</strong> OSIV (Open Session In View) mở rộng vòng đời
+Session/EntityManager ra <strong>toàn bộ</strong> thời gian xử lý một HTTP request (không chỉ trong phạm vi
+transaction) — nghĩa là lazy loading vẫn hoạt động được ngay cả ở tầng view/Controller, sau khi
+transaction của Service đã commit, miễn còn trong cùng request. Điều này "che giấu" vấn đề
+<code>LazyInitializationException</code> trong nhiều trường hợp, nhưng đánh đổi lấy hai rủi ro: (1) kết nối
+database bị giữ lâu hơn cần thiết (suốt cả request, không chỉ lúc cần ghi/đọc dữ liệu), tốn tài
+nguyên connection pool dưới tải cao; (2) lazy loading có thể xảy ra <strong>âm thầm</strong> ở tầng view (ví
+dụ khi serialize entity thành JSON, Jackson vô tình truy cập một quan hệ lazy), gây ra N+1 query
+(Chapter 10) khó phát hiện vì không có exception nào cảnh báo. Nhiều chuyên gia Spring khuyến
+nghị <strong>tắt</strong> <code>open-in-view</code> (<code>spring.jpa.open-in-view=false</code>) trong production, chấp nhận
+<code>LazyInitializationException</code> xuất hiện rõ ràng hơn để buộc thiết kế đúng (dùng Fetch Join,
+Chapter 09, thay vì dựa vào OSIV).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>FetchType.LAZY</code> mặc định cho <code>@OneToMany</code>/<code>@ManyToMany</code> (nhưng <code>FetchType.EAGER</code> mặc định cho
+<code>@ManyToOne</code>/<code>@OneToOne</code>) phản ánh giả định hợp lý của JPA: quan hệ "một-nhiều" thường chứa số
+lượng lớn bản ghi (không nên load ngay), trong khi quan hệ "nhiều-một"/"một-một" thường chỉ một
+bản ghi liên quan (chi phí load ngay thấp hơn nhiều). OSIV (Open Session In View) là một pattern
+tồn tại từ trước Spring Boot rất lâu (các framework Java EE khác cũng có khái niệm tương tự) —
+tranh cãi về việc nên bật hay tắt nó mặc định đã kéo dài nhiều năm trong cộng đồng Hibernate/
+Spring, phản ánh đúng bản chất đánh đổi không có câu trả lời tuyệt đối.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>FetchType.EAGER</code> luôn là lựa chọn an toàn hơn <code>LAZY</code>, tránh được
+  <code>LazyInitializationException</code>."
+  <strong>Reality:</strong> <code>EAGER</code> chỉ "che giấu" vấn đề bằng cách luôn load mọi thứ ngay — có thể gây tải
+  dữ liệu khổng lồ không cần thiết, và là nguyên nhân trực tiếp của N+1 query (Chapter 10) khi
+  không kiểm soát cẩn thận.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>spring.jpa.open-in-view=true</code> (mặc định) là giải pháp triệt để cho
+  <code>LazyInitializationException</code>."
+  <strong>Reality:</strong> Xem Engineering Insight — nó chỉ mở rộng "cửa sổ thời gian" cho phép lazy
+  loading, đánh đổi lấy rủi ro giữ connection lâu và N+1 âm thầm ở tầng view.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li><strong>Trả entity có quan hệ lazy trực tiếp làm response API, dựa vào OSIV để "may mắn" không lỗi</strong>
+  — dễ gây N+1 âm thầm khi serialize (Chapter 10), và phụ thuộc vào một cấu hình có thể bị tắt
+  sau này.</li>
+<li><strong>Đổi <code>FetchType.LAZY</code> thành <code>EAGER</code> để "sửa" <code>LazyInitializationException</code> mà không cân nhắc
+  hậu quả hiệu năng</strong> — chỉ nên coi đây là giải pháp tạm thời, không phải sửa đúng gốc rễ.</li>
+<li><strong>Không biết <code>Hibernate.isInitialized()</code> để kiểm tra trạng thái một quan hệ lazy khi debug</strong> —
+  bỏ lỡ công cụ chẩn đoán hữu ích.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>LazyInitializationException: could not initialize proxy - no Session</code>? → kiểm tra entity
+      có đang Detached không (transaction đã kết thúc trước khi truy cập quan hệ lazy).</li>
+<li>[ ] Không chắc một quan hệ đã load hay chưa? → dùng <code>Hibernate.isInitialized(collection)</code>.</li>
+<li>[ ] Nghi ngờ N+1 query âm thầm do OSIV? → kiểm tra <code>spring.jpa.open-in-view</code>, cân nhắc tắt và
+      dùng Fetch Join (Chapter 09) tường minh thay thế.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lazy Loading (<code>FetchType.LAZY</code>, mặc định cho <code>@OneToMany</code>/<code>@ManyToMany</code>) trì hoãn việc load dữ
+liệu quan hệ tới khi thực sự truy cập, dùng proxy giữ tham chiếu Session để load "đúng lúc". Đã
+chứng minh bằng thực nghiệm: <code>Hibernate.isInitialized()</code> trả về <code>false</code> ngay sau <code>find()</code>; truy
+cập trong transaction kích hoạt SELECT bổ sung thành công; truy cập <strong>sau</strong> khi transaction đã
+đóng (entity Detached) ném <code>LazyInitializationException: could not initialize proxy - no
+Session</code>. <code>spring.jpa.open-in-view</code> (mặc định bật) mở rộng vòng đời Session ra toàn request,
+"che giấu" vấn đề nhưng đánh đổi lấy rủi ro giữ connection lâu và N+1 âm thầm — nhiều chuyên gia
+khuyến nghị tắt trong production, dùng Fetch Join (Chapter 09) tường minh thay thế.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>Lazy Loading trong JPA là gì? <code>LazyInitializationException</code> xảy ra khi nào, và làm sao khắc
+  phục?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li><code>spring.jpa.open-in-view</code> giải quyết vấn đề gì? Vì sao nó gây tranh cãi, và khi nào nên tắt
+  nó?</li>
+<li>So sánh đánh đổi giữa <code>FetchType.LAZY</code> và <code>FetchType.EAGER</code> cho một quan hệ <code>@OneToMany</code>.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>LazyLoadingTest</code> ở trên, xác nhận kết quả đúng như mô tả cho cả hai kịch bản.</li>
+<li>[ ] Tắt <code>spring.jpa.open-in-view</code>, thử serialize một entity có quan hệ lazy thành JSON qua REST
+      API (Phase 5, Chapter 09), quan sát <code>LazyInitializationException</code> xuất hiện rõ ràng thay
+      vì bị OSIV che giấu.</li>
+<li>[ ] Dùng <code>Hibernate.isInitialized()</code> để viết một helper method kiểm tra an toàn trước khi truy
+      cập một quan hệ lazy, tránh exception không mong muốn.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Trong transaction (Managed)</th>
+<th>Sau khi transaction đóng (Detached)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Truy cập quan hệ <code>LAZY</code> chưa load</td>
+<td>SELECT bổ sung, thành công</td>
+<td><code>LazyInitializationException</code></td>
+</tr>
+<tr>
+<td><code>Hibernate.isInitialized()</code></td>
+<td><code>false</code> trước truy cập, <code>true</code> sau</td>
+<td>Không đổi (vẫn <code>false</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mặc định <code>FetchType</code>:</strong> <code>@OneToMany</code>/<code>@ManyToMany</code> → <code>LAZY</code>; <code>@ManyToOne</code>/<code>@OneToOne</code> →
+<code>EAGER</code>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Persistence Specification — Fetching Strategies.</li>
+<li>Hibernate ORM Documentation — Lazy loading, Open Session in View.</li>
 </ul>
 
 

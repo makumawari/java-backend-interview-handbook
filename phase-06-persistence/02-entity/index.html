@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3845,32 +3845,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -3955,7 +3933,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -4011,7 +3989,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -4067,7 +4045,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -4151,7 +4129,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4207,7 +4185,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4213,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:entity" class="md-tag">Entity</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
       
     
   </nav>
@@ -6149,94 +6119,271 @@ Chapter slug: <code>entity</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — JPA</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 4, Chapter 07 — Record (để hiểu vì sao Entity KHÔNG nên là record)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Repository</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Persistence Context</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Đặt tên class Java là <code>Order</code> — một cái tên hoàn toàn bình thường trong tiếng Anh, nhưng lại
+là <strong>từ khoá dành riêng</strong> (reserved keyword) trong SQL (<code>ORDER BY</code>). Nếu Hibernate tạo bảng
+tên <code>order</code> theo đúng tên class, mọi câu truy vấn sẽ gãy ngay từ cú pháp.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;orders&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// DOI TEN BANG, tranh trung tu khoa SQL &quot;ORDER&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Xác nhận bằng truy vấn SQL trực tiếp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Class Java ten la &#39;Order&#39; (tu khoa SQL), nhung @Table(name=&quot;orders&quot;) -&gt; bang thuc te la &#39;orders&#39;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hibernate: select count(*) from orders
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Truy van truc tiep bang &#39;orders&#39; (khong phai &#39;order&#39;): 1 dong
+</code></pre></div>
+<p>Bảng thật trong database tên là <code>orders</code>, dù class Java tên là <code>Order</code> — nhờ <code>@Table(name = ...)</code> ánh xạ lại tên.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>@Entity</code> là gì? Những annotation cốt lõi nào cần để định nghĩa một Entity đầy đủ, và vì sao
+Entity không nên dùng <code>record</code> (Phase 4)?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>@Entity</code>, <code>@Table</code>, <code>@Id</code>, <code>@GeneratedValue</code>, <code>@Column</code></li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>GenerationType.IDENTITY</code> khiến <code>INSERT</code> chạy <strong>ngay</strong>
+      khi <code>save()</code> được gọi, để lấy ID thật từ database</li>
+<li>[ ] Giải thích vì sao Entity cần constructor không tham số và không nên là <code>final</code>/<code>record</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu JPA là đặc tả, Hibernate là implementation thực thi các annotation này.</li>
+<li>Phase 4, Chapter 07 — hiểu bản chất bất biến, ngầm định <code>final</code> của record.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 03 (Repository)</strong> — Spring Data JPA thao tác trên các Entity đã định nghĩa.</li>
+<li><strong>Chapter 05 (Persistence Context)</strong> — vòng đời Entity được Hibernate theo dõi từ thời điểm
+  này.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một class Java thuần tuý không có cách nào tự động biết "tôi tương ứng với bảng nào trong
+database, field nào ánh xạ cột nào, cột nào là khoá chính, giá trị khoá chính được sinh ra như
+thế nào". Nếu không có annotation chuẩn hoá, mỗi dự án phải tự viết code ánh xạ thủ công (đọc
+<code>ResultSet</code>, gọi <code>set</code> từng field) — chính xác vấn đề JDBC thuần tuý gặp phải trước khi có ORM.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>@Entity</code></strong> đánh dấu một class Java sẽ được Hibernate ánh xạ thành một bảng database.
+<strong><code>@Id</code></strong> đánh dấu field là khoá chính. <strong><code>@GeneratedValue</code></strong> khai báo chiến lược sinh giá trị
+khoá chính tự động (<code>IDENTITY</code> — để database tự tăng; <code>SEQUENCE</code> — dùng sequence object của
+database; <code>AUTO</code> — để Hibernate tự chọn chiến lược phù hợp với database đang dùng).
+<strong><code>@Table</code></strong>/<strong><code>@Column</code></strong> cho phép đổi tên bảng/cột khác với tên field Java mặc định.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Bộ annotation chuẩn hoá của JPA cho phép Hibernate dùng Reflection (Phase 1, Chapter 19) để đọc
+metadata trực tiếp từ class Java, tự động sinh DDL và SQL tương ứng — loại bỏ hoàn toàn nhu cầu
+viết tay code ánh xạ. Việc tách <code>@Table(name=...)</code> khỏi tên class cho phép class Java giữ được
+tên tự nhiên, có ý nghĩa (<code>Order</code>) mà không bị ràng buộc bởi giới hạn đặt tên của SQL (từ khoá dự
+trữ, độ dài tối đa, quy ước viết hoa/thường khác nhau giữa các hệ quản trị database).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;orders&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// ten bang khac ten class</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nd">@Id</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span><span class="w"> </span><span class="c1">// database tu tang</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;order_status&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// ten cot khac ten field</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="nf">Order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// BAT BUOC: constructor khong tham so (Hibernate can de tao proxy)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Order</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Class Java:                          Bang database (sau khi Hibernate sinh DDL):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  @Entity                              CREATE TABLE orders (
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  @Table(name = &quot;orders&quot;)                  id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  class Order {                            customer_id BIGINT,
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    @Id @GeneratedValue                    status VARCHAR(255),
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    Long id;                               version BIGINT,
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    Customer customer;                     PRIMARY KEY (id)
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    String status;                     );
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    Long version;
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  }
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;orders&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nd">@Id</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="c1">// ...</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
 </code></pre></div>
+<p><strong>Chứng minh <code>GenerationType.IDENTITY</code> khiến <code>INSERT</code> chạy ngay lập tức:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Customer</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Cust-A&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">customerRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c1</span><span class="p">);</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ngay sau save(c1), c1.getId() = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+</code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Hibernate: insert into customer (name,id) values (?,default)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Ngay sau save(c1), c1.getId() = 2
+</code></pre></div>
+<p>Câu lệnh <code>INSERT</code> thực thi <strong>ngay lập tức</strong> khi <code>save()</code> được gọi — không đợi tới cuối
+transaction — vì với <code>GenerationType.IDENTITY</code>, ID chỉ có thể biết được <strong>sau khi</strong> database
+thực sự chèn dòng mới (auto-increment do chính database quản lý), Hibernate buộc phải <code>INSERT</code>
+ngay để lấy giá trị đó, không thể trì hoãn.</p>
+<p><strong>Chứng minh <code>@Table(name=...)</code> đổi tên bảng thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">createNativeQuery</span><span class="p">(</span><span class="s">&quot;select count(*) from orders&quot;</span><span class="p">).</span><span class="na">getSingleResult</span><span class="p">();</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Truy van truc tiep bang &#39;orders&#39;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; dong&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Hibernate: select count(*) from orders
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Truy van truc tiep bang &#39;orders&#39; (khong phai &#39;order&#39;): 1 dong
+</code></pre></div>
+<p>Truy vấn SQL thuần (<code>createNativeQuery</code>) xác nhận tên bảng thật trong database là <code>orders</code>,
+đúng như khai báo trong <code>@Table(name = "orders")</code> — không phải <code>order</code> (tên class, cũng là từ
+khoá SQL sẽ gây lỗi cú pháp).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao Entity bắt buộc phải có constructor không tham số, dù code Java nghiệp vụ hiếm khi gọi
+<code>new Order()</code> trực tiếp?</strong> Hibernate cần tạo instance của Entity theo hai cách: (1) khi đọc dữ
+liệu từ database (<code>SELECT</code>), Hibernate tạo instance rồi <strong>điền</strong> giá trị field bằng Reflection —
+không đi qua bất kỳ constructor "có tham số" nào; (2) khi cần tạo <strong>lazy proxy</strong> (Chapter 08) đại
+diện cho một entity chưa thực sự load dữ liệu — proxy đó (một subclass CGLIB, giống cơ chế đã học
+ở Phase 5 Chapter 06) cần một constructor không tham số để khởi tạo "vỏ rỗng" trước khi dữ liệu
+thật được nạp. Thiếu constructor này, Hibernate không có cách nào tạo được instance theo hai cơ
+chế trên, dẫn tới lỗi runtime.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao Entity không nên dùng <code>record</code> (Phase 4, Chapter 07), dù cú pháp có vẻ gọn hơn hẳn?</strong>
+Ba lý do kỹ thuật trực tiếp mâu thuẫn với bản chất record: (1) record <strong>ngầm định <code>final</code></strong>
+(Phase 4) — Hibernate không thể tạo CGLIB proxy (cần subclass) cho lazy loading (Chapter 08).
+(2) record <strong>ngầm định mọi field là <code>final</code></strong> — Hibernate cần <strong>gán lại</strong> giá trị field sau khi
+tạo instance rỗng (đọc từ <code>ResultSet</code>), điều record không cho phép. (3) record <strong>không có
+constructor không tham số</strong> theo mặc định — vi phạm trực tiếp yêu cầu đã nêu ở Deep Dive. Đây là
+một ví dụ cụ thể, quan trọng về việc một tính năng ngôn ngữ tuyệt vời cho một ngữ cảnh (DTO bất
+biến, Phase 4) lại hoàn toàn không phù hợp cho ngữ cảnh khác (Entity có trạng thái thay đổi
+được, cần proxy) — hiểu rõ <strong>vì sao</strong>, không chỉ <strong>là gì</strong>, mới giúp đưa ra quyết định thiết kế
+đúng.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Các chiến lược <code>@GeneratedValue</code> (<code>IDENTITY</code>, <code>SEQUENCE</code>, <code>TABLE</code>, <code>AUTO</code>) phản ánh sự khác biệt
+giữa các hệ quản trị database: <code>IDENTITY</code> phù hợp MySQL/H2 (auto-increment tích hợp sẵn),
+<code>SEQUENCE</code> phù hợp PostgreSQL/Oracle (dùng sequence object độc lập, hỗ trợ tối ưu batch insert
+tốt hơn IDENTITY vì có thể lấy trước nhiều giá trị ID mà không cần đợi INSERT thật). Đây là lý
+do nhiều dự án PostgreSQL production khuyến nghị <code>SEQUENCE</code> thay vì <code>IDENTITY</code> dù <code>IDENTITY</code> có
+vẻ đơn giản hơn — hiệu năng batch insert khác biệt đáng kể ở quy mô lớn.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Nên dùng <code>record</code> cho Entity để tận dụng cú pháp ngắn gọn, giống DTO ở Phase 4."
+  <strong>Reality:</strong> Đã chứng minh bằng lập luận kỹ thuật — record mâu thuẫn trực tiếp với ba yêu cầu
+  cốt lõi của Entity: cần proxy (không <code>final</code>), cần gán lại field (không <code>final</code> field), cần
+  constructor không tham số.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>GenerationType.IDENTITY</code> và <code>SEQUENCE</code> hoàn toàn tương đương, chỉ khác cú pháp
+  khai báo."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — <code>IDENTITY</code> buộc <code>INSERT</code> chạy ngay lập tức
+  (không trì hoãn được), ảnh hưởng trực tiếp tới khả năng tối ưu batch insert.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>record</code> cho JPA Entity</strong> — gây lỗi runtime hoặc không tạo được proxy đúng cách, xem
+  Engineering Insight.</li>
+<li><strong>Quên constructor không tham số</strong> — Hibernate không thể tạo instance khi đọc dữ liệu hoặc tạo
+  lazy proxy.</li>
+<li><strong>Đặt tên class trùng từ khoá SQL mà không dùng <code>@Table(name=...)</code> để đổi tên</strong> — gây lỗi cú
+  pháp SQL khó hiểu (<code>order</code>, <code>user</code>, <code>group</code> đều là các từ khoá SQL phổ biến dễ mắc lỗi này).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn khai báo constructor không tham số (thường <code>protected</code>, để không dùng nhầm từ code
+  nghiệp vụ nhưng vẫn cho phép Hibernate truy cập) cho mọi Entity.</li>
+<li>Dùng class thông thường (không phải <code>record</code>) cho Entity, tách biệt rõ với DTO (nên dùng
+  <code>record</code>, Phase 4 Chapter 07) ở tầng API.</li>
+<li>Cân nhắc <code>@Table(name=...)</code> tường minh cho mọi Entity, tránh phụ thuộc vào tên mặc định (dễ
+  trùng từ khoá SQL hoặc gây nhầm lẫn khi đổi database).</li>
+<li>Với database hỗ trợ sequence (PostgreSQL, Oracle), cân nhắc <code>GenerationType.SEQUENCE</code> thay vì
+  <code>IDENTITY</code> nếu cần tối ưu batch insert ở quy mô lớn.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lỗi liên quan tới việc Hibernate không tạo được instance Entity? → kiểm tra có constructor
+      không tham số không.</li>
+<li>[ ] Lỗi cú pháp SQL bí ẩn liên quan tới tên bảng? → kiểm tra tên class Entity có trùng từ khoá
+      SQL dự trữ không (<code>order</code>, <code>user</code>, <code>group</code>, ...), thêm <code>@Table(name=...)</code> nếu cần.</li>
+<li>[ ] <code>INSERT</code> batch chậm hơn dự kiến với số lượng lớn bản ghi? → kiểm tra chiến lược
+      <code>@GeneratedValue</code> đang dùng, cân nhắc <code>SEQUENCE</code> thay vì <code>IDENTITY</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>@Entity</code> đánh dấu class Java được Hibernate ánh xạ thành bảng database, kết hợp <code>@Id</code>/
+<code>@GeneratedValue</code>/<code>@Table</code>/<code>@Column</code> để kiểm soát chi tiết ánh xạ. Đã chứng minh bằng thực
+nghiệm: <code>@Table(name="orders")</code> đổi tên bảng thật, tránh trùng từ khoá SQL <code>order</code>; chiến lược
+<code>GenerationType.IDENTITY</code> buộc <code>INSERT</code> chạy ngay khi <code>save()</code> được gọi (không trì hoãn được) để
+lấy ID auto-increment thật từ database. Entity <strong>không nên</strong> dùng <code>record</code> (Phase 4) — mâu thuẫn
+trực tiếp với yêu cầu kỹ thuật: cần tạo được proxy (không <code>final</code>), cần gán lại field (không
+<code>final</code> field), cần constructor không tham số.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>@Entity</code> là gì? Những annotation cốt lõi nào cần để định nghĩa một Entity?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao Entity không nên dùng <code>record</code>?</li>
+<li><code>GenerationType.IDENTITY</code> và <code>SEQUENCE</code> khác nhau như thế nào?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>EntityMappingTest</code> ở trên, xác nhận <code>INSERT</code> chạy ngay với <code>IDENTITY</code> và tên
+      bảng thật là <code>orders</code> (không phải <code>order</code>).</li>
+<li>[ ] Thử xoá constructor không tham số của một Entity, quan sát lỗi Hibernate ném ra khi đọc
+      dữ liệu.</li>
+<li>[ ] Đổi <code>GenerationType.IDENTITY</code> thành <code>GenerationType.SEQUENCE</code> cho <code>Customer</code>, quan sát SQL
+      DDL thay đổi (tạo thêm sequence object) và thời điểm <code>INSERT</code> thực sự chạy có khác đi
+      không.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Entity</code></td>
+<td>Đánh dấu class được ánh xạ thành bảng</td>
+</tr>
+<tr>
+<td><code>@Table(name=...)</code></td>
+<td>Đổi tên bảng khác tên class</td>
+</tr>
+<tr>
+<td><code>@Id</code></td>
+<td>Đánh dấu field là khoá chính</td>
+</tr>
+<tr>
+<td><code>@GeneratedValue(strategy=...)</code></td>
+<td>Chiến lược sinh giá trị khoá chính (<code>IDENTITY</code>/<code>SEQUENCE</code>/<code>AUTO</code>)</td>
+</tr>
+<tr>
+<td><code>@Column(name=...)</code></td>
+<td>Đổi tên cột khác tên field</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Persistence Specification — Entity: https://jakarta.ee/specifications/persistence/</li>
+<li>Hibernate ORM Documentation — Entity mapping, Identifier generation.</li>
 </ul>
 
 

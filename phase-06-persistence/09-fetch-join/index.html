@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3734,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -4041,32 +4041,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4151,7 +4129,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4207,7 +4185,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4213,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:fetchjoin" class="md-tag">FetchJoin</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
       
     
   </nav>
@@ -6149,94 +6119,265 @@ Chapter slug: <code>fetch-join</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fetch Join</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Repository</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — Lazy Loading</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — N+1</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../08-lazy-loading/">Chapter 08</a> — lazy loading trì hoãn việc load quan hệ tới khi
+thực sự truy cập. Nhưng nếu bạn <strong>biết trước</strong> mình sẽ cần dữ liệu quan hệ đó cho <strong>mọi</strong> bản
+ghi trong một danh sách, trì hoãn từng cái một có thực sự tối ưu?</p>
 </blockquote>
+<p>So sánh trực tiếp: lấy 5 <code>Customer</code>, mỗi Customer có 1 <code>Order</code>, rồi đọc <code>orders</code> của từng
+Customer — một lần dùng lazy loading thông thường, một lần dùng <strong>fetch join</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== VAN DE N+1 ===
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Tong so query SQL thuc thi (N+1): 6
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>=== FIX bang Fetch Join ===
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Hibernate: select distinct c1_0.id,c1_0.name,o1_0.customer_id,o1_0.id,o1_0.status,o1_0.version
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>           from customer c1_0 join orders o1_0 on c1_0.id=o1_0.customer_id
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Tong so query SQL thuc thi (fetch join): 1
+</code></pre></div>
+<p>Cùng lấy đúng 5 Customer + 5 Order — nhưng <strong>6 câu SQL</strong> so với <strong>1 câu SQL duy nhất</strong>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Fetch Join trong JPQL là gì? Nó khác <code>JOIN</code> thông thường như thế nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>JOIN FETCH</code> trong JPQL để load quan hệ ngay trong cùng một câu truy vấn</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: fetch join giảm từ 6 câu SQL xuống còn 1 câu duy nhất
+      cho cùng một tập dữ liệu</li>
+<li>[ ] Phân biệt <code>JOIN FETCH</code> (thay đổi dữ liệu trả về, load luôn quan hệ) và <code>JOIN</code> thông thường
+      (chỉ dùng để lọc điều kiện, không load quan hệ)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 03 — hiểu <code>@Query</code>, cú pháp JPQL cơ bản.</li>
+<li>Chapter 08 — hiểu lazy loading, vấn đề cốt lõi mà fetch join giải quyết.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 10 (N+1)</strong> — fetch join là giải pháp chính để khắc phục vấn đề N+1 query.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Với lazy loading (Chapter 08), truy cập quan hệ của <strong>từng</strong> entity trong một danh sách (ví dụ
+lặp qua 5 <code>Customer</code>, đọc <code>orders</code> của mỗi cái) sinh ra <strong>một câu SQL riêng cho mỗi entity</strong> —
+với danh sách càng lớn, số câu SQL càng tăng tuyến tính, dù về bản chất toàn bộ dữ liệu cần
+thiết hoàn toàn có thể lấy được trong <strong>một</strong> câu truy vấn duy nhất bằng <code>JOIN</code>.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Fetch Join</strong> (<code>JOIN FETCH</code> trong JPQL) là một chỉ thị đặc biệt yêu cầu Hibernate <strong>load luôn</strong>
+dữ liệu của quan hệ liên kết <strong>trong cùng</strong> câu truy vấn chính, thay vì để nó ở trạng thái lazy
+proxy chờ load riêng sau này. Khác với <code>JOIN</code> thông thường (chỉ dùng để <strong>lọc điều kiện</strong> dựa
+trên bảng liên kết, không thay đổi cấu trúc dữ liệu Entity trả về), <code>JOIN FETCH</code> <strong>thay đổi</strong>
+kết quả: entity trả về đã có sẵn quan hệ được "lấp đầy" hoàn toàn (<code>Hibernate.isInitialized() ==
+true</code> ngay lập tức), không cần thêm bất kỳ câu SQL nào khi truy cập sau đó.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Fetch join tận dụng khả năng của SQL <code>JOIN</code> để lấy dữ liệu từ nhiều bảng liên kết <strong>trong một
+lần round-trip</strong> tới database — thay vì N+1 lần round-trip riêng biệt (Chapter 10). Về bản chất,
+đây là đánh đổi ngược lại với lazy loading: chấp nhận trả về <strong>nhiều dữ liệu hơn cần thiết ngay
+lúc đó</strong> (nếu code cuối cùng không dùng tới quan hệ đó) để đổi lấy <strong>giảm số lượng round-trip</strong>
+mạng tới database — với những trường hợp biết chắc sẽ cần dùng quan hệ đó cho toàn bộ (hoặc phần
+lớn) bản ghi trong kết quả, đây gần như luôn là đánh đổi có lợi.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// JOIN thong thuong: CHI loc dieu kien, KHONG load orders vao ket qua</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select c from Customer c join c.orders o where o.status = &#39;NEW&#39;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByOrderStatus</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// JOIN FETCH: load LUON orders vao ket qua, KHONG con lazy proxy rong</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select distinct c from Customer c join fetch c.orders&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAllWithOrders</span><span class="p">();</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>JOIN thuong (chi loc):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  SELECT c FROM Customer c JOIN c.orders o WHERE o.status = &#39;NEW&#39;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>       ▼  ket qua: List&lt;Customer&gt;, nhung c.orders VAN la LAZY PROXY RONG
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>          (JOIN chi dung de LOC, khong anh huong du lieu tra ve)
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>JOIN FETCH (load luon):
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  SELECT c FROM Customer c JOIN FETCH c.orders
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>       │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>       ▼  ket qua: List&lt;Customer&gt;, va c.orders DA DUOC LAP DAY SAN
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>          (KHONG con la proxy rong, truy cap KHONG can SELECT them)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Khong fetch join - N+1</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepo</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1 query</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">long</span><span class="w"> </span><span class="n">total1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">total1</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// MOI Customer them 1 query rieng</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// Co fetch join</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select distinct c from Customer c join fetch c.orders&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAllWithOrders</span><span class="p">();</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">withOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepo</span><span class="p">.</span><span class="na">findAllWithOrders</span><span class="p">();</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kt">long</span><span class="w"> </span><span class="n">total2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">withOrders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="n">total2</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// KHONG THEM query nao, da fetch join san</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final, 5 Customer, mỗi Customer 1 Order):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>=== Khong fetch join ===
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Hibernate: select c1_0.id,c1_0.name from customer c1_0
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Hibernate: select o1_0.customer_id,... from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Hibernate: select o1_0.customer_id,... from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Hibernate: select o1_0.customer_id,... from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Hibernate: select o1_0.customer_id,... from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Hibernate: select o1_0.customer_id,... from orders o1_0 where o1_0.customer_id=?
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Tong so query SQL thuc thi (N+1): 6
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Tong so order dem duoc: 5
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>=== Co fetch join ===
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>Hibernate: select distinct c1_0.id,c1_0.name,o1_0.customer_id,o1_0.id,o1_0.status,o1_0.version
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>           from customer c1_0 join orders o1_0 on c1_0.id=o1_0.customer_id
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>Tong so query SQL thuc thi (fetch join): 1
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>Tong so order dem duoc: 5
+</code></pre></div>
+<p>Cả hai đều đếm đúng <strong>5 order</strong> — kết quả logic giống hệt nhau. Nhưng số câu SQL thực thi khác
+biệt hoàn toàn: <strong>6 câu</strong> (1 cho danh sách Customer + 5 câu riêng cho từng Customer's orders) so
+với <strong>1 câu duy nhất</strong> khi dùng <code>JOIN FETCH</code> — chỉ thay đổi cách viết JPQL, không đổi logic
+nghiệp vụ.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao câu <code>JOIN FETCH</code> cần <code>distinct</code> trong ví dụ trên?</strong> Khi <code>JOIN</code> một <code>Customer</code> với nhiều
+<code>Order</code> (quan hệ một-nhiều), SQL trả về <strong>một dòng cho mỗi cặp</strong> Customer-Order — nếu một
+Customer có 3 Order, kết quả SQL thô có <strong>3 dòng</strong> đều mang cùng dữ liệu Customer (chỉ khác phần
+Order). Hibernate tự động "gộp" các dòng trùng lặp đó thành đúng một object <code>Customer</code> Java (nhờ
+Persistence Context, Chapter 05, đảm bảo cùng ID → cùng object), nhưng nếu không có <code>distinct</code>
+trong JPQL, <strong>danh sách kết quả trả về</strong> (<code>List&lt;Customer&gt;</code>) vẫn có thể chứa <strong>nhiều lần cùng một
+Customer</strong> (dù là cùng object reference) — <code>distinct</code> trong JPQL loại bỏ các bản sao đó ở tầng
+kết quả cuối cùng, đảm bảo mỗi Customer chỉ xuất hiện đúng một lần trong danh sách trả về.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Fetch join có nhược điểm gì, và khi nào KHÔNG nên dùng nó?</strong> Nhược điểm chính: (1) fetch join
+nhiều quan hệ <code>@OneToMany</code> cùng lúc trong một câu truy vấn (ví dụ Customer join fetch Orders join
+fetch OrderItems) tạo ra <strong>tích Descartes</strong> (Cartesian product) — số dòng SQL thô tăng theo cấp
+số nhân, có thể trả về lượng dữ liệu khổng lồ, tệ hơn cả N+1 ban đầu; JPA thực tế <strong>giới hạn</strong>
+chỉ cho phép fetch join <strong>một</strong> collection tại một thời điểm trong cùng câu truy vấn (fetch join
+quan hệ thứ hai sẽ gây lỗi <code>MultipleBagFetchException</code> với Hibernate). (2) Fetch join không phù
+hợp khi chỉ cần dữ liệu quan hệ cho <strong>một phần nhỏ</strong> kết quả (ví dụ chỉ 1 trong 1000 Customer
+thực sự cần xem Orders) — tải toàn bộ dữ liệu quan hệ cho mọi bản ghi là lãng phí ngược lại. Quy
+tắc thực tế: dùng fetch join khi <strong>biết chắc</strong> sẽ cần dữ liệu quan hệ đó cho phần lớn/toàn bộ kết
+quả; với trường hợp chỉ cần một phần nhỏ, cân nhắc lazy loading thông thường hoặc truy vấn riêng
+biệt theo nhu cầu thực tế.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>JOIN FETCH</code> là cú pháp thuộc chuẩn JPQL (từ đặc tả JPA 2006), không phải mở rộng riêng của
+Hibernate — mọi implementation JPA tuân thủ đặc tả đều hỗ trợ cú pháp này theo cùng ngữ nghĩa.
+<code>@EntityGraph</code> (Spring Data JPA, một cách khai báo khác để đạt hiệu quả tương tự mà không cần
+viết JPQL tường minh) xuất hiện muộn hơn, như một lựa chọn thay thế gọn hơn cho các trường hợp
+đơn giản.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>JOIN</code> và <code>JOIN FETCH</code> trong JPQL có cùng tác dụng, chỉ khác cú pháp."
+  <strong>Reality:</strong> Đã giải thích ở Concept — <code>JOIN</code> chỉ lọc điều kiện, không thay đổi dữ liệu Entity
+  trả về; <code>JOIN FETCH</code> thực sự load và "lấp đầy" quan hệ vào kết quả.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Luôn nên dùng fetch join cho mọi truy vấn có quan hệ, để tránh N+1 hoàn toàn."
+  <strong>Reality:</strong> Xem Engineering Insight — fetch join nhiều collection cùng lúc gây tích Descartes,
+  và không phù hợp khi chỉ cần dữ liệu quan hệ cho một phần nhỏ kết quả.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên <code>distinct</code> khi fetch join quan hệ một-nhiều</strong> — kết quả có thể chứa nhiều bản sao cùng
+  một entity cha (dù là cùng reference).</li>
+<li><strong>Cố fetch join nhiều collection cùng lúc trong một câu JPQL</strong> — gây tích Descartes hoặc lỗi
+  <code>MultipleBagFetchException</code>.</li>
+<li><strong>Dùng fetch join cho mọi truy vấn "cho chắc", không cân nhắc liệu có thực sự cần dữ liệu quan
+  hệ đó không</strong> — tải dữ liệu thừa không cần thiết.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng fetch join khi biết chắc sẽ cần dữ liệu quan hệ cho phần lớn/toàn bộ kết quả truy vấn.</li>
+<li>Luôn thêm <code>distinct</code> khi fetch join quan hệ một-nhiều để tránh kết quả trùng lặp.</li>
+<li>Chỉ fetch join <strong>một</strong> collection tại một thời điểm trong cùng câu truy vấn; với nhu cầu load
+  nhiều quan hệ lồng nhau, cân nhắc tách thành nhiều truy vấn riêng hoặc dùng <code>@EntityGraph</code>.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Kết quả truy vấn có nhiều bản sao trùng lặp của cùng một entity? → kiểm tra đã thêm
+      <code>distinct</code> khi fetch join quan hệ một-nhiều chưa.</li>
+<li>[ ] Lỗi <code>MultipleBagFetchException</code>? → đang cố fetch join nhiều hơn một collection trong cùng
+      câu truy vấn — tách thành nhiều truy vấn riêng.</li>
+<li>[ ] Nghi ngờ fetch join trả về lượng dữ liệu khổng lồ bất thường? → kiểm tra có đang fetch
+      join một quan hệ có số lượng bản ghi liên quan rất lớn, gây tích Descartes.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Fetch Join (<code>JOIN FETCH</code> trong JPQL) load luôn dữ liệu quan hệ trong cùng câu truy vấn chính,
+khác với <code>JOIN</code> thông thường (chỉ lọc điều kiện, không thay đổi dữ liệu trả về). Đã chứng minh
+bằng thực nghiệm: cùng lấy 5 Customer + 5 Order, cách thông thường (lazy loading từng cái) tốn 6
+câu SQL, fetch join chỉ tốn đúng 1 câu — giảm số round-trip database từ N+1 xuống còn 1
+(Chapter 10). Cần <code>distinct</code> khi fetch join quan hệ một-nhiều để tránh kết quả trùng lặp, và chỉ
+nên fetch join một collection tại một thời điểm để tránh tích Descartes.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Fetch Join trong JPQL là gì? Nó khác <code>JOIN</code> thông thường như thế nào?</li>
+<li>Vì sao cần <code>distinct</code> khi dùng <code>JOIN FETCH</code> cho quan hệ một-nhiều?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Fetch join có nhược điểm gì? Khi nào không nên dùng nó?</li>
+<li>Vì sao JPA/Hibernate giới hạn chỉ fetch join được một collection tại một thời điểm trong cùng
+  câu truy vấn?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>NPlusOneTest</code> ở trên, xác nhận số câu SQL giảm từ 6 xuống 1 khi dùng fetch join.</li>
+<li>[ ] Thử fetch join hai collection cùng lúc (ví dụ <code>Customer</code> join fetch <code>orders</code> join fetch
+      <code>orders.items</code>), quan sát lỗi hoặc kích thước kết quả tăng bất thường.</li>
+<li>[ ] Tìm hiểu <code>@EntityGraph</code> của Spring Data JPA, viết lại <code>findAllWithOrders()</code> dùng
+      <code>@EntityGraph</code> thay vì JPQL tường minh, so sánh SQL sinh ra.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>JOIN</code></th>
+<th><code>JOIN FETCH</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mục đích</td>
+<td>Lọc điều kiện</td>
+<td>Load luôn dữ liệu quan hệ</td>
+</tr>
+<tr>
+<td>Ảnh hưởng tới entity trả về</td>
+<td>Không</td>
+<td>Có — quan hệ được "lấp đầy"</td>
+</tr>
+<tr>
+<td>Cần <code>distinct</code> (quan hệ 1-N)?</td>
+<td>Tuỳ trường hợp</td>
+<td>Nên có</td>
+</tr>
+<tr>
+<td>Fetch nhiều collection cùng lúc</td>
+<td>Không áp dụng</td>
+<td>Không được (tích Descartes/lỗi)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Persistence Specification — JPQL FETCH JOIN.</li>
+<li>Hibernate ORM Documentation — Fetching strategies, <code>@EntityGraph</code>.</li>
 </ul>
 
 

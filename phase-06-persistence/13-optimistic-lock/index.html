@@ -27,7 +27,7 @@
     
     
       
-        <title>Optimistic Lock - Java Backend Engineering Handbook</title>
+        <title>Optimistic Lock (@Version) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#optimistic-lock" class="md-skip">
+        <a href="#optimistic-lock-version" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Optimistic Lock
+              Optimistic Lock (@Version)
             
           </span>
         </div>
@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3734,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -3818,7 +3818,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -3874,7 +3874,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -3911,7 +3911,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -3929,7 +3929,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -4153,32 +4153,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:optimisticlock" class="md-tag">OptimisticLock</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="optimistic-lock">Optimistic Lock<a class="headerlink" href="#optimistic-lock" title="Permanent link">&para;</a></h1>
+<h1 id="optimistic-lock-version">Optimistic Lock (@Version)<a class="headerlink" href="#optimistic-lock-version" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 6 — Persistence
 Chapter slug: <code>optimistic-lock</code></p>
@@ -6149,94 +6119,281 @@ Chapter slug: <code>optimistic-lock</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optimistic Lock</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Dirty Checking</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — Transaction (JPA Transaction Boundary)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 12-13 — Atomic, CAS</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 14 — Pessimistic Lock</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 3, Chapter 12-13 (Atomic, CAS) — <code>compareAndSet(expected, new)</code> chỉ thành công
+khi giá trị <strong>chưa bị ai thay đổi</strong> kể từ lần đọc gần nhất. <code>@Version</code> trong JPA áp dụng
+<strong>chính xác cùng nguyên lý CAS đó</strong>, nhưng ở tầng database thay vì tầng bộ nhớ JVM.</p>
 </blockquote>
+<p>Mô phỏng "User1" và "User2" cùng đọc một <code>Order</code> <strong>cùng lúc</strong> (cùng version), rồi cả hai đều thử
+sửa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User1 va User2 cung doc version = 0 / 0
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Hibernate: update orders set customer_id=?,status=?,version=? where id=? and version=?
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Sau khi User2 commit, version trong DB = 1, status = CONFIRMED_BY_USER2
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>=== User1 GIO MOI sua (dang giu ban sao CU, version=0), thu luu ===
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Loi khi User1 co update voi version CU (0) trong khi DB da la version 1: OptimisticLockException
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Trang thai CUOI CUNG trong DB: status=CONFIRMED_BY_USER2, version=1
+</code></pre></div>
+<p>User2 ghi trước, thành công, <code>version</code> tăng lên <code>1</code>. User1 (vẫn giữ bản sao cũ, <code>version=0</code>) cố
+ghi sau — bị <strong>từ chối thẳng</strong> với <code>OptimisticLockException</code>, không hề "ghi đè" âm thầm lên thay
+đổi của User2.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Your application starts creating duplicate records even though you're checking if they already
+exist. How would you fix it?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu <code>@Version</code> hiện thực hoá optimistic locking dựa trên nguyên lý CAS (Phase 3, Chapter
+      13) ở tầng database</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: hai "người dùng" cùng đọc, một ghi trước thành công,
+      người ghi sau với dữ liệu cũ bị <code>OptimisticLockException</code></li>
+<li>[ ] Giải thích chính xác vì sao "check rồi tạo mới nếu chưa tồn tại" (check-then-act) không đủ
+      để tránh bản ghi trùng lặp dưới tải đồng thời, và optimistic lock (hoặc các giải pháp liên
+      quan) giải quyết vấn đề này ra sao</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 06 — hiểu Dirty Checking, cơ chế phát hiện entity đã thay đổi.</li>
+<li>Chapter 12 — hiểu flush/commit, thời điểm optimistic lock thực sự được kiểm tra.</li>
+<li>Phase 3, Chapter 12-13 — hiểu CAS, nguyên lý nền tảng của optimistic locking.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 14 (Pessimistic Lock)</strong> — giải pháp thay thế, khoá trước thay vì kiểm tra sau, cho
+  các tình huống optimistic lock không phù hợp.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khi nhiều giao dịch (request, thread, hoặc nhiều instance ứng dụng — Phase 5, Chapter 15) cùng
+đọc <strong>và</strong> sửa cùng một bản ghi gần như đồng thời, mà không có cơ chế phối hợp nào, giao dịch ghi
+<strong>sau cùng</strong> sẽ <strong>ghi đè âm thầm</strong> lên thay đổi của giao dịch ghi trước đó — hiện tượng gọi là
+"lost update" (mất cập nhật). Tệ hơn, với logic "kiểm tra tồn tại rồi mới tạo mới nếu chưa có"
+(check-then-act — chính là nguồn gốc câu hỏi phỏng vấn của chapter này), hai giao dịch cùng
+"kiểm tra" gần như đồng thời (cả hai đều thấy "chưa tồn tại") rồi cả hai <strong>đều tạo mới</strong> — dẫn
+tới bản ghi trùng lặp, dù code có vẻ đã "kiểm tra cẩn thận".</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Optimistic Locking</strong> (<code>@Version</code>) thêm một cột phiên bản (<code>version</code>, tự động tăng mỗi lần
+<code>UPDATE</code>) vào entity — mọi câu <code>UPDATE</code>/<code>DELETE</code> Hibernate sinh ra tự động thêm điều kiện
+<code>WHERE ... AND version = ?</code> (khớp với giá trị <code>version</code> <strong>tại thời điểm entity được đọc</strong>). Nếu
+điều kiện đó không khớp (vì một giao dịch khác đã <code>UPDATE</code> bản ghi đó, làm <code>version</code> tăng lên
+kể từ lần đọc), câu lệnh <strong>ảnh hưởng 0 dòng</strong> — Hibernate phát hiện điều này và ném
+<code>OptimisticLockException</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Đây chính xác là nguyên lý CAS (Compare-And-Swap, Phase 3 Chapter 13) áp dụng ở tầng database:
+"so sánh giá trị hiện tại (<code>version</code>) với giá trị kỳ vọng, chỉ ghi nếu khớp" — hoàn toàn không
+cần khoá độc quyền (blocking lock) trong suốt thời gian giao dịch xử lý (khác với Pessimistic
+Lock, Chapter 14) — chỉ kiểm tra <strong>tại thời điểm ghi</strong>. Đây là lựa chọn tối ưu khi xung đột ghi
+đồng thời <strong>hiếm khi thực sự xảy ra</strong> (đúng tên gọi "optimistic" — lạc quan rằng phần lớn thời
+gian không có ai khác cùng sửa bản ghi đó cùng lúc) — chi phí chỉ phát sinh khi xung đột thực sự
+xảy ra (phải xử lý exception, thường là retry), không phải trả trước cho mọi giao dịch như
+pessimistic lock.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Entity</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nd">@Version</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">version</span><span class="p">;</span><span class="w"> </span><span class="c1">// Hibernate TU DONG quan ly, khong tu tay gan gia tri</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Cap nhat binh thuong nhu moi entity khac</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">Order</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Order</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">o</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="s">&quot;CONFIRMED&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// UPDATE orders SET status=?, version=? WHERE id=? AND version=&lt;gia tri luc doc&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">// Neu 0 dong bi anh huong -&gt; OptimisticLockException</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User1 doc (version=0)  ──┐
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>User2 doc (version=0)  ──┤  CA HAI cung thay version=0
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                          │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>User2 sua, COMMIT TRUOC:
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  UPDATE orders SET version=1 WHERE id=? AND version=0  &lt;- KHOP (DB dang la 0) -&gt; THANH CONG
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  DB gio la version=1
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>User1 sua, COMMIT SAU (van tuong version=0):
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  UPDATE orders SET version=1 WHERE id=? AND version=0  &lt;- KHONG KHOP (DB da la 1)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>       │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>       ▼  0 dong bi anh huong
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>       │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>       ▼  Hibernate PHAT HIEN, nem OptimisticLockException
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Order</span><span class="w"> </span><span class="n">forUser1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Order</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">em</span><span class="p">.</span><span class="na">detach</span><span class="p">(</span><span class="n">forUser1</span><span class="p">);</span><span class="w"> </span><span class="c1">// gia lap User1 giu ban sao nay o tang service</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">Order</span><span class="w"> </span><span class="n">forUser2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">Order</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">orderId</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">forUser2</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="s">&quot;CONFIRMED_BY_USER2&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">txUser2</span><span class="p">);</span><span class="w"> </span><span class="c1">// User2 GHI TRUOC, thanh cong</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// User1 gio moi sua, van dang giu ban sao CU (version=0)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">forUser1</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="s">&quot;CONFIRMED_BY_USER1&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="n">em</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="n">forUser1</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">txUser1</span><span class="p">);</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">OptimisticLockException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Loi: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>User1 va User2 cung doc version = 0 / 0
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Hibernate: update orders set customer_id=?,status=?,version=? where id=? and version=?
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Sau khi User2 commit, version trong DB = 1, status = CONFIRMED_BY_USER2
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Loi khi User1 co update voi version CU (0) trong khi DB da la version 1: OptimisticLockException
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Trang thai CUOI CUNG trong DB: status=CONFIRMED_BY_USER2, version=1
+</code></pre></div>
+<p>Trạng thái cuối cùng xác nhận: chỉ thay đổi của User2 (ghi trước) tồn tại trong database, thay
+đổi của User1 (ghi sau, dữ liệu cũ) bị từ chối hoàn toàn — không có "lost update" nào xảy ra,
+đúng mục đích thiết kế của optimistic locking.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Trả lời trực tiếp câu hỏi phỏng vấn trung tâm: vì sao "kiểm tra tồn tại rồi mới tạo" vẫn tạo ra
+bản ghi trùng lặp, và optimistic lock (hoặc giải pháp liên quan) giải quyết ra sao?</strong> Logic
+"if (!exists) create()" có một <strong>khoảng hở thời gian</strong> (race window) giữa bước kiểm tra
+(<code>SELECT ... WHERE ...</code>) và bước tạo mới (<code>INSERT</code>) — nếu hai giao dịch chạy đủ gần nhau, <strong>cả
+hai</strong> đều thực hiện <code>SELECT</code> <strong>trước khi</strong> bất kỳ giao dịch nào kịp <code>INSERT</code>, nên cả hai đều thấy
+"chưa tồn tại", và cả hai đều <code>INSERT</code> — tạo ra hai bản ghi trùng lặp. <code>@Version</code> (optimistic
+lock) <strong>không trực tiếp</strong> giải quyết được vấn đề này (nó chỉ bảo vệ <strong>UPDATE</strong> trên bản ghi <strong>đã
+tồn tại</strong>, không ngăn được hai <code>INSERT</code> độc lập) — giải pháp đúng đắn hơn cho chính xác tình
+huống "race condition khi tạo mới" là <strong>Unique Index</strong> ở tầng database (bắt buộc một cột/tổ hợp
+cột phải duy nhất, database tự từ chối <code>INSERT</code> thứ hai) kết hợp bắt <code>DataIntegrityViolationException</code>, hoặc dùng <strong>Pessimistic Lock</strong> (Chapter 14) để khoá độc quyền toàn bộ "khoảng hở" kiểm
+tra-rồi-tạo. Đây chính là lý do câu hỏi gốc gợi ý xem thêm "Isolation, Lock, Unique Index,
+Pessimistic Lock" — optimistic lock chỉ là <strong>một phần</strong> của bức tranh đầy đủ.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Trong thực tế, xử lý <code>OptimisticLockException</code> như thế nào — chỉ đơn giản báo lỗi cho người
+dùng, hay có chiến lược tốt hơn?</strong> Chiến lược phổ biến nhất là <strong>retry</strong>: bắt
+<code>OptimisticLockException</code>, đọc lại entity mới nhất từ database (lấy đúng <code>version</code> hiện tại),
+áp dụng lại thay đổi nghiệp vụ trên dữ liệu mới đó, rồi thử lưu lại — lặp lại một số lần giới hạn
+trước khi thực sự báo lỗi cho người dùng. Chiến lược này phù hợp khi thay đổi nghiệp vụ <strong>độc
+lập</strong> với giá trị cụ thể đọc được (ví dụ "tăng số lượng tồn kho thêm 5" có thể áp dụng lại an
+toàn trên dữ liệu mới) — nhưng <strong>không</strong> phù hợp khi người dùng đã nhập dữ liệu dựa trên phiên
+bản cũ (ví dụ form chỉnh sửa văn bản) — trong trường hợp đó, cách xử lý đúng thường là báo cho
+người dùng "dữ liệu đã bị người khác thay đổi, vui lòng tải lại" thay vì tự động ghi đè.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Optimistic locking như một mẫu hình thiết kế (không riêng JPA) đã tồn tại rộng rãi trong các hệ
+thống database từ lâu — JPA/Hibernate chuẩn hoá nó thành annotation <code>@Version</code> đơn giản, tự động
+sinh và kiểm tra điều kiện <code>WHERE version = ?</code> mà không cần lập trình viên tự viết SQL thủ công.
+Về mặt khái niệm, nó cùng họ với CAS (Phase 3, Chapter 13) và ETag trong HTTP (cơ chế tương tự
+cho việc kiểm tra "dữ liệu chưa bị thay đổi" ở tầng giao thức web) — cùng một nguyên lý "lạc
+quan, kiểm tra tại thời điểm ghi" xuất hiện lặp lại ở nhiều tầng khác nhau của hệ thống phần mềm.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>@Version</code> (optimistic lock) đủ để ngăn mọi loại race condition, bao gồm cả tạo bản
+  ghi trùng lặp."
+  <strong>Reality:</strong> Đã giải thích ở Deep Dive — nó chỉ bảo vệ <code>UPDATE</code> trên bản ghi đã tồn tại,
+  <strong>không</strong> ngăn được race condition khi hai giao dịch cùng <code>INSERT</code> bản ghi mới; cần Unique
+  Index hoặc Pessimistic Lock cho đúng tình huống đó.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>OptimisticLockException</code> luôn là lỗi nghiêm trọng cần dừng xử lý ngay."
+  <strong>Reality:</strong> Xem Engineering Insight — với nhiều tình huống, retry với dữ liệu mới nhất là
+  chiến lược xử lý hợp lý, không cần dừng hẳn.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Chỉ dùng "check tồn tại rồi tạo mới" mà không có Unique Index bảo vệ ở tầng database</strong> —
+  nguồn gốc trực tiếp của câu hỏi phỏng vấn trung tâm chapter này, dễ tạo bản ghi trùng lặp dưới
+  tải đồng thời.</li>
+<li><strong>Không xử lý <code>OptimisticLockException</code>, để nó lan ra thành lỗi 500 chung chung</strong> — trải
+  nghiệm người dùng kém; nên có chiến lược retry hoặc thông báo rõ ràng.</li>
+<li><strong>Nhầm lẫn optimistic lock bảo vệ được cả tình huống tạo mới trùng lặp</strong> — xem Deep Dive, đây
+  là ngộ nhận phổ biến khi trả lời phỏng vấn.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn kết hợp Unique Index ở tầng database cho các trường cần đảm bảo duy nhất (ví dụ email,
+  mã đơn hàng) — đây là lớp bảo vệ cuối cùng, không thể bị "lách qua" bất kể logic tầng ứng dụng.</li>
+<li>Dùng <code>@Version</code> cho các entity có khả năng bị nhiều giao dịch cùng sửa đổi đồng thời, xung đột
+  hiếm khi thực sự xảy ra.</li>
+<li>Có chiến lược retry rõ ràng khi bắt <code>OptimisticLockException</code>, phù hợp với ngữ cảnh nghiệp vụ
+  cụ thể (tự động retry vs báo người dùng tải lại).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Ứng dụng tạo bản ghi trùng lặp dù có logic "kiểm tra tồn tại trước khi tạo"? → kiểm tra có
+      Unique Index bảo vệ ở tầng database không — đây là nguyên nhân/giải pháp chính xác, không
+      phải <code>@Version</code>.</li>
+<li>[ ] <code>OptimisticLockException</code> xuất hiện thường xuyên, ảnh hưởng trải nghiệm người dùng? → đánh
+      giá lại mức độ xung đột thực tế — nếu quá thường xuyên, có thể Pessimistic Lock (Chapter
+      14) phù hợp hơn optimistic.</li>
+<li>[ ] Không chắc <code>@Version</code> có đang hoạt động đúng không? → bật <code>show-sql</code>, xác nhận điều kiện
+      <code>AND version = ?</code> xuất hiện trong câu <code>UPDATE</code>/<code>DELETE</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Optimistic Lock (<code>@Version</code>) áp dụng nguyên lý CAS (Phase 3, Chapter 13) ở tầng database: mọi
+<code>UPDATE</code>/<code>DELETE</code> tự động thêm điều kiện <code>WHERE version = ?</code>, thất bại (0 dòng ảnh hưởng) nếu
+bản ghi đã bị giao dịch khác sửa trước đó. Đã chứng minh bằng thực nghiệm: hai "người dùng" cùng
+đọc <code>version=0</code>, người ghi trước thành công (version tăng lên 1), người ghi sau với dữ liệu cũ
+nhận <code>OptimisticLockException</code> — không có "lost update" nào xảy ra. Tuy nhiên, optimistic lock
+<strong>không</strong> giải quyết được vấn đề tạo bản ghi trùng lặp từ logic "kiểm tra rồi tạo mới" (chỉ bảo
+vệ UPDATE trên bản ghi đã tồn tại) — giải pháp đúng cho vấn đề đó là Unique Index ở tầng database
+kết hợp xử lý <code>DataIntegrityViolationException</code>, hoặc Pessimistic Lock (Chapter 14).</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Your application starts creating duplicate records even though you're checking if they already exist. How would you fix it? (see also Isolation, Lock, Unique Index, Pessimistic Lock)</li>
+<li>Your application starts creating duplicate records even though you're checking if they already
+  exist. How would you fix it? (see also Isolation, Lock, Unique Index, Pessimistic Lock)</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao <code>@Version</code> (optimistic lock) không đủ để ngăn bản ghi trùng lặp từ logic
+  "kiểm tra tồn tại rồi tạo mới". Đề xuất giải pháp đúng đắn.</li>
+<li>Nêu chiến lược xử lý <code>OptimisticLockException</code> phù hợp cho hai ngữ cảnh khác nhau: (1) tăng số
+  lượng tồn kho, (2) người dùng chỉnh sửa văn bản qua form.</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>OptimisticLockTest</code> ở trên, xác nhận <code>OptimisticLockException</code> xuất hiện đúng
+      như mô tả, và trạng thái cuối cùng chỉ phản ánh thay đổi của giao dịch ghi trước.</li>
+<li>[ ] Thêm Unique Index cho một trường của <code>Customer</code> (ví dụ <code>name</code>), viết test mô phỏng hai
+      giao dịch cùng "kiểm tra rồi tạo mới" gần như đồng thời, xác nhận
+      <code>DataIntegrityViolationException</code> ngăn được bản ghi trùng lặp mà <code>@Version</code> không ngăn
+      được.</li>
+<li>[ ] Viết một chiến lược retry đơn giản cho <code>OptimisticLockException</code>: bắt exception, đọc lại
+      entity mới nhất, áp dụng lại thay đổi, thử lưu lại tối đa 3 lần.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Cơ chế</th>
+<th>Bảo vệ được gì</th>
+<th>Không bảo vệ được gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Version</code> (Optimistic Lock)</td>
+<td>Lost update khi UPDATE bản ghi đã tồn tại</td>
+<td>Race condition khi INSERT bản ghi mới</td>
+</tr>
+<tr>
+<td>Unique Index (database)</td>
+<td>Trùng lặp giá trị ở cột cần duy nhất, kể cả khi INSERT đồng thời</td>
+<td>Không tự xử lý logic retry</td>
+</tr>
+<tr>
+<td>Pessimistic Lock (Chapter 14)</td>
+<td>Toàn bộ khoảng hở "kiểm tra rồi hành động"</td>
+<td>Hiệu năng thấp hơn dưới tải cao</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Persistence Specification — Optimistic Locking.</li>
+<li>Hibernate ORM Documentation — <code>@Version</code>, Optimistic and Pessimistic Locking.</li>
 </ul>
 
 

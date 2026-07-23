@@ -27,7 +27,7 @@
     
     
       
-        <title>N+1 - Java Backend Engineering Handbook</title>
+        <title>Vấn đề N+1 Query - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#n1" class="md-skip">
+        <a href="#van-e-n1-query" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              N+1
+              Vấn đề N+1 Query
             
           </span>
         </div>
@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3734,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -3827,7 +3827,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -3845,7 +3845,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -4058,17 +4058,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#production-notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4084,17 +4073,6 @@
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4207,7 +4185,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -4235,7 +4213,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -6012,17 +5990,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#production-notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6038,17 +6005,6 @@
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:nplusone" class="md-tag">NPlusOne</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="n1">N+1<a class="headerlink" href="#n1" title="Permanent link">&para;</a></h1>
+<h1 id="van-e-n1-query">Vấn đề N+1 Query<a class="headerlink" href="#van-e-n1-query" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 6 — Persistence
 Chapter slug: <code>n-plus-1</code></p>
@@ -6149,94 +6119,260 @@ Chapter slug: <code>n-plus-1</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">N+1</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — Lazy Loading</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Fetch Join</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tối ưu hiệu năng tầng dữ liệu trong production (Phase 8)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../09-fetch-join/">Chapter 09</a> — đã thấy 5 Customer + 5 Order tốn 6 câu SQL thay vì
+1. Nhưng con số "6" chỉ là khởi đầu — vấn đề này <strong>tệ đi tuyến tính</strong> theo số lượng bản ghi.</p>
 </blockquote>
+<p>Tăng số Customer lên 20 (mỗi Customer vẫn chỉ có 1 Order), đo lại số câu SQL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>20 Customer -&gt; tong so query: 21 (ky vong 1 + 20 = 21)
+</code></pre></div>
+<p>Đúng <strong>21</strong> câu — <code>1</code> (lấy danh sách Customer) <code>+ 20</code> (một câu riêng cho mỗi Customer để lấy
+Order của nó) <code>= N + 1</code>, với <code>N = 20</code>. Với một bảng thực tế có hàng chục nghìn bản ghi, con số
+này hoàn toàn có thể "giết chết" hiệu năng một endpoint API tưởng chừng đơn giản.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vấn đề N+1 query là gì? Vì sao nó xảy ra, và làm sao phát hiện/khắc phục nó trong thực tế?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác cơ chế gây ra N+1: kết hợp lazy loading (Chapter 08) với vòng lặp
+      truy cập quan hệ</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm số câu SQL tăng tuyến tính theo N (5 Customer → 6 câu,
+      20 Customer → 21 câu)</li>
+<li>[ ] Biết cách phát hiện N+1 trong thực tế (logging, công cụ giám sát) và áp dụng đúng giải
+      pháp (fetch join, Chapter 09)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — hiểu lazy loading, cơ chế nền tảng khiến N+1 xảy ra.</li>
+<li>Chapter 09 — hiểu fetch join, giải pháp chính cho vấn đề này.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Tối ưu hiệu năng tầng dữ liệu</strong> (Phase 8) — N+1 là một trong những vấn đề hiệu năng phổ biến
+  và tốn kém nhất trong các ứng dụng dùng ORM ở quy mô production.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Kết hợp hai tính năng hữu ích riêng lẻ (lazy loading — Chapter 08 — và code lặp qua danh sách
+entity truy cập quan hệ của từng cái) tạo ra một vấn đề hiệu năng nghiêm trọng mà <strong>không hề có
+dấu hiệu cảnh báo rõ ràng</strong> ở tầng code Java: mọi dòng code đều hợp lệ, không có exception, kết
+quả logic hoàn toàn đúng — chỉ có <strong>số lượng round-trip tới database</strong> âm thầm tăng vọt.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>N+1 Query</strong> là hiện tượng: lấy <code>N</code> bản ghi cha bằng <strong>một</strong> câu truy vấn, sau đó với <strong>mỗi</strong>
+bản ghi cha, chạy <strong>thêm một</strong> câu truy vấn riêng để lấy dữ liệu quan hệ của nó (do lazy loading
+kích hoạt khi vòng lặp truy cập quan hệ) — tổng cộng <code>1 + N</code> câu truy vấn, thay vì lẽ ra chỉ cần
+<strong>một</strong> câu truy vấn duy nhất (dùng <code>JOIN</code>/fetch join, Chapter 09) để lấy toàn bộ dữ liệu cần
+thiết.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>N+1 là hệ quả <strong>tất yếu</strong> khi lazy loading (thiết kế để tối ưu cho trường hợp không cần dữ liệu
+quan hệ) gặp đúng tình huống ngược lại — code <strong>thực sự cần</strong> dữ liệu quan hệ cho <strong>mọi</strong> bản ghi
+trong một danh sách. Lazy loading tối ưu cho "chỉ thỉnh thoảng cần dữ liệu quan hệ, cho một entity
+đơn lẻ"; khi dùng trong vòng lặp qua toàn bộ danh sách, giả định đó không còn đúng — mỗi lần lặp
+kích hoạt đúng một round-trip riêng biệt, trong khi bản chất bài toán ("lấy N Customer và Order
+của tất cả") hoàn toàn có thể giải quyết bằng một câu SQL <code>JOIN</code> duy nhất.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// GAY N+1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepo</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w">      </span><span class="c1">// 1 query</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// MOI vong lap: 1 query rieng (lazy loading kich hoat)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">// Tong: 1 + N query</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// SUA bang Fetch Join (Chapter 09)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select distinct c from Customer c join fetch c.orders&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAllWithOrders</span><span class="p">();</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">withOrders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepo</span><span class="p">.</span><span class="na">findAllWithOrders</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1 query DUY NHAT</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">withOrders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// KHONG query them, da fetch san</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>N+1 (5 Customer):                        Fetch Join (5 Customer):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  SELECT * FROM customer  (1 query)        SELECT c.*, o.* FROM customer c
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  ── lap qua tung Customer ──                 JOIN orders o ON c.id=o.customer_id
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  SELECT * FROM orders WHERE customer_id=1    (1 query DUY NHAT, lay het moi thu)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  SELECT * FROM orders WHERE customer_id=2
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  SELECT * FROM orders WHERE customer_id=3
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  SELECT * FROM orders WHERE customer_id=4
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  SELECT * FROM orders WHERE customer_id=5
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  = 1 + 5 = 6 query                        = 1 query
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>N tang -&gt; so query TANG TUYEN TINH:      N tang -&gt; VAN LA 1 query duy nhat
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  N=5   -&gt; 6 query
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  N=20  -&gt; 21 query
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  N=1000 -&gt; 1001 query (!)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">customerRepo</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getOrders</span><span class="p">().</span><span class="na">size</span><span class="p">();</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final, đo bằng <code>Statistics.getPrepareStatementCount()</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>So Customer: 5
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Tong so query SQL thuc thi (N+1): 6
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>So Customer: 20
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Tong so query SQL thuc thi: 21
+</code></pre></div>
+<p>Số câu SQL tăng <strong>chính xác</strong> theo công thức <code>N + 1</code>: 5 Customer → 6 câu, 20 Customer → 21 câu.
+Không phải ước lượng, mà là quan hệ tuyến tính chính xác — xác nhận trực tiếp cơ chế "một câu
+truy vấn riêng cho mỗi vòng lặp".</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao N+1 đặc biệt nguy hiểm trong bối cảnh REST API (Phase 5, Chapter 09)?</strong> Serialize một
+<code>List&lt;Customer&gt;</code> (có quan hệ lazy) thành JSON response thường <strong>tự động</strong> truy cập mọi field,
+bao gồm cả quan hệ — nếu <code>spring.jpa.open-in-view=true</code> (mặc định, Chapter 08) đang bật, việc
+serialize response <strong>âm thầm kích hoạt N+1</strong> ở tầng Jackson, hoàn toàn nằm ngoài tầm nhìn của
+code nghiệp vụ (không ai chủ động viết vòng lặp gây N+1 — nó xảy ra "ẩn" bên trong quá trình
+serialize). Đây là lý do N+1 thường <strong>không bị phát hiện khi test với dữ liệu nhỏ</strong> (vài bản
+ghi, chênh lệch hiệu năng không đáng chú ý) nhưng gây sự cố nghiêm trọng khi dữ liệu production
+tăng lên hàng chục nghìn bản ghi — một endpoint từng phản hồi trong 50ms có thể mất hàng giây
+khi N đủ lớn, dù không một dòng code nào thay đổi.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Công cụ nào giúp phát hiện N+1 trong thực tế trước khi nó gây sự cố production?</strong> Ba cách phổ
+biến: (1) <strong>Hibernate Statistics</strong> (như đã dùng trong Example, <code>getPrepareStatementCount()</code>) —
+có thể tích hợp vào test tích hợp, tự động fail nếu số câu truy vấn vượt ngưỡng kỳ vọng cho một
+thao tác cụ thể (một kỹ thuật kiểm thử hiệu năng gọi là "query count assertion"). (2) Thư viện
+chuyên dụng như <strong>datasource-proxy</strong> hoặc <strong>p6spy</strong> — ghi log/đếm mọi câu SQL thực thi trong môi
+trường development, giúp phát hiện trực quan các pattern N+1 khi duyệt qua log. (3) <strong>APM
+(Application Performance Monitoring)</strong> như New Relic, Datadog — theo dõi số lượng database call
+trên mỗi request ở production thực tế, cảnh báo khi một endpoint có số lượng query bất thường
+cao. Cách tiếp cận tốt nhất kết hợp cả ba: query count assertion trong test tự động (bắt lỗi sớm
+nhất, trong CI), datasource-proxy khi debug cục bộ, APM để giám sát liên tục ở production.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>N+1 query không phải vấn đề riêng của Hibernate/JPA — đây là một cạm bẫy phổ biến của <strong>mọi</strong>
+ORM trên mọi ngôn ngữ (Ruby on Rails ActiveRecord, Django ORM, Entity Framework của .NET đều có
+thuật ngữ và vấn đề tương tự) — bất cứ khi nào một ORM cung cấp lazy loading tiện lợi, nguy cơ
+N+1 xuất hiện đi kèm như một đánh đổi tất yếu. Đây là lý do nhiều ORM hiện đại (bao gồm Hibernate
+những phiên bản gần đây) đầu tư đáng kể vào công cụ cảnh báo N+1 tự động trong log hoặc chế độ
+phát triển.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "N+1 chỉ là vấn đề lý thuyết, hiếm khi thực sự ảnh hưởng hiệu năng đáng kể trong
+  thực tế."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm quan hệ tuyến tính chính xác — với dữ liệu
+  production quy mô lớn (hàng chục nghìn bản ghi), N+1 là một trong những nguyên nhân phổ biến
+  nhất gây sự cố hiệu năng nghiêm trọng trong thực tế.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "N+1 chỉ xảy ra khi lập trình viên chủ động viết vòng lặp truy cập quan hệ."
+  <strong>Reality:</strong> Xem Deep Dive — nó có thể xảy ra âm thầm trong quá trình serialize JSON response,
+  hoàn toàn không có vòng lặp tường minh nào trong code nghiệp vụ.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Không kiểm tra số lượng câu SQL thực thi khi viết test cho các endpoint trả về danh sách có
+  quan hệ</strong> — bỏ lỡ cơ hội phát hiện N+1 sớm nhất, ngay trong giai đoạn phát triển.</li>
+<li><strong>Trả entity có quan hệ lazy trực tiếp làm response API mà không kiểm soát fetch strategy</strong> —
+  nguy cơ N+1 âm thầm khi serialize, đặc biệt khi <code>open-in-view</code> đang bật.</li>
+<li><strong>Chỉ test với dữ liệu nhỏ (vài bản ghi) trong môi trường development</strong>, không đại diện đúng
+  cho quy mô dữ liệu production, khiến N+1 "vô hình" cho tới khi triển khai thực tế.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> endpoint <code>GET /api/customers</code> trả về danh sách khách hàng kèm đơn hàng, phản hồi
+nhanh (~50ms) khi test với 20 khách hàng, nhưng chậm nghiêm trọng (~8 giây) trong production với
+15,000 khách hàng.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> thời gian phản hồi tăng không tuyến tính theo cảm nhận người dùng khi dữ liệu
+  tăng, dù logic không đổi giữa môi trường test và production.</li>
+<li><strong>Root cause:</strong> N+1 query — endpoint lặp qua danh sách khách hàng, truy cập <code>orders</code> cho từng
+  người (trực tiếp hoặc gián tiếp qua serialize JSON) — với 15,000 khách hàng, tổng cộng 15,001
+  câu SQL, mỗi câu tốn thời gian round-trip mạng riêng biệt.</li>
+<li><strong>Debug:</strong> bật <code>datasource-proxy</code> trong môi trường staging, xác nhận đúng số lượng câu SQL
+  tăng tuyến tính theo số khách hàng.</li>
+<li><strong>Solution:</strong> thay <code>findAll()</code> bằng phương thức dùng Fetch Join (Chapter 09) hoặc
+  <code>@EntityGraph</code>, giảm về đúng 1 câu SQL cho toàn bộ endpoint.</li>
+<li><strong>Prevention:</strong> thêm test tích hợp assert số lượng câu SQL tối đa cho phép với mọi endpoint
+  trả về danh sách có quan hệ, chạy trong CI với dữ liệu đủ lớn để phát hiện N+1 trước khi lên
+  production.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Endpoint trả về danh sách chậm bất thường khi dữ liệu tăng, dù nhanh khi test dữ liệu nhỏ?
+      → nghi ngờ hàng đầu là N+1 — bật <code>show-sql</code>/<code>datasource-proxy</code> để xác nhận.</li>
+<li>[ ] Không chắc N+1 có đang xảy ra trong quá trình serialize JSON hay không? → kiểm tra
+      <code>spring.jpa.open-in-view</code> và cấu trúc DTO trả về (có trực tiếp trả entity với quan hệ lazy
+      không).</li>
+<li>[ ] Cần một cách tự động phát hiện N+1 trước khi deploy? → thêm test tích hợp assert
+      <code>Statistics.getPrepareStatementCount()</code> cho các endpoint quan trọng.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>N+1 query xảy ra khi lấy N bản ghi cha (1 query), rồi truy cập quan hệ của từng bản ghi trong
+vòng lặp (thêm N query riêng do lazy loading, Chapter 08), tổng cộng N+1 câu SQL thay vì 1. Đã
+chứng minh bằng thực nghiệm quan hệ tuyến tính chính xác: 5 Customer → 6 câu, 20 Customer → 21
+câu. Vấn đề đặc biệt nguy hiểm vì có thể xảy ra âm thầm khi serialize JSON (nếu <code>open-in-view</code>
+bật), không cần vòng lặp tường minh trong code nghiệp vụ, và thường "vô hình" khi test với dữ
+liệu nhỏ. Giải pháp chính là Fetch Join (Chapter 09), giảm về đúng 1 câu SQL. Nên tích hợp query
+count assertion vào test tự động để phát hiện N+1 sớm, trước khi ảnh hưởng production.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>Vấn đề N+1 query là gì? Vì sao nó xảy ra, và làm sao phát hiện/khắc phục nó trong thực tế?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao N+1 có thể xảy ra ngay cả khi không có vòng lặp tường minh nào trong code nghiệp vụ?</li>
+<li>Đề xuất một chiến lược đầy đủ để phát hiện N+1 trước khi nó ảnh hưởng tới production.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>NPlusOneTest</code> và <code>NPlusOneScaleTest</code> ở trên, xác nhận quan hệ tuyến tính chính
+      xác giữa N và số câu SQL.</li>
+<li>[ ] Viết một test tích hợp assert <code>Statistics.getPrepareStatementCount()</code> không vượt quá 1 cho
+      endpoint <code>findAllWithOrders()</code>, xác nhận test fail nếu ai đó vô tình đổi lại thành
+      <code>findAll()</code> + lazy loading.</li>
+<li>[ ] Bật <code>spring.jpa.open-in-view=false</code>, thử serialize một entity có quan hệ lazy chưa fetch
+      qua REST API, quan sát lỗi rõ ràng thay vì N+1 âm thầm.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>N (số bản ghi cha)</th>
+<th>Số query (N+1, không fetch join)</th>
+<th>Số query (có fetch join)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr>
+<td>20</td>
+<td>21</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>1001</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Công thức:</strong> <code>1 (lấy danh sách cha) + N (một query riêng cho mỗi bản ghi cha)</code>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Hibernate ORM Documentation — N+1 select problem.</li>
+<li>Vlad Mihalcea — "High-Performance Java Persistence" (nguồn tham khảo chuyên sâu về N+1 và tối
+  ưu Hibernate).</li>
 </ul>
 
 

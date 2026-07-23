@@ -3566,7 +3566,7 @@
   <span class="md-ellipsis">
     
   
-    JPA
+    JPA (Java Persistence API)
   
 
     
@@ -3622,7 +3622,7 @@
   <span class="md-ellipsis">
     
   
-    Repository
+    Spring Data JPA Repository
   
 
     
@@ -3678,7 +3678,7 @@
   <span class="md-ellipsis">
     
   
-    Persistence Context
+    Persistence Context (First-Level Cache)
   
 
     
@@ -3734,7 +3734,7 @@
   <span class="md-ellipsis">
     
   
-    Entity State
+    Entity State (Transient/Managed/Detached/Removed)
   
 
     
@@ -3818,7 +3818,7 @@
   <span class="md-ellipsis">
     
   
-    N+1
+    Vấn đề N+1 Query
   
 
     
@@ -3874,7 +3874,7 @@
   <span class="md-ellipsis">
     
   
-    Transaction (JPA Transaction Boundary)
+    Transaction (JPA Transaction Boundary) và Flush
   
 
     
@@ -3902,7 +3902,7 @@
   <span class="md-ellipsis">
     
   
-    Optimistic Lock
+    Optimistic Lock (@Version)
   
 
     
@@ -4181,32 +4181,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:hibernate" class="md-tag">Hibernate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jpa" class="md-tag">JPA</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:pessimisticlock" class="md-tag">PessimisticLock</a>
       
     
   </nav>
@@ -6149,94 +6119,278 @@ Chapter slug: <code>pessimistic-lock</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pessimistic Lock</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6 — Persistence</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 13 — Optimistic Lock</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 09-10 — Lock, ReentrantLock</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thiết kế hệ thống giao dịch tài chính, tồn kho (Phase 8)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../13-optimistic-lock/">Chapter 13</a> — Optimistic Lock "lạc quan", chỉ kiểm tra xung
+đột <strong>tại thời điểm ghi</strong>, không ngăn ai đọc/sửa song song. Có tình huống nào cần ngăn hoàn
+toàn việc "hai người cùng sửa một bản ghi" — <strong>chặn đứng</strong> người thứ hai lại, giống hệt
+<code>synchronized</code>/<code>ReentrantLock</code> (Phase 3) nhưng ở tầng database?</p>
 </blockquote>
+<p>Cho hai thread cùng cố giành khoá <code>PESSIMISTIC_WRITE</code> trên <strong>cùng một</strong> <code>Order</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[ThreadA] Xin PESSIMISTIC_WRITE lock tren Order...
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Hibernate: select ... from orders where id=? for update
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[ThreadA] DA CO lock, gia lap xu ly ton 500ms...
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>[ThreadB] Xin PESSIMISTIC_WRITE lock tren CUNG Order (se bi CHAN)...
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Hibernate: select ... from orders where id=? for update
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[ThreadA] Da COMMIT, NHA lock luc 533ms
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>[ThreadB] CUOI CUNG cung co lock luc 535ms
+</code></pre></div>
+<p><code>ThreadB</code> gọi <code>SELECT ... FOR UPDATE</code> nhưng <strong>không</strong> trả về ngay — nó <strong>treo (block)</strong> đúng tới
+khi <code>ThreadA</code> commit (nhả khoá) ở mốc 533ms, rồi mới nhận được khoá ở mốc 535ms.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Pessimistic Lock khác Optimistic Lock như thế nào? Khi nào nên dùng Pessimistic Lock thay vì
+Optimistic Lock?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu Pessimistic Lock dùng cơ chế khoá thật của database (<code>SELECT ... FOR UPDATE</code>), chặn
+      đứng giao dịch khác thay vì chỉ kiểm tra sau</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: một thread giữ khoá khiến thread khác <strong>thực sự bị
+      block</strong>, chỉ tiếp tục sau khi khoá được nhả</li>
+<li>[ ] Biết cách chọn giữa Optimistic Lock (Chapter 13) và Pessimistic Lock dựa trên mức độ xung
+      đột dự kiến</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 13 — hiểu Optimistic Lock, để so sánh trực tiếp triết lý đối lập.</li>
+<li>Phase 3, Chapter 09-10 — hiểu <code>Lock</code>/<code>ReentrantLock</code>, khái niệm khoá độc quyền ở tầng JVM, để
+  liên hệ với khoá độc quyền ở tầng database.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Thiết kế hệ thống giao dịch tài chính, tồn kho</strong> (Phase 8) — Pessimistic Lock là công cụ tiêu
+  chuẩn cho các thao tác không thể chấp nhận bất kỳ xung đột nào (trừ tiền, giữ chỗ tồn kho giới
+  hạn).</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Optimistic Lock (Chapter 13) chỉ phát hiện xung đột <strong>sau khi đã xảy ra</strong> (tại thời điểm ghi) —
+với tình huống xung đột <strong>xảy ra thường xuyên</strong> (nhiều giao dịch cùng tranh chấp một bản ghi có
+tài nguyên giới hạn, ví dụ "chỉ còn 1 vé cuối cùng"), chiến lược "lạc quan rồi retry" trở nên kém
+hiệu quả — tỉ lệ thất bại/retry cao, trải nghiệm người dùng kém, và có nguy cơ <strong>starvation</strong>
+(một giao dịch liên tục thua trong cuộc đua, không bao giờ thành công) nếu không có gì đảm bảo
+công bằng.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Pessimistic Lock</strong> (<code>LockModeType.PESSIMISTIC_WRITE</code>) yêu cầu database khoá <strong>thật sự</strong> (dùng
+cơ chế native của database, ví dụ <code>SELECT ... FOR UPDATE</code>) ngay tại thời điểm đọc — bất kỳ giao
+dịch nào khác cố gắng đọc/sửa cùng bản ghi (với cùng loại khoá) sẽ bị <strong>treo (block)</strong> cho tới khi
+giao dịch đang giữ khoá <strong>commit hoặc rollback</strong>, giải phóng khoá đó.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Pessimistic Lock đánh đổi ngược lại Optimistic Lock: chấp nhận <strong>chi phí chờ đợi</strong> (một giao dịch
+phải đợi giao dịch khác xong hoàn toàn) để đổi lấy <strong>đảm bảo tuyệt đối</strong> không có xung đột ghi xảy
+ra — không cần retry, không có "lost update" nào có cơ hội xảy ra vì việc truy cập đồng thời bị
+ngăn chặn hoàn toàn ngay từ đầu, không phải phát hiện sau. Đây là lựa chọn đúng khi <strong>biết trước</strong>
+xung đột sẽ xảy ra thường xuyên, và chi phí một giao dịch phải chờ (thay vì retry nhiều lần) là
+chấp nhận được hoặc thậm chí ưu việt hơn.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">OrderRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Order</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nd">@Lock</span><span class="p">(</span><span class="n">LockModeType</span><span class="p">.</span><span class="na">PESSIMISTIC_WRITE</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;select o from Order o where o.id = :id&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByIdForUpdate</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Giao dich A:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">Order</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">findByIdForUpdate</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="c1">// SELECT ... FOR UPDATE, GIANH khoa</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// ... xu ly nghiep vu ...</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// commit() -&gt; NHA khoa</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">// Giao dich B (chay GAN NHU dong thoi voi A):</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">Order</span><span class="w"> </span><span class="n">o2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">findByIdForUpdate</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="c1">// BI CHAN, cho toi khi A nha khoa</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ThreadA:  findByIdForUpdate() ──► SELECT ... FOR UPDATE ──► GIANH khoa
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>              │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>         xu ly (500ms)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>              │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>         commit() ──► NHA khoa
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ThreadB:                    findByIdForUpdate() ──► SELECT ... FOR UPDATE
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                                    │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                              KHONG TRA VE NGAY, bi CHAN o day
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                                    │
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                              (doi ThreadA nha khoa)
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                                    │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                              ThreadA commit ──► ThreadB MOI duoc tiep tuc, GIANH khoa
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Thread</span><span class="w"> </span><span class="n">threadA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">txA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">txManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DefaultTransactionDefinition</span><span class="p">());</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">findByIdForUpdate</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span><span class="w"> </span><span class="c1">// SELECT ... FOR UPDATE</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">threadAHasLock</span><span class="p">.</span><span class="na">countDown</span><span class="p">();</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">txA</span><span class="p">);</span><span class="w"> </span><span class="c1">// NHA lock o day</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">});</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">Thread</span><span class="w"> </span><span class="n">threadB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">threadAHasLock</span><span class="p">.</span><span class="na">await</span><span class="p">();</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">txB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">txManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DefaultTransactionDefinition</span><span class="p">());</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">findByIdForUpdate</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span><span class="w"> </span><span class="c1">// SE BI CHAN toi khi ThreadA commit</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="n">txManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">txB</span><span class="p">);</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">});</span>
 </code></pre></div>
+<p>Kết quả thật (Hibernate ORM 6.5.3.Final, H2):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[ThreadA] Xin PESSIMISTIC_WRITE lock tren Order...
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Hibernate: select o1_0.id,... from orders o1_0 where o1_0.id=? for update
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[ThreadA] DA CO lock, gia lap xu ly ton 500ms...
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>[ThreadB] Xin PESSIMISTIC_WRITE lock tren CUNG Order (se bi CHAN)...
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Hibernate: select o1_0.id,... from orders o1_0 where o1_0.id=? for update
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>[ThreadA] Da COMMIT, NHA lock luc 533ms
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>[ThreadB] CUOI CUNG cung co lock luc 535ms
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ThreadB co PHAI CHO ThreadA nha lock khong? true
+</code></pre></div>
+<p>Cả hai câu SQL đều có <code>for update</code> — cú pháp khoá độc quyền chuẩn SQL. <code>ThreadB</code> gọi
+<code>findByIdForUpdate()</code> <strong>ngay sau khi</strong> <code>ThreadA</code> đã giành khoá, nhưng dòng log
+<code>"CUOI CUNG cung co lock"</code> chỉ xuất hiện <strong>sau</strong> khi <code>ThreadA</code> commit (533ms so với 535ms — gần
+như ngay lập tức sau khi khoá được nhả) — xác nhận <code>ThreadB</code> thực sự bị <strong>treo</strong> (không phải
+polling hay retry), JVM/JDBC driver tự động chờ database mở khoá.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao Pessimistic Lock có nguy cơ deadlock cao hơn hẳn Optimistic Lock, và cách phòng tránh?</strong>
+Vì Pessimistic Lock giữ khoá <strong>thật</strong> trong suốt thời gian giao dịch xử lý (không chỉ tại thời
+điểm ghi như Optimistic Lock), nếu hai giao dịch cùng cần khoá <strong>nhiều</strong> bản ghi theo <strong>thứ tự
+khác nhau</strong> (giao dịch A khoá X rồi cố khoá Y; giao dịch B khoá Y rồi cố khoá X), cả hai có thể
+<strong>chờ đợi vòng tròn</strong> lẫn nhau vô thời hạn — deadlock kinh điển, giống hệt nguyên lý đã học ở
+Phase 3 (dù ở đây xảy ra ở tầng database, không phải JVM lock). Database hiện đại thường tự phát
+hiện deadlock (timeout hoặc phân tích đồ thị chờ đợi) và chủ động huỷ một trong hai giao dịch
+(ném exception) để phá vỡ deadlock — nhưng phòng tránh tốt nhất vẫn là <strong>kỷ luật thứ tự khoá</strong>
+nhất quán (luôn khoá theo cùng một thứ tự, ví dụ theo ID tăng dần) xuyên suốt toàn bộ ứng dụng.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Quyết định chọn Optimistic hay Pessimistic Lock dựa trên tiêu chí cụ thể nào, không phải cảm
+tính?</strong> Câu hỏi cốt lõi: <strong>tần suất xung đột thực tế dự kiến là bao nhiêu?</strong> Nếu xung đột <strong>hiếm</strong>
+(ví dụ một trang cá nhân người dùng tự sửa, xác suất hai request cùng sửa gần như bằng 0) —
+Optimistic Lock tối ưu hơn nhiều (không có chi phí chờ đợi khi không có xung đột thực sự). Nếu
+xung đột <strong>thường xuyên và có thể dự đoán</strong> (ví dụ đặt vé số lượng giới hạn trong sự kiện flash
+sale, nhiều request chắc chắn cạnh tranh cùng một tài nguyên trong khoảng thời gian ngắn) —
+Pessimistic Lock tránh được chi phí retry lặp lại nhiều lần của Optimistic Lock dưới tải cao,
+dù phải trả giá bằng thời gian chờ đợi tuần tự. Kinh nghiệm thực tế: đo lường (hoặc ước lượng cẩn
+thận) tần suất xung đột thực tế của từng luồng nghiệp vụ cụ thể, không áp dụng một chiến lược
+duy nhất cho toàn bộ ứng dụng một cách máy móc.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>SELECT ... FOR UPDATE</code> là cú pháp SQL chuẩn tồn tại từ rất lâu trong hầu hết hệ quản trị
+database quan hệ (Oracle, PostgreSQL, MySQL, SQL Server đều hỗ trợ, dù chi tiết ngữ nghĩa khoá có
+thể khác biệt nhỏ giữa các hệ). JPA/Hibernate chuẩn hoá việc kích hoạt cú pháp này qua
+<code>LockModeType</code> (<code>PESSIMISTIC_READ</code>, <code>PESSIMISTIC_WRITE</code>, <code>PESSIMISTIC_FORCE_INCREMENT</code>) — trừu
+tượng hoá sự khác biệt cú pháp cụ thể giữa các database đằng sau một API Java thống nhất.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Pessimistic Lock luôn an toàn hơn Optimistic Lock, nên dùng làm mặc định."
+  <strong>Reality:</strong> Xem Engineering Insight — Pessimistic Lock có chi phí chờ đợi và nguy cơ deadlock
+  cao hơn; chỉ nên dùng khi xung đột thực sự thường xuyên, không phải mặc định cho mọi trường
+  hợp.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>findByIdForUpdate()</code> gọi hai lần liên tiếp từ hai thread sẽ gây lỗi ngay lập tức
+  nếu bản ghi đang bị khoá."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — thread thứ hai <strong>không</strong> gặp lỗi, nó <strong>chờ</strong>
+  (block) cho tới khi khoá được nhả, rồi tiếp tục bình thường (trừ khi cấu hình timeout khoá cụ
+  thể).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng Pessimistic Lock cho mọi thao tác đọc/sửa "để an toàn"</strong> — gây chi phí hiệu năng không
+  cần thiết khi xung đột thực tế hiếm khi xảy ra.</li>
+<li><strong>Khoá nhiều bản ghi theo thứ tự không nhất quán giữa các luồng nghiệp vụ khác nhau</strong> — nguy
+  cơ deadlock cao, xem Deep Dive.</li>
+<li><strong>Giữ khoá pessimistic quá lâu</strong> (thực hiện thao tác I/O chậm, gọi API bên ngoài trong khi vẫn
+  giữ khoá) — làm tăng thời gian chờ đợi của các giao dịch khác, giảm throughput tổng thể của hệ
+  thống.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Chỉ dùng Pessimistic Lock khi đã xác định xung đột thực sự thường xuyên (đo lường hoặc phân
+  tích nghiệp vụ cẩn thận), không dùng mặc định.</li>
+<li>Giữ khoá pessimistic trong thời gian <strong>ngắn nhất có thể</strong> — tránh thực hiện I/O chậm/gọi API
+  bên ngoài trong khi đang giữ khoá.</li>
+<li>Áp dụng thứ tự khoá nhất quán xuyên suốt ứng dụng khi cần khoá nhiều bản ghi trong cùng giao
+  dịch, để giảm nguy cơ deadlock.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Một giao dịch bị "treo" lâu bất thường? → kiểm tra có giao dịch khác đang giữ pessimistic
+      lock trên cùng bản ghi, xử lý chậm hoặc chưa commit/rollback.</li>
+<li>[ ] Deadlock xuất hiện dưới tải cao? → kiểm tra thứ tự khoá nhiều bản ghi có nhất quán giữa
+      các luồng nghiệp vụ khác nhau không.</li>
+<li>[ ] Cần xác nhận một câu truy vấn có thực sự dùng pessimistic lock không? → bật <code>show-sql</code>,
+      tìm <code>for update</code> trong câu SQL sinh ra.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Pessimistic Lock (<code>LockModeType.PESSIMISTIC_WRITE</code>, <code>SELECT ... FOR UPDATE</code>) khoá thật ở tầng
+database ngay khi đọc, chặn đứng giao dịch khác cho tới khi khoá được nhả — khác với Optimistic
+Lock (Chapter 13) chỉ kiểm tra xung đột tại thời điểm ghi. Đã chứng minh bằng thực nghiệm: thread
+thứ hai gọi <code>findByIdForUpdate()</code> trên cùng bản ghi <strong>thực sự bị block</strong>, chỉ tiếp tục ngay sau
+khi thread đầu tiên commit (nhả khoá) — không phải lỗi, không phải retry, mà là chờ đợi thật.
+Pessimistic Lock phù hợp khi xung đột thường xuyên và có thể dự đoán trước; có nguy cơ deadlock
+cao hơn Optimistic Lock nếu khoá nhiều bản ghi không theo thứ tự nhất quán. Lựa chọn giữa hai
+chiến lược nên dựa trên tần suất xung đột thực tế của từng luồng nghiệp vụ, không áp dụng máy
+móc một chiến lược duy nhất.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>Pessimistic Lock khác Optimistic Lock như thế nào? Khi nào nên dùng Pessimistic Lock thay vì
+  Optimistic Lock?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao Pessimistic Lock có nguy cơ deadlock cao hơn Optimistic Lock? Cách phòng tránh?</li>
+<li>Đề xuất tiêu chí cụ thể để quyết định chọn Optimistic hay Pessimistic Lock cho một luồng
+  nghiệp vụ.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>PessimisticLockTest</code> ở trên, xác nhận <code>ThreadB</code> thực sự bị block tới khi
+      <code>ThreadA</code> commit.</li>
+<li>[ ] Mô phỏng deadlock: hai thread cùng khoá hai bản ghi theo thứ tự ngược nhau, quan sát
+      exception database ném ra khi phát hiện deadlock.</li>
+<li>[ ] So sánh thời gian xử lý tổng thể giữa Optimistic Lock (với retry) và Pessimistic Lock cho
+      cùng một kịch bản có tỉ lệ xung đột cao (ví dụ 10 thread cùng tranh chấp 1 bản ghi).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Optimistic Lock (Chapter 13)</th>
+<th>Pessimistic Lock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cơ chế</td>
+<td>Kiểm tra <code>version</code> tại thời điểm ghi</td>
+<td>Khoá thật (<code>FOR UPDATE</code>) tại thời điểm đọc</td>
+</tr>
+<tr>
+<td>Giao dịch khác</td>
+<td>Không bị chặn, có thể đọc/sửa song song</td>
+<td>Bị chặn (block) cho tới khi khoá được nhả</td>
+</tr>
+<tr>
+<td>Phù hợp khi</td>
+<td>Xung đột hiếm</td>
+<td>Xung đột thường xuyên, có thể dự đoán</td>
+</tr>
+<tr>
+<td>Rủi ro chính</td>
+<td>Cần xử lý exception/retry</td>
+<td>Deadlock, giảm throughput nếu giữ khoá lâu</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Persistence Specification — <code>LockModeType</code>.</li>
+<li>Hibernate ORM Documentation — Pessimistic Locking.</li>
 </ul>
 
 
