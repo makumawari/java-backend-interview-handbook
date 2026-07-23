@@ -1,6 +1,8 @@
 ---
 tags:
-  - TODO
+  - JPA
+  - Entity
+  - Hibernate
 ---
 
 # Entity
@@ -13,124 +15,289 @@ tags:
 ```yaml
 Chapter: Entity
 Phase: Phase 6 — Persistence
-Difficulty: TODO (★ to ★★★★★)
-Importance: TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)
-Interview Frequency: TODO %
+Difficulty: ★★★
+Importance: ★★★★★
+Interview Frequency: 80%
 Prerequisites:
-  - TODO
+  - Chapter 01 — JPA
+  - Phase 4, Chapter 07 — Record (để hiểu vì sao Entity KHÔNG nên là record)
 Used Later:
-  - TODO
-Estimated Reading: TODO
-Estimated Practice: TODO
+  - Chapter 03 — Repository
+  - Chapter 05 — Persistence Context
+Estimated Reading: 15 phút
+Estimated Practice: 12 phút
 ```
-
-> Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-> filter trên site MkDocs, không lặp lại trong block Metadata này.
 
 ## Story
 
-> TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).
+> Đặt tên class Java là `Order` — một cái tên hoàn toàn bình thường trong tiếng Anh, nhưng lại
+> là **từ khoá dành riêng** (reserved keyword) trong SQL (`ORDER BY`). Nếu Hibernate tạo bảng
+> tên `order` theo đúng tên class, mọi câu truy vấn sẽ gãy ngay từ cú pháp.
+
+```java
+@Entity
+@Table(name = "orders") // DOI TEN BANG, tranh trung tu khoa SQL "ORDER"
+public class Order { ... }
+```
+
+Xác nhận bằng truy vấn SQL trực tiếp:
+
+```
+Class Java ten la 'Order' (tu khoa SQL), nhung @Table(name="orders") -> bang thuc te la 'orders'
+Hibernate: select count(*) from orders
+Truy van truc tiep bang 'orders' (khong phai 'order'): 1 dong
+```
+
+Bảng thật trong database tên là `orders`, dù class Java tên là `Order` — nhờ `@Table(name = ...)` ánh xạ lại tên.
 
 ## Interview Question (Central)
 
-> TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-> theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).
+> `@Entity` là gì? Những annotation cốt lõi nào cần để định nghĩa một Entity đầy đủ, và vì sao
+> Entity không nên dùng `record` (Phase 4)?
 
 ## Objectives
 
-Sau chapter này bạn sẽ:
-
-- [ ] TODO
+- [ ] Dùng thành thạo `@Entity`, `@Table`, `@Id`, `@GeneratedValue`, `@Column`
+- [ ] Tự tay chứng minh bằng thực nghiệm: `GenerationType.IDENTITY` khiến `INSERT` chạy **ngay**
+      khi `save()` được gọi, để lấy ID thật từ database
+- [ ] Giải thích vì sao Entity cần constructor không tham số và không nên là `final`/`record`
 
 ## Prerequisites
 
-- TODO
+- Chapter 01 — hiểu JPA là đặc tả, Hibernate là implementation thực thi các annotation này.
+- Phase 4, Chapter 07 — hiểu bản chất bất biến, ngầm định `final` của record.
 
 ## Used Later
 
-- TODO
+- **Chapter 03 (Repository)** — Spring Data JPA thao tác trên các Entity đã định nghĩa.
+- **Chapter 05 (Persistence Context)** — vòng đời Entity được Hibernate theo dõi từ thời điểm
+  này.
 
 ## Problem
 
-TODO
+Một class Java thuần tuý không có cách nào tự động biết "tôi tương ứng với bảng nào trong
+database, field nào ánh xạ cột nào, cột nào là khoá chính, giá trị khoá chính được sinh ra như
+thế nào". Nếu không có annotation chuẩn hoá, mỗi dự án phải tự viết code ánh xạ thủ công (đọc
+`ResultSet`, gọi `set` từng field) — chính xác vấn đề JDBC thuần tuý gặp phải trước khi có ORM.
 
 ## Concept
 
-TODO
+**`@Entity`** đánh dấu một class Java sẽ được Hibernate ánh xạ thành một bảng database.
+**`@Id`** đánh dấu field là khoá chính. **`@GeneratedValue`** khai báo chiến lược sinh giá trị
+khoá chính tự động (`IDENTITY` — để database tự tăng; `SEQUENCE` — dùng sequence object của
+database; `AUTO` — để Hibernate tự chọn chiến lược phù hợp với database đang dùng).
+**`@Table`**/**`@Column`** cho phép đổi tên bảng/cột khác với tên field Java mặc định.
 
 ## Why?
 
-TODO
+Bộ annotation chuẩn hoá của JPA cho phép Hibernate dùng Reflection (Phase 1, Chapter 19) để đọc
+metadata trực tiếp từ class Java, tự động sinh DDL và SQL tương ứng — loại bỏ hoàn toàn nhu cầu
+viết tay code ánh xạ. Việc tách `@Table(name=...)` khỏi tên class cho phép class Java giữ được
+tên tự nhiên, có ý nghĩa (`Order`) mà không bị ràng buộc bởi giới hạn đặt tên của SQL (từ khoá dự
+trữ, độ dài tối đa, quy ước viết hoa/thường khác nhau giữa các hệ quản trị database).
 
 ## How?
 
-TODO
+```java
+@Entity
+@Table(name = "orders") // ten bang khac ten class
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // database tu tang
+    private Long id;
+
+    @Column(name = "order_status") // ten cot khac ten field
+    private String status;
+
+    protected Order() {} // BAT BUOC: constructor khong tham so (Hibernate can de tao proxy)
+    public Order(String status) { this.status = status; }
+}
+```
 
 ## Visualization
 
 ```
-TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+Class Java:                          Bang database (sau khi Hibernate sinh DDL):
+
+  @Entity                              CREATE TABLE orders (
+  @Table(name = "orders")                  id BIGINT GENERATED BY DEFAULT AS IDENTITY,
+  class Order {                            customer_id BIGINT,
+    @Id @GeneratedValue                    status VARCHAR(255),
+    Long id;                               version BIGINT,
+    Customer customer;                     PRIMARY KEY (id)
+    String status;                     );
+    Long version;
+  }
 ```
 
 ## Example
 
 ```java
-// TODO — code phải chạy được, không dùng pseudo code
+@Entity
+@Table(name = "orders")
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String status;
+    // ...
+}
 ```
+
+**Chứng minh `GenerationType.IDENTITY` khiến `INSERT` chạy ngay lập tức:**
+
+```java
+Customer c1 = new Customer("Cust-A");
+customerRepo.save(c1);
+System.out.println("Ngay sau save(c1), c1.getId() = " + c1.getId());
+```
+
+Kết quả thật (Hibernate ORM 6.5.3.Final):
+
+```
+Hibernate: insert into customer (name,id) values (?,default)
+Ngay sau save(c1), c1.getId() = 2
+```
+
+Câu lệnh `INSERT` thực thi **ngay lập tức** khi `save()` được gọi — không đợi tới cuối
+transaction — vì với `GenerationType.IDENTITY`, ID chỉ có thể biết được **sau khi** database
+thực sự chèn dòng mới (auto-increment do chính database quản lý), Hibernate buộc phải `INSERT`
+ngay để lấy giá trị đó, không thể trì hoãn.
+
+**Chứng minh `@Table(name=...)` đổi tên bảng thật:**
+
+```java
+Object result = em.createNativeQuery("select count(*) from orders").getSingleResult();
+System.out.println("Truy van truc tiep bang 'orders': " + result + " dong");
+```
+
+Kết quả thật:
+
+```
+Hibernate: select count(*) from orders
+Truy van truc tiep bang 'orders' (khong phai 'order'): 1 dong
+```
+
+Truy vấn SQL thuần (`createNativeQuery`) xác nhận tên bảng thật trong database là `orders`,
+đúng như khai báo trong `@Table(name = "orders")` — không phải `order` (tên class, cũng là từ
+khoá SQL sẽ gây lỗi cú pháp).
 
 ## Deep Dive
 
-TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)
+**Vì sao Entity bắt buộc phải có constructor không tham số, dù code Java nghiệp vụ hiếm khi gọi
+`new Order()` trực tiếp?** Hibernate cần tạo instance của Entity theo hai cách: (1) khi đọc dữ
+liệu từ database (`SELECT`), Hibernate tạo instance rồi **điền** giá trị field bằng Reflection —
+không đi qua bất kỳ constructor "có tham số" nào; (2) khi cần tạo **lazy proxy** (Chapter 08) đại
+diện cho một entity chưa thực sự load dữ liệu — proxy đó (một subclass CGLIB, giống cơ chế đã học
+ở Phase 5 Chapter 06) cần một constructor không tham số để khởi tạo "vỏ rỗng" trước khi dữ liệu
+thật được nạp. Thiếu constructor này, Hibernate không có cách nào tạo được instance theo hai cơ
+chế trên, dẫn tới lỗi runtime.
 
 ## Engineering Insight
 
-TODO (bắt buộc nếu Importance ★★★★/★★★★★)
+**Vì sao Entity không nên dùng `record` (Phase 4, Chapter 07), dù cú pháp có vẻ gọn hơn hẳn?**
+Ba lý do kỹ thuật trực tiếp mâu thuẫn với bản chất record: (1) record **ngầm định `final`**
+(Phase 4) — Hibernate không thể tạo CGLIB proxy (cần subclass) cho lazy loading (Chapter 08).
+(2) record **ngầm định mọi field là `final`** — Hibernate cần **gán lại** giá trị field sau khi
+tạo instance rỗng (đọc từ `ResultSet`), điều record không cho phép. (3) record **không có
+constructor không tham số** theo mặc định — vi phạm trực tiếp yêu cầu đã nêu ở Deep Dive. Đây là
+một ví dụ cụ thể, quan trọng về việc một tính năng ngôn ngữ tuyệt vời cho một ngữ cảnh (DTO bất
+biến, Phase 4) lại hoàn toàn không phù hợp cho ngữ cảnh khác (Entity có trạng thái thay đổi
+được, cần proxy) — hiểu rõ **vì sao**, không chỉ **là gì**, mới giúp đưa ra quyết định thiết kế
+đúng.
 
 ## Historical Note
 
-TODO (tùy chọn, chỉ viết nếu có insight thật)
+Các chiến lược `@GeneratedValue` (`IDENTITY`, `SEQUENCE`, `TABLE`, `AUTO`) phản ánh sự khác biệt
+giữa các hệ quản trị database: `IDENTITY` phù hợp MySQL/H2 (auto-increment tích hợp sẵn),
+`SEQUENCE` phù hợp PostgreSQL/Oracle (dùng sequence object độc lập, hỗ trợ tối ưu batch insert
+tốt hơn IDENTITY vì có thể lấy trước nhiều giá trị ID mà không cần đợi INSERT thật). Đây là lý
+do nhiều dự án PostgreSQL production khuyến nghị `SEQUENCE` thay vì `IDENTITY` dù `IDENTITY` có
+vẻ đơn giản hơn — hiệu năng batch insert khác biệt đáng kể ở quy mô lớn.
 
 ## Myth vs Reality
 
-- Myth: TODO
-- Reality: TODO
+- **Myth:** "Nên dùng `record` cho Entity để tận dụng cú pháp ngắn gọn, giống DTO ở Phase 4."
+  **Reality:** Đã chứng minh bằng lập luận kỹ thuật — record mâu thuẫn trực tiếp với ba yêu cầu
+  cốt lõi của Entity: cần proxy (không `final`), cần gán lại field (không `final` field), cần
+  constructor không tham số.
+
+- **Myth:** "`GenerationType.IDENTITY` và `SEQUENCE` hoàn toàn tương đương, chỉ khác cú pháp
+  khai báo."
+  **Reality:** Đã chứng minh bằng thực nghiệm — `IDENTITY` buộc `INSERT` chạy ngay lập tức
+  (không trì hoãn được), ảnh hưởng trực tiếp tới khả năng tối ưu batch insert.
 
 ## Common Mistakes
 
-TODO
+- **Dùng `record` cho JPA Entity** — gây lỗi runtime hoặc không tạo được proxy đúng cách, xem
+  Engineering Insight.
+- **Quên constructor không tham số** — Hibernate không thể tạo instance khi đọc dữ liệu hoặc tạo
+  lazy proxy.
+- **Đặt tên class trùng từ khoá SQL mà không dùng `@Table(name=...)` để đổi tên** — gây lỗi cú
+  pháp SQL khó hiểu (`order`, `user`, `group` đều là các từ khoá SQL phổ biến dễ mắc lỗi này).
 
 ## Best Practices
 
-TODO
-
-## Production Notes
-
-TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)
+- Luôn khai báo constructor không tham số (thường `protected`, để không dùng nhầm từ code
+  nghiệp vụ nhưng vẫn cho phép Hibernate truy cập) cho mọi Entity.
+- Dùng class thông thường (không phải `record`) cho Entity, tách biệt rõ với DTO (nên dùng
+  `record`, Phase 4 Chapter 07) ở tầng API.
+- Cân nhắc `@Table(name=...)` tường minh cho mọi Entity, tránh phụ thuộc vào tên mặc định (dễ
+  trùng từ khoá SQL hoặc gây nhầm lẫn khi đổi database).
+- Với database hỗ trợ sequence (PostgreSQL, Oracle), cân nhắc `GenerationType.SEQUENCE` thay vì
+  `IDENTITY` nếu cần tối ưu batch insert ở quy mô lớn.
 
 ## Debug Checklist
 
-- [ ] TODO (nếu phù hợp)
-
-## Source Code Walkthrough
-
-TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)
+- [ ] Lỗi liên quan tới việc Hibernate không tạo được instance Entity? → kiểm tra có constructor
+      không tham số không.
+- [ ] Lỗi cú pháp SQL bí ẩn liên quan tới tên bảng? → kiểm tra tên class Entity có trùng từ khoá
+      SQL dự trữ không (`order`, `user`, `group`, ...), thêm `@Table(name=...)` nếu cần.
+- [ ] `INSERT` batch chậm hơn dự kiến với số lượng lớn bản ghi? → kiểm tra chiến lược
+      `@GeneratedValue` đang dùng, cân nhắc `SEQUENCE` thay vì `IDENTITY`.
 
 ## Summary
 
-TODO
+`@Entity` đánh dấu class Java được Hibernate ánh xạ thành bảng database, kết hợp `@Id`/
+`@GeneratedValue`/`@Table`/`@Column` để kiểm soát chi tiết ánh xạ. Đã chứng minh bằng thực
+nghiệm: `@Table(name="orders")` đổi tên bảng thật, tránh trùng từ khoá SQL `order`; chiến lược
+`GenerationType.IDENTITY` buộc `INSERT` chạy ngay khi `save()` được gọi (không trì hoãn được) để
+lấy ID auto-increment thật từ database. Entity **không nên** dùng `record` (Phase 4) — mâu thuẫn
+trực tiếp với yêu cầu kỹ thuật: cần tạo được proxy (không `final`), cần gán lại field (không
+`final` field), cần constructor không tham số.
 
 ## Interview Questions
 
-> TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.
+**Junior**
+
+- `@Entity` là gì? Những annotation cốt lõi nào cần để định nghĩa một Entity?
+
+**Mid**
+
+- Vì sao Entity không nên dùng `record`?
+- `GenerationType.IDENTITY` và `SEQUENCE` khác nhau như thế nào?
 
 ## Exercises
 
-- [ ] TODO
+- [ ] Chạy lại `EntityMappingTest` ở trên, xác nhận `INSERT` chạy ngay với `IDENTITY` và tên
+      bảng thật là `orders` (không phải `order`).
+- [ ] Thử xoá constructor không tham số của một Entity, quan sát lỗi Hibernate ném ra khi đọc
+      dữ liệu.
+- [ ] Đổi `GenerationType.IDENTITY` thành `GenerationType.SEQUENCE` cho `Customer`, quan sát SQL
+      DDL thay đổi (tạo thêm sequence object) và thời điểm `INSERT` thực sự chạy có khác đi
+      không.
 
 ## Cheat Sheet
 
-TODO
+| Annotation | Vai trò |
+| --- | --- |
+| `@Entity` | Đánh dấu class được ánh xạ thành bảng |
+| `@Table(name=...)` | Đổi tên bảng khác tên class |
+| `@Id` | Đánh dấu field là khoá chính |
+| `@GeneratedValue(strategy=...)` | Chiến lược sinh giá trị khoá chính (`IDENTITY`/`SEQUENCE`/`AUTO`) |
+| `@Column(name=...)` | Đổi tên cột khác tên field |
 
 ## References
 
-- TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)
+- Jakarta Persistence Specification — Entity: https://jakarta.ee/specifications/persistence/
+- Hibernate ORM Documentation — Entity mapping, Identifier generation.
