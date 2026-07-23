@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:identityhashmap" class="md-tag">IdentityHashMap</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,282 @@ Chapter slug: <code>identityhashmap</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentityHashMap</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — HashMap</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 12 — equals()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(Chapter cuối Phase 2 — không có chapter Phase 2 nào phụ thuộc trực tiếp)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Đây là chapter cuối cùng của Phase 2 — và nó khép lại đúng bằng cách <strong>đảo ngược</strong> toàn bộ tinh
+thần của 18 chapter trước. Từ Chapter 05 (<code>Set</code>), mọi cấu trúc dữ liệu "dựa trên hash" đều dùng
+<code>equals()</code>/<code>hashCode()</code> (Phase 1, Chapter 12-13) để quyết định "hai phần tử có là một không".
+<code>IdentityHashMap</code> phá vỡ quy tắc đó một cách triệt để:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// NỘI DUNG giống hệt &quot;a&quot;, nhưng là OBJECT KHÁC</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">normal</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">normal</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// equals() đúng -&gt; GHI ĐÈ lên entry của a</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">normal</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w"> </span><span class="c1">// 1</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IdentityHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">identity</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">identity</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// a != b về THAM CHIẾU -&gt; COI LÀ 2 KEY KHÁC NHAU</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">identity</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2</span>
+</code></pre></div>
+<p><code>HashMap</code> nói "giống nhau" (dựa trên <code>equals()</code>). <code>IdentityHashMap</code> nói "khác nhau" (dựa trên
+<code>==</code>) — cho <strong>cùng một cặp key</strong>. Đây không phải một biến thể nhỏ của <code>HashMap</code> — nó là một
+công cụ dùng cho một lớp bài toán hoàn toàn khác: khi bạn cần biết "đây có đúng là <strong>cùng một
+object trong bộ nhớ</strong>" hay không, không quan tâm nội dung.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>IdentityHashMap</code> khác <code>HashMap</code> ở điểm nào? Khi nào cần dùng <code>==</code> thay vì <code>equals()</code> để so
+sánh key?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Biết <code>IdentityHashMap</code> dùng <code>==</code> (so sánh tham chiếu) thay vì <code>equals()</code>/<code>hashCode()</code>
+      để xác định key</li>
+<li>[ ] Tự tay tái hiện được sự khác biệt giữa <code>HashMap</code> và <code>IdentityHashMap</code> cho cùng một cặp
+      object</li>
+<li>[ ] Biết các use case chính đáng: phát hiện chu trình khi duyệt đồ thị object (ví dụ
+      serialization), theo dõi object theo đúng định danh vật lý</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — hiểu cơ chế bucket/hash của <code>HashMap</code>.</li>
+<li>Phase 1, Chapter 12 — hiểu <code>equals()</code> so sánh nội dung, <code>==</code> so sánh tham chiếu.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
-<ul>
-<li>TODO</li>
-</ul>
+<p>Đây là chapter cuối của Phase 2 — không có chapter Phase 2 nào phụ thuộc trực tiếp vào
+<code>IdentityHashMap</code>. Kiến thức này sẽ hữu ích khi đọc source code JDK/framework (nhiều nơi dùng
+<code>IdentityHashMap</code> cho bài toán phát hiện chu trình, ví dụ trong Jackson khi serialize object có
+tham chiếu vòng).</p>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>equals()</code> (Phase 1, Chapter 12) so sánh <strong>nội dung</strong> — hai object khác nhau nhưng "trông giống
+hệt nhau" được coi là một. Nhưng một số bài toán cần chính xác điều ngược lại: theo dõi từng
+<strong>object vật lý cụ thể</strong>, bất kể nội dung của chúng giống hay khác nhau — ví dụ khi duyệt một
+cấu trúc dữ liệu lồng nhau để phát hiện <strong>chu trình</strong> (object A tham chiếu tới B, B tham chiếu
+ngược lại A): cần biết "object này tôi đã <strong>thăm qua đúng nó</strong> chưa", không phải "tôi đã thăm
+một object có nội dung giống nó chưa".</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>IdentityHashMap</code> là một implementation <code>Map</code> <strong>cố tình vi phạm</strong> hợp đồng chung của interface
+<code>Map</code> (Javadoc của chính nó nói rõ điều này) bằng cách dùng <code>==</code> (so sánh tham chiếu, định danh
+object trong bộ nhớ) thay vì <code>equals()</code> để xác định hai key có "là một" hay không.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu dùng <code>HashMap</code> thường cho bài toán phát hiện chu trình: hai object khác nhau nhưng
+"tình cờ" có nội dung giống hệt nhau (<code>equals()</code> trả về <code>true</code>) sẽ bị coi là "đã thăm", dù thực
+tế chương trình chưa từng đi qua đúng object đó — dẫn tới bỏ sót việc duyệt một nhánh dữ liệu
+hợp lệ. <code>IdentityHashMap</code> đảm bảo chỉ đúng <strong>object đã thực sự đi qua</strong> (cùng địa chỉ tham
+chiếu) mới được coi là "đã thăm", bất kể có bao nhiêu object khác "trông giống hệt" nó.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IdentityHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">traverse</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">visited</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">node</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="c1">// đã thăm ĐÚNG OBJECT NÀY chưa, không phải &quot;giống nó&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">visited</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// ... duyệt tiếp các node liên quan</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>HashMap:           key được coi là &quot;trùng&quot; nếu   a.equals(b) == true
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>IdentityHashMap:    key được coi là &quot;trùng&quot; nếu   a == b  (CÙNG một object trong bộ nhớ)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>new String(&quot;x&quot;)  ≠  new String(&quot;x&quot;)   theo == (hai object khác nhau)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>new String(&quot;x&quot;)  =  new String(&quot;x&quot;)   theo equals() (nội dung giống nhau)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>     HashMap:            coi 2 String này là &quot;TRÙNG&quot;     → size giảm còn 1
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>     IdentityHashMap:    coi 2 String này là &quot;KHÁC NHAU&quot;  → size vẫn là 2
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận trực tiếp — cùng một cặp object, hai kết luận trái ngược nhau tuỳ implementation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.IdentityHashMap</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IdentityDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// noi dung giong het &quot;a&quot; nhung khac object</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">normal</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="n">normal</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// equals() dung -&gt; GHI DE len entry cua a</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;HashMap thuong, size = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">normal</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IdentityHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">identity</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="n">identity</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// a != b ve tham chieu -&gt; COI LA 2 KEY KHAC NHAU</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;IdentityHashMap, size = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">identity</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>HashMap thuong, size = 1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>IdentityHashMap, size = 2
+</code></pre></div>
+<p>Cùng thao tác <code>put(a, ...)</code> rồi <code>put(b, ...)</code> với <code>a</code>/<code>b</code> có nội dung y hệt nhau, hai
+implementation kết luận hoàn toàn trái ngược — đúng bản chất cốt lõi của chapter này.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao Javadoc chính thức của <code>IdentityHashMap</code> tự nhận là "vi phạm hợp đồng chung của
+<code>Map</code>"?</strong> Vì interface <code>Map</code> (Chapter 07) <strong>ngầm định</strong> rằng việc xác định key dựa trên
+<code>equals()</code> — đây là một giả định mà hầu hết code làm việc với <code>Map</code> đều dựa vào một cách vô
+thức. <code>IdentityHashMap</code> phá vỡ giả định đó một cách có chủ đích, và tự documentation rõ ràng
+việc này để không ai dùng nhầm nó như một <code>HashMap</code> thông thường. Đây là một trường hợp hiếm
+hoi trong JDK mà một class công khai thừa nhận "tôi cố tình không tuân theo hợp đồng chuẩn của
+interface tôi implement" — một minh chứng cho việc đôi khi phá vỡ quy ước chung là lựa chọn
+đúng đắn, miễn là được tài liệu hoá rõ ràng, tường minh.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>IdentityHashMap</code> được cài đặt khác <code>HashMap</code> như thế nào để đạt hiệu năng tốt cho việc so
+sánh <code>==</code>?</strong> Nó <strong>không</strong> dùng danh sách liên kết cho các bucket va chạm (khác <code>HashMap</code>,
+Chapter 08) — thay vào đó dùng kỹ thuật <strong>open addressing</strong> (địa chỉ mở): key và value được
+lưu <strong>xen kẽ trực tiếp</strong> trong cùng một mảng phẳng (<code>key1, value1, key2, value2, ...</code>), và khi
+va chạm xảy ra, nó tìm ô trống <strong>tiếp theo</strong> trong chính mảng đó (linear probing) thay vì tạo
+node phụ. Cách này tối ưu hơn cho trường hợp hash dựa trên <code>System.identityHashCode()</code> (định
+danh bộ nhớ, thường phân bố khá đều) và tránh chi phí cấp phát object <code>Node</code> cho mỗi phần tử —
+một thiết kế chuyên biệt, khác hẳn <code>HashMap</code>, phù hợp với đặc thù sử dụng hẹp của
+<code>IdentityHashMap</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>IdentityHashMap</code> xuất hiện từ Java 1.4 (2002) — ra đời chủ yếu để phục vụ chính nhu cầu nội
+bộ của JDK và các framework serialization/introspection (ví dụ phát hiện chu trình tham chiếu
+khi serialize một object graph phức tạp) — không phải một cấu trúc dữ liệu hướng tới đại đa số
+lập trình viên ứng dụng thông thường, phản ánh đúng qua Interview Frequency thấp nhất trong
+toàn bộ Phase 2.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>IdentityHashMap</code> chỉ là một biến thể tối ưu hiệu năng của <code>HashMap</code>."
+  <strong>Reality:</strong> Nó thay đổi hoàn toàn <strong>ngữ nghĩa</strong> so sánh key (<code>==</code> thay vì <code>equals()</code>), không
+  phải chỉ là tối ưu hiệu năng — dùng nhầm nó cho mục đích của <code>HashMap</code> thông thường sẽ cho
+  kết quả hoàn toàn sai (như Example đã chứng minh).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Tên gọi 'Identity' chỉ là chi tiết đặt tên, không ảnh hưởng nhiều tới hành vi."
+  <strong>Reality:</strong> "Identity" ở đây có nghĩa chính xác là "định danh vật lý" (cùng một object trong
+  bộ nhớ) — đây là toàn bộ bản chất của class, không phải chi tiết phụ.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>IdentityHashMap</code> như một <code>HashMap</code> thông thường</strong> mà không nhận ra khác biệt ngữ
+  nghĩa — dẫn tới lỗi khó hiểu (hai key "giống hệt nhau về nội dung" bị coi là khác nhau).</li>
+<li><strong>Dùng <code>HashMap</code> thường cho bài toán cần phát hiện chu trình theo định danh object</strong> — dẫn
+  tới bỏ sót nhánh dữ liệu hợp lệ nếu tình cờ có hai object nội dung giống nhau (xem Why?).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Chỉ dùng <code>IdentityHashMap</code> khi bài toán thực sự cần so sánh theo <strong>định danh object</strong>
+  (thường gặp nhất: phát hiện chu trình khi duyệt cấu trúc dữ liệu lồng nhau, hoặc theo dõi
+  object theo đúng thực thể vật lý bất kể nội dung).</li>
+<li>Không dùng <code>IdentityHashMap</code> như một "HashMap nhanh hơn" cho mục đích chung — ngữ nghĩa khác
+  hoàn toàn, không phải vấn đề hiệu năng.</li>
+<li>Luôn tài liệu hoá rõ ràng khi dùng <code>IdentityHashMap</code> trong code, vì hành vi của nó đủ khác
+  thường để gây bối rối cho người đọc code sau này nếu không có ghi chú.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p>Chapter này thuần công cụ chuyên biệt, hiếm khi tự nó là nguồn gốc trực tiếp của sự cố
+production trong code ứng dụng thông thường — ứng dụng thực tế phổ biến nhất nằm sâu bên trong
+các framework (serialization, dependency injection container theo dõi bean theo định danh vật
+lý) hơn là trong code nghiệp vụ hàng ngày. Vấn đề thường gặp nhất (nếu có) là dùng <strong>nhầm</strong>
+<code>IdentityHashMap</code> khi ý định thực sự là dùng <code>HashMap</code> — một lỗi cấu hình/thiết kế hơn là một
+loại sự cố runtime điển hình.</p>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>Map</code> cho kết quả "sai" — hai key trông giống hệt nhau nhưng bị coi là khác nhau (hoặc
+      ngược lại)? → kiểm tra có đang nhầm dùng <code>IdentityHashMap</code> thay vì <code>HashMap</code>, hoặc ngược
+      lại, so với ý định thiết kế ban đầu.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>IdentityHashMap.hash(key, length)</code> dùng <code>System.identityHashCode(key)</code> — một <code>native</code> method
+(giống các method <code>native</code> của <code>Object</code> đã gặp ở
+<a href="../../phase-01-foundation/09-object/">Phase 1, Chapter 09</a>) trả về một mã định danh dựa trên
+chính object (không thể override, không liên quan tới <code>hashCode()</code> mà class có thể tự định
+nghĩa) — đây là bằng chứng cụ thể cho việc <code>IdentityHashMap</code> hoàn toàn tách biệt khỏi cơ chế
+<code>equals()</code>/<code>hashCode()</code> mà lập trình viên có thể tự viết, dùng thẳng định danh nội tại của JVM.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>IdentityHashMap</code> dùng <code>==</code> (so sánh tham chiếu, định danh object trong bộ nhớ) thay vì
+<code>equals()</code>/<code>hashCode()</code> để xác định key — cố tình vi phạm hợp đồng chung của <code>Map</code>, được chính
+Javadoc thừa nhận rõ ràng. Nó không phải biến thể hiệu năng của <code>HashMap</code>, mà là công cụ cho
+một lớp bài toán khác hẳn: theo dõi object theo đúng định danh vật lý (phát hiện chu trình khi
+duyệt cấu trúc dữ liệu lồng nhau là use case phổ biến nhất). Cài đặt bên trong dùng open
+addressing (không phải danh sách liên kết như <code>HashMap</code>), lưu key/value xen kẽ trong một mảng
+phẳng. Đây là công cụ chuyên biệt, hẹp — không nên dùng thay thế <code>HashMap</code> cho mục đích chung.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>IdentityHashMap</code> khác <code>HashMap</code> ở điểm nào?</li>
+<li><code>IdentityHashMap</code> so sánh key bằng gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Cho một ví dụ cụ thể <code>IdentityHashMap</code> cho kết quả khác <code>HashMap</code> cho cùng một cặp key.</li>
+<li>Khi nào nên dùng <code>IdentityHashMap</code> thay vì <code>HashMap</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao Javadoc của <code>IdentityHashMap</code> tự nhận "vi phạm hợp đồng chung của Map" —
+  đây có phải một thiết kế API tốt không? Phân tích quan điểm của bạn.</li>
+<li>Mô tả một bài toán thực tế (ví dụ serialization một object graph có chu trình) mà
+  <code>IdentityHashMap</code> là công cụ đúng đắn, và giải thích vì sao <code>HashMap</code> thường không giải quyết
+  được đúng bài toán đó.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>IdentityDemo</code> ở trên, xác nhận kết quả giống hệt.</li>
+<li>[ ] Viết một hàm duyệt cấu trúc dữ liệu lồng nhau có khả năng chứa chu trình (ví dụ một danh
+      sách các node tự tham chiếu vòng lại chính nó), dùng <code>IdentityHashMap</code> để phát hiện và
+      tránh vòng lặp vô hạn khi duyệt.</li>
+<li>[ ] Thử thay <code>IdentityHashMap</code> bằng <code>HashMap</code> thường trong bài tập trên (giả sử các node có
+      <code>equals()</code> so sánh nội dung) — tạo tình huống hai node khác nhau nhưng nội dung giống hệt
+      nhau, quan sát hành vi duyệt bị sai như thế nào.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HashMap</th>
+<th>IdentityHashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>So sánh key bằng</td>
+<td><code>equals()</code>/<code>hashCode()</code></td>
+<td><code>==</code> / <code>System.identityHashCode()</code></td>
+</tr>
+<tr>
+<td>Cấu trúc bucket va chạm</td>
+<td>Danh sách liên kết / cây</td>
+<td>Open addressing (linear probing)</td>
+</tr>
+<tr>
+<td>Tuân theo hợp đồng <code>Map</code> chuẩn?</td>
+<td>Có</td>
+<td>Không (tự nhận vi phạm)</td>
+</tr>
+<tr>
+<td>Use case chính</td>
+<td>Mục đích chung</td>
+<td>Phát hiện chu trình, theo dõi định danh object</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.IdentityHashMap</code>.</li>
+<li><code>java.lang.System#identityHashCode</code> — Java SE API Documentation.</li>
 </ul>
 
 

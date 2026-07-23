@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hashset" class="md-tag">HashSet</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,15 +6163,15 @@ Chapter slug: <code>hashset</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HashSet</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Set</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HashMap (Chapter 08) — HashSet chỉ là lớp bọc mỏng quanh HashMap, học kỹ HashMap trước</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6179,247 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-set/">Chapter 05 — Source Code Walkthrough</a> đã hé lộ: <code>HashSet</code> "không tự cài
+đặt cấu trúc dữ liệu riêng — chỉ là lớp bọc mỏng quanh <code>HashMap</code>".</p>
 </blockquote>
+<p>Đây là một khẳng định mạnh — kiểm chứng được trực tiếp, không chỉ là lời đồn. Dùng đúng kỹ
+thuật Reflection đã quen thuộc từ Phase 1 (Chapter 19) và vừa dùng lại ở Chapter 03
+(<code>ArrayList</code>), ta có thể "mở nắp" một <code>HashSet</code> ra và nhìn thấy chính xác nó cất giữ dữ liệu ở
+đâu.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>HashSet</code> được hiện thực dựa trên cấu trúc dữ liệu nào bên dưới? Nếu nó chỉ là một lớp bọc,
+value thật sự lưu trong đó là gì?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Xác nhận bằng Reflection: field nội bộ của <code>HashSet</code> chính xác là một <code>HashMap</code></li>
+<li>[ ] Hiểu vì sao value của <code>HashMap</code> bên trong luôn là một hằng số dùng chung, vô nghĩa</li>
+<li>[ ] Suy luận đúng: mọi đặc tính hiệu năng của <code>HashSet</code> (O(1) trung bình, phụ thuộc
+      <code>hashCode()</code>) đều <strong>thừa hưởng nguyên vẹn</strong> từ <code>HashMap</code> (Chapter 08)</li>
+<li>[ ] Biết constructor <code>new HashSet&lt;&gt;(collection)</code> bên trong làm gì để ước lượng capacity ban
+      đầu hợp lý</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — hiểu <code>Set</code> là một đảm bảo hành vi, không phải một cấu trúc dữ liệu cụ thể.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>HashMap</strong> (Chapter 08) — vì <code>HashSet</code> chỉ là lớp bọc, toàn bộ cơ chế sâu (bucket, resize,
+  treeify) thực sự thuộc về <code>HashMap</code> — chapter đó mới là nơi đào sâu, chapter này chỉ xác
+  nhận mối quan hệ.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JDK cần cung cấp một implementation <code>Set</code> nhanh (O(1) trung bình). Nhưng <code>HashMap</code> (sẽ học kỹ
+ở Chapter 08) đã giải quyết đúng bài toán "tra cứu nhanh dựa trên <code>hashCode()</code>/<code>equals()</code>" —
+viết một cấu trúc dữ liệu hoàn toàn mới, riêng biệt, chỉ để bỏ qua phần "value" của một <code>Map</code>
+sẽ là trùng lặp code không cần thiết.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>HashSet</code> không tự quản lý bucket/hash bên trong nó — nó giữ một field <code>private transient
+HashMap&lt;E,Object&gt; map</code>, và mọi phần tử của <code>Set</code> thực chất là một <strong>key</strong> trong <code>HashMap</code> đó.
+Value tương ứng luôn là cùng một object hằng số dùng chung (JDK gọi nó <code>PRESENT</code>) — bản thân
+giá trị của <code>PRESENT</code> không quan trọng, nó chỉ đóng vai trò "có mặt" (khác <code>null</code> để phân biệt
+với key không tồn tại).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu viết <code>HashSet</code> như một cấu trúc bucket/hash hoàn toàn riêng: phải duy trì <strong>hai</strong> hiện
+thực song song của cùng một thuật toán (chèn, tra cứu, resize, treeify — Chapter 08) — gấp đôi
+công sức bảo trì, gấp đôi khả năng có bug, và mọi cải tiến hiệu năng cho <code>HashMap</code> sẽ không tự
+động áp dụng cho <code>HashSet</code> trừ khi sửa cả hai nơi. Bọc <code>HashMap</code> và "bỏ qua" value là cách tận
+dụng tối đa code đã có, đảm bảo <code>HashSet</code> luôn thừa hưởng <strong>mọi</strong> cải tiến của <code>HashMap</code> miễn
+phí.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">transient</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">PRESENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HashSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">PRESENT</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;thêm vào Set&quot; = &quot;put key vào Map&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;Set có chứa&quot; = &quot;Map có key&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HashSet&lt;String&gt; set = new HashSet&lt;&gt;();
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set.add(&quot;A&quot;);
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>       │
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>       ▼
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>BÊN TRONG: map.put(&quot;A&quot;, PRESENT)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>       │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>       ▼
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>HashMap thật (Chapter 08): bucket, hashCode(&quot;A&quot;), spread, resize, treeify...
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>       │
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>       ▼
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>&quot;A&quot; được lưu làm KEY, PRESENT (hằng số dùng chung, vô nghĩa) làm VALUE
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận trực tiếp bằng Reflection — field <code>map</code> bên trong một <code>HashSet</code> thật sự là một
+<code>HashMap</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.Field</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HashSetInternal</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">Field</span><span class="w"> </span><span class="n">mapField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashSet</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getDeclaredField</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">mapField</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">Object</span><span class="w"> </span><span class="n">internalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapField</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">set</span><span class="p">);</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;HashSet ben trong thuc chat la: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">internalMap</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17, chạy với <code>--add-opens java.base/java.util=ALL-UNNAMED</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HashSet ben trong thuc chat la: java.util.HashMap
+</code></pre></div>
+<p>Không còn nghi ngờ gì nữa — đây không phải suy luận từ tài liệu, mà là bằng chứng trực tiếp từ
+chính JVM đang chạy.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao value không đơn giản dùng <code>null</code> thay vì tạo hẳn một object <code>PRESENT</code>?</strong> Vì <code>HashMap</code>
+(Chapter 08) coi <code>null</code> là một giá trị <strong>hợp lệ</strong> cho value — <code>map.get(key)</code> trả về <code>null</code> có
+thể có nghĩa là "value thực sự là <code>null</code>" <strong>hoặc</strong> "key không tồn tại", hai trường hợp không
+phân biệt được chỉ bằng <code>get()</code> (phải gọi thêm <code>containsKey()</code> để chắc chắn — một cạm bẫy kinh
+điển của <code>HashMap</code> sẽ gặp lại ở Chapter 08). Nếu <code>HashSet</code> dùng <code>null</code> làm value dùng chung,
+nội bộ nó sẽ phải tự xử lý đúng sự mơ hồ này. Dùng một object <code>PRESENT</code> cụ thể, khác <code>null</code>,
+loại bỏ hoàn toàn sự mơ hồ đó — value luôn "có mặt" theo đúng nghĩa đen khi key tồn tại.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>new HashSet&lt;&gt;(Collection c)</code> bên trong tính capacity ban đầu như thế nào — đây có phải chỉ
+<code>new HashMap&lt;&gt;()</code> trần trụi không?</strong> Không — constructor này <strong>ước lượng trước</strong> capacity dựa
+trên kích thước của <code>c</code> truyền vào, tính theo công thức tương tự
+<code>Math.max((int) (c.size() / 0.75f) + 1, 16)</code>, rồi tạo <code>HashMap</code> với capacity đó ngay từ đầu.
+Đây là một tối ưu nhỏ nhưng thực dụng: tạo <code>HashSet</code> từ một collection đã biết trước kích thước
+(như ở <a href="../05-set/">Chapter 05 — Example</a>, <code>new HashSet&lt;&gt;(input)</code>) tránh được nhiều lần resize
+không cần thiết trong lúc chèn hàng loạt — đúng tinh thần tối ưu "biết trước, cấp đủ ngay từ
+đầu" đã học ở <a href="../03-arraylist/">Chapter 03 — ArrayList</a>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>HashSet</code> tồn tại từ Java 2 (1998), cùng đợt với <code>HashMap</code>. Kiến trúc "bọc <code>Map</code>" này không
+thay đổi qua các phiên bản — kể cả khi <code>HashMap</code> được đại tu lớn ở Java 8 (thêm treeify, sẽ học
+ở Chapter 08), <code>HashSet</code> không cần sửa gì cả vì nó chỉ gọi qua <code>HashMap</code>, tự động thừa hưởng cải
+tiến mà không cần đổi một dòng code nào trong chính <code>HashSet</code>.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>HashSet</code> có thuật toán hash/bucket riêng, độc lập với <code>HashMap</code>."
+  <strong>Reality:</strong> Xem Example — <code>HashSet</code> không có bucket riêng, nó <strong>là</strong> một <code>HashMap</code> được bọc
+  lại, chỉ ẩn đi phần value.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Vì <code>HashSet</code> là một cấu trúc riêng, cải tiến <code>HashMap</code> không ảnh hưởng tới nó."
+  <strong>Reality:</strong> Ngược lại hoàn toàn — mọi thay đổi/tối ưu ở <code>HashMap</code> (Chapter 08) tự động áp
+  dụng cho <code>HashSet</code>, vì <code>HashSet</code> chỉ đơn thuần gọi qua nó.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Học <code>HashSet</code> và <code>HashMap</code> như hai chủ đề tách biệt, học thuộc lòng đặc tính hiệu năng
+  riêng cho từng cái</strong> — lãng phí công sức. Hiểu kỹ <code>HashMap</code> (Chapter 08) là hiểu luôn
+  <code>HashSet</code>, không cần học lại từ đầu.</li>
+<li><strong>Không tận dụng constructor <code>new HashSet&lt;&gt;(knownSize)</code></strong> khi biết trước số lượng phần tử sẽ
+  thêm — bỏ lỡ tối ưu tránh resize giống hệt bài học ở <code>ArrayList</code> (Chapter 03).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Xem hiệu năng và cơ chế của <code>HashSet</code> <strong>chính là</strong> hiệu năng và cơ chế của <code>HashMap</code>
+  (Chapter 08) — học một lần, áp dụng cho cả hai.</li>
+<li>Khi tạo <code>HashSet</code> từ một collection đã biết kích thước, luôn dùng constructor nhận
+  <code>Collection</code> thay vì tạo rỗng rồi <code>addAll()</code> — tận dụng ước lượng capacity tự động.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p>Vì <code>HashSet</code> chỉ là lớp bọc, <strong>mọi vấn đề production liên quan tới <code>HashSet</code></strong> (hash collision,
+resize không hợp lý, tra cứu chậm do <code>hashCode()</code> sai) thực chất là vấn đề của <code>HashMap</code> bên
+dưới — xem đầy đủ Production Notes ở <a href="../08-hashmap/">Chapter 08 — HashMap</a>, không nhắc lại ở
+đây để tránh trùng lặp.</p>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Nghi ngờ <code>HashSet</code> hoạt động chậm/sai? → chuyển hướng điều tra sang đúng cơ chế
+      <code>HashMap</code> ở <a href="../08-hashmap/">Chapter 08</a> — nguyên nhân gốc luôn nằm ở đó.</li>
+<li>[ ] Muốn xác nhận trực tiếp cấu trúc bên trong một <code>HashSet</code>? → dùng kỹ thuật Reflection y
+      hệt Example, hữu ích khi debug sâu hoặc học tập.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Đã thực hiện trực tiếp ở Example: field <code>map</code> (kiểu <code>HashMap&lt;E, Object&gt;</code>) chính là toàn bộ
+"cơ thể" của <code>HashSet</code>. Các method chính (<code>add</code>, <code>remove</code>, <code>contains</code>, <code>size</code>, <code>iterator</code>) đều
+chỉ là một dòng uỷ quyền (delegate) sang method tương ứng của <code>map</code> — <code>HashSet.java</code> trong
+OpenJDK chỉ dài khoảng 300 dòng, phần lớn là Javadoc, vì logic thật nằm hoàn toàn ở
+<code>HashMap.java</code>.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>HashSet</code> không phải một cấu trúc dữ liệu độc lập — nó là lớp bọc mỏng quanh một
+<code>HashMap&lt;E, Object&gt;</code>, dùng phần tử <code>Set</code> làm key và một hằng số <code>PRESENT</code> dùng chung làm value
+(đã xác nhận trực tiếp bằng Reflection). Mọi đặc tính hiệu năng, mọi cơ chế sâu (bucket, hash
+spreading, resize, treeify) đều thừa hưởng nguyên vẹn từ <code>HashMap</code> — học kỹ Chapter 08 chính là
+học kỹ cả hai. Constructor nhận <code>Collection</code> tự ước lượng capacity ban đầu hợp lý, tránh resize
+thừa.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>HashSet</code> được hiện thực dựa trên cấu trúc dữ liệu nào?</li>
+<li>Value bên trong <code>HashMap</code> mà <code>HashSet</code> bọc quanh là gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao <code>HashSet</code> không dùng <code>null</code> làm value dùng chung mà phải tạo một object <code>PRESENT</code>
+  riêng?</li>
+<li>Giải thích lợi ích của việc <code>HashSet</code> được thiết kế như một lớp bọc thay vì một cấu trúc dữ
+  liệu độc lập.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Nếu bạn phải tối ưu hiệu năng cho một <code>HashSet</code> chứa hàng triệu phần tử, bạn sẽ tập trung
+  điều tra vào đâu, dựa trên hiểu biết rằng nó chỉ là lớp bọc quanh <code>HashMap</code>?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>HashSetInternal</code> ở trên, xác nhận field <code>map</code> đúng là <code>HashMap</code>.</li>
+<li>[ ] Dùng kỹ thuật tương tự, kiểm tra field nội bộ của <code>TreeSet</code> (Chapter 05 đã nhắc tới) —
+      xác nhận nó bọc quanh <code>TreeMap</code>.</li>
+<li>[ ] Đọc source <code>HashSet.add()</code> (qua IDE hoặc trực tuyến), đối chiếu với đoạn code ở phần
+      How? — xác nhận đúng là một dòng gọi <code>map.put(e, PRESENT)</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>HashSet</th>
+<th>Thực chất là</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>set.add(e)</code></td>
+<td><code>map.put(e, PRESENT)</code></td>
+</tr>
+<tr>
+<td><code>set.contains(e)</code></td>
+<td><code>map.containsKey(e)</code></td>
+</tr>
+<tr>
+<td><code>set.remove(e)</code></td>
+<td><code>map.remove(e)</code></td>
+</tr>
+<tr>
+<td><code>set.size()</code></td>
+<td><code>map.size()</code></td>
+</tr>
+<tr>
+<td>Cơ chế bucket/resize/treeify</td>
+<td>100% thuộc về <code>HashMap</code> — xem Chapter 08</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>OpenJDK source — <code>java.base/java/util/HashSet.java</code>.</li>
+<li>Java SE API Documentation — <code>java.util.HashSet</code>.</li>
 </ul>
 
 

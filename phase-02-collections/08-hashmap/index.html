@@ -1826,17 +1826,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#production-notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6012,17 +6001,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#production-notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6131,7 +6109,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hashmap" class="md-tag">HashMap</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:interview" class="md-tag">Interview</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,97 +6148,417 @@ Chapter slug: <code>hashmap</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HashMap</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">95%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Map</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 12-13 — equals()/hashCode()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 04 — Runtime Data Areas (Heap)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LinkedHashMap (Chapter 09), TreeMap (Chapter 10), ConcurrentHashMap (Chapter 11)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HashSet (Chapter 06) — đã học trước, nay hiểu trọn vẹn cơ chế thật đứng sau nó</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Spring Cache, Hibernate First-Level Cache (Phase 5-6) — đều dựa trên HashMap</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35 phút</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Giả sử bạn có 10 triệu <code>User</code>. Bạn muốn tìm <code>User</code> theo <code>id</code>. Bạn sẽ làm thế nào?</p>
+<p>Dùng <code>List&lt;User&gt;</code> và duyệt tuyến tính? Với 10 triệu phần tử, tìm một <code>User</code> có thể phải xem
+qua <strong>5 triệu phần tử</strong> (trung bình) trước khi tìm thấy — với một web server xử lý hàng nghìn
+request/giây, đây là thảm hoạ hiệu năng.</p>
+<p><code>HashMap</code> giải quyết đúng bài toán này: tra cứu gần như <strong>tức thì</strong>, bất kể có 10, 10 nghìn,
+hay 10 triệu phần tử. Bí mật đằng sau tốc độ đó không phải phép màu — nó là một chuỗi quyết
+định thiết kế rất cụ thể, mỗi quyết định giải quyết đúng một vấn đề. Chapter này mở nắp
+<code>HashMap</code> ra, không chỉ đọc tài liệu mà <strong>quan sát trực tiếp</strong> cấu trúc bucket, va chạm hash, và
+khoảnh khắc nó tự chuyển từ danh sách liên kết sang cây đỏ-đen — bằng chính Reflection bạn đã
+học ở Phase 1.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Giải thích cơ chế hoạt động bên trong của <code>HashMap</code>. Vì sao nó nhanh, và khi nào nó không còn
+nhanh nữa?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích được cấu trúc bucket array, hàm băm (hash spreading), và cách tính chỉ số
+      bucket từ <code>hashCode()</code></li>
+<li>[ ] Tự tay quan sát bằng Reflection: bucket thật, va chạm hash thật, resize thật</li>
+<li>[ ] Giải thích cơ chế <strong>treeify</strong> — khi nào và tại sao một bucket chuyển từ danh sách liên
+      kết sang cây đỏ-đen, tự tay tái hiện bằng chứng</li>
+<li>[ ] Trả lời chính xác: có thể sửa <code>HashMap</code> trong lúc duyệt không, và fail-fast hoạt động ra
+      sao ở đây</li>
+<li>[ ] Debug được các lỗi <code>HashMap</code> phổ biến nhất trong thực tế</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 07 — hiểu <code>Map</code> là ánh xạ key-value, key phải duy nhất.</li>
+<li>Phase 1, Chapter 12-13 — hợp đồng <code>equals()</code>/<code>hashCode()</code> — nền tảng bắt buộc, <code>HashMap</code>
+  không hoạt động đúng nếu hợp đồng này bị vi phạm (đã minh hoạ ở Phase 1).</li>
+<li>Phase 1, Chapter 04 — biết object nằm trên Heap.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>LinkedHashMap, TreeMap, ConcurrentHashMap</strong> (Chapter 09-11) — cả ba đều là biến thể/mở
+  rộng của chính cơ chế học ở đây.</li>
+<li><strong>HashSet</strong> (Chapter 06, đã học) — giờ bạn hiểu trọn vẹn cơ chế thật sự đứng sau nó.</li>
+<li><strong>Spring Cache, Hibernate First-Level Cache</strong> (Phase 5-6) — hầu hết cơ chế cache trong Java
+  đều xây trên nền <code>HashMap</code>/<code>ConcurrentHashMap</code>.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tra cứu tuyến tính (<code>List</code>, duyệt từng phần tử so sánh <code>equals()</code>) là O(n) — không chấp nhận
+được cho dữ liệu lớn, tra cứu thường xuyên. Cần một cấu trúc cho phép "nhảy thẳng" gần như tới
+đúng vị trí phần tử cần tìm, không phải so sánh lần lượt từng phần tử.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>HashMap</code> dùng một <strong>mảng các bucket</strong> (<code>table</code>, kiểu <code>Node[]</code>). Vị trí (chỉ số) một key rơi
+vào được tính trực tiếp từ <code>hashCode()</code> của nó — không cần so sánh với các key khác trước. Tra
+cứu trở thành: tính chỉ số (O(1)) → nhảy thẳng tới đúng bucket (O(1)) → so sánh <code>equals()</code> chỉ
+với (thường rất ít) phần tử <strong>trong cùng bucket đó</strong> — trung bình O(1) thay vì O(n).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu dùng mảng phẳng và tính chỉ số trực tiếp bằng chính giá trị <code>hashCode()</code> (một số <code>int</code> rất
+lớn, hàng tỷ giá trị khả dĩ): sẽ cần một mảng khổng lồ để không bao giờ trùng chỉ số — không
+khả thi. <code>HashMap</code> giải quyết bằng phép <strong>modulo</strong> (thực chất là AND bit, xem How?) để "ép"
+<code>hashCode()</code> (có thể là số bất kỳ) vào đúng phạm vi kích thước mảng thực tế (16, 32, 64...) —
+đánh đổi: nhiều key khác nhau có thể bị ép về <strong>cùng một chỉ số</strong> (hash collision, không thể
+tránh khỏi tuyệt đối — đã giải thích bằng nguyên lý Dirichlet ở
+<a href="../../phase-01-foundation/13-hashcode/">Phase 1, Chapter 13</a>).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Ba bước khi <code>put(key, value)</code>:</p>
+<ol>
+<li><strong>Hash spreading</strong>: <code>hash(key) = key.hashCode() ^ (key.hashCode() &gt;&gt;&gt; 16)</code> — XOR 16 bit cao
+   với 16 bit thấp của <code>hashCode()</code> gốc.</li>
+<li><strong>Tính chỉ số bucket</strong>: <code>index = (table.length - 1) &amp; hash</code> — phép AND bit, tương đương
+   modulo khi <code>table.length</code> luôn là luỹ thừa của 2 (xem Engineering Insight).</li>
+<li><strong>Xử lý va chạm (collision)</strong>: nếu bucket tại <code>index</code> đã có phần tử khác (<code>hashCode()</code> khác
+   nhau nhưng "ép" về cùng chỉ số, hoặc <code>hashCode()</code> giống hệt) — nối thêm vào một <strong>danh sách
+   liên kết</strong> tại đúng bucket đó. Nếu danh sách liên kết trong một bucket dài <strong>quá 8 phần tử</strong>
+   VÀ <code>table.length &gt;= 64</code>, nó tự động chuyển thành <strong>cây đỏ-đen</strong> (Red-Black Tree) — gọi là
+   <strong>treeify</strong>.</li>
+</ol>
+<p>Khi số phần tử vượt quá <code>capacity × 0.75</code> (load factor mặc định), toàn bộ <code>table</code> được
+<strong>resize</strong>: tạo mảng mới gấp đôi kích thước, tính lại chỉ số và phân bổ lại <strong>mọi</strong> phần tử.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>key.hashCode()
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>     │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>     ▼
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>hash spreading: h ^ (h &gt;&gt;&gt; 16)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>     │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>     ▼
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>index = (table.length - 1) &amp; spread(hash)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>     │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>     ▼
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>┌─────────────────────────────── table (bucket array) ────────────────────────────┐
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│ [0]  [1]           [2]  [3]  [4]              ...                                │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│      banana→date        egg                                                      │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│      (2 phần tử,         (1 phần tử)                                             │
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│       danh sách liên kết,                                                        │
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│       collision)                                                                  │
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>└────────────────────────────────────────────────────────────────────────────────┘
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>       nếu 1 bucket &gt; 8 phần tử VÀ table.length &gt;= 64
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                    │
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>                    ▼
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>       bucket đó chuyển thành CÂY ĐỎ-ĐEN (TreeNode), không còn là danh sách liên kết
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Xác nhận hash spreading và collision chain thật</strong> bằng Reflection — đúng những gì hình vẽ ở
+trên mô tả:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.*</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HashSpreadDemo3</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;banana&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cherry&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;date&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;egg&quot;</span><span class="p">};</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">keys</span><span class="p">)</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;v-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">Field</span><span class="w"> </span><span class="n">tableField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getDeclaredField</span><span class="p">(</span><span class="s">&quot;table&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="n">tableField</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="n">tableField</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">map</span><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">nodeClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&quot;java.util.HashMap$Node&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">Field</span><span class="w"> </span><span class="n">keyField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeClass</span><span class="p">.</span><span class="na">getDeclaredField</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span><span class="n">Field</span><span class="w"> </span><span class="n">nextField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeClass</span><span class="p">.</span><span class="na">getDeclaredField</span><span class="p">(</span><span class="s">&quot;next&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="n">keyField</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="n">nextField</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;bucket[&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]: &quot;</span><span class="p">);</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">            </span><span class="n">Object</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">keyField</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">node</span><span class="p">)).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; -&gt; &quot;</span><span class="p">);</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">                </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextField</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;null&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="p">}</span>
 </code></pre></div>
+<p>Chạy với <code>--add-opens java.base/java.util=ALL-UNNAMED</code>, kết quả thật (JDK 17, capacity mặc
+định 16):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bucket[0]: banana -&gt; date -&gt; null
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>bucket[1]: apple -&gt; cherry -&gt; null
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>bucket[4]: egg -&gt; null
+</code></pre></div>
+<p><code>banana</code> và <code>date</code> <strong>va chạm</strong> vào cùng bucket 0, <code>apple</code> và <code>cherry</code> va chạm vào cùng bucket
+1 — cả hai cặp thực sự nằm chung một danh sách liên kết (<code>next</code> trỏ tới nhau), đúng cơ chế đã
+mô tả ở How?.</p>
+<p><strong>Xác nhận resize</strong> — theo dõi <code>table.length</code> khi thêm phần tử liên tục:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// ... thêm dần, theo dõi table.length qua Reflection</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>size=1 -&gt; table.length=16
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>size=13 -&gt; table.length=32   (13 &gt; 16 × 0.75 = 12)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>size=25 -&gt; table.length=64   (25 &gt; 32 × 0.75 = 24)
+</code></pre></div>
+<p>Đúng khớp <code>load factor</code> 0.75: resize xảy ra ngay khi kích thước vượt quá 75% capacity hiện tại.</p>
+<p><strong>Xác nhận treeify</strong> — cố ý ép 9 key va chạm cùng một bucket:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">BadKey</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BadKey</span><span class="p">(</span><span class="mi">1000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// đẩy table lên &gt;= 64</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">map</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BadKey</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// 9 key CÙNG hashCode() = 42</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1">// class BadKey { hashCode() { return 42; } ... }</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>table.length = 256
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Bucket #42 node class = TreeNode
+</code></pre></div>
+<p>Bucket chứa 9 phần tử va chạm (&gt; ngưỡng 8) đã <strong>thực sự</strong> chuyển thành <code>TreeNode</code> (cây đỏ-đen)
+— không phải suy luận từ tài liệu, mà quan sát trực tiếp kiểu dữ liệu của node trong bộ nhớ.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao phải "spread" hash (<code>h ^ (h &gt;&gt;&gt; 16)</code>) thay vì dùng thẳng <code>hashCode()</code>?</strong> Vì
+<code>index = (table.length - 1) &amp; hash</code> chỉ dùng <strong>các bit thấp</strong> của <code>hash</code> (với capacity nhỏ như
+16, chỉ 4 bit thấp nhất được dùng). Nếu nhiều key có <code>hashCode()</code> khác nhau ở các bit <strong>cao</strong>
+nhưng giống nhau ở bit <strong>thấp</strong> (khá phổ biến với một số thuật toán hash tồi hoặc dữ liệu có
+quy luật), chúng sẽ va chạm hàng loạt dù <code>hashCode()</code> gốc trông "khác nhau đủ". Việc XOR 16 bit
+cao vào 16 bit thấp trước khi tính chỉ số giúp "trộn" thông tin từ toàn bộ 32 bit vào đúng
+phần được dùng để định vị bucket — giảm đáng kể tần suất collision cho các bộ dữ liệu khoá có
+tính quy luật.</p>
+<p><strong>Vì sao <code>table.length</code> luôn là luỹ thừa của 2, không phải một số nguyên tố (thường gặp ở các
+hash table khác)?</strong> Để <code>(table.length - 1) &amp; hash</code> <strong>tương đương chính xác</strong> với
+<code>hash % table.length</code>, nhưng nhanh hơn nhiều — phép AND bit là một trong những lệnh CPU rẻ
+nhất, còn modulo (<code>%</code>) là phép chia, tốn hơn nhiều lần chu kỳ CPU. Đây chỉ đúng khi
+<code>table.length</code> là luỹ thừa của 2 (<code>- 1</code> cho ra một dãy bit toàn số 1, ví dụ 16-1=15=<code>01111</code>) —
+lý do <code>HashMap</code> luôn ép capacity về luỹ thừa của 2 gần nhất, kể cả khi bạn tự chỉ định một số
+khác trong constructor.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Tại sao <code>HashMap</code> không dùng <code>synchronized</code> toàn bộ để thread-safe?</strong> Đây là câu hỏi cho
+chính <code>HashMap</code> — và câu trả lời ngắn gọn: <strong>nó không thread-safe, có chủ đích.</strong> Đồng bộ hoá
+(khoá) mọi thao tác sẽ khiến hiệu năng đơn luồng (single-thread, trường hợp phổ biến nhất) chậm
+đi đáng kể vì chi phí khoá không cần thiết khi chỉ có một thread dùng. JDK cung cấp
+<code>ConcurrentHashMap</code> (Chapter 11) như một lựa chọn <strong>riêng biệt</strong> cho ngữ cảnh đa luồng, dùng kỹ
+thuật khoá tinh vi hơn nhiều (khoá từng bucket, không khoá toàn bộ) — để những ai <strong>không cần</strong>
+thread-safety không phải trả giá cho nó. Đây là nguyên tắc thiết kế xuyên suốt Java: không bắt
+mọi người trả chi phí cho một tính năng họ không dùng tới.</p>
+<p><strong>Tại sao load factor mặc định là 0.75, không phải 0.5 hay 0.9?</strong> Đây là điểm cân bằng giữa
+hai chi phí đối nghịch. Load factor thấp (ví dụ 0.5): ít collision hơn (tra cứu nhanh hơn),
+nhưng lãng phí bộ nhớ nhiều hơn (một nửa bucket luôn trống) và resize thường xuyên hơn. Load
+factor cao (ví dụ 0.9): tiết kiệm bộ nhớ hơn, nhưng nhiều collision hơn, tra cứu chậm dần. 0.75
+được các nhà thiết kế Java (dựa trên phân tích thống kê phân bố Poisson của số phần tử mỗi
+bucket) chọn làm điểm cân bằng tốt cho phần lớn trường hợp sử dụng thông thường — đủ thấp để
+giữ số lượng va chạm trung bình nhỏ, đủ cao để không lãng phí bộ nhớ quá mức.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Java 2 (1998) — Java 7
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Mỗi bucket va chạm là một danh sách liên kết ĐƠN THUẦN — worst case (mọi
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>key va chạm cùng 1 bucket, ví dụ do tấn công cố ý chọn hashCode() trùng
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>nhau — &quot;HashDoS&quot; attack) khiến tra cứu suy biến thành O(n), toàn bộ HashMap
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>chậm như một List
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    ↓
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>Java 8 (2014)
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    ↓
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>Treeify ra đời — bucket va chạm quá 8 phần tử (VÀ table đủ lớn, &gt;= 64)
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>tự động chuyển sang cây đỏ-đen, đảm bảo worst case chỉ còn O(log n) thay
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>vì O(n) — giải pháp trực tiếp cho lỗ hổng HashDoS và các trường hợp
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>collision xấu tình cờ
+</code></pre></div>
+<p>Đây chính xác là lý do sâu xa cho câu hỏi phỏng vấn kinh điển "HashMap xử lý collision như thế
+nào, khi nào chuyển từ LinkedList sang Red-Black Tree" — không phải một chi tiết ngẫu nhiên, mà
+là phản ứng thiết kế trực tiếp cho một lớp lỗ hổng bảo mật/hiệu năng có thật.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>HashMap</code> luôn tra cứu O(1)."
+  <strong>Reality:</strong> O(1) chỉ là <strong>trung bình</strong> (amortized), giả định hash phân bố đều. Worst case
+  (trước Java 8: mọi key va chạm cùng bucket) là O(n); từ Java 8, nhờ treeify, worst case được
+  cải thiện xuống O(log n) — không bao giờ là "luôn luôn O(1)" một cách tuyệt đối.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Có thể xoá phần tử trong <code>HashMap</code> khi đang duyệt bằng for-each, miễn là dùng
+  <code>map.remove(key)</code> trực tiếp."
+  <strong>Reality:</strong> Giống hệt <code>ArrayList</code>/<code>Collection</code> nói chung (Chapter 01), <code>HashMap</code> có iterator
+  fail-fast — sửa cấu trúc map trực tiếp trong for-each (không qua <code>Iterator.remove()</code>) ném
+  <code>ConcurrentModificationException</code>. Muốn xoá trong lúc duyệt, phải dùng
+  <code>iterator.remove()</code> hoặc <code>map.entrySet().removeIf(...)</code>.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng key kiểu mutable</strong> (một object có field có thể đổi sau khi đã dùng làm key) — nếu
+  field tham gia <code>hashCode()</code> bị sửa sau khi thêm vào <code>HashMap</code>, entry đó "biến mất" khỏi
+  đúng bucket cũ (đã cảnh báo chi tiết ở
+  <a href="../../phase-01-foundation/13-hashcode/">Phase 1, Chapter 13</a>) — <code>HashMap</code> là nơi hậu quả của
+  lỗi này thể hiện rõ ràng nhất.</li>
+<li><strong>Không chỉ định capacity ban đầu</strong> khi biết trước quy mô dữ liệu — gây nhiều lần resize
+  không cần thiết, mỗi lần resize là O(n) để phân bổ lại toàn bộ phần tử.</li>
+<li><strong>Sửa map trực tiếp trong for-each</strong> thay vì dùng <code>Iterator.remove()</code>.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service tra cứu dữ liệu qua <code>HashMap</code> cache nội bộ đột nhiên chậm hẳn dưới tải
+cao, dù số lượng entry không tăng đột biến.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> độ trễ tra cứu tăng đáng kể, CPU cao bất thường cho một thao tác "chỉ là tra
+  cứu map".</li>
+<li><strong>Root cause phổ biến:</strong> key được dùng có <code>hashCode()</code> phân bố kém (nhiều key khác nhau nhưng
+  băm về rất ít giá trị) — gây collision hàng loạt vào một số ít bucket, biến tra cứu O(1) kỳ
+  vọng thành gần O(n)/O(log n) trên các bucket bị quá tải. Trường hợp nghiêm trọng hơn: dữ liệu
+  đến từ input người dùng, kẻ tấn công cố ý gửi các giá trị được tính toán để có cùng
+  <code>hashCode()</code> (HashDoS, xem Historical Note) — dù Java 8+ đã giảm nhẹ tác động bằng treeify,
+  vẫn có ảnh hưởng hiệu năng đáng kể so với trường hợp bình thường.</li>
+<li><strong>Debug:</strong> kiểm tra phân bố <code>hashCode()</code> của các key thực tế đang dùng; nếu nghi ngờ tấn
+  công, kiểm tra nguồn gốc dữ liệu key (có đến từ input không tin cậy không).</li>
+<li><strong>Solution:</strong> cải thiện <code>hashCode()</code> của key (đảm bảo phân bố đều — dùng <code>Objects.hash()</code>
+  đúng cách như đã học ở Phase 1); với dữ liệu từ nguồn không tin cậy, cân nhắc giới hạn số
+  lượng entry hoặc dùng cấu trúc dữ liệu ít nhạy cảm hơn với kiểu tấn công này.</li>
+<li><strong>Prevention:</strong> không dùng trực tiếp dữ liệu người dùng chưa qua xử lý làm key của
+  <code>HashMap</code> công khai (public-facing) nếu có thể; luôn đảm bảo <code>hashCode()</code> của các class tự
+  viết dùng làm key phân bố tốt.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Tra cứu <code>HashMap</code> chậm bất thường dưới tải cao? → nghi ngờ collision hàng loạt, kiểm tra
+      phân bố <code>hashCode()</code> của key thực tế.</li>
+<li>[ ] Entry "biến mất" khỏi <code>HashMap</code> dù chắc chắn đã <code>put()</code>? → kiểm tra key có phải object
+      mutable bị sửa field tham gia <code>hashCode()</code> sau khi thêm vào không (xem lại Phase 1
+      Chapter 13).</li>
+<li>[ ] <code>ConcurrentModificationException</code> khi duyệt <code>HashMap</code>? → tìm chỗ sửa map trực tiếp trong
+      for-each, đổi sang <code>Iterator.remove()</code>.</li>
+<li>[ ] Muốn xác nhận trực tiếp bucket/collision/treeify của một <code>HashMap</code> cụ thể? → dùng kỹ
+      thuật Reflection y hệt Example.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>HashMap.put(key, value)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>hash(key) = key.hashCode() ^ (key.hashCode() &gt;&gt;&gt; 16)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    ↓
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>putVal(hash, key, value, ...)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    ↓
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>index = (table.length - 1) &amp; hash
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    ↓
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>table[index] rỗng?
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    ├── Có → tạo Node mới, gán thẳng vào table[index]
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    └── Không (va chạm) →
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>         Node hiện tại đã là TreeNode? → treeify path (chèn vào cây đỏ-đen)
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>         Chưa → duyệt danh sách liên kết, nối Node mới vào cuối
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>                đếm số phần tử trong danh sách, nếu &gt; TREEIFY_THRESHOLD (8)
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>                VÀ table.length &gt;= MIN_TREEIFY_CAPACITY (64)
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>                → treeifyBin() — chuyển cả bucket thành cây đỏ-đen
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    ↓
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>++size &gt; threshold (capacity × loadFactor)? → resize()
+</code></pre></div>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>HashMap</code> tra cứu nhanh nhờ tính trực tiếp chỉ số bucket từ <code>hashCode()</code> (qua bước "spread" để
+trộn đều bit cao/thấp, rồi AND với <code>table.length - 1</code>), thay vì so sánh tuần tự. Va chạm hash
+(nhiều key rơi cùng bucket) được xử lý bằng danh sách liên kết, và từ Java 8, tự động
+<strong>treeify</strong> thành cây đỏ-đen nếu một bucket có hơn 8 phần tử (và bảng đủ lớn ≥64) — đã xác nhận
+toàn bộ cơ chế này bằng Reflection thực nghiệm, không chỉ lý thuyết. Resize xảy ra khi vượt quá
+<code>capacity × 0.75</code> (load factor mặc định), nhân đôi kích thước và phân bổ lại toàn bộ phần tử —
+tốn kém, nên luôn chỉ định capacity ban đầu khi biết trước quy mô dữ liệu. <code>HashMap</code> không
+thread-safe có chủ đích — cần <code>ConcurrentHashMap</code> (Chapter 11) cho ngữ cảnh đa luồng.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
-<li>Can we add/modify elements in a HashMap while iterating over it?</li>
-<li>What is Fail-Fast behavior in HashMap? What exception is thrown if we modify a HashMap during iteration?</li>
 <li>Explain the internal working of HashMap.</li>
+<li>Can we add/modify elements in a HashMap while iterating over it?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>What is Fail-Fast behavior in HashMap? What exception is thrown if we modify a HashMap
+  during iteration?</li>
 <li>HashMap xử lý collision như thế nào? Khi nào chuyển từ LinkedList sang Red-Black Tree?</li>
+<li>Vì sao <code>table.length</code> của HashMap luôn là luỹ thừa của 2?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích chi tiết bước "hash spreading" (<code>h ^ (h &gt;&gt;&gt; 16)</code>). Vì sao nó cần thiết, và nó
+  giải quyết vấn đề gì mà dùng thẳng <code>hashCode()</code> không giải quyết được?</li>
+<li>Một service dùng HashMap cache tra cứu chậm hẳn dưới tải cao dù số entry không tăng đột
+  biến. Trình bày quy trình điều tra, liên hệ trực tiếp cơ chế collision/treeify đã học.</li>
+<li>So sánh đánh đổi giữa load factor thấp và cao — vì sao 0.75 được chọn làm mặc định?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ba ví dụ Reflection ở trên (hash spreading/collision, resize, treeify) —
+      xác nhận kết quả giống hệt trên máy bạn.</li>
+<li>[ ] Viết một class <code>BadKey</code> với <code>hashCode()</code> luôn trả về hằng số cố định — thêm 20 phần tử
+      vào <code>HashMap</code>, đo thời gian tra cứu, so sánh với 20 phần tử có <code>hashCode()</code> phân bố tốt
+      — quan sát chênh lệch hiệu năng do collision hàng loạt.</li>
+<li>[ ] Viết một class key có field mutable tham gia <code>hashCode()</code>, thêm vào <code>HashMap</code>, sửa field
+      đó, rồi thử <code>map.get()</code> với một object mới có cùng giá trị field — xác nhận không tìm
+      thấy entry cũ, liên hệ lại Phase 1 Chapter 13.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Giá trị mặc định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capacity ban đầu</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Load factor</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>Ngưỡng treeify</td>
+<td>&gt; 8 phần tử trong 1 bucket</td>
+</tr>
+<tr>
+<td>Điều kiện treeify</td>
+<td>Bucket &gt; 8 phần tử <strong>VÀ</strong> <code>table.length &gt;= 64</code></td>
+</tr>
+<tr>
+<td>Resize</td>
+<td>Nhân đôi kích thước, khi <code>size &gt; capacity × loadFactor</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>index = (table.length - 1) &amp; (hash ^ (hash &gt;&gt;&gt; 16))
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Thao tác</th>
+<th>Độ phức tạp trung bình</th>
+<th>Worst case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get()</code>/<code>put()</code></td>
+<td>O(1)</td>
+<td>O(log n) (từ Java 8, nhờ treeify)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.HashMap</code>.</li>
+<li>OpenJDK source — <code>java.base/java/util/HashMap.java</code>, method <code>putVal()</code>, <code>resize()</code>,
+  <code>treeifyBin()</code>.</li>
+<li>Effective Java (Joshua Bloch) — Item 11 (hashCode), liên quan trực tiếp hiệu năng HashMap.</li>
 </ul>
 
 

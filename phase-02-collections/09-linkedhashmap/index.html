@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lru" class="md-tag">LRU</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:linkedhashmap" class="md-tag">LinkedHashMap</a>
       
     
   </nav>
@@ -6149,15 +6170,15 @@ Chapter slug: <code>linkedhashmap</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LinkedHashMap</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — HashMap</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Redis, Cache (Phase 5, Phase 8) — LRU cache là mẫu hình caching phổ biến nhất trong production</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6186,275 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../08-hashmap/">Chapter 08</a> — bucket của <code>HashMap</code> được sắp xếp theo chỉ số tính
+từ <code>hashCode()</code>, hoàn toàn <strong>không liên quan</strong> tới thứ tự bạn <code>put()</code> các phần tử.</p>
 </blockquote>
+<p>Duyệt một <code>HashMap</code> chứa <code>{apple, banana, cherry}</code>, thứ tự in ra hoàn toàn không đoán trước
+được — có thể là <code>banana, apple, cherry</code>, có thể khác, tuỳ vào bucket mỗi key rơi vào. Với rất
+nhiều bài toán thực tế (cache "gần đây nhất dùng", lịch sử thao tác theo đúng trình tự), thứ tự
+<strong>là một phần ý nghĩa của dữ liệu</strong>, không thể chấp nhận bị xáo trộn ngẫu nhiên.</p>
+<p><code>LinkedHashMap</code> giải quyết đúng vấn đề này — không phải bằng cách viết lại thuật toán hash từ
+đầu, mà bằng một bổ sung rất gọn: <strong>giữ thêm một danh sách liên kết đôi xuyên suốt mọi entry</strong>,
+độc lập với vị trí bucket. Kết quả: giữ nguyên toàn bộ tốc độ O(1) của <code>HashMap</code>, cộng thêm khả
+năng duyệt theo đúng thứ tự mong muốn — và với một tham số nhỏ trong constructor, nó còn trở
+thành nền tảng cho một trong những cấu trúc dữ liệu được hỏi nhiều nhất trong phỏng vấn: <strong>LRU
+Cache</strong>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>LinkedHashMap</code> giữ được thứ tự (thêm vào hoặc truy cập gần nhất) bằng cách nào, mà vẫn giữ
+nguyên tốc độ O(1) của <code>HashMap</code>? Làm sao dùng nó để cài đặt một LRU Cache chỉ trong vài dòng?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích cơ chế: <code>LinkedHashMap</code> kế thừa <code>HashMap</code>, thêm một danh sách liên kết đôi
+      xuyên suốt các entry</li>
+<li>[ ] Phân biệt hai chế độ: <strong>insertion-order</strong> (mặc định) và <strong>access-order</strong> (tham số thứ 3
+      trong constructor)</li>
+<li>[ ] Tự tay cài đặt một LRU Cache hoàn chỉnh, chạy được, chỉ bằng cách override một method</li>
+<li>[ ] Biết khi nào chọn <code>LinkedHashMap</code> thay vì <code>HashMap</code> (Chapter 08) hoặc <code>TreeMap</code>
+      (Chapter 10)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — hiểu trọn vẹn cơ chế bucket/hash của <code>HashMap</code>, vì <code>LinkedHashMap</code> kế thừa toàn
+  bộ cơ chế đó.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Redis, Cache</strong> (Phase 5, Phase 8) — LRU (Least Recently Used) là chiến lược cache phổ biến
+  nhất trong hệ thống thực tế; <code>LinkedHashMap</code> là cách cài đặt LRU cache <strong>trong bộ nhớ JVM</strong>
+  đơn giản nhất, trước khi cần tới hệ thống cache phân tán như Redis.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>HashMap</code> (Chapter 08) tối ưu tuyệt đối cho tốc độ tra cứu, đánh đổi hoàn toàn việc bỏ thứ tự.
+Nhưng nhiều bài toán cần <strong>cả hai</strong>: tra cứu nhanh O(1) <strong>và</strong> giữ được thứ tự — ví dụ một cache
+giới hạn kích thước, cần biết chính xác "phần tử nào lâu chưa được dùng nhất" để loại bỏ khi
+đầy.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>LinkedHashMap extends HashMap</code> — nó <strong>không</strong> viết lại cơ chế bucket/hash, mà tái sử dụng
+100% cơ chế đã học ở Chapter 08. Điểm khác biệt duy nhất: mỗi <code>Entry</code> trong <code>LinkedHashMap</code>
+(kế thừa từ <code>Node</code> của <code>HashMap</code>) có thêm hai con trỏ <code>before</code>/<code>after</code>, tạo thành một <strong>danh
+sách liên kết đôi xuyên suốt toàn bộ entry</strong>, độc lập hoàn toàn với vị trí bucket của chúng.
+Khi duyệt (<code>entrySet()</code>, <code>keySet()</code>...), <code>LinkedHashMap</code> đi theo danh sách liên kết này, không
+đi theo thứ tự bucket như <code>HashMap</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu muốn thứ tự mà không có <code>LinkedHashMap</code>: phải tự duy trì một cấu trúc phụ (ví dụ một
+<code>List&lt;K&gt;</code> riêng ghi lại thứ tự) song song với <code>HashMap</code> — tốn thêm bộ nhớ, và dễ để hai cấu
+trúc "lệch pha" nhau nếu quên đồng bộ khi thêm/xoá. <code>LinkedHashMap</code> tích hợp thứ tự <strong>ngay bên
+trong</strong> cấu trúc entry, đảm bảo luôn nhất quán tự động.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Mặc định: insertion-order — giữ đúng thứ tự THÊM VÀO lần đầu</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">insertion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// Access-order: mỗi lần get()/put() một key đã tồn tại, nó được ĐẨY XUỐNG CUỐI</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// (coi như &quot;vừa mới dùng&quot;)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75f</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div>
+<p>Tham số thứ ba (<code>accessOrder</code>) chính là chìa khoá cho LRU Cache: kết hợp access-order với việc
+override <code>removeEldestEntry()</code> (một hook có sẵn, mặc định luôn trả về <code>false</code>) để tự động loại
+bỏ phần tử <strong>lâu chưa dùng nhất</strong> khi vượt quá kích thước cho phép.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HashMap thường (Chapter 08): thứ tự duyệt = thứ tự BUCKET (không đoán trước được)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  table[0]: banana→date   table[1]: apple→cherry   table[4]: egg
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>LinkedHashMap: bucket giống hệt HashMap, NHƯNG có thêm danh sách liên kết
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>đôi RIÊNG, xuyên suốt các entry theo thứ tự thêm vào/truy cập:
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  head ⇄ [apple] ⇄ [banana] ⇄ [cherry] ⇄ [date] ⇄ [egg] ⇄ tail
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>         (thứ tự duyệt ĐI THEO DÂY NÀY, không đi theo bucket)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Cài đặt một <strong>LRU Cache hoàn chỉnh</strong> chỉ bằng cách override một method — chạy được, đúng hành
+vi kinh điển được hỏi trong hầu hết buổi phỏng vấn:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedHashMap</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LruDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75f</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="nd">@Override</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">removeEldestEntry</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">eldest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">cache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">cache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">cache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau khi them 3: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cache</span><span class="p">.</span><span class="na">keySet</span><span class="p">());</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="n">cache</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// truy cap 1 -&gt; day 1 len &quot;moi nhat&quot;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="n">cache</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;D&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// vuot capacity -&gt; loai bo phan tu it dung nhat</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau khi truy cap 1 roi them 4: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cache</span><span class="p">.</span><span class="na">keySet</span><span class="p">());</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Sau khi them 3: [1, 2, 3]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Sau khi truy cap 1 roi them 4: [3, 1, 4]
+</code></pre></div>
+<p>Đúng hành vi LRU: sau khi có <code>[1, 2, 3]</code>, việc <code>get(1)</code> đẩy <code>1</code> thành "vừa dùng gần nhất". Khi
+thêm <code>4</code> (vượt capacity 3), <code>LinkedHashMap</code> tự động loại bỏ phần tử <strong>lâu chưa dùng nhất</strong> —
+<code>2</code> (chưa từng được truy cập lại sau khi thêm) — không phải <code>1</code> (vừa được <code>get()</code>). Kết quả
+cuối <code>[3, 1, 4]</code> xác nhận đúng: <code>2</code> đã biến mất, <code>1</code> vẫn còn (dù được thêm trước <code>3</code>) vì vừa
+được truy cập.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>removeEldestEntry()</code> được gọi ở đâu, và vì sao mặc định luôn <code>false</code>?</strong> Method này được gọi
+tự động <strong>ngay sau mỗi <code>put()</code></strong> thành công — tham số <code>eldest</code> luôn là entry ở đầu danh sách
+liên kết (phần tử "cũ nhất" theo đúng chế độ order đang dùng). Mặc định trả về <code>false</code> vì
+<code>LinkedHashMap</code> <strong>không tự áp đặt giới hạn kích thước</strong> — nó chỉ cung cấp sẵn "điểm móc"
+(hook) để lớp con (như ví dụ <code>cache</code> ở Example, dùng anonymous class) tự quyết định <strong>khi nào</strong>
+nên loại bỏ. Đây là một ví dụ kinh điển của <strong>Template Method Pattern</strong>: <code>LinkedHashMap</code> định
+nghĩa khung xử lý chung (put → kiểm tra <code>removeEldestEntry</code> → tự xoá nếu <code>true</code>), còn quyết
+định "khi nào xoá" được để hoàn toàn cho người dùng tuỳ biến.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao access-order lại đủ để cài LRU mà không cần cấu trúc dữ liệu phức tạp hơn (như kết
+hợp HashMap + Doubly Linked List tự viết tay, cách kinh điển hay được dạy để giải bài toán LRU
+Cache trên LeetCode)?</strong> Vì đó <strong>chính xác</strong> là những gì <code>LinkedHashMap</code> <strong>đã làm sẵn bên
+trong</strong>: một <code>HashMap</code> (tra cứu O(1)) kết hợp một danh sách liên kết đôi (theo dõi thứ tự,
+di chuyển node O(1)). Bài toán LRU Cache kinh điển yêu cầu tự tay viết lại đúng cấu trúc này từ
+đầu để hiểu <strong>nguyên lý</strong> — nhưng trong công việc thực tế, <code>LinkedHashMap</code> với access-order +
+<code>removeEldestEntry()</code> đã cung cấp sẵn implementation production-ready cho đúng bài toán đó,
+không cần viết lại. Hiểu rõ điều này giúp trả lời tốt hơn câu hỏi phỏng vấn kinh điển "cài đặt
+LRU Cache": vừa biết cách tự viết từ đầu (thể hiện hiểu nguyên lý), vừa biết công cụ có sẵn
+trong JDK (thể hiện tư duy thực dụng).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>LinkedHashMap</code> xuất hiện từ Java 1.4 (2002) — khá muộn so với <code>HashMap</code> (Java 2, 1998), cho
+thấy nhu cầu "giữ thứ tự nhưng vẫn nhanh" được nhận ra và giải quyết riêng biệt sau một thời
+gian sử dụng <code>HashMap</code> trong thực tế. <code>removeEldestEntry()</code> — nền tảng cho LRU Cache — có mặt
+ngay từ phiên bản đầu tiên của <code>LinkedHashMap</code>, không phải bổ sung sau này.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>LinkedHashMap</code> chậm hơn đáng kể so với <code>HashMap</code> vì phải duy trì thêm danh sách
+  liên kết."
+  <strong>Reality:</strong> Chi phí thêm chỉ là cập nhật vài con trỏ mỗi lần <code>put()</code>/<code>get()</code> (access-order)
+  — O(1), không ảnh hưởng tới độ phức tạp tổng thể. Trên thực tế, chênh lệch hiệu năng so với
+  <code>HashMap</code> thường không đáng kể cho phần lớn ứng dụng.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Muốn cài LRU Cache, bắt buộc phải tự viết <code>HashMap</code> + Doubly Linked List từ đầu."
+  <strong>Reality:</strong> Xem Example — <code>LinkedHashMap</code> với access-order và override
+  <code>removeEldestEntry()</code> cho một implementation hoàn chỉnh, chạy đúng, chỉ trong vài dòng.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>LinkedHashMap</code> mặc định (insertion-order) khi thực sự cần access-order cho LRU</strong> —
+  quên tham số thứ ba <code>true</code> trong constructor, khiến cache không loại bỏ đúng phần tử "lâu
+  chưa dùng nhất".</li>
+<li><strong>Quên rằng <code>removeEldestEntry()</code> mặc định luôn <code>false</code></strong> — tạo một <code>LinkedHashMap</code> mong đợi
+  tự giới hạn kích thước nhưng quên override method này, khiến map lớn vô hạn.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Khi cần LRU Cache đơn giản trong bộ nhớ JVM (không cần phân tán), ưu tiên <code>LinkedHashMap</code> với
+  access-order thay vì tự viết cấu trúc dữ liệu từ đầu.</li>
+<li>Dùng insertion-order (mặc định) khi chỉ cần giữ đúng thứ tự thêm vào để hiển thị, không cần
+  logic loại bỏ.</li>
+<li>Với cache cần chia sẻ giữa nhiều instance ứng dụng (không chỉ một JVM), <code>LinkedHashMap</code> không
+  đủ — cần giải pháp phân tán như Redis (Phase 8).</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một cache nội bộ dùng để giảm tải truy vấn database (lưu kết quả tra cứu gần đây)
+tăng dần kích thước không giới hạn, cuối cùng gây <code>OutOfMemoryError</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> bộ nhớ tăng đều theo thời gian, tỉ lệ thuận với số lượng key <strong>khác nhau</strong>
+  đã từng được tra cứu — không bao giờ giảm.</li>
+<li><strong>Root cause:</strong> cache được cài bằng <code>HashMap</code> thường (hoặc <code>LinkedHashMap</code> không override
+  <code>removeEldestEntry()</code>) — không có cơ chế loại bỏ entry cũ, mọi key mới đều được giữ mãi mãi.</li>
+<li><strong>Debug:</strong> heap dump (đã học ở <a href="../../phase-01-foundation/04-runtime-data-areas/">Phase 1, Chapter 04</a>)
+  cho thấy chính cache đang giữ phần lớn bộ nhớ, số lượng entry tăng không giới hạn.</li>
+<li><strong>Solution:</strong> đổi sang <code>LinkedHashMap</code> với access-order, override <code>removeEldestEntry()</code> với
+  một giới hạn kích thước hợp lý — hoặc nếu cần kiểm soát theo thời gian (TTL) chứ không chỉ số
+  lượng, cân nhắc thư viện cache chuyên dụng (Caffeine, Guava Cache) hoặc Redis.</li>
+<li><strong>Prevention:</strong> mọi cache nội bộ trong ứng dụng <strong>phải</strong> có giới hạn kích thước hoặc thời
+  gian sống rõ ràng ngay từ khi thiết kế — không bao giờ dùng <code>Map</code> thường làm cache "vô tình".</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Bộ nhớ tăng dần không giới hạn, nghi ngờ liên quan tới cache? → kiểm tra cache có giới
+      hạn kích thước không (<code>removeEldestEntry()</code> có được override đúng không).</li>
+<li>[ ] LRU Cache không loại bỏ đúng phần tử mong đợi? → kiểm tra constructor có truyền
+      <code>accessOrder = true</code> không — nhầm insertion-order với access-order là lỗi phổ biến nhất.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>LinkedHashMap</code> override <code>newNode()</code>/<code>afterNodeAccess()</code>/<code>afterNodeInsertion()</code> — các "điểm
+móc" (hook method) mà <code>HashMap</code> (Chapter 08) đã cố tình để trống/rỗng ngay từ thiết kế ban đầu,
+chờ sẵn cho <code>LinkedHashMap</code> cắm vào logic riêng. <code>afterNodeAccess()</code> (chỉ có tác dụng khi
+<code>accessOrder = true</code>) di chuyển node vừa truy cập ra cuối danh sách liên kết.
+<code>afterNodeInsertion()</code> gọi <code>removeEldestEntry()</code> ngay sau khi thêm — đúng cơ chế đã mô tả ở
+Deep Dive. Đây là một minh chứng thiết kế đẹp: <code>HashMap</code> được viết với các "khe cắm" sẵn có chủ
+đích, để <code>LinkedHashMap</code> mở rộng mà không cần override lại toàn bộ <code>put()</code>.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>LinkedHashMap</code> kế thừa toàn bộ cơ chế bucket/hash của <code>HashMap</code> (Chapter 08), chỉ thêm một
+danh sách liên kết đôi xuyên suốt các entry để giữ thứ tự — insertion-order (mặc định) hoặc
+access-order (tham số thứ ba trong constructor). Kết hợp access-order với việc override
+<code>removeEldestEntry()</code> (một hook có sẵn) cho một implementation LRU Cache hoàn chỉnh, chạy đúng,
+chỉ trong vài dòng — đã xác nhận bằng thực nghiệm. <code>HashMap</code> được thiết kế với các hook
+(<code>afterNodeAccess</code>, <code>afterNodeInsertion</code>) chờ sẵn để <code>LinkedHashMap</code> cắm logic riêng vào mà
+không cần viết lại <code>put()</code>.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>LinkedHashMap</code> khác <code>HashMap</code> ở điểm nào?</li>
+<li>Có mấy chế độ order trong <code>LinkedHashMap</code>? Mặc định là chế độ nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Cài đặt một LRU Cache đơn giản bằng <code>LinkedHashMap</code>.</li>
+<li><code>removeEldestEntry()</code> được gọi khi nào? Vì sao mặc định luôn trả về <code>false</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>So sánh việc dùng <code>LinkedHashMap</code> để cài LRU Cache với việc tự viết <code>HashMap</code> + Doubly Linked
+  List từ đầu — cả hai có giống nhau về bản chất không?</li>
+<li>Một cache nội bộ trong ứng dụng gây <code>OutOfMemoryError</code> sau một thời gian chạy. Trình bày quy
+  trình điều tra và giải pháp.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>LruDemo</code> ở trên, xác nhận kết quả giống hệt.</li>
+<li>[ ] Đổi <code>accessOrder</code> từ <code>true</code> thành <code>false</code> (mặc định), chạy lại ví dụ, quan sát và giải
+      thích sự khác biệt trong kết quả.</li>
+<li>[ ] Viết một <code>LinkedHashMap</code> insertion-order (không LRU), thêm và xoá vài phần tử, xác nhận
+      thứ tự duyệt luôn đúng thứ tự thêm vào lần đầu, kể cả sau khi <code>get()</code> nhiều lần.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Chế độ</th>
+<th>Constructor</th>
+<th>Thứ tự duyệt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insertion-order (mặc định)</td>
+<td><code>new LinkedHashMap&lt;&gt;()</code></td>
+<td>Thứ tự thêm vào lần đầu</td>
+</tr>
+<tr>
+<td>Access-order</td>
+<td><code>new LinkedHashMap&lt;&gt;(cap, 0.75f, true)</code></td>
+<td>Thứ tự truy cập gần nhất → cũ nhất</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Công thức LRU Cache:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75f</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">removeEldestEntry</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="n">eldest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</code></pre></div></p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.LinkedHashMap</code>.</li>
+<li>OpenJDK source — <code>java.base/java/util/LinkedHashMap.java</code>.</li>
 </ul>
 
 

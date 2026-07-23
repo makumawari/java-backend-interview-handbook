@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:concurrenthashmap" class="md-tag">ConcurrentHashMap</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,15 +6170,17 @@ Chapter slug: <code>concurrenthashmap</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConcurrentHashMap</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — HashMap</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Collection Framework (fail-fast là best-effort, không phải thread-safe)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thread, Lock, CAS (Phase 3 — Concurrency) — cơ chế khoá tinh vi của ConcurrentHashMap sẽ được đào sâu lý thuyết ở đó</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Spring Cache, mọi cache dùng chung giữa nhiều request (Phase 5, 8)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6188,346 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../08-hashmap/">Chapter 08 — Engineering Insight</a> đã hé lộ: "<code>HashMap</code> không
+thread-safe, có chủ đích."</p>
 </blockquote>
+<p>Câu nói đó nghe trừu tượng — cho tới khi bạn tự tay đo được hậu quả cụ thể. Cho 8 thread cùng
+tăng một bộ đếm chung trong một <code>HashMap</code> bình thường, mỗi thread tăng 50.000 lần — kỳ vọng kết
+quả cuối cùng là 400.000. Thực tế:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>HashMap thuong: ket qua = 74935 (mong doi 400000)
+</code></pre></div>
+<p><strong>Mất hơn 80% dữ liệu</strong> — không một dòng exception nào được ném ra, không cảnh báo gì cả,
+chương trình chạy "bình thường" từ đầu tới cuối. Đây là điều tệ nhất có thể xảy ra với một hệ
+thống: sai lệch dữ liệu <strong>âm thầm tuyệt đối</strong>. Chạy đúng cùng bài toán đó với
+<code>ConcurrentHashMap</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ConcurrentHashMap: ket qua = 400000 (mong doi 400000)
+</code></pre></div>
+<p>Chính xác tuyệt đối. Chapter này giải thích <code>ConcurrentHashMap</code> đạt được điều đó bằng cách nào
+— và quan trọng không kém, tại sao nó <strong>không</strong> đơn giản là "<code>HashMap</code> cộng thêm
+<code>synchronized</code>".</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>HashMap</code> khác <code>ConcurrentHashMap</code> ở điểm nào? Tại sao <code>ConcurrentHashMap</code> không đơn giản
+khoá (<code>synchronized</code>) toàn bộ map cho mọi thao tác?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay đo được bằng thực nghiệm hậu quả cụ thể của việc dùng <code>HashMap</code> trong môi trường
+      đa luồng — mất dữ liệu âm thầm, không exception</li>
+<li>[ ] Xác nhận <code>ConcurrentHashMap</code> cho kết quả đúng tuyệt đối trong cùng điều kiện</li>
+<li>[ ] Giải thích ở mức khái niệm: <code>ConcurrentHashMap</code> khoá <strong>từng bucket riêng lẻ</strong>, không khoá
+      toàn bộ map như <code>Hashtable</code>/<code>Collections.synchronizedMap()</code></li>
+<li>[ ] Phân biệt "fail-fast" (best-effort, Chapter 01) với "thread-safe" (đảm bảo đúng đắn thật
+      sự) — hai khái niệm rất dễ nhầm lẫn</li>
+<li>[ ] Biết <code>ConcurrentHashMap</code> không chấp nhận <code>null</code> key/value, và tại sao</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 08 — hiểu trọn vẹn cơ chế bucket/hash/resize/treeify của <code>HashMap</code>.</li>
+<li>Chapter 01 — đã biết fail-fast chỉ là best-effort, không phải cơ chế đảm bảo an toàn.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Thread, Lock, CAS</strong> (Phase 3 — Concurrency) — chapter này giới thiệu <strong>hiện tượng</strong> và
+  <strong>hệ quả</strong>; cơ chế lý thuyết đầy đủ (<code>synchronized</code>, CAS, memory visibility) đứng sau
+  <code>ConcurrentHashMap</code> sẽ được đào sâu khi có đủ nền tảng ở Phase 3.</li>
+<li><strong>Spring Cache và mọi cache dùng chung</strong> (Phase 5, 8) — bất kỳ cache nào được truy cập từ
+  nhiều request/thread đồng thời (gần như luôn đúng với server xử lý nhiều request song song)
+  đều cần <code>ConcurrentHashMap</code> hoặc cấu trúc tương đương, không phải <code>HashMap</code> thường.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một web server xử lý hàng nghìn request đồng thời, mỗi request chạy trên một thread riêng
+(sẽ học kỹ ở Phase 3). Nếu nhiều request cùng đọc/ghi một <code>HashMap</code> dùng chung (ví dụ một cache
+đếm số lượt truy cập theo endpoint) mà không có cơ chế bảo vệ, dữ liệu có thể bị hỏng theo cách
+không thể đoán trước và không để lại dấu vết lỗi rõ ràng — đúng hiện tượng đã đo ở Story.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ConcurrentHashMap</code> là một implementation <code>Map</code> được thiết kế <strong>để dùng an toàn bởi nhiều
+thread cùng lúc</strong>, mà vẫn giữ hiệu năng cao — thay vì khoá <strong>toàn bộ</strong> cấu trúc cho mọi thao
+tác (cách làm của <code>Hashtable</code> cũ và <code>Collections.synchronizedMap()</code>), nó chỉ khoá ở phạm vi rất
+nhỏ (từng bucket, hoặc dùng CAS không cần khoá cho nhiều trường hợp) — cho phép nhiều thread
+thao tác trên các phần khác nhau của map <strong>thực sự song song</strong>, không phải chờ nhau tuần tự.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu khoá toàn bộ map cho mọi thao tác (dù chỉ đọc): với nhiều thread cùng truy cập, chúng sẽ
+phải <strong>xếp hàng chờ nhau</strong> dù đang thao tác trên các key hoàn toàn khác nhau, không liên quan
+gì tới nhau — lãng phí khả năng chạy song song thực sự của CPU đa nhân. Khoá theo phạm vi nhỏ
+(fine-grained locking) cho phép hai thread thao tác trên hai bucket khác nhau chạy <strong>thực sự
+đồng thời</strong>, chỉ thread nào chạm cùng bucket mới cần chờ nhau — tận dụng tối đa phần cứng đa
+nhân hiện đại.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>HashMap (Chapter 08) trong môi trường đa luồng:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  KHÔNG có cơ chế bảo vệ gì cả — 2 thread cùng resize/cùng sửa 1 bucket
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  → cấu trúc liên kết nội bộ bị hỏng, dữ liệu mất mát hoặc vòng lặp vô hạn
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Hashtable / Collections.synchronizedMap() (cách cũ):
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  synchronized TOÀN BỘ map cho MỌI thao tác — an toàn nhưng mất khả năng
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  chạy song song, mọi thread phải xếp hàng dù thao tác trên key khác nhau
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ConcurrentHashMap (Java 8+):
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  Khoá ở PHẠM VI TỪNG BUCKET (dùng CAS + synchronized cục bộ trên node đầu
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  bucket) — hai thread thao tác 2 bucket khác nhau chạy THỰC SỰ song song
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Thread A: put(&quot;apple&quot;, ...)      Thread B: put(&quot;egg&quot;, ...)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>     │                                │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>     ▼                                ▼
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>bucket[1] (apple, cherry)        bucket[4] (egg)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>     │                                │
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   CHỈ khoá bucket[1]              CHỈ khoá bucket[4]
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   (Thread B KHÔNG bị chặn,        (Thread A KHÔNG bị chặn,
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    vì đang thao tác bucket khác)   vì đang thao tác bucket khác)
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     │                                │
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>     ▼                                ▼
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  CHẠY SONG SONG THỰC SỰ, không phải xếp hàng chờ nhau
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Đo thật hậu quả cụ thể — 8 thread, mỗi thread tăng một bộ đếm chung 50.000 lần
+(<code>merge(key, 1, Integer::sum)</code>, đã học ở <a href="../07-map/">Chapter 07</a>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HashMapRace</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;counter&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="n">L</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">incrementsPerThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50_000</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="n">threads</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">threads</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">incrementsPerThread</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">                    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">                        </span><span class="n">map</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="s">&quot;counter&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1L</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="p">::</span><span class="n">sum</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* HashMap khong thread-safe */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">            </span><span class="p">});</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">incrementsPerThread</span><span class="p">;</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;HashMap thuong: ket qua = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;counter&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (mong doi &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17, kết quả có thể khác nhau giữa các lần chạy — đây chính là bản chất của
+race condition):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>HashMap thuong: ket qua = 74935 (mong doi 400000)
+</code></pre></div>
+<p>Đổi <code>Map&lt;String, Long&gt; map = new HashMap&lt;&gt;();</code> thành <code>new ConcurrentHashMap&lt;&gt;();</code> (giữ nguyên
+mọi thứ khác), kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ConcurrentHashMap: ket qua = 400000 (mong doi 400000)
+</code></pre></div>
+<p>Chính xác tuyệt đối, mỗi lần chạy lại. Đây là bằng chứng thực nghiệm trực tiếp, không phải lý
+thuyết suông — chỉ đổi <strong>một</strong> dòng khai báo kiểu đã biến một hệ thống mất 80% dữ liệu thành
+một hệ thống chính xác 100%.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao chạy <code>HashMapRace</code> nhiều lần có thể cho ra các con số khác nhau (không phải luôn
+đúng 74935)?</strong> Vì đây là một <strong>race condition</strong> đúng nghĩa — kết quả phụ thuộc vào thời điểm
+chính xác các thread "đụng độ" nhau khi cùng đọc-sửa-ghi cùng một bucket (đọc giá trị cũ, cộng
+1, ghi giá trị mới — ba bước <strong>không nguyên tử</strong> trên <code>HashMap</code> thường). Nếu hai thread cùng đọc
+giá trị cũ <strong>trước khi</strong> bất kỳ ai ghi giá trị mới, một trong hai lần cộng sẽ bị "mất" (lost
+update) — số lần điều này xảy ra phụ thuộc vào lịch trình (scheduling) thực tế của hệ điều
+hành, khác nhau mỗi lần chạy. Đây chính là lý do race condition được coi là loại bug khó chịu
+nhất: <strong>không tái hiện ổn định</strong>, có thể "may mắn" chạy đúng hàng trăm lần trên máy dev rồi mới
+lộ ra trong production dưới tải thật.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao câu hỏi phỏng vấn "vì sao ConcurrentHashMap không dùng synchronized toàn bộ" lại quan
+trọng đến vậy?</strong> Vì nó kiểm tra đúng hiểu biết về đánh đổi <strong>throughput vs. correctness</strong> —
+<code>Hashtable</code>/<code>Collections.synchronizedMap()</code> (khoá toàn bộ) <strong>cũng đúng đắn</strong> (correct), chỉ là
+chậm hơn nhiều dưới tải cao nhiều thread. <code>ConcurrentHashMap</code> không "đúng đắn hơn"
+<code>Hashtable</code> — cả hai đều cho kết quả chính xác 400000 ở Example — nó chỉ <strong>nhanh hơn đáng kể</strong>
+nhờ khoá phạm vi nhỏ, đặc biệt khi số lượng thread và bucket đủ lớn để tận dụng được tính song
+song thực sự. Việc chọn <code>ConcurrentHashMap</code> thay vì <code>Hashtable</code> trong code hiện đại không phải
+vì "an toàn hơn" — cả hai đều an toàn — mà vì hiệu năng tốt hơn nhiều trong ngữ cảnh nhiều
+thread, nhiều lõi CPU của hệ thống production hiện đại.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Java 1.0 (1996)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Hashtable — khoá TOÀN BỘ map (mọi method đều synchronized), tồn tại song
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>song với HashMap ngay từ đầu nhưng cách tiếp cận khoá thô, hiệu năng kém
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>dưới tải nhiều thread
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    ↓
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Java 5 (2004)
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    ↓
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>ConcurrentHashMap ra đời (JSR 166) — dùng kỹ thuật &quot;lock striping&quot;:
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>chia map thành nhiều SEGMENT độc lập, mỗi Segment có khoá RIÊNG — giảm
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>tranh chấp khoá đáng kể so với Hashtable, nhưng vẫn còn khoá ở mức thô
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>(cả một Segment, không phải từng bucket)
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    ↓
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>Java 8 (2014)
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    ↓
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>Thiết kế lại hoàn toàn — bỏ Segment, khoá trực tiếp ở MỨC BUCKET (node
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>đầu mỗi bucket), kết hợp CAS (Compare-And-Swap, sẽ học kỹ ở Phase 3) cho
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>nhiều thao tác không cần khoá hoàn toàn — mức độ tranh chấp khoá giảm
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>xuống tối thiểu, gần hiệu năng của HashMap thường trong nhiều trường hợp
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>ConcurrentHashMap</code> chỉ đơn giản là <code>HashMap</code> cộng thêm <code>synchronized</code> trên mỗi
+  method."
+  <strong>Reality:</strong> Đó chính xác là cách <code>Hashtable</code> hoạt động (khoá toàn bộ), không phải
+  <code>ConcurrentHashMap</code> — xem Historical Note. <code>ConcurrentHashMap</code> khoá ở phạm vi rất nhỏ (từng
+  bucket), phức tạp hơn nhiều so với "thêm <code>synchronized</code>" đơn thuần.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Vì <code>HashMap</code> có fail-fast (<code>ConcurrentModificationException</code>), nó cũng tương đối
+  an toàn trong môi trường đa luồng."
+  <strong>Reality:</strong> Fail-fast (Chapter 01) chỉ là cơ chế <strong>phát hiện lỗi khi duyệt</strong> (best-effort,
+  không đảm bảo tuyệt đối) — hoàn toàn không liên quan tới an toàn dữ liệu khi nhiều thread
+  <strong>ghi</strong> đồng thời, như Example đã chứng minh (74935 thay vì 400000, không hề có
+  <code>ConcurrentModificationException</code> nào được ném ra).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>HashMap</code> cho dữ liệu dùng chung giữa nhiều thread</strong> (biến <code>static</code>, cache dùng
+  chung, field của một bean singleton trong Spring — Phase 5) — đúng lỗi đã minh hoạ ở Story.</li>
+<li><strong>Nghĩ rằng bọc <code>Collections.synchronizedMap(hashMap)</code> là đủ hiện đại</strong> — về mặt đúng đắn thì
+  đúng (giống <code>Hashtable</code>), nhưng bỏ lỡ hoàn toàn lợi ích hiệu năng của khoá phạm vi nhỏ mà
+  <code>ConcurrentHashMap</code> cung cấp.</li>
+<li><strong>Cố <code>put(null, ...)</code> vào <code>ConcurrentHashMap</code></strong> — ném <code>NullPointerException</code> ngay lập tức
+  (đã nhắc ở <a href="../07-map/">Chapter 07</a>) — trong ngữ cảnh đa luồng, <code>null</code> gây mơ hồ nghiêm trọng
+  hơn nhiều: không thể phân biệt an toàn giữa "key chưa tồn tại" và "một thread khác đang trong
+  quá trình xoá nó" chỉ bằng cách kiểm tra <code>get() == null</code>.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Mặc định dùng <code>ConcurrentHashMap</code> cho bất kỳ <code>Map</code> nào được truy cập từ nhiều thread —
+  không dùng <code>HashMap</code> "tạm thời rồi sửa sau", vì hậu quả (mất dữ liệu âm thầm) có thể không
+  bị phát hiện cho tới khi đã gây thiệt hại thực tế.</li>
+<li>Ưu tiên các thao tác nguyên tử có sẵn (<code>merge()</code>, <code>computeIfAbsent()</code>, đã học ở Chapter 07)
+  thay vì tự viết "get rồi put" thủ công, kể cả khi dùng <code>ConcurrentHashMap</code> — thao tác thủ
+  công vẫn có thể có khoảng hở race condition nếu không dùng đúng method nguyên tử.</li>
+<li>Không dùng <code>null</code> làm giá trị có ý nghĩa trong bất kỳ <code>Map</code> nào dự định dùng ở môi trường đa
+  luồng.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một bộ đếm thống kê (ví dụ số lượt xem sản phẩm) dùng <code>HashMap</code> lưu trong bộ nhớ,
+số liệu báo cáo cuối ngày luôn thấp hơn đáng kể so với số lượt request thực tế đã ghi nhận qua
+log truy cập.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> chênh lệch không cố định, không có lỗi/exception nào trong log, khó phát
+  hiện nếu không chủ động đối chiếu số liệu.</li>
+<li><strong>Root cause:</strong> <code>HashMap</code> được dùng làm bộ đếm dùng chung giữa nhiều thread xử lý request
+  đồng thời (Phase 3 sẽ giải thích rõ mô hình này) — đúng race condition đã đo ở Example, chỉ
+  là xảy ra âm thầm trong production thay vì trong một bài test có chủ đích.</li>
+<li><strong>Debug:</strong> đối chiếu số liệu đếm được với một nguồn đáng tin cậy khác (log truy cập, số dòng
+  trong database) — chênh lệch đáng kể mà không có lỗi rõ ràng là dấu hiệu kinh điển của race
+  condition.</li>
+<li><strong>Solution:</strong> đổi <code>HashMap</code> sang <code>ConcurrentHashMap</code>, dùng <code>merge()</code>/<code>computeIfAbsent()</code> cho
+  các thao tác đếm/cập nhật thay vì "get rồi put" thủ công.</li>
+<li><strong>Prevention:</strong> mọi cấu trúc dữ liệu dùng chung giữa nhiều thread (đặc biệt field <code>static</code>
+  hoặc field của bean singleton trong Spring) phải được review kỹ về tính thread-safe ngay từ
+  thiết kế, không đợi tới khi phát hiện sai lệch số liệu mới sửa.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Số liệu đếm/thống kê không khớp, sai lệch không ổn định, không có exception? → nghi ngờ
+      race condition trên một <code>Map</code>/cấu trúc dữ liệu dùng chung giữa nhiều thread — kiểm tra có
+      đang dùng <code>HashMap</code> thường không.</li>
+<li>[ ] <code>NullPointerException</code> khi <code>put()</code>/<code>get()</code> vào một <code>Map</code> sau khi đổi sang
+      <code>ConcurrentHashMap</code>? → kiểm tra có đang dùng <code>null</code> key/value không (Chapter 07).</li>
+<li>[ ] Cần xác nhận một đoạn code có an toàn với nhiều thread không? → viết lại đúng bài test
+      như <code>HashMapRace</code>/<code>ConcurrentDemo</code> ở Example, chạy thử với cấu trúc dữ liệu thực tế đang
+      dùng.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>ConcurrentHashMap.put()</code> (Java 8+, ở mức khái niệm, chi tiết CAS đầy đủ thuộc Phase 3): nếu
+bucket đích đang rỗng, dùng CAS để gán node mới <strong>không cần khoá</strong> (nếu thất bại — nghĩa là
+thread khác vừa chen vào — thử lại); nếu bucket đã có phần tử, khoá <code>synchronized</code> <strong>chỉ trên
+node đầu bucket đó</strong> trong lúc chèn/duyệt danh sách liên kết (hoặc cây, nếu đã treeify) — phạm
+vi khoá cực nhỏ, không ảnh hưởng tới các bucket khác đang được thread khác xử lý đồng thời.
+<code>resize()</code> cũng được thiết kế để nhiều thread có thể <strong>cùng tham gia</strong> quá trình chuyển dữ liệu
+sang bảng mới (transfer), thay vì chỉ một thread gánh toàn bộ công việc — một chi tiết engineering
+tinh vi vượt ngoài phạm vi chapter nền tảng này.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ConcurrentHashMap</code> là implementation <code>Map</code> an toàn cho nhiều thread, đạt hiệu năng cao bằng
+cách khoá ở phạm vi <strong>từng bucket</strong> (kết hợp CAS không cần khoá cho nhiều trường hợp), khác hẳn
+<code>Hashtable</code>/<code>Collections.synchronizedMap()</code> (khoá toàn bộ map). Dùng <code>HashMap</code> thường trong môi
+trường đa luồng gây <strong>mất dữ liệu âm thầm</strong> — đã đo thực nghiệm mất hơn 80% số lần cập nhật mà
+không hề có exception nào báo hiệu — trong khi <code>ConcurrentHashMap</code> cho kết quả chính xác tuyệt
+đối trong cùng điều kiện. Fail-fast (Chapter 01) và thread-safe là hai khái niệm hoàn toàn khác
+nhau — không được nhầm lẫn. <code>ConcurrentHashMap</code> không chấp nhận <code>null</code> key/value, vì <code>null</code> gây
+mơ hồ nguy hiểm hơn nhiều trong ngữ cảnh đa luồng.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
 <li>HashMap khác ConcurrentHashMap ở điểm nào?</li>
+<li>Dùng <code>HashMap</code> trong môi trường nhiều thread có an toàn không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Fail-fast của <code>HashMap</code> (Chapter 01) có liên quan gì tới an toàn đa luồng không? Giải thích
+  rõ sự khác biệt.</li>
+<li>Vì sao <code>ConcurrentHashMap</code> không chấp nhận <code>null</code> key/value?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Tại sao <code>ConcurrentHashMap</code> không dùng <code>synchronized</code> toàn bộ (như <code>Hashtable</code>)? Giải thích
+  cơ chế khoá phạm vi nhỏ mang lại lợi ích gì cụ thể.</li>
+<li>Thiết kế <code>ConcurrentHashMap</code> thay đổi thế nào từ Java 5 (Segment) sang Java 8 (khoá theo
+  bucket)? Vì sao thay đổi này cần thiết?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng hai ví dụ <code>HashMapRace</code> và bản <code>ConcurrentHashMap</code> tương ứng, xác nhận
+      chênh lệch kết quả tương tự trên máy bạn (số liệu chính xác có thể khác, nhưng <code>HashMap</code>
+      luôn cho kết quả sai, <code>ConcurrentHashMap</code> luôn cho kết quả đúng).</li>
+<li>[ ] Thử thay <code>map.merge(...)</code> bằng thao tác "get rồi put" thủ công
+      (<code>map.put("counter", map.get("counter") + 1)</code>) trên <code>ConcurrentHashMap</code> — quan sát liệu
+      kết quả có còn chính xác tuyệt đối không, tự giải thích vì sao (gợi ý: <code>merge()</code> nguyên
+      tử, "get rồi put" thủ công thì không, kể cả trên <code>ConcurrentHashMap</code>).</li>
+<li>[ ] Đo thời gian chạy của <code>HashMapRace</code> (dù kết quả sai) so với bản <code>ConcurrentHashMap</code> —
+      xác nhận <code>ConcurrentHashMap</code> không chỉ đúng hơn mà còn không chậm hơn đáng kể so với
+      <code>HashMap</code> không an toàn.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HashMap</th>
+<th>Hashtable</th>
+<th>ConcurrentHashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thread-safe</td>
+<td>Không</td>
+<td>Có (khoá toàn bộ)</td>
+<td>Có (khoá phạm vi nhỏ)</td>
+</tr>
+<tr>
+<td>Hiệu năng đa luồng</td>
+<td>N/A (không an toàn)</td>
+<td>Kém (tranh chấp khoá cao)</td>
+<td>Tốt</td>
+</tr>
+<tr>
+<td><code>null</code> key/value</td>
+<td>Cho phép</td>
+<td>Không cho phép</td>
+<td>Không cho phép</td>
+</tr>
+<tr>
+<td>Fail-fast iterator</td>
+<td>Có (best-effort)</td>
+<td>Có</td>
+<td>Weakly consistent (không ném CME)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nguyên tắc:</strong> <code>Map</code> dùng chung giữa nhiều thread → luôn <code>ConcurrentHashMap</code>, không bao giờ
+<code>HashMap</code> thường.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.ConcurrentHashMap</code>.</li>
+<li>JSR 166: Concurrency Utilities.</li>
+<li>OpenJDK source — <code>java.base/java/util/concurrent/ConcurrentHashMap.java</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — chương về concurrent collections.</li>
 </ul>
 
 

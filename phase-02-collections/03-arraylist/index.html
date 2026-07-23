@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:arraylist" class="md-tag">ArrayList</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,332 @@ Chapter slug: <code>arraylist</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ArrayList</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — List</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 04 — Runtime Data Areas (Heap, mảng)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LinkedList (Chapter 04) — so sánh trực tiếp đối trọng</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mọi chapter dùng List làm ví dụ trong suốt handbook</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p><code>ArrayList</code> được giới thiệu là "mảng có thể tự động lớn lên". Nghe hợp lý — nhưng mảng trong
+Java (Phase 1, Chapter 04) có kích thước <strong>cố định tuyệt đối</strong> ngay khi tạo ra, không có cách
+nào "tự lớn lên" ở tầng ngôn ngữ. Vậy <code>list.add()</code> lần thứ 11 vào một <code>ArrayList</code> mới tạo (mặc
+định chứa được 10 phần tử) thực sự làm gì bên dưới?</p>
+<p>Chapter này mở nắp <code>ArrayList</code> ra xem trực tiếp — bằng Reflection (Phase 1, Chapter 19) để
+quan sát chính xác mảng nội bộ lớn lên như thế nào, tại sao lại lớn theo đúng tỉ lệ 1.5 lần chứ
+không phải một con số tuỳ tiện, và cái giá thực sự phải trả cho việc "co giãn" đó.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>ArrayList</code> được cài đặt dựa trên mảng, nhưng mảng có kích thước cố định. Vậy <code>ArrayList</code>
+"tự lớn lên" bằng cách nào? Cái giá phải trả là gì?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích cơ chế <strong>resize</strong>: tạo mảng mới lớn hơn, copy toàn bộ phần tử cũ sang</li>
+<li>[ ] Tự tay quan sát được mảng nội bộ lớn lên theo đúng tỉ lệ ~1.5 lần bằng Reflection</li>
+<li>[ ] Giải thích độ phức tạp từng thao tác: <code>get()</code> O(1), <code>add()</code> cuối O(1) amortized,
+      <code>add()</code>/<code>remove()</code> giữa O(n)</li>
+<li>[ ] Biết vì sao nên dùng constructor <code>new ArrayList&lt;&gt;(capacity)</code> khi biết trước kích thước</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 02 — hợp đồng <code>List</code> (thứ tự, trùng lặp, index).</li>
+<li>Phase 1, Chapter 04 — biết mảng nằm trên Heap, kích thước cố định lúc tạo.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>LinkedList</strong> (Chapter 04) — chapter kế tiếp là đối trọng trực tiếp, so sánh đánh đổi hiệu
+  năng cho từng loại thao tác.</li>
+<li>Gần như mọi ví dụ code từ đây về sau trong handbook dùng <code>ArrayList</code> làm lựa chọn <code>List</code> mặc
+  định — cần hiểu rõ chi phí ẩn đằng sau trước khi dùng "theo quán tính".</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Mảng Java có kích thước cố định — không có cách "thêm một ô" vào một mảng đã tạo. Nhưng nhu
+cầu thực tế gần như luôn là "một danh sách có thể lớn dần theo thời gian, không biết trước kích
+thước cuối cùng". Cần một cấu trúc <strong>dùng mảng làm nền</strong> nhưng <strong>che giấu</strong> việc phải tạo mảng
+mới mỗi khi hết chỗ.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ArrayList</code> giữ bên trong một mảng <code>Object[]</code> (gọi là <code>elementData</code>). Khi <code>add()</code> mà mảng đã
+đầy, nó thực hiện <strong>resize</strong>: tạo một mảng <strong>mới, lớn hơn</strong>, copy toàn bộ phần tử từ mảng cũ
+sang, rồi mảng cũ trở thành rác (đủ điều kiện GC — Phase 1 Chapter 07). Việc "co giãn" mà người
+dùng thấy chỉ là ảo giác — thực chất là thay hẳn một mảng khác mỗi lần cần lớn hơn.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu mỗi lần <code>add()</code> đều tạo mảng mới lớn hơn đúng 1 phần tử: <code>add()</code> sẽ luôn tốn O(n) (copy
+toàn bộ n phần tử cũ) — thêm n phần tử liên tiếp sẽ tốn tổng cộng O(n²), quá chậm cho danh sách
+lớn. Thay vào đó, <code>ArrayList</code> <strong>cấp dư</strong> mỗi lần resize (lớn hơn hẳn, không chỉ vừa đủ 1 chỗ) —
+đổi lại, phần lớn lời gọi <code>add()</code> không cần resize gì cả (còn chỗ trống sẵn), chỉ occasionally
+mới tốn O(n) để resize — tính trung bình trên nhiều lần gọi (<strong>amortized</strong>), <code>add()</code> cuối danh
+sách có chi phí trung bình O(1).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khi resize, <code>ArrayList</code> tính kích thước mới theo công thức: <strong><code>newCapacity = oldCapacity +
+(oldCapacity &gt;&gt; 1)</code></strong> — tức là tăng thêm <strong>50%</strong> (dịch phải 1 bit tương đương chia 2), không
+phải nhân đôi như nhiều người lầm tưởng.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Bắt đầu: capacity = 10 (mặc định)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Đầy (11 phần tử cần thêm) → resize: 10 + 10/2 = 15
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Đầy tiếp (16 phần tử) → resize: 15 + 15/2 = 22 (làm tròn xuống)
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>add() thứ 11 vào ArrayList đang capacity=10 (đã đầy)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        ▼
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1. Tính capacity mới: 10 + (10 &gt;&gt; 1) = 15
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        ▼
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>2. Tạo mảng MỚI Object[15]
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        ▼
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>3. Arrays.copyOf() — COPY TOÀN BỘ 10 phần tử cũ sang mảng mới  [O(n)]
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        │
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        ▼
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>4. Mảng CŨ (Object[10]) không còn ai tham chiếu → RÁC, chờ GC [Ch.07 Phase 1]
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        │
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        ▼
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>5. Thêm phần tử thứ 11 vào mảng mới
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Quan sát trực tiếp mảng nội bộ <code>elementData</code> lớn lên bằng Reflection (Phase 1, Chapter 19) —
+cần cờ <code>--add-opens</code> vì <code>java.util</code> không tự <code>opens</code> cho unnamed module (Phase 1, Chapter 22):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.Field</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayListGrowth</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Field</span><span class="w"> </span><span class="n">elementDataField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getDeclaredField</span><span class="p">(</span><span class="s">&quot;elementData&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">elementDataField</span><span class="p">.</span><span class="na">setAccessible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">lastCap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="n">elementDataField</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">lastCap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;size=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; -&gt; capacity=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">                </span><span class="n">lastCap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">}</span>
 </code></pre></div>
+<p>Chạy <code>java --add-opens java.base/java.util=ALL-UNNAMED ArrayListGrowth</code>, kết quả thật
+(JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>size=1 -&gt; capacity=10
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>size=11 -&gt; capacity=15
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>size=16 -&gt; capacity=22
+</code></pre></div>
+<p>Khớp chính xác công thức ở phần How?: 10 → 15 (10 + 5) → 22 (15 + 7, làm tròn xuống từ 15+7.5).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Độ phức tạp từng thao tác, và vì sao khác nhau:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Thao tác</th>
+<th>Độ phức tạp</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get(index)</code></td>
+<td>O(1)</td>
+<td>Mảng cho phép tính địa chỉ trực tiếp từ index</td>
+</tr>
+<tr>
+<td><code>add(e)</code> (cuối danh sách)</td>
+<td>O(1) amortized</td>
+<td>Xem phần Why? — hầu hết không cần resize</td>
+</tr>
+<tr>
+<td><code>add(index, e)</code> (giữa)</td>
+<td>O(n)</td>
+<td>Phải dịch chuyển mọi phần tử phía sau sang phải 1 vị trí</td>
+</tr>
+<tr>
+<td><code>remove(index)</code> (giữa)</td>
+<td>O(n)</td>
+<td>Phải dịch chuyển mọi phần tử phía sau sang trái 1 vị trí</td>
+</tr>
+</tbody>
+</table>
+<p><code>add(index, e)</code>/<code>remove(index)</code> ở giữa danh sách tốn O(n) vì mảng yêu cầu các phần tử phải
+<strong>liền kề về mặt vật lý</strong> trong bộ nhớ (Phase 1, Chapter 04) — chèn/xoá ở giữa bắt buộc phải
+dịch chuyển mọi phần tử phía sau để lấp/tạo khoảng trống, dùng <code>System.arraycopy()</code> (một
+method native cực nhanh cho việc copy khối bộ nhớ liên tục, nhưng vẫn là O(n) về độ phức tạp
+thuật toán).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao chọn tỉ lệ tăng 1.5 lần, không phải 2 lần (nhân đôi, như nhiều cấu trúc dữ liệu
+dynamic array khác, ví dụ Python <code>list</code> hay C++ <code>std::vector</code> một số hiện thực)?</strong> Đây là đánh
+đổi giữa <strong>lãng phí bộ nhớ</strong> và <strong>số lần resize</strong>. Tăng gấp đôi (2x) giảm số lần resize hơn nữa
+nhưng có thể lãng phí tới 50% bộ nhớ đã cấp phát mà không dùng tới (nếu kích thước cuối cùng
+dừng lại ngay sau một lần resize). Tăng 1.5x lãng phí ít hơn (tối đa ~33%) nhưng resize thường
+xuyên hơn một chút. Có một lý do kỹ thuật sâu hơn ủng hộ 1.5x: với tỉ lệ tăng trưởng <strong>nhỏ hơn
+tỉ lệ vàng</strong> (golden ratio, ≈1.618), bộ nhớ của các mảng cũ đã giải phóng (do resize) có thể
+được <strong>tái sử dụng</strong> bởi các lần cấp phát sau đó trong cùng vùng nhớ liền kề — một chi tiết tối
+ưu ở tầng cấp phát bộ nhớ (memory allocator) mà tỉ lệ 2x không đảm bảo được. Đây chính là lý do
+nhiều cấu trúc dynamic array hiện đại (bao gồm <code>ArrayList</code> của Java) chọn hệ số tăng trưởng nhỏ
+hơn 2, không phải một con số tuỳ tiện.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>ArrayList</code> xuất hiện từ Java 2 (1998, cùng đợt Collection Framework). Công thức resize
+<code>oldCapacity + (oldCapacity &gt;&gt; 1)</code> không đổi qua các phiên bản — một trong những phần ổn định
+nhất của JDK. Thay đổi đáng chú ý duy nhất: Java 7 thêm tối ưu <strong>lazy initialization</strong> — một
+<code>ArrayList</code> tạo bằng constructor không tham số (<code>new ArrayList&lt;&gt;()</code>) không cấp phát mảng
+<code>Object[10]</code> ngay lập tức, mà dùng một mảng rỗng dùng chung (<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>)
+cho tới khi phần tử <strong>đầu tiên</strong> thực sự được thêm vào — tránh lãng phí bộ nhớ cho những
+<code>ArrayList</code> được tạo ra nhưng không bao giờ dùng tới (khá phổ biến trong thực tế, ví dụ field
+khởi tạo sẵn nhưng nhiều object không bao giờ thêm phần tử nào).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>ArrayList</code> tăng gấp đôi kích thước mỗi lần resize."
+  <strong>Reality:</strong> Tăng <strong>1.5 lần</strong> (<code>oldCapacity + oldCapacity/2</code>), không phải gấp đôi — xem bằng
+  chứng thực nghiệm ở Example.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>add()</code> luôn là thao tác O(1) trên <code>ArrayList</code>."
+  <strong>Reality:</strong> <code>add()</code> <strong>ở cuối</strong> danh sách là O(1) amortized. <code>add(index, e)</code> ở giữa/đầu danh
+  sách là O(n) — một nhầm lẫn phổ biến dẫn thẳng tới lựa chọn sai giữa <code>ArrayList</code> và
+  <code>LinkedList</code> (Chapter 04).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tạo <code>ArrayList</code> không chỉ định capacity ban đầu khi đã biết trước kích thước gần đúng</strong> —
+  bỏ lỡ cơ hội tránh nhiều lần resize không cần thiết.</li>
+<li><strong>Chèn/xoá liên tục ở đầu danh sách</strong> (<code>add(0, e)</code>, <code>remove(0)</code>) trong vòng lặp lớn — mỗi lần
+  đều là O(n), tổng cộng O(n²) cho n thao tác — một anti-pattern hiệu năng phổ biến, nên cân
+  nhắc <code>LinkedList</code>/<code>ArrayDeque</code> (Chapter 04, 13) cho use case này.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Nếu biết trước (hoặc ước lượng được) kích thước cuối cùng, dùng
+  <code>new ArrayList&lt;&gt;(expectedSize)</code> để tránh resize nhiều lần.</li>
+<li>Với thao tác chèn/xoá thường xuyên ở đầu hoặc giữa danh sách, cân nhắc <code>LinkedList</code> (Chapter
+  04) hoặc <code>ArrayDeque</code> (Chapter 13) thay vì <code>ArrayList</code>.</li>
+<li>Mặc định chọn <code>ArrayList</code> cho phần lớn use case thông thường (đọc nhiều, ghi chủ yếu ở cuối)
+  — đây là lựa chọn hiệu quả nhất trong đa số trường hợp thực tế.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một job xử lý dữ liệu hàng loạt (batch), xây dựng dần một <code>ArrayList</code> lớn (hàng
+triệu phần tử) bằng <code>add()</code> liên tục, chạy chậm hơn nhiều so với ước tính, đặc biệt ở giai đoạn
+đầu.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> thời gian xử lý không tuyến tính với số lượng phần tử — chậm hơn hẳn dự kiến
+  khi profiling.</li>
+<li><strong>Root cause:</strong> <code>ArrayList</code> khởi tạo mặc định (capacity 10), phải resize rất nhiều lần khi
+  lớn dần tới hàng triệu phần tử — mỗi lần resize là một lần copy O(n) toàn bộ phần tử đã có,
+  tích luỹ thành chi phí đáng kể (dù vẫn amortized O(1) về mặt lý thuyết, hằng số ẩn phía sau
+  không hề nhỏ với dữ liệu lớn).</li>
+<li><strong>Debug:</strong> profiling cho thấy thời gian đáng kể trong <code>Arrays.copyOf()</code>/<code>grow()</code> nội bộ của
+  <code>ArrayList</code>.</li>
+<li><strong>Solution:</strong> nếu biết trước (hoặc ước lượng được từ nguồn dữ liệu, ví dụ <code>COUNT(*)</code> từ
+  database trước khi fetch) kích thước cuối cùng, khởi tạo <code>new ArrayList&lt;&gt;(estimatedSize)</code>
+  ngay từ đầu.</li>
+<li><strong>Prevention:</strong> với các job xử lý dữ liệu lớn đã biết trước quy mô, luôn ước lượng capacity
+  ban đầu thay vì dùng constructor mặc định.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Xây dựng <code>ArrayList</code> lớn dần chậm bất thường? → kiểm tra có đang dùng constructor mặc
+      định (capacity 10) cho danh sách cuối cùng rất lớn không, cân nhắc chỉ định capacity ban
+      đầu.</li>
+<li>[ ] Thao tác <code>add()</code>/<code>remove()</code> ở đầu/giữa danh sách chậm? → đây là O(n) theo đúng bản chất
+      cấu trúc mảng, cân nhắc <code>LinkedList</code>/<code>ArrayDeque</code> nếu thao tác này diễn ra thường xuyên.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ArrayList.add(e)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    ↓
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ensureCapacityInternal() — kiểm tra còn chỗ trống không
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    ↓
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Nếu đầy: grow() — tính newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    ↓
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Arrays.copyOf(elementData, newCapacity) — tạo mảng mới, copy dữ liệu cũ
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    ↓
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>elementData[size++] = e — gán phần tử mới vào cuối mảng (đã chắc chắn còn chỗ)
+</code></pre></div>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ArrayList</code> dùng một mảng <code>Object[]</code> nội bộ; "co giãn" thực chất là tạo mảng <strong>mới</strong> lớn hơn
+theo tỉ lệ <strong>1.5 lần</strong> (không phải 2 lần) rồi copy toàn bộ phần tử cũ sang — đã xác nhận bằng
+Reflection thực nghiệm. Nhờ cấp dư mỗi lần resize, <code>add()</code> ở cuối danh sách có chi phí trung
+bình O(1) (amortized), nhưng <code>add()</code>/<code>remove()</code> ở giữa hoặc đầu danh sách luôn O(n) vì phải
+dịch chuyển phần tử. Khi biết trước kích thước, luôn khởi tạo <code>ArrayList</code> với capacity ban đầu
+để tránh resize nhiều lần không cần thiết.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
-<li>ArrayList vs LinkedList: khi nào dùng mỗi loại?</li>
+<li><code>ArrayList</code> dùng cấu trúc dữ liệu gì bên dưới?</li>
+<li><code>get(index)</code> trên <code>ArrayList</code> có độ phức tạp là gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích cơ chế resize của <code>ArrayList</code>. Tỉ lệ tăng trưởng là bao nhiêu?</li>
+<li>Vì sao <code>add(0, e)</code> chậm hơn nhiều so với <code>add(e)</code> (thêm ở cuối)?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao <code>ArrayList</code> chọn hệ số tăng trưởng 1.5 thay vì 2 — phân tích đánh đổi giữa
+  lãng phí bộ nhớ và tần suất resize.</li>
+<li>Một job xử lý batch xây dựng <code>ArrayList</code> hàng triệu phần tử chạy chậm hơn dự kiến. Trình bày
+  cách bạn sẽ chẩn đoán và tối ưu.</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ArrayListGrowth</code> ở trên (nhớ thêm cờ <code>--add-opens</code>), xác nhận dãy
+      capacity giống hệt.</li>
+<li>[ ] Viết đoạn code đo thời gian <code>add(0, e)</code> lặp lại 20.000 lần trên một <code>ArrayList</code> đã có sẵn
+      50.000 phần tử — so sánh với <code>add(e)</code> (cuối danh sách) cùng số lần, xác nhận chênh lệch
+      lớn.</li>
+<li>[ ] Thử tạo <code>ArrayList</code> bằng <code>new ArrayList&lt;&gt;(1000)</code>, dùng lại kỹ thuật Reflection ở Example
+      để xác nhận capacity ban đầu đúng bằng 1000, không phải 10.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Thao tác</th>
+<th>Độ phức tạp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get(index)</code></td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>add(e)</code> (cuối)</td>
+<td>O(1) amortized</td>
+</tr>
+<tr>
+<td><code>add(index, e)</code> / <code>remove(index)</code> (giữa/đầu)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Công thức resize</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)</code> (tăng ~50%)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.ArrayList</code>.</li>
+<li>OpenJDK source — <code>java.base/java/util/ArrayList.java</code>, method <code>grow()</code>.</li>
 </ul>
 
 

@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:comparable" class="md-tag">Comparable</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:comparator" class="md-tag">Comparator</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,15 +6170,16 @@ Chapter slug: <code>comparable-comparator</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Comparable vs Comparator</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — TreeMap</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 12 — equals()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collections Utility (Chapter 15) — Collections.sort() dựa trên chính hai interface này</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6187,308 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../10-treemap/">Chapter 10</a> — <code>TreeMap</code>/<code>TreeSet</code> sắp xếp dựa trên
+<code>Comparable</code>/<code>Comparator</code>, không dựa trên <code>hashCode()</code>.</p>
 </blockquote>
+<p>Bạn viết một class <code>Product</code> sắp theo giá (<code>compareTo()</code> chỉ so sánh <code>price</code>), nhưng
+<code>equals()</code>/<code>hashCode()</code> (Phase 1, Chapter 12-13) so sánh <strong>cả</strong> <code>name</code> lẫn <code>price</code> — hợp lý,
+vì hai sản phẩm khác tên rõ ràng là hai sản phẩm khác nhau. Thêm hai sản phẩm <strong>cùng giá,
+khác tên</strong> vào cả <code>TreeSet</code> và <code>HashSet</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">TreeSet</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">(</span><span class="n">dua</span><span class="w"> </span><span class="n">tren</span><span class="w"> </span><span class="n">compareTo</span><span class="p">):</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="c1">// ⚠️ chỉ còn 1, dù rõ ràng là 2 sản phẩm khác nhau!</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">HashSet</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">(</span><span class="n">dua</span><span class="w"> </span><span class="n">tren</span><span class="w"> </span><span class="n">equals</span><span class="p">):</span><span class="w"> </span><span class="mi">2</span><span class="w">      </span><span class="c1">// đúng như kỳ vọng</span>
+</code></pre></div>
+<p><code>TreeSet</code> <strong>âm thầm loại bỏ</strong> một sản phẩm — không phải vì <code>equals()</code> nói chúng bằng nhau (nó
+không nói vậy), mà vì <code>compareTo()</code> trả về <code>0</code> cho chúng. Đây là một trong những cạm bẫy tinh
+vi nhất của Collection Framework: <code>Set</code> (Chapter 05) dựa trên <code>equals()</code>, nhưng <code>TreeSet</code> <strong>âm
+thầm đổi quy tắc</strong> sang <code>compareTo()</code>. Chapter này giải thích rõ ràng hai interface
+<code>Comparable</code>/<code>Comparator</code>, và đúng cạm bẫy này.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Comparable</code> và <code>Comparator</code> khác nhau như thế nào? Vì sao <code>compareTo()</code> không nhất quán với
+<code>equals()</code> lại có thể gây lỗi nghiêm trọng khi dùng với <code>TreeSet</code>/<code>TreeMap</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt <code>Comparable</code> (một thứ tự "tự nhiên" duy nhất, định nghĩa trong chính class) và
+      <code>Comparator</code> (thứ tự tuỳ chỉnh, định nghĩa bên ngoài, có thể có nhiều bản)</li>
+<li>[ ] Tự tay tái hiện được cạm bẫy "compareTo không nhất quán với equals" gây mất dữ liệu âm
+      thầm trong <code>TreeSet</code></li>
+<li>[ ] Dùng thành thạo <code>Comparator.comparing()</code> và <code>thenComparing()</code> (Java 8+) để sắp xếp theo
+      nhiều tiêu chí</li>
+<li>[ ] Biết quy tắc: <code>compareTo()</code> trả về số âm/0/dương, không phải <code>boolean</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 10 — đã biết <code>TreeMap</code>/<code>TreeSet</code> dùng thứ tự so sánh, không dùng hash.</li>
+<li>Phase 1, Chapter 12 — hợp đồng <code>equals()</code>, để hiểu rõ điểm khác biệt với <code>compareTo()</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Collections Utility</strong> (Chapter 15) — <code>Collections.sort()</code> và các method sắp xếp khác đều
+  dựa trực tiếp trên <code>Comparable</code>/<code>Comparator</code> học ở đây.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Có hai nhu cầu sắp xếp khác nhau về bản chất: (1) một class có <strong>một</strong> thứ tự "tự nhiên", hiển
+nhiên nhất — số thì so theo giá trị, chuỗi thì so theo alphabet; (2) đôi khi cần sắp xếp theo
+tiêu chí <strong>khác</strong> với thứ tự tự nhiên đó, thậm chí cần <strong>nhiều cách sắp</strong> khác nhau cho cùng
+một class tuỳ ngữ cảnh (ví dụ sản phẩm: lúc sắp theo giá, lúc sắp theo tên).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong><code>Comparable&lt;T&gt;</code></strong> — class tự implement, định nghĩa <strong>một</strong> thứ tự "tự nhiên" duy nhất, qua
+  method <code>compareTo(T other)</code>. Ví dụ: <code>Integer</code>, <code>String</code> đều implement <code>Comparable</code>.</li>
+<li><strong><code>Comparator&lt;T&gt;</code></strong> — một object <strong>riêng biệt</strong>, độc lập với class <code>T</code>, định nghĩa một cách
+  so sánh <strong>tuỳ chỉnh</strong> qua method <code>compare(T a, T b)</code>. Có thể tạo <strong>nhiều</strong> <code>Comparator</code> khác
+  nhau cho cùng một class.</li>
+</ul>
+<p>Cả hai đều trả về <code>int</code>: âm nếu phần tử thứ nhất "nhỏ hơn", <code>0</code> nếu "bằng nhau" (theo tiêu chí
+so sánh), dương nếu "lớn hơn" — không phải <code>boolean</code> như <code>equals()</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu chỉ có <code>Comparable</code>: một class chỉ có được <strong>một</strong> cách sắp xếp cố định, không thể sắp
+theo tiêu chí khác mà không sửa chính class đó (đôi khi không thể sửa — ví dụ class đến từ thư
+viện bên thứ ba). <code>Comparator</code> giải quyết đúng vấn đề này: định nghĩa cách so sánh <strong>bên
+ngoài</strong> class, truyền vào lúc cần (<code>Collections.sort(list, comparator)</code>), cho phép <strong>nhiều</strong>
+cách sắp khác nhau cùng tồn tại mà không đụng vào class gốc.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span> <span class="nc">Product</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Comparable: MỘT thứ tự tự nhiên, định nghĩa NGAY TRONG class</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Product</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">price</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Comparator: định nghĩa BÊN NGOÀI, có thể có NHIỀU bản khác nhau</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">byName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">byNameThenPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">((</span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">                                                 </span><span class="p">.</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Comparable&lt;T&gt;                         Comparator&lt;T&gt;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>──────────────                        ──────────────
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>compareTo(T other)                     compare(T a, T b)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Định nghĩa TRONG class T               Định nghĩa BÊN NGOÀI class T
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>CHỈ MỘT thứ tự &quot;tự nhiên&quot;              CÓ THỂ có NHIỀU Comparator khác nhau
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Ví dụ: Integer, String                 Ví dụ: Comparator.comparing(p -&gt; p.name)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Dùng cả hai</strong> — <code>Comparable</code> cho thứ tự mặc định, <code>Comparator</code> cho thứ tự tuỳ chỉnh với
+nhiều tiêu chí:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ComparableDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">),</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Giay&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">),</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Balo&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">500000</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="p">));</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">products</span><span class="p">);</span><span class="w"> </span><span class="c1">// dung Comparable (natural ordering theo gia)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sap theo Comparable (gia): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">products</span><span class="p">);</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="n">products</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">((</span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">                                 </span><span class="p">.</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">));</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sap theo Comparator (ten, roi gia): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">products</span><span class="p">);</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="kd">class</span> <span class="nc">Product</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="n">Product</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Product</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">price</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;(&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Sap theo Comparable (gia): [Ao thun(199000), Giay(199000), Balo(500000)]
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Sap theo Comparator (ten, roi gia): [Ao thun(199000), Balo(500000), Giay(199000)]
+</code></pre></div>
+<p><code>thenComparing()</code> xử lý "hoà" (tie-breaking): với <code>Comparable</code> mặc định, <code>Ao thun</code> và <code>Giay</code>
+cùng giá <code>199000</code> giữ nguyên thứ tự tương đối (sort ổn định); với <code>Comparator</code> theo tên trước,
+thứ tự đổi hẳn theo alphabet.</p>
+<p><strong>Cạm bẫy "compareTo không nhất quán với equals"</strong> — tái hiện đúng hiện tượng ở Story:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// dua tren Comparable (gia)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Quan jean&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span><span class="w"> </span><span class="c1">// GIA GIONG HET nhung TEN khac</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;TreeSet size (dua tren compareTo): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hashSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// dua tren equals()/hashCode()</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">hashSet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Ao thun&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">hashSet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="s">&quot;Quan jean&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">199000</span><span class="p">));</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;HashSet size (dua tren equals): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hashSet</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</code></pre></div>
+<p>Kết quả thật (giả sử <code>equals()</code> so sánh cả <code>name</code> lẫn <code>price</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>TreeSet size (dua tren compareTo): 1
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>HashSet size (dua tren equals): 2
+</code></pre></div>
+<p><code>TreeSet</code> chỉ giữ <strong>1</strong> sản phẩm — vì <code>compareTo()</code> chỉ so <code>price</code>, hai sản phẩm "hoà" (trả về
+<code>0</code>) bị <code>TreeSet</code> coi là trùng lặp, dù <code>equals()</code> (đúng đắn hơn) khẳng định chúng khác nhau.
+<code>HashSet</code>, dựa trên <code>equals()</code>, giữ đúng cả hai.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>TreeSet</code> lại dùng <code>compareTo() == 0</code> để quyết định "trùng lặp", không dùng
+<code>equals()</code>?</strong> Vì <code>TreeSet</code>/<code>TreeMap</code> (Chapter 10) được cài đặt trên cây nhị phân tìm kiếm —
+việc "tìm xem phần tử đã tồn tại chưa" hoàn toàn dựa trên việc <strong>đi theo cây</strong> bằng phép so
+sánh (nhỏ hơn đi trái, lớn hơn đi phải) — nó <strong>không bao gigiờ gọi <code>equals()</code></strong> trong toàn bộ
+quá trình chèn/tìm kiếm, vì làm vậy sẽ phá vỡ tính nhất quán giữa cấu trúc cây và phép so sánh
+dùng để xây dựng nó. Đây là lý do JLS/Javadoc chính thức của <code>Comparable</code> yêu cầu:
+<strong>"tốt nhất nên đảm bảo <code>compareTo()</code> nhất quán với <code>equals()</code>"</strong> (<code>(x.compareTo(y) == 0) ==
+(x.equals(y))</code>) — không bắt buộc về mặt biên dịch, nhưng vi phạm nó gây đúng hậu quả đã thấy ở
+Example khi dùng với <code>TreeSet</code>/<code>TreeMap</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao đây được liệt vào nhóm lỗi nguy hiểm nhất — giống các lỗi hợp đồng đã gặp ở Phase 1?</strong>
+Vì nó lặp lại đúng khuôn mẫu đã thấy ở <a href="../../phase-01-foundation/12-equals/">Phase 1, Chapter 12-13</a>:
+một hợp đồng <strong>không bắt buộc bởi trình biên dịch</strong>, chỉ là quy ước — vi phạm nó không gây lỗi
+biên dịch, không ném exception, chỉ <strong>âm thầm mất dữ liệu</strong> theo cách rất khó phát hiện (chỉ
+lộ ra khi dùng đúng cấu trúc dữ liệu nhạy cảm với hợp đồng đó — ở đây là <code>TreeSet</code>/<code>TreeMap</code>,
+giống hệt <code>equals()</code>/<code>hashCode()</code> chỉ lộ ra khi dùng với <code>HashSet</code>/<code>HashMap</code>). Bài học chung
+xuyên suốt cả hai trường hợp: Java có rất nhiều "hợp đồng mềm" (soft contract) dựa trên tài
+liệu và quy ước, không phải kiểu kiểm tra tĩnh — kỷ luật tuân thủ đúng các hợp đồng này là một
+kỹ năng quan trọng không kém việc biết cú pháp.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Comparable</code> tồn tại từ Java 2 (1998). <code>Comparator</code> cũng vậy, nhưng trở nên mạnh mẽ và dễ dùng
+hơn hẳn từ Java 8 (2014) với các static/default method: <code>Comparator.comparing()</code>,
+<code>thenComparing()</code>, <code>reversed()</code>, <code>naturalOrder()</code>, <code>nullsFirst()</code> — trước đó, viết một
+<code>Comparator</code> yêu cầu tự implement toàn bộ interface bằng anonymous class, dài dòng hơn nhiều so
+với cú pháp lambda/method reference hiện đại.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>Set</code> luôn dựa trên <code>equals()</code>/<code>hashCode()</code>, bất kể implementation nào."
+  <strong>Reality:</strong> Chỉ <code>HashSet</code>/<code>LinkedHashSet</code> (Chapter 05-06) dựa trên <code>equals()</code>/<code>hashCode()</code>.
+  <code>TreeSet</code> dựa hoàn toàn trên <code>compareTo()</code>/<code>Comparator</code>, có thể cho kết quả khác hẳn nếu hai
+  hợp đồng không nhất quán — xem Example.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>compareTo()</code> phải trả về đúng -1, 0, hoặc 1."
+  <strong>Reality:</strong> Chỉ cần <strong>dấu</strong> đúng (âm/không/dương) — giá trị tuyệt đối không quan trọng.
+  <code>Integer.compare(a, b)</code> có thể trả về bất kỳ số âm/dương nào, không chỉ -1/1.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Viết <code>compareTo()</code> không nhất quán với <code>equals()</code></strong> rồi dùng class đó làm phần tử
+  <code>TreeSet</code>/key <code>TreeMap</code> — đúng lỗi trọng tâm của chapter.</li>
+<li><strong>Trừ trực tiếp hai số để so sánh</strong> (<code>return a.price - b.price</code>) thay vì dùng
+  <code>Integer.compare()</code> — có thể tràn số (overflow) nếu chênh lệch đủ lớn, cho kết quả sai dấu.</li>
+<li><strong>Quên rằng <code>Comparator.comparing()</code> cần kiểu tham số tường minh</strong> khi dùng lambda đứng một
+  mình (như <code>(Product p) -&gt; p.name</code> ở Example) — nếu không, trình biên dịch đôi khi không suy
+  luận được kiểu, gây lỗi biên dịch khó hiểu.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn đảm bảo <code>compareTo()</code> nhất quán với <code>equals()</code> nếu class có khả năng được dùng làm phần
+  tử <code>TreeSet</code>/key <code>TreeMap</code>.</li>
+<li>Dùng <code>Integer.compare()</code>/<code>Double.compare()</code> thay vì trừ trực tiếp để tránh lỗi tràn số.</li>
+<li>Dùng <code>Comparator.comparing().thenComparing()</code> (Java 8+) cho sắp xếp nhiều tiêu chí, thay vì
+  tự viết <code>compare()</code> dài dòng với nhiều <code>if/else</code>.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một tính năng "loại bỏ đơn hàng trùng lặp" dùng <code>TreeSet&lt;Order&gt;</code> (sắp theo thời
+gian tạo) để loại trùng, nhưng một số đơn hàng <strong>khác nhau thật sự</strong> (khác <code>orderId</code>) bị loại
+bỏ nhầm.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> số lượng đơn hàng sau khi "loại trùng" ít hơn hẳn số lượng thực tế nên có,
+  không có exception hay cảnh báo nào.</li>
+<li><strong>Root cause:</strong> <code>compareTo()</code> của <code>Order</code> chỉ so sánh <code>createdAt</code> (thời gian tạo) — hai đơn
+  hàng tạo cùng lúc (hoặc cùng đến mili-giây, nếu độ chính xác thời gian không đủ cao) bị
+  <code>TreeSet</code> coi là "trùng lặp" dù <code>orderId</code> hoàn toàn khác nhau — đúng lỗi đã học ở Example.</li>
+<li><strong>Debug:</strong> kiểm tra định nghĩa <code>compareTo()</code> của class đang dùng làm phần tử <code>TreeSet</code>, so
+  sánh với định nghĩa <code>equals()</code> — nếu khác tiêu chí, đây chính là nguyên nhân.</li>
+<li><strong>Solution:</strong> sửa <code>compareTo()</code> để nhất quán với <code>equals()</code> (ví dụ thêm <code>orderId</code> làm tiêu
+  chí phụ khi <code>createdAt</code> bằng nhau), hoặc đổi hẳn sang <code>HashSet</code>/<code>LinkedHashSet</code> nếu không
+  thực sự cần thứ tự sắp xếp.</li>
+<li><strong>Prevention:</strong> khi dùng <code>TreeSet</code>/<code>TreeMap</code> cho mục đích loại trùng, luôn tự hỏi: "hai phần
+  tử có <code>compareTo() == 0</code> thì có thực sự nên bị coi là trùng lặp về mặt nghiệp vụ không?".</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>TreeSet</code>/<code>TreeMap</code> mất dữ liệu không rõ nguyên nhân? → kiểm tra <code>compareTo()</code> có nhất
+      quán với <code>equals()</code> không, đây gần như luôn là nguyên nhân.</li>
+<li>[ ] Cần sắp xếp theo nhiều tiêu chí? → dùng <code>Comparator.comparing().thenComparing()</code>, tránh
+      tự viết logic so sánh phức tạp bằng tay.</li>
+<li>[ ] Kết quả so sánh số sai dấu bất thường với số lớn? → kiểm tra có đang trừ trực tiếp hai số
+      thay vì dùng <code>Integer.compare()</code>/<code>Long.compare()</code> không (nguy cơ tràn số).</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>TreeMap.put()</code> (Chapter 10) gọi <code>compare(key, existingKey)</code> tại mỗi node trong lúc đi xuống
+cây để tìm vị trí chèn — nếu kết quả là <code>0</code> tại bất kỳ node nào, <code>TreeMap</code> coi đó là <strong>cùng
+key</strong>, ghi đè value thay vì tạo node mới. Đây chính xác là điểm mà hành vi "coi là trùng lặp"
+xảy ra — hoàn toàn nằm trong logic tìm kiếm trên cây, không có bước gọi <code>equals()</code> nào xen vào
+suốt quá trình này.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Comparable</code> định nghĩa <strong>một</strong> thứ tự tự nhiên ngay trong class (<code>compareTo()</code>); <code>Comparator</code>
+định nghĩa thứ tự tuỳ chỉnh <strong>bên ngoài</strong> class, cho phép nhiều cách sắp khác nhau
+(<code>Comparator.comparing().thenComparing()</code>, Java 8+). <code>TreeSet</code>/<code>TreeMap</code> (Chapter 10) dựa hoàn
+toàn vào <code>compareTo()</code>/<code>Comparator</code> để quyết định "trùng lặp" — <strong>không</strong> gọi <code>equals()</code> — nên
+nếu hai hợp đồng không nhất quán, dữ liệu có thể bị mất âm thầm mà không có bất kỳ cảnh báo
+nào, một cạm bẫy cùng bản chất với vi phạm hợp đồng <code>equals()</code>/<code>hashCode()</code> đã học ở Phase 1.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
 <li>What is the difference between Comparator and Comparable?</li>
+<li><code>compareTo()</code> trả về kiểu gì? Có ý nghĩa gì khi trả về giá trị âm/0/dương?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao <code>compareTo()</code> không nhất quán với <code>equals()</code> có thể gây mất dữ liệu trong <code>TreeSet</code>?</li>
+<li>Dùng <code>Comparator.comparing().thenComparing()</code> để sắp xếp theo nhiều tiêu chí — viết một ví dụ
+  cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích tại sao <code>TreeSet</code>/<code>TreeMap</code> không bao giờ gọi <code>equals()</code> trong quá trình chèn/tìm
+  kiếm — dựa trên cấu trúc cây nhị phân tìm kiếm.</li>
+<li>Một tính năng loại trùng dữ liệu bằng <code>TreeSet</code> bị mất dữ liệu không mong muốn. Trình bày quy
+  trình điều tra và giải pháp, liên hệ trực tiếp hợp đồng <code>compareTo()</code>/<code>equals()</code>.</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ComparableDemo</code> ở trên.</li>
+<li>[ ] Tái hiện đúng cạm bẫy <code>CompareToTrap</code> — xác nhận <code>TreeSet</code> chỉ giữ 1 phần tử trong khi
+      <code>HashSet</code> giữ đúng 2.</li>
+<li>[ ] Sửa <code>compareTo()</code> của <code>Product</code> để nhất quán với <code>equals()</code> (so sánh cả <code>name</code> khi <code>price</code>
+      bằng nhau) — chạy lại, xác nhận <code>TreeSet</code> giờ giữ đúng cả 2 phần tử.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Comparable</th>
+<th>Comparator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td><code>compareTo(T other)</code></td>
+<td><code>compare(T a, T b)</code></td>
+</tr>
+<tr>
+<td>Định nghĩa ở đâu</td>
+<td>Trong chính class</td>
+<td>Bên ngoài, độc lập</td>
+</tr>
+<tr>
+<td>Số lượng thứ tự</td>
+<td>Một (tự nhiên)</td>
+<td>Nhiều, tuỳ ý</td>
+</tr>
+<tr>
+<td>Dùng bởi</td>
+<td><code>Collections.sort(list)</code>, <code>TreeSet</code>/<code>TreeMap</code> mặc định</td>
+<td><code>Collections.sort(list, cmp)</code>, <code>TreeSet</code>/<code>TreeMap</code> tuỳ chỉnh</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">((</span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">name</span><span class="p">)</span><span class="w">   </span><span class="c1">// sắp theo tên</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">          </span><span class="p">.</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">price</span><span class="p">)</span><span class="w">        </span><span class="c1">// hoà thì sắp theo giá</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">          </span><span class="p">.</span><span class="na">reversed</span><span class="p">();</span><span class="w">                        </span><span class="c1">// đảo ngược toàn bộ</span>
+</code></pre></div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.lang.Comparable</code>, <code>java.util.Comparator</code>.</li>
+<li>Java Language Specification — ghi chú về "tốt nhất nên nhất quán với equals" trong Javadoc
+  chính thức của <code>Comparable</code>.</li>
 </ul>
 
 

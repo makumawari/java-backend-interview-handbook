@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:priorityqueue" class="md-tag">PriorityQueue</a>
       
     
   </nav>
@@ -6149,94 +6163,310 @@ Chapter slug: <code>priorityqueue</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PriorityQueue</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Collection Framework (Queue)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 14 — Comparable vs Comparator (xem trước nếu chưa học)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System Design (Phase 9) — hàng đợi ưu tiên xử lý task/event theo mức độ khẩn cấp</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Bạn xử lý đơn hàng theo độ ưu tiên — đơn VIP xử lý trước đơn thường. Bạn dùng <code>PriorityQueue</code>,
+thêm vào theo thứ tự bất kỳ, rồi tò mò in thử toàn bộ hàng đợi ra xem:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">};</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pq</span><span class="p">);</span><span class="w"> </span><span class="c1">// ⚠️</span>
+</code></pre></div>
+<p>Kết quả:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[5, 20, 10, 50, 30, 80, 90]
+</code></pre></div>
+<p>Không phải <code>[5, 10, 20, 30, 50, 80, 90]</code> như bạn kỳ vọng từ một "hàng đợi ưu tiên"! Thứ tự
+trông gần như ngẫu nhiên. Đây không phải bug — nó là một chi tiết dễ hiểu sai nhất về
+<code>PriorityQueue</code>: nó <strong>đảm bảo</strong> phần tử lấy ra bằng <code>poll()</code> luôn đúng thứ tự ưu tiên, nhưng
+<strong>không đảm bảo</strong> thứ tự khi bạn duyệt/in nó ra trực tiếp (<code>toString()</code>, <code>iterator()</code>). Chapter
+này giải thích chính xác vì sao — bằng cách nhìn vào cấu trúc <strong>heap</strong> đứng bên dưới.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>PriorityQueue</code> đảm bảo điều gì? Vì sao duyệt trực tiếp qua nó (for-each/<code>toString()</code>) không
+cho ra đúng thứ tự sắp xếp, trong khi gọi <code>poll()</code> liên tục thì luôn đúng?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích cấu trúc <strong>binary heap</strong> — mảng biểu diễn cây nhị phân, chỉ đảm bảo quan hệ
+      cha-con, không đảm bảo thứ tự toàn cục</li>
+<li>[ ] Tự tay tái hiện được sự khác biệt giữa duyệt trực tiếp và <code>poll()</code> liên tục</li>
+<li>[ ] Dùng đúng <code>PriorityQueue</code> với <code>Comparator</code> tuỳ chỉnh (không chỉ thứ tự tự nhiên)</li>
+<li>[ ] Biết độ phức tạp: <code>offer()</code>/<code>poll()</code> O(log n), <code>peek()</code> O(1)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — biết <code>Queue</code> là một nhánh của <code>Collection</code>.</li>
+<li>Chapter 14 (xem trước nếu chưa học) — <code>Comparable</code>/<code>Comparator</code> quyết định thứ tự ưu tiên.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>System Design</strong> (Phase 9) — hàng đợi ưu tiên là thành phần phổ biến trong hệ thống xử lý
+  task/event theo độ khẩn cấp (job scheduler, event processing).</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Queue</code> thường (FIFO — vào trước ra trước) không đủ cho bài toán cần xử lý theo <strong>độ ưu
+tiên</strong> thay vì theo thứ tự đến. Cần một cấu trúc luôn cho ra phần tử "nhỏ nhất" (hoặc "lớn
+nhất", tuỳ định nghĩa) hiện có, hiệu quả hơn nhiều so với việc <code>sort()</code> lại toàn bộ mỗi lần có
+phần tử mới.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>PriorityQueue</code> cài đặt bằng <strong>binary heap</strong> (cụ thể: min-heap theo mặc định) — một cây nhị
+phân <strong>hoàn chỉnh</strong> (complete binary tree, các tầng luôn lấp đầy từ trái sang phải) được biểu
+diễn bằng <strong>một mảng phẳng</strong>, không dùng con trỏ như <code>LinkedList</code> (Chapter 04). Heap chỉ đảm
+bảo đúng <strong>một tính chất</strong>: giá trị tại mỗi node <strong>nhỏ hơn hoặc bằng</strong> giá trị của hai node con
+của nó (heap property) — <strong>không</strong> đảm bảo bất kỳ quan hệ thứ tự nào giữa các node <strong>anh em</strong>
+hay giữa các tầng khác nhau.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu <code>PriorityQueue</code> giữ luôn một mảng <strong>hoàn toàn sắp xếp</strong>: mỗi lần <code>offer()</code> một phần tử mới
+sẽ cần chèn đúng vị trí, tốn O(n) để dịch chuyển (giống <code>ArrayList.add(index, e)</code>, Chapter 03).
+Heap chỉ yêu cầu <strong>một tính chất cục bộ, yếu hơn nhiều</strong> (cha ≤ con) thay vì thứ tự toàn cục —
+đủ để đảm bảo phần tử <strong>nhỏ nhất luôn ở gốc</strong> (root, chỉ số 0 của mảng), lấy ra tức thì O(1)
+(<code>peek()</code>), và chèn/xoá chỉ cần điều chỉnh cục bộ dọc theo một đường đi từ gốc tới lá, O(log n)
+— rẻ hơn nhiều so với giữ toàn bộ mảng luôn sắp xếp.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>offer(v): thêm v vào cuối mảng (heap), rồi &quot;nổi lên&quot; (sift up) —
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>          so sánh với node cha, hoán đổi nếu vi phạm heap property,
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>          lặp lại cho tới khi đúng vị trí — O(log n)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>poll():   lấy phần tử tại gốc (LUÔN là nhỏ nhất), thay gốc bằng phần tử
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>          CUỐI mảng, rồi &quot;chìm xuống&quot; (sift down) — so sánh với 2 con,
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>          hoán đổi với con nhỏ hơn nếu vi phạm, lặp lại — O(log n)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>peek():   chỉ đọc phần tử tại gốc (chỉ số 0) — O(1), không thay đổi cấu trúc
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Mảng: [5, 20, 10, 50, 30, 80, 90]     (đây CHÍNH XÁC là output toString() ở Story!)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Biểu diễn dạng cây nhị phân (chỉ số i có con tại 2i+1, 2i+2):
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                    5 (index 0)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                 /              \
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>           20 (idx1)          10 (idx2)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>           /      \            /      \
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     50(idx3)  30(idx4)   80(idx5)  90(idx6)
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Heap property: mỗi node ≤ hai node con — ĐÚNG cho mọi node ở đây
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>   (5 ≤ 20, 5 ≤ 10; 20 ≤ 50, 20 ≤ 30; 10 ≤ 80, 10 ≤ 90)
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>NHƯNG: 20 và 10 (hai node anh em) KHÔNG có quan hệ thứ tự bắt buộc nào
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>       giữa chúng — đây là lý do duyệt mảng trực tiếp KHÔNG cho ra thứ tự
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>       sắp xếp toàn cục, dù root luôn là nhỏ nhất.
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận trực tiếp: duyệt (<code>toString()</code>/for-each) khác hoàn toàn với lấy ra liên tục bằng
+<code>poll()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.PriorityQueue</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PriorityQueueDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">};</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Duyet bang for-each (iterator, KHONG dam bao thu tu sap xep): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pq</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Lay ra bang poll() lien tuc (LUON dung thu tu tang dan): &quot;</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">pq</span><span class="p">.</span><span class="na">poll</span><span class="p">()).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">trim</span><span class="p">());</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Duyet bang for-each (iterator, KHONG dam bao thu tu sap xep): [5, 20, 10, 50, 30, 80, 90]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Lay ra bang poll() lien tuc (LUON dung thu tu tang dan): 5 10 20 30 50 80 90
+</code></pre></div>
+<p>Cùng một <code>PriorityQueue</code>, hai cách "xem" cho hai kết quả khác hẳn nhau: <code>toString()</code> in đúng
+thứ tự <strong>vật lý trong mảng heap</strong> (chỉ đảm bảo cha ≤ con); <code>poll()</code> liên tục luôn cho ra đúng
+thứ tự tăng dần tuyệt đối, vì mỗi lần <code>poll()</code> đều lấy đúng phần tử nhỏ nhất hiện có tại thời
+điểm đó.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao biểu diễn bằng mảng (không dùng Node/con trỏ như <code>TreeMap</code>, Chapter 10) lại khả thi
+cho một cấu trúc cây?</strong> Vì heap luôn là cây <strong>hoàn chỉnh</strong> (complete — mọi tầng lấp đầy từ trái
+sang phải, chỉ tầng cuối có thể chưa đầy) — tính chất này cho phép tính trực tiếp vị trí cha/con
+chỉ bằng phép toán số học trên chỉ số (<code>cha = (i-1)/2</code>, <code>con trái = 2i+1</code>, <code>con phải = 2i+2</code>),
+không cần lưu con trỏ tường minh. Đây là lý do heap tiết kiệm bộ nhớ hơn hẳn cấu trúc cây dùng
+Node (như <code>TreeMap</code>) — không tốn thêm bộ nhớ cho con trỏ, đổi lại <strong>chỉ dùng được</strong> cho cây
+hoàn chỉnh, không tổng quát được cho cây bất kỳ như Red-Black Tree.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>PriorityQueue</code> không implement <code>NavigableSet</code>-kiểu-API (như <code>TreeMap</code>, Chapter 10) —
+tại sao không thể <code>floorKey()</code> trên một heap?</strong> Vì heap <strong>cố tình hy sinh</strong> thông tin thứ tự
+toàn cục để đổi lấy chèn/xoá phần tử ưu tiên nhất cực rẻ (O(log n), so với O(log n) của
+<code>TreeMap</code> cho <strong>mọi</strong> thao tác điều hướng, nhưng heap rẻ hơn về hằng số thực tế và đơn giản hơn
+nhiều để cài đặt/tối ưu). Đây là một đánh đổi thiết kế có chủ đích: nếu bài toán chỉ cần "luôn
+biết và lấy ra phần tử ưu tiên nhất", heap là lựa chọn tối ưu; nếu cần đầy đủ các truy vấn
+"lân cận theo thứ tự" như <code>TreeMap</code>, phải trả giá bằng cấu trúc phức tạp hơn (cây cân bằng đầy
+đủ, không chỉ heap). Không có cấu trúc nào "tốt hơn tuyệt đối" — mỗi cấu trúc tối ưu cho đúng
+tập câu hỏi nó được thiết kế để trả lời.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>PriorityQueue</code> xuất hiện từ Java 5 (2004) — khá muộn so với các cấu trúc dữ liệu khác của
+Collection Framework (Java 2, 1998). Trước đó, lập trình viên Java cần hàng đợi ưu tiên phải tự
+cài đặt heap thủ công hoặc dùng thư viện bên thứ ba — một khoảng trống đáng chú ý trong thư
+viện chuẩn suốt 6 năm.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>PriorityQueue</code> là một danh sách luôn được sắp xếp, chỉ khác tên gọi."
+  <strong>Reality:</strong> Xem Example — duyệt trực tiếp <strong>không</strong> cho ra thứ tự sắp xếp. Chỉ <code>poll()</code>
+  liên tục mới đảm bảo đúng thứ tự.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "In một <code>PriorityQueue</code> ra màn hình để debug là đủ để biết thứ tự xử lý thực tế."
+  <strong>Reality:</strong> <code>toString()</code> chỉ phản ánh thứ tự <strong>vật lý trong mảng heap</strong>, hoàn toàn khác thứ
+  tự xử lý thực tế (qua <code>poll()</code>) — dễ gây hiểu lầm nghiêm trọng khi debug nếu không biết rõ
+  điều này.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Giả định <code>for (int v : pq)</code> duyệt theo đúng thứ tự ưu tiên</strong> — sai, xem Example. Muốn xử lý
+  theo đúng thứ tự ưu tiên, phải dùng <code>poll()</code> liên tục (thường trong vòng lặp
+  <code>while (!pq.isEmpty())</code>), không phải for-each.</li>
+<li><strong>Sửa phần tử đang nằm trong <code>PriorityQueue</code> (nếu phần tử là object mutable) mà không
+  remove/re-add</strong> — heap property có thể bị vi phạm âm thầm, <code>poll()</code> sau đó không còn đảm bảo
+  đúng thứ tự.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Muốn lấy ra theo đúng thứ tự ưu tiên, luôn dùng <code>poll()</code> (hoặc <code>peek()</code> để chỉ xem không lấy
+  ra), không dùng for-each/<code>toString()</code>.</li>
+<li>Nếu cần thứ tự ưu tiên tuỳ chỉnh (không phải thứ tự tự nhiên), truyền <code>Comparator</code> vào
+  constructor (Chapter 14) thay vì dựa vào <code>Comparable</code> mặc định của phần tử.</li>
+<li>Không sửa trực tiếp field của phần tử đang nằm trong <code>PriorityQueue</code> nếu field đó ảnh hưởng
+  thứ tự — remove rồi add lại nếu cần thay đổi độ ưu tiên.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một job scheduler dùng <code>PriorityQueue</code> để xử lý task theo độ ưu tiên; log debug in
+ra trạng thái hàng đợi bằng cách duyệt trực tiếp (<code>for task : queue</code>) cho thấy thứ tự "có vẻ
+sai", khiến đội vận hành nghi ngờ có bug trong logic ưu tiên.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> log debug hiển thị thứ tự "lộn xộn", nhưng task <strong>thực tế được xử lý</strong> vẫn
+  đúng thứ tự ưu tiên (vì code xử lý dùng <code>poll()</code>, không phải for-each).</li>
+<li><strong>Root cause:</strong> hiểu lầm giữa mục đích debug (dùng for-each để log) và mục đích xử lý (dùng
+  <code>poll()</code>) — đây không phải bug, mà là hiểu sai bản chất <code>toString()</code>/iterator của
+  <code>PriorityQueue</code> như đã học ở chapter này.</li>
+<li><strong>Debug:</strong> xác nhận code xử lý task <strong>thực sự</strong> dùng <code>poll()</code>, không phải duyệt trực tiếp;
+  nếu chỉ log debug dùng for-each, đó chỉ là vấn đề hiển thị, không phải vấn đề logic.</li>
+<li><strong>Solution:</strong> nếu cần log ra đúng thứ tự xử lý dự kiến (không làm ảnh hưởng hàng đợi thật),
+  tạo một bản sao (<code>new PriorityQueue&lt;&gt;(original)</code>) rồi <code>poll()</code> liên tục trên bản sao đó chỉ
+  để log.</li>
+<li><strong>Prevention:</strong> tài liệu hoá rõ ràng trong code/runbook rằng thứ tự hiển thị của
+  <code>PriorityQueue</code> khác thứ tự xử lý thực tế, tránh gây hoang mang không cần thiết khi debug.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Log debug <code>PriorityQueue</code> "trông sai thứ tự" nhưng xử lý thực tế vẫn đúng? → xác nhận
+      code xử lý dùng <code>poll()</code>, chỉ log debug đang duyệt trực tiếp — không phải bug thật.</li>
+<li>[ ] Thứ tự xử lý thực tế (<code>poll()</code>) sai? → kiểm tra <code>Comparable</code>/<code>Comparator</code> (Chapter 14)
+      định nghĩa đúng thứ tự ưu tiên mong muốn chưa.</li>
+<li>[ ] Nghi ngờ heap bị hỏng cấu trúc? → kiểm tra có đang sửa trực tiếp field ảnh hưởng thứ tự
+      của phần tử đang nằm trong queue không.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>PriorityQueue.offer(e)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    ↓
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>queue[size] = e  (thêm vào cuối mảng)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    ↓
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>siftUp(size, e): so sánh e với cha tại (i-1)/2,
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    nếu e &lt; cha → hoán đổi, lặp lại với vị trí mới, cho tới gốc hoặc hết vi phạm
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>PriorityQueue.poll()
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    ↓
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>result = queue[0]  (luôn là nhỏ nhất)
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    ↓
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>lấy phần tử CUỐI mảng, đặt vào vị trí 0
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    ↓
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>siftDown(0): so sánh với 2 con, hoán đổi với con NHỎ HƠN nếu vi phạm,
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    lặp lại cho tới lá hoặc hết vi phạm
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    ↓
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>return result
+</code></pre></div>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>PriorityQueue</code> cài đặt bằng <strong>binary heap</strong>, biểu diễn dạng mảng phẳng, chỉ đảm bảo một tính
+chất cục bộ: mỗi node ≤ hai node con. Điều này đủ để <code>peek()</code>/<code>poll()</code> luôn trả về đúng phần tử
+nhỏ nhất O(1)/O(log n), nhưng <strong>không</strong> đảm bảo thứ tự toàn cục khi duyệt trực tiếp
+(<code>toString()</code>/for-each) — đã chứng minh bằng thực nghiệm: duyệt cho <code>[5, 20, 10, 50, 30, 80,
+90]</code>, trong khi <code>poll()</code> liên tục luôn cho đúng <code>5 10 20 30 50 80 90</code>. Muốn xử lý theo đúng thứ
+tự ưu tiên, luôn dùng <code>poll()</code>, không bao giờ dựa vào thứ tự duyệt trực tiếp.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>PriorityQueue</code> đảm bảo điều gì?</li>
+<li>Duyệt <code>PriorityQueue</code> bằng for-each có cho ra đúng thứ tự sắp xếp không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích cấu trúc binary heap và heap property.</li>
+<li><code>offer()</code>/<code>poll()</code> trên <code>PriorityQueue</code> có độ phức tạp gì? Vì sao <code>peek()</code> lại O(1)?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao heap biểu diễn được bằng mảng phẳng mà không cần con trỏ, trong khi <code>TreeMap</code>
+  (Chapter 10) cần Node với con trỏ tường minh?</li>
+<li>So sánh đánh đổi giữa dùng <code>PriorityQueue</code> (heap) và <code>TreeMap</code> (Red-Black Tree) cho bài toán
+  cần "luôn lấy ra phần tử nhỏ nhất" — khi nào chọn cái nào?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>PriorityQueueDemo</code> ở trên, xác nhận kết quả giống hệt.</li>
+<li>[ ] Vẽ tay cây nhị phân từ mảng <code>[5, 20, 10, 50, 30, 80, 90]</code>, xác nhận heap property đúng ở
+      mọi node theo công thức chỉ số đã học ở phần Deep Dive.</li>
+<li>[ ] Tạo <code>PriorityQueue&lt;Product&gt;</code> với <code>Comparator</code> sắp theo giá giảm dần (max-heap thay vì
+      min-heap mặc định) — xác nhận <code>poll()</code> liên tục cho ra đúng thứ tự giá giảm dần.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Thao tác</th>
+<th>Độ phức tạp</th>
+<th>Đảm bảo thứ tự?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>offer(e)</code></td>
+<td>O(log n)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>poll()</code></td>
+<td>O(log n)</td>
+<td>Luôn đúng thứ tự ưu tiên</td>
+</tr>
+<tr>
+<td><code>peek()</code></td>
+<td>O(1)</td>
+<td>Luôn đúng (phần tử ưu tiên nhất)</td>
+</tr>
+<tr>
+<td><code>toString()</code> / for-each / iterator</td>
+<td>O(n) để duyệt</td>
+<td><strong>KHÔNG</strong> đảm bảo thứ tự sắp xếp</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.PriorityQueue</code>.</li>
+<li>Oracle: "The Java Tutorials" — phần Queue interface.</li>
+<li>Thomas H. Cormen et al., <em>Introduction to Algorithms</em> — chương Heapsort/Priority Queue.</li>
 </ul>
 
 

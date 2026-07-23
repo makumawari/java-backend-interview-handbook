@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:deque" class="md-tag">Deque</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6163,283 @@ Chapter slug: <code>deque</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deque</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — LinkedList</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — ArrayList</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thread Pool, Executor (Phase 3) — hàng đợi task bên trong thread pool thường dùng cấu trúc tương tự Deque</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Bạn cần cài đặt một stack (ngăn xếp, vào sau ra trước — LIFO) để kiểm tra dấu ngoặc cân bằng
+trong một biểu thức. Sách giáo khoa cũ dạy dùng class <code>java.util.Stack</code> — nhưng mở Javadoc của
+nó ra, dòng đầu tiên viết: <em>"A more complete and consistent set of LIFO stack operations is
+provided by the Deque interface... which should be used in preference to this class."</em> Chính
+JDK khuyên <strong>không nên dùng</strong> <code>Stack</code> nữa.</p>
+<p>Vậy dùng gì? Câu trả lời: <code>Deque</code> (đọc là "deck", viết tắt của <em>Double-Ended Queue</em> — hàng đợi
+hai đầu). Một interface duy nhất, nhưng đủ mạnh để đóng vai trò cả <strong>stack</strong> (LIFO) lẫn
+<strong>queue</strong> (FIFO) — chỉ cần chọn đúng method tương ứng.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Deque</code> là gì? Vì sao JDK khuyên dùng <code>Deque</code> thay vì <code>java.util.Stack</code>/<code>java.util.Queue</code>
+truyền thống cho vai trò stack?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu <code>Deque</code> cho phép thêm/lấy phần tử ở <strong>cả hai đầu</strong>, đóng vai trò được cả stack lẫn
+      queue</li>
+<li>[ ] Dùng đúng bộ method: <code>push</code>/<code>pop</code> (stack), <code>offer</code>/<code>poll</code> (queue),
+      <code>addFirst</code>/<code>addLast</code>/<code>removeFirst</code>/<code>removeLast</code> (tổng quát)</li>
+<li>[ ] Biết <code>ArrayDeque</code> (dùng mảng vòng) thường nhanh hơn <code>LinkedList</code> cho vai trò
+      stack/queue thuần tuý</li>
+<li>[ ] Biết lý do JDK khuyên tránh <code>java.util.Stack</code>/<code>Vector</code> cũ</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 03-04 — hiểu <code>ArrayList</code>/<code>LinkedList</code>, để so sánh với <code>ArrayDeque</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Thread Pool, Executor</strong> (Phase 3) — hàng đợi task bên trong cơ chế thread pool dùng các cấu
+  trúc có tính chất tương tự <code>Deque</code> (một số cài đặt work-stealing dùng chính deque hai đầu cho
+  mỗi worker thread).</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>java.util.Stack</code> (Java 1.0) kế thừa <code>Vector</code> — một cấu trúc <strong>đồng bộ hoá toàn bộ</strong>
+(<code>synchronized</code> mọi method, giống <code>Hashtable</code> đã gặp ở Chapter 11), gây chi phí khoá không cần
+thiết trong phần lớn use case đơn luồng. <code>java.util.Queue</code> cơ bản chỉ hỗ trợ thao tác ở <strong>một
+đầu</strong> hiệu quả. Cần một interface hiện đại, không đồng bộ hoá thừa, hỗ trợ thao tác hiệu quả ở
+<strong>cả hai đầu</strong>.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Deque&lt;E&gt;</code> (mở rộng <code>Queue</code>) cung cấp bộ method đối xứng cho cả hai đầu: <code>addFirst()</code>/
+<code>addLast()</code>, <code>removeFirst()</code>/<code>removeLast()</code>, <code>peekFirst()</code>/<code>peekLast()</code>. Từ bộ method tổng quát
+này, hai vai trò kinh điển được ánh xạ trực tiếp:</p>
+<ul>
+<li><strong>Stack (LIFO)</strong>: <code>push()</code> = <code>addFirst()</code>, <code>pop()</code> = <code>removeFirst()</code>.</li>
+<li><strong>Queue (FIFO)</strong>: <code>offer()</code> = <code>addLast()</code>, <code>poll()</code> = <code>removeFirst()</code>.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu tách riêng hai interface <code>Stack</code>/<code>Queue</code> không liên quan: một cấu trúc dữ liệu muốn hỗ trợ
+cả hai vai trò (khá phổ biến — ví dụ thuật toán duyệt đồ thị có thể cần chuyển đổi giữa DFS
+dùng stack và BFS dùng queue) sẽ phải chọn implement cả hai interface riêng biệt, dù cơ chế
+lưu trữ bên dưới hoàn toàn giống nhau. <code>Deque</code> thống nhất cả hai nhu cầu vào một interface duy
+nhất, phản ánh đúng thực tế: một cấu trúc "hai đầu" tự nhiên phục vụ được cả hai vai trò mà
+không cần hai cài đặt riêng.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Hai implementation chính: <code>ArrayDeque</code> (dùng mảng vòng — circular array, không đồng bộ hoá) và
+<code>LinkedList</code> (Chapter 04, cũng implement <code>Deque</code>, ngoài vai trò <code>List</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;C&quot; — vào sau ra trước (LIFO)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;A&quot; — vào trước ra trước (FIFO)</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Deque (hai đầu):
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  addFirst()/push() ──▶ [ đầu ] ── ... ── [ cuối ] ◀── addLast()/offer()
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  removeFirst()/pop() ◀─ [ đầu ]          [ cuối ] ──▶ removeLast()
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Vai trò STACK (LIFO): chỉ dùng đầu    → push()=addFirst(), pop()=removeFirst()
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Vai trò QUEUE (FIFO): thêm cuối, lấy đầu → offer()=addLast(), poll()=removeFirst()
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận cả ba cách dùng — stack, queue, và cả hai đầu cùng lúc:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayDeque</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Deque</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DequeDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Stack (LIFO) pop lien tuc: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Queue (FIFO) poll lien tuc: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="n">both</span><span class="p">.</span><span class="na">addFirst</span><span class="p">(</span><span class="s">&quot;giua&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="n">both</span><span class="p">.</span><span class="na">addFirst</span><span class="p">(</span><span class="s">&quot;dau&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="n">both</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;cuoi&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Deque hai dau: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">both</span><span class="p">);</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Stack (LIFO) pop lien tuc: C, B, A
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Queue (FIFO) poll lien tuc: A, B, C
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Deque hai dau: [dau, giua, cuoi]
+</code></pre></div>
+<p>Cùng một class <code>ArrayDeque</code>, chỉ khác bộ method gọi, đóng được cả hai vai trò đối nghịch nhau
+hoàn toàn (LIFO vs FIFO).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>ArrayDeque</code> dùng "mảng vòng" (circular array) — khác <code>ArrayList</code> (Chapter 03) ở điểm nào?</strong>
+<code>ArrayList</code> chỉ thêm/xoá hiệu quả ở <strong>cuối</strong> mảng (đầu mảng tốn O(n) để dịch chuyển, Chapter
+03). <code>ArrayDeque</code> cần hiệu quả ở <strong>cả hai đầu</strong> — nó dùng một mảng có hai con trỏ <code>head</code>/<code>tail</code>
+<strong>xoay vòng</strong>: khi <code>head</code> "lùi" qua khỏi vị trí 0, nó <strong>quay lại</strong> cuối mảng (modulo kích
+thước) thay vì báo lỗi hay dịch chuyển toàn bộ phần tử. Kỹ thuật này cho phép <code>addFirst()</code> <strong>và</strong>
+<code>addLast()</code> đều O(1) amortized — điều <code>ArrayList</code> không đạt được cho đầu mảng.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>ArrayDeque</code> thường được khuyên dùng hơn <code>LinkedList</code> cho vai trò stack/queue thuần
+tuý, dù cả hai đều implement <code>Deque</code>?</strong> Đo thực nghiệm cho thấy rõ:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>addLast() x500000 -- ArrayDeque: 5ms, LinkedList: 20ms
+</code></pre></div>
+<p><code>ArrayDeque</code> nhanh hơn khoảng 4 lần cho cùng thao tác. Lý do: <code>LinkedList</code> phải cấp phát một
+object <code>Node</code> <strong>riêng</strong> cho mỗi phần tử (đã phân tích chi phí này ở
+<a href="../04-linkedlist/">Chapter 04 — Engineering Insight</a>: object header + 2 con trỏ), trong khi
+<code>ArrayDeque</code> chỉ ghi trực tiếp vào một ô mảng có sẵn — không có chi phí cấp phát object nhỏ lẻ
+liên tục, và tận dụng được tính liền kề bộ nhớ (cache locality — dữ liệu gần nhau trong bộ nhớ
+vật lý được CPU truy cập nhanh hơn nhờ cơ chế cache của phần cứng). Đây là lý do cụ thể, đo
+được, không phải khuyến nghị chung chung: khi chỉ cần vai trò stack/queue (không cần truy cập
+ngẫu nhiên theo chỉ số như <code>List</code>), <code>ArrayDeque</code> gần như luôn là lựa chọn tốt hơn <code>LinkedList</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Java 1.0 (1996)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    ↓
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>java.util.Stack — kế thừa Vector, đồng bộ hoá toàn bộ (giống Hashtable)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ↓
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Java 5 (2004)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    ↓
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Queue interface ra đời — nhưng chỉ hỗ trợ thao tác một đầu hiệu quả
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    ↓
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Java 6 (2006)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    ↓
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Deque interface + ArrayDeque ra đời — JDK chính thức khuyến nghị dùng
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Deque thay cho Stack/Vector cũ cho MỌI vai trò LIFO/FIFO mới
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>java.util.Stack</code> vẫn là lựa chọn chuẩn cho stack trong Java hiện đại."
+  <strong>Reality:</strong> Chính Javadoc của <code>Stack</code> khuyến nghị dùng <code>Deque</code> thay thế — <code>Stack</code> chỉ còn
+  tồn tại vì lý do tương thích ngược với code rất cũ.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>LinkedList</code> luôn là lựa chọn tốt cho <code>Deque</code> vì có <code>next</code>/<code>prev</code> sẵn, "tự nhiên"
+  cho cấu trúc hai đầu."
+  <strong>Reality:</strong> Xem Engineering Insight — <code>ArrayDeque</code> nhanh hơn đáng kể trong thực nghiệm nhờ
+  tránh chi phí cấp phát Node và tận dụng cache locality.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>java.util.Stack</code>/<code>Vector</code> trong code mới</strong> — nên dùng <code>ArrayDeque</code> thay thế.</li>
+<li><strong>Mặc định chọn <code>LinkedList</code> cho <code>Deque</code></strong> mà không cân nhắc <code>ArrayDeque</code> — bỏ lỡ hiệu năng
+  tốt hơn cho vai trò thuần stack/queue.</li>
+<li><strong>Nhầm lẫn <code>poll()</code> (FIFO, lấy từ đầu) với <code>pop()</code> (LIFO, cũng lấy từ đầu nhưng mang ý nghĩa
+  stack)</strong> — cả hai đều gọi <code>removeFirst()</code> bên trong, nhưng đặt tên khác nhau để code đọc rõ
+  ý nghĩa (stack hay queue) — chọn đúng tên method giúp code tự tài liệu hoá ý định.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Mặc định dùng <code>ArrayDeque</code> cho vai trò stack/queue thuần tuý, không cần <code>List</code>.</li>
+<li>Không dùng <code>java.util.Stack</code>/<code>Vector</code> trong code mới.</li>
+<li>Chọn đúng bộ method (<code>push</code>/<code>pop</code> cho stack, <code>offer</code>/<code>poll</code> cho queue) dù cả hai đều dùng
+  chung <code>ArrayDeque</code> — giúp code đọc rõ ý định thiết kế.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p>Chapter này thuần cấu trúc dữ liệu nền tảng — ứng dụng thực tế phổ biến nhất của <code>Deque</code> trong
+production nằm ở các thuật toán xử lý dữ liệu (duyệt cây/đồ thị bằng DFS dùng stack, xử lý
+theo lô bằng sliding window dùng cả hai đầu) hơn là gắn với một loại sự cố production cụ thể
+như các chapter về <code>HashMap</code>/<code>ConcurrentHashMap</code> trước đó.</p>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Cần chọn giữa <code>ArrayDeque</code> và <code>LinkedList</code> cho vai trò <code>Deque</code>? → mặc định chọn
+      <code>ArrayDeque</code> trừ khi có lý do cụ thể cần <code>LinkedList</code> (ví dụ cần cả vai trò <code>List</code> cùng
+      lúc).</li>
+<li>[ ] Code cũ dùng <code>java.util.Stack</code>/<code>Vector</code>? → cân nhắc refactor sang <code>ArrayDeque</code> khi có cơ
+      hội, đặc biệt nếu đang chạy trong ngữ cảnh đơn luồng (tránh chi phí đồng bộ hoá thừa).</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>ArrayDeque</code> giữ một mảng <code>elements</code> cùng hai chỉ số <code>head</code> và <code>tail</code>. <code>addFirst(e)</code>: giảm
+<code>head</code> (dùng phép AND bit với <code>elements.length - 1</code> để "quay vòng" khi <code>head</code> xuống dưới 0 —
+kỹ thuật tương tự phép tính chỉ số bucket của <code>HashMap</code>, Chapter 08, đòi hỏi
+<code>elements.length</code> luôn là luỹ thừa của 2). <code>addLast(e)</code>: ghi vào <code>tail</code> rồi tăng <code>tail</code> (cũng
+quay vòng tương tự). Khi mảng đầy, <code>ArrayDeque</code> resize gấp đôi — giống tinh thần
+<code>ArrayList</code> (Chapter 03), nhưng phải sao chép cẩn thận để giữ đúng thứ tự logic của các phần
+tử đang "quấn vòng" quanh mảng.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Deque</code> (Double-Ended Queue) hỗ trợ thêm/lấy phần tử ở cả hai đầu, đóng được cả vai trò stack
+(LIFO, qua <code>push</code>/<code>pop</code>) lẫn queue (FIFO, qua <code>offer</code>/<code>poll</code>) trong cùng một interface — JDK
+khuyến nghị dùng nó thay cho <code>java.util.Stack</code>/<code>Vector</code> cũ (đồng bộ hoá thừa không cần thiết).
+<code>ArrayDeque</code> dùng mảng vòng (circular array), đo thực nghiệm nhanh hơn <code>LinkedList</code> khoảng 4 lần
+cho thao tác thêm phần tử — nên là lựa chọn mặc định cho vai trò stack/queue thuần tuý, trừ khi
+cần thêm khả năng của <code>List</code> mà chỉ <code>LinkedList</code> mới có.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>Deque</code> là gì? Nó hỗ trợ những thao tác cơ bản nào?</li>
+<li><code>push()</code>/<code>pop()</code> và <code>offer()</code>/<code>poll()</code> khác nhau ở điểm gì dù có thể cùng lấy ra từ một đầu?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao JDK khuyến nghị dùng <code>Deque</code> thay cho <code>java.util.Stack</code>?</li>
+<li><code>ArrayDeque</code> dùng cấu trúc "mảng vòng" nghĩa là gì? Nó giải quyết vấn đề gì mà <code>ArrayList</code>
+  (Chapter 03) không giải quyết được cho đầu mảng?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao <code>ArrayDeque</code> thường nhanh hơn <code>LinkedList</code> cho vai trò stack/queue thuần
+  tuý, dựa trên phân tích chi phí bộ nhớ và cache locality.</li>
+<li>Thiết kế một thuật toán cần chuyển đổi linh hoạt giữa xử lý kiểu DFS (stack) và BFS (queue)
+  trên cùng một tập dữ liệu — <code>Deque</code> giúp gì cho thiết kế này?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>DequeDemo</code> ở trên, xác nhận kết quả giống hệt.</li>
+<li>[ ] Đo lại thực nghiệm chênh lệch <code>ArrayDeque</code> vs <code>LinkedList</code> cho <code>addLast()</code>/<code>pollFirst()</code>
+      trên máy bạn, xác nhận xu hướng tương tự.</li>
+<li>[ ] Dùng <code>Deque</code> cài đặt một hàm kiểm tra dấu ngoặc cân bằng trong biểu thức (ví dụ
+      <code>"({[]})"</code> hợp lệ, <code>"({[})]"</code> không hợp lệ) — bài toán kinh điển ứng dụng stack.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Vai trò</th>
+<th>Thêm</th>
+<th>Lấy ra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stack (LIFO)</td>
+<td><code>push(e)</code> = <code>addFirst(e)</code></td>
+<td><code>pop()</code> = <code>removeFirst()</code></td>
+</tr>
+<tr>
+<td>Queue (FIFO)</td>
+<td><code>offer(e)</code> = <code>addLast(e)</code></td>
+<td><code>poll()</code> = <code>removeFirst()</code></td>
+</tr>
+<tr>
+<td>Tổng quát</td>
+<td><code>addFirst()</code>/<code>addLast()</code></td>
+<td><code>removeFirst()</code>/<code>removeLast()</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Khuyến nghị:</strong> <code>ArrayDeque</code> cho stack/queue thuần tuý; tránh <code>java.util.Stack</code>/<code>Vector</code>
+trong code mới.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.Deque</code>, <code>java.util.ArrayDeque</code>.</li>
+<li>Javadoc <code>java.util.Stack</code> — ghi chú khuyến nghị dùng <code>Deque</code> thay thế.</li>
 </ul>
 
 

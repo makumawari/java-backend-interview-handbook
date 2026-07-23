@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:linkedlist" class="md-tag">LinkedList</a>
       
     
   </nav>
@@ -6149,15 +6163,15 @@ Chapter slug: <code>linkedlist</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LinkedList</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — ArrayList</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deque (Chapter 13) — LinkedList cũng implement Deque, dùng được như stack/queue</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6179,299 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../03-arraylist/">Chapter 03</a> — <code>add(index, e)</code>/<code>remove(index)</code> ở giữa/đầu
+<code>ArrayList</code> tốn O(n) vì phải dịch chuyển phần tử trong mảng.</p>
 </blockquote>
+<p>Nghe có vẻ <code>LinkedList</code> sẽ luôn thắng <code>ArrayList</code> cho những thao tác này — "không cần dịch
+chuyển gì cả, chỉ cần nối lại vài con trỏ". Nhiều lập trình viên vì lý do này chọn <code>LinkedList</code>
+"để an toàn" cho mọi trường hợp cần chèn/xoá nhiều. Nhưng thử đo thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>get(giua) x20000  -- ArrayList: 0ms,   LinkedList: 883ms
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>add(0, x) x20000  -- ArrayList: 88ms,  LinkedList: 0ms
+</code></pre></div>
+<p><code>LinkedList</code> thắng tuyệt đối ở <code>add(0, x)</code> — đúng như kỳ vọng. Nhưng thua <strong>thảm hại</strong> ở
+<code>get()</code> ngay giữa danh sách — chậm hơn <code>ArrayList</code> tới hàng trăm lần. Đây không phải một chi
+tiết vụn vặt: nó là bằng chứng cho thấy "LinkedList nhanh hơn cho chèn/xoá" chỉ đúng <strong>một nửa
+sự thật</strong>. Chapter này giải thích đầy đủ cả hai nửa.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>ArrayList</code> và <code>LinkedList</code> khác nhau như thế nào về cấu trúc bên trong? Khi nào thực sự nên
+chọn <code>LinkedList</code> thay vì mặc định dùng <code>ArrayList</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích cấu trúc <strong>doubly-linked list</strong> (danh sách liên kết đôi) đứng sau <code>LinkedList</code></li>
+<li>[ ] Tự tay đo được bằng thực nghiệm: <code>LinkedList</code> chậm hơn hẳn <code>ArrayList</code> khi truy cập ngẫu
+      nhiên, nhanh hơn hẳn khi chèn/xoá ở hai đầu</li>
+<li>[ ] Biết <code>LinkedList</code> cũng implement <code>Deque</code> (Chapter 13), dùng được như stack/queue</li>
+<li>[ ] Đưa ra được quyết định đúng: chọn <code>ArrayList</code> hay <code>LinkedList</code> dựa trên <strong>loại thao tác
+      chiếm ưu thế</strong>, không dựa trên trực giác chung chung</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 03 — đã hiểu cơ chế mảng nội bộ và độ phức tạp từng thao tác của <code>ArrayList</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Deque</strong> (Chapter 13) — <code>LinkedList</code> implement cả <code>List</code> lẫn <code>Deque</code>, dùng được như hàng
+  đợi hai đầu (stack/queue) — chapter đó sẽ so sánh <code>LinkedList</code> với <code>ArrayDeque</code> cho đúng vai
+  trò này.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ArrayList</code> (Chapter 03) trả giá O(n) cho <code>add(index, e)</code>/<code>remove(index)</code> ở giữa/đầu vì dữ liệu
+phải nằm <strong>liền kề vật lý</strong> trong một mảng. Cần một cấu trúc dữ liệu <strong>không</strong> yêu cầu tính
+liền kề — cho phép chèn/xoá ở bất kỳ vị trí nào mà không phải dịch chuyển hàng loạt phần tử
+khác.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>LinkedList</code> là một <strong>doubly-linked list</strong>: mỗi phần tử được bọc trong một <strong>Node</strong> riêng, chứa
+dữ liệu và hai con trỏ — <code>next</code> (trỏ tới Node kế tiếp) và <code>prev</code> (trỏ tới Node trước đó). Các
+Node <strong>không cần nằm liền kề trong bộ nhớ</strong> — mỗi Node có thể nằm rải rác bất kỳ đâu trên Heap
+(Phase 1, Chapter 04), liên kết với nhau hoàn toàn qua con trỏ.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">class</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Node</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Chèn một phần tử mới vào giữa danh sách chỉ cần tạo một Node mới và <strong>nối lại 4 con trỏ</strong> (2
+con trỏ của Node mới, và 2 con trỏ của hai Node lân cận) — O(1), không đụng tới bất kỳ Node nào
+khác. Đây chính là điều <code>ArrayList</code> không làm được (phải dịch chuyển toàn bộ phần tử phía sau).
+Đổi lại: vì các Node rải rác trong bộ nhớ, không có cách nào "nhảy thẳng" tới phần tử thứ k như
+tính địa chỉ trực tiếp trên mảng — phải <strong>đi bộ</strong> từng Node một từ đầu (hoặc cuối, nếu gần cuối
+hơn) cho tới khi tới đúng vị trí, đây chính là nguồn gốc chi phí O(n) cho truy cập ngẫu nhiên.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>add(index, e) trên LinkedList:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>1. Đi bộ (traverse) từ đầu HOẶC cuối (tuỳ index gần đầu hay gần cuối hơn)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   tới đúng vị trí — O(n)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2. Tạo Node mới
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>3. Nối lại 4 con trỏ (next/prev của Node mới VÀ của 2 Node lân cận) — O(1)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>add(0, e) hoặc add(size, e) (HAI ĐẦU):
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>   Bỏ qua bước đi bộ (đã biết chính xác đầu/cuối) → CHỈ O(1)
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ArrayList (mảng liền kề):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  [A][B][C][D][E]     get(2) = tính địa chỉ trực tiếp → O(1)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>   0  1  2  3  4        chèn giữa → dịch chuyển C,D,E → O(n)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>LinkedList (Node rải rác, nối bằng con trỏ):
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  head ⇄ [A] ⇄ [B] ⇄ [C] ⇄ [D] ⇄ [E] ⇄ tail
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                                          get(2) = ĐI BỘ từ head qua A,B rồi tới C → O(n)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>         chèn giữa B-C: tạo Node mới,
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>         nối 4 con trỏ, KHÔNG đụng A,D,E → O(1)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Đo thật chênh lệch hiệu năng cho hai loại thao tác — truy cập ngẫu nhiên vs. chèn ở đầu:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListPerfDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50_000</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arrayList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">linkedList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">arrayList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="n">linkedList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">arrayList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">arrayList</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">linkedList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">linkedList</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;get(giua) x20000 -- ArrayList: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms, LinkedList: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">arrayList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">linkedList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;add(0, x) x20000 -- ArrayList: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms, LinkedList: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="n">Runnable</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="n">r</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">;</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>get(giua) x20000 -- ArrayList: 0ms, LinkedList: 883ms
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>add(0, x) x20000 -- ArrayList: 88ms, LinkedList: 0ms
+</code></pre></div>
+<p>Hai thái cực đối nghịch hoàn toàn: <code>ArrayList</code> gần như tức thì cho <code>get()</code> nhưng tốn 88ms cho
+<code>add(0, ...)</code>; <code>LinkedList</code> gần như tức thì cho <code>add(0, ...)</code> nhưng tốn tới 883ms cho <code>get()</code>
+giữa danh sách — chênh lệch hơn 10 lần so với cả <code>add(0)</code> chậm nhất của <code>ArrayList</code>. Không có
+cấu trúc nào "nhanh hơn" một cách tuyệt đối — chỉ có "nhanh hơn cho đúng loại thao tác".</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>LinkedList.get(index)</code> tối ưu bằng cách chọn đi bộ từ đầu hay từ cuối</strong> — không phải lúc nào
+cũng đi từ <code>head</code>. Nếu <code>index &lt; size / 2</code>, nó đi bộ từ <code>head</code>; nếu <code>index &gt;= size / 2</code>, nó đi
+bộ từ <code>tail</code> (ngược lại) — tối ưu này giảm một nửa số bước đi bộ trung bình, nhưng <strong>không đổi
+độ phức tạp tiệm cận</strong>: vẫn là O(n), chỉ là hằng số ẩn phía trước nhỏ hơn 2 lần. Đây là lý do dù
+có tối ưu này, <code>LinkedList.get()</code> vẫn chậm hơn <code>ArrayList.get()</code> hàng trăm lần trong Example —
+O(n) dù được tối ưu vẫn luôn thua xa O(1) khi n đủ lớn.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Cái giá bộ nhớ ẩn của <code>LinkedList</code> mà benchmark thời gian không thể hiện.</strong> Mỗi phần tử
+trong <code>ArrayList</code> chỉ tốn đúng một ô trong mảng (8 byte cho một tham chiếu trên JVM 64-bit
+thông thường). Mỗi phần tử trong <code>LinkedList</code> cần một object <code>Node</code> <strong>riêng</strong> — ngoài dữ liệu
+thật, còn tốn thêm bộ nhớ cho <strong>header object</strong> (mọi object Java đều có overhead vài byte cho
+metadata, liên hệ <a href="../../phase-01-foundation/04-runtime-data-areas/">Phase 1 Chapter 04</a>) cộng
+với <strong>hai con trỏ</strong> <code>next</code>/<code>prev</code>. Với danh sách rất lớn, <code>LinkedList</code> có thể tốn bộ nhớ gấp
+3-4 lần so với <code>ArrayList</code> chứa cùng dữ liệu — một chi phí thường bị bỏ qua khi chỉ so sánh tốc
+độ thao tác, nhưng rất thật trong production khi làm việc với dữ liệu lớn (liên hệ trực tiếp
+<a href="../../phase-01-foundation/07-garbage-collection/">Phase 1 Chapter 07 — Garbage Collection</a>:
+nhiều object nhỏ rải rác cũng tạo áp lực lớn hơn lên GC so với một mảng liền khối).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>LinkedList</code> tồn tại từ Java 2 (1998). Trong nhiều năm, nó cũng implement <code>Queue</code> — Java 6
+(2006) bổ sung để implement thêm <code>Deque</code> (Chapter 13), chính thức biến nó thành một lựa chọn
+cho cả vai trò stack/queue hai đầu, không chỉ đơn thuần là một <code>List</code>.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>LinkedList</code> luôn nhanh hơn <code>ArrayList</code> cho thao tác chèn/xoá."
+  <strong>Reality:</strong> Chỉ đúng cho chèn/xoá ở <strong>hai đầu</strong> (O(1)). Chèn/xoá ở <strong>giữa</strong> vẫn cần đi bộ
+  O(n) để tìm tới vị trí trước — không nhanh hơn <code>ArrayList</code> một cách rõ rệt như trực giác
+  thường nghĩ.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>LinkedList</code> là lựa chọn 'an toàn hơn' khi không chắc thao tác nào sẽ chiếm ưu
+  thế."
+  <strong>Reality:</strong> Trong thực tế, phần lớn ứng dụng đọc (truy cập ngẫu nhiên) nhiều hơn hẳn ghi ở
+  giữa danh sách — <code>ArrayList</code> gần như luôn là lựa chọn mặc định tốt hơn trừ khi có bằng chứng
+  cụ thể (đo đạc thật) cho thấy ngược lại.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Chọn <code>LinkedList</code> "cho chắc" mà không đo đạc thực tế loại thao tác nào chiếm ưu thế trong
+  ứng dụng</strong> — dẫn tới hiệu năng tệ hơn nếu ứng dụng thực chất đọc nhiều hơn ghi.</li>
+<li><strong>Dùng vòng lặp <code>for (int i = 0; i &lt; list.size(); i++) list.get(i)</code></strong> trên <code>LinkedList</code> —
+  mỗi lần <code>get(i)</code> đều đi bộ lại từ đầu/cuối, biến một vòng lặp O(n) tưởng như đơn giản thành
+  O(n²) thực tế. Nên dùng <code>Iterator</code>/for-each (đi bộ tuần tự một lần duy nhất) thay vì
+  <code>get(index)</code> lặp lại trên <code>LinkedList</code>.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Mặc định chọn <code>ArrayList</code> trừ khi có bằng chứng đo đạc cụ thể cho thấy <code>LinkedList</code> (hoặc
+  <code>ArrayDeque</code>, Chapter 13) phù hợp hơn.</li>
+<li>Nếu dùng <code>LinkedList</code>, luôn duyệt bằng <code>Iterator</code>/for-each, không dùng <code>get(index)</code> lặp lại
+  trong vòng lặp.</li>
+<li>Khi cần vai trò stack/queue thuần tuý (không cần truy cập ngẫu nhiên), cân nhắc
+  <code>ArrayDeque</code> (Chapter 13) — thường nhanh hơn <code>LinkedList</code> cho vai trò này nhờ dùng mảng vòng
+  (circular array) thay vì Node rời rạc.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một đoạn code xử lý danh sách bằng vòng lặp <code>for (int i = 0; i &lt; list.size(); i++)</code>
+chạy nhanh trên dữ liệu test nhỏ, nhưng chậm bất thường (gần như "đứng hình") khi dữ liệu
+production lớn hơn nhiều.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> thời gian xử lý tăng <strong>phi tuyến</strong> (nhanh hơn nhiều so với tuyến tính) theo
+  kích thước dữ liệu — dấu hiệu đặc trưng của việc vô tình biến một thuật toán O(n) thành
+  O(n²).</li>
+<li><strong>Root cause:</strong> biến <code>list</code> thực chất là một <code>LinkedList</code> (có thể do code cũ, hoặc do một
+  API trả về <code>LinkedList</code> thay vì <code>ArrayList</code>), và vòng lặp dùng <code>list.get(i)</code> — mỗi lần gọi
+  đều tốn O(n) đi bộ, nhân với n lần lặp thành O(n²).</li>
+<li><strong>Debug:</strong> kiểm tra kiểu thực sự của <code>list</code> (không chỉ nhìn khai báo biến — có thể khai báo
+  là <code>List</code> nhưng object thật là <code>LinkedList</code>); profiling sẽ cho thấy phần lớn thời gian nằm
+  trong việc đi bộ Node.</li>
+<li><strong>Solution:</strong> đổi vòng lặp sang dùng <code>Iterator</code>/for-each (không dùng <code>get(index)</code>), hoặc đổi
+  cấu trúc dữ liệu sang <code>ArrayList</code> nếu truy cập ngẫu nhiên là thao tác chính.</li>
+<li><strong>Prevention:</strong> luôn ưu tiên for-each thay vì vòng lặp <code>get(index)</code> theo chỉ số cho <code>List</code>
+  nói chung, trừ khi chắc chắn implementation là <code>ArrayList</code> và cần chỉ số vì lý do khác.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Vòng lặp duyệt <code>List</code> chậm bất thường, tăng phi tuyến theo kích thước dữ liệu? → kiểm
+      tra implementation thật có phải <code>LinkedList</code> không, và có đang dùng <code>get(index)</code> lặp lại
+      không.</li>
+<li>[ ] Cần chọn giữa <code>ArrayList</code>/<code>LinkedList</code> mà không chắc? → đo đạc thật loại thao tác chiếm
+      ưu thế (đọc ngẫu nhiên hay chèn/xoá hai đầu), đừng dựa vào trực giác.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>LinkedList.get(index)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    ↓
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>checkElementIndex(index) — kiểm tra hợp lệ
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    ↓
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>node(index):
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    if (index &lt; (size &gt;&gt; 1)):
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        đi bộ từ FIRST, theo next, index bước
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    else:
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        đi bộ từ LAST, theo prev, (size - 1 - index) bước
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    ↓
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>trả về node.item
+</code></pre></div>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>LinkedList</code> là doubly-linked list — mỗi phần tử một Node riêng, liên kết qua con trỏ
+<code>next</code>/<code>prev</code>, không yêu cầu liền kề vật lý trong bộ nhớ. Chèn/xoá ở <strong>hai đầu</strong> là O(1) (không
+cần dịch chuyển gì); nhưng truy cập ngẫu nhiên (<code>get(index)</code>) là O(n) vì phải <strong>đi bộ</strong> từng
+Node — đã đo thực nghiệm chênh lệch hơn 800 lần so với <code>ArrayList</code> cho thao tác này. Chi phí bộ
+nhớ mỗi phần tử cũng cao hơn hẳn <code>ArrayList</code> (mỗi Node cần thêm object header + 2 con trỏ).
+Không có lựa chọn "tốt hơn tuyệt đối" — quyết định phải dựa trên loại thao tác thực sự chiếm ưu
+thế trong ứng dụng, lý tưởng nhất là đo đạc thật thay vì dựa vào trực giác chung chung.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>LinkedList</code> dùng cấu trúc dữ liệu gì bên dưới? Khác <code>ArrayList</code> ở điểm cơ bản nào?</li>
+<li><code>add(0, e)</code> trên <code>LinkedList</code> có độ phức tạp gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích vì sao <code>get(index)</code> trên <code>LinkedList</code> là O(n), dù nó có tối ưu đi bộ từ đầu hoặc
+  cuối tuỳ vị trí gần bên nào hơn.</li>
+<li>Cho một ví dụ cụ thể code vô tình biến O(n) thành O(n²) khi dùng sai cách với <code>LinkedList</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>ArrayList vs LinkedList: khi nào dùng mỗi loại? Trả lời dựa trên phân tích độ phức tạp từng
+  thao tác, không chỉ dựa trên "cảm giác chung chung".</li>
+<li>Phân tích chi phí bộ nhớ ẩn của <code>LinkedList</code> so với <code>ArrayList</code> — trong bối cảnh nào chi phí
+  này thực sự đáng kể trong production?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ListPerfDemo</code> ở trên, xác nhận chênh lệch tương tự trên máy bạn.</li>
+<li>[ ] Viết vòng lặp <code>for (int i = 0; i &lt; list.size(); i++) list.get(i)</code> trên một <code>LinkedList</code>
+      50.000 phần tử, đo thời gian, so sánh với duyệt bằng for-each — xác nhận chênh lệch rất
+      lớn, tự giải thích vì sao (gợi ý: O(n) so với O(n²)).</li>
+<li>[ ] Đo thêm thao tác <code>remove(size / 2)</code> (xoá giữa danh sách) cho cả hai cấu trúc — dự đoán
+      trước kết quả dựa trên lý thuyết đã học, rồi xác nhận bằng thực nghiệm.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Thao tác</th>
+<th>ArrayList</th>
+<th>LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get(index)</code></td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td><code>add(e)</code> (cuối)</td>
+<td>O(1) amortized</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>add(0, e)</code> / <code>remove(0)</code> (đầu)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>add(index, e)</code> (giữa)</td>
+<td>O(n)</td>
+<td>O(n) (đi bộ) + O(1) (nối con trỏ)</td>
+</tr>
+<tr>
+<td>Bộ nhớ mỗi phần tử</td>
+<td>Thấp (chỉ 1 ô mảng)</td>
+<td>Cao hơn (Node + 2 con trỏ)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chọn ArrayList khi:</strong> đọc/truy cập ngẫu nhiên nhiều (mặc định nên chọn).
+<strong>Chọn LinkedList/ArrayDeque khi:</strong> chèn/xoá chủ yếu ở hai đầu, hiếm khi truy cập ngẫu nhiên.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.LinkedList</code>.</li>
+<li>OpenJDK source — <code>java.base/java/util/LinkedList.java</code>, method <code>node(int)</code>.</li>
 </ul>
 
 

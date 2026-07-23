@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:collections" class="md-tag">Collections</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:utility" class="md-tag">Utility</a>
       
     
   </nav>
@@ -6149,94 +6163,332 @@ Chapter slug: <code>collections-utility</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collections Utility</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2 — Collections</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 14 — Comparable vs Comparator</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Immutable Collection (Chapter 16) — Collections.unmodifiableXxx() là tiền thân của List.of()</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p><code>Collections</code> (số nhiều, khác <code>Collection</code> số ít đã học ở Chapter 01) là một class tiện ích
+— toàn bộ method đều <code>static</code>, không thể tạo instance. Nó không phải một cấu trúc dữ liệu,
+mà là một "hộp công cụ" thao tác <strong>trên</strong> các cấu trúc dữ liệu đã có: sắp xếp, tìm kiếm, đảo
+ngược, và — dễ gây hiểu lầm nhất — "bọc" một collection thường thành phiên bản
+đồng bộ hoá hoặc bất biến.</p>
+<p>Từ "bọc" (wrap) chính là chìa khoá của chapter này. <code>Collections.synchronizedList(list)</code>
+không tạo ra một cấu trúc dữ liệu mới an toàn tuyệt đối — nó chỉ thêm một lớp khoá <strong>quanh mỗi
+lời gọi method riêng lẻ</strong>. Điều này nghe an toàn, nhưng ẩn chứa một cạm bẫy tinh vi mà rất
+nhiều lập trình viên khám phá ra theo cách khó chịu nhất: giữa production.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Collections.synchronizedList()</code> có làm cho việc duyệt (<code>for-each</code>) một list trở nên an toàn
+tuyệt đối với nhiều thread không?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo các method tĩnh phổ biến: <code>sort()</code>, <code>reverse()</code>, <code>max()</code>/<code>min()</code>,
+      <code>binarySearch()</code>, <code>unmodifiableXxx()</code>, <code>synchronizedXxx()</code></li>
+<li>[ ] Hiểu <code>unmodifiableList()</code> chỉ là một <strong>view chặn ghi</strong>, không phải bản sao bất biến thật
+      sự — vẫn thay đổi theo nếu list gốc bị sửa</li>
+<li>[ ] Tự tay tái hiện được cạm bẫy: <code>synchronizedList()</code> không bảo vệ được vòng lặp <code>for-each</code></li>
+<li>[ ] Biết <code>binarySearch()</code> yêu cầu list đã được sắp xếp trước, nếu không kết quả không xác
+      định</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 14 — hiểu <code>Comparable</code>/<code>Comparator</code>, dùng bởi <code>Collections.sort()</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Immutable Collection</strong> (Chapter 16) — <code>Collections.unmodifiableXxx()</code> (Java 1.2) là tiền
+  thân của <code>List.of()</code>/<code>Map.of()</code> (Java 9+) — chapter kế tiếp so sánh trực tiếp hai thế hệ giải
+  pháp cho cùng một nhu cầu.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Rất nhiều thao tác phổ biến (sắp xếp, tìm max/min, tìm kiếm nhị phân, đảo ngược) áp dụng được
+cho <strong>mọi</strong> implementation của <code>List</code>/<code>Collection</code>, không phụ thuộc cấu trúc bên dưới là gì.
+Viết các thao tác này thành method của từng interface riêng biệt sẽ trùng lặp code; đặt chúng
+vào một class tiện ích tĩnh dùng chung là giải pháp gọn hơn.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>java.util.Collections</code> là class chứa các method <code>static</code> thao tác trên <code>Collection</code>/<code>List</code>/
+<code>Map</code>, chia làm ba nhóm chính:</p>
+<ol>
+<li><strong>Thuật toán</strong>: <code>sort()</code>, <code>reverse()</code>, <code>shuffle()</code>, <code>max()</code>, <code>min()</code>, <code>binarySearch()</code>,
+   <code>frequency()</code>.</li>
+<li><strong>Wrapper bất biến</strong>: <code>unmodifiableList()</code>, <code>unmodifiableSet()</code>, <code>unmodifiableMap()</code>.</li>
+<li><strong>Wrapper đồng bộ hoá</strong>: <code>synchronizedList()</code>, <code>synchronizedSet()</code>, <code>synchronizedMap()</code>.</li>
+</ol>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có class tiện ích tập trung: mỗi implementation (<code>ArrayList</code>, <code>LinkedList</code>,
+<code>HashSet</code>...) sẽ phải tự viết lại <code>sort()</code>/<code>binarySearch()</code> riêng, dù thuật toán hoàn toàn giống
+nhau và chỉ cần thao tác qua interface chung (<code>List</code>, Chapter 02) là đủ. <code>Collections</code> tận
+dụng đúng nguyên tắc lập trình hướng interface (Phase 1, Chapter 08) để viết thuật toán <strong>một
+lần</strong>, áp dụng được cho <strong>mọi</strong> implementation tuân theo interface đó.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">));</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w">              </span><span class="c1">// [1, 3, 5, 8, 9]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">Collections</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w">           </span><span class="c1">// [9, 8, 5, 3, 1]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">Collections</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w">               </span><span class="c1">// 9</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">Collections</span><span class="p">.</span><span class="na">binarySearch</span><span class="p">(</span><span class="n">sortedList</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span><span class="w"> </span><span class="c1">// yêu cầu list ĐÃ sắp xếp trước</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">unmodifiableList</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w"> </span><span class="c1">// VIEW, không phải bản sao</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Collections.unmodifiableList(list)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        ▼
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   một VIEW chặn ghi TRỰC TIẾP qua chính view đó
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        ├── list.add(x) qua VIEW    → UnsupportedOperationException (chặn)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        └── list gốc bị sửa từ NƠI KHÁC → VIEW VẪN THẤY thay đổi đó
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                                          (không phải bản sao độc lập,
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                                           giống hệt bài học subList() ở Chapter 02)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong><code>unmodifiableList()</code> chặn sửa, nhưng chỉ là view:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CollectionsUtilDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">));</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;sort: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">Collections</span><span class="p">.</span><span class="na">reverse</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;reverse: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;max: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, min: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">nums</span><span class="p">));</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;binarySearch(8) tren list da sort tang: &quot;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">binarySearch</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">)),</span><span class="w"> </span><span class="mi">8</span><span class="p">));</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unmod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">unmodifiableList</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">            </span><span class="n">unmod</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">UnsupportedOperationException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;unmodifiableList chan sua: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sort: [1, 3, 5, 8, 9]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>reverse: [9, 8, 5, 3, 1]
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>max: 9, min: 1
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>binarySearch(8) tren list da sort tang: 3
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>unmodifiableList chan sua: UnsupportedOperationException
+</code></pre></div>
+<p><strong>Cạm bẫy <code>synchronizedList()</code></strong> — mỗi method riêng lẻ được khoá, nhưng vòng lặp <code>for-each</code>
+gồm nhiều lời gọi (<code>hasNext()</code>, <code>next()</code>) thì <strong>không</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">syncList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)));</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">syncList</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">syncList</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Khong nem exception - syncList = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">syncList</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ConcurrentModificationException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;synchronizedList VAN fail-fast khi duyet: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>synchronizedList VAN fail-fast khi duyet: ConcurrentModificationException
+</code></pre></div>
+<p><code>synchronizedList()</code> <strong>không</strong> biến vòng lặp <code>for-each</code> thành một khối nguyên tử — nó chỉ khoá
+<strong>từng lời gọi method riêng lẻ</strong> (<code>add()</code>, <code>remove()</code>, <code>get()</code>...). Javadoc chính thức của
+<code>Collections.synchronizedList()</code> thực ra đã ghi rõ: khi duyệt bằng iterator, người dùng <strong>phải
+tự</strong> bọc <code>synchronized (list) { ... }</code> quanh toàn bộ vòng lặp — điều rất ít người đọc kỹ tới.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>Collections.synchronizedList()</code> không tự động bảo vệ luôn cả vòng lặp?</strong> Vì làm vậy
+đòi hỏi giữ khoá trong suốt <strong>toàn bộ</strong> thời gian duyệt (có thể rất lâu nếu xử lý phức tạp bên
+trong vòng lặp) — chặn đứng mọi thread khác muốn thao tác trên list trong suốt thời gian đó,
+một chi phí quá lớn để tự động áp đặt cho mọi trường hợp. Thay vào đó, <code>synchronizedList()</code>
+chỉ khoá ở <strong>phạm vi từng lời gọi method</strong>, để lại quyết định "có cần khoá cả một khối thao
+tác dài hay không" cho người dùng tự làm tường minh (<code>synchronized (list) { for (...) {...} }</code>)
+— nếu thực sự cần. Đây chính là góc nhìn để so sánh với <a href="../11-concurrenthashmap/">Chapter 11 —
+ConcurrentHashMap</a>: <code>ConcurrentHashMap</code> được thiết kế lại hoàn toàn
+để tránh chính vấn đề này (khoá phạm vi nhỏ, không cần khoá thô toàn bộ cho từng thao tác),
+trong khi <code>synchronizedList()</code> chỉ là một lớp bọc đơn giản quanh cấu trúc dữ liệu <strong>không</strong>
+thread-safe, không giải quyết triệt để bài toán concurrency.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>Collections</code> là bằng chứng cho một giai đoạn "quá độ" trong lịch sử API tiện ích của Java.</strong>
+Nhiều method của nó (<code>unmodifiableList</code>, <code>synchronizedList</code>) ra đời từ Java 1.2 (1998), theo
+đúng phong cách lập trình thời kỳ đó: một class tiện ích tĩnh, bọc quanh object đã có. Java 8+
+(Stream API, Phase 4) và Java 9+ (<code>List.of()</code>, sẽ gặp ở Chapter 16) dần chuyển hướng sang phong
+cách hàm/khai báo hơn (functional/declarative), gọn hơn và ít cạm bẫy hơn (ví dụ <code>List.of()</code>
+luôn là bản sao bất biến thật, không phải view như <code>unmodifiableList()</code>). <code>Collections</code> vẫn còn
+hữu dụng và được dùng rộng rãi, nhưng nó là lớp API "thế hệ trước" — hiểu rõ giới hạn của nó
+(như cạm bẫy <code>synchronizedList</code> ở Example) là cần thiết để dùng đúng, không phải để tránh hoàn
+toàn.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Java 1.2 (1998)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    ↓
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Collections ra đời cùng Collection Framework — sort/reverse/unmodifiableXxx/
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>synchronizedXxx là các công cụ chính cho thao tác tập thể trên collection
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    ↓
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Java 5 (2004) — Collections.checkedList()/checkedMap() bổ sung, hỗ trợ
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>kiểm tra kiểu runtime khi làm việc với code cũ chưa dùng Generics
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    ↓
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>Java 8 (2014) — Stream API (Phase 4) dần thay thế nhiều use case của
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>Collections cho việc xử lý/biến đổi dữ liệu phức tạp hơn sort/reverse đơn thuần
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    ↓
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>Java 9 (2017) — List.of()/Set.of()/Map.of() (Chapter 16) thay thế
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>unmodifiableXxx() cho nhu cầu tạo collection bất biến, với ngữ nghĩa rõ ràng
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>hơn (bản sao thật, không phải view)
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>Collections.synchronizedList()</code> khiến mọi thao tác trên list, kể cả vòng lặp
+  <code>for-each</code>, đều an toàn tuyệt đối với nhiều thread."
+  <strong>Reality:</strong> Xem Example — chỉ từng lời gọi method riêng lẻ được khoá. Vòng lặp <code>for-each</code>
+  (nhiều lời gọi <code>hasNext()</code>/<code>next()</code> liên tiếp) <strong>không</strong> được bảo vệ tự động, vẫn cần tự bọc
+  <code>synchronized</code> thủ công quanh toàn bộ vòng lặp nếu cần an toàn tuyệt đối.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>Collections.unmodifiableList(list)</code> tạo ra một bản sao bất biến của <code>list</code>."
+  <strong>Reality:</strong> Nó chỉ là một <strong>view</strong> chặn ghi trực tiếp — nếu <code>list</code> gốc bị sửa từ nơi khác,
+  view vẫn phản ánh thay đổi đó, giống hệt bài học <code>subList()</code> ở Chapter 02.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tin tưởng tuyệt đối vào <code>synchronizedList()</code> mà không tự khoá thủ công khi duyệt</strong> — đúng
+  lỗi trọng tâm của chapter, dẫn tới <code>ConcurrentModificationException</code> khó tái hiện ổn định
+  trong môi trường đa luồng thật.</li>
+<li><strong>Coi <code>unmodifiableList()</code> là cách "đóng băng" dữ liệu vĩnh viễn</strong> — không đúng nếu vẫn còn
+  tham chiếu tới list gốc có thể sửa được ở đâu đó.</li>
+<li><strong>Gọi <code>binarySearch()</code> trên một list chưa sắp xếp</strong> — kết quả trả về hoàn toàn không xác
+  định (không phải lỗi, chỉ là sai một cách âm thầm).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Nếu cần an toàn tuyệt đối cho toàn bộ một chuỗi thao tác (không chỉ một lời gọi đơn lẻ) trên
+  <code>synchronizedList()</code>, tự bọc <code>synchronized (list) { ... }</code> quanh toàn bộ khối đó, đặc biệt
+  khi duyệt bằng iterator/for-each.</li>
+<li>Cho nhu cầu dùng chung nhiều thread hiện đại, cân nhắc <code>CopyOnWriteArrayList</code> (Chapter 17)
+  hoặc <code>ConcurrentHashMap</code>-tương-đương thay vì <code>synchronizedList()</code>.</li>
+<li>Cho nhu cầu tạo collection bất biến mới, ưu tiên <code>List.of()</code>/<code>Map.of()</code> (Chapter 16) thay vì
+  <code>unmodifiableXxx()</code> — ngữ nghĩa rõ ràng hơn (bản sao thật).</li>
+<li>Luôn <code>sort()</code> trước khi gọi <code>binarySearch()</code>.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service dùng <code>Collections.synchronizedList()</code> cho một danh sách dùng chung
+giữa nhiều thread xử lý request, thỉnh thoảng ném <code>ConcurrentModificationException</code> dưới tải
+cao, dù đã "làm đúng theo tài liệu" bọc <code>synchronizedList()</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> lỗi chỉ xuất hiện dưới tải cao (nhiều thread cùng lúc), không tái hiện được
+  ổn định trên máy dev với tải thấp.</li>
+<li><strong>Root cause:</strong> đúng cạm bẫy đã học — code có đoạn duyệt bằng <code>for-each</code> (hoặc
+  <code>Iterator</code>) trên <code>synchronizedList()</code> mà không tự khoá thêm quanh toàn bộ vòng lặp; một
+  thread khác gọi <code>add()</code>/<code>remove()</code> (đã được khoá đúng ở mức method) đúng lúc thread kia đang
+  duyệt giữa chừng, gây fail-fast kích hoạt.</li>
+<li><strong>Debug:</strong> tìm mọi chỗ duyệt (<code>for-each</code>/<code>Iterator</code>) trên các collection được bọc bằng
+  <code>Collections.synchronizedXxx()</code>.</li>
+<li><strong>Solution:</strong> bọc tường minh <code>synchronized (list) { for (...) {...} }</code> quanh toàn bộ khối
+  duyệt, hoặc đổi sang cấu trúc dữ liệu concurrent phù hợp hơn (<code>CopyOnWriteArrayList</code>, Chapter
+  17, nếu đọc nhiều ghi ít).</li>
+<li><strong>Prevention:</strong> đọc kỹ Javadoc của <code>Collections.synchronizedXxx()</code> — phần ghi chú về việc
+  cần tự khoá khi duyệt thường bị bỏ qua; đưa quy tắc "luôn tự khoá khi duyệt synchronizedList"
+  vào coding standard nội bộ.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>ConcurrentModificationException</code> chập chờn dù đã dùng <code>synchronizedList()</code>? → tìm chỗ
+      duyệt bằng for-each/Iterator, kiểm tra có tự khoá <code>synchronized (list) {...}</code> quanh toàn
+      bộ vòng lặp không.</li>
+<li>[ ] <code>binarySearch()</code> cho kết quả sai/không nhất quán? → xác nhận list đã được <code>sort()</code> trước
+      đó chưa.</li>
+<li>[ ] Dữ liệu "bất biến" (qua <code>unmodifiableList()</code>) vẫn thay đổi? → kiểm tra list gốc có bị sửa
+      từ một tham chiếu khác không.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>Collections.synchronizedList()</code> trả về một object <code>SynchronizedList</code> (implements <code>List</code>), mỗi
+method được override để bọc <code>synchronized (mutex) { return list.method(...); }</code> — <code>mutex</code>
+mặc định là chính object list được bọc. Việc iterator (<code>iterator()</code>) của <code>SynchronizedList</code>
+<strong>không</strong> tự động khoá trong suốt vòng đời của nó là quyết định thiết kế có chủ đích (như đã
+phân tích ở Deep Dive) — Javadoc yêu cầu người dùng tự làm điều đó bằng tay khi cần.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Collections</code> là class tiện ích tĩnh với ba nhóm method chính: thuật toán (<code>sort</code>, <code>reverse</code>,
+<code>binarySearch</code>...), wrapper bất biến (<code>unmodifiableXxx()</code> — chỉ là <strong>view</strong> chặn ghi, không
+phải bản sao), và wrapper đồng bộ hoá (<code>synchronizedXxx()</code> — chỉ khoá <strong>từng lời gọi method
+riêng lẻ</strong>, không tự động bảo vệ cả một vòng lặp <code>for-each</code>, đã chứng minh bằng thực nghiệm).
+Cho nhu cầu hiện đại, <code>List.of()</code> (Chapter 16) và <code>ConcurrentHashMap</code>-tương-đương
+(<code>CopyOnWriteArrayList</code>, Chapter 17) thường là lựa chọn tốt hơn <code>unmodifiableXxx()</code>/
+<code>synchronizedXxx()</code> — nhưng hiểu rõ giới hạn của thế hệ API cũ vẫn cần thiết vì chúng còn xuất
+hiện rất phổ biến trong code hiện tại.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Kể tên một vài method tĩnh phổ biến của class <code>Collections</code>.</li>
+<li><code>Collections.unmodifiableList()</code> trả về bản sao hay view của list gốc?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>Collections.synchronizedList()</code> có bảo vệ được vòng lặp <code>for-each</code> khỏi
+  <code>ConcurrentModificationException</code> không? Giải thích.</li>
+<li><code>binarySearch()</code> yêu cầu điều kiện gì trước khi gọi?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao <code>Collections.synchronizedList()</code> không tự động khoá toàn bộ vòng lặp
+  duyệt — đây là hạn chế thiết kế hay lựa chọn có chủ đích? Phân tích đánh đổi.</li>
+<li>So sánh <code>Collections.unmodifiableList()</code>/<code>synchronizedList()</code> (Java 1.2) với <code>List.of()</code>
+  (Chapter 16, Java 9) và <code>CopyOnWriteArrayList</code> (Chapter 17) — vì sao thế hệ API mới ra đời dù
+  API cũ vẫn hoạt động được?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>CollectionsUtilDemo</code> ở trên.</li>
+<li>[ ] Tái hiện đúng cạm bẫy <code>synchronizedList()</code> — xác nhận <code>ConcurrentModificationException</code>
+      vẫn xảy ra dù đã bọc <code>synchronizedList()</code>.</li>
+<li>[ ] Sửa lại ví dụ đó bằng cách tự bọc <code>synchronized (syncList) { ... }</code> quanh toàn bộ vòng
+      lặp — xác nhận không còn lỗi (trong ngữ cảnh đơn luồng của ví dụ, việc bọc synchronized
+      không thay đổi hành vi fail-fast của việc sửa trong lúc duyệt — thử nghiệm và tự rút ra
+      kết luận đúng là <code>synchronized</code> bảo vệ khỏi <em>thread khác</em> xen vào, không bảo vệ khỏi việc
+      chính bạn sửa list đang duyệt).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Việc gì</th>
+<th>Lưu ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Collections.sort(list)</code></td>
+<td>Sắp xếp (dùng <code>Comparable</code>/<code>Comparator</code>)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>Collections.binarySearch(list, key)</code></td>
+<td>Tìm kiếm nhị phân</td>
+<td>List phải đã sắp xếp trước</td>
+</tr>
+<tr>
+<td><code>Collections.unmodifiableList(list)</code></td>
+<td>View chặn ghi</td>
+<td>KHÔNG phải bản sao</td>
+</tr>
+<tr>
+<td><code>Collections.synchronizedList(list)</code></td>
+<td>Bọc khoá từng method</td>
+<td>KHÔNG bảo vệ cả vòng lặp for-each</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.Collections</code>.</li>
+<li>Javadoc <code>Collections.synchronizedList()</code> — ghi chú về yêu cầu tự khoá khi duyệt.</li>
 </ul>
 
 
