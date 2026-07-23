@@ -27,7 +27,7 @@
     
     
       
-        <title>JOIN - Java Backend Engineering Handbook</title>
+        <title>JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#join" class="md-skip">
+        <a href="#join-inner-left-va-cam-bay-where-vs-on" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JOIN
+              JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
             
           </span>
         </div>
@@ -4037,7 +4037,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4074,7 +4074,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4092,7 +4092,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4316,32 +4316,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4426,7 +4404,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4454,7 +4432,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4510,7 +4488,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4538,7 +4516,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4566,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4594,7 +4572,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:join" class="md-tag">JOIN</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="join">JOIN<a class="headerlink" href="#join" title="Permanent link">&para;</a></h1>
+<h1 id="join-inner-left-va-cam-bay-where-vs-on">JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON<a class="headerlink" href="#join-inner-left-va-cam-bay-where-vs-on" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>join</code></p>
@@ -6149,94 +6119,299 @@ Chapter slug: <code>join</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JOIN</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — SQL</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Execution Plan</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Optimization</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-sql/">Chapter 01</a> — <code>NULL = NULL</code> không bao giờ là <code>TRUE</code>. Điều này gây ra một
+trong những cạm bẫy JOIN phổ biến và nguy hiểm nhất: đặt điều kiện lọc <strong>sai chỗ</strong> khiến
+<code>LEFT JOIN</code> âm thầm biến thành <code>INNER JOIN</code> mà không có bất kỳ lỗi cú pháp nào.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- Dieu kien loc trong ON: giu nguyen tinh chat LEFT JOIN</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SHIPPED&#39;</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>     name     | order_id | status
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>--------------+----------+---------
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> Le Van C     |          |            &lt;- VAN CON, du khong co order SHIPPED
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> Nguyen Van A |        2 | SHIPPED
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a> Pham Thi D   |          |            &lt;- VAN CON
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a> Tran Thi B   |          |            &lt;- VAN CON, du order cua ho la NEW
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- CUNG dieu kien do, nhung dat trong WHERE</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SHIPPED&#39;</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>     name     | order_id | status
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>--------------+----------+---------
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> Nguyen Van A |        2 | SHIPPED
+</code></pre></div>
+<p>Cùng logic lọc, cùng dữ liệu — nhưng chỉ khác <strong>vị trí</strong> đặt điều kiện, kết quả thay đổi từ <strong>4
+dòng</strong> xuống còn <strong>1 dòng</strong>. Không hề có lỗi cú pháp nào cảnh báo.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>INNER JOIN</code> và <code>LEFT JOIN</code> khác nhau như thế nào? Vì sao đặt điều kiện lọc trong <code>WHERE</code> thay
+vì <code>ON</code> có thể âm thầm biến <code>LEFT JOIN</code> thành <code>INNER JOIN</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo <code>INNER JOIN</code>/<code>LEFT JOIN</code>, hiểu chính xác sự khác biệt về tập kết quả</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>INNER JOIN</code> loại bỏ customer không có order, <code>LEFT
+      JOIN</code> giữ lại (điền <code>NULL</code>)</li>
+<li>[ ] Tự tay tái hiện cạm bẫy "điều kiện lọc trong <code>WHERE</code> vô tình huỷ tính chất <code>LEFT JOIN</code>",
+      liên hệ trực tiếp tới ngữ nghĩa <code>NULL</code> đã học ở Chapter 01</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — bắt buộc phải hiểu ngữ nghĩa <code>NULL</code>/logic ba trị trước chapter này, vì nó chính
+  là nguyên nhân kỹ thuật của cạm bẫy <code>WHERE</code> vs <code>ON</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 04 (Execution Plan)</strong> — cách database engine chọn thuật toán (nested loop, hash
+  join, merge join) để thực thi một JOIN.</li>
+<li><strong>Chapter 09 (Optimization)</strong> — JOIN không đúng index là một trong những nguyên nhân phổ biến
+  nhất của truy vấn chậm.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Dữ liệu quan hệ (relational) tách thông tin thành nhiều bảng (Phase 6 đã thấy <code>Customer</code>/<code>Order</code>
+tách biệt) — để lấy được thông tin <strong>kết hợp</strong> từ nhiều bảng (ví dụ "tên khách hàng kèm đơn hàng
+của họ"), cần một cơ chế <strong>nối</strong> (join) các bảng lại theo một điều kiện liên kết (thường là khoá
+ngoại). Nhưng "nối" có nhiều ngữ nghĩa khác nhau: chỉ giữ lại các cặp <strong>khớp</strong> được cả hai bên
+(<code>INNER JOIN</code>), hay giữ lại <strong>toàn bộ</strong> một bên kể cả khi không tìm được cặp khớp
+(<code>LEFT JOIN</code>)?</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>INNER JOIN</code></strong> chỉ trả về các dòng có <strong>cặp khớp</strong> ở cả hai bảng theo điều kiện join — nếu một
+<code>Customer</code> không có <code>Order</code> nào khớp, <code>Customer</code> đó <strong>biến mất hoàn toàn</strong> khỏi kết quả.
+<strong><code>LEFT JOIN</code></strong> (hay <code>LEFT OUTER JOIN</code>) giữ lại <strong>toàn bộ</strong> dòng từ bảng bên trái (<code>customers</code>),
+kể cả khi không tìm được dòng khớp ở bảng bên phải (<code>orders</code>) — với các dòng không khớp, mọi cột
+đến từ bảng bên phải được điền <code>NULL</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Sự khác biệt giữa <code>INNER</code> và <code>LEFT JOIN</code> phản ánh trực tiếp hai nhu cầu nghiệp vụ khác nhau:
+"chỉ quan tâm các cặp có quan hệ thực sự tồn tại" (INNER — ví dụ báo cáo doanh thu, chỉ cần đơn
+hàng thật) so với "cần đầy đủ danh sách một bên, có thông tin liên kết thì tốt, không có cũng
+không sao" (LEFT — ví dụ danh sách toàn bộ khách hàng, kèm đơn hàng gần nhất nếu có). Vấn đề
+<code>WHERE</code> vs <code>ON</code> xảy ra vì hai mệnh đề này có <strong>thời điểm áp dụng khác nhau</strong> trong ngữ nghĩa
+<code>LEFT JOIN</code>: điều kiện trong <code>ON</code> được áp dụng <strong>trong lúc join</strong> (quyết định dòng nào khớp,
+trước khi điền <code>NULL</code> cho phần không khớp), còn điều kiện trong <code>WHERE</code> được áp dụng <strong>sau khi</strong>
+<code>LEFT JOIN</code> đã hoàn tất (kể cả với các dòng đã bị điền <code>NULL</code>) — và vì <code>NULL = 'SHIPPED'</code> luôn
+là <code>UNKNOWN</code> (Chapter 01), những dòng đã bị điền <code>NULL</code> bị <code>WHERE</code> loại bỏ tiếp, xoá sạch đúng
+phần lợi ích mà <code>LEFT JOIN</code> mang lại.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- INNER JOIN: CHI giu cap KHOP</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">-- LEFT JOIN: giu TOAN BO customers, dien NULL neu khong khop</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">-- Loc THEO DIEU KIEN cua bang phai ma VAN giu tinh chat LEFT JOIN: dat trong ON</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SHIPPED&#39;</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>INNER JOIN:                       LEFT JOIN:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  customers    orders               customers    orders
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  ┌────┐       ┌────┐               ┌────┐       ┌────┐
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  │ A  │──────&gt;│ o1 │               │ A  │──────&gt;│ o1 │
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  │ A  │──────&gt;│ o2 │               │ A  │──────&gt;│ o2 │
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  │ B  │──────&gt;│ o3 │               │ B  │──────&gt;│ o3 │
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  │ C  │   X   (khong co)           │ C  │──────&gt;│NULL│  &lt;- VAN CO, dien NULL
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  │ D  │   X   (khong co)           │ D  │──────&gt;│NULL│  &lt;- VAN CO, dien NULL
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  └────┘                            └────┘
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Ket qua: 3 dong (C, D bien mat)   Ket qua: 5 dong (C, D con, cot orders = NULL)
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>LEFT JOIN + loc trong ON:          LEFT JOIN + loc trong WHERE:
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>  ON giu C,D (dien NULL)            WHERE chay SAU khi da LEFT JOIN
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>  vi dieu kien CHI anh huong        WHERE loai dong co orders.status=NULL
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  viec KHOP voi orders, khong       (vi NULL = &#39;SHIPPED&#39; la UNKNOWN)
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  loai bo chinh dong C, D           =&gt; C, D, VA CA cac Order NEW bi loai
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  =&gt; 4 dong (van co C, D)           =&gt; 1 dong (thanh INNER JOIN tren thuc te)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
 </code></pre></div>
+<p>Kết quả thật (PostgreSQL 16.14):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>     name     | order_id | status
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>--------------+----------+---------
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a> Nguyen Van A |        1 | NEW
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> Nguyen Van A |        2 | SHIPPED
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a> Tran Thi B   |        3 | NEW
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>(3 rows)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>     name     | order_id | status
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>--------------+----------+---------
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> Le Van C     |          |
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a> Nguyen Van A |        1 | NEW
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a> Nguyen Van A |        2 | SHIPPED
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a> Pham Thi D   |          |
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a> Tran Thi B   |        3 | NEW
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>(5 rows)
+</code></pre></div>
+<p><code>Le Van C</code> và <code>Pham Thi D</code> (không có <code>Order</code> nào) <strong>biến mất</strong> với <code>INNER JOIN</code> (chỉ 3 dòng), 
+nhưng <strong>vẫn xuất hiện</strong> với <code>LEFT JOIN</code> (5 dòng, với <code>order_id</code>/<code>status</code> là <code>NULL</code>).</p>
+<p><strong>Cạm bẫy <code>WHERE</code> vs <code>ON</code></strong> — xem đầy đủ ở Story: đặt <code>o.status = 'SHIPPED'</code> trong <code>ON</code> giữ
+nguyên 4 khách hàng (chỉ khác giá trị <code>order_id</code>/<code>status</code> tuỳ có đơn SHIPPED hay không); đặt
+cùng điều kiện đó trong <code>WHERE</code> xoá sạch mọi khách hàng không có đơn SHIPPED — kể cả những khách
+hàng <strong>có</strong> đơn hàng (chỉ là đơn NEW, không phải SHIPPED) cũng bị loại, đúng như một <code>INNER
+JOIN</code> thông thường.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Giải thích chi tiết cơ chế khiến <code>WHERE</code> "vô tình" huỷ <code>LEFT JOIN</code>:</strong> <code>LEFT JOIN</code> được PostgreSQL
+xử lý theo hai bước logic: (1) tìm mọi cặp khớp theo điều kiện <code>ON</code>; (2) với mỗi dòng bên trái
+<strong>không</strong> tìm được cặp khớp nào, tạo thêm một dòng "giả", điền <code>NULL</code> cho mọi cột bên phải. Kết
+quả trung gian sau bước này đã bao gồm cả các dòng "giả" đó. <code>WHERE</code> (nếu có) chạy <strong>sau cùng</strong>,
+lọc trên <strong>toàn bộ</strong> kết quả trung gian đó — bao gồm cả các dòng "giả" vừa tạo. Vì các dòng giả
+có <code>o.status = NULL</code>, và <code>NULL = 'SHIPPED'</code> cho <code>UNKNOWN</code> (Chapter 01), <code>WHERE</code> loại bỏ toàn bộ
+các dòng giả đó — vô tình xoá sạch đúng phần dữ liệu mà <code>LEFT JOIN</code> được thiết kế để giữ lại.
+Ngược lại, điều kiện trong <code>ON</code> chỉ ảnh hưởng <strong>bước (1)</strong> (quyết định "cặp nào được coi là khớp"),
+hoàn toàn không ảnh hưởng bước (2) (dòng nào được giữ lại dù không khớp) — đây là lý do đặt điều
+kiện trong <code>ON</code> giữ nguyên được tính chất <code>LEFT JOIN</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Trong thực tế, lỗi "WHERE vô tình huỷ LEFT JOIN" nguy hiểm tới mức nào, và vì sao nó thường
+không bị phát hiện qua test thông thường?</strong> Đây là một trong những lỗi SQL <strong>âm thầm nhất</strong> —
+không có exception, không có cảnh báo cú pháp, kết quả trả về vẫn là dữ liệu "hợp lệ" (chỉ là
+thiếu một phần). Nó đặc biệt nguy hiểm trong các báo cáo/dashboard nghiệp vụ: một truy vấn "danh
+sách toàn bộ khách hàng kèm đơn hàng gần nhất (nếu có)" viết sai kiểu này sẽ <strong>âm thầm loại bỏ</strong>
+mọi khách hàng chưa từng mua hàng — một sai sót nghiêm trọng về mặt phân tích kinh doanh (ví dụ
+đội marketing muốn nhắm tới đúng nhóm khách hàng "chưa từng mua" sẽ nhận báo cáo trống rỗng, dẫn
+tới kết luận sai hoàn toàn) nhưng lại trông hoàn toàn "bình thường" khi xem qua kết quả (vẫn là
+một bảng dữ liệu có vẻ hợp lý, không có lỗi rõ ràng). Đây là lý do luôn cần kiểm tra: khi thêm
+điều kiện lọc liên quan tới bảng bên phải của một <code>LEFT JOIN</code>, cần tự hỏi "tôi có đang cố tình
+loại bỏ những dòng không khớp không? Nếu không, điều kiện này phải nằm trong <code>ON</code>".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Cú pháp <code>JOIN</code> tường minh (<code>INNER JOIN</code>/<code>LEFT JOIN ... ON ...</code>) chuẩn hoá trong SQL-92 (1992) —
+trước đó, join thường viết theo kiểu "implicit join" cũ hơn
+(<code>SELECT ... FROM a, b WHERE a.id = b.a_id</code>, liệt kê nhiều bảng cách nhau dấu phẩy trong <code>FROM</code>,
+điều kiện join đặt luôn trong <code>WHERE</code>). Cú pháp cũ này chính là nguồn gốc lịch sử của thói quen
+"đặt mọi điều kiện trong <code>WHERE</code>" — thói quen đó vô hại với <code>INNER JOIN</code> implicit (không có khái
+niệm "giữ lại dòng không khớp"), nhưng trở thành cạm bẫy nguy hiểm khi áp dụng nhầm sang
+<code>LEFT JOIN</code> hiện đại.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Đặt điều kiện lọc trong <code>ON</code> hay <code>WHERE</code> chỉ là khác biệt về phong cách viết, không
+  ảnh hưởng kết quả."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — với <code>LEFT JOIN</code>, vị trí đặt điều kiện thay đổi
+  hoàn toàn tập kết quả trả về (4 dòng so với 1 dòng).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>LEFT JOIN</code> luôn chậm hơn <code>INNER JOIN</code> vì phải xử lý thêm trường hợp không khớp."
+  <strong>Reality:</strong> Hiệu năng phụ thuộc chủ yếu vào Execution Plan (Chapter 04) và index (Chapter
+  03), không phải bản chất <code>LEFT</code>/<code>INNER</code> — cả hai đều có thể nhanh hoặc chậm tuỳ dữ liệu và
+  index.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đặt điều kiện lọc liên quan tới bảng bên phải của <code>LEFT JOIN</code> vào <code>WHERE</code> thay vì <code>ON</code></strong> —
+  cạm bẫy trung tâm của chapter này, âm thầm biến <code>LEFT JOIN</code> thành <code>INNER JOIN</code>.</li>
+<li><strong>Dùng <code>INNER JOIN</code> khi thực sự cần giữ lại toàn bộ một bên</strong> — mất dữ liệu không mong muốn mà
+  không có cảnh báo.</li>
+<li><strong>Không kiểm tra kỹ số dòng kết quả khi đổi từ <code>INNER</code> sang <code>LEFT JOIN</code> (hoặc ngược lại)</strong> —
+  nên luôn xác nhận số dòng thay đổi đúng như kỳ vọng.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Khi lọc theo điều kiện của bảng bên phải trong <code>LEFT JOIN</code> mà vẫn muốn giữ nguyên tính chất
+  "giữ lại dòng không khớp", luôn đặt điều kiện đó trong <code>ON</code>.</li>
+<li>Khi thực sự muốn loại bỏ hoàn toàn các dòng không khớp (bất kể lý do), có thể đặt trong
+  <code>WHERE</code> — nhưng nên nhận thức rõ ràng đây là hành vi tương đương <code>INNER JOIN</code>, cân nhắc dùng
+  hẳn <code>INNER JOIN</code> cho rõ ràng thay vì <code>LEFT JOIN</code> + <code>WHERE</code>.</li>
+<li>Luôn viết cú pháp <code>JOIN</code> tường minh (<code>INNER JOIN</code>/<code>LEFT JOIN ... ON ...</code>), tránh cú pháp
+  implicit join cũ (liệt kê bảng cách nhau dấu phẩy).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>LEFT JOIN</code> nhưng kết quả thiếu các dòng lẽ ra phải có (dòng không khớp)? → kiểm tra có
+      điều kiện nào liên quan tới bảng bên phải đang nằm trong <code>WHERE</code> thay vì <code>ON</code>.</li>
+<li>[ ] Không chắc một truy vấn <code>LEFT JOIN</code> có đang hoạt động đúng ý đồ không? → đếm số dòng kết
+      quả, so sánh với số dòng dự kiến ở bảng bên trái (phải luôn ≥ số dòng đó nếu là LEFT JOIN
+      đúng).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>INNER JOIN</code> chỉ giữ lại cặp khớp giữa hai bảng; <code>LEFT JOIN</code> giữ toàn bộ bảng bên trái, điền
+<code>NULL</code> cho phần không khớp bên phải. Đã chứng minh bằng thực nghiệm: <code>INNER JOIN</code> loại 2 khách
+hàng không có đơn hàng (còn 3 dòng), <code>LEFT JOIN</code> giữ lại cả hai (5 dòng, <code>NULL</code> ở cột order).
+Cạm bẫy quan trọng nhất: đặt điều kiện lọc bảng bên phải trong <code>WHERE</code> (thay vì <code>ON</code>) khiến
+<code>WHERE</code> loại luôn các dòng đã bị điền <code>NULL</code> (vì <code>NULL = giá_trị</code> luôn là <code>UNKNOWN</code>, Chapter 01)
+— âm thầm biến <code>LEFT JOIN</code> thành <code>INNER JOIN</code> mà không có lỗi cú pháp nào cảnh báo. Đã chứng
+minh trực tiếp: cùng điều kiện, đặt trong <code>ON</code> giữ 4 dòng, đặt trong <code>WHERE</code> chỉ còn 1 dòng.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li><code>INNER JOIN</code> và <code>LEFT JOIN</code> khác nhau như thế nào?</li>
+<li>Vì sao đặt điều kiện lọc trong <code>WHERE</code> thay vì <code>ON</code> có thể âm thầm biến <code>LEFT JOIN</code> thành
+  <code>INNER JOIN</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cơ chế hai bước của <code>LEFT JOIN</code> (tìm khớp, điền NULL cho không khớp) và cách
+  <code>WHERE</code>/<code>ON</code> tương tác khác nhau với từng bước.</li>
+<li>Vì sao lỗi "WHERE vô tình huỷ LEFT JOIN" đặc biệt nguy hiểm trong báo cáo nghiệp vụ, dù không
+  gây lỗi cú pháp?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại các câu lệnh ở Example trên một PostgreSQL thật, xác nhận số dòng đúng như mô tả.</li>
+<li>[ ] Viết một câu <code>RIGHT JOIN</code> tương đương một <code>LEFT JOIN</code> đã có (đổi vị trí bảng), xác nhận
+      kết quả giống hệt nhau.</li>
+<li>[ ] Cố tình viết một truy vấn <code>LEFT JOIN</code> với điều kiện lọc sai vị trí (<code>WHERE</code>), rồi sửa lại
+      đúng vị trí (<code>ON</code>), so sánh số dòng kết quả trước và sau khi sửa.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>INNER JOIN</code></th>
+<th><code>LEFT JOIN</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dòng không khớp bên trái</td>
+<td>Loại bỏ</td>
+<td>Giữ lại, điền <code>NULL</code></td>
+</tr>
+<tr>
+<td>Điều kiện lọc bảng phải trong <code>ON</code></td>
+<td>Không ảnh hưởng tính "giữ toàn bộ" (N/A cho INNER)</td>
+<td>Giữ nguyên tính chất LEFT JOIN</td>
+</tr>
+<tr>
+<td>Điều kiện lọc bảng phải trong <code>WHERE</code></td>
+<td>Tương đương <code>ON</code> (N/A)</td>
+<td><strong>Vô tình biến thành INNER JOIN</strong></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — Joins Between Tables.</li>
+<li>SQL-92 Standard — Joined Table syntax.</li>
 </ul>
 
 

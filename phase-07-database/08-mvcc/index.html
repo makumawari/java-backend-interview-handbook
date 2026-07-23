@@ -27,7 +27,7 @@
     
     
       
-        <title>MVCC - Java Backend Engineering Handbook</title>
+        <title>MVCC (Multi-Version Concurrency Control) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mvcc" class="md-skip">
+        <a href="#mvcc-multi-version-concurrency-control" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MVCC
+              MVCC (Multi-Version Concurrency Control)
             
           </span>
         </div>
@@ -4037,7 +4037,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4065,7 +4065,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4093,7 +4093,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4121,7 +4121,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4177,7 +4177,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4205,7 +4205,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4242,7 +4242,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4260,7 +4260,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4473,43 +4473,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4594,7 +4561,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6012,43 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:mvcc" class="md-tag">MVCC</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6089,7 @@
   
 
 
-<h1 id="mvcc">MVCC<a class="headerlink" href="#mvcc" title="Permanent link">&para;</a></h1>
+<h1 id="mvcc-multi-version-concurrency-control">MVCC (Multi-Version Concurrency Control)<a class="headerlink" href="#mvcc-multi-version-concurrency-control" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>mvcc</code></p>
@@ -6149,94 +6097,296 @@ Chapter slug: <code>mvcc</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MVCC</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Isolation</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Lock</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Optimization</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../07-lock/">Chapter 07</a> — một <code>UPDATE</code> giữ row lock khiến một <code>SELECT ... FOR
+UPDATE</code> khác <strong>thực sự bị block</strong> (~3.2 giây chờ đợi). Nhưng thử điều tương tự với một
+<code>SELECT</code> <strong>thông thường</strong> (không <code>FOR UPDATE</code>) — điều gì xảy ra?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- Session A: UPDATE (giu row lock) roi pg_sleep(2)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Version3_Uncommitted&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">-- Session B: SELECT THUONG, chay GAN NHU dong thoi</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">clock_timestamp</span><span class="p">();</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">clock_timestamp</span><span class="p">();</span>
+</code></pre></div>
+<p>Kết quả thật (Session B):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>        clock_timestamp
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-------------------------------
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> 2026-07-23 15:56:11.432749+00
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   city
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>----------
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a> Version2
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        clock_timestamp
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>-------------------------------
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a> 2026-07-23 15:56:11.844004+00
+</code></pre></div>
+<p>Chênh lệch chỉ <strong>~0.4 giây</strong> — Session B <strong>không hề bị block</strong>, dù Session A đang giữ row lock
+và <code>UPDATE</code> chưa commit. <code>SELECT</code> trả về ngay giá trị <strong>cũ đã commit</strong> (<code>'Version2'</code>), không
+phải giá trị mới chưa commit.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>MVCC là gì? Vì sao nó cho phép "readers không bao giờ block writers, writers không bao giờ
+block readers"?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu MVCC là cơ chế lưu <strong>nhiều phiên bản</strong> của cùng một dòng dữ liệu, thay vì khoá để bảo
+      vệ một bản duy nhất</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>SELECT</code> thông thường không bị block bởi <code>UPDATE</code>
+      đang giữ row lock — trái ngược với <code>SELECT ... FOR UPDATE</code> (Chapter 07)</li>
+<li>[ ] Tự tay quan sát các cột hệ thống <code>xmin</code>/<code>xmax</code> — bằng chứng trực tiếp rằng <code>UPDATE</code> tạo
+      ra một <strong>dòng vật lý mới</strong>, không sửa tại chỗ</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 06 — hiểu Isolation Level, MVCC chính là cơ chế PostgreSQL dùng để hiện thực hoá phần
+  lớn các mức isolation.</li>
+<li>Chapter 07 — hiểu row lock, để đối chiếu trực tiếp: lock bảo vệ <strong>ghi</strong>, MVCC loại bỏ nhu cầu
+  lock cho <strong>đọc</strong>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Optimization)</strong> — hiểu MVCC giúp giải thích các hiện tượng như "bảng phình to"
+  (bloat) cần <code>VACUUM</code> định kỳ.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Với cơ chế khoá truyền thống (lock-based concurrency control), để đảm bảo một reader không đọc
+phải dữ liệu "nửa vời" trong lúc writer đang sửa, cách đơn giản nhất là <strong>khoá</strong> dòng đó khi
+writer đang thao tác, buộc reader phải <strong>chờ</strong>. Nhưng điều này có nghĩa <strong>một writer duy nhất</strong>
+có thể chặn đứng <strong>hàng loạt reader</strong> — với ứng dụng có tỉ lệ đọc cao hơn ghi rất nhiều (phổ biến
+trong thực tế), đây là một điểm nghẽn hiệu năng nghiêm trọng.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>MVCC (Multi-Version Concurrency Control)</strong> giải quyết vấn đề này bằng cách <strong>không</strong> sửa dữ
+liệu tại chỗ — mỗi <code>UPDATE</code> tạo ra một <strong>dòng vật lý hoàn toàn mới</strong> (phiên bản mới), giữ nguyên
+dòng cũ (đánh dấu "đã cũ", không xoá ngay). Mỗi dòng vật lý mang hai cột hệ thống ẩn: <strong><code>xmin</code></strong>
+(ID của transaction đã <strong>tạo ra</strong> phiên bản này) và <strong><code>xmax</code></strong> (ID của transaction đã <strong>thay
+thế/xoá</strong> phiên bản này, <code>0</code> nếu vẫn là phiên bản mới nhất). Một transaction, khi đọc dữ liệu,
+chỉ nhìn thấy phiên bản <strong>phù hợp với snapshot của chính nó</strong> (dựa trên <code>xmin</code>/<code>xmax</code> so với
+transaction ID hiện tại) — hoàn toàn không cần khoá để đọc đúng phiên bản.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì mỗi phiên bản dữ liệu là <strong>bất biến</strong> sau khi tạo (không ai sửa một dòng vật lý đã tồn tại,
+chỉ tạo phiên bản mới), một reader có thể <strong>luôn</strong> đọc phiên bản phù hợp với mình mà <strong>không cần
+khoá gì cả</strong> — không có rủi ro đọc phải dữ liệu "nửa vời" (writer không sửa tại chỗ, chỉ thêm
+phiên bản mới), và không cần chờ writer "xong việc". Writer cũng không cần chờ reader "đọc xong"
+vì reader đang đọc phiên bản <strong>cũ, riêng biệt</strong> không bị writer động tới. Đây chính là lý do
+"readers không block writers, writers không block readers" — cả hai hoạt động trên các <strong>phiên
+bản dữ liệu tách biệt</strong>, chỉ <strong>writer-writer</strong> (hai bên cùng cố tạo phiên bản mới cho cùng một
+dòng logic) mới thực sự cần khoá (đúng nội dung đã học ở Chapter 07).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Xem cot he thong xmin/xmax</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1">-- INSERT: tao phien ban DAU TIEN</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(...);</span><span class="w"> </span><span class="c1">-- xmin = transaction hien tai, xmax = 0</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">-- UPDATE: tao phien ban MOI, KHONG sua tai cho</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;...&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">-- -&gt; dong CU: xmax = transaction hien tai (danh dau &quot;da cu&quot;)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">-- -&gt; dong MOI: xmin = transaction hien tai, xmax = 0</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>UPDATE trong MVCC (KHONG sua tai cho):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Truoc UPDATE:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    Dong vat ly #1: xmin=771, xmax=0    &lt;- phien ban HIEN TAI, city=&#39;Version1&#39;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  UPDATE ... SET city=&#39;Version2&#39;:
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    Dong vat ly #1: xmin=771, xmax=772  &lt;- danh dau DA CU (bi thay the boi transaction 772)
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    Dong vat ly #2: xmin=772, xmax=0    &lt;- phien ban MOI, city=&#39;Version2&#39;  &lt;-- HIEN TAI
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Reader vs Writer (KHONG block nhau):
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  Writer (transaction 773): UPDATE, giu row lock, CHUA commit
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>       │  (tao phien ban #3, xmax cua #2 = 773 nhung CHUA &quot;chinh thuc&quot; vi chua commit)
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>       │
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  Reader (transaction 774): SELECT thuong
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>       │  KHONG can khoa gi ca - doc THANG phien ban #2 (xmax=0 truoc khi 773 commit)
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>       ▼
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>  Reader TRA VE NGAY, thay du lieu CU (dung, vi 773 chua commit)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Cột hệ thống <code>xmin</code>/<code>xmax</code> — bằng chứng versioning thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;MVCC Demo&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Version1&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a> xmin | xmax |   city
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>------+------+----------
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  771 |    0 | Version1
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Version2&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">xmin</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="p">,</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a> xmin | xmax |   city
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>------+------+----------
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  772 |    0 | Version2
+</code></pre></div>
+<p><code>xmin</code> đổi từ <code>771</code> sang <code>772</code> — xác nhận đây là một <strong>dòng vật lý hoàn toàn khác</strong> (không phải
+cùng dòng bị sửa tại chỗ), do transaction <code>772</code> (chính là transaction chạy <code>UPDATE</code>) tạo ra.</p>
+<p><strong>Reader không bị block bởi Writer đang giữ lock:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- Session A: giu row lock, CHUA commit, dang &quot;ngu&quot; 2 giay</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Version3_Uncommitted&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1">-- Session B: SELECT thuong</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">clock_timestamp</span><span class="p">();</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mvcc@example.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">clock_timestamp</span><span class="p">();</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>2026-07-23 15:56:11.432749+00
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>   city
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>----------
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a> Version2
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>2026-07-23 15:56:11.844004+00
+</code></pre></div>
+<p>Chỉ <strong>~0.4 giây</strong> — không phải <strong>~2+ giây</strong> như khi dùng <code>SELECT ... FOR UPDATE</code> (Chapter 07).
+<code>SELECT</code> thông thường hoàn toàn <strong>không</strong> bị ảnh hưởng bởi <code>UPDATE</code> đang giữ lock, trả về ngay
+phiên bản <strong>đã commit gần nhất</strong> (<code>'Version2'</code>) — không phải giá trị <code>'Version3_Uncommitted'</code>
+(chưa commit, đúng nguyên tắc không Dirty Read đã học ở Chapter 06).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Nếu <code>UPDATE</code> không xoá ngay dòng cũ, ai chịu trách nhiệm dọn dẹp các phiên bản cũ đó, và điều
+gì xảy ra nếu không dọn dẹp?</strong> PostgreSQL dùng tiến trình nền <strong><code>VACUUM</code></strong> (thường tự động qua
+<strong><code>autovacuum</code></strong>) để quét và <strong>giải phóng</strong> không gian chiếm bởi các phiên bản dữ liệu cũ <strong>không
+còn transaction nào cần tới nữa</strong> (không có transaction đang chạy nào còn "nhìn thấy" phiên bản
+đó trong snapshot của nó). Nếu <code>autovacuum</code> không hoạt động hiệu quả (cấu hình sai, hoặc có
+transaction chạy <strong>rất lâu</strong> giữ snapshot cũ, ngăn không cho dọn dẹp các phiên bản mà transaction
+đó vẫn có thể cần), số lượng phiên bản cũ tích luỹ ngày càng nhiều — hiện tượng gọi là <strong>table
+bloat</strong> (bảng phình to) — làm chậm cả truy vấn (phải quét qua nhiều phiên bản chết hơn) lẫn tốn
+thêm dung lượng đĩa đáng kể so với dữ liệu thực sự cần thiết.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao hiểu MVCC quan trọng khi debug hiện tượng "bảng ngày càng chậm dù dữ liệu không tăng
+nhiều"?</strong> Đây là hệ quả trực tiếp của table bloat đã nêu ở Deep Dive: một bảng có tần suất
+<code>UPDATE</code> cao (ví dụ bảng đếm số lượt xem, cập nhật liên tục) tích luỹ <strong>rất nhiều</strong> phiên bản cũ
+theo thời gian nếu <code>autovacuum</code> không theo kịp tốc độ ghi — số dòng "thực sự tồn tại" (theo
+<code>COUNT(*)</code>) có thể không đổi nhiều, nhưng <strong>kích thước vật lý</strong> của bảng trên đĩa tăng liên tục
+(chứa cả phiên bản sống lẫn phiên bản chết chưa được dọn), khiến <code>Seq Scan</code> (Chapter 03) phải đọc
+nhiều dữ liệu hơn hẳn mức cần thiết. Chẩn đoán đúng vấn đề này đòi hỏi kiểm tra thống kê bloat
+(qua các view hệ thống hoặc extension chuyên dụng như <code>pgstattuple</code>), không chỉ nhìn vào số
+lượng dòng logic — một trong những lý do hiểu cơ chế MVCC bên dưới là kiến thức thực tế quan
+trọng, không chỉ lý thuyết suông.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>MVCC không phải phát minh riêng của PostgreSQL — khái niệm này xuất hiện từ nghiên cứu những năm
+1970]  (song song với các khái niệm nền tảng khác đã gặp xuyên suốt Phase 7), nhưng PostgreSQL là
+một trong những hệ quản trị database đầu tiên hiện thực hoá MVCC làm cơ chế <strong>mặc định và duy
+nhất</strong> ngay từ những phiên bản đầu (khác với nhiều database khác ban đầu dùng lock-based
+concurrency control truyền thống, chỉ bổ sung MVCC sau này — ví dụ MySQL/InnoDB, Oracle). Đây là
+một trong những đặc trưng kiến trúc cốt lõi phân biệt PostgreSQL với nhiều hệ quản trị database
+khác.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>UPDATE</code> sửa trực tiếp dữ liệu tại vị trí cũ trên đĩa, giống như gán lại giá trị
+  một biến trong bộ nhớ."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm qua <code>xmin</code>/<code>xmax</code> — <code>UPDATE</code> tạo ra một <strong>dòng vật
+  lý hoàn toàn mới</strong>, dòng cũ chỉ được đánh dấu "đã cũ", không sửa tại chỗ.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Một <code>SELECT</code> luôn phải chờ nếu có <code>UPDATE</code> khác đang thao tác trên cùng dòng dữ
+  liệu."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm ngược lại — <code>SELECT</code> thông thường không bao giờ bị
+  block bởi <code>UPDATE</code> (chỉ <code>SELECT ... FOR UPDATE</code> mới bị, vì nó chủ động xin lock — Chapter 07).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li><strong>Không hiểu vì sao bảng "phình to" dù số dòng logic không tăng nhiều</strong> — bỏ lỡ nguyên nhân
+  gốc rễ là table bloat từ các phiên bản cũ chưa được <code>VACUUM</code>.</li>
+<li><strong>Giữ transaction mở rất lâu</strong> (ví dụ quên <code>COMMIT</code>/<code>ROLLBACK</code>) — ngăn <code>autovacuum</code> dọn dẹp
+  các phiên bản cũ mà transaction đó về lý thuyết vẫn có thể cần, gây bloat nghiêm trọng hơn.</li>
+<li><strong>Nhầm lẫn MVCC với Optimistic Lock</strong> (Phase 6, Chapter 13) — dù cùng liên quan tới việc không
+  khoá khi đọc, MVCC là cơ chế versioning ở tầng lưu trữ vật lý; Optimistic Lock (<code>@Version</code>) là
+  một kỹ thuật ứng dụng xây trên nền tảng đó để kiểm soát xung đột ghi ở tầng logic nghiệp vụ.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Bảng chậm đi theo thời gian dù số dòng không tăng nhiều? → nghi ngờ table bloat, kiểm tra
+      <code>autovacuum</code> có hoạt động đúng không, cân nhắc <code>VACUUM</code> thủ công.</li>
+<li>[ ] Một transaction chạy rất lâu, nghi ngờ ảnh hưởng hiệu năng toàn hệ thống? → transaction dài
+      giữ snapshot cũ có thể ngăn <code>autovacuum</code> dọn dẹp các phiên bản dữ liệu liên quan.</li>
+<li>[ ] Cần xác nhận <code>UPDATE</code> có thực sự tạo phiên bản mới không? → kiểm tra <code>xmin</code> thay đổi trước/
+      sau <code>UPDATE</code> bằng <code>SELECT xmin, xmax, * FROM table WHERE ...</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>MVCC lưu <strong>nhiều phiên bản</strong> của cùng một dòng dữ liệu thay vì khoá để bảo vệ một bản duy nhất —
+mỗi <code>UPDATE</code> tạo dòng vật lý mới (<code>xmin</code> mới), đánh dấu dòng cũ "đã cũ" (<code>xmax</code>), không sửa tại
+chỗ. Đã chứng minh bằng thực nghiệm: <code>xmin</code> đổi từ <code>771</code> sang <code>772</code> sau <code>UPDATE</code>, xác nhận
+versioning thật; <code>SELECT</code> thông thường <strong>không</strong> bị block bởi <code>UPDATE</code> đang giữ lock (~0.4 giây,
+so với ~3.2 giây của <code>SELECT ... FOR UPDATE</code> ở Chapter 07) — readers luôn đọc được phiên bản phù
+hợp với snapshot riêng của mình mà không cần chờ đợi. Đánh đổi của MVCC là cần dọn dẹp định kỳ
+(<code>VACUUM</code>/<code>autovacuum</code>) các phiên bản cũ không còn cần thiết — nếu không, gây "table bloat" (bảng
+phình to), một nguyên nhân phổ biến của hiện tượng "bảng chậm dần theo thời gian" trong thực tế
+production.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>MVCC là gì? Vì sao nó cho phép "readers không bao giờ block writers, writers không bao giờ
+  block readers"?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cơ chế <code>xmin</code>/<code>xmax</code> và vì sao <code>UPDATE</code> không sửa dữ liệu tại chỗ.</li>
+<li>Table bloat là gì? Nó liên quan thế nào tới MVCC, và cách phát hiện/khắc phục?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại các câu lệnh ở Example trên một PostgreSQL thật, xác nhận <code>xmin</code>/<code>xmax</code> và hành
+      vi blocking (hoặc không blocking) đúng như mô tả.</li>
+<li>[ ] Chạy nhiều <code>UPDATE</code> liên tiếp trên cùng một dòng, quan sát <code>xmin</code> thay đổi mỗi lần; dùng
+      <code>SELECT pg_relation_size('customers')</code> trước/sau để quan sát kích thước bảng tăng lên.</li>
+<li>[ ] Chạy <code>VACUUM customers;</code> thủ công sau đó, so sánh kích thước bảng trước và sau.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lock-based (truyền thống)</th>
+<th>MVCC (PostgreSQL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đọc trong lúc ghi</td>
+<td>Reader phải chờ writer</td>
+<td>Reader đọc phiên bản cũ, không chờ</td>
+</tr>
+<tr>
+<td><code>UPDATE</code></td>
+<td>Sửa tại chỗ</td>
+<td>Tạo dòng vật lý mới</td>
+</tr>
+<tr>
+<td>Cần dọn dẹp?</td>
+<td>Không</td>
+<td>Có (<code>VACUUM</code>, tránh table bloat)</td>
+</tr>
+<tr>
+<td>Cột hệ thống</td>
+<td>N/A</td>
+<td><code>xmin</code> (tạo bởi transaction nào), <code>xmax</code> (thay thế bởi transaction nào)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — Concurrency Control (MVCC), Routine Vacuuming.</li>
 </ul>
 
 

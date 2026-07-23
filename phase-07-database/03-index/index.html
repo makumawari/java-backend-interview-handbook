@@ -27,7 +27,7 @@
     
     
       
-        <title>Index - Java Backend Engineering Handbook</title>
+        <title>Index (B-tree) và Selectivity - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#index" class="md-skip">
+        <a href="#index-b-tree-va-selectivity" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Index (B-tree) và Selectivity
             
           </span>
         </div>
@@ -4037,7 +4037,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4065,7 +4065,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4102,7 +4102,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4120,7 +4120,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4344,32 +4344,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4454,7 +4432,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4510,7 +4488,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4538,7 +4516,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4566,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4594,7 +4572,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:index" class="md-tag">Index</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="index">Index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h1>
+<h1 id="index-b-tree-va-selectivity">Index (B-tree) và Selectivity<a class="headerlink" href="#index-b-tree-va-selectivity" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>index</code></p>
@@ -6149,94 +6119,275 @@ Chapter slug: <code>index</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Index</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — SQL</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2, Chapter 10 — TreeMap</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Execution Plan</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Optimization</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 2, Chapter 10 (TreeMap) — cấu trúc cây cân bằng cho phép tìm kiếm
+<code>O(log n)</code> thay vì duyệt tuần tự <code>O(n)</code>. Index database áp dụng <strong>chính xác nguyên lý đó</strong> cho
+dữ liệu trên đĩa.</p>
 </blockquote>
+<p>Tìm một dòng cụ thể trong bảng <strong>2 triệu dòng</strong>, trước và sau khi tạo index:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">customer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;user12345@example.com&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Không có index:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Parallel Seq Scan on big_orders (actual time=58.251..126.525 rows=1 loops=3)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Rows Removed by Filter: 666665
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Execution Time: 131.365 ms
+</code></pre></div>
+<p><strong>Sau khi <code>CREATE INDEX idx_big_orders_email ON big_orders(customer_email)</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Index Scan using idx_big_orders_email on big_orders (actual time=0.015..0.023 rows=4 loops=1)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Execution Time: 0.038 ms
+</code></pre></div>
+<p>Cùng dữ liệu, cùng câu truy vấn — <strong>131.365ms xuống còn 0.038ms</strong>, nhanh hơn khoảng <strong>3,400
+lần</strong>, chỉ nhờ một câu <code>CREATE INDEX</code> duy nhất.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Index trong database là gì? Nó hoạt động dựa trên cấu trúc dữ liệu nào, và vì sao không phải
+lúc nào cũng nên tạo index cho mọi cột?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu Index B-tree là cấu trúc dữ liệu cây cân bằng, giống <code>TreeMap</code> (Phase 2) nhưng tối ưu
+      cho việc đọc/ghi trên đĩa</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm tốc độ tăng vọt (hàng nghìn lần) khi truy vấn có index
+      phù hợp trên bảng lớn</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: có index không đảm bảo được dùng — planner <strong>bỏ qua</strong>
+      index khi <strong>selectivity</strong> thấp (điều kiện khớp quá nhiều dòng)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu SQL là khai báo, engine tự quyết định cách thực thi (bao gồm việc có dùng
+  index hay không).</li>
+<li>Phase 2, Chapter 10 — hiểu cấu trúc cây B-tree/Red-Black tree qua <code>TreeMap</code>, nền tảng lý
+  thuyết của Index B-tree.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 04 (Execution Plan)</strong> — đọc hiểu chi tiết <code>EXPLAIN ANALYZE</code>, công cụ đã dùng xuyên
+  suốt chapter này.</li>
+<li><strong>Chapter 09 (Optimization)</strong> — thiết kế index đúng là kỹ thuật tối ưu hiệu năng quan trọng
+  nhất trong thực tế.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Không có index, tìm một dòng cụ thể trong bảng buộc database phải <strong>duyệt tuần tự</strong> (Seq Scan)
+qua <strong>mọi</strong> dòng, kiểm tra từng dòng có khớp điều kiện hay không — độ phức tạp <code>O(n)</code>, với bảng
+càng lớn, thời gian tìm kiếm càng tăng tuyến tính. Với bảng hàng triệu dòng (phổ biến trong thực
+tế production), điều này khiến ngay cả một truy vấn tìm-một-dòng đơn giản cũng trở nên chậm
+không thể chấp nhận được.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Index</strong> (mặc định là <strong>B-tree</strong> trong hầu hết database) là một cấu trúc dữ liệu <strong>riêng biệt</strong>
+với bảng dữ liệu gốc, lưu trữ giá trị của (các) cột được đánh index cùng con trỏ trỏ tới vị trí
+dòng dữ liệu thật — được tổ chức theo cây cân bằng, cho phép tìm kiếm với độ phức tạp
+<code>O(log n)</code> thay vì <code>O(n)</code>. Database engine tự động <strong>quyết định</strong> có dùng index hay không dựa
+trên <strong>selectivity</strong> (độ chọn lọc — tỉ lệ số dòng khớp điều kiện trên tổng số dòng): điều kiện
+càng <strong>chọn lọc cao</strong> (khớp ít dòng), lợi ích dùng index càng lớn.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>B-tree được chọn làm cấu trúc index mặc định vì nó tối ưu cho <strong>I/O đĩa</strong>: mỗi node của B-tree
+tương ứng một trang dữ liệu (page) trên đĩa, cây được thiết kế <strong>thấp và rộng</strong> (mỗi node chứa
+nhiều key, không phải cây nhị phân đơn giản) để giảm thiểu số lần đọc đĩa cần thiết khi tìm kiếm
+(mỗi lần đọc đĩa tốn kém hơn nhiều so với so sánh trong bộ nhớ). Việc engine tự quyết định dùng
+hay không dùng index (dựa trên selectivity) phản ánh đúng bản chất khai báo của SQL (Chapter 01)
+— index chỉ là một <strong>công cụ có sẵn</strong>, không phải một <strong>chỉ thị bắt buộc</strong>; nếu dùng index thực
+sự chậm hơn (selectivity thấp, phải nhảy ngẫu nhiên qua quá nhiều trang đĩa so với đọc tuần tự),
+engine hoàn toàn có quyền bỏ qua nó.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_big_orders_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">big_orders</span><span class="p">(</span><span class="n">customer_email</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">-- Sau do, query WHERE customer_email = &#39;...&#39; co the dung index nay</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">customer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;user12345@example.com&#39;</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Khong co Index (Seq Scan):              Co Index (Index Scan), selectivity CAO:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Duyet TUAN TU qua het 2 trieu dong       B-tree: [tang goc]
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  ──► ──► ──► ──► ... ──► TIM THAY              /    |    \
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  (kiem tra TUNG dong mot)                  [nhanh] [nhanh] [nhanh]
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>                                                        │
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  O(n) = 2,000,000 buoc                          [la: tro toi dong that]
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>                                              O(log n) ~ 21 buoc (log2 2,000,000)
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Co Index nhung selectivity THAP (is_paid ~50%):
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>  Dung index -&gt; phai NHAY qua GAN 1 TRIEU vi tri ngau nhien tren dia
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>  So voi Seq Scan -&gt; doc TUAN TU (nhanh hon vi khong &quot;nhay lung tung&quot;)
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  =&gt; PLANNER TU CHOI dung index, chon Seq Scan
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Selectivity cao — index thắng áp đảo:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">customer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;user12345@example.com&#39;</span><span class="p">;</span>
 </code></pre></div>
+<p>Không có index (2 triệu dòng):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Parallel Seq Scan on big_orders (actual time=58.251..126.525 rows=1 loops=3)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  Filter: ((customer_email)::text = &#39;user12345@example.com&#39;::text)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Rows Removed by Filter: 666665
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Execution Time: 131.365 ms
+</code></pre></div>
+<p>Sau khi tạo index:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Index Scan using idx_big_orders_email on big_orders (actual time=0.015..0.023 rows=4 loops=1)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  Index Cond: ((customer_email)::text = &#39;user12345@example.com&#39;::text)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Execution Time: 0.038 ms
+</code></pre></div>
+<p><strong>Selectivity thấp — planner chủ động bỏ qua index:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_big_orders_is_paid</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">big_orders</span><span class="p">(</span><span class="n">is_paid</span><span class="p">);</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">is_paid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</code></pre></div>
+<p>Kết quả thật (dù index đã tồn tại):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Seq Scan on big_orders (actual time=0.009..101.275 rows=999320 loops=1)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  Filter: is_paid
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  Rows Removed by Filter: 1000680
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Execution Time: 115.512 ms
+</code></pre></div>
+<p>Với điều kiện chọn lọc <strong>cao</strong> (<code>customer_email = '...'</code>, chỉ khớp 4/2,000,000 dòng — selectivity
+cực thấp về tỉ lệ, nghĩa là "rất chọn lọc"), index mang lại tốc độ <strong>gấp ~3,400 lần</strong>. Nhưng với
+điều kiện chọn lọc <strong>thấp</strong> (<code>is_paid = true</code>, khớp gần <strong>50%</strong> tổng số dòng), planner <strong>hoàn
+toàn bỏ qua</strong> index dù nó tồn tại (dòng <code>QUERY PLAN</code> không hề nhắc tới
+<code>idx_big_orders_is_paid</code>) — tự chọn <code>Seq Scan</code>, vì với gần một nửa số dòng khớp điều kiện, đọc
+tuần tự thực sự <strong>nhanh hơn</strong> việc nhảy ngẫu nhiên qua từng vị trí trong index.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao "nhảy ngẫu nhiên qua index" lại chậm hơn "đọc tuần tự" khi selectivity thấp, dù về mặt
+lý thuyết <code>O(log n)</code> luôn nhanh hơn <code>O(n)</code>?</strong> Đây là điểm dễ hiểu lầm nhất về index: độ phức tạp
+<code>O(log n)</code> chỉ đo <strong>số lần tìm kiếm trong cây</strong> để định vị <strong>một</strong> dòng — nhưng sau khi định vị,
+engine còn phải <strong>đọc dòng dữ liệu thật</strong> từ bảng gốc (vì index thường chỉ lưu con trỏ, không
+lưu toàn bộ dữ liệu dòng, trừ trường hợp index bao phủ — covering index). Nếu cần đọc <strong>gần một
+triệu</strong> dòng dữ liệu thật (selectivity thấp), và các dòng đó nằm <strong>rải rác không theo thứ tự</strong>
+trên đĩa (vì thứ tự trong index không nhất thiết khớp thứ tự vật lý trên đĩa của bảng gốc), mỗi
+lần đọc là một <strong>I/O ngẫu nhiên</strong> riêng biệt (random I/O — chậm hơn đáng kể so với sequential
+I/O trên hầu hết thiết bị lưu trữ, dù SSD hiện đại đã thu hẹp khoảng cách này). Với selectivity
+đủ thấp, tổng chi phí của hàng loạt I/O ngẫu nhiên đó <strong>vượt quá</strong> chi phí đơn giản đọc tuần tự
+toàn bộ bảng — đây chính xác là lý do planner (dựa trên thống kê phân bố dữ liệu nó tự thu thập,
+<code>ANALYZE</code>) chủ động chọn <code>Seq Scan</code> thay vì <code>Index Scan</code> trong ví dụ <code>is_paid</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao "cứ thêm index cho mọi cột hay dùng trong WHERE" là một chiến lược sai lầm trong thực
+tế production, dù index tăng tốc đọc?</strong> Mỗi index không phải "miễn phí" — nó phải được <strong>cập
+nhật đồng bộ</strong> với mọi thao tác <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code> trên bảng gốc (mỗi thay đổi dữ liệu
+phải cập nhật cả cấu trúc B-tree tương ứng), làm <strong>chậm</strong> các thao tác ghi, và tốn thêm <strong>dung
+lượng đĩa</strong> đáng kể (một index lớn có thể tốn dung lượng tương đương hoặc hơn cả bảng gốc). Với
+bảng có tần suất ghi cao, việc thêm index không cân nhắc kỹ (đặc biệt cho các cột selectivity
+thấp, nơi index hiếm khi thực sự được dùng như ví dụ <code>is_paid</code>) là đánh đổi <strong>lỗ</strong> — trả chi phí
+ghi chậm hơn và tốn đĩa, đổi lấy lợi ích đọc gần như không đáng kể (vì planner sẽ bỏ qua index đó
+phần lớn thời gian). Quyết định đúng đắn luôn dựa trên đo lường thực tế (selectivity của điều
+kiện, tần suất truy vấn so với tần suất ghi), không phải nguyên tắc "càng nhiều index càng tốt".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>B-tree (Bayer &amp; McCreight, 1972) được thiết kế ban đầu chính xác cho bài toán tổ chức dữ liệu
+trên thiết bị lưu trữ có độ trễ truy cập cao (ổ đĩa từ thời kỳ đó) — ý tưởng cốt lõi "giảm số
+lần truy cập đĩa bằng cách làm cây thấp và rộng" vẫn giữ nguyên giá trị dù công nghệ lưu trữ đã
+thay đổi nhiều (SSD, NVMe) — chi phí truy cập ngẫu nhiên vẫn cao hơn truy cập tuần tự, dù khoảng
+cách đã thu hẹp đáng kể so với ổ đĩa từ truyền thống.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Có index luôn nhanh hơn không có index, bất kể điều kiện truy vấn là gì."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — với selectivity thấp (<code>is_paid = true</code>, khớp
+  ~50% dữ liệu), planner chủ động bỏ qua index đã tồn tại, chọn Seq Scan vì thực sự nhanh hơn.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Nên tạo index cho mọi cột xuất hiện trong mệnh đề <code>WHERE</code>, càng nhiều càng an
+  toàn."
+  <strong>Reality:</strong> Xem Engineering Insight — mỗi index có chi phí ghi và dung lượng thật, index
+  selectivity thấp hiếm khi được dùng nhưng vẫn phải trả chi phí duy trì.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tạo index cho cột có selectivity thấp (boolean, hoặc cột chỉ có vài giá trị phân biệt) kỳ
+  vọng tăng tốc</strong> — planner thường bỏ qua, lãng phí chi phí duy trì index.</li>
+<li><strong>Ngạc nhiên/hoang mang khi thấy <code>EXPLAIN</code> không dùng index dù đã tạo</strong> — đây là hành vi đúng
+  đắn của planner với selectivity thấp, không phải lỗi.</li>
+<li><strong>Không đo lường selectivity thực tế trước khi quyết định tạo index</strong> — nên kiểm tra tỉ lệ
+  giá trị phân biệt/tổng số dòng trước khi đầu tư vào index cho một cột.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Tạo index cho các cột có <strong>selectivity cao</strong> (nhiều giá trị phân biệt, mỗi điều kiện chỉ khớp
+  một phần nhỏ dữ liệu) — điển hình: khoá ngoại, email, mã đơn hàng.</li>
+<li>Tránh tạo index cho cột selectivity thấp (boolean, trạng thái chỉ có vài giá trị) trừ khi có
+  lý do cụ thể (ví dụ kết hợp composite index với cột khác).</li>
+<li>Luôn dùng <code>EXPLAIN ANALYZE</code> để xác nhận index thực sự được dùng và mang lại lợi ích, không chỉ
+  dựa vào giả định.</li>
+<li>Cân nhắc chi phí ghi khi thêm index cho bảng có tần suất <code>INSERT</code>/<code>UPDATE</code> cao.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Truy vấn chậm dù đã tạo index đúng cột? → chạy <code>EXPLAIN ANALYZE</code>, kiểm tra planner có
+      thực sự dùng index không — nếu không, kiểm tra selectivity của điều kiện.</li>
+<li>[ ] Không chắc một index có đang thực sự hữu ích không? → so sánh selectivity (tỉ lệ dòng khớp
+      điều kiện), selectivity càng thấp thì index càng ít khả năng được dùng.</li>
+<li>[ ] Tốc độ ghi (<code>INSERT</code>/<code>UPDATE</code>) giảm sau khi thêm nhiều index? → bình thường, mỗi index
+      thêm chi phí đồng bộ hoá cấu trúc — cân nhắc loại bỏ index ít selectivity/ít dùng.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Index (B-tree) là cấu trúc cây cân bằng riêng biệt, cho phép tìm kiếm <code>O(log n)</code> thay vì <code>O(n)</code>
+duyệt tuần tự — cùng nguyên lý với <code>TreeMap</code> (Phase 2). Đã chứng minh bằng thực nghiệm: với điều
+kiện selectivity cao (khớp 4/2,000,000 dòng), index tăng tốc từ 131.365ms xuống 0.038ms (~3,400
+lần). Nhưng index <strong>không phải lúc nào cũng được dùng</strong> — với selectivity thấp (khớp ~50% dữ
+liệu), planner chủ động bỏ qua index đã tồn tại, chọn Seq Scan vì đọc tuần tự thực sự nhanh hơn
+nhảy ngẫu nhiên qua index (random I/O tốn kém hơn sequential I/O). Mỗi index có chi phí thật (làm
+chậm ghi, tốn dung lượng) — chỉ nên tạo cho cột có selectivity cao, xác nhận hiệu quả qua
+<code>EXPLAIN ANALYZE</code> thay vì giả định.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>Index trong database là gì? Nó hoạt động dựa trên cấu trúc dữ liệu nào?</li>
+<li>Vì sao không phải lúc nào cũng nên tạo index cho mọi cột?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao planner có thể bỏ qua một index đã tồn tại. Selectivity là gì, và nó ảnh
+  hưởng quyết định của planner như thế nào?</li>
+<li>So sánh chi phí đọc (random I/O qua index) và chi phí đọc tuần tự (Seq Scan) — khi nào cái nào
+  thắng?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại các câu lệnh ở Example trên một PostgreSQL thật với bảng đủ lớn (&gt;1 triệu dòng),
+      xác nhận kết quả tương tự.</li>
+<li>[ ] Thử tạo composite index (nhiều cột) cho <code>big_orders(is_paid, customer_email)</code>, chạy lại
+      truy vấn kết hợp cả hai điều kiện, quan sát planner có dùng index không.</li>
+<li>[ ] Dùng <code>SELECT count(*), count(DISTINCT customer_email) FROM big_orders;</code> để tự tính
+      selectivity thực tế của cột <code>customer_email</code>, so sánh với <code>is_paid</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Selectivity</th>
+<th>Ví dụ</th>
+<th>Planner có dùng index?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rất cao (gần như duy nhất)</td>
+<td>Email, mã đơn hàng, khoá chính</td>
+<td>Có, hiệu quả rõ rệt</td>
+</tr>
+<tr>
+<td>Trung bình</td>
+<td>Thành phố (vài chục giá trị)</td>
+<td>Tuỳ tình huống, thường có</td>
+</tr>
+<tr>
+<td>Thấp (~50%, ít giá trị phân biệt)</td>
+<td>Boolean (<code>is_paid</code>), trạng thái chỉ 2-3 giá trị</td>
+<td>Thường KHÔNG dùng</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chi phí index:</strong> làm chậm <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code>, tốn dung lượng đĩa — chỉ tạo khi lợi ích
+đọc vượt trội chi phí này.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — Indexes.</li>
+<li>Bayer, R.; McCreight, E. — "Organization and Maintenance of Large Ordered Indexes" (1972).</li>
 </ul>
 
 

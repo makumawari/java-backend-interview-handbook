@@ -27,7 +27,7 @@
     
     
       
-        <title>Lock (Database-level Locking) - Java Backend Engineering Handbook</title>
+        <title>Lock (Database-level Locking) và Deadlock - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lock-database-level-locking" class="md-skip">
+        <a href="#lock-database-level-locking-va-deadlock" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lock (Database-level Locking)
+              Lock (Database-level Locking) và Deadlock
             
           </span>
         </div>
@@ -4037,7 +4037,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4065,7 +4065,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4093,7 +4093,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4121,7 +4121,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4177,7 +4177,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4214,7 +4214,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4232,7 +4232,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4456,32 +4456,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4566,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4594,7 +4572,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:deadlock" class="md-tag">Deadlock</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lock" class="md-tag">Lock</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6118,7 @@
   
 
 
-<h1 id="lock-database-level-locking">Lock (Database-level Locking)<a class="headerlink" href="#lock-database-level-locking" title="Permanent link">&para;</a></h1>
+<h1 id="lock-database-level-locking-va-deadlock">Lock (Database-level Locking) và Deadlock<a class="headerlink" href="#lock-database-level-locking-va-deadlock" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>lock</code></p>
@@ -6149,94 +6126,301 @@ Chapter slug: <code>lock</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lock (Database-level Locking)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Isolation</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6, Chapter 14 — Pessimistic Lock</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 09-10 — Lock, ReentrantLock</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — MVCC</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Optimization</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 6, Chapter 14 — <code>SELECT ... FOR UPDATE</code> (qua JPA) khiến một thread thực sự bị
+block. Chapter này đi xuống tầng SQL thuần bên dưới, và khai thác thêm một hiện tượng nguy
+hiểm hơn: <strong>deadlock</strong> — hai giao dịch cùng chờ đợi lẫn nhau, mãi mãi không ai nhường ai.</p>
 </blockquote>
+<p>Cho hai session cùng khoá <strong>theo thứ tự ngược nhau</strong>: Session A khoá dòng 1 rồi xin dòng 2;
+Session B khoá dòng 2 rồi xin dòng 1 — cùng lúc:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- Session A: BEGIN; SELECT ... WHERE id=1 FOR UPDATE; SELECT ... WHERE id=2 FOR UPDATE;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">-- Session B: BEGIN; SELECT ... WHERE id=2 FOR UPDATE; SELECT ... WHERE id=1 FOR UPDATE;</span>
+</code></pre></div>
+<p>Kết quả thật (PostgreSQL 16.14) — Session A:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ERROR:  deadlock detected
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DETAIL:  Process 220 waits for ShareLock on transaction 767; blocked by process 221.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Process 221 waits for ShareLock on transaction 766; blocked by process 220.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>HINT:  See server log for query details.
+</code></pre></div>
+<p>PostgreSQL <strong>tự phát hiện</strong> vòng chờ đợi tuần hoàn này và chủ động huỷ <strong>một trong hai</strong>
+transaction (Session A) — Session B tiếp tục bình thường sau đó.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Row-level lock khác table-level lock như thế nào? Deadlock xảy ra khi nào, và database phát
+hiện/xử lý nó ra sao?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt row-level lock (<code>SELECT ... FOR UPDATE</code>) và table-level lock (<code>LOCK TABLE</code>)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm (đo timestamp thật): một session giữ row lock khiến
+      session khác thực sự bị <strong>block</strong>, không phải lỗi hay bỏ qua</li>
+<li>[ ] Tự tay tái hiện một <strong>deadlock thật</strong>, quan sát PostgreSQL tự phát hiện và huỷ một
+      transaction để phá vỡ vòng chờ đợi</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 06 — hiểu Isolation Level, vì lock là một trong những cơ chế hiện thực hoá nó.</li>
+<li>Phase 6, Chapter 14 — đã học Pessimistic Lock qua JPA, chapter này đi xuống đúng cơ chế SQL
+  thuần bên dưới lớp trừu tượng đó.</li>
+<li>Phase 3, Chapter 09-10 — liên hệ với khái niệm <code>Lock</code>/deadlock ở tầng JVM, cùng nguyên lý
+  nhưng khác tầng.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 08 (MVCC)</strong> — MVCC giảm thiểu nhu cầu dùng lock cho việc <strong>đọc</strong> dữ liệu, chỉ lock
+  vẫn cần thiết cho <strong>ghi</strong>.</li>
+<li><strong>Chapter 09 (Optimization)</strong> — lock contention (tranh chấp khoá) là một nguyên nhân phổ biến
+  của hiệu năng kém dưới tải cao.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khi nhiều transaction cùng cần <strong>sửa đổi</strong> cùng một dòng dữ liệu, cần một cơ chế đảm bảo chỉ
+đúng một transaction thao tác tại một thời điểm — nếu không, hai <code>UPDATE</code> chạy chồng chéo có thể
+dẫn tới kết quả sai (mất một trong hai thay đổi). Nhưng cơ chế khoá đó, nếu không cẩn thận, có
+thể dẫn tới tình huống <strong>hai transaction chờ đợi lẫn nhau vô thời hạn</strong> — không transaction nào
+có thể tiến triển, hệ thống "đứng hình" cục bộ.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Row-level lock</strong> (<code>SELECT ... FOR UPDATE</code>) khoá <strong>chỉ những dòng cụ thể</strong> được truy vấn —
+transaction khác vẫn tự do thao tác trên các dòng khác của cùng bảng. <strong>Table-level lock</strong>
+(<code>LOCK TABLE</code>) khoá <strong>toàn bộ bảng</strong> — hiếm khi cần thiết trong ứng dụng thông thường, chủ yếu
+dùng cho các thao tác quản trị (DDL, bulk operation). <strong>Deadlock</strong> xảy ra khi hai (hoặc nhiều)
+transaction tạo thành một <strong>vòng chờ đợi tuần hoàn</strong> (A chờ khoá B đang giữ, B chờ khoá A đang
+giữ) — PostgreSQL chạy một tiến trình <strong>tự động phát hiện deadlock</strong> định kỳ, khi phát hiện vòng
+chờ đợi, nó chọn một transaction (thường là transaction "trẻ nhất" hoặc theo tiêu chí nội bộ) để
+<strong>huỷ bỏ</strong>, phá vỡ vòng chờ đợi, cho phép các transaction còn lại tiếp tục.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Row-level lock (thay vì table-level mặc định) tối ưu cho khả năng chạy song song — hầu hết giao
+dịch chỉ cần thao tác trên một vài dòng cụ thể, khoá toàn bộ bảng cho mọi thao tác sẽ triệt tiêu
+gần như toàn bộ lợi ích của việc có nhiều transaction đồng thời. Cơ chế tự động phát hiện deadlock
+là <strong>bắt buộc</strong> vì bản thân database không có cách nào ngăn deadlock xảy ra một cách tiên nghiệm
+(việc lập trình viên vô tình khoá theo thứ tự khác nhau ở các phần code khác nhau gần như không
+thể loại trừ hoàn toàn) — thay vào đó, hệ thống chấp nhận deadlock <strong>có thể</strong> xảy ra, và tập
+trung vào việc <strong>phát hiện và phục hồi nhanh</strong> (huỷ một transaction, transaction đó có thể thử
+lại) thay vì cố ngăn chặn tuyệt đối.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Row-level lock</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">;</span><span class="w"> </span><span class="c1">-- CHI khoa dong id=1</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">COMMIT</span><span class="p">;</span><span class="w"> </span><span class="c1">-- nha khoa</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">-- Table-level lock (hiem dung)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">LOCK</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">ACCESS</span><span class="w"> </span><span class="k">EXCLUSIVE</span><span class="w"> </span><span class="k">MODE</span><span class="p">;</span><span class="w"> </span><span class="c1">-- khoa TOAN BO bang</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Row lock blocking (that su, do duoc bang timestamp):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Session A: BEGIN; SELECT id=1 FOR UPDATE; ──► GIANH khoa row 1
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                     pg_sleep(2)...
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  Session B:              BEGIN; SELECT id=1 FOR UPDATE; ──► CHO (block that su)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                                                              │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  Session A: COMMIT (nha khoa) ─────────────────────────────►│
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                                                              ▼
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Session B:                                          MOI duoc tiep tuc
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Deadlock (vong cho doi tuan hoan):
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  Session A: khoa row1 ──► xin row2 (dang bi B giu) ──► CHO B
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  Session B: khoa row2 ──► xin row1 (dang bi A giu) ──► CHO A
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                    │                                        │
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>                    └──────────── VONG TRON ────────────────┘
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>                                     │
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                          PostgreSQL PHAT HIEN, HUY 1 ben (vd: A)
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>                                     │
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>                          B duoc tiep tuc binh thuong
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Row lock blocking — chứng minh bằng timestamp thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- Session A</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">-- gia lap xu ly</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">-- Session B (chay GAN NHU dong thoi)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">clock_timestamp</span><span class="p">();</span><span class="w"> </span><span class="c1">-- TRUOC khi xin khoa</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">;</span><span class="w"> </span><span class="c1">-- se BI CHAN</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">clock_timestamp</span><span class="p">();</span><span class="w"> </span><span class="c1">-- SAU khi gianh duoc khoa</span>
 </code></pre></div>
+<p>Kết quả thật (Session B):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>        clock_timestamp
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-------------------------------
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> 2026-07-23 15:34:59.182459+00
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>...
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        clock_timestamp
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>-------------------------------
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a> 2026-07-23 15:35:02.414486+00
+</code></pre></div>
+<p>Chênh lệch <strong>~3.2 giây</strong> giữa hai timestamp — khớp chính xác với thời gian Session A giữ khoá
+(<code>pg_sleep(2)</code> cộng thêm thời gian tới khi <code>COMMIT</code>) — xác nhận Session B <strong>thực sự bị block</strong>,
+không phải lỗi hay tự động bỏ qua.</p>
+<p><strong>Deadlock thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- Session A: BEGIN; SELECT id=1 FOR UPDATE; -- roi SELECT id=2 FOR UPDATE</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">-- Session B: BEGIN; SELECT id=2 FOR UPDATE; -- roi SELECT id=1 FOR UPDATE</span>
+</code></pre></div>
+<p>Kết quả thật (Session A):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ERROR:  deadlock detected
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>DETAIL:  Process 220 waits for ShareLock on transaction 767; blocked by process 221.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Process 221 waits for ShareLock on transaction 766; blocked by process 220.
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>HINT:  See server log for query details.
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>CONTEXT:  while locking tuple (0,2) in relation &quot;customers&quot;
+</code></pre></div>
+<p>Session B, sau khi Session A bị huỷ (giải phóng khoá), tiếp tục thành công bình thường và nhận
+được dữ liệu dòng <code>id=1</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>PostgreSQL "phát hiện" deadlock bằng cơ chế cụ thể nào, không phải chỉ dựa vào timeout đơn
+thuần?</strong> PostgreSQL duy trì một <strong>đồ thị chờ đợi</strong> (wait-for graph) nội bộ — mỗi node là một
+transaction, mỗi cạnh biểu diễn "transaction này đang chờ khoá mà transaction kia đang giữ". Định
+kỳ (mặc định mỗi 1 giây, cấu hình qua <code>deadlock_timeout</code>), khi một transaction phải chờ khoá quá
+lâu, PostgreSQL <strong>duyệt</strong> đồ thị chờ đợi đó để tìm <strong>chu trình</strong> (cycle) — nếu tìm thấy (như
+trong ví dụ: A chờ B, B chờ A, tạo thành chu trình khép kín), đó chính là deadlock, và
+PostgreSQL chủ động huỷ một transaction trong chu trình đó (thông báo lỗi <code>deadlock detected</code>
+ngay lập tức, không cần đợi thêm) để phá vỡ chu trình. Đây là lý do thông điệp lỗi trong ví dụ
+liệt kê chính xác <strong>process nào chờ transaction nào</strong> — đó chính là các cạnh trong đồ thị chờ
+đợi mà PostgreSQL vừa duyệt qua để phát hiện chu trình.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Chiến lược thực tế nào giúp tránh deadlock hoàn toàn, thay vì chỉ dựa vào cơ chế phát hiện +
+huỷ bỏ của database?</strong> Chiến lược hiệu quả nhất và đơn giản nhất: <strong>quy ước thứ tự khoá nhất
+quán</strong> trên toàn bộ codebase — nếu <strong>mọi</strong> giao dịch trong ứng dụng luôn khoá các dòng theo cùng
+một thứ tự cố định (ví dụ luôn theo <code>id</code> tăng dần, bất kể nghiệp vụ cụ thể là gì), một chu trình
+chờ đợi tuần hoàn <strong>về mặt toán học không thể hình thành</strong> (vì mọi transaction đều "tiến" theo
+cùng một hướng thứ tự, không ai có thể "quay ngược" để tạo vòng tròn). Đây chính là nguyên nhân
+sâu xa của deadlock trong ví dụ: Session A khoá theo thứ tự <code>1 → 2</code>, Session B khoá theo thứ tự
+<code>2 → 1</code> — ngược nhau. Nếu cả hai đều khoá theo đúng thứ tự <code>1 → 2</code>, deadlock ở ví dụ này sẽ
+<strong>không bao giờ</strong> xảy ra (một trong hai chỉ đơn giản phải chờ, không có vòng tròn). Đây là lý do
+kỷ luật thiết kế (thứ tự khoá nhất quán) quan trọng hơn việc dựa vào cơ chế phát hiện/retry của
+database — phòng tránh tốt hơn nhiều so với chỉ xử lý hậu quả.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Deadlock detection dựa trên wait-for graph là kỹ thuật kinh điển trong lý thuyết hệ điều hành và
+database, có nguồn gốc từ nghiên cứu concurrency control những năm 1970 — cùng thời kỳ với các
+khái niệm nền tảng khác đã gặp xuyên suốt Phase 7 (System R, ACID). Đây là một trong những vấn
+đề lý thuyết máy tính "cổ điển" áp dụng gần như y nguyên xuyên suốt nhiều tầng hệ thống khác nhau
+— từ deadlock giữa các thread trong một JVM (Phase 3) tới deadlock giữa các transaction trong
+một database, cùng bản chất toán học (chu trình trong đồ thị chờ đợi), chỉ khác tầng áp dụng.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Row lock chỉ ảnh hưởng ai đó cố <code>UPDATE</code>/<code>DELETE</code> cùng dòng, không ảnh hưởng người
+  chỉ <code>SELECT</code> thông thường."
+  <strong>Reality:</strong> Đúng với <code>SELECT</code> thông thường (không lock), nhưng <code>SELECT ... FOR UPDATE</code> (đọc
+  kèm khoá, Phase 6 Chapter 14) hoàn toàn bị block giống hệt <code>UPDATE</code> — đã chứng minh bằng thực
+  nghiệm timestamp.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Deadlock là lỗi hệ thống nghiêm trọng, cần escalate ngay khi gặp."
+  <strong>Reality:</strong> Đây là hành vi <strong>thiết kế đúng đắn</strong> của database — PostgreSQL chủ động phát hiện
+  và xử lý, ứng dụng chỉ cần có logic retry cho transaction bị huỷ (tương tự serialization
+  failure, Chapter 06).</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Khoá nhiều dòng theo thứ tự không nhất quán giữa các luồng nghiệp vụ khác nhau</strong> — nguyên
+  nhân trực tiếp và phổ biến nhất của deadlock, xem Engineering Insight.</li>
+<li><strong>Không có logic retry cho transaction bị huỷ do deadlock</strong> — ứng dụng báo lỗi trực tiếp cho
+  người dùng thay vì tự động thử lại.</li>
+<li><strong>Dùng <code>LOCK TABLE</code> khi chỉ cần row-level lock</strong> — triệt tiêu khả năng chạy song song không
+  cần thiết.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn khoá nhiều dòng theo một thứ tự <strong>nhất quán</strong> (ví dụ theo khoá chính tăng dần) xuyên suốt
+  toàn bộ ứng dụng.</li>
+<li>Ưu tiên row-level lock (<code>SELECT ... FOR UPDATE</code>), chỉ dùng table-level lock cho các thao tác
+  quản trị đặc biệt.</li>
+<li>Có chiến lược retry rõ ràng cho transaction bị huỷ do deadlock (lỗi <code>40P01</code>).</li>
+<li>Giữ transaction giữ lock <strong>càng ngắn càng tốt</strong> — tránh thực hiện I/O chậm trong khi đang giữ
+  khoá (giống bài học đã học ở Phase 6, Chapter 14).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Một truy vấn "treo" lâu bất thường? → kiểm tra có transaction khác đang giữ row lock trên
+      cùng dòng dữ liệu, chưa commit/rollback.</li>
+<li>[ ] Gặp lỗi <code>deadlock detected</code>? → kiểm tra thứ tự khoá các dòng dữ liệu có nhất quán giữa các
+      luồng nghiệp vụ khác nhau không; áp dụng thứ tự khoá cố định để phòng tránh.</li>
+<li>[ ] Cần biết ai đang giữ một khoá cụ thể? → truy vấn view hệ thống <code>pg_locks</code> kết hợp
+      <code>pg_stat_activity</code> để xem chi tiết.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Row-level lock (<code>SELECT ... FOR UPDATE</code>) khoá chỉ những dòng cụ thể; table-level lock
+(<code>LOCK TABLE</code>) khoá toàn bộ bảng, hiếm khi cần thiết. Đã chứng minh bằng thực nghiệm (đo
+timestamp thật): một session giữ row lock khiến session khác <strong>thực sự bị block</strong> (~3.2 giây
+chênh lệch, khớp chính xác thời gian giữ khoá). Deadlock xảy ra khi các transaction tạo vòng chờ
+đợi tuần hoàn (khoá theo thứ tự ngược nhau) — đã chứng minh bằng thực nghiệm: PostgreSQL tự động
+phát hiện qua đồ thị chờ đợi, chủ động huỷ một transaction (<code>ERROR: deadlock detected</code> với chi
+tiết process/transaction cụ thể), cho phép transaction còn lại tiếp tục. Chiến lược phòng tránh
+hiệu quả nhất là quy ước thứ tự khoá nhất quán trên toàn ứng dụng — về mặt toán học loại bỏ khả
+năng hình thành chu trình chờ đợi.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>Row-level lock khác table-level lock như thế nào?</li>
+<li>Deadlock xảy ra khi nào, và database phát hiện/xử lý nó ra sao?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cơ chế wait-for graph PostgreSQL dùng để phát hiện deadlock.</li>
+<li>Chiến lược hiệu quả nhất để phòng tránh deadlock trong ứng dụng là gì? Vì sao nó hiệu quả hơn
+  việc chỉ dựa vào cơ chế phát hiện của database?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại hai kịch bản ở Example trên một PostgreSQL thật (2 session song song), xác nhận
+      timestamp blocking và deadlock error đúng như mô tả.</li>
+<li>[ ] Sửa lại kịch bản deadlock để cả hai session khoá theo <strong>cùng một thứ tự</strong> (<code>1 → 2</code>), xác
+      nhận deadlock không còn xảy ra (một session chỉ đơn giản chờ session kia xong).</li>
+<li>[ ] Truy vấn <code>pg_locks</code>/<code>pg_stat_activity</code> trong lúc một session đang giữ row lock, quan sát
+      thông tin khoá chi tiết.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Row-level Lock</th>
+<th>Table-level Lock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phạm vi</td>
+<td>Chỉ dòng cụ thể</td>
+<td>Toàn bộ bảng</td>
+</tr>
+<tr>
+<td>Cú pháp</td>
+<td><code>SELECT ... FOR UPDATE</code></td>
+<td><code>LOCK TABLE ... IN ... MODE</code></td>
+</tr>
+<tr>
+<td>Ảnh hưởng song song</td>
+<td>Thấp (chỉ chặn giao dịch khác cần đúng dòng đó)</td>
+<td>Cao (chặn mọi giao dịch khác trên bảng)</td>
+</tr>
+<tr>
+<td>Dùng khi</td>
+<td>Thao tác nghiệp vụ thông thường</td>
+<td>Thao tác quản trị đặc biệt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phòng tránh deadlock:</strong> luôn khoá nhiều dòng theo thứ tự nhất quán trên toàn ứng dụng.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — Explicit Locking, Deadlocks.</li>
 </ul>
 
 

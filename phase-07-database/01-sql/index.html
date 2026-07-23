@@ -27,7 +27,7 @@
     
     
       
-        <title>SQL - Java Backend Engineering Handbook</title>
+        <title>SQL: Ngôn ngữ Khai báo (Declarative) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql" class="md-skip">
+        <a href="#sql-ngon-ngu-khai-bao-declarative" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL
+              SQL: Ngôn ngữ Khai báo (Declarative)
             
           </span>
         </div>
@@ -4046,7 +4046,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4064,7 +4064,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4288,32 +4288,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4398,7 +4376,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4426,7 +4404,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4454,7 +4432,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4510,7 +4488,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4538,7 +4516,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4566,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4594,7 +4572,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:database" class="md-tag">Database</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h1>
+<h1 id="sql-ngon-ngu-khai-bao-declarative">SQL: Ngôn ngữ Khai báo (Declarative)<a class="headerlink" href="#sql-ngon-ngu-khai-bao-declarative" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>sql</code></p>
@@ -6149,94 +6119,291 @@ Chapter slug: <code>sql</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SQL</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 08 — OOP Fundamentals (tư duy khai báo vs tư duy mệnh lệnh)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — JOIN</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Index</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Execution Plan</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Viết một câu <code>SELECT</code> với alias, rồi thử <strong>dùng chính alias đó</strong> ngay trong mệnh đề <code>WHERE</code>
+của cùng câu lệnh — điều tưởng như hiển nhiên lại thất bại.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">price_with_tax</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">products</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">price_with_tax</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</code></pre></div>
+<p>Kết quả thật (PostgreSQL 16.14):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ERROR:  column &quot;price_with_tax&quot; does not exist
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>LINE 2: ...price * 1.1 AS price_with_tax FROM products WHERE price_with...
+</code></pre></div>
+<p>Nhưng đổi <code>WHERE</code> thành <code>ORDER BY</code> với <strong>đúng alias đó</strong>, lại hoạt động hoàn hảo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">price_with_tax</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">price_with_tax</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>  name  |  price  | price_with_tax
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>--------+---------+----------------
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> Mouse  |   25.00 |         27.500
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> Chair  |  150.00 |        165.000
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a> Desk   |  300.00 |        330.000
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a> Laptop | 1200.00 |       1320.000
+</code></pre></div>
+<p>Cùng một alias, cùng một câu lệnh, nhưng dùng được ở <code>ORDER BY</code> mà không dùng được ở <code>WHERE</code> —
+đây không phải lỗi ngẫu nhiên, mà là bằng chứng trực tiếp cho một quy tắc nền tảng của SQL.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>SQL là ngôn ngữ khai báo (declarative) — điều này có nghĩa gì, và nó khác gì so với việc viết
+Java (mệnh lệnh, imperative) mà bạn đã quen thuộc?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác "khai báo" (declarative) nghĩa là gì, đối lập với "mệnh lệnh"
+      (imperative) đã quen thuộc từ Java</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: thứ tự <strong>viết</strong> một câu SQL (<code>SELECT ... FROM ...
+      WHERE ...</code>) khác với thứ tự <strong>thực thi logic</strong> thật sự của nó</li>
+<li>[ ] Hiểu đúng ngữ nghĩa <code>NULL</code> trong SQL — vì sao <code>NULL = NULL</code> không bao giờ là <code>TRUE</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 1, Chapter 08 — có nền tảng OOP/tư duy mệnh lệnh của Java để đối chiếu với tư duy khai
+  báo của SQL.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 02 (JOIN)</strong>, <strong>Chapter 03 (Index)</strong>, <strong>Chapter 04 (Execution Plan)</strong> — toàn bộ Phase
+  7 xây trên nền tảng hiểu đúng bản chất khai báo của SQL: bạn nói "tôi muốn gì", database engine
+  tự quyết định "làm thế nào" (đúng chủ đề của Execution Plan).</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lập trình viên đến từ nền tảng Java (mệnh lệnh — imperative: viết ra <strong>từng bước</strong> máy tính phải
+làm, theo đúng thứ tự) thường vô thức áp dụng tư duy đó khi đọc SQL — giả định câu lệnh thực thi
+đúng theo thứ tự các từ khoá xuất hiện trên màn hình (<code>SELECT</code> trước, rồi <code>FROM</code>, rồi <code>WHERE</code>).
+Giả định sai này dẫn tới những lỗi khó hiểu (như ví dụ ở Story) và ngăn cản việc dự đoán đúng
+hành vi của các câu truy vấn phức tạp hơn.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>SQL (Structured Query Language)</strong> là ngôn ngữ <strong>khai báo</strong> (declarative) — bạn mô tả <strong>kết
+quả mong muốn</strong> ("tôi muốn những dòng thoả điều kiện X, nhóm theo Y, sắp xếp theo Z"), không mô
+tả <strong>các bước thực hiện</strong> để đạt được kết quả đó (không có vòng lặp, không có biến trung gian
+tường minh). Database engine (PostgreSQL, MySQL, ...) tự chịu trách nhiệm chuyển đổi mô tả khai
+báo đó thành một <strong>kế hoạch thực thi</strong> cụ thể (Execution Plan, Chapter 04) — quyết định "làm thế
+nào" hoàn toàn thuộc về engine, không phải người viết SQL.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách "mô tả kết quả mong muốn" khỏi "cách thực hiện" mang lại hai lợi ích cốt lõi: (1) người viết
+SQL không cần biết chi tiết cấu trúc dữ liệu vật lý (có index nào, dữ liệu sắp xếp ra sao) — chỉ
+cần mô tả đúng logic nghiệp vụ; (2) database engine có toàn quyền <strong>tối ưu hoá</strong> cách thực thi
+(chọn dùng index nào, thứ tự join nào hiệu quả nhất) mà không cần người viết SQL sửa lại câu
+lệnh — hoàn toàn khác với Java, nơi thay đổi thuật toán đòi hỏi sửa trực tiếp code. Đây là lý do
+cùng một câu SQL có thể chạy nhanh hoặc chậm tuỳ vào index/dữ liệu bên dưới, dù bản thân câu lệnh
+không đổi (Chapter 03-04 sẽ khai thác sâu điều này).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- Khai bao: &quot;toi muon ten khach hang co don hang trang thai NEW&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;NEW&#39;</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">-- KHONG can noi database phai duyet bang nao truoc, dung thuat toan join nao</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Thu tu VIET (tren man hinh):        Thu tu THUC THI LOGIC (that su):
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  SELECT ...        (1)                FROM / JOIN         (1)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  FROM ...           (2)                WHERE               (2)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  WHERE ...          (3)                GROUP BY            (3)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  GROUP BY ...       (4)                HAVING              (4)
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  HAVING ...         (5)                SELECT (tinh alias) (5)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  ORDER BY ...       (6)                ORDER BY            (6)
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  =&gt; WHERE (buoc 2) chua &quot;biet&quot; alias duoc tinh o SELECT (buoc 5) -&gt; LOI
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  =&gt; ORDER BY (buoc 6) chay SAU SELECT (buoc 5) -&gt; DUNG duoc alias
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Bằng chứng thứ tự thực thi logic qua lỗi alias:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">price_with_tax</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">products</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">price_with_tax</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ERROR:  column &quot;price_with_tax&quot; does not exist
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">price_with_tax</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">price_with_tax</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>  name  |  price  | price_with_tax
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>--------+---------+----------------
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> Mouse  |   25.00 |         27.500
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a> Chair  |  150.00 |        165.000
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a> Desk   |  300.00 |        330.000
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a> Laptop | 1200.00 |       1320.000
+</code></pre></div>
+<p><strong>Bằng chứng ngữ nghĩa <code>NULL</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a> ?column?
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>----------
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>(0 rows)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a> ?column?
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>----------
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        1
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>(1 row)
+</code></pre></div>
+<p><code>WHERE</code> chỉ "biết" các cột thật sự tồn tại trong bảng nguồn (<code>price</code>), <strong>chưa biết</strong> alias
+<code>price_with_tax</code> — vì theo thứ tự thực thi logic, <code>WHERE</code> (bước 2) chạy <strong>trước</strong> <code>SELECT</code> (bước
+5, nơi alias được tính). <code>ORDER BY</code> (bước 6) chạy <strong>sau</strong> <code>SELECT</code>, nên dùng alias được bình
+thường. Với <code>NULL</code>: <code>NULL = NULL</code> trả về <code>0 rows</code> — không phải vì so sánh sai, mà vì trong SQL,
+so sánh bất kỳ giá trị nào với <code>NULL</code> (kể cả <code>NULL</code> với <code>NULL</code>) cho kết quả <code>UNKNOWN</code> (không phải
+<code>TRUE</code> hay <code>FALSE</code>) — chỉ <code>IS NULL</code>/<code>IS NOT NULL</code> mới kiểm tra đúng ngữ nghĩa "có phải NULL hay
+không".</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>NULL = NULL</code> không phải là <code>TRUE</code> — điều này phản ánh triết lý gì của SQL?</strong> SQL dùng
+logic ba trị (three-valued logic): mỗi biểu thức boolean có thể là <code>TRUE</code>, <code>FALSE</code>, hoặc
+<code>UNKNOWN</code> — khác với Java (chỉ có <code>true</code>/<code>false</code>). <code>NULL</code> trong SQL mang ý nghĩa "giá trị không
+xác định/không áp dụng được" (không phải "giá trị rỗng" như <code>""</code> hay <code>0</code>) — so sánh hai giá trị
+<strong>đều không xác định</strong> với nhau <strong>không thể</strong> kết luận chúng "bằng nhau" một cách hợp lý (làm
+sao biết hai điều "không xác định" có giống nhau hay không?), nên kết quả là <code>UNKNOWN</code>, không
+phải <code>TRUE</code>. Mọi mệnh đề <code>WHERE</code>/<code>JOIN ON</code> chỉ giữ lại dòng khi biểu thức là <code>TRUE</code> — <code>UNKNOWN</code>
+bị loại bỏ y hệt <code>FALSE</code>, đây là lý do <code>WHERE NULL = NULL</code> không trả về dòng nào.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao hiểu "SQL là khai báo" quan trọng khi làm việc với JPA/Hibernate (Phase 6)?</strong> Toàn bộ
+lớp trừu tượng ORM (Phase 6) — derived query method (Chapter 03), JPQL, <code>@Query</code> — cuối cùng đều
+sinh ra SQL khai báo, rồi <strong>giao phó</strong> cho database engine quyết định cách thực thi. Điều này
+giải thích trực tiếp một hiện tượng đã gặp xuyên suốt Phase 6: cùng một JPQL, nhưng thời gian
+thực thi thay đổi hoàn toàn tuỳ vào <strong>index</strong> có tồn tại hay không (Chapter 03), <strong>execution
+plan</strong> engine chọn (Chapter 04) — không phải do code Java thay đổi. Lập trình viên quen tư duy
+mệnh lệnh của Java dễ có xu hướng "ép" SQL hoạt động theo đúng thứ tự viết ra (ví dụ cố tối ưu
+hiệu năng bằng cách sắp xếp lại mệnh đề <code>WHERE</code>) — nhưng vì SQL là khai báo, database engine có
+toàn quyền <strong>sắp xếp lại</strong> thứ tự thực thi thật sự miễn đảm bảo đúng kết quả logic, khiến việc
+"tối ưu" bằng cách viết lại thứ tự các mệnh đề gần như luôn vô ích.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>SQL ra đời tại IBM đầu thập niên 1970 (Donald Chamberlin, Raymond Boyce), dựa trên nền tảng lý
+thuyết Đại số Quan hệ (Relational Algebra, Edgar F. Codd, 1970) — một mô hình toán học thuần
+khai báo, mô tả các phép biến đổi tập hợp (selection, projection, join) mà không quy định thuật
+toán cụ thể. Đây là lý do SQL, dù ra đời hơn 50 năm, vẫn giữ nguyên bản chất khai báo xuyên suốt
+— nó được thiết kế theo đúng lý thuyết toán học đó ngay từ đầu, không phải một quyết định thiết
+kế tuỳ tiện.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Câu SQL thực thi đúng theo thứ tự các từ khoá xuất hiện trên màn hình
+  (<code>SELECT</code> → <code>FROM</code> → <code>WHERE</code>)."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — thứ tự thực thi logic thật sự là <code>FROM</code> →
+  <code>WHERE</code> → <code>GROUP BY</code> → <code>HAVING</code> → <code>SELECT</code> → <code>ORDER BY</code>, hoàn toàn khác thứ tự viết.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>NULL = NULL</code> trả về <code>TRUE</code>, vì hai giá trị <code>NULL</code> thì 'giống nhau'."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — SQL dùng logic ba trị, so sánh với <code>NULL</code> luôn
+  cho <code>UNKNOWN</code>, bị loại khỏi kết quả <code>WHERE</code> giống như <code>FALSE</code>.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng alias của <code>SELECT</code> trong mệnh đề <code>WHERE</code></strong> — lỗi cú pháp phổ biến với người mới, do
+  chưa hiểu thứ tự thực thi logic (dùng <code>HAVING</code> nếu cần lọc theo giá trị đã tính toán/tổng hợp,
+  hoặc lặp lại biểu thức gốc trong <code>WHERE</code>).</li>
+<li><strong>Dùng <code>WHERE column = NULL</code> thay vì <code>WHERE column IS NULL</code></strong> — luôn trả về <code>0 rows</code> một cách
+  âm thầm (không có lỗi cú pháp), dễ gây bug khó phát hiện.</li>
+<li><strong>Cố "tối ưu" SQL bằng cách sắp xếp lại thứ tự các điều kiện trong <code>WHERE</code></strong> — vô ích, vì SQL
+  là khai báo, engine tự quyết định thứ tự đánh giá thật sự (Chapter 04).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn nhớ thứ tự thực thi logic (<code>FROM</code>→<code>WHERE</code>→<code>GROUP BY</code>→<code>HAVING</code>→<code>SELECT</code>→<code>ORDER BY</code>) khi
+  debug lỗi liên quan tới alias hoặc phạm vi truy cập cột.</li>
+<li>Luôn dùng <code>IS NULL</code>/<code>IS NOT NULL</code> để kiểm tra <code>NULL</code>, không bao giờ dùng <code>= NULL</code>/<code>&lt;&gt; NULL</code>.</li>
+<li>Tin tưởng database engine tự tối ưu cách thực thi — tập trung viết SQL đúng logic nghiệp vụ,
+  dùng Execution Plan (Chapter 04) để chẩn đoán hiệu năng thay vì đoán mò cách viết lại câu lệnh.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lỗi "column ... does not exist" dù chắc chắn đã khai báo alias đó? → kiểm tra alias có
+      đang được dùng trong <code>WHERE</code>/<code>GROUP BY</code>/<code>HAVING</code> (chạy trước <code>SELECT</code>) thay vì <code>ORDER BY</code>
+      (chạy sau <code>SELECT</code>).</li>
+<li>[ ] Câu <code>WHERE column = NULL</code> luôn trả về rỗng dù dữ liệu chắc chắn có <code>NULL</code>? → đổi thành
+      <code>WHERE column IS NULL</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>SQL là ngôn ngữ khai báo — mô tả <strong>kết quả mong muốn</strong>, không mô tả <strong>các bước thực hiện</strong>;
+database engine tự quyết định cách thực thi. Đã chứng minh bằng thực nghiệm: thứ tự thực thi
+logic thật sự (<code>FROM</code>→<code>WHERE</code>→...→<code>SELECT</code>→<code>ORDER BY</code>) khác với thứ tự viết trên màn hình — dùng
+alias trong <code>WHERE</code> gây lỗi vì <code>WHERE</code> chạy trước <code>SELECT</code>, nhưng dùng được trong <code>ORDER BY</code> vì
+nó chạy sau. SQL dùng logic ba trị — <code>NULL = NULL</code> luôn là <code>UNKNOWN</code> (bị loại khỏi kết quả), chỉ
+<code>IS NULL</code> mới kiểm tra đúng ngữ nghĩa. Hiểu bản chất khai báo này là nền tảng cho toàn bộ Phase
+7 — đặc biệt Execution Plan (Chapter 04), nơi engine quyết định "làm thế nào" hoàn toàn độc lập
+với cách câu SQL được viết ra.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>SQL là ngôn ngữ khai báo (declarative) — điều này có nghĩa gì, và nó khác gì so với việc viết
+  Java?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Thứ tự thực thi logic thật sự của một câu SQL là gì? Vì sao alias trong <code>SELECT</code> không dùng
+  được trong <code>WHERE</code>?</li>
+<li>Vì sao <code>NULL = NULL</code> không trả về <code>TRUE</code>?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại các câu lệnh ở Example trên một PostgreSQL thật, xác nhận kết quả đúng như mô tả.</li>
+<li>[ ] Viết một câu SQL dùng <code>HAVING</code> (thay vì cố dùng alias trong <code>WHERE</code>) để lọc theo một giá
+      trị tổng hợp (<code>SUM</code>/<code>COUNT</code>), xác nhận nó hoạt động đúng.</li>
+<li>[ ] Thử <code>SELECT NULL &lt;&gt; NULL</code>, <code>SELECT NULL OR TRUE</code>, <code>SELECT NULL AND FALSE</code> — dự đoán kết
+      quả trước khi chạy, đối chiếu với logic ba trị đã học.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Mệnh đề</th>
+<th>Alias <code>SELECT</code> khả dụng?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>FROM</code>/<code>JOIN</code></td>
+<td>Không</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>WHERE</code></td>
+<td>Không</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>GROUP BY</code></td>
+<td>Không (một số DB cho phép, không chuẩn)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>HAVING</code></td>
+<td>Không (tương tự)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>SELECT</code></td>
+<td>(chính là nơi tính alias)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>ORDER BY</code></td>
+<td><strong>Có</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Logic ba trị:</strong> <code>TRUE</code> / <code>FALSE</code> / <code>UNKNOWN</code> — so sánh với <code>NULL</code> luôn cho <code>UNKNOWN</code>, bị loại
+khỏi <code>WHERE</code> giống <code>FALSE</code>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — The SQL Language, Value Expressions.</li>
+<li>Edgar F. Codd — "A Relational Model of Data for Large Shared Data Banks" (1970).</li>
 </ul>
 
 

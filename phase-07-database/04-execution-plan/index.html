@@ -27,7 +27,7 @@
     
     
       
-        <title>Execution Plan - Java Backend Engineering Handbook</title>
+        <title>Execution Plan (EXPLAIN ANALYZE) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#execution-plan" class="md-skip">
+        <a href="#execution-plan-explain-analyze" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Execution Plan
+              Execution Plan (EXPLAIN ANALYZE)
             
           </span>
         </div>
@@ -4037,7 +4037,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4065,7 +4065,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4093,7 +4093,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4130,7 +4130,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4148,7 +4148,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4372,32 +4372,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4510,7 +4488,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4538,7 +4516,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4566,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4594,7 +4572,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:executionplan" class="md-tag">ExecutionPlan</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="execution-plan">Execution Plan<a class="headerlink" href="#execution-plan" title="Permanent link">&para;</a></h1>
+<h1 id="execution-plan-explain-analyze">Execution Plan (EXPLAIN ANALYZE)<a class="headerlink" href="#execution-plan-explain-analyze" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>execution-plan</code></p>
@@ -6149,94 +6119,290 @@ Chapter slug: <code>execution-plan</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Execution Plan</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — SQL</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — JOIN</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Index</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Optimization</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-sql/">Chapter 01</a> — SQL là khai báo, engine tự quyết định "làm thế nào". Câu
+hỏi tự nhiên tiếp theo: làm sao <strong>nhìn thấy</strong> được engine đã quyết định làm thế nào?</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">customer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;user12345@example.com&#39;</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Index Scan using idx_big_orders_email on big_orders  (cost=0.43..20.40 rows=4 width=33)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">customer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;user12345@example.com&#39;</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Index Scan using idx_big_orders_email on big_orders (cost=0.43..20.40 rows=4 width=33)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                                                      (actual time=0.139..0.218 rows=4 loops=1)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Planning Time: 0.196 ms
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Execution Time: 0.232 ms
+</code></pre></div>
+<p>Cùng một câu lệnh cơ bản, nhưng <code>EXPLAIN</code> (không có <code>ANALYZE</code>) chỉ hiện <strong>ước lượng</strong>
+(<code>cost</code>), trong khi <code>EXPLAIN ANALYZE</code> thực sự <strong>chạy câu truy vấn</strong> và báo cáo số liệu <strong>thật</strong>
+(<code>actual time</code>, <code>rows</code>, <code>loops</code>).</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>EXPLAIN</code> và <code>EXPLAIN ANALYZE</code> khác nhau như thế nào? Làm sao đọc hiểu một execution plan để
+chẩn đoán truy vấn chậm?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt <code>EXPLAIN</code> (chỉ ước lượng, không chạy) và <code>EXPLAIN ANALYZE</code> (chạy thật, báo cáo
+      số liệu thật)</li>
+<li>[ ] Đọc hiểu các loại node phổ biến: <code>Seq Scan</code>, <code>Index Scan</code>, <code>Nested Loop</code>, <code>Hash Join</code></li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: planner chọn thuật toán JOIN khác nhau tuỳ ngữ cảnh
+      (kích thước bảng, selectivity điều kiện)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu SQL khai báo, tiền đề để hiểu vì sao cần công cụ riêng để "nhìn thấy" cách
+  thực thi.</li>
+<li>Chapter 02 — hiểu JOIN, đối tượng chính các thuật toán trong execution plan xử lý.</li>
+<li>Chapter 03 — hiểu Index, một trong những yếu tố chính ảnh hưởng lựa chọn của planner.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Optimization)</strong> — <code>EXPLAIN ANALYZE</code> là công cụ chẩn đoán trung tâm cho mọi kỹ
+  thuật tối ưu truy vấn.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì SQL là khai báo (Chapter 01), cùng một câu lệnh có thể được thực thi theo <strong>nhiều cách khác
+nhau</strong> (dùng index hay không, thuật toán join nào, thứ tự join các bảng ra sao) — nếu không có
+công cụ nhìn thấy được engine <strong>thực sự</strong> chọn cách nào, việc chẩn đoán một truy vấn chậm chỉ có
+thể dựa vào phỏng đoán, không có căn cứ cụ thể.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>EXPLAIN</code></strong> hiển thị <strong>kế hoạch thực thi ước lượng</strong> (estimated plan) mà planner sẽ dùng cho
+một câu truy vấn — dựa trên thống kê phân bố dữ liệu (số dòng, số giá trị phân biệt) mà database
+tự thu thập, <strong>không thực sự chạy câu truy vấn</strong>. <strong><code>EXPLAIN ANALYZE</code></strong> thực sự <strong>chạy</strong> câu
+truy vấn, đồng thời báo cáo cả kế hoạch ước lượng <strong>và</strong> số liệu thực tế (thời gian thật, số
+dòng thật ở mỗi bước) — cho phép so sánh trực tiếp "engine nghĩ nó sẽ làm gì" với "nó thực sự đã
+làm gì", từ đó phát hiện các trường hợp planner ước lượng sai (thường là dấu hiệu thống kê đã
+cũ, cần chạy lại <code>ANALYZE</code> để cập nhật).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách <code>EXPLAIN</code> (chỉ ước lượng) khỏi <code>EXPLAIN ANALYZE</code> (chạy thật) cho phép kiểm tra kế hoạch thực
+thi <strong>mà không phải trả giá</strong> thực sự chạy câu truy vấn — hữu ích khi câu truy vấn có khả năng
+chạy rất lâu hoặc có tác dụng phụ (<code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code>, dù <code>EXPLAIN ANALYZE</code> cho các câu
+lệnh này <strong>thực sự thay đổi dữ liệu</strong>, cần cẩn trọng — thường bọc trong transaction rồi
+<code>ROLLBACK</code> khi chỉ muốn xem plan). Việc phân biệt rõ giữa "ước lượng" và "thực tế" cũng là công
+cụ chẩn đoán trực tiếp: nếu số dòng <strong>ước lượng</strong> (<code>rows=</code> trong phần <code>cost</code>) sai lệch lớn so
+với số dòng <strong>thực tế</strong> (<code>rows=</code> trong phần <code>actual</code>), đó là dấu hiệu rõ ràng planner đang quyết
+định dựa trên thống kê không chính xác.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...;</span><span class="w">          </span><span class="c1">-- CHI uoc luong, KHONG chay that</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...;</span><span class="w">  </span><span class="c1">-- CHAY THAT, bao cao ca uoc luong lan thuc te</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>EXPLAIN (uoc luong):
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  Index Scan using idx_big_orders_email on big_orders
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    (cost=0.43..20.40 rows=4 width=33)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>     │       │           │
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>     │       │           └── planner UOC LUONG se tra ve 4 dong
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>     │       └── chi phi UOC LUONG (don vi tuong doi, khong phai ms)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>     └── chi phi khoi dong UOC LUONG
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>EXPLAIN ANALYZE (uoc luong + THUC TE):
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  ... (actual time=0.139..0.218 rows=4 loops=1)
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>              │            │        │       │
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>              │            │        │       └── so lan node nay CHAY (quan trong voi vong lap ben trong JOIN)
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>              │            │        └── so dong THAT SU tra ve (so sanh voi uoc luong o tren)
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>              │            └── thoi gian THAT SU ket thuc (ms)
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>              └── thoi gian THAT SU bat dau tra ve dong dau tien (ms)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Hash Join — cho hai bảng nhỏ:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">customer_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Hash Join (cost=12.93..33.07 rows=800 width=276) (actual time=0.059..0.061 rows=3 loops=1)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  Hash Cond: (o.customer_id = c.id)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  -&gt;  Seq Scan on orders o (actual time=0.019..0.019 rows=3 loops=1)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  -&gt;  Hash (actual time=0.033..0.034 rows=4 loops=1)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        -&gt;  Seq Scan on customers c (actual time=0.022..0.023 rows=4 loops=1)
+</code></pre></div>
+<p><strong>Nested Loop + Index Scan — khi một bên đã lọc còn rất ít dòng:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">bo</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">c</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">big_orders</span><span class="w"> </span><span class="n">bo</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">bo</span><span class="p">.</span><span class="n">customer_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">email</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Nested Loop (actual time=0.080..0.081 rows=0 loops=1)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  -&gt;  Index Scan using customers_pkey on customers c (actual time=0.017..0.017 rows=1 loops=1)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        Index Cond: (id = 1)
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  -&gt;  Index Scan using idx_big_orders_email on big_orders bo (actual time=0.061..0.061 rows=0 loops=1)
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        Index Cond: ((customer_email)::text = (c.email)::text)
+</code></pre></div>
+<p>Với <code>customers</code>/<code>orders</code> (cả hai bảng <strong>nhỏ</strong>), planner chọn <strong>Hash Join</strong>: xây một bảng băm
+(hash table) từ bên nhỏ hơn (<code>customers</code>, 4 dòng), rồi duyệt qua bên kia (<code>orders</code>) để dò khớp —
+hiệu quả khi cả hai bảng đủ nhỏ để vừa trong bộ nhớ. Với truy vấn join <code>big_orders</code> (2 triệu
+dòng) nhưng đã <strong>lọc trước</strong> <code>customers</code> xuống còn đúng 1 dòng (<code>WHERE c.id = 1</code>), planner chọn
+<strong>Nested Loop</strong>: với <strong>mỗi</strong> dòng từ bên ngoài (<code>customers</code>, chỉ 1 dòng), tra cứu trực tiếp qua
+Index Scan vào <code>big_orders</code> — hiệu quả khi bên ngoài có rất ít dòng và bên trong có index tốt,
+tránh phải xây hash table cho bảng 2 triệu dòng một cách không cần thiết.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao planner đổi thuật toán JOIN tuỳ ngữ cảnh thay vì luôn dùng một thuật toán "tốt nhất" cố
+định?</strong> Không có thuật toán JOIN nào tốt nhất tuyệt đối — mỗi thuật toán có đặc tính đánh đổi
+khác nhau: <strong>Nested Loop</strong> hiệu quả khi bên ngoài <strong>rất nhỏ</strong> và bên trong có index tốt (chi phí
+tỉ lệ với <code>số dòng bên ngoài × chi phí tra cứu index</code>) nhưng <strong>tệ</strong> khi cả hai bảng đều lớn (chi
+phí tăng theo tích số dòng). <strong>Hash Join</strong> hiệu quả khi có thể xây hash table vừa trong bộ nhớ
+(thường từ bảng nhỏ hơn) nhưng cần bộ nhớ tỉ lệ với kích thước bảng đó, và không tận dụng được
+index. <strong>Merge Join</strong> (chưa xuất hiện trong ví dụ) hiệu quả khi cả hai bên <strong>đã được sắp xếp</strong>
+sẵn theo cột join (ví dụ cả hai đều có index B-tree trên cột đó). Planner dùng <strong>cost-based
+optimization</strong>: ước lượng chi phí (dựa trên thống kê phân bố dữ liệu) của <strong>từng</strong> thuật toán khả
+thi cho tình huống cụ thể, rồi chọn phương án có chi phí ước lượng <strong>thấp nhất</strong> — đây là lý do
+cùng loại JOIN nhưng ngữ cảnh dữ liệu khác nhau (kích thước bảng, điều kiện lọc trước đó) có thể
+cho ra kế hoạch thực thi hoàn toàn khác nhau.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Khi <code>actual rows</code> lệch lớn so với ước lượng trong <code>cost=...rows=...</code>, đây là dấu hiệu của vấn
+đề gì, và ảnh hưởng ra sao tới toàn bộ execution plan?</strong> Planner luôn phải <strong>ước lượng trước</strong>
+số dòng ở mỗi bước (dựa trên thống kê từ <code>ANALYZE</code> gần nhất) để quyết định thuật toán JOIN phù
+hợp cho <strong>bước tiếp theo</strong> — nếu thống kê đã <strong>cũ</strong> (dữ liệu thay đổi nhiều kể từ lần chạy
+<code>ANALYZE</code> gần nhất mà chưa cập nhật lại), ước lượng có thể sai lệch nghiêm trọng, dẫn tới
+planner chọn <strong>sai thuật toán</strong> cho các bước sau (ví dụ chọn Nested Loop tưởng bên ngoài chỉ có
+vài dòng, nhưng thực tế có hàng nghìn dòng — khiến tổng chi phí tăng vọt so với dự kiến). Đây là
+lý do khi chẩn đoán một truy vấn "đột nhiên chậm đi" dù không có gì thay đổi trong code, một
+trong những nghi phạm đầu tiên cần kiểm tra là: thống kê bảng đã lâu chưa được cập nhật (chạy
+<code>ANALYZE table_name;</code> thủ công, hoặc kiểm tra <code>autovacuum</code>/<code>autoanalyze</code> có đang hoạt động đúng
+không) — không phải luôn là vấn đề thiếu index hay thiết kế truy vấn sai.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Cost-based query optimization (thay vì rule-based — chỉ áp dụng quy tắc cố định không xét tới dữ
+liệu thực tế) trở thành chuẩn mực từ System R (dự án nghiên cứu của IBM, cuối thập niên 1970) —
+một trong những đóng góp kỹ thuật quan trọng nhất của dự án này, ảnh hưởng trực tiếp tới thiết kế
+optimizer của hầu hết database quan hệ hiện đại, bao gồm PostgreSQL.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>EXPLAIN</code> và <code>EXPLAIN ANALYZE</code> cho kết quả giống hệt nhau, chỉ khác việc có thực
+  thi câu lệnh hay không."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — <code>EXPLAIN ANALYZE</code> bổ sung số liệu <strong>thực tế</strong>
+  (<code>actual time</code>/<code>rows</code>/<code>loops</code>) mà <code>EXPLAIN</code> đơn thuần không có, cho phép so sánh trực tiếp ước
+  lượng và thực tế.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Planner luôn chọn cùng một thuật toán JOIN cho cùng một cặp bảng, bất kể điều kiện
+  lọc."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — cùng liên quan tới <code>customers</code>, nhưng join với
+  <code>orders</code> (nhỏ) dùng Hash Join, join với <code>big_orders</code> (lớn, đã lọc trước) dùng Nested Loop.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Chỉ dùng <code>EXPLAIN</code> (không <code>ANALYZE</code>) rồi kết luận về hiệu năng thực tế</strong> — chỉ là ước lượng,
+  có thể sai lệch nếu thống kê cũ.</li>
+<li><strong>Chạy <code>EXPLAIN ANALYZE</code> cho câu <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code> mà quên đây là thực thi thật, gây
+  thay đổi dữ liệu thật</strong> — nên bọc trong transaction rồi <code>ROLLBACK</code> nếu chỉ muốn xem plan.</li>
+<li><strong>Không kiểm tra chênh lệch giữa <code>rows</code> ước lượng và <code>rows</code> thực tế</strong> — bỏ lỡ dấu hiệu quan
+  trọng nhất để phát hiện thống kê đã cũ.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn dùng <code>EXPLAIN ANALYZE</code> (không chỉ <code>EXPLAIN</code>) khi thực sự cần chẩn đoán hiệu năng, để có
+  số liệu thực tế đối chiếu.</li>
+<li>Kiểm tra chênh lệch giữa <code>rows</code> ước lượng và thực tế ở mỗi node — chênh lệch lớn là dấu hiệu
+  cần chạy lại <code>ANALYZE table_name;</code>.</li>
+<li>Đọc execution plan từ <strong>trong ra ngoài</strong> (node lá trước, node gốc sau) — các node lá thường là
+  điểm bắt đầu chi phí, node gốc là kết quả tổng hợp cuối cùng.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Truy vấn chậm không rõ nguyên nhân? → chạy <code>EXPLAIN ANALYZE</code>, tìm node có <code>actual time</code>
+      lớn nhất, kiểm tra loại node đó (<code>Seq Scan</code> trên bảng lớn thường là nghi phạm hàng đầu).</li>
+<li>[ ] <code>rows</code> ước lượng và thực tế chênh lệch lớn? → chạy <code>ANALYZE table_name;</code> để cập nhật thống
+      kê, kiểm tra lại plan.</li>
+<li>[ ] Không chắc vì sao planner chọn Nested Loop thay vì Hash Join (hoặc ngược lại)? → kiểm tra
+      kích thước thực tế của từng bảng/kết quả trung gian tại thời điểm đó, cost-based
+      optimizer chọn dựa trên ước lượng chi phí cụ thể của tình huống đó.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>EXPLAIN</code> hiển thị kế hoạch thực thi <strong>ước lượng</strong>, không chạy câu truy vấn; <code>EXPLAIN ANALYZE</code>
+thực sự chạy và bổ sung số liệu <strong>thực tế</strong> (<code>actual time</code>/<code>rows</code>/<code>loops</code>) — đã chứng minh bằng
+thực nghiệm sự khác biệt trực tiếp giữa hai lệnh. Planner dùng cost-based optimization, chọn
+thuật toán JOIN (<code>Hash Join</code>, <code>Nested Loop</code>, <code>Merge Join</code>) tuỳ theo ước lượng chi phí cụ thể của
+từng tình huống — đã chứng minh: hai bảng nhỏ dùng Hash Join, một bảng lớn đã lọc trước xuống rất
+ít dòng dùng Nested Loop + Index Scan. Chênh lệch lớn giữa <code>rows</code> ước lượng và thực tế là dấu
+hiệu thống kê đã cũ, cần chạy lại <code>ANALYZE</code> — thường là nguyên nhân của các truy vấn "đột nhiên
+chậm đi" dù không có gì thay đổi trong code.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li><code>EXPLAIN</code> và <code>EXPLAIN ANALYZE</code> khác nhau như thế nào?</li>
+<li>Làm sao đọc hiểu một execution plan để chẩn đoán truy vấn chậm?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích sự khác biệt giữa Nested Loop, Hash Join, Merge Join. Khi nào planner chọn thuật
+  toán nào?</li>
+<li>Chênh lệch giữa <code>rows</code> ước lượng và thực tế trong execution plan cho biết điều gì? Cách khắc
+  phục?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại các câu lệnh ở Example trên một PostgreSQL thật, xác nhận planner chọn đúng thuật
+      toán như mô tả.</li>
+<li>[ ] Chạy <code>EXPLAIN ANALYZE</code> cho một JOIN giữa hai bảng lớn (không lọc trước xuống ít dòng),
+      quan sát planner có chuyển sang Hash Join hay Merge Join thay vì Nested Loop không.</li>
+<li>[ ] Xoá thống kê bằng cách chèn thêm nhiều dữ liệu mới mà không chạy <code>ANALYZE</code>, quan sát chênh
+      lệch giữa <code>rows</code> ước lượng và thực tế xuất hiện.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Lệnh</th>
+<th>Chạy thật?</th>
+<th>Có số liệu thực tế?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EXPLAIN</code></td>
+<td>Không</td>
+<td>Không (chỉ ước lượng)</td>
+</tr>
+<tr>
+<td><code>EXPLAIN ANALYZE</code></td>
+<td>Có</td>
+<td>Có (<code>actual time</code>/<code>rows</code>/<code>loops</code>)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Thuật toán JOIN</th>
+<th>Hiệu quả khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nested Loop</td>
+<td>Bên ngoài rất nhỏ, bên trong có index tốt</td>
+</tr>
+<tr>
+<td>Hash Join</td>
+<td>Cả hai bảng đủ nhỏ để hash table vừa bộ nhớ</td>
+</tr>
+<tr>
+<td>Merge Join</td>
+<td>Cả hai bên đã sắp xếp sẵn theo cột join</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — Using EXPLAIN.</li>
+<li>Selinger, P. et al. — "Access Path Selection in a Relational Database Management System"
+  (System R, 1979).</li>
 </ul>
 
 

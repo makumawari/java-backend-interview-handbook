@@ -27,7 +27,7 @@
     
     
       
-        <title>Isolation - Java Backend Engineering Handbook</title>
+        <title>Isolation Levels - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#isolation" class="md-skip">
+        <a href="#isolation-levels" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Isolation
+              Isolation Levels
             
           </span>
         </div>
@@ -4037,7 +4037,7 @@
   <span class="md-ellipsis">
     
   
-    SQL
+    SQL: Ngôn ngữ Khai báo (Declarative)
   
 
     
@@ -4065,7 +4065,7 @@
   <span class="md-ellipsis">
     
   
-    JOIN
+    JOIN: INNER, LEFT, và cạm bẫy WHERE vs ON
   
 
     
@@ -4093,7 +4093,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Index (B-tree) và Selectivity
   
 
     
@@ -4121,7 +4121,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Plan
+    Execution Plan (EXPLAIN ANALYZE)
   
 
     
@@ -4186,7 +4186,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4204,7 +4204,7 @@
   <span class="md-ellipsis">
     
   
-    Isolation
+    Isolation Levels
   
 
     
@@ -4428,32 +4428,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4538,7 +4516,7 @@
   <span class="md-ellipsis">
     
   
-    Lock (Database-level Locking)
+    Lock (Database-level Locking) và Deadlock
   
 
     
@@ -4566,7 +4544,7 @@
   <span class="md-ellipsis">
     
   
-    MVCC
+    MVCC (Multi-Version Concurrency Control)
   
 
     
@@ -4594,7 +4572,7 @@
   <span class="md-ellipsis">
     
   
-    Optimization
+    Query Optimization: Covering Index và Keyset Pagination
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:isolation" class="md-tag">Isolation</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:postgresql" class="md-tag">PostgreSQL</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:sql" class="md-tag">SQL</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="isolation">Isolation<a class="headerlink" href="#isolation" title="Permanent link">&para;</a></h1>
+<h1 id="isolation-levels">Isolation Levels<a class="headerlink" href="#isolation-levels" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 7 — Database
 Chapter slug: <code>isolation</code></p>
@@ -6149,94 +6119,334 @@ Chapter slug: <code>isolation</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Isolation</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7 — Database</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">85%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Transaction (Database ACID Transaction)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6, Chapter 13 — Optimistic Lock</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Lock</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — MVCC</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-transaction/">Chapter 05</a> — chữ "I" trong ACID là Isolation, nhưng "cô lập ở
+mức nào" hoá ra có <strong>nhiều mức độ khác nhau</strong>, mỗi mức cho phép hoặc ngăn chặn những "hiện
+tượng bất thường" (anomaly) khác nhau khi nhiều transaction chạy đồng thời.</p>
 </blockquote>
+<p>Ở mức <strong>READ COMMITTED</strong> (mặc định của PostgreSQL), đọc cùng một dòng <strong>hai lần</strong> trong cùng
+một transaction, có một transaction khác <code>UPDATE</code> + <code>COMMIT</code> ở giữa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>BEGIN
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-- LAN DOC 1
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   city
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>-------------------
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> DIRTY_UNCOMMITTED
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>-- (giao dich khac UPDATE + COMMIT o day)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>-- LAN DOC 2, CUNG transaction
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>   city
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>--------------
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a> HCMC_CHANGED
+</code></pre></div>
+<p><strong>Hai lần đọc trong cùng một transaction cho ra hai giá trị khác nhau.</strong> Đổi sang
+<strong>REPEATABLE READ</strong>, lặp lại chính xác kịch bản đó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-- LAN DOC 1
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   city
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>----------
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> BASELINE
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>-- (giao dich khac UPDATE + COMMIT o day)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>-- LAN DOC 2, CUNG transaction
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>   city
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>----------
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a> BASELINE
+</code></pre></div>
+<p>Cùng kịch bản, cùng thao tác của transaction khác — nhưng lần này, <strong>cả hai lần đọc đều cho
+cùng một giá trị</strong>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Có bao nhiêu mức Isolation Level trong SQL chuẩn? Phân biệt Dirty Read, Non-repeatable Read,
+và Phantom Read — mỗi mức isolation ngăn chặn được hiện tượng nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt 4 mức isolation chuẩn: <code>READ UNCOMMITTED</code>, <code>READ COMMITTED</code>,
+      <code>REPEATABLE READ</code>, <code>SERIALIZABLE</code></li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm cả ba hiện tượng: Dirty Read (PostgreSQL không bao giờ
+      cho phép), Non-repeatable Read (xảy ra ở READ COMMITTED, bị chặn ở REPEATABLE READ),
+      Phantom Read (bị chặn ở REPEATABLE READ của PostgreSQL — mạnh hơn chuẩn SQL)</li>
+<li>[ ] Tự tay tái hiện một xung đột <code>SERIALIZABLE</code> thật, nhận lỗi serialization failure</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — hiểu ACID, đặc biệt tính chất Isolation là tiền đề của chapter này.</li>
+<li>Phase 6, Chapter 13 — đã thấy hệ quả cụ thể của xung đột giao dịch đồng thời qua Optimistic
+  Lock, chapter này giải thích cơ chế tổng quát hơn đứng sau nó.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 07 (Lock)</strong>, <strong>Chapter 08 (MVCC)</strong> — cả hai đều là cơ chế cụ thể PostgreSQL dùng để
+  hiện thực hoá các mức isolation đã học ở chapter này.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>"Cô lập hoàn toàn" (mỗi transaction chạy như thể nó là transaction duy nhất trên hệ thống) là lý
+tưởng nhưng <strong>cực kỳ đắt đỏ</strong> về hiệu năng — cần khoá gần như mọi thứ, ngăn hoàn toàn khả năng
+chạy song song. Ngược lại, "không cô lập gì cả" (mọi transaction thấy ngay thay đổi chưa commit
+của nhau) nhanh nhưng dẫn tới dữ liệu sai lệch nghiêm trọng. SQL chuẩn định nghĩa <strong>nhiều mức
+trung gian</strong>, mỗi mức đánh đổi khác nhau giữa hiệu năng và mức độ "nhìn thấy" thay đổi của các
+transaction khác.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Isolation Level</strong> quy định một transaction "nhìn thấy" thay đổi của các transaction đồng thời
+khác ở mức độ nào, được định nghĩa qua việc <strong>ngăn chặn hay cho phép</strong> ba hiện tượng bất thường:
+<strong>Dirty Read</strong> (đọc dữ liệu <strong>chưa commit</strong> của transaction khác), <strong>Non-repeatable Read</strong> (đọc
+cùng một dòng hai lần trong cùng transaction, nhận hai giá trị khác nhau vì transaction khác đã
+<code>UPDATE</code> + commit ở giữa), <strong>Phantom Read</strong> (chạy cùng một truy vấn tổng hợp/đếm hai lần, nhận
+số lượng dòng khác nhau vì transaction khác đã <code>INSERT</code> mới ở giữa). Bốn mức chuẩn SQL, theo thứ
+tự cô lập tăng dần: <code>READ UNCOMMITTED</code> → <code>READ COMMITTED</code> → <code>REPEATABLE READ</code> → <code>SERIALIZABLE</code>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Việc chia nhỏ thành nhiều mức isolation cho phép lập trình viên <strong>lựa chọn đánh đổi phù hợp</strong> với
+từng nhu cầu cụ thể, thay vì buộc phải chọn giữa hai cực đoan (không cô lập gì / cô lập tuyệt
+đối, tốn hiệu năng nhất). Với nghiệp vụ chỉ cần đọc dữ liệu "gần đúng thời điểm hiện tại", READ
+COMMITTED (mặc định, rẻ nhất) là đủ. Với nghiệp vụ cần <strong>tính toán nhất quán</strong> dựa trên nhiều lần
+đọc trong cùng giao dịch (ví dụ tính tổng rồi kiểm tra điều kiện dựa trên tổng đó), REPEATABLE
+READ đảm bảo không có dữ liệu "thay đổi giữa chừng" làm sai kết quả. SERIALIZABLE, mức mạnh nhất,
+dành cho các trường hợp cần đảm bảo tuyệt đối không có bất kỳ hiện tượng bất thường nào, chấp
+nhận đổi lấy khả năng bị <strong>từ chối</strong> (phải retry) khi có xung đột thực sự.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">READ</span><span class="w"> </span><span class="k">COMMITTED</span><span class="p">;</span><span class="w">   </span><span class="c1">-- MAC DINH cua PostgreSQL</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">REPEATABLE</span><span class="w"> </span><span class="k">READ</span><span class="p">;</span><span class="w">  </span><span class="c1">-- ngan non-repeatable read (VA phantom read tren PG)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">SERIALIZABLE</span><span class="p">;</span><span class="w">     </span><span class="c1">-- manh nhat, phat hien xung dot, co the tu choi commit</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>READ COMMITTED (mac dinh PostgreSQL):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Transaction A:  doc lan 1 ──► [B update+commit o giua] ──► doc lan 2
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                     &quot;cu&quot;                                      &quot;MOI&quot; (thay doi!)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  =&gt; Non-repeatable Read XAY RA
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>REPEATABLE READ:
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Transaction A:  doc lan 1 ──► [B update+commit o giua] ──► doc lan 2
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                     &quot;cu&quot;                                      &quot;cu&quot; (KHONG doi!)
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  =&gt; Non-repeatable Read BI NGAN (A &quot;dong bang&quot; tai thoi diem BEGIN)
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>SERIALIZABLE:
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  Transaction A, B: ca hai CUNG doc, CUNG INSERT du lieu lien quan
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>       │
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>       A commit TRUOC ──► THANH CONG
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>       B commit SAU ──► PHAT HIEN xung dot doc/ghi ──► TU CHOI (serialization failure)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Dirty Read — PostgreSQL không bao giờ cho phép (kể cả READ COMMITTED):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- Session B: UPDATE nhung CHUA COMMIT</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DIRTY_UNCOMMITTED&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nguyen Van A&#39;</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">-- Session A (READ COMMITTED mac dinh): doc CUNG luc</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nguyen Van A&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a> city
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-------
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> Hanoi
+</code></pre></div>
+<p>Session A <strong>không hề</strong> thấy <code>'DIRTY_UNCOMMITTED'</code> — vẫn thấy giá trị đã commit trước đó
+(<code>'Hanoi'</code>), dù Session B đã <code>UPDATE</code> (chưa commit). Đây là bằng chứng: PostgreSQL <strong>không bao
+giờ</strong> cho phép Dirty Read, kể cả ở mức thấp nhất.</p>
+<p><strong>Non-repeatable Read — xảy ra ở READ COMMITTED, bị chặn ở REPEATABLE READ:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- Session A (READ COMMITTED)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">BEGIN</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nguyen Van A&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lan 1</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">-- (Session B: UPDATE + COMMIT o giua)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nguyen Van A&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lan 2, CUNG transaction A</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<p>Kết quả thật: lần 1 <code>'DIRTY_UNCOMMITTED'</code>, lần 2 <code>'HCMC_CHANGED'</code> — <strong>khác nhau</strong> trong cùng một
+transaction.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Session A (REPEATABLE READ) - LAP LAI dung kich ban do</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">REPEATABLE</span><span class="w"> </span><span class="k">READ</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nguyen Van A&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lan 1: BASELINE</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">-- (Session B: UPDATE + COMMIT o giua)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Nguyen Van A&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lan 2: VAN LA BASELINE</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Phantom Read — bị chặn ở REPEATABLE READ của PostgreSQL:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">REPEATABLE</span><span class="w"> </span><span class="k">READ</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hanoi&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lan 1: 1</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">-- (Session B: INSERT customer moi voi city=&#39;Hanoi&#39; + COMMIT o giua)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Hanoi&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lan 2: VAN LA 1</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>SERIALIZABLE — phát hiện xung đột, từ chối một transaction:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- Ca A va B cung BEGIN ISOLATION LEVEL SERIALIZABLE</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">-- Ca hai cung SELECT count(*) WHERE city=&#39;Da Nang&#39;, roi cung INSERT them 1 dong voi city=&#39;Da Nang&#39;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">-- A commit TRUOC:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">COMMIT</span><span class="p">;</span><span class="w"> </span><span class="c1">-- THANH CONG</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">-- B commit SAU:</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+<p>Kết quả thật cho Session B:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ERROR:  could not serialize access due to read/write dependencies among transactions
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>HINT:  The transaction might succeed if retried.
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>REPEATABLE READ</code> của PostgreSQL ngăn được </strong>cả<strong> Phantom Read, trong khi chuẩn SQL chỉ
+yêu cầu nó ngăn Non-repeatable Read?</strong> Chuẩn SQL định nghĩa các mức isolation dựa trên hiện
+tượng <strong>tối thiểu</strong> cần ngăn chặn — <code>REPEATABLE READ</code> theo chuẩn chỉ <strong>bắt buộc</strong> ngăn
+Non-repeatable Read, để ngỏ khả năng Phantom Read vẫn xảy ra. Nhưng PostgreSQL hiện thực hoá
+<code>REPEATABLE READ</code> bằng cơ chế <strong>Snapshot Isolation</strong> (dựa trên MVCC, Chapter 08) — toàn bộ
+transaction nhìn thấy một "ảnh chụp" (snapshot) nhất quán của dữ liệu tại đúng thời điểm <code>BEGIN</code>,
+không chỉ riêng từng dòng đã đọc — cơ chế này <strong>tự động</strong> ngăn luôn cả Phantom Read như một hệ
+quả tất yếu (không phải nỗ lực bổ sung riêng). Đây là lý do PostgreSQL's <code>REPEATABLE READ</code> mạnh
+hơn yêu cầu tối thiểu của chuẩn SQL — một chi tiết implementation-specific quan trọng cần biết
+khi làm việc với các database khác (một số database khác, ví dụ MySQL/InnoDB, cũng dùng cơ chế
+tương tự, nhưng không phải mọi database đều đảm bảo điều này ở cùng mức isolation).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>"Serialization failure" ở mức <code>SERIALIZABLE</code> không phải lỗi — nó là hành vi </strong>thiết kế đúng
+đắn<strong>. Vì sao, và ứng dụng cần xử lý nó như thế nào?</strong> SERIALIZABLE đảm bảo kết quả cuối cùng
+<strong>tương đương</strong> với việc chạy các transaction đó <strong>tuần tự</strong> (lần lượt, không chồng chéo) — nếu
+hai transaction chạy đồng thời có khả năng dẫn tới kết quả <strong>khác</strong> so với chạy tuần tự theo bất
+kỳ thứ tự nào, PostgreSQL <strong>buộc phải</strong> huỷ một trong hai để bảo toàn đúng đảm bảo đó (đã chứng
+minh bằng thực nghiệm: cả A và B cùng đếm rồi cùng thêm dòng mới — nếu cả hai cùng thành công,
+kết quả sẽ khác với chạy tuần tự đúng đắn). Ứng dụng dùng <code>SERIALIZABLE</code> <strong>bắt buộc</strong> phải có
+logic <strong>retry</strong> khi gặp lỗi <code>40001</code> (serialization_failure) — đây không phải một trường hợp
+ngoại lệ hiếm gặp cần lo lắng, mà là một phần <strong>thiết kế bình thường</strong> của việc dùng mức
+isolation này, giống hệt cách Optimistic Lock (Phase 6, Chapter 13) cần chiến lược retry cho
+<code>OptimisticLockException</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Bốn mức isolation chuẩn được định nghĩa chính thức trong SQL-92 (1992), dựa trên nghiên cứu lý
+thuyết về concurrency control từ những năm 1970-1980. Serializable Snapshot Isolation (SSI) —
+thuật toán cụ thể PostgreSQL dùng để hiện thực hoá mức <code>SERIALIZABLE</code> hiệu quả (tránh phải khoá
+nặng nề như các cách tiếp cận truyền thống) — chỉ được thêm vào PostgreSQL từ phiên bản 9.1
+(2011), dựa trên nghiên cứu học thuật của Michael Cahill (2008) — một minh chứng cho việc lý
+thuyết database vẫn tiếp tục phát triển và được áp dụng vào các hệ thống production hiện đại.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Dirty Read có thể xảy ra ở mức <code>READ COMMITTED</code> vì tên gọi 'committed' chỉ áp dụng
+  cho một số trường hợp."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — PostgreSQL <strong>không bao giờ</strong> cho phép Dirty
+  Read, kể cả ở <code>READ UNCOMMITTED</code> (PostgreSQL coi <code>READ UNCOMMITTED</code> tương đương
+  <code>READ COMMITTED</code> trong thực thi, dù chấp nhận cú pháp khai báo mức đó).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>REPEATABLE READ</code> chỉ ngăn Non-repeatable Read, Phantom Read vẫn có thể xảy ra bất
+  kể database nào."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm ngược lại trên PostgreSQL — Snapshot Isolation
+  ngăn cả hai hiện tượng cùng lúc, mạnh hơn yêu cầu tối thiểu của chuẩn SQL.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>SERIALIZABLE</code> cho mọi transaction "để an toàn tuyệt đối" mà không có chiến lược
+  retry</strong> — ứng dụng sẽ crash/lỗi thường xuyên khi gặp serialization failure thay vì tự phục
+  hồi.</li>
+<li><strong>Nhầm lẫn READ COMMITTED của PostgreSQL với hành vi cho phép Dirty Read</strong> — đã chứng minh sai,
+  PostgreSQL không bao giờ cho Dirty Read dù ở mức nào.</li>
+<li><strong>Không nhận ra Non-repeatable Read đang ảnh hưởng logic nghiệp vụ</strong> (ví dụ tính tổng hai lần,
+  nhận hai kết quả khác nhau trong cùng transaction) — cần REPEATABLE READ hoặc thiết kế lại
+  logic chỉ đọc một lần.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Mặc định dùng <code>READ COMMITTED</code> cho phần lớn nghiệp vụ thông thường — cân bằng tốt giữa hiệu
+  năng và mức độ nhất quán.</li>
+<li>Dùng <code>REPEATABLE READ</code> khi logic nghiệp vụ cần đọc dữ liệu nhất quán nhiều lần trong cùng một
+  transaction (ví dụ tính toán phức tạp dựa trên nhiều truy vấn).</li>
+<li>Chỉ dùng <code>SERIALIZABLE</code> khi thực sự cần đảm bảo tuyệt đối, và <strong>luôn</strong> có chiến lược retry cho
+  lỗi <code>40001</code>.</li>
+<li>Không nhầm lẫn isolation level với locking (Chapter 07) — isolation level là <strong>chính sách</strong>,
+  cơ chế bên dưới (MVCC, lock) là <strong>cách hiện thực hoá</strong> chính sách đó (Chapter 08).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Dữ liệu đọc hai lần trong cùng transaction cho kết quả khác nhau ngoài dự kiến? → kiểm tra
+      isolation level đang dùng, cân nhắc <code>REPEATABLE READ</code> nếu cần nhất quán trong suốt
+      transaction.</li>
+<li>[ ] Gặp lỗi <code>could not serialize access due to read/write dependencies</code>? → bình thường ở mức
+      <code>SERIALIZABLE</code>, cần logic retry, không phải lỗi cần "sửa" theo nghĩa thông thường.</li>
+<li>[ ] Không chắc một database khác (MySQL, Oracle) có cùng đảm bảo Phantom Read ở <code>REPEATABLE
+      READ</code> như PostgreSQL không? → kiểm tra tài liệu cụ thể của database đó, đây là chi tiết
+      implementation-specific, không phải yêu cầu chuẩn SQL.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Isolation Level quy định mức "nhìn thấy" thay đổi của transaction khác, định nghĩa qua việc ngăn
+chặn Dirty Read, Non-repeatable Read, Phantom Read. Đã chứng minh bằng thực nghiệm trên
+PostgreSQL: Dirty Read không bao giờ xảy ra (kể cả READ COMMITTED); Non-repeatable Read xảy ra ở
+READ COMMITTED (hai lần đọc cùng transaction cho hai giá trị khác nhau) nhưng bị chặn hoàn toàn
+ở REPEATABLE READ; Phantom Read cũng bị chặn ở REPEATABLE READ của PostgreSQL (mạnh hơn yêu cầu
+tối thiểu của chuẩn SQL, nhờ cơ chế Snapshot Isolation dựa trên MVCC — Chapter 08); SERIALIZABLE
+phát hiện xung đột đọc/ghi thực sự và chủ động từ chối một transaction với lỗi
+<code>could not serialize access</code> — một hành vi thiết kế đúng đắn, không phải lỗi, đòi hỏi chiến lược
+retry tương tự Optimistic Lock (Phase 6, Chapter 13).</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<ul>
+<li>Có bao nhiêu mức Isolation Level trong SQL chuẩn? Phân biệt Dirty Read, Non-repeatable Read,
+  và Phantom Read.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao <code>REPEATABLE READ</code> của PostgreSQL ngăn được cả Phantom Read, trong khi chuẩn SQL chỉ
+  yêu cầu nó ngăn Non-repeatable Read?</li>
+<li>Giải thích vì sao "serialization failure" ở mức <code>SERIALIZABLE</code> là hành vi thiết kế đúng đắn,
+  không phải lỗi. Ứng dụng cần xử lý nó như thế nào?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại toàn bộ 4 kịch bản ở Example trên một PostgreSQL thật (dùng 2 session song song),
+      xác nhận kết quả đúng như mô tả.</li>
+<li>[ ] Viết một transaction <code>SERIALIZABLE</code> với logic retry (bắt lỗi <code>40001</code>, thử lại tối đa 3
+      lần), xác nhận cuối cùng thành công sau một vài lần thử.</li>
+<li>[ ] Tìm hiểu tài liệu isolation level của MySQL/InnoDB, so sánh hành vi Phantom Read ở mức
+      <code>REPEATABLE READ</code> với PostgreSQL.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Isolation Level</th>
+<th>Dirty Read</th>
+<th>Non-repeatable Read</th>
+<th>Phantom Read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>READ UNCOMMITTED</code></td>
+<td>Cho phép (theo chuẩn; PostgreSQL thực tế vẫn chặn)</td>
+<td>Cho phép</td>
+<td>Cho phép</td>
+</tr>
+<tr>
+<td><code>READ COMMITTED</code> (mặc định PG)</td>
+<td>Chặn</td>
+<td>Cho phép</td>
+<td>Cho phép</td>
+</tr>
+<tr>
+<td><code>REPEATABLE READ</code></td>
+<td>Chặn</td>
+<td>Chặn</td>
+<td>Chặn (trên PostgreSQL, mạnh hơn chuẩn)</td>
+</tr>
+<tr>
+<td><code>SERIALIZABLE</code></td>
+<td>Chặn</td>
+<td>Chặn</td>
+<td>Chặn (đảm bảo tương đương chạy tuần tự)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>PostgreSQL Documentation — Transaction Isolation.</li>
+<li>Cahill, M.; Röhm, U.; Fekete, A. — "Serializable Isolation for Snapshot Databases" (2008,
+  nền tảng SSI của PostgreSQL).</li>
+<li>ISO/IEC 9075 (SQL-92) — Transaction Isolation Levels.</li>
 </ul>
 
 
