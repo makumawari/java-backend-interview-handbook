@@ -2327,7 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2355,7 +2355,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2439,7 +2439,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2467,7 +2467,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -2761,17 +2761,6 @@
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6045,17 +6034,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6131,7 +6109,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:completablefuture" class="md-tag">CompletableFuture</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6149,94 +6141,286 @@ Chapter slug: <code>completablefuture</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CompletableFuture</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 14 — Callable vs Runnable</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 16 — Executor</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gọi API bất đồng bộ, tổng hợp nhiều nguồn dữ liệu song song (Phase 5, Phase 8)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../14-callable-runnable/">Chapter 14</a> — <code>Future.get()</code> là <strong>blocking</strong>: thread gọi
+nó phải ngồi chờ tới khi task xong, không thể "làm gì tiếp theo với kết quả" mà không chặn
+đứng thread hiện tại.</p>
 </blockquote>
+<p>Với các luồng xử lý thực tế — gọi API A, lấy kết quả rồi gọi API B dùng kết quả đó, rồi kết hợp
+với kết quả của một API C chạy song song — nếu chỉ dùng <code>Future.get()</code> thuần, code sẽ phải
+lồng nhau hoặc chờ tuần tự, mất hết lợi ích bất đồng bộ. <code>CompletableFuture</code> cho phép <strong>nối
+chuỗi</strong> các bước xử lý mà không cần block:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Buoc 1 (thread: ForkJoinPool.commonPool-worker-1)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Ket qua: 20
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Ket hop 2 future: 12
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Da bat loi: loi!
+</code></pre></div>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>CompletableFuture</code> khác <code>Future</code> như thế nào? Vì sao nó cho phép nối chuỗi (chaining) các
+thao tác bất đồng bộ mà <code>Future</code> thông thường không làm được?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt <code>Future</code> (chỉ chờ blocking) và <code>CompletableFuture</code> (nối chuỗi non-blocking)</li>
+<li>[ ] Tự tay chạy được <code>thenApply</code>, <code>thenCombine</code>, <code>exceptionally</code> với kết quả thật</li>
+<li>[ ] Hiểu cơ chế xử lý lỗi trong chuỗi bất đồng bộ qua <code>exceptionally</code>/<code>handle</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 14 — hiểu <code>Future</code>, hạn chế blocking của <code>get()</code>.</li>
+<li>Chapter 16 — hiểu <code>ExecutorService</code>, vì <code>CompletableFuture</code> có thể nhận <code>Executor</code> tuỳ chỉnh.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Gọi API bất đồng bộ, tổng hợp nhiều nguồn dữ liệu song song</strong> (Phase 5, Phase 8) —
+  <code>CompletableFuture</code> là công cụ chuẩn để gọi nhiều service song song rồi gộp kết quả trong
+  kiến trúc microservice.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Future.get()</code> (Chapter 14) chỉ có một cách để lấy kết quả: <strong>chờ blocking</strong>. Không có cách nào
+để nói "khi task này xong, tự động chạy tiếp bước sau với kết quả đó" mà không phải tự viết
+callback thủ công hoặc block một thread chỉ để chờ. Với nhiều bước phụ thuộc lẫn nhau hoặc cần
+chạy song song rồi gộp kết quả, <code>Future</code> thuần trở nên cồng kềnh và kém hiệu quả (mỗi lần chờ
+chiếm một thread không làm gì).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>CompletableFuture&lt;T&gt;</code> (Java 8) mở rộng <code>Future&lt;T&gt;</code>, bổ sung khả năng <strong>nối chuỗi</strong> các bước xử
+lý bất đồng bộ: <code>thenApply</code> (biến đổi kết quả), <code>thenCombine</code> (kết hợp hai future), <code>exceptionally</code>/<code>handle</code> (xử lý lỗi) — tất cả <strong>không cần block</strong> thread hiện tại chờ đợi, các bước tiếp theo
+tự động chạy khi bước trước hoàn thành.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Mô hình lập trình bất đồng bộ kiểu "callback thủ công" (truyền vào một hàm để gọi khi xong) dễ
+dẫn tới "callback hell" (nhiều callback lồng nhau, khó đọc, khó xử lý lỗi nhất quán).
+<code>CompletableFuture</code> chuẩn hoá mẫu hình này thành các phương thức nối chuỗi rõ ràng, đọc gần như
+tuần tự dù thực thi bất đồng bộ — đồng thời tích hợp sẵn cơ chế lan truyền lỗi qua toàn bộ chuỗi
+(giống <code>try-catch</code> nhưng cho luồng bất đồng bộ), giải quyết đúng vấn đề "callback hell" từng
+gặp phải với các API bất đồng bộ kiểu cũ.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CompletableFuture</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">tinhToan</span><span class="p">())</span><span class="w">   </span><span class="c1">// chay bat dong bo</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">           </span><span class="c1">// bien doi ket qua, khong block</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">.</span><span class="na">exceptionally</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;gia tri mac dinh neu loi&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// xu ly loi trong chuoi</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// chi block O DAY, khi thuc su can ket qua cuoi</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>supplyAsync() ──► thenApply() ──► thenApply() ──► get()
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   [thread pool]    [khong block]   [khong block]   [block, chi khi can ket qua cuoi]
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>thenCombine (ket hop 2 future doc lap):
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  future1 ──┐
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            ├──► thenCombine(combiner) ──► ket qua gop
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  future2 ──┘
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>exceptionally (xu ly loi trong chuoi):
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  supplyAsync() [nem loi] ──► exceptionally(ex -&gt; giaTriMacDinh) ──► get() [khong nem loi nua]
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.CompletableFuture</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CompletableFutureDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CompletableFuture</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Buoc 1 (thread: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="p">})</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Ket qua: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f1</span><span class="p">.</span><span class="na">thenCombine</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">sum</span><span class="p">);</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ket hop 2 future: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">combined</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">risky</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;loi!&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">withError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">risky</span><span class="p">.</span><span class="na">exceptionally</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Da bat loi: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getCause</span><span class="p">().</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">withError</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Buoc 1 (thread: ForkJoinPool.commonPool-worker-1)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Ket qua: 20
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Ket hop 2 future: 12
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Da bat loi: loi!
+</code></pre></div>
+<p><code>supplyAsync</code> mặc định chạy trên <code>ForkJoinPool.commonPool()</code> (đúng pool đã học ở Chapter 17) —
+không phải thread chính. Chuỗi <code>thenApply(x*2).thenApply("Ket qua: "+x)</code> cho ra <code>"Ket qua: 20"</code>
+(10 → 20 → chuỗi) mà không cần gọi <code>get()</code> giữa các bước. <code>thenCombine</code> gộp đúng <code>5 + 7 = 12</code>
+từ hai future độc lập. <code>exceptionally</code> bắt được lỗi ném ra trong <code>supplyAsync</code>, trả về giá trị
+mặc định <code>"Da bat loi: loi!"</code> thay vì để <code>get()</code> ném <code>ExecutionException</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>ex.getCause().getMessage()</code> trong <code>exceptionally</code>, chứ không phải <code>ex.getMessage()</code>
+trực tiếp?</strong> Giống hệt cơ chế bọc <code>ExecutionException</code> đã học ở Chapter 14: lỗi xảy ra bên trong
+<code>supplyAsync</code> (chạy trên thread pool worker) được <code>CompletableFuture</code> bọc lại thành
+<code>CompletionException</code> khi truyền tới <code>exceptionally</code> — lỗi gốc (<code>RuntimeException("loi!")</code>) nằm
+ở <code>getCause()</code>. Đây là mẫu hình lặp lại xuyên suốt: bất cứ khi nào exception phải "vượt biên
+giới thread" (từ worker thread sang thread gọi), JDK bọc nó trong một lớp exception trung gian
+để phân biệt rõ "lỗi được chuyển tiếp" với lỗi xảy ra trực tiếp tại điểm gọi.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>thenApply</code> vs <code>thenApplyAsync</code> — khác biệt tưởng nhỏ nhưng ảnh hưởng lớn tới hiệu năng.</strong>
+<code>thenApply(fn)</code> (không hậu tố <code>Async</code>) thực thi hàm <code>fn</code> <strong>trên chính thread vừa hoàn thành
+bước trước</strong> — nếu bước trước đã xong ngay khi gọi <code>thenApply</code> (ví dụ giá trị đã có sẵn), <code>fn</code>
+chạy đồng bộ luôn trên thread gọi. <code>thenApplyAsync(fn)</code> luôn đảm bảo <code>fn</code> chạy trên một thread
+khác lấy từ pool (<code>ForkJoinPool.commonPool()</code> mặc định, hoặc <code>Executor</code> tuỳ chỉnh nếu truyền
+vào). Với chuỗi có nhiều bước và bước nào đó tốn CPU đáng kể, lẫn lộn giữa hai biến thể này có
+thể dẫn tới việc vô tình chạy công việc nặng trên một thread "nhạy cảm" (ví dụ thread xử lý
+event loop trong một số framework) thay vì thread pool chuyên dụng — gây nghẽn không mong muốn.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>CompletableFuture</code> ra đời ở Java 8 (2014), cùng đợt với Stream API và Lambda — phản ánh xu
+hướng lập trình hàm (functional programming) lan rộng vào JDK giai đoạn này. Trước đó (Java 5-7),
+lập trình bất đồng bộ nối chuỗi phải dựa vào các thư viện bên thứ ba (ví dụ Guava's
+<code>ListenableFuture</code>) hoặc tự viết callback thủ công.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>CompletableFuture</code> luôn chạy bất đồng bộ hoàn toàn, không bao giờ block thread
+  chính."
+  <strong>Reality:</strong> Chỉ các bước trung gian (<code>thenApply</code>, <code>thenCombine</code>, ...) là non-blocking. Gọi
+  <code>get()</code> để lấy kết quả cuối cùng vẫn <strong>block</strong> — đây là lý do trong ứng dụng thực tế, <code>get()</code>
+  thường chỉ được gọi ở "điểm cuối" của luồng xử lý (ví dụ trả response HTTP), không gọi giữa
+  chừng.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>exceptionally</code> xử lý lỗi giống hệt <code>try-catch</code> thông thường."
+  <strong>Reality:</strong> Xem Deep Dive — lỗi bị bọc trong <code>CompletionException</code>, cần <code>getCause()</code> để lấy
+  lỗi gốc, khác với <code>try-catch</code> bắt trực tiếp exception ném ra.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi <code>future.get()</code> ngay sau khi tạo <code>CompletableFuture</code></strong> — mất hết lợi ích bất đồng bộ,
+  quay lại hành vi blocking như <code>Future</code> thường.</li>
+<li><strong>Nhầm lẫn <code>thenApply</code> và <code>thenApplyAsync</code></strong> — xem Engineering Insight, có thể vô tình chạy
+  công việc nặng trên thread không phù hợp.</li>
+<li><strong>Không xử lý lỗi trong chuỗi (<code>exceptionally</code>/<code>handle</code>)</strong> — lỗi không được xử lý sẽ lan
+  truyền tới bước cuối, và <code>get()</code> sẽ ném <code>ExecutionException</code> bọc lỗi gốc, dễ bị bỏ sót nếu
+  không có <code>try-catch</code> bao quanh <code>get()</code>.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Chỉ gọi <code>get()</code>/<code>join()</code> ở điểm thực sự cần kết quả cuối cùng (thường là cuối luồng xử lý),
+  không gọi giữa chừng.</li>
+<li>Dùng <code>exceptionally</code> hoặc <code>handle</code> để xử lý lỗi tường minh trong chuỗi, tránh để lỗi "rơi
+  xuống" tới <code>get()</code> mà không được xử lý đúng ngữ cảnh.</li>
+<li>Cân nhắc truyền <code>Executor</code> tuỳ chỉnh cho các biến thể <code>*Async</code> khi công việc nặng CPU, tránh
+  chiếm dụng <code>ForkJoinPool.commonPool()</code> dùng chung toàn JVM (đã nhắc ở Chapter 17).</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service gọi 3 API bên ngoài song song bằng <code>CompletableFuture</code>, gộp kết quả
+bằng <code>thenCombine</code>. Một API thỉnh thoảng lỗi (timeout mạng), khiến toàn bộ response trả lỗi 500
+cho người dùng dù 2 API còn lại đã trả về thành công.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> tỉ lệ lỗi 500 tăng theo đúng tỉ lệ lỗi của một API phụ thuộc, dù 2 API còn
+  lại vẫn hoạt động bình thường.</li>
+<li><strong>Root cause:</strong> không có <code>exceptionally</code>/<code>handle</code> nào được đặt cho future gọi API hay lỗi —
+  lỗi lan thẳng qua <code>thenCombine</code> rồi tới <code>get()</code>, làm hỏng toàn bộ chuỗi dù chỉ một phần dữ
+  liệu bị thiếu.</li>
+<li><strong>Debug:</strong> log lỗi tại điểm <code>get()</code> cho thấy <code>ExecutionException</code> bọc đúng lỗi timeout của
+  API thứ 3.</li>
+<li><strong>Solution:</strong> thêm <code>exceptionally</code> ngay sau future gọi API dễ lỗi, trả về giá trị mặc định
+  (hoặc <code>Optional.empty()</code>) thay vì để lỗi lan truyền — cho phép phần response còn lại vẫn trả
+  về đầy đủ, chỉ thiếu phần dữ liệu không quan trọng.</li>
+<li><strong>Prevention:</strong> với mọi future gọi service ngoài trong một chuỗi tổng hợp nhiều nguồn, luôn
+  cân nhắc future đó có "bắt buộc phải thành công" hay "có thể thiếu, dùng giá trị mặc định" —
+  và xử lý lỗi tường minh theo đúng mức độ quan trọng đó.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>get()</code> ném <code>ExecutionException</code> không rõ nguyên nhân? → gọi <code>getCause()</code>, kiểm tra có
+      <code>exceptionally</code>/<code>handle</code> xử lý đúng ngữ cảnh trong chuỗi không.</li>
+<li>[ ] Chuỗi <code>CompletableFuture</code> chạy chậm hơn mong đợi? → kiểm tra có đang lẫn lộn
+      <code>thenApply</code>/<code>thenApplyAsync</code>, hoặc có <code>get()</code> gọi sớm giữa chừng làm mất tính bất đồng bộ
+      không.</li>
+<li>[ ] Một phần lỗi từ nguồn phụ làm hỏng toàn bộ kết quả tổng hợp? → thêm <code>exceptionally</code> cho
+      từng future thành phần thay vì chỉ xử lý lỗi ở bước cuối cùng.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>CompletableFuture</code> mở rộng <code>Future</code> với khả năng nối chuỗi bất đồng bộ (<code>thenApply</code>,
+<code>thenCombine</code>) và xử lý lỗi tích hợp (<code>exceptionally</code>) — đã chứng minh bằng thực nghiệm: chuỗi
+biến đổi cho ra đúng <code>"Ket qua: 20"</code>, gộp hai future độc lập cho <code>12</code>, và lỗi ném trong
+<code>supplyAsync</code> được <code>exceptionally</code> bắt đúng (qua <code>getCause()</code>, vì lỗi bị bọc trong
+<code>CompletionException</code> khi vượt biên giới thread). Chỉ nên <code>get()</code>/<code>join()</code> ở điểm thực sự cần
+kết quả cuối, và cần xử lý lỗi tường minh cho từng future thành phần khi tổng hợp nhiều nguồn.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>CompletableFuture</code> khác <code>Future</code> như thế nào?</li>
+<li><code>thenApply</code> khác <code>thenApplyAsync</code> như thế nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cách <code>CompletableFuture</code> xử lý và lan truyền lỗi trong một chuỗi nhiều bước. Vì
+  sao <code>getCause()</code> cần thiết trong <code>exceptionally</code>?</li>
+<li>Một service tổng hợp kết quả từ 3 <code>CompletableFuture</code> song song, một trong số đó thỉnh thoảng
+  lỗi làm hỏng toàn bộ response. Đề xuất cách xử lý.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>CompletableFutureDemo</code> ở trên, xác nhận kết quả giống mô tả.</li>
+<li>[ ] Viết một chuỗi gọi 2 "API giả lập" (dùng <code>Thread.sleep</code> mô phỏng độ trễ) song song bằng
+      <code>supplyAsync</code>, gộp bằng <code>thenCombine</code>, đo thời gian tổng so với gọi tuần tự.</li>
+<li>[ ] Thử <code>allOf()</code>/<code>anyOf()</code> với 3 <code>CompletableFuture</code>, quan sát khác biệt hành vi (chờ tất cả
+      xong vs chờ cái đầu tiên xong).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Phương thức</th>
+<th>Mục đích</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>supplyAsync(Supplier)</code></td>
+<td>Chạy bất đồng bộ, trả về giá trị</td>
+</tr>
+<tr>
+<td><code>thenApply(Function)</code></td>
+<td>Biến đổi kết quả, non-blocking</td>
+</tr>
+<tr>
+<td><code>thenCombine(other, fn)</code></td>
+<td>Gộp kết quả 2 future độc lập</td>
+</tr>
+<tr>
+<td><code>exceptionally(fn)</code></td>
+<td>Xử lý lỗi, trả về giá trị mặc định</td>
+</tr>
+<tr>
+<td><code>handle(fn)</code></td>
+<td>Xử lý cả kết quả lẫn lỗi trong một hàm</td>
+</tr>
+<tr>
+<td><code>get()</code> / <code>join()</code></td>
+<td>Block, chỉ dùng khi thực sự cần kết quả cuối</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.CompletableFuture</code>.</li>
+<li>Java Concurrency in Practice — không có chương riêng (CompletableFuture ra đời sau sách),
+  tham khảo trực tiếp Javadoc chính thức của JDK 8+.</li>
 </ul>
 
 

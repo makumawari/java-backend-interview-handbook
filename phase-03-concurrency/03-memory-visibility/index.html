@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jmm" class="md-tag">JMM</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:memory-visibility" class="md-tag">Memory Visibility</a>
       
     
   </nav>
@@ -6149,94 +6170,330 @@ Chapter slug: <code>memory-visibility</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Memory Visibility</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Thread</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 06 — JIT Compiler</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 04 — Runtime Data Areas (Heap)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">volatile (Chapter 04) — giải pháp trực tiếp cho đúng vấn đề chapter này nêu ra</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">synchronized (Chapter 05) — cũng đảm bảo visibility, không chỉ mutual exclusion</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
 filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Chạy đoạn code sau — một thread <code>worker</code> chạy vòng lặp <code>while (!stopRequested)</code>, <code>main</code> chờ 1
+giây rồi đặt <code>stopRequested = true</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// KHÔNG volatile</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">Thread</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stopRequested</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* làm việc */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Worker dung lai&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">});</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">worker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// main dat gia tri moi</span>
+</code></pre></div>
+<p>Trực giác nói: sau khi <code>main</code> đặt <code>stopRequested = true</code>, <code>worker</code> sẽ sớm thấy giá trị mới và
+dừng lại. Thực tế đo được:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Sau 3s, worker VAN CHUA DUNG (van con isAlive=true) -- van de VISIBILITY that!
+</code></pre></div>
+<p><strong>Ba giây sau</strong>, <code>worker</code> vẫn chạy như không có chuyện gì xảy ra — nó <strong>không bao giờ</strong> thấy
+giá trị mới của <code>stopRequested</code>, dù <code>main</code> đã gán xong từ lâu, và cả hai đều truy cập đúng một
+biến trên Heap. Đây không phải bug hiếm gặp — nó là hệ quả trực tiếp, có thể dự đoán được, của
+chính điều bạn đã học ở <a href="../../phase-01-foundation/06-jit-compiler/">Phase 1, Chapter 06 — JIT Compiler</a>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Vì sao một thread có thể không bao giờ thấy được giá trị mới mà một thread khác đã gán cho
+một biến, dù cả hai đều truy cập đúng biến đó trên Heap?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay tái hiện được vấn đề visibility bằng thực nghiệm — không chỉ đọc lý thuyết</li>
+<li>[ ] Giải thích được nguyên nhân: JIT Compiler (Phase 1, Chapter 06) tối ưu bằng cách cache
+      giá trị biến vào thanh ghi CPU, không đọc lại từ bộ nhớ chính mỗi lần</li>
+<li>[ ] Hiểu <strong>visibility</strong> là một vấn đề tách biệt hoàn toàn với <strong>race condition</strong> (dữ liệu sai
+      do nhiều thread cùng ghi) — dù cả hai đều thuộc nhóm "vấn đề concurrency"</li>
+<li>[ ] Biết mối liên hệ giữa visibility và Java Memory Model (JMM) ở mức khái niệm</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu Thread cơ bản.</li>
+<li>Phase 1, Chapter 06 — hiểu JIT Compiler tối ưu code dựa trên hành vi runtime.</li>
+<li>Phase 1, Chapter 04 — hiểu Heap là vùng nhớ dùng chung giữa các thread.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>volatile</strong> (Chapter 04) — giải pháp trực tiếp, đơn giản nhất cho chính xác vấn đề chapter
+  này minh hoạ.</li>
+<li><strong>synchronized</strong> (Chapter 05) — ngoài mutual exclusion (loại trừ lẫn nhau), nó còn đảm bảo
+  visibility — một điểm rất hay bị bỏ sót.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>CPU hiện đại không đọc/ghi trực tiếp vào RAM cho mỗi lệnh — quá chậm. Chúng dùng nhiều tầng
+<strong>cache</strong> (bộ nhớ đệm cực nhanh, riêng cho từng lõi CPU) để tăng tốc. Khi một thread chạy trên
+lõi CPU A ghi một giá trị, giá trị đó có thể chỉ nằm trong cache của lõi A một thời gian, <strong>chưa
+được đẩy xuống RAM</strong> (bộ nhớ chính, nơi mọi lõi đều thấy được). Một thread khác chạy trên lõi B
+đọc từ cache của <strong>chính nó</strong> — nếu cache B chưa được cập nhật, nó sẽ đọc <strong>giá trị cũ</strong>, dù
+giá trị mới đã tồn tại "ở đâu đó" trong hệ thống.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Memory visibility</strong> (khả năng nhìn thấy bộ nhớ) là câu hỏi: một thay đổi mà thread A thực
+hiện trên một biến, thread B có <strong>đảm bảo</strong> thấy được nó hay không, và thấy <strong>khi nào</strong>. Trong
+Java, nếu không có cơ chế đồng bộ hoá tường minh (<code>volatile</code>, <code>synchronized</code>, hoặc các lớp
+<code>java.util.concurrent</code>), <strong>không có đảm bảo nào cả</strong> — thread B có thể thấy giá trị mới ngay
+lập tức, sau một khoảng trễ, hoặc <strong>không bao giờ</strong>, tuỳ vào tối ưu hoá cụ thể của JIT Compiler
+và kiến trúc CPU.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu JVM buộc mọi lần đọc/ghi biến đều phải đồng bộ trực tiếp với RAM (bỏ qua cache CPU hoàn
+toàn): chương trình sẽ chạy <strong>chậm hơn rất nhiều</strong>, mất đi lợi ích của cache CPU — một trong
+những cơ chế tăng tốc quan trọng nhất của phần cứng hiện đại. Java chọn để lập trình viên
+<strong>tường minh khai báo</strong> biến nào cần đảm bảo visibility (<code>volatile</code>, Chapter 04) thay vì áp đặt
+chi phí đó lên <strong>mọi</strong> biến — đúng triết lý "không bắt mọi người trả giá cho thứ họ không dùng"
+đã thấy nhiều lần trước đó (ví dụ <code>HashMap</code> không tự đồng bộ hoá, Phase 2 Chapter 08).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nguyên nhân kỹ thuật cụ thể gây ra hiện tượng ở Story: JIT Compiler (Phase 1, Chapter 06), khi
+biên dịch vòng lặp <code>while (!stopRequested)</code> thành mã máy tối ưu, nhận thấy <strong>trong phạm vi vòng
+lặp</strong>, không có gì (mà nó biết) làm thay đổi <code>stopRequested</code> — nó tối ưu bằng cách đọc giá trị
+<code>stopRequested</code> <strong>một lần</strong>, lưu vào thanh ghi CPU, rồi lặp lại kiểm tra thanh ghi đó <strong>mãi
+mãi</strong>, không bao giờ đọc lại từ bộ nhớ chính. Đây là tối ưu <strong>hoàn toàn hợp lệ</strong> theo góc nhìn
+đơn luồng (single-threaded) của JIT — nó không "biết" (và theo mặc định, không cần biết) rằng
+một thread khác có thể thay đổi biến đó bất cứ lúc nào.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Lõi CPU 1 (chạy &quot;main&quot;)          Lõi CPU 2 (chạy &quot;worker&quot;)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>┌─────────────────┐              ┌─────────────────┐
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│ Cache lõi 1       │              │ Cache lõi 2       │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│ stopRequested=true│              │ stopRequested=false│ ← JIT đã cache vào
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>└────────┬─────────┘              └────────┬─────────┘   thanh ghi, KHÔNG
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>         │                                  │              đọc lại RAM nữa
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>         ▼                                  ▼
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    ┌──────────────── RAM (bộ nhớ chính) ────────────────┐
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    │           stopRequested = true (đã ghi)              │
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    └──────────────────────────────────────────────────────┘
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>Lõi 2 KHÔNG BAO GIỜ đọc lại RAM trong vòng lặp đã được JIT tối ưu
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>→ worker KHÔNG BAO GIỜ thấy giá trị true, dù RAM đã có giá trị đúng
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Tái hiện đúng hiện tượng ở Story — một bug thật, tái lập được, không phải mô tả lý thuyết
+suông:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VisibilityDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// KHONG volatile</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stopRequested</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">                </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Worker dung lai, count = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="n">worker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Main: dat stopRequested = true&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">worker</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">worker</span><span class="p">.</span><span class="na">isAlive</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau 3s, worker VAN CHUA DUNG (van con isAlive=true) -- van de VISIBILITY that!&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Worker da dung binh thuong&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Main: dat stopRequested = true
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Sau 3s, worker VAN CHUA DUNG (van con isAlive=true) -- van de VISIBILITY that!
+</code></pre></div>
+<p><code>worker</code> không bao giờ dừng trong 3 giây chờ — chương trình phải gọi <code>System.exit(0)</code> để thoát
+cưỡng bức. Đây là bằng chứng thực nghiệm trực tiếp: <strong>không phải mọi lần chạy code này đều tái
+hiện đúng bug</strong> (phụ thuộc JIT có quyết định tối ưu theo đúng cách đó hay không, tuỳ máy/JVM
+cụ thể) — chính sự <strong>không chắc chắn</strong> này mới là điều đáng sợ nhất của loại bug này trong thực
+tế.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao "không phải lúc nào cũng tái hiện được" lại là điều tệ nhất, không phải điều đỡ tệ
+hơn?</strong> Vì nó khiến bug loại này gần như không thể phát hiện qua testing thông thường. Chương
+trình có thể chạy <strong>hoàn toàn đúng</strong> hàng nghìn lần trên máy dev (JIT chưa kịp tối ưu tới mức
+gây bug, hoặc kiến trúc CPU/JVM cụ thể không biểu hiện rõ), rồi bất ngờ "treo" trong production
+sau khi chạy đủ lâu để JIT tối ưu sâu (Phase 1, Chapter 06: "JIT warmup" — càng chạy lâu, JIT
+càng tối ưu tích cực). Đây là lý do memory visibility được xếp vào nhóm lỗi nguy hiểm bậc nhất
+trong lập trình đa luồng: hoàn toàn hợp lệ về logic đơn luồng, chỉ lộ ra trong đúng điều kiện
+đa luồng + tối ưu hoá cụ thể, thời điểm và cách lộ ra không đoán trước được.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Visibility khác Race Condition (đã gặp ở Phase 2, Chapter 11) như thế nào — dù cả hai đều là
+"vấn đề concurrency"?</strong> Đây là nhầm lẫn phổ biến, cần phân biệt rõ:</p>
+<ul>
+<li><strong>Race condition</strong> (Phase 2, Chapter 11 — ví dụ <code>HashMap</code> mất dữ liệu dưới nhiều thread) là
+  vấn đề về <strong>thứ tự và tính nguyên tử</strong> của nhiều thao tác — nhiều thread cùng đọc-sửa-ghi một
+  giá trị mà không có sự phối hợp, dẫn tới ghi đè lẫn nhau.</li>
+<li><strong>Visibility</strong> (chapter này) là vấn đề về <strong>thời điểm một thread nhìn thấy</strong> một giá trị đã
+  được ghi — dù chỉ có <strong>một</strong> thread ghi (<code>main</code>, chỉ ghi một lần), thread khác vẫn có thể
+  không bao giờ thấy được giá trị đó.</li>
+</ul>
+<p>Hai vấn đề này <strong>độc lập</strong> với nhau — một biến có thể gặp vấn đề visibility mà không hề có
+race condition (ví dụ ở Story, chỉ <code>main</code> ghi, <code>worker</code> chỉ đọc), và ngược lại. Nhầm lẫn hai
+khái niệm này dẫn tới áp dụng sai giải pháp: <code>volatile</code> (Chapter 04) giải quyết visibility
+nhưng <strong>không</strong> giải quyết race condition nếu có nhiều thread cùng ghi (sẽ minh hoạ rõ ở
+Chapter 04); cần <code>synchronized</code>/<code>Atomic</code> (Chapter 05, 12) cho race condition.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Vấn đề memory visibility không phải đặc thù riêng của Java — nó là hệ quả của kiến trúc CPU đa
+lõi hiện đại (cache riêng từng lõi) kết hợp với các compiler tối ưu tích cực (không chỉ JIT —
+compiler tĩnh như <code>gcc</code> cũng có vấn đề tương tự với biến chia sẻ giữa thread nếu không dùng
+đúng cơ chế đồng bộ). Java Memory Model (JMM) — đặc tả chính thức quy định chính xác khi nào
+một thread <strong>đảm bảo</strong> thấy được thay đổi của thread khác — được định nghĩa lại hoàn chỉnh và
+chặt chẽ hơn nhiều trong JSR 133 (2004, đi cùng Java 5), sau khi phiên bản JMM gốc (Java 1.0)
+bị phát hiện có nhiều lỗ hổng và mơ hồ nghiêm trọng, khiến nhiều tối ưu hoá compiler hợp lệ có
+thể phá vỡ những giả định mà lập trình viên tưởng là hiển nhiên.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Miễn là biến nằm trên Heap (dùng chung giữa các thread), mọi thread đều thấy
+  được giá trị mới nhất ngay lập tức."
+  <strong>Reality:</strong> Hoàn toàn sai — đã chứng minh bằng thực nghiệm ở Example. Heap chỉ là nơi dữ
+  liệu <strong>tồn tại</strong>, không đảm bảo gì về việc <strong>khi nào</strong> một thread khác thấy được thay đổi
+  mới nhất.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Bug về memory visibility rất hiếm gặp trong thực tế, chỉ là lý thuyết sách vở."
+  <strong>Reality:</strong> Nó là một trong những nguyên nhân phổ biến nhất của các bug "chỉ xảy ra trong
+  production, không tái hiện được trên máy dev" liên quan tới đa luồng — cực kỳ thực tế, không
+  phải lý thuyết suông.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng biến <code>boolean</code>/cờ hiệu (flag) thường để giao tiếp giữa các thread</strong> (như
+  <code>stopRequested</code> ở Story) mà không đánh dấu <code>volatile</code> (Chapter 04) — lỗi phổ biến bậc nhất
+  trong lập trình đa luồng Java.</li>
+<li><strong>Tin rằng test pass nhiều lần trên máy dev nghĩa là code đa luồng đã đúng</strong> — visibility bug
+  có thể không lộ ra trong môi trường test (ít CPU, JIT chưa tối ưu đủ sâu) nhưng lộ ra trong
+  production.</li>
+<li><strong>Nhầm lẫn visibility với race condition</strong>, áp dụng sai công cụ sửa lỗi (xem Engineering
+  Insight).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Bất kỳ biến nào được đọc bởi một thread và ghi bởi thread khác, không có cơ chế đồng bộ nào
+  khác bảo vệ, phải được đánh dấu <code>volatile</code> (Chapter 04) tối thiểu.</li>
+<li>Không dựa vào việc "test pass nhiều lần" để kết luận code đa luồng đúng — bug visibility có
+  thể ẩn mình rất lâu.</li>
+<li>Khi nghi ngờ một bug đa luồng "chập chờn, chỉ xảy ra dưới tải cao hoặc chạy lâu", luôn cân
+  nhắc khả năng visibility là nguyên nhân gốc.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service dùng một cờ hiệu <code>boolean</code> để yêu cầu một worker thread nền dừng lại
+êm đẹp (graceful shutdown) khi ứng dụng tắt — hoạt động đúng lúc test, nhưng đôi khi worker
+thread <strong>không bao giờ dừng</strong>, khiến ứng dụng "treo" khi cố tắt (hoặc container health check
+timeout).</p>
+<ul>
+<li><strong>Triệu chứng:</strong> shutdown hoạt động đúng đa số lần, nhưng thỉnh thoảng "treo" vô thời hạn,
+  đặc biệt sau khi ứng dụng đã chạy một thời gian dài (JIT đã tối ưu sâu — đúng hiện tượng ở
+  Story).</li>
+<li><strong>Root cause:</strong> cờ hiệu dừng không được đánh dấu <code>volatile</code> — chính xác lỗi đã minh hoạ trong
+  chapter này.</li>
+<li><strong>Debug:</strong> lấy thread dump (Chapter 02) lúc "treo", xác nhận worker thread vẫn ở trạng thái
+  <code>RUNNABLE</code> (đang chạy vòng lặp), không phải <code>BLOCKED</code>/<code>WAITING</code> — dấu hiệu đặc trưng của
+  visibility bug (khác deadlock, nơi thread sẽ ở <code>BLOCKED</code>).</li>
+<li><strong>Solution:</strong> đánh dấu cờ hiệu là <code>volatile</code> (Chapter 04).</li>
+<li><strong>Prevention:</strong> coi mọi biến chia sẻ giữa các thread mà không có <code>synchronized</code>/<code>Lock</code> bảo vệ
+  là một "nghi phạm visibility" mặc định — review kỹ trong code review, đặc biệt các cờ hiệu
+  điều khiển vòng lặp/shutdown.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Thread nền không bao giờ dừng dù đã "yêu cầu dừng"? → kiểm tra cờ hiệu điều khiển có
+      <code>volatile</code> không.</li>
+<li>[ ] Bug đa luồng "chập chờn", tệ hơn khi ứng dụng chạy lâu? → nghi ngờ visibility, liên hệ
+      hiện tượng JIT warmup (Phase 1, Chapter 06).</li>
+<li>[ ] Thread dump cho thấy thread "treo" vẫn ở <code>RUNNABLE</code> (không <code>BLOCKED</code>)? → không phải
+      deadlock, nghi ngờ vòng lặp bị "kẹt" do visibility.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Không có "source OpenJDK" cụ thể để đọc cho vấn đề này — nó là hệ quả của tương tác giữa JIT
+Compiler (HotSpot C1/C2, Phase 1 Chapter 06) và kiến trúc bộ nhớ phần cứng (cache coherence
+protocol của CPU), không phải một đoạn logic Java cụ thể. Công cụ thực tế để quan sát: chạy
+cùng chương trình với <code>-Xint</code> (Phase 1, Chapter 06 — tắt hoàn toàn JIT, chỉ dùng Interpreter) —
+bug visibility ở Example thường <strong>biến mất</strong> khi tắt JIT, vì Interpreter không thực hiện tối
+ưu "cache biến vào thanh ghi" như JIT — một cách gián tiếp nhưng cụ thể để xác nhận đúng JIT là
+nguyên nhân.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Memory visibility</strong> là vấn đề về việc một thread có đảm bảo thấy được giá trị mới mà thread
+khác vừa ghi hay không — không có đảm bảo nào nếu thiếu cơ chế đồng bộ tường minh
+(<code>volatile</code>/<code>synchronized</code>). Nguyên nhân cụ thể: JIT Compiler (Phase 1, Chapter 06) có thể tối
+ưu bằng cách cache giá trị biến vào thanh ghi CPU, không đọc lại từ bộ nhớ chính — hoàn toàn
+hợp lệ theo góc nhìn đơn luồng, nhưng gây ra thread "không bao giờ" thấy thay đổi trong ngữ
+cảnh đa luồng — đã chứng minh bằng thực nghiệm tái hiện được. Visibility là vấn đề <strong>độc lập</strong>
+với race condition (Phase 2, Chapter 11) — nhầm lẫn hai khái niệm dẫn tới áp dụng sai giải
+pháp.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Memory visibility là gì?</li>
+<li>Một biến <code>boolean</code> dùng làm cờ hiệu giữa hai thread cần lưu ý điều gì?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích nguyên nhân kỹ thuật cụ thể (liên quan JIT Compiler) gây ra vấn đề visibility.</li>
+<li>Visibility khác race condition như thế nào? Cho ví dụ minh hoạ sự khác biệt.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Một service graceful shutdown "treo" ngẫu nhiên sau khi chạy lâu. Trình bày quy trình chẩn
+  đoán, phân biệt với khả năng deadlock.</li>
+<li>Giải thích vì sao bug visibility đặc biệt nguy hiểm ở chỗ "không phải lúc nào cũng tái hiện
+  được" — điều này ảnh hưởng thế nào tới chiến lược testing cho code đa luồng?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>VisibilityDemo</code> ở trên, cố gắng tái hiện hiện tượng (có thể cần
+      chạy vài lần hoặc điều chỉnh; kết quả có thể khác nhau tuỳ máy/JVM).</li>
+<li>[ ] Chạy lại với cờ <code>-Xint</code> (tắt JIT hoàn toàn, Phase 1 Chapter 06), so sánh hành vi.</li>
+<li>[ ] Sửa ví dụ bằng cách thêm <code>volatile</code> vào <code>stopRequested</code>, chạy lại, xác nhận <code>worker</code>
+      dừng lại đúng lúc — xem trước <a href="../04-volatile/">Chapter 04</a>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Visibility</th>
+<th>Race Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vấn đề gì</td>
+<td>Thread không thấy giá trị mới</td>
+<td>Nhiều thao tác ghi đè lẫn nhau</td>
+</tr>
+<tr>
+<td>Xảy ra khi</td>
+<td>Dù chỉ 1 thread ghi</td>
+<td>Nhiều thread cùng đọc-sửa-ghi</td>
+</tr>
+<tr>
+<td>Giải pháp tối thiểu</td>
+<td><code>volatile</code> (Chapter 04)</td>
+<td><code>synchronized</code>/<code>Atomic</code> (Chapter 05, 12)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dấu hiệu chẩn đoán:</strong> bug đa luồng "chập chờn", tệ hơn khi chạy lâu (JIT đã tối ưu sâu),
+thread dump cho thấy <code>RUNNABLE</code> (không <code>BLOCKED</code>) → nghi ngờ visibility trước tiên.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JSR 133: Java Memory Model and Thread Specification Revision.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 3: Sharing Objects.</li>
+<li>Java Language Specification (JLS) — Chapter 17: Threads and Locks.</li>
 </ul>
 
 

@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:volatile" class="md-tag">volatile</a>
       
     
   </nav>
@@ -6149,15 +6163,16 @@ Chapter slug: <code>volatile</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">volatile</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Memory Visibility</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">synchronized (Chapter 05) — đảm bảo cả visibility LẪN atomicity, mạnh hơn volatile</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atomic (Chapter 12) — giải pháp đúng đắn cho bài toán &quot;đếm&quot; mà volatile không giải quyết được</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6180,315 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../03-memory-visibility/">Chapter 03</a> — bạn đã tự tay tái hiện một <code>worker</code> thread
+không bao giờ thấy được <code>stopRequested = true</code> mà <code>main</code> đã gán.</p>
 </blockquote>
+<p>Sửa đúng một từ khoá:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// thêm &quot;volatile&quot;</span>
+</code></pre></div>
+<p>Chạy lại chính xác chương trình đó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Worker dung lai, count = -811462510
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Worker da dung ngay lap tuc nho volatile!
+</code></pre></div>
+<p><code>worker</code> dừng lại <strong>ngay lập tức</strong>. Một từ khoá duy nhất giải quyết trọn vẹn vấn đề đã ám ảnh
+suốt chapter trước. Nhưng đừng vội coi <code>volatile</code> là "cây đũa thần" cho mọi vấn đề đa luồng —
+chapter này sẽ chỉ ra chính xác nó giải quyết được gì, và một giới hạn quan trọng mà rất nhiều
+người học sai: <code>volatile</code> <strong>không</strong> làm cho phép toán <code>counter++</code> trở nên an toàn.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>volatile</code> giải quyết vấn đề gì? Nó có làm cho <code>counter++</code> trở thành thao tác an toàn với
+nhiều thread không?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác <code>volatile</code> đảm bảo điều gì: mọi lần đọc luôn lấy giá trị mới nhất từ
+      bộ nhớ chính, mọi lần ghi được đẩy xuống bộ nhớ chính ngay lập tức</li>
+<li>[ ] Tự tay xác nhận <code>volatile</code> sửa được vấn đề visibility (Chapter 03)</li>
+<li>[ ] Tự tay chứng minh <code>volatile</code> <strong>không</strong> giải quyết được race condition cho thao tác không
+      nguyên tử như <code>counter++</code></li>
+<li>[ ] Biết khi nào <code>volatile</code> là đủ (cờ hiệu boolean, publish một tham chiếu) và khi nào cần
+      công cụ mạnh hơn (<code>synchronized</code>, <code>Atomic</code>)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 03 — đã hiểu rõ vấn đề visibility và nguyên nhân (JIT cache biến vào thanh ghi).</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>synchronized</strong> (Chapter 05) — đảm bảo cả visibility lẫn tính nguyên tử (atomicity) của một
+  khối code, mạnh hơn <code>volatile</code> nhưng có chi phí khác (mutual exclusion).</li>
+<li><strong>Atomic</strong> (Chapter 12) — giải pháp đúng đắn, hiệu quả cho chính bài toán "đếm an toàn với
+  nhiều thread" mà chapter này chỉ ra <code>volatile</code> không giải quyết được.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vấn đề visibility (Chapter 03) cần một cách để <strong>buộc</strong> JIT Compiler không được tối ưu "cache
+vào thanh ghi" cho một biến cụ thể — cần một tín hiệu tường minh, ở cấp ngôn ngữ, nói rằng
+"biến này có thể bị thay đổi bởi thread khác, luôn đọc/ghi trực tiếp với bộ nhớ chính".</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>volatile</code> là một từ khoá đánh dấu một field, cam kết hai điều:</p>
+<ol>
+<li><strong>Mọi lần đọc</strong> biến <code>volatile</code> luôn lấy giá trị <strong>mới nhất</strong> từ bộ nhớ chính — JIT Compiler
+   bị cấm tối ưu "cache vào thanh ghi" cho biến này.</li>
+<li><strong>Mọi lần ghi</strong> biến <code>volatile</code> được đẩy xuống bộ nhớ chính <strong>ngay lập tức</strong>, không trì hoãn
+   trong cache riêng của CPU.</li>
+</ol>
+<p><code>volatile</code> <strong>chỉ</strong> đảm bảo visibility — nó <strong>không</strong> đảm bảo tính nguyên tử (atomicity) cho các
+thao tác gồm nhiều bước (đọc, sửa, ghi).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có <code>volatile</code>: như đã thấy ở Chapter 03, JIT có toàn quyền tối ưu theo góc nhìn đơn
+luồng, có thể khiến một thread không bao giờ thấy thay đổi từ thread khác. <code>volatile</code> cho phép
+lập trình viên <strong>tường minh</strong> đánh dấu đúng những biến cần đảm bảo này, để JIT biết <strong>không</strong>
+được áp dụng tối ưu "cache vào thanh ghi" cho riêng chúng — trong khi vẫn giữ được tối ưu đó
+cho mọi biến khác không cần chia sẻ giữa các thread.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// Thread khác:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// GHI: đẩy xuống bộ nhớ chính NGAY, mọi thread khác thấy được</span>
+</code></pre></div>
+<p>Nhưng với thao tác gồm nhiều bước:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// THỰC CHẤT là 3 bước: (1) ĐỌC counter, (2) CỘNG 1, (3) GHI counter</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">           </span><span class="c1">// volatile chỉ đảm bảo MỖI bước đọc/ghi riêng lẻ là visible,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">           </span><span class="c1">// KHÔNG đảm bảo cả 3 bước diễn ra &quot;liền mạch&quot;, không bị chen ngang</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>counter++ (counter là volatile) thực chất là 3 bước KHÔNG NGUYÊN TỬ:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Thread A: (1) ĐỌC counter = 5
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Thread B:                        (1) ĐỌC counter = 5   ← ĐỌC CÙNG GIÁ TRỊ 5!
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Thread A: (2) tính 5 + 1 = 6
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Thread A: (3) GHI counter = 6   (visible ngay nhờ volatile)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Thread B:                        (2) tính 5 + 1 = 6
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Thread B:                        (3) GHI counter = 6   ← GHI ĐÈ, MẤT 1 LẦN TĂNG!
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Kết quả: counter = 6, dù đáng lẽ phải là 7 sau 2 lần &quot;++&quot;
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong><code>volatile</code> sửa đúng vấn đề Chapter 03:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VisibilityFixed</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// CO volatile</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stopRequested</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Worker dung lai, count = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="n">worker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Main: dat stopRequested = true&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="n">stopRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="n">worker</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">worker</span><span class="p">.</span><span class="na">isAlive</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Worker VAN CHUA DUNG&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Worker da dung ngay lap tuc nho volatile!&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Main: dat stopRequested = true
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Worker dung lai, count = -811462510
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Worker da dung ngay lap tuc nho volatile!
+</code></pre></div>
+<p><strong>Nhưng <code>volatile</code> KHÔNG sửa được bài toán đếm</strong> — chạy 10 thread, mỗi thread tăng
+<code>volatile int counter</code> 100.000 lần:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">// 10 thread, mỗi thread: for (...) counter++;</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>volatile counter++ : 240104 (mong doi 1000000)
+</code></pre></div>
+<p>Mất tới <strong>76%</strong> số lần tăng — gần như không khá hơn <code>int</code> thường (Chapter 05 sẽ so sánh trực
+tiếp). <code>volatile</code> chỉ đảm bảo mỗi bước đọc/ghi riêng lẻ visible ngay, nhưng không ngăn được hai
+thread cùng đọc <strong>cùng một giá trị cũ</strong> trước khi bất kỳ ai ghi giá trị mới — đúng minh hoạ ở
+Visualization.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao ví dụ <code>stopRequested</code> hoạt động đúng với <code>volatile</code>, nhưng <code>counter++</code> thì không —
+khác biệt cốt lõi là gì?</strong> <code>stopRequested = true</code> là <strong>một thao tác ghi duy nhất, nguyên tử tự
+nhiên</strong> (gán một giá trị <code>boolean</code> là một lệnh CPU đơn, không thể bị "chen ngang" giữa chừng).
+<code>counter++</code> là <strong>ba thao tác riêng biệt</strong> (đọc, cộng, ghi) — <code>volatile</code> đảm bảo từng thao tác
+trong ba thao tác đó là visible ngay khi nó xảy ra, nhưng <strong>không</strong> đảm bảo không có thao tác
+nào của thread khác "chen vào giữa" ba bước đó. Quy tắc ghi nhớ: <code>volatile</code> phù hợp cho biến mà
+mọi lần cập nhật là <strong>gán trực tiếp một giá trị mới, độc lập với giá trị cũ</strong> (cờ hiệu, publish
+một tham chiếu tới object bất biến — Phase 1 Chapter 11); <strong>không</strong> phù hợp cho biến mà lần cập
+nhật <strong>phụ thuộc vào giá trị hiện tại</strong> của chính nó (đếm, cộng dồn, so sánh-rồi-cập-nhật).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>volatile</code> liên quan gì tới <code>happens-before</code> — khái niệm cốt lõi của Java Memory Model
+(JMM)?</strong> JMM định nghĩa quan hệ <code>happens-before</code> giữa các thao tác của các thread khác nhau —
+nếu thao tác X <code>happens-before</code> thao tác Y, mọi hiệu ứng của X (bao gồm ghi bộ nhớ) được đảm
+bảo <strong>visible</strong> với Y. Ghi vào một biến <code>volatile</code> và đọc lại <strong>chính biến đó</strong> từ thread khác
+tạo ra một quan hệ <code>happens-before</code> tường minh — đây chính là cơ chế chính thức (không chỉ là
+"quy ước") đứng sau việc <code>stopRequested = true</code> (Story) được đảm bảo visible cho <code>worker</code>.
+<code>synchronized</code> (Chapter 05) cũng tạo <code>happens-before</code> (giữa unlock của một thread và lock tiếp
+theo của thread khác trên <strong>cùng</strong> một lock) — đây là lý do cả hai đều giải quyết được vấn đề
+visibility, dù cơ chế cụ thể (thanh ghi CPU vs. hàng đợi lock) khác nhau hoàn toàn.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Trước Java 5 (2004)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    ↓
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Đặc tả volatile GỐC (Java 1.0) có nhiều lỗ hổng — ví dụ KHÔNG đảm bảo
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>&quot;reordering&quot; (thứ tự thực thi lệnh) bị chặn đúng cách, khiến volatile
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>kém tin cậy hơn nhiều so với ngày nay trong một số trường hợp phức tạp
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    ↓
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Java 5 (2004) — JSR 133 định nghĩa lại Java Memory Model HOÀN CHỈNH,
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>volatile được TĂNG CƯỜNG ngữ nghĩa đáng kể — thêm đảm bảo chống reordering
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>xung quanh thao tác volatile, làm cho nó đáng tin cậy như mô tả trong
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>chapter này
+</code></pre></div>
+<p>Đây là lý do khi đọc tài liệu/sách xuất bản trước 2004, ngữ nghĩa <code>volatile</code> mô tả có thể khác
+(yếu hơn) so với Java hiện đại — một chi tiết lịch sử quan trọng để tránh nhầm lẫn khi tham
+khảo tài liệu cũ.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>volatile</code> làm cho mọi thao tác trên biến đó trở nên thread-safe hoàn toàn."
+  <strong>Reality:</strong> Xem Example — <code>volatile int counter</code> vẫn mất dữ liệu nghiêm trọng dưới nhiều
+  thread cùng <code>counter++</code>. <code>volatile</code> chỉ đảm bảo visibility, không đảm bảo atomicity cho thao
+  tác nhiều bước.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>volatile</code> và <code>synchronized</code> về cơ bản làm cùng một việc, chỉ khác cú pháp."
+  <strong>Reality:</strong> <code>synchronized</code> (Chapter 05) đảm bảo cả visibility <strong>lẫn</strong> mutual exclusion
+  (loại trừ lẫn nhau — chỉ một thread thực thi khối code tại một thời điểm); <code>volatile</code> chỉ
+  đảm bảo visibility, không có mutual exclusion.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>volatile</code> cho biến counter/cộng dồn</strong> — lỗi trọng tâm của chapter, đúng minh hoạ ở
+  Example.</li>
+<li><strong>Nghĩ rằng thêm <code>volatile</code> là "đã xử lý xong" mọi vấn đề đa luồng cho một biến</strong> mà không
+  phân tích kỹ bản chất thao tác trên biến đó (gán trực tiếp hay phụ thuộc giá trị cũ).</li>
+<li><strong>Dùng <code>volatile</code> thay cho <code>synchronized</code> khi cần bảo vệ nhiều biến liên quan tới nhau cùng
+  lúc</strong> — <code>volatile</code> chỉ hoạt động đúng cho từng biến độc lập, không đảm bảo tính nhất quán
+  giữa nhiều biến <code>volatile</code> khác nhau được cập nhật "cùng lúc" về mặt logic.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Dùng <code>volatile</code> cho: cờ hiệu boolean điều khiển vòng lặp/shutdown, publish một tham chiếu
+  tới object bất biến (Phase 1, Chapter 11) sau khi khởi tạo xong.</li>
+<li>Không dùng <code>volatile</code> cho: biến đếm, tổng dồn, hoặc bất kỳ cập nhật nào phụ thuộc giá trị
+  hiện tại — dùng <code>Atomic</code> (Chapter 12) hoặc <code>synchronized</code> (Chapter 05) thay thế.</li>
+<li>Khi không chắc chắn liệu <code>volatile</code> có đủ hay không, mặc định chọn giải pháp mạnh hơn
+  (<code>synchronized</code>/<code>Atomic</code>) — cái giá hiệu năng thường nhỏ hơn nhiều so với cái giá của một bug
+  race condition khó phát hiện.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> sau khi "sửa" một bug visibility bằng cách thêm <code>volatile</code> vào một biến đếm request
+đang xử lý, hệ thống hết bug "treo" nhưng số liệu đếm vẫn thỉnh thoảng sai lệch nhẹ so với thực
+tế.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> không còn hiện tượng "treo"/không phản hồi (đúng là visibility đã được sửa),
+  nhưng số liệu thống kê vẫn không chính xác tuyệt đối dưới tải cao.</li>
+<li><strong>Root cause:</strong> nhầm lẫn giữa hai vấn đề (visibility và race condition, xem Deep Dive) —
+  <code>volatile</code> sửa đúng phần visibility (tại sao hệ thống từng "treo"), nhưng biến đó là bộ đếm
+  (<code>counter++</code>), vẫn còn race condition chưa được giải quyết.</li>
+<li><strong>Debug:</strong> xác nhận biến bị sai lệch số liệu có phải đang dùng <code>volatile</code> cho thao tác
+  <code>++</code>/<code>+=</code> không — nếu có, đây chính là nguyên nhân còn sót lại.</li>
+<li><strong>Solution:</strong> đổi từ <code>volatile int</code> sang <code>AtomicInteger</code> (Chapter 12) hoặc bọc
+  <code>synchronized</code> quanh thao tác đếm.</li>
+<li><strong>Prevention:</strong> khi review code sửa lỗi đa luồng, luôn tự hỏi "biến này có thao tác nào phụ
+  thuộc giá trị hiện tại của chính nó không?" — nếu có, <code>volatile</code> đơn thuần không bao giờ đủ.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Đã thêm <code>volatile</code> nhưng vẫn còn dữ liệu sai lệch/mất mát dưới tải nhiều thread? →
+      kiểm tra biến đó có đang bị <code>++</code>/<code>+=</code>/cập nhật phụ thuộc giá trị cũ không — nếu có,
+      <code>volatile</code> không đủ, cần <code>Atomic</code>/<code>synchronized</code>.</li>
+<li>[ ] Cần xác định <code>volatile</code> có đủ cho một biến cụ thể không? → tự hỏi: "mọi lần ghi có phải
+      là gán trực tiếp một giá trị mới, độc lập với giá trị cũ không?" Nếu có, đủ; nếu không,
+      chưa đủ.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Ở tầng bytecode, field <code>volatile</code> được đánh dấu bằng cờ <code>ACC_VOLATILE</code> trong class file — JIT
+Compiler (HotSpot) khi biên dịch bytecode truy cập field này sẽ chèn thêm các <strong>memory barrier</strong>
+(hàng rào bộ nhớ — lệnh CPU đặc biệt ngăn compiler/CPU sắp xếp lại thứ tự đọc/ghi qua ranh giới
+đó, và buộc đồng bộ với bộ nhớ chính) xung quanh mỗi lần đọc/ghi — đây chính là cơ chế cấp thấp
+hiện thực đúng ngữ nghĩa <code>happens-before</code> đã bàn ở Engineering Insight, không phải một "phép
+màu" trừu tượng mà là các lệnh CPU cụ thể được chèn thêm vào bytecode đã biên dịch.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>volatile</code> đảm bảo <strong>visibility</strong>: mọi lần đọc lấy giá trị mới nhất từ bộ nhớ chính, mọi lần
+ghi đẩy xuống bộ nhớ chính ngay lập tức — đã chứng minh sửa đúng vấn đề Chapter 03. Nhưng
+<code>volatile</code> <strong>không</strong> đảm bảo <strong>atomicity</strong> cho thao tác nhiều bước như <code>counter++</code> — đã chứng
+minh bằng thực nghiệm: 10 thread tăng biến <code>volatile int</code> 100.000 lần mỗi thread chỉ đạt 24%
+kết quả đúng. Quy tắc: dùng <code>volatile</code> cho gán trực tiếp giá trị mới (cờ hiệu, publish tham
+chiếu bất biến); dùng <code>synchronized</code>/<code>Atomic</code> (Chapter 05, 12) cho cập nhật phụ thuộc giá trị
+hiện tại.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
-<li>volatile khác synchronized như thế nào? (see also synchronized)</li>
+<li><code>volatile</code> dùng để làm gì?</li>
+<li><code>volatile</code> có làm cho <code>counter++</code> an toàn với nhiều thread không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích vì sao <code>volatile boolean flag = true</code> hoạt động đúng nhưng
+  <code>volatile int counter; counter++</code> thì không.</li>
+<li>volatile khác synchronized như thế nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích khái niệm <code>happens-before</code> và vai trò của <code>volatile</code> trong việc tạo ra quan hệ
+  đó — liên hệ Java Memory Model (JMM).</li>
+<li>Một hệ thống sau khi thêm <code>volatile</code> hết bug "treo" nhưng vẫn còn sai lệch số liệu nhẹ dưới
+  tải cao. Giải thích chính xác nguyên nhân còn sót lại và cách sửa triệt để.</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>VisibilityFixed</code> ở trên, xác nhận <code>worker</code> dừng ngay lập tức.</li>
+<li>[ ] Chạy lại đúng ví dụ đếm với <code>volatile int counter</code>, xác nhận kết quả sai lệch đáng kể so
+      với kỳ vọng.</li>
+<li>[ ] Thử publish một tham chiếu tới một object bất biến (Phase 1, Chapter 11) qua một field
+      <code>volatile</code> từ một thread, đọc nó từ thread khác — xác nhận luôn thấy đúng object đã publish
+      (không phải <code>null</code> hay trạng thái dở dang), minh hoạ use case chính đáng của <code>volatile</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Đảm bảo</th>
+<th><code>volatile</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visibility (đọc/ghi đồng bộ với bộ nhớ chính)</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Atomicity (thao tác nhiều bước là nguyên tử)</td>
+<td>Không</td>
+</tr>
+<tr>
+<td>Mutual exclusion (loại trừ lẫn nhau)</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Dùng <code>volatile</code> cho</th>
+<th>Không dùng <code>volatile</code> cho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cờ hiệu boolean (<code>stopRequested</code>)</td>
+<td>Biến đếm (<code>counter++</code>)</td>
+</tr>
+<tr>
+<td>Publish tham chiếu bất biến sau khi khởi tạo</td>
+<td>Cập nhật phụ thuộc giá trị hiện tại</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 17.4: Memory Model.</li>
+<li>JSR 133: Java Memory Model and Thread Specification Revision.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 3.1: Visibility.</li>
 </ul>
 
 

@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:synchronized" class="md-tag">synchronized</a>
       
     
   </nav>
@@ -6149,15 +6163,17 @@ Chapter slug: <code>synchronized</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">synchronized</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — volatile</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 2, Chapter 11 — ConcurrentHashMap (đã thấy hậu quả race condition)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monitor (Chapter 06) — cơ chế đứng sau synchronized</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReentrantLock (Chapter 10) — phiên bản &quot;tường minh&quot; của cùng ý tưởng</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,79 +6181,329 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../04-volatile/">Chapter 04</a> — <code>volatile int counter</code> vẫn mất 76% dữ liệu dưới 10
+thread cùng <code>counter++</code>, vì <code>volatile</code> không đảm bảo atomicity.</p>
 </blockquote>
+<p><code>synchronized</code> giải quyết đúng phần còn thiếu đó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">// mỗi thread: synchronized (lock) { counter++; }</span>
+</code></pre></div>
+<p>Kết quả đo được: chính xác tuyệt đối <code>1000000/1000000</code>, không thiếu một đơn vị nào. Nhưng
+<code>synchronized</code> cũng có cạm bẫy riêng, tinh vi không kém: khoá <strong>cái gì</strong> mới là điều quan
+trọng, không phải chỉ cần viết từ khoá <code>synchronized</code> là đủ. Thử khoá trên <strong>một object mới</strong>
+mỗi lần:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// mỗi lần lock KHÁC NHAU!</span>
+</code></pre></div>
+<p>Kết quả: <code>795578</code> — gần như không khá hơn không có <code>synchronized</code> gì cả! Chapter này giải
+thích chính xác <code>synchronized</code> bảo vệ <strong>cái gì</strong>, để không mắc phải cạm bẫy tưởng như vô hại
+này.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>synchronized</code> đảm bảo những gì? Điều gì xảy ra nếu hai thread <code>synchronized</code> trên hai object
+khác nhau?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay chứng minh <code>synchronized</code> giải quyết trọn vẹn cả visibility lẫn atomicity cho bài
+      toán đếm mà <code>volatile</code> (Chapter 04) không giải quyết được</li>
+<li>[ ] Hiểu <code>synchronized</code> hoạt động dựa trên <strong>một object cụ thể</strong> làm lock — khoá trên object
+      khác nhau không bảo vệ được gì cả (đã chứng minh bằng thực nghiệm)</li>
+<li>[ ] Dùng đúng <code>synchronized</code> ở cả hai dạng: method và block</li>
+<li>[ ] Biết <code>synchronized</code> là <strong>reentrant</strong> — một thread đã giữ lock có thể giành lại chính lock
+      đó mà không bị tự deadlock</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 04 — đã hiểu <code>volatile</code> giải quyết visibility nhưng không giải quyết atomicity.</li>
+<li>Phase 2, Chapter 11 — đã thấy hậu quả cụ thể của race condition trên <code>HashMap</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Monitor</strong> (Chapter 06) — cơ chế lý thuyết đầy đủ đứng sau <code>synchronized</code>: mỗi object có
+  một "monitor" gắn liền.</li>
+<li><strong>ReentrantLock</strong> (Chapter 10) — phiên bản tường minh (explicit), linh hoạt hơn của cùng ý
+  tưởng loại trừ lẫn nhau mà <code>synchronized</code> cung cấp.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>volatile</code> (Chapter 04) chỉ bảo vệ được từng thao tác đọc/ghi <strong>riêng lẻ</strong> — không bảo vệ được
+một <strong>chuỗi</strong> thao tác cần thực hiện "liền mạch, không bị chen ngang" (đọc-sửa-ghi của
+<code>counter++</code>, hay phức tạp hơn: kiểm tra điều kiện rồi mới cập nhật). Cần một cơ chế đảm bảo
+<strong>chỉ một thread tại một thời điểm</strong> được thực thi một đoạn code cụ thể — mọi thread khác phải
+chờ tới lượt.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>synchronized</code> cung cấp <strong>mutual exclusion</strong> (loại trừ lẫn nhau): tại một thời điểm, chỉ <strong>một</strong>
+thread được phép thực thi bên trong một khối <code>synchronized</code> <strong>trên cùng một object khoá</strong> —
+mọi thread khác cố vào cùng khối đó (khoá cùng object) sẽ bị chặn (<code>BLOCKED</code>, Chapter 02) cho
+tới khi thread đang giữ khoá thoát ra. Ngoài mutual exclusion, <code>synchronized</code> còn đảm bảo
+<strong>visibility</strong> (Chapter 03) — mọi thay đổi bộ nhớ thực hiện bên trong khối được đảm bảo visible
+với thread tiếp theo giành được cùng khoá đó.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu chỉ có <code>volatile</code>: như đã thấy ở Chapter 04, các thao tác nhiều bước vẫn có thể bị chen
+ngang giữa chừng. <code>synchronized</code> giải quyết bằng cách biến cả một <strong>khối code</strong> (không chỉ một
+biến) thành một đơn vị "không thể chen ngang" — một thread khác <strong>không thể</strong> bắt đầu thực thi
+cùng khối đó (trên cùng khoá) cho tới khi thread hiện tại hoàn toàn thoát ra, loại bỏ hoàn toàn
+khả năng hai thread cùng đọc một giá trị "cũ" trước khi ai đó kịp ghi giá trị mới.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Dạng 1: synchronized METHOD — khoá NGẦM ĐỊNH là chính &quot;this&quot; (instance method)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">//         hoặc chính đối tượng Class (static method)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// khoá = &quot;this&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// Dạng 2: synchronized BLOCK — khoá TƯỜNG MINH, linh hoạt hơn</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">class</span> <span class="nc">Counter2</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// khoá = &quot;lock&quot;, CỐ ĐỊNH, dùng chung</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>Điểm mấu chốt: mọi thread phải <code>synchronized</code> trên <strong>cùng một object</strong> thì mới thực sự loại
+trừ lẫn nhau. Khoá trên các object khác nhau (như <code>new Object()</code> mỗi lần) hoàn toàn không bảo
+vệ gì cả — mỗi thread "giữ" một khoá riêng, không ai chờ ai.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Đúng — mọi thread synchronized trên CÙNG một &quot;lock&quot;:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Thread A ──synchronized(lock)──▶ [thực thi] ──▶ nhả lock
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  Thread B ──synchronized(lock)──▶ [CHỜ — BLOCKED] ──▶ giành được lock sau A
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                                                          → THỰC SỰ LOẠI TRỪ LẪN NHAU
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Sai — mỗi thread synchronized trên MỘT OBJECT KHÁC NHAU (new Object() mỗi lần):
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Thread A ──synchronized(lockA)──▶ [thực thi]   ← lockA và lockB
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  Thread B ──synchronized(lockB)──▶ [thực thi]     KHÁC NHAU, không ai
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                                     chờ ai — CHẠY SONG SONG,
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                                                     KHÔNG LOẠI TRỪ GÌ CẢ
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong><code>synchronized</code> sửa trọn vẹn bài toán đếm mà <code>volatile</code> không sửa được:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SyncRace</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counterNoSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counterSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">increments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100_000</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="n">threads</span><span class="p">);</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">threads</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">increments</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">                    </span><span class="n">counterNoSync</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">                    </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counterSync</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">            </span><span class="p">});</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Mong doi: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">threads</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">increments</span><span class="p">));</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;counterNoSync: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">counterNoSync</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;counterSync: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">counterSync</span><span class="p">);</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Mong doi: 1000000
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>counterNoSync (khong dong bo): 998474
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>counterSync (co synchronized): 1000000
+</code></pre></div>
+<p><strong>Cạm bẫy khoá sai object</strong> — cùng ý định <code>synchronized</code> nhưng khoá một object mới mỗi lần:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// MỖI LẦN GỌI TẠO LOCK MỚI</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>synchronized(new Object()) moi lan: 795578 (mong doi 1000000)
+</code></pre></div>
+<p>Gần như không tốt hơn hoàn toàn không có <code>synchronized</code> — vì mỗi thread thực chất khoá một
+object <strong>khác nhau</strong>, không hề chờ đợi lẫn nhau, <code>synchronized</code> ở đây chỉ là vỏ bọc cú pháp
+không có tác dụng bảo vệ thực sự.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>synchronized</code> là <em>reentrant</em> — nghĩa là gì, và vì sao quan trọng?</strong> Một thread <strong>đã đang
+giữ</strong> một lock có thể <strong>giành lại chính lock đó</strong> (ví dụ khi gọi một method <code>synchronized</code>
+khác từ bên trong một method <code>synchronized</code> đã đang chạy) mà <strong>không bị tự chặn</strong>. Nếu
+<code>synchronized</code> không reentrant: một method <code>synchronized</code> gọi một method <code>synchronized</code> khác
+trên cùng object (rất phổ biến — ví dụ method A gọi method B, cả hai đều <code>synchronized</code>) sẽ
+khiến chính thread đó tự <code>BLOCKED</code> chờ một lock mà <strong>chính nó</strong> đang giữ — tự deadlock ngay lập
+tức. Tính reentrant loại bỏ hoàn toàn lớp lỗi này, cho phép thiết kế class với nhiều method
+<code>synchronized</code> gọi lẫn nhau một cách tự nhiên.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>synchronized</code> method static và instance dùng hai lock khác nhau — đây có phải nguồn
+gốc của lỗi tinh vi?</strong> <code>synchronized</code> trên method <strong>instance</strong> khoá <code>this</code> (chính instance đang
+gọi); <code>synchronized</code> trên method <strong>static</strong> khoá <strong>object <code>Class</code></strong> của chính class đó (ví dụ
+<code>Counter.class</code>) — hai lock hoàn toàn khác nhau, dù cùng nằm trong một class. Một lỗi thực tế
+phổ biến: một field <code>static</code> được bảo vệ bởi một method <strong>instance</strong> <code>synchronized</code> — vì lock
+là <code>this</code> (khác nhau giữa các instance), nhiều instance khác nhau <strong>không hề loại trừ lẫn
+nhau</strong> khi cùng sửa field <code>static</code> dùng chung — chính xác cùng bản chất lỗi đã minh hoạ ở
+Example (khoá "khác object" tưởng như bảo vệ nhưng thực chất không): field dùng chung
+(<code>static</code>) cần một khoá dùng chung (<code>static</code> lock hoặc một object <code>static final</code> dùng chung
+tường minh), không phải khoá theo từng instance.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>synchronized</code> tồn tại từ Java 1.0 (1996) — là cơ chế đồng bộ hoá <strong>nguyên thuỷ</strong> đầu tiên của
+Java, tích hợp sẵn ở cấp ngôn ngữ (từ khoá, không phải thư viện). Trước Java 5 (2004),
+<code>synchronized</code> là công cụ <strong>duy nhất</strong> cho mutual exclusion trong Java — <code>ReentrantLock</code>
+(Chapter 10) và các công cụ <code>java.util.concurrent</code> khác chỉ xuất hiện từ Java 5, mang lại tính
+linh hoạt (tryLock, timeout, fairness) mà <code>synchronized</code> nguyên thuỷ không có. Java 6 (2006)
+cải thiện đáng kể hiệu năng nội bộ của <code>synchronized</code> (biased locking, lock coarsening — các kỹ
+thuật tối ưu JIT áp dụng riêng cho monitor lock), thu hẹp đáng kể khoảng cách hiệu năng từng
+tồn tại giữa <code>synchronized</code> và các lock tường minh mới hơn.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ cần thấy từ khoá <code>synchronized</code> xuất hiện, đoạn code đó chắc chắn thread-safe."
+  <strong>Reality:</strong> Xem Example — <code>synchronized (new Object())</code> về mặt cú pháp là <code>synchronized</code>
+  hoàn chỉnh, nhưng hoàn toàn không bảo vệ được gì vì mỗi lần khoá một object khác nhau.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>synchronized</code> instance method và <code>synchronized</code> static method dùng chung một
+  lock trong cùng class."
+  <strong>Reality:</strong> Chúng dùng hai lock khác nhau (<code>this</code> vs <code>Class</code> object) — xem Engineering
+  Insight về hậu quả cụ thể nếu nhầm lẫn điều này.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Khoá trên một object mới mỗi lần</strong> (<code>synchronized (new Object())</code>, hoặc khoá trên một
+  local variable được tạo mới mỗi lần gọi method) — đúng lỗi trọng tâm của chapter.</li>
+<li><strong>Trộn lẫn <code>synchronized</code> instance method (khoá <code>this</code>) với <code>synchronized static</code>
+  (khoá <code>Class</code>) cho cùng dữ liệu dùng chung</strong> — hai lock khác nhau, không loại trừ lẫn nhau.</li>
+<li><strong>Khoá trên một object có thể bị thay đổi/gán lại</strong> (ví dụ một field không <code>final</code>) — nếu
+  field đó bị gán một object mới giữa chừng, các thread có thể kết thúc khoá trên các object
+  khác nhau mà không nhận ra.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn khoá trên một object <strong>cố định, <code>final</code>, dùng chung</strong> giữa mọi thread cần loại trừ lẫn
+  nhau — không bao giờ tạo object khoá mới bên trong đoạn code được bảo vệ.</li>
+<li>Với field <code>static</code> dùng chung, đảm bảo cơ chế bảo vệ (lock) cũng là <code>static</code>/dùng chung, không
+  phải lock theo từng instance.</li>
+<li>Ưu tiên <code>synchronized</code> block (khoá tường minh trên một object riêng) hơn <code>synchronized</code>
+  method khi cần kiểm soát chính xác phạm vi khoá, tránh khoá nhầm <code>this</code> cho toàn bộ object
+  khi chỉ cần bảo vệ một phần dữ liệu.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một class Singleton (một instance duy nhất dùng chung toàn ứng dụng) có method
+<code>synchronized</code> cập nhật một bộ đếm nội bộ; số liệu đếm cuối cùng vẫn sai lệch dưới tải cao, dù
+rõ ràng đã dùng <code>synchronized</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> số liệu sai lệch tương tự hoàn toàn không có bảo vệ nào, dù code "trông có
+  vẻ" đã đồng bộ hoá đúng.</li>
+<li><strong>Root cause:</strong> kiểm tra kỹ phát hiện bộ đếm là field <code>static</code>, nhưng method cập nhật nó lại
+  là <code>synchronized</code> <strong>instance</strong> (khoá <code>this</code>) — nếu vì lý do nào đó có nhiều instance của
+  class tồn tại (không thực sự là Singleton hoàn hảo, hoặc bị tái khởi tạo ở đâu đó), mỗi
+  instance khoá <code>this</code> của chính nó, không loại trừ lẫn nhau — đúng lỗi đã phân tích ở
+  Engineering Insight.</li>
+<li><strong>Debug:</strong> xác nhận chính xác object nào đang được dùng làm lock (<code>this</code> hay <code>Class</code>), và
+  dữ liệu đang bảo vệ có thực sự dùng chung ở cùng phạm vi với lock đó không.</li>
+<li><strong>Solution:</strong> đổi lock cho khớp phạm vi dữ liệu — dữ liệu <code>static</code> cần lock <code>static</code>
+  (<code>synchronized static</code> hoặc khoá trên <code>ClassName.class</code>/một object <code>static final</code> riêng).</li>
+<li><strong>Prevention:</strong> khi review code <code>synchronized</code>, luôn tự hỏi "lock này có cùng phạm vi
+  (instance hay static/dùng chung) với dữ liệu nó bảo vệ không?".</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Dữ liệu vẫn sai lệch dù đã có <code>synchronized</code>? → kiểm tra mọi nơi truy cập dữ liệu đó có
+      đang khoá <strong>đúng cùng một object</strong> không — nghi ngờ hàng đầu: khoá object mới mỗi lần,
+      hoặc lẫn lộn lock instance/static.</li>
+<li>[ ] Deadlock khi một method <code>synchronized</code> gọi method <code>synchronized</code> khác? → kiểm tra chúng
+      có đang khoá trên object khác nhau không — nếu cùng object, tính reentrant đảm bảo không
+      tự deadlock.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Ở tầng bytecode, <code>synchronized</code> block sinh ra hai lệnh: <code>monitorenter</code> (trước khối) và
+<code>monitorexit</code> (sau khối, và cả trong exception handler ẩn — đảm bảo lock luôn được nhả dù có
+exception xảy ra, một dạng try-finally ngầm định). <code>synchronized</code> method không dùng
+<code>monitorenter</code>/<code>monitorexit</code> trực tiếp trong bytecode của chính method — thay vào đó, method đó
+được đánh dấu cờ <code>ACC_SYNCHRONIZED</code> trong class file, và JVM tự động giành/nhả lock khi
+vào/ra method, tương đương về mặt ngữ nghĩa nhưng khác cách hiện thực ở tầng bytecode.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>synchronized</code> đảm bảo <strong>mutual exclusion</strong> (chỉ một thread thực thi khối code tại một thời
+điểm, trên cùng một object khoá) <strong>và</strong> visibility — giải quyết trọn vẹn bài toán đếm mà
+<code>volatile</code> (Chapter 04) không giải quyết được, đã xác nhận bằng thực nghiệm (1000000/1000000
+chính xác). Nhưng bảo vệ chỉ có hiệu lực nếu mọi thread khoá <strong>cùng một object</strong> — khoá trên
+các object khác nhau (kể cả với cú pháp <code>synchronized</code> đầy đủ) hoàn toàn không bảo vệ gì, đã
+chứng minh bằng thực nghiệm (795578/1000000, gần như vô dụng). <code>synchronized</code> là <strong>reentrant</strong>
+— một thread đã giữ lock có thể giành lại chính nó mà không tự deadlock, cho phép các method
+<code>synchronized</code> gọi lẫn nhau tự nhiên.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
-<li>What is Synchronization in Java?</li>
-<li>volatile khác synchronized như thế nào?</li>
+<li><code>synchronized</code> dùng để làm gì?</li>
+<li><code>synchronized</code> method và <code>synchronized</code> block khác nhau như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Điều gì xảy ra nếu hai thread <code>synchronized</code> trên hai object khác nhau? Cho ví dụ.</li>
+<li><code>synchronized</code> là "reentrant" nghĩa là gì? Vì sao điều này quan trọng?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao <code>synchronized</code> instance method và <code>synchronized</code> static method dùng hai
+  lock khác nhau — cho một ví dụ cụ thể lỗi phát sinh nếu nhầm lẫn điều này.</li>
+<li>So sánh <code>synchronized</code> với <code>volatile</code> (Chapter 04) — chúng đảm bảo những gì khác nhau, và
+  khi nào chỉ cần dùng <code>volatile</code> là đủ, khi nào bắt buộc cần <code>synchronized</code>?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>SyncRace</code> ở trên, xác nhận <code>counterSync</code> chính xác 1000000.</li>
+<li>[ ] Chạy lại đúng ví dụ khoá sai object (<code>synchronized (new Object())</code>), xác nhận kết quả
+      sai lệch gần như không có bảo vệ.</li>
+<li>[ ] Viết một class có field <code>static</code> và một method <code>synchronized</code> <strong>instance</strong> cập nhật nó
+      — tạo nhiều instance, chạy đồng thời, tái hiện đúng lỗi đã phân tích ở Production Notes.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Đảm bảo</th>
+<th><code>synchronized</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visibility</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Atomicity (mutual exclusion)</td>
+<td>Có, nếu khoá đúng cùng một object</td>
+</tr>
+<tr>
+<td>Reentrant</td>
+<td>Có</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Lock ngầm định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>synchronized</code> instance method</td>
+<td><code>this</code></td>
+</tr>
+<tr>
+<td><code>synchronized</code> static method</td>
+<td><code>ClassName.class</code></td>
+</tr>
+<tr>
+<td><code>synchronized (obj) { }</code></td>
+<td><code>obj</code> (tường minh)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nguyên tắc:</strong> mọi thread cần loại trừ lẫn nhau phải khoá trên <strong>cùng một object cố định</strong>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 17.1: Synchronization.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 2: Thread Safety.</li>
 </ul>
 
 

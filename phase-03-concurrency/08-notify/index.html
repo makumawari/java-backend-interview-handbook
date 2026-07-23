@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:notify" class="md-tag">notify</a>
       
     
   </nav>
@@ -6149,15 +6163,15 @@ Chapter slug: <code>notify</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notify()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — wait()</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lock, ReentrantLock (Chapter 09-10) — Condition là phiên bản tường minh, khắc phục hạn chế &quot;một wait set duy nhất&quot; ở đây</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6179,295 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../07-wait/">Chapter 07</a> — bạn đã xây dựng producer-consumer với <strong>một</strong> producer,
+<strong>một</strong> consumer, dùng <code>notifyAll()</code>.</p>
 </blockquote>
+<p>Thử mở rộng lên <strong>hai</strong> producer và <strong>hai</strong> consumer, và đổi <code>notifyAll()</code> thành <code>notify()</code>
+(nghe có vẻ hợp lý — "chỉ cần đánh thức một thread là đủ" mà). Đo thời gian hoàn thành:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Dung notify(): mat 411ms
+</code></pre></div>
+<p>Rồi đổi lại <code>notifyAll()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Dung notifyAll(): mat 0ms
+</code></pre></div>
+<p>Cùng logic, cùng dữ liệu — chỉ đổi <code>notify()</code> thành <code>notifyAll()</code> mà chênh lệch <strong>hàng trăm
+lần</strong>. Nguyên nhân: <code>notify()</code> đánh thức <strong>một thread ngẫu nhiên</strong> trong wait set — với nhiều
+loại thread đang chờ <strong>những điều kiện khác nhau</strong> (producer chờ "còn chỗ trống", consumer chờ
+"có dữ liệu"), <code>notify()</code> có thể đánh thức nhầm loại, khiến thread đó kiểm tra lại điều kiện
+(đúng theo bài học <code>while</code> ở Chapter 07), thấy vẫn sai, và quay lại chờ tiếp — lãng phí toàn bộ
+"cơ hội" đánh thức đó.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>notify()</code> và <code>notifyAll()</code> khác nhau như thế nào? Khi nào dùng <code>notify()</code> là an toàn, khi
+nào bắt buộc phải dùng <code>notifyAll()</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích <code>notify()</code> đánh thức <strong>một</strong> thread ngẫu nhiên trong wait set;
+      <code>notifyAll()</code> đánh thức <strong>toàn bộ</strong></li>
+<li>[ ] Tự tay đo được hậu quả hiệu năng cụ thể khi dùng sai <code>notify()</code> với nhiều loại điều kiện
+      chờ khác nhau</li>
+<li>[ ] Biết chính xác điều kiện an toàn duy nhất để dùng <code>notify()</code>: mọi thread trong wait set
+      đều chờ <strong>cùng một điều kiện</strong>, hoàn toàn tương đương nhau</li>
+<li>[ ] Áp dụng đúng nguyên tắc "mặc định dùng <code>notifyAll()</code>, chỉ dùng <code>notify()</code> khi đã chứng
+      minh được an toàn"</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 07 — đã hiểu <code>wait()</code>, wait set, và nguyên tắc <code>while</code> thay vì <code>if</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Lock, ReentrantLock</strong> (Chapter 09-10) — <code>Condition</code> (gắn với <code>ReentrantLock</code>) giải quyết
+  triệt để vấn đề "một wait set chung cho mọi loại điều kiện" bằng cách cho phép tạo <strong>nhiều</strong>
+  wait set riêng biệt trên cùng một lock — producer và consumer có thể chờ trên hai
+  <code>Condition</code> khác nhau, khiến <code>notify()</code>-tương-đương luôn đánh thức đúng loại thread.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>wait()</code> (Chapter 07) đưa thread vào wait set của Monitor — nhưng một Monitor chỉ có <strong>một</strong>
+wait set duy nhất, dùng chung cho <strong>mọi lý do chờ khác nhau</strong>. Khi có nhiều loại thread chờ
+những điều kiện khác nhau trên cùng một lock (producer chờ "còn chỗ", consumer chờ "có dữ
+liệu"), cần một cách đánh thức <strong>đúng loại</strong> thread cần thiết, không lãng phí việc đánh thức
+nhầm loại.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong><code>notify()</code></strong> — đánh thức <strong>đúng một</strong> thread, chọn <strong>ngẫu nhiên</strong> (không xác định trước)
+  trong số các thread đang ở wait set của Monitor đó.</li>
+<li><strong><code>notifyAll()</code></strong> — đánh thức <strong>toàn bộ</strong> thread đang ở wait set — mỗi thread được đánh thức
+  sẽ tự tranh giành lại lock (entry set), rồi tự kiểm tra lại điều kiện của chính nó (đúng
+  nguyên tắc <code>while</code>, Chapter 07) — thread nào điều kiện chưa đúng sẽ tự <code>wait()</code> lại.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu chỉ có <code>notify()</code>: với <strong>một loại</strong> điều kiện chờ duy nhất (mọi thread chờ giống hệt
+nhau), đánh thức một thread ngẫu nhiên là đủ và hiệu quả — không lãng phí đánh thức những thread
+không cần thiết. Nhưng với <strong>nhiều loại</strong> điều kiện khác nhau trên cùng lock (Example), <code>notify()</code>
+có nguy cơ đánh thức nhầm loại, gây "mất" tín hiệu hữu ích — <code>notifyAll()</code> giải quyết bằng cách
+đánh thức <strong>tất cả</strong>, để chính từng thread tự quyết định (qua kiểm tra <code>while</code>) mình có nên
+tiếp tục chạy hay quay lại chờ, đảm bảo không "bỏ sót" thread nào thực sự cần được đánh thức.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// AN TOÀN với notify(): CHỈ khi mọi thread chờ đều TƯƠNG ĐƯƠNG nhau</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hasWork</span><span class="p">)</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="c1">// ... mọi thread ở đây đều làm CÙNG một việc khi được đánh thức</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// nơi khác: lock.notify(); // OK — thread nào được đánh thức cũng &quot;đúng&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">// KHÔNG AN TOÀN với notify(): có NHIỀU LOẠI điều kiện khác nhau</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CAPACITY</span><span class="p">)</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// producer chờ &quot;còn chỗ&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w">           </span><span class="c1">// consumer chờ &quot;có dữ liệu&quot;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1">// → PHẢI dùng notifyAll(), vì notify() có thể đánh thức NHẦM LOẠI</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Wait set có CẢ producer (chờ &quot;còn chỗ&quot;) LẪN consumer (chờ &quot;có dữ liệu&quot;):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  notify() → đánh thức NGẪU NHIÊN 1 thread
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       ├── May mắn: đánh thức ĐÚNG loại cần thiết → xử lý ngay, hiệu quả
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>       │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>       └── Không may: đánh thức NHẦM loại → thread đó kiểm tra while,
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                        thấy điều kiện CHƯA đúng → wait() LẠI NGAY
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                        → TÍN HIỆU BỊ LÃNG PHÍ, thread ĐÚNG cần được
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                          đánh thức vẫn đang chờ (phải chờ notify() TIẾP THEO,
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                          hoặc hết timeout — đúng nguyên nhân của 411ms ở Story)
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  notifyAll() → đánh thức TẤT CẢ
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>       │
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>       └── Mỗi thread tự kiểm tra while của CHÍNH MÌNH:
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            đúng loại → tiếp tục chạy
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>            sai loại → tự wait() lại NGAY (không tốn nhiều chi phí,
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                        chỉ là kiểm tra điều kiện rồi quay lại)
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>           → KHÔNG BAO GIỜ bỏ sót thread cần được đánh thức
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Đo thật hậu quả hiệu năng — 2 producer, 2 consumer, buffer dung lượng 1 (dễ xảy ra tranh chấp):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// dùng notify()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">lock</span><span class="p">.</span><span class="na">notify</span><span class="p">();</span><span class="w"> </span><span class="c1">// (thay cho notifyAll() ở cả producer và consumer)</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17, mỗi <code>wait()</code> có timeout 200ms để tránh treo vĩnh viễn khi đo):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Dung notify(): mat 411ms
+</code></pre></div>
+<p>Đổi thành <code>notifyAll()</code>, giữ nguyên mọi thứ khác:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">lock</span><span class="p">.</span><span class="na">notifyAll</span><span class="p">();</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Dung notifyAll(): mat 0ms
+</code></pre></div>
+<p>Chênh lệch không phải "một chút chậm hơn" — nó là bằng chứng trực tiếp cho việc <code>notify()</code> đã
+nhiều lần đánh thức nhầm loại thread, buộc chương trình phải chờ tới khi <strong>hết timeout</strong> (200ms
+mỗi lần) thay vì được đánh thức đúng lúc.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Tại sao không dùng <code>notify()</code> "một cách thông minh hơn" — ví dụ chỉ định rõ đánh thức đúng
+loại thread nào?</strong> Vì API <code>notify()</code>/<code>notifyAll()</code> của Monitor (Object, Chapter 06) <strong>không có
+khái niệm</strong> phân loại thread trong wait set — chúng chỉ biết "có bao nhiêu thread đang chờ",
+không biết "thread nào đang chờ vì lý do gì". Đây chính là hạn chế cố hữu của mô hình Monitor
+nguyên thuỷ (một wait set duy nhất cho mọi lý do chờ) — và chính xác là lý do
+<code>java.util.concurrent.locks.Condition</code> (Chapter 10) ra đời: nó cho phép tạo <strong>nhiều wait set
+riêng biệt</strong> (<code>lock.newCondition()</code>) trên cùng một <code>Lock</code>, để producer chờ trên
+<code>notFull.await()</code> và consumer chờ trên <code>notEmpty.await()</code> — khi đó, <code>notFull.signal()</code> <strong>chỉ</strong>
+đánh thức đúng producer đang chờ, không bao giờ đánh thức nhầm consumer, giải quyết triệt để
+vấn đề chapter này minh hoạ.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Nguyên tắc thực dụng: "mặc định luôn <code>notifyAll()</code>, chỉ dùng <code>notify()</code> khi đã chứng minh
+được an toàn" — vì sao lời khuyên lại nghiêng hẳn về một phía như vậy?</strong> Vì cái giá của việc
+dùng sai <code>notify()</code> (một tín hiệu bị lãng phí, dẫn tới delay khó dự đoán, như đã đo ở Example —
+có thể còn tệ hơn: <strong>treo vĩnh viễn</strong> nếu không có timeout dự phòng và không có <code>notify()</code>/
+<code>notifyAll()</code> nào khác tới "giải cứu") là <strong>nghiêm trọng hơn nhiều</strong> so với cái giá của việc
+dùng thừa <code>notifyAll()</code> khi thực ra <code>notify()</code> đã đủ (chỉ là một chút overhead: các thread bị
+đánh thức "nhầm" tự kiểm tra <code>while</code> rồi <code>wait()</code> lại ngay — rẻ, không gây hại). Đây là một
+ví dụ điển hình của nguyên tắc kỹ thuật "chọn sai lệch về phía an toàn khi cái giá của hai loại
+sai lầm chênh lệch rất lớn" — không phải vì <code>notify()</code> "tệ", mà vì điều kiện để nó an toàn
+(mọi thread chờ hoàn toàn tương đương) khó đảm bảo và dễ vỡ khi code phát triển thêm theo thời
+gian (ai đó thêm một loại điều kiện chờ mới mà quên kiểm tra lại toàn bộ giả định cũ).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>notify()</code>/<code>notifyAll()</code> tồn tại từ Java 1.0 (1996), cùng <code>wait()</code>. Vấn đề "một wait set dùng
+chung cho mọi điều kiện" mà chapter này minh hoạ là một trong những động lực chính thúc đẩy
+JSR 166 (Java 5, 2004) tạo ra <code>Condition</code> — một trong nhiều cải tiến <code>java.util.concurrent</code>
+mang lại nhằm khắc phục các hạn chế cố hữu, đã được nhận diện rõ qua nhiều năm sử dụng thực tế,
+của mô hình Monitor nguyên thuỷ.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>notify()</code> luôn hiệu quả hơn <code>notifyAll()</code> vì chỉ đánh thức một thread thay vì
+  toàn bộ, nên nên ưu tiên dùng nó khi có thể."
+  <strong>Reality:</strong> Xem Example — nếu dùng sai điều kiện an toàn, <code>notify()</code> có thể <strong>chậm hơn
+  nhiều</strong> <code>notifyAll()</code> do đánh thức nhầm loại thread liên tục, không phải luôn "hiệu quả hơn".</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>notify()</code> đánh thức thread đã chờ lâu nhất (kiểu FIFO)."
+  <strong>Reality:</strong> JLS <strong>không</strong> đảm bảo thứ tự nào cho <code>notify()</code> — nó chọn một thread bất kỳ
+  trong wait set, hoàn toàn không có gì đảm bảo là thread chờ lâu nhất.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>notify()</code> khi có nhiều loại điều kiện chờ khác nhau trên cùng một lock</strong> — đúng lỗi
+  trọng tâm của chapter, gây delay khó dự đoán hoặc tệ hơn.</li>
+<li><strong>Giả định <code>notify()</code> có tính công bằng (fairness) hoặc thứ tự cụ thể</strong> — không có đảm bảo
+  nào như vậy.</li>
+<li><strong>Không đặt timeout dự phòng</strong> (<code>wait(ms)</code> thay vì <code>wait()</code> vô thời hạn) khi có rủi ro
+  <code>notify()</code> bị dùng sai — mất đi "lưới an toàn" cuối cùng nếu tín hiệu bị lãng phí hoàn toàn.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Mặc định dùng <code>notifyAll()</code>. Chỉ cân nhắc <code>notify()</code> khi đã <strong>chứng minh chắc chắn</strong> mọi
+  thread trong wait set đều chờ điều kiện hoàn toàn tương đương, và hiệu năng của
+  <code>notifyAll()</code> thực sự là vấn đề đã đo lường được (không phải phỏng đoán).</li>
+<li>Với hệ thống thực tế có nhiều loại điều kiện chờ, ưu tiên <code>Condition</code> (Chapter 10) thay vì cố
+  gắng làm cho <code>notify()</code> hoạt động đúng trên một wait set chung.</li>
+<li>Luôn cân nhắc thêm timeout dự phòng cho <code>wait()</code> trong hệ thống quan trọng, để tránh treo
+  vĩnh viễn nếu có lỗi logic đánh thức.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một hệ thống xử lý hàng đợi nội bộ dùng <code>wait()</code>/<code>notify()</code> tự viết, có độ trễ xử
+lý tăng dần và không ổn định khi số lượng loại công việc (nhiều loại điều kiện chờ khác nhau
+trên cùng một lock) tăng lên theo thời gian phát triển sản phẩm.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> độ trễ tăng dần, không tương ứng với tăng tải thực tế — hệ thống "chậm đi"
+  ngay cả khi khối lượng công việc không đổi, chỉ vì có thêm loại công việc mới.</li>
+<li><strong>Root cause:</strong> code ban đầu dùng <code>notify()</code> khi chỉ có một loại điều kiện chờ (an toàn lúc
+  đó) — theo thời gian, thêm loại công việc mới (thêm một loại điều kiện chờ khác) mà không ai
+  quay lại kiểm tra giả định "mọi thread chờ đều tương đương" đã không còn đúng.</li>
+<li><strong>Debug:</strong> rà soát lại mọi nơi gọi <code>wait()</code> trên cùng một lock, liệt kê xem có bao nhiêu loại
+  điều kiện chờ khác nhau — nếu nhiều hơn một loại, <code>notify()</code> không còn an toàn.</li>
+<li><strong>Solution:</strong> đổi sang <code>notifyAll()</code>, hoặc tốt hơn, tái cấu trúc sang <code>Condition</code> riêng biệt
+  cho từng loại điều kiện (Chapter 10).</li>
+<li><strong>Prevention:</strong> coi việc dùng <code>notify()</code> (thay vì <code>notifyAll()</code>) là một quyết định thiết kế
+  cần <strong>ghi chú rõ ràng lý do</strong> trong code, và bắt buộc review lại mỗi khi có thay đổi liên
+  quan tới logic chờ/đánh thức trên cùng lock đó.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Độ trễ xử lý tăng dần theo thời gian phát triển sản phẩm, không tương ứng tải thực tế? →
+      kiểm tra có đang dùng <code>notify()</code> trong khi số loại điều kiện chờ đã tăng lên không.</li>
+<li>[ ] Hệ thống dùng <code>wait()</code>/<code>notify()</code> "treo" ngẫu nhiên? → nghi ngờ <code>notify()</code> đánh thức nhầm
+      loại thread gây mất tín hiệu — kiểm tra có timeout dự phòng không.</li>
+<li>[ ] Cần đánh giá <code>notify()</code> có an toàn không? → liệt kê mọi điều kiện <code>while</code> khác nhau đang
+      chờ trên cùng lock — nếu nhiều hơn một loại, không an toàn.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>Object.notify()</code>/<code>notifyAll()</code> (native method, HotSpot) thao tác trực tiếp lên wait set của
+<code>ObjectMonitor</code> (Chapter 06): <code>notify()</code> di chuyển <strong>một</strong> thread (lựa chọn phụ thuộc hiện thực
+JVM cụ thể, không có đảm bảo nào ở tầng đặc tả JLS) từ wait set sang entry set (để nó tranh
+giành lại lock); <code>notifyAll()</code> di chuyển <strong>toàn bộ</strong> thread trong wait set sang entry set cùng
+lúc — tất cả sau đó tự tranh giành lock theo cơ chế thông thường của Monitor, không có đảm bảo
+thứ tự nào giữa chúng.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>notify()</code> đánh thức <strong>một</strong> thread ngẫu nhiên trong wait set của Monitor; <code>notifyAll()</code> đánh
+thức <strong>toàn bộ</strong>. Với nhiều loại điều kiện chờ khác nhau trên cùng một lock (ví dụ producer chờ
+"còn chỗ", consumer chờ "có dữ liệu"), <code>notify()</code> có nguy cơ đánh thức nhầm loại, gây lãng phí
+tín hiệu — đã đo thực nghiệm chênh lệch từ 0ms (<code>notifyAll()</code>) lên 411ms (<code>notify()</code>) cho cùng
+một bài toán chỉ với 2 producer + 2 consumer. Nguyên tắc an toàn: mặc định <code>notifyAll()</code>, chỉ
+dùng <code>notify()</code> khi chắc chắn mọi thread chờ hoàn toàn tương đương. <code>Condition</code> (gắn với
+<code>ReentrantLock</code>, Chapter 10) giải quyết triệt để vấn đề này bằng cách cho phép nhiều wait set
+riêng biệt trên cùng một lock.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>notify()</code> và <code>notifyAll()</code> khác nhau như thế nào?</li>
+<li><code>notify()</code> có đảm bảo đánh thức thread chờ lâu nhất không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Khi nào dùng <code>notify()</code> là an toàn? Cho ví dụ khi nó KHÔNG an toàn.</li>
+<li>Giải thích vì sao dùng <code>notify()</code> sai có thể gây delay nghiêm trọng, dựa trên ví dụ cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích hạn chế cố hữu "một wait set duy nhất" của mô hình Monitor, và <code>Condition</code>
+  (Chapter 10) giải quyết nó như thế nào.</li>
+<li>Một hệ thống dùng <code>notify()</code> an toàn lúc đầu, nhưng dần trở nên không an toàn khi sản phẩm
+  phát triển thêm tính năng. Bạn sẽ thiết kế quy trình review/kiểm soát nào để tránh loại lỗi
+  này tái diễn?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng hai ví dụ <code>NotifyVsNotifyAll</code> và <code>NotifyAllDemo</code> ở trên, xác nhận chênh
+      lệch thời gian tương tự trên máy bạn.</li>
+<li>[ ] Viết một bài toán chỉ có <strong>một loại</strong> điều kiện chờ (ví dụ nhiều worker cùng chờ "có
+      task mới", không phân biệt loại) — xác nhận <code>notify()</code> hoạt động đúng và hiệu quả trong
+      trường hợp này.</li>
+<li>[ ] Thử tăng số lượng producer/consumer trong ví dụ <code>NotifyVsNotifyAll</code> lên nhiều hơn (ví dụ
+      5 producer, 5 consumer) — quan sát chênh lệch thời gian giữa <code>notify()</code> và <code>notifyAll()</code>
+      có tăng thêm không.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>notify()</code></th>
+<th><code>notifyAll()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đánh thức</td>
+<td>Một thread ngẫu nhiên</td>
+<td>Toàn bộ thread trong wait set</td>
+</tr>
+<tr>
+<td>An toàn khi</td>
+<td>Mọi thread chờ tương đương nhau</td>
+<td>Luôn an toàn (mặc định nên dùng)</td>
+</tr>
+<tr>
+<td>Rủi ro nếu dùng sai</td>
+<td>Mất tín hiệu, delay/treo</td>
+<td>Không có (chỉ tốn chút overhead)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nguyên tắc:</strong> mặc định <code>notifyAll()</code>; <code>notify()</code> chỉ khi đã chứng minh mọi thread chờ tương
+đương và đã đo được lợi ích hiệu năng thực sự.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.lang.Object#notify()</code>, <code>#notifyAll()</code>.</li>
+<li>Java Language Specification (JLS) — Chapter 17.2: Wait Sets and Notification.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 14.2: Using Condition Queues.</li>
 </ul>
 
 

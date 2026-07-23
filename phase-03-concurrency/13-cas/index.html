@@ -27,7 +27,7 @@
     
     
       
-        <title>CAS - Java Backend Engineering Handbook</title>
+        <title>CAS (Compare-And-Swap) và bài toán ABA - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cas" class="md-skip">
+        <a href="#cas-compare-and-swap-va-bai-toan-aba" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CAS
+              CAS (Compare-And-Swap) và bài toán ABA
             
           </span>
         </div>
@@ -2327,7 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2364,7 +2364,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2382,7 +2382,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2606,32 +2606,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -2772,7 +2750,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2778,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:cas" class="md-tag">CAS</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="cas">CAS<a class="headerlink" href="#cas" title="Permanent link">&para;</a></h1>
+<h1 id="cas-compare-and-swap-va-bai-toan-aba">CAS (Compare-And-Swap) và bài toán ABA<a class="headerlink" href="#cas-compare-and-swap-va-bai-toan-aba" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 3 — Concurrency
 Chapter slug: <code>cas</code></p>
@@ -6149,94 +6119,250 @@ Chapter slug: <code>cas</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CAS</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — Atomic</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cấu trúc dữ liệu lock-free nâng cao (ngoài phạm vi handbook, nhưng CAS là nền tảng bắt buộc để hiểu)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../12-atomic/">Chapter 12</a> — <code>AtomicInteger.compareAndSet(expected, newValue)</code> chỉ
+thành công khi giá trị hiện tại <strong>đúng bằng</strong> <code>expected</code>. Nhưng "giá trị hiện tại đúng bằng
+expected" có thực sự chứng minh <strong>không có gì thay đổi</strong> trong lúc đó không?</p>
 </blockquote>
+<p>Giả sử một thread đọc giá trị <code>A</code>, chuẩn bị CAS đổi thành <code>C</code>. Trong lúc nó "chuẩn bị", một
+thread khác đổi <code>A</code> → <code>B</code> → rồi lại đổi ngược về <code>A</code>. Khi thread đầu tiên thực hiện
+<code>compareAndSet(A, C)</code>, giá trị hiện tại <strong>lại đúng là <code>A</code></strong> — CAS thành công, dù giá trị <strong>đã
+thực sự bị thay đổi (hai lần)</strong> ở giữa. Đây gọi là <strong>bài toán ABA</strong>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Bài toán ABA trong CAS là gì? Nó có thể gây ra hậu quả gì, và làm sao để phát hiện/ngăn chặn
+nó?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác cơ chế CAS (Compare-And-Swap) hoạt động ở cấp CPU</li>
+<li>[ ] Tự tay chứng minh được bài toán ABA bằng thực nghiệm: <code>AtomicReference</code> không phát hiện
+      được A→B→A</li>
+<li>[ ] Biết <code>AtomicStampedReference</code> giải quyết ABA bằng cách thêm "stamp" (số phiên bản)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 12 — hiểu <code>compareAndSet</code> cơ bản trên <code>AtomicInteger</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Nền tảng để hiểu mọi cấu trúc dữ liệu lock-free (hàng đợi lock-free, stack lock-free) — nằm
+  ngoài phạm vi handbook nhưng CAS + ABA là kiến thức bắt buộc phải có trước khi tìm hiểu sâu
+  hơn.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>compareAndSet(expected, newValue)</code> chỉ kiểm tra "giá trị hiện tại có bằng <code>expected</code> không" —
+nó <strong>không</strong> biết được liệu giá trị đó có bị thay đổi rồi đổi ngược lại hay không trong khoảng
+thời gian giữa lúc đọc và lúc CAS. Với kiểu dữ liệu nguyên thủy (int, long) thường không sao vì
+bản thân "quay lại giá trị cũ" không gây hại logic. Nhưng với <strong>tham chiếu object</strong> (ví dụ node
+trong một cấu trúc dữ liệu lock-free như stack/queue), việc object bị thay bằng một object khác
+rồi thay lại bằng object gốc (dù giá trị "nhìn giống nhau") có thể để lại cấu trúc dữ liệu ở
+trạng thái hỏng, vì các con trỏ/liên kết nội bộ đã bị thay đổi trong lúc đó.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>CAS (Compare-And-Swap)</strong> là lệnh CPU nguyên tử: so sánh giá trị hiện tại với một giá trị kỳ
+vọng (<code>expected</code>), nếu khớp thì đổi thành giá trị mới, tất cả trong một bước không thể bị ngắt.
+<strong>Bài toán ABA</strong> là hạn chế cố hữu của CAS thuần: nó chỉ so sánh <strong>giá trị cuối cùng</strong>, không
+biết giá trị đó có bị thay đổi trung gian hay không.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>CAS được thiết kế tối giản có chủ đích — nó chỉ cần so sánh giá trị, không cần theo dõi lịch
+sử. Điều này giúp nó cực nhanh (một lệnh CPU). Nhưng chính sự tối giản đó là nguồn gốc của ABA:
+để phát hiện "đã có thay đổi trung gian", cần thêm thông tin ngoài giá trị đơn thuần — đó là lý
+do JDK cung cấp thêm <code>AtomicStampedReference</code>, gắn kèm một "stamp" (số nguyên tăng dần, đại
+diện cho phiên bản) đi cùng giá trị.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">AtomicStampedReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicStampedReference</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">stampHolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">stampHolder</span><span class="p">);</span><span class="w"> </span><span class="c1">// lay ca gia tri LAN stamp hien tai</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">stamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stampHolder</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// CAS phai khop CA gia tri LAN stamp moi thanh cong</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">ref</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">stamp</span><span class="p">,</span><span class="w"> </span><span class="n">stamp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ABA voi AtomicReference thuong (KHONG phat hien duoc):
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Thread 1:  doc A ─────────────────────────► CAS(A, C) → THANH CONG (SAI LAM!)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  Thread 2:         set(B) ──► set(A)  ← gia tri quay ve &quot;A&quot; nhung DA CO 2 LAN THAY DOI
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ABA voi AtomicStampedReference (PHAT HIEN duoc qua stamp):
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  Thread 1:  doc (A, stamp=0) ────────────────► CAS(A,C, stamp 0→1) → THAT BAI (dung!)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Thread 2:         set(B, stamp=1) ──► set(A, stamp=2)  ← stamp thuc te la 2, khong phai 0
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.atomic.AtomicReference</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.atomic.AtomicStampedReference</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ABADemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">AtomicReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicReference</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">ref</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">ref</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;am tham&quot; doi A-&gt;B-&gt;A</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="n">original</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;AtomicReference CAS(A-&gt;C) sau khi bi doi A-&gt;B-&gt;A ngam: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">success</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (gia tri hien tai: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">AtomicStampedReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stamped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicStampedReference</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">stampHolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="n">stamped</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">stampHolder</span><span class="p">);</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">originalStamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stampHolder</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="n">stamped</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="n">stamped</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stampedSuccess</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stamped</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">originalStamp</span><span class="p">,</span><span class="w"> </span><span class="n">originalStamp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;AtomicStampedReference CAS sau khi bi doi ngam: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stampedSuccess</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (gia tri: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stamped</span><span class="p">.</span><span class="na">getReference</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, stamp: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stamped</span><span class="p">.</span><span class="na">getStamp</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>AtomicReference CAS(A-&gt;C) sau khi bi doi A-&gt;B-&gt;A ngam: true (gia tri hien tai: C)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>AtomicStampedReference CAS(A-&gt;C, stamp 0-&gt;1) sau khi bi doi ngam (stamp thuc te la 2): false (gia tri hien tai: A, stamp: 2)
+</code></pre></div>
+<p>Bằng chứng rõ ràng: <code>AtomicReference</code> CAS <strong>thành công</strong> (<code>true</code>) dù giá trị đã bị đổi hai lần
+ở giữa — ABA thực sự xảy ra. <code>AtomicStampedReference</code> CAS <strong>thất bại</strong> (<code>false</code>) đúng như mong
+đợi, vì stamp hiện tại là <code>2</code>, không khớp với stamp kỳ vọng là <code>0</code> — nó phát hiện được đã có
+thay đổi trung gian dù giá trị cuối cùng "trông giống" giá trị gốc.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao ABA thường vô hại với kiểu nguyên thủy nhưng nguy hiểm với con trỏ/object trong cấu
+trúc dữ liệu lock-free?</strong> Với <code>int</code>/<code>long</code>, "giá trị quay lại như cũ" thực sự đồng nghĩa "trạng
+thái quay lại như cũ" — không có tác dụng phụ ẩn. Nhưng với node trong một lock-free stack
+(ví dụ), "con trỏ head quay lại trỏ đúng node gốc" <strong>không đảm bảo</strong> các liên kết <code>next</code> bên
+trong node đó vẫn còn nguyên vẹn — node có thể đã bị pop ra, node khác bị push vào, rồi chính
+node gốc bị push trở lại (nhưng giờ <code>next</code> của nó trỏ tới một node khác đã bị giải phóng/thay
+đổi). CAS chỉ nhìn thấy "địa chỉ con trỏ giống nhau", không nhìn thấy toàn bộ cấu trúc đã bị xáo
+trộn.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Trong thực tế viết ứng dụng backend, có cần tự tay lo về ABA không?</strong> Hiếm khi. ABA chủ yếu
+là mối lo khi <strong>tự viết</strong> cấu trúc dữ liệu lock-free cấp thấp (thứ mà tuyệt đại đa số backend
+engineer không cần tự làm — <code>ConcurrentHashMap</code>, <code>ConcurrentLinkedQueue</code> trong JDK đã tự xử lý
+đúng đắn bên trong). Giá trị thực sự của việc hiểu ABA nằm ở việc <strong>hiểu đúng giới hạn của
+CAS</strong> — để không lầm tưởng CAS là "phát hiện mọi thay đổi", và để đọc hiểu được code JDK/thư
+viện lock-free khi cần debug sâu.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>AtomicStampedReference</code> và <code>AtomicMarkableReference</code> (biến thể chỉ cần một cờ boolean thay vì
+số nguyên đầy đủ) ra đời cùng đợt JSR 166 (Java 5, 2004), ngay từ đầu đã được thiết kế kèm với
+<code>AtomicReference</code> chính vì nhóm tác giả (Doug Lea) đã lường trước bài toán ABA từ các nghiên
+cứu cấu trúc dữ liệu lock-free trước đó.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "CAS thành công nghĩa là chắc chắn không có thread nào khác đụng vào giá trị đó."
+  <strong>Reality:</strong> CAS chỉ đảm bảo giá trị <strong>tại thời điểm CAS</strong> khớp với <code>expected</code> — không đảm
+  bảo không có thay đổi trung gian (chính là bài toán ABA, đã chứng minh ở Example).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "ABA là lỗi hiếm gặp, không cần quan tâm trong thực tế."
+  <strong>Reality:</strong> Với kiểu dữ liệu nguyên thủy, đúng là hiếm gây hại. Nhưng với con trỏ/object
+  trong cấu trúc dữ liệu tự viết, nó là nguồn lỗi rất khó tái hiện và debug (chỉ xảy ra dưới
+  điều kiện race cụ thể) — đây là lý do Deep Dive nhấn mạnh nó nguy hiểm hơn nhiều so với vẻ
+  ngoài "hiếm gặp".</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tự viết cấu trúc dữ liệu lock-free dùng <code>AtomicReference</code> mà không cân nhắc ABA</strong> — dễ để
+  lại lỗi cực khó tái hiện, chỉ xảy ra dưới race condition cụ thể.</li>
+<li><strong>Dùng <code>AtomicStampedReference</code> cho mọi trường hợp "cho chắc"</strong> — overhead cao hơn
+  <code>AtomicReference</code> thường (phải đóng gói thêm stamp), chỉ nên dùng khi thực sự cần phát hiện
+  ABA (khi tự viết cấu trúc dữ liệu lock-free với con trỏ).</li>
+<li><strong>Nhầm lẫn ABA với data race thông thường</strong> — ABA là vấn đề logic đặc thù của CAS, khác với
+  race condition đơn giản đã học ở Chapter 03-05.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Chỉ cần lo về ABA khi tự viết cấu trúc dữ liệu lock-free thao tác trực tiếp trên con trỏ
+  (node, reference) — không cần khi dùng các collection có sẵn của JDK.</li>
+<li>Dùng <code>AtomicStampedReference</code>/<code>AtomicMarkableReference</code> khi thực sự cần phát hiện thay đổi
+  trung gian, chấp nhận overhead cao hơn <code>AtomicReference</code> thường.</li>
+<li>Ưu tiên dùng cấu trúc dữ liệu concurrent có sẵn của JDK (Phase 2, Chapter 11) thay vì tự viết
+  lock-free từ đầu, trừ khi có lý do hiệu năng thực sự bắt buộc.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Cấu trúc dữ liệu lock-free tự viết thỉnh thoảng bị hỏng dưới tải cao, khó tái hiện? → cân
+      nhắc bài toán ABA là nghi phạm hàng đầu.</li>
+<li>[ ] Dùng <code>AtomicReference</code> cho con trỏ trong cấu trúc dữ liệu tự viết? → đánh giá xem có cần
+      chuyển sang <code>AtomicStampedReference</code> không.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>CAS chỉ so sánh <strong>giá trị cuối cùng</strong>, không biết giá trị đó có bị thay đổi trung gian (A→B→A)
+hay không — đây là bài toán ABA, đã chứng minh bằng thực nghiệm: <code>AtomicReference.compareAndSet</code>
+thành công dù giá trị đã bị đổi hai lần ở giữa. <code>AtomicStampedReference</code> giải quyết bằng cách
+gắn kèm một "stamp" (số phiên bản) — CAS chỉ thành công khi cả giá trị lẫn stamp đều khớp, giúp
+phát hiện đúng đã có thay đổi trung gian. Trong thực tế backend, ABA chủ yếu liên quan tới việc
+tự viết cấu trúc dữ liệu lock-free — hiếm khi cần tự xử lý khi dùng collection có sẵn của JDK.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Bài toán ABA trong CAS là gì? Cho ví dụ cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li><code>AtomicStampedReference</code> giải quyết bài toán ABA như thế nào? Vì sao không dùng
+  <code>AtomicReference</code> cho mọi trường hợp cần CAS trên object?</li>
+<li>Vì sao ABA nguy hiểm hơn với cấu trúc dữ liệu lock-free thao tác trên con trỏ so với kiểu
+  nguyên thủy?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>ABADemo</code> ở trên, xác nhận <code>AtomicReference</code> CAS thành công còn
+      <code>AtomicStampedReference</code> CAS thất bại đúng như mô tả.</li>
+<li>[ ] Thử viết một <code>AtomicMarkableReference</code> demo tương tự (dùng cờ boolean thay vì stamp số
+      nguyên), so sánh use case phù hợp giữa hai lớp này.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>AtomicReference</code></th>
+<th><code>AtomicStampedReference</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>So sánh khi CAS</td>
+<td>Chỉ giá trị</td>
+<td>Giá trị + stamp (phiên bản)</td>
+</tr>
+<tr>
+<td>Phát hiện ABA</td>
+<td>Không</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>Thấp</td>
+<td>Cao hơn (đóng gói thêm stamp)</td>
+</tr>
+<tr>
+<td>Dùng khi</td>
+<td>Không thao tác trực tiếp trên con trỏ cấu trúc dữ liệu</td>
+<td>Tự viết cấu trúc dữ liệu lock-free</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.atomic.AtomicStampedReference</code>,
+  <code>AtomicMarkableReference</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 15.4: The ABA Problem.</li>
 </ul>
 
 

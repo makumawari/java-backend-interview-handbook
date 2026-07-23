@@ -27,7 +27,7 @@
     
     
       
-        <title>Executor - Java Backend Engineering Handbook</title>
+        <title>Executor Framework - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#executor" class="md-skip">
+        <a href="#executor-framework" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Executor
+              Executor Framework
             
           </span>
         </div>
@@ -2327,7 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2355,7 +2355,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2448,7 +2448,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2466,7 +2466,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2690,32 +2690,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -2800,7 +2778,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:executor" class="md-tag">Executor</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="executor">Executor<a class="headerlink" href="#executor" title="Permanent link">&para;</a></h1>
+<h1 id="executor-framework">Executor Framework<a class="headerlink" href="#executor-framework" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 3 — Concurrency
 Chapter slug: <code>executor</code></p>
@@ -6149,94 +6119,279 @@ Chapter slug: <code>executor</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Executor</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 15 — Thread Pool</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 17 — ForkJoin</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 18 — CompletableFuture</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../15-thread-pool/">Chapter 15</a> — Thread Pool giải quyết vấn đề hiệu năng tạo/huỷ
+thread. Nhưng khi tắt một ứng dụng (deploy phiên bản mới, restart service), có một câu hỏi
+khác: nếu một tác vụ đang chạy dở trong pool, dừng ứng dụng như thế nào cho <strong>đúng đắn</strong> —
+chờ nó xong, hay ngắt nó ngay lập tức?</p>
 </blockquote>
+<p>Thử nghiệm thực tế với <code>shutdownNow()</code> trên một task đang chạy dở (<code>Thread.sleep(2000)</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Task dai bat dau
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Task dai BI INTERRUPT boi shutdownNow()
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>shutdownNow() tra ve 0 task dang cho trong hang doi (chua chay)
+</code></pre></div>
+<p><code>shutdownNow()</code> <strong>ngắt</strong> (interrupt) task đang chạy ngay lập tức, khác hẳn <code>shutdown()</code> — vốn
+để task đang chạy hoàn thành bình thường, chỉ từ chối nhận task mới. <code>ExecutorService</code> là API
+chuẩn hoá toàn bộ vòng đời quản lý thread pool này.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>shutdown()</code> khác <code>shutdownNow()</code> như thế nào? Khi nào nên dùng cái nào?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt các loại pool có sẵn: <code>newFixedThreadPool</code>, <code>newCachedThreadPool</code>,
+      <code>newSingleThreadExecutor</code>, <code>newScheduledThreadPool</code></li>
+<li>[ ] Tự tay chứng minh sự khác biệt hành vi giữa <code>shutdown()</code> và <code>shutdownNow()</code></li>
+<li>[ ] Hiểu phân cấp interface <code>Executor</code> → <code>ExecutorService</code> → <code>ScheduledExecutorService</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 15 — hiểu khái niệm Thread Pool, <code>ThreadPoolExecutor</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 17 (ForkJoin)</strong> — <code>ForkJoinPool</code> cũng implement <code>ExecutorService</code>.</li>
+<li><strong>Chapter 18 (CompletableFuture)</strong> — có thể nhận một <code>Executor</code> tuỳ chỉnh để chạy các bước
+  bất đồng bộ.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Quản lý vòng đời một thread pool không chỉ là "tạo và nộp tác vụ" — còn cần một cách chuẩn để
+<strong>dừng</strong> pool đúng đắn: chờ tác vụ đang chạy hoàn thành hay ngắt ngay lập tức? Xử lý ra sao với
+các tác vụ còn đang <strong>chờ trong hàng đợi</strong>, chưa kịp chạy? Nếu mỗi đội tự nghĩ ra quy ước riêng,
+code sẽ thiếu nhất quán và dễ rò rỉ tài nguyên (thread không bao giờ dừng).</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>Executor</code></strong> là interface gốc, đơn giản nhất (chỉ có <code>execute(Runnable)</code>).
+<strong><code>ExecutorService</code></strong> mở rộng thêm quản lý vòng đời (<code>submit</code>, <code>shutdown</code>, <code>shutdownNow</code>,
+<code>awaitTermination</code>) và trả về <code>Future</code> cho kết quả. <strong><code>ScheduledExecutorService</code></strong> mở rộng
+tiếp, hỗ trợ lên lịch chạy tác vụ sau một khoảng thời gian hoặc lặp định kỳ.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách các interface theo mức độ khả năng (Executor đơn giản → ExecutorService đầy đủ vòng đời →
+ScheduledExecutorService có lịch trình) theo đúng nguyên tắc <strong>Interface Segregation</strong> — code
+chỉ cần <code>execute()</code> đơn giản không bị buộc phải biết về <code>shutdown()</code>/<code>Future</code>. Việc chuẩn hoá
+<code>shutdown()</code> vs <code>shutdownNow()</code> thành hai phương thức tách biệt (thay vì một tham số boolean mơ
+hồ) giúp code gọi rõ ràng về ý định: dừng "êm" hay dừng "ngay lập tức".</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">pool</span><span class="p">.</span><span class="na">execute</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* khong can ket qua */</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span><span class="w"> </span><span class="c1">// can ket qua</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span><span class="w">                          </span><span class="c1">// KHONG nhan task moi, cho task dang chay xong</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span><span class="w"> </span><span class="c1">// NGAT task dang chay, tra ve task con cho trong hang doi</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Executor
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   │  execute(Runnable)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ExecutorService (mo rong Executor)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>   │  submit(Callable/Runnable) -&gt; Future
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>   │  shutdown() / shutdownNow() / awaitTermination()
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>   ▼
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>ScheduledExecutorService (mo rong ExecutorService)
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      schedule(task, delay)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>      scheduleAtFixedRate(task, initialDelay, period)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExecutorTypesDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="n">fixed</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fixed task &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; chay tren &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">()));</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">fixed</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="n">fixed</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newCachedThreadPool</span><span class="p">();</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">            </span><span class="n">cached</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Cached task &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; chay tren &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">()));</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="n">cached</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="n">cached</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">svc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="n">svc</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Task dai bat dau&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">                </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Task dai BI INTERRUPT boi shutdownNow()&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">svc</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;shutdownNow() tra ve &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pending</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; task dang cho trong hang doi (chua chay)&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">        </span><span class="n">svc</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Fixed task 0 chay tren pool-1-thread-1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Fixed task 1 chay tren pool-1-thread-2
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Fixed task 2 chay tren pool-1-thread-1
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Fixed task 3 chay tren pool-1-thread-2
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>---
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Cached task 0 chay tren pool-2-thread-1
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Cached task 2 chay tren pool-2-thread-3
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Cached task 3 chay tren pool-2-thread-4
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Cached task 1 chay tren pool-2-thread-2
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>---
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>Task dai bat dau
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>Task dai BI INTERRUPT boi shutdownNow()
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>shutdownNow() tra ve 0 task dang cho trong hang doi (chua chay)
+</code></pre></div>
+<p>Với <code>FixedThreadPool(2)</code>: chỉ 2 thread thực (<code>pool-1-thread-1</code>, <code>pool-1-thread-2</code>) được <strong>tái
+sử dụng</strong> cho cả 4 task. Với <code>CachedThreadPool</code>: <strong>4 thread khác nhau</strong> được tạo cho 4 task nộp
+gần như đồng thời — đúng bản chất "tạo thread mới khi cần, không giới hạn". Với <code>shutdownNow()</code>:
+task đang <code>Thread.sleep(2000)</code> bị <strong>interrupt ngay lập tức</strong> (in ra dòng "BI INTERRUPT"), khác
+hẳn hành vi <code>shutdown()</code> (task được để chạy hết tự nhiên).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>awaitTermination()</code> để làm gì, và vì sao cần gọi sau <code>shutdown()</code>/<code>shutdownNow()</code>?</strong>
+<code>shutdown()</code>/<code>shutdownNow()</code> <strong>không blocking</strong> — chúng chỉ báo hiệu "bắt đầu quá trình dừng"
+rồi trả về ngay lập tức, các thread trong pool có thể vẫn đang chạy dở. <code>awaitTermination(timeout,
+unit)</code> mới thực sự <strong>chờ</strong> (blocking, có giới hạn thời gian) cho tới khi tất cả thread trong
+pool thực sự kết thúc, hoặc hết timeout. Thiếu bước <code>awaitTermination</code>, code có thể tưởng nhầm
+pool đã dừng hẳn trong khi thực tế vẫn còn thread đang chạy — gây race condition khi logic sau
+đó phụ thuộc vào giả định "mọi task đã xong".</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao nhiều framework (Spring, Tomcat) quản lý riêng vòng đời <code>ExecutorService</code> thay vì để
+JVM tự lo?</strong> JVM chỉ tự thoát khi <strong>tất cả non-daemon thread</strong> kết thúc (Phase 1, Chapter 04 có
+nhắc gián tiếp qua Runtime Data Areas). Thread trong <code>ExecutorService</code> mặc định là non-daemon —
+nếu quên gọi <code>shutdown()</code>, chương trình <strong>không bao giờ thoát được</strong> dù logic chính đã hoàn
+tất từ lâu, vì các thread pool vẫn "sống" chờ task mới vô thời hạn. Đây là lý do các framework
+lớn luôn có một bước "graceful shutdown" tường minh: bắt tín hiệu dừng ứng dụng (SIGTERM), gọi
+<code>shutdown()</code> cho mọi executor đã tạo, <code>awaitTermination</code> với timeout hợp lý, rồi mới thực sự
+thoát tiến trình.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Executor</code>/<code>ExecutorService</code> ra đời cùng JSR 166 (Java 5, 2004). <code>ScheduledExecutorService</code>
+cùng đợt, thay thế cho <code>java.util.Timer</code>/<code>TimerTask</code> cũ hơn (từ Java 1.3) — <code>Timer</code> chạy trên
+<strong>một thread duy nhất</strong>, nếu một task ném exception không bắt, toàn bộ <code>Timer</code> bị dừng hoạt
+động vĩnh viễn (lỗi thiết kế nổi tiếng); <code>ScheduledExecutorService</code> dùng thread pool, một task
+lỗi không ảnh hưởng tới các task lên lịch khác.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>shutdown()</code> dừng thread pool ngay lập tức."
+  <strong>Reality:</strong> Xem Example — <code>shutdown()</code> chỉ ngăn nhận task <strong>mới</strong>, các task đang chạy và
+  đang chờ trong hàng đợi vẫn được hoàn thành bình thường. Chỉ <code>shutdownNow()</code> mới ngắt task
+  đang chạy ngay lập tức.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Gọi <code>shutdown()</code> là đủ, không cần <code>awaitTermination()</code>."
+  <strong>Reality:</strong> Xem Deep Dive — thiếu <code>awaitTermination</code> có thể khiến code tiếp tục chạy trong
+  khi pool chưa thực sự dừng hẳn.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên gọi <code>shutdown()</code></strong> — chương trình không thoát được vì thread pool giữ JVM sống.</li>
+<li><strong>Gọi <code>shutdown()</code> nhưng không <code>awaitTermination()</code></strong> — logic tiếp theo chạy trước khi pool
+  thực sự dừng hẳn, dẫn tới giả định sai về trạng thái.</li>
+<li><strong>Dùng <code>shutdownNow()</code> khi thực sự chỉ cần dừng êm</strong> — có thể làm gián đoạn task quan trọng
+  giữa chừng, gây mất dữ liệu hoặc trạng thái không nhất quán nếu task không xử lý
+  <code>InterruptedException</code> cẩn thận.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Ưu tiên <code>shutdown()</code> (dừng êm) trừ khi có lý do rõ ràng cần dừng ngay lập tức
+  (<code>shutdownNow()</code>).</li>
+<li>Luôn gọi <code>awaitTermination(timeout, unit)</code> sau <code>shutdown()</code>/<code>shutdownNow()</code> để đảm bảo chờ
+  đúng tới khi pool thực sự dừng, có timeout để tránh chờ vô hạn.</li>
+<li>Với tác vụ lên lịch định kỳ, dùng <code>ScheduledExecutorService</code> thay vì <code>Timer</code>/<code>TimerTask</code> cũ.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Chương trình không thoát dù logic chính đã xong? → kiểm tra đã gọi <code>shutdown()</code> cho mọi
+      <code>ExecutorService</code> đã tạo chưa.</li>
+<li>[ ] Task bị dừng giữa chừng ngoài ý muốn? → kiểm tra có đang gọi nhầm <code>shutdownNow()</code> thay vì
+      <code>shutdown()</code> không.</li>
+<li>[ ] Logic sau <code>shutdown()</code> chạy sai vì pool chưa thực sự dừng? → thêm <code>awaitTermination()</code>
+      với timeout phù hợp.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Executor</code> → <code>ExecutorService</code> → <code>ScheduledExecutorService</code> là phân cấp interface chuẩn hoá
+việc chạy và quản lý vòng đời thread pool. Đã chứng minh bằng thực nghiệm: <code>FixedThreadPool</code>
+tái sử dụng đúng số thread cố định, <code>CachedThreadPool</code> tạo thread mới không giới hạn, và
+<code>shutdownNow()</code> ngắt task đang chạy ngay lập tức (khác <code>shutdown()</code> — để task chạy hết tự
+nhiên). Luôn kèm <code>awaitTermination()</code> sau khi gọi shutdown để đảm bảo chờ đúng tới khi pool
+thực sự dừng hẳn.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>Executor</code> và <code>ExecutorService</code> khác nhau như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>shutdown()</code> khác <code>shutdownNow()</code> như thế nào? Khi nào nên dùng cái nào?</li>
+<li>Vì sao cần gọi <code>awaitTermination()</code> sau <code>shutdown()</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích vì sao quên gọi <code>shutdown()</code> có thể khiến một chương trình Java không bao giờ
+  thoát được, dù logic chính đã hoàn tất.</li>
+<li>So sánh <code>ScheduledExecutorService</code> với <code>Timer</code>/<code>TimerTask</code> cũ — vì sao <code>ScheduledExecutorService</code> được khuyến nghị thay thế?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>ExecutorTypesDemo</code> ở trên, xác nhận <code>FixedThreadPool</code> tái sử dụng đúng 2
+      thread trong khi <code>CachedThreadPool</code> tạo 4 thread khác nhau.</li>
+<li>[ ] Viết một ví dụ dùng <code>ScheduledExecutorService.scheduleAtFixedRate()</code> in ra thời gian mỗi
+      giây, 5 lần, rồi tự <code>shutdown()</code>.</li>
+<li>[ ] Thử gọi <code>shutdown()</code> (không phải <code>shutdownNow()</code>) trên một pool có task đang
+      <code>Thread.sleep(2000)</code>, quan sát task đó hoàn thành bình thường thay vì bị interrupt.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>shutdown()</code></th>
+<th><code>shutdownNow()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task mới</td>
+<td>Từ chối</td>
+<td>Từ chối</td>
+</tr>
+<tr>
+<td>Task đang chạy</td>
+<td>Chạy tiếp tới khi xong</td>
+<td>Bị <code>interrupt()</code> ngay</td>
+</tr>
+<tr>
+<td>Task đang chờ trong hàng đợi</td>
+<td>Vẫn được chạy</td>
+<td>Bị huỷ, trả về qua giá trị hàm</td>
+</tr>
+<tr>
+<td>Trả về</td>
+<td><code>void</code></td>
+<td><code>List&lt;Runnable&gt;</code> (task chưa chạy)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.Executor</code>, <code>ExecutorService</code>,
+  <code>ScheduledExecutorService</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 7: Cancellation and Shutdown.</li>
 </ul>
 
 

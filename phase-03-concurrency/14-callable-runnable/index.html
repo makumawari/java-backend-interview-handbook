@@ -2327,7 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2355,7 +2355,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2579,17 +2579,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#engineering-insight" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Engineering Insight
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#historical-note" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2634,32 +2623,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -2772,7 +2739,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2767,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -5968,17 +5935,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#engineering-insight" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Engineering Insight
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#historical-note" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6023,32 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:callable" class="md-tag">Callable</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:runnable" class="md-tag">Runnable</a>
       
     
   </nav>
@@ -6149,94 +6104,242 @@ Chapter slug: <code>callable-runnable</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Callable vs Runnable</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Thread</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 15 — Thread Pool (ExecutorService.submit nhận cả Runnable và Callable)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 18 — CompletableFuture</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-thread/">Chapter 01</a> — <code>Runnable</code> có đúng một phương thức <code>run()</code>, trả về
+<code>void</code>, và <strong>không được phép</strong> khai báo checked exception.</p>
 </blockquote>
+<p>Điều đó ổn với các tác vụ "chạy xong là xong" (ví dụ log một dòng, gửi một thông báo). Nhưng
+nếu tác vụ chạy trên thread khác cần <strong>trả về một kết quả tính toán</strong> — ví dụ gọi một API và
+cần lấy dữ liệu trả về — thì sao? Và nếu tác vụ đó có thể ném ra một checked exception (ví dụ
+<code>IOException</code> khi gọi API), làm sao khai báo nó khi <code>run()</code> không cho phép?</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Callable</code> khác <code>Runnable</code> như thế nào? Vì sao cần cả hai thay vì chỉ dùng một interface duy
+nhất?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt chính xác <code>Runnable</code> (không trả về giá trị, không ném checked exception) và
+      <code>Callable&lt;V&gt;</code> (trả về <code>V</code>, được phép ném checked exception)</li>
+<li>[ ] Tự tay lấy được kết quả trả về từ <code>Callable</code> qua <code>Future.get()</code></li>
+<li>[ ] Hiểu vì sao exception ném ra trong <code>Callable</code> được bọc trong <code>ExecutionException</code> khi gọi
+      <code>future.get()</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu <code>Runnable</code> cơ bản, cách chạy một task trên thread riêng.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 15 (Thread Pool)</strong> — <code>ExecutorService.submit()</code> nhận cả <code>Runnable</code> lẫn <code>Callable</code>.</li>
+<li><strong>Chapter 18 (CompletableFuture)</strong> — mô hình "task trả về kết quả bất đồng bộ" là nền tảng
+  của <code>CompletableFuture</code>.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Runnable.run()</code> không trả về giá trị (<code>void</code>) và không được khai báo checked exception (chữ
+ký <code>void run()</code> không có <code>throws</code>). Với các tác vụ chạy trên thread khác nhưng cần <strong>kết quả</strong>
+(ví dụ tính toán, gọi API) hoặc có thể <strong>ném lỗi có kiểm tra</strong> (checked exception), <code>Runnable</code>
+không đủ biểu đạt — buộc phải dùng biến ngoài (không thread-safe nếu không cẩn thận) để "lấy"
+kết quả, hoặc bọc checked exception thành unchecked để vượt qua giới hạn chữ ký.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Callable&lt;V&gt;</code> (gói <code>java.util.concurrent</code>) là interface tương tự <code>Runnable</code> nhưng phương thức
+<code>call()</code> <strong>trả về giá trị kiểu <code>V</code></strong> và <strong>được phép ném bất kỳ <code>Exception</code> nào</strong> (kể cả
+checked). Khi nộp (<code>submit</code>) một <code>Callable</code> cho <code>ExecutorService</code>, kết quả trả về là một
+<code>Future&lt;V&gt;</code> — đại diện cho kết quả <strong>sẽ có trong tương lai</strong>, lấy ra bằng <code>future.get()</code>
+(blocking cho tới khi task xong).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Thiết kế tách <code>Runnable</code> và <code>Callable</code> phản ánh đúng hai nhu cầu khác nhau: <code>Runnable</code> có từ
+Java 1.0 (1996), thiết kế cho mô hình "fire-and-forget" (chạy xong không cần biết kết quả) —
+ví dụ target của <code>Thread</code>. <code>Callable</code> ra đời cùng <code>java.util.concurrent</code> ở Java 5 (2004), khi
+nhu cầu "chạy bất đồng bộ và lấy kết quả sau" trở nên phổ biến với <code>ExecutorService</code>. Giữ cả
+hai interface (thay vì chỉ giữ <code>Callable</code> tổng quát hơn) là vì tương thích ngược — hàng triệu
+dòng code Java 1.0 đã dùng <code>Runnable</code>, và với các tác vụ thực sự không cần trả kết quả,
+<code>Runnable</code> vẫn đơn giản, gọn hơn.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">// co the return gia tri</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">};</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">Integer</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"> </span><span class="c1">// blocking cho toi khi task xong</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Runnable:                          Callable&lt;V&gt;:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  run() -&gt; void                      call() -&gt; V
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  KHONG duoc throws checked           duoc throws bat ky Exception nao
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  submit(Runnable)                   submit(Callable&lt;V&gt;)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>       │                                  │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>       ▼                                  ▼
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Future&lt;?&gt;  (get() luon tra ve null)  Future&lt;V&gt; (get() tra ve V, hoac
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                                              nem ExecutionException boc loi that)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CallableDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">();</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Callable tra ve: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">failingTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;loi trong task&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">failingTask</span><span class="p">);</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">            </span><span class="n">future2</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutionException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ExecutionException boc loi that: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getCause</span><span class="p">().</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Callable tra ve: 42
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ExecutionException boc loi that: loi trong task
+</code></pre></div>
+<p><code>future.get()</code> cho task thành công trả về đúng <code>42</code> — giá trị <code>Callable</code> đã <code>return</code>.
+Với task ném lỗi, <code>future.get()</code> <strong>không ném trực tiếp <code>RuntimeException</code> gốc</strong> mà bọc nó
+trong <code>ExecutionException</code> — lỗi thật nằm ở <code>e.getCause()</code>. Đây là điểm khác biệt quan trọng so
+với gọi trực tiếp: exception xảy ra trên thread khác (thread pool worker) được "chuyển giao" về
+thread gọi <code>get()</code> thông qua cơ chế bọc này.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
-<h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao exception phải bọc trong <code>ExecutionException</code> thay vì ném thẳng?</strong> Exception xảy ra
+trên <strong>thread khác</strong> (thread pool worker) — nó không thể tự động "nhảy" sang thread đang gọi
+<code>future.get()</code> như một exception thông thường (exception chỉ lan truyền trong cùng một call
+stack, một thread). <code>Future</code> phải <strong>lưu lại</strong> exception đó khi nó xảy ra trên worker thread,
+rồi khi thread gọi <code>get()</code> đến lấy kết quả, <code>Future</code> mới "ném lại" nó — nhưng vì đây là một
+hành động khác về bản chất (ném một exception đã xảy ra trước đó, trên thread khác, chứ không
+phải exception vừa xảy ra ngay bây giờ), JDK chọn bọc nó trong <code>ExecutionException</code> để phân
+biệt rõ ràng "đây là lỗi từ task, được chuyển tiếp qua Future" với lỗi xảy ra trực tiếp tại
+điểm gọi <code>get()</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Callable</code> được thêm vào Java 5 (2004) cùng toàn bộ gói <code>java.util.concurrent</code> (JSR 166).
+Trước đó (Java 1.0-1.4), chỉ có <code>Runnable</code>, và các lập trình viên muốn "lấy kết quả" từ một
+thread phải tự implement thủ công (biến instance dùng chung, kèm đồng bộ hoá thủ công) —
+<code>Callable</code>/<code>Future</code> chuẩn hoá mẫu hình này thành API chính thức của JDK.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>Runnable</code> đã lỗi thời, nên luôn dùng <code>Callable</code> cho mọi tác vụ."
+  <strong>Reality:</strong> Với tác vụ thực sự không cần trả kết quả và không ném checked exception,
+  <code>Runnable</code> đơn giản và rõ ràng hơn — không cần thêm kiểu generic <code>V</code> không dùng tới.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>future.get()</code> ném thẳng exception gốc từ task."
+  <strong>Reality:</strong> Xem Example và Deep Dive — nó luôn bọc trong <code>ExecutionException</code>, phải gọi
+  <code>getCause()</code> để lấy lỗi thật.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên gọi <code>getCause()</code> khi bắt <code>ExecutionException</code></strong> — code chỉ log <code>e.getMessage()</code> sẽ mất
+  thông tin lỗi thật (message của <code>ExecutionException</code> thường generic, không phải message của
+  lỗi gốc).</li>
+<li><strong>Dùng <code>Callable</code> cho tác vụ không cần trả kết quả</strong> — thêm độ phức tạp không cần thiết
+  (kiểu generic, giá trị trả về giả <code>null</code>), <code>Runnable</code> là lựa chọn đúng cho trường hợp này.</li>
+<li><strong>Gọi <code>future.get()</code> không kèm timeout trên thread chính</strong> — nếu task treo vô hạn,
+  <code>future.get()</code> cũng chờ vô hạn theo; nên dùng <code>future.get(timeout, unit)</code> khi cần giới hạn
+  thời gian chờ.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng <code>Runnable</code> cho tác vụ "fire-and-forget", <code>Callable&lt;V&gt;</code> khi cần kết quả trả về hoặc cần
+  ném checked exception.</li>
+<li>Luôn kiểm tra <code>getCause()</code> khi bắt <code>ExecutionException</code> để không mất thông tin lỗi gốc.</li>
+<li>Cân nhắc <code>future.get(timeout, TimeUnit)</code> thay vì <code>get()</code> không giới hạn khi có khả năng task
+  bị treo.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>future.get()</code> bị treo mãi không trả về? → kiểm tra task có bị deadlock/vòng lặp vô hạn
+      không; cân nhắc dùng <code>get(timeout, unit)</code>.</li>
+<li>[ ] Bắt được <code>ExecutionException</code> nhưng thông tin lỗi không rõ ràng? → gọi <code>getCause()</code> để
+      lấy đúng exception gốc từ task.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Runnable</code> (<code>run()</code> → <code>void</code>, không throws checked) phù hợp cho tác vụ "fire-and-forget";
+<code>Callable&lt;V&gt;</code> (<code>call()</code> → <code>V</code>, được throws bất kỳ <code>Exception</code>) phù hợp khi cần kết quả trả về.
+Đã chứng minh bằng thực nghiệm: <code>future.get()</code> trả về đúng giá trị <code>Callable</code> return
+(<code>42</code>), và exception từ task được bọc trong <code>ExecutionException</code> — lỗi thật nằm ở
+<code>getCause()</code>, vì exception phải được "chuyển giao" từ thread pool worker sang thread gọi
+<code>get()</code>.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Callable vs Runnable.</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao <code>future.get()</code> ném <code>ExecutionException</code> thay vì ném thẳng exception gốc từ task?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>CallableDemo</code> ở trên, xác nhận kết quả <code>42</code> và thông điệp lỗi đúng như mô tả.</li>
+<li>[ ] Thử gọi <code>future.get(50, TimeUnit.MILLISECONDS)</code> với một task <code>Thread.sleep(200)</code>, quan
+      sát <code>TimeoutException</code> được ném ra.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>Runnable</code></th>
+<th><code>Callable&lt;V&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phương thức</td>
+<td><code>run()</code></td>
+<td><code>call()</code></td>
+</tr>
+<tr>
+<td>Giá trị trả về</td>
+<td>Không (<code>void</code>)</td>
+<td>Có (<code>V</code>)</td>
+</tr>
+<tr>
+<td>Checked exception</td>
+<td>Không được throws</td>
+<td>Được throws bất kỳ <code>Exception</code></td>
+</tr>
+<tr>
+<td><code>submit()</code> trả về</td>
+<td><code>Future&lt;?&gt;</code></td>
+<td><code>Future&lt;V&gt;</code></td>
+</tr>
+<tr>
+<td>Từ Java</td>
+<td>1.0</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.lang.Runnable</code>, <code>java.util.concurrent.Callable</code>,
+  <code>java.util.concurrent.Future</code>.</li>
 </ul>
 
 

@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:monitor" class="md-tag">Monitor</a>
       
     
   </nav>
@@ -6149,15 +6163,15 @@ Chapter slug: <code>monitor</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monitor</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — synchronized</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wait()/notify() (Chapter 07-08) — hai method này CHỈ gọi được từ bên trong monitor của đúng object</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6179,285 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-synchronized/">Chapter 05</a> — <code>synchronized (lock) { ... }</code> cần một <strong>object</strong>
+để khoá lên.</p>
 </blockquote>
+<p>Câu hỏi ít ai đặt ra: <strong>object nào cũng dùng làm khoá được sao?</strong> Câu trả lời: đúng vậy —
+<strong>mọi</strong> object trong Java, không ngoại lệ, đều có thể làm khoá cho <code>synchronized</code>, kể cả một
+chuỗi <code>String</code> hay một số <code>Integer</code>. Đây không phải vì <code>synchronized</code> "linh hoạt" một cách tuỳ
+tiện — nó phản ánh một sự thật sâu hơn: <strong>mọi object trong Java đều có sẵn một "Monitor" gắn
+liền với nó</strong>, ngay từ lúc được tạo ra, dù bạn không bao giờ dùng tới. Chapter này giải thích
+chính xác Monitor là gì, và tại sao thực tế "object nào cũng khoá được" lại ẩn chứa một cạm bẫy
+nguy hiểm khi vô tình dùng sai loại object.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Monitor trong Java là gì? Vì sao mọi object đều có thể dùng làm khoá cho <code>synchronized</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Hiểu Monitor là một cấu trúc gắn liền với <strong>mọi</strong> object Java (kế thừa từ <code>Object</code>,
+      Phase 1 Chapter 09), không phải tính năng riêng của một số class đặc biệt</li>
+<li>[ ] Biết Monitor gồm: một lock (entry set) và một wait set — nền tảng cho cả
+      <code>synchronized</code> (Chapter 05) lẫn <code>wait()</code>/<code>notify()</code> (Chapter 07-08)</li>
+<li>[ ] Tự tay xác nhận một cạm bẫy thực tế: khoá trên object <code>Integer</code>/<code>String</code> có thể vô tình
+      "chia sẻ" lock với code hoàn toàn không liên quan</li>
+<li>[ ] Biết lý do lịch sử/kỹ thuật vì sao Java chọn gắn Monitor vào mọi object thay vì tạo một
+      kiểu "Lock" riêng biệt ngay từ đầu</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — đã dùng <code>synchronized</code>, đã biết khoá trên "một object cụ thể".</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>wait()/notify()</strong> (Chapter 07-08) — hai method này (kế thừa từ <code>Object</code>, không phải của
+  riêng <code>Thread</code>) chỉ gọi được hợp lệ từ <strong>bên trong</strong> khối <code>synchronized</code> trên đúng object đó
+  — vì chúng thao tác trực tiếp lên Monitor của object.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>synchronized</code> (Chapter 05) cần một khái niệm cụ thể để "gắn" lock, hàng đợi chờ, và (sẽ học ở
+Chapter 07-08) cơ chế chờ-đánh thức vào <strong>đúng một object</strong>. Cần trả lời: cấu trúc này tồn tại
+ở đâu, và tại sao bất kỳ object nào cũng dùng được cho việc này.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Monitor</strong> (còn gọi <em>intrinsic lock</em>) là một cấu trúc đồng bộ hoá gắn liền với <strong>mọi</strong> object
+trong Java — không phải một class hay interface riêng biệt bạn phải implement, mà là một phần
+"ẩn" của chính cơ chế mà JVM quản lý mọi object. Mỗi Monitor gồm hai thành phần chính:</p>
+<ul>
+<li><strong>Entry set</strong> (hay "lock"): tập hợp các thread đang chờ <strong>giành quyền vào</strong> khối
+  <code>synchronized</code> (trạng thái <code>BLOCKED</code>, Chapter 02).</li>
+<li><strong>Wait set</strong>: tập hợp các thread đã <strong>giành được</strong> lock, nhưng chủ động gọi <code>wait()</code>
+  (Chapter 07) để tạm nhường lại, chờ được <code>notify()</code> (Chapter 08).</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu Monitor chỉ gắn với một số class đặc biệt (ví dụ chỉ class nào implement một interface
+"Lockable"): mọi object thông thường sẽ không dùng được trực tiếp với <code>synchronized</code>, buộc
+phải tạo thêm một object khoá riêng cho mọi trường hợp cần đồng bộ hoá. Việc gắn Monitor vào
+<strong>mọi</strong> object (kế thừa từ <code>Object</code>, Phase 1 Chapter 09) — dù tuyệt đại đa số object không bao
+giờ dùng tới nó — cho phép <strong>bất kỳ</strong> object nào cũng có thể lập tức trở thành một khoá hợp lệ,
+đơn giản hoá cú pháp <code>synchronized</code> tới mức chỉ cần một object có sẵn, không cần chuẩn bị gì
+thêm.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span><span class="w"> </span><span class="c1">// MỌI object, kể cả Object() trần trụi, đều có Monitor sẵn</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// Giành được lock của Monitor gắn với &quot;lock&quot; → vào ENTRY, chạy code này</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Thread khác cố synchronized(lock) → vào ENTRY SET, chờ (BLOCKED)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// TỪ BỎ lock tạm thời, chuyển sang WAIT SET (Chapter 07)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c1">// ... một thread khác notify() → quay lại ENTRY, tranh giành lock lại</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>                    Monitor của object &quot;lock&quot;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        ┌───────────────────────────────────────────┐
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        │                                             │
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Thread A ──synchronized(lock)──▶ ĐANG GIỮ LOCK, chạy code
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        │                                             │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Thread B ──synchronized(lock)──▶  [ENTRY SET — BLOCKED, chờ giành lock]
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Thread C ──synchronized(lock)──▶  [ENTRY SET — BLOCKED, chờ giành lock]
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        │                                             │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Thread A gọi lock.wait() ────────▶ [WAIT SET — WAITING, đã nhả lock]
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        │                                             │
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        │   (B hoặc C giành được lock, chạy code)     │
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        │   ... lock.notify() ─────────────────────────┼──▶ A quay lại ENTRY SET
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        └───────────────────────────────────────────┘
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận trực tiếp: mọi object, kể cả kiểu bọc số nguyên (<code>Integer</code>) hay <code>String</code>, đều dùng
+<code>synchronized</code> được — nhưng ẩn chứa một cạm bẫy nghiêm trọng liên quan tới <strong>cache</strong> của chúng:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IntegerLockTrap</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="c1">// TRONG khoảng cache của Integer (-128..127, Integer.valueOf())</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == b (Integer 100, co cache): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">));</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"> </span><span class="c1">// NGOÀI khoảng cache</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;c == d (Integer 200, khong cache): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">));</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>a == b (Integer 100, co cache): true
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>c == d (Integer 200, khong cache): false
+</code></pre></div>
+<p>Hậu quả thực tế: nếu bạn (vô tình) <code>synchronized (someIntegerVariable)</code> với giá trị nằm trong
+khoảng cache (<code>-128..127</code>), bạn có thể đang <strong>khoá chung Monitor</strong> với bất kỳ đoạn code nào
+khác trong toàn bộ chương trình (kể cả trong một thư viện bên thứ ba) cũng tình cờ dùng
+<code>Integer.valueOf(100)</code> làm khoá — hai đoạn code hoàn toàn không liên quan tới nhau <strong>vô tình
+loại trừ lẫn nhau</strong>, gây độ trễ khó hiểu hoặc thậm chí deadlock. Đây chính là lý do quy tắc
+"không bao giờ khoá trên <code>Integer</code>/<code>String</code>/kiểu bọc nguyên thuỷ" tồn tại — không phải quy tắc
+tuỳ tiện, mà xuất phát trực tiếp từ chính cơ chế cache nội bộ của các class này.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>wait()</code>/<code>notify()</code> (Chapter 07-08) là method của <code>Object</code> (Phase 1, Chapter 09), không phải
+của <code>Thread</code> — vì sao thiết kế lại như vậy?</strong> Vì chúng thao tác trực tiếp lên <strong>Monitor của
+chính object đó</strong> (chuyển thread giữa entry set và wait set) — đặt chúng ở <code>Object</code> (nơi Monitor
+thực sự "sống") là lựa chọn nhất quán về mặt logic, dù ban đầu có thể gây bối rối (tại sao
+"chờ" và "đánh thức" lại là method của <code>Object</code>, không phải <code>Thread</code>?). Đặt trên <code>Thread</code> sẽ
+sai về ngữ nghĩa: bạn không "chờ một Thread" — bạn "chờ trên Monitor của một object cụ thể",
+cho tới khi có ai đó <code>notify()</code> <strong>đúng Monitor đó</strong>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao JVM (HotSpot) tối ưu để hầu hết <code>synchronized</code> không tốn chi phí đáng kể, dù về mặt
+khái niệm mọi object đều "mang theo" một Monitor?</strong> Vì HotSpot dùng chiến lược
+<strong>biased locking</strong> (tối ưu, thay đổi qua các phiên bản — xem Historical Note) và
+<strong>lock coarsening</strong>: phần lớn object trong thực tế <strong>không bao giờ</strong> thực sự bị tranh chấp bởi
+nhiều thread — HotSpot phát hiện điều này và tránh chi phí đồng bộ hoá đầy đủ (cấp một cấu trúc
+Monitor "nặng" ở tầng hệ điều hành) cho tới khi thực sự có tranh chấp xảy ra. Đây là lý do
+<code>synchronized</code> hiện đại có chi phí gần như không đáng kể trong trường hợp không tranh chấp
+(uncontended) — một minh chứng khác cho triết lý "JIT tối ưu dựa trên hành vi runtime thật" đã
+học ở <a href="../../phase-01-foundation/06-jit-compiler/">Phase 1, Chapter 06</a>, áp dụng cụ thể cho cơ
+chế khoá.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Java 1.0-1.5
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    ↓
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Mọi synchronized đều dùng &quot;heavyweight lock&quot; — cấp phát cấu trúc đồng bộ
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>tại tầng hệ điều hành ngay cả khi không có tranh chấp, chi phí đáng kể
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    ↓
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Java 6 (2006)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    ↓
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Biased locking + lock coarsening + adaptive spinning ra đời — HotSpot tối
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>ưu mạnh cho trường hợp không tranh chấp (phổ biến nhất trong thực tế),
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>thu hẹp khoảng cách hiệu năng với các lock tường minh mới (ReentrantLock)
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    ↓
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>Java 15+ (2020 trở đi)
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    ↓
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>Biased locking dần bị loại bỏ khỏi mặc định (JEP 374) — các kỹ thuật tối
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>ưu khác của JVM hiện đại đã đủ tốt, biased locking gây thêm phức tạp bảo
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>trì không còn tương xứng lợi ích trong hầu hết trường hợp
+</code></pre></div>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ những class đặc biệt (implement một interface nào đó) mới dùng được với
+  <code>synchronized</code>."
+  <strong>Reality:</strong> <strong>Mọi</strong> object Java đều có Monitor sẵn — kể cả <code>new Object()</code> trần trụi, không
+  cần implement gì cả.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Khoá trên <code>Integer</code>/<code>String</code> chỉ là 'không nên làm' vì lý do phong cách code,
+  không có hậu quả kỹ thuật cụ thể."
+  <strong>Reality:</strong> Xem Example — do cơ chế cache (Integer -128..127, String Pool — Phase 1 Chapter
+  10), khoá trên các kiểu này có thể gây <strong>chia sẻ lock ngoài ý muốn</strong> với code hoàn toàn
+  không liên quan, một hậu quả kỹ thuật rất cụ thể, không chỉ là vấn đề phong cách.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Khoá trên <code>Integer</code>/<code>Long</code>/<code>String</code>/kiểu bọc nguyên thuỷ</strong> — đúng cạm bẫy trọng tâm của
+  chapter, do cơ chế cache nội bộ của các class này.</li>
+<li><strong>Khoá trên <code>this</code> một cách bừa bãi trong class public</strong> — bất kỳ code bên ngoài nào cũng có
+  thể <code>synchronized (yourObjectInstance)</code> từ bên ngoài, vô tình (hoặc cố ý) can thiệp vào cơ
+  chế khoá nội bộ của class bạn — nên dùng một object khoá <code>private</code> riêng thay vì <code>this</code>.</li>
+<li><strong>Nhầm lẫn Monitor với <code>ReentrantLock</code>/<code>Lock</code></strong> (Chapter 09-10) — Monitor là cơ chế <strong>ngầm
+  định</strong>, gắn với <code>synchronized</code>; <code>Lock</code> là API <strong>tường minh</strong>, độc lập, linh hoạt hơn.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Không bao giờ khoá trên kiểu bọc nguyên thuỷ (<code>Integer</code>, <code>Long</code>, <code>Boolean</code>) hay <code>String</code>.</li>
+<li>Trong class <code>public</code>, ưu tiên khoá trên một object <code>private final</code> riêng, không khoá trên
+  <code>this</code> — tránh code bên ngoài vô tình can thiệp vào cơ chế đồng bộ nội bộ.</li>
+<li>Hiểu Monitor ở mức khái niệm là đủ cho phần lớn công việc hàng ngày — không cần quan tâm chi
+  tiết tối ưu biased locking/lock coarsening trừ khi đang tối ưu hiệu năng sâu ở Phase 8.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> hai tính năng hoàn toàn không liên quan trong cùng một ứng dụng (ví dụ module xử lý
+đơn hàng và module xử lý log) thỉnh thoảng gây độ trễ bất thường lẫn nhau, dù code review không
+tìm thấy bất kỳ điểm gọi lẫn nhau nào.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> độ trễ tăng đột biến ở module A đúng lúc module B đang xử lý tải cao, dù hai
+  module này về mặt logic hoàn toàn độc lập, không có lời gọi trực tiếp nào giữa chúng.</li>
+<li><strong>Root cause:</strong> cả hai module tình cờ đều <code>synchronized</code> trên một <code>Integer</code>/<code>String</code> cùng giá
+  trị (ví dụ cùng dùng một mã trạng thái nhỏ như <code>Integer</code> <code>1</code> hoặc <code>2</code> làm khoá) — do cache
+  nội bộ, chúng đang vô tình khoá chung <strong>một</strong> Monitor, gây tranh chấp giả tạo giữa hai tính
+  năng không liên quan.</li>
+<li><strong>Debug:</strong> lấy thread dump (Chapter 02) lúc xảy ra độ trễ, tìm các thread <code>BLOCKED</code> — kiểm
+  tra chính xác object nào đang được khoá; nếu là <code>Integer</code>/<code>String</code>, nghi ngờ ngay cơ chế
+  cache.</li>
+<li><strong>Solution:</strong> đổi sang khoá trên object <code>private final</code> riêng biệt cho từng module.</li>
+<li><strong>Prevention:</strong> cấm tuyệt đối khoá trên kiểu bọc nguyên thuỷ/<code>String</code> trong coding standard;
+  static analysis (nhiều công cụ có sẵn rule cảnh báo mẫu hình này).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Hai tính năng không liên quan gây độ trễ lẫn nhau khó hiểu? → lấy thread dump, kiểm tra
+      object đang được khoá — nghi ngờ Integer/String cache nếu thấy khoá trên các kiểu này.</li>
+<li>[ ] <code>synchronized</code> trên <code>Integer</code>/<code>String</code> trong code review? → luôn gắn cờ, yêu cầu đổi
+      sang object khoá riêng.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Ở mức HotSpot, Monitor được hiện thực (khi thực sự cần, sau khi biased/thin locking không còn
+đủ do có tranh chấp) bằng cấu trúc C++ nội bộ tên <code>ObjectMonitor</code>, gắn với header của object
+(mỗi object Java có một vùng header nhỏ chứa metadata, bao gồm thông tin khoá — chi tiết vượt
+ngoài phạm vi chapter nền tảng này). Việc "mọi object đều có Monitor" ở mức khái niệm Java
+không đồng nghĩa mọi object đều tốn chi phí bộ nhớ cho một <code>ObjectMonitor</code> đầy đủ ngay từ đầu —
+cấu trúc nặng này chỉ thực sự được cấp phát khi có tranh chấp thật sự xảy ra (đúng tinh thần
+tối ưu đã bàn ở Engineering Insight).</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Monitor (intrinsic lock) là cấu trúc đồng bộ hoá gắn liền với <strong>mọi</strong> object Java, gồm một
+entry set (thread chờ giành lock, <code>BLOCKED</code>) và một wait set (thread đã nhường lock qua
+<code>wait()</code>, sẽ học ở Chapter 07-08) — nền tảng cho cả <code>synchronized</code> (Chapter 05) lẫn
+<code>wait()</code>/<code>notify()</code>. Vì mọi object đều có Monitor sẵn, bất kỳ object nào cũng khoá được — nhưng
+điều này ẩn chứa cạm bẫy nghiêm trọng với các kiểu có <strong>cache nội bộ</strong> (<code>Integer</code> trong khoảng
+<code>-128..127</code>, <code>String</code> trong String Pool — Phase 1, Chapter 10): khoá trên chúng có thể vô tình
+chia sẻ Monitor với code hoàn toàn không liên quan, đã xác nhận cơ chế cache bằng thực nghiệm.
+HotSpot tối ưu mạnh (biased locking lịch sử, lock coarsening) để <code>synchronized</code> không tranh
+chấp gần như miễn phí về hiệu năng.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Monitor trong Java là gì?</li>
+<li>Object nào dùng được làm khoá cho <code>synchronized</code>?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao không nên khoá trên <code>Integer</code>/<code>String</code>? Giải thích nguyên nhân kỹ thuật cụ thể.</li>
+<li><code>wait()</code>/<code>notify()</code> là method của class nào? Vì sao lại thiết kế như vậy?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích Entry Set và Wait Set của một Monitor — mối quan hệ giữa chúng khi một thread gọi
+  <code>wait()</code> rồi được <code>notify()</code>.</li>
+<li>Một hệ thống có hai module không liên quan gây độ trễ lẫn nhau khó hiểu. Trình bày quy trình
+  điều tra, liên hệ trực tiếp tới cơ chế cache của Integer/String và Monitor.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>IntegerLockTrap</code> ở trên, xác nhận hành vi cache đúng khoảng
+      <code>-128..127</code>.</li>
+<li>[ ] Viết hai đoạn code độc lập, cả hai đều <code>synchronized (Integer.valueOf(50))</code> — chạy đồng
+      thời, quan sát chúng có vô tình loại trừ lẫn nhau dù logic hoàn toàn không liên quan hay
+      không.</li>
+<li>[ ] Đọc tài liệu JEP 374 (Deprecate and Disable Biased Locking) — tóm tắt vì sao Java quyết
+      định tắt mặc định một tối ưu từng rất quan trọng.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Thành phần Monitor</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entry Set</td>
+<td>Thread chờ giành lock (<code>BLOCKED</code>)</td>
+</tr>
+<tr>
+<td>Wait Set</td>
+<td>Thread đã gọi <code>wait()</code>, chờ <code>notify()</code> (<code>WAITING</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Không bao giờ khoá trên:</strong> <code>Integer</code>, <code>Long</code>, <code>Short</code>, <code>Byte</code>, <code>Boolean</code> (kiểu bọc, có cache),
+<code>String</code> (có String Pool).
+<strong>Nên khoá trên:</strong> một object <code>private final</code> riêng, tạo đúng một lần.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java Language Specification (JLS) — Chapter 17.1: Synchronization.</li>
+<li><code>java.lang.Object</code> — Java SE API Documentation (phần <code>wait</code>/<code>notify</code>/<code>notifyAll</code>).</li>
+<li>JEP 374: Deprecate and Disable Biased Locking.</li>
 </ul>
 
 

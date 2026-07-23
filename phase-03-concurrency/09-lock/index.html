@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lock" class="md-tag">Lock</a>
       
     
   </nav>
@@ -6149,15 +6163,17 @@ Chapter slug: <code>lock</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lock (Java-level Locking)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — synchronized</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — notify()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReentrantLock (Chapter 10) — implementation chính của interface Lock học ở đây</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteLock (Chapter 11) — một biến thể chuyên biệt của cùng interface Lock</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6181,333 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-synchronized/">Chapter 05</a> — <code>synchronized</code> giải quyết trọn vẹn bài toán đếm
+mà <code>volatile</code> không giải quyết được.</p>
 </blockquote>
+<p>Nhưng thử tình huống này: một thread đang chờ giành một lock <code>synchronized</code> bị <strong>giữ quá lâu</strong>
+(có thể do bug ở thread khác). Bạn muốn "huỷ" việc chờ đó — gọi <code>interrupt()</code> lên thread đang
+chờ. Chuyện gì xảy ra?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Da goi interrupt() len waiter1 dang BLOCKED, trang thai: BLOCKED
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>waiter1 gianh duoc lock (khong bao gio interrupt duoc trong luc BLOCKED)
+</code></pre></div>
+<p><strong>Không có gì xảy ra cả</strong> — thread vẫn <code>BLOCKED</code> (Chapter 02), tín hiệu <code>interrupt()</code> bị hoàn
+toàn phớt lờ, thread chỉ có thể tiếp tục khi <strong>thực sự giành được lock</strong>, dù bao lâu đi nữa.
+Đây là một giới hạn cố hữu của <code>synchronized</code> — không có cách nào "bỏ cuộc" khi đang chờ. Thử
+đúng kịch bản đó với <code>Lock.lockInterruptibly()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>waiter2 BI NGAT thanh cong trong luc cho lockInterruptibly()!
+</code></pre></div>
+<p>Chapter này giới thiệu <code>java.util.concurrent.locks.Lock</code> — một interface <strong>tường minh</strong> hoá
+đúng ý tưởng "loại trừ lẫn nhau" của <code>synchronized</code>, nhưng khắc phục các giới hạn cố hữu như
+trên.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>Lock</code> (interface, <code>java.util.concurrent.locks</code>) khác <code>synchronized</code> như thế nào? Nó khắc
+phục những giới hạn cụ thể nào của <code>synchronized</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Kể tên 3 giới hạn cố hữu của <code>synchronized</code> mà <code>Lock</code> khắc phục: không thể ngắt
+      (interrupt) khi đang chờ, không thể "thử giành lock rồi bỏ cuộc" (<code>tryLock</code>), phạm vi
+      khoá bắt buộc theo cấu trúc khối lệnh (không thể giành ở một method, nhả ở method khác)</li>
+<li>[ ] Tự tay chứng minh thread <code>BLOCKED</code> trên <code>synchronized</code> không thể bị <code>interrupt()</code>, trong
+      khi thread chờ <code>lockInterruptibly()</code> thì có thể</li>
+<li>[ ] Biết cấu trúc bắt buộc khi dùng <code>Lock</code>: luôn <code>unlock()</code> trong khối <code>finally</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 05 — hiểu <code>synchronized</code> đảm bảo mutual exclusion.</li>
+<li>Chapter 08 — hiểu <code>wait()</code>/<code>notify()</code>, để so sánh với <code>Condition</code> (sẽ gặp ở Chapter 10) sau
+  này.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>ReentrantLock</strong> (Chapter 10) — implementation chính, phổ biến nhất của interface <code>Lock</code>
+  học ở đây.</li>
+<li><strong>ReadWriteLock</strong> (Chapter 11) — một biến thể chuyên biệt, tách riêng lock cho đọc và ghi.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>synchronized</code> (Chapter 05) là một cơ chế khoá <strong>cứng nhắc</strong> theo nhiều nghĩa: phạm vi khoá
+luôn gắn chặt với cấu trúc khối lệnh (<code>{ }</code>) — không thể giành lock ở một chỗ, nhả nó ở một chỗ
+hoàn toàn khác trong code; một thread <code>BLOCKED</code> chờ <code>synchronized</code> không có cách nào "bỏ cuộc"
+(không <code>tryLock</code>, không thể <code>interrupt</code>); và chỉ có <strong>một</strong> chiến lược chờ duy nhất (không thể
+tuỳ chỉnh fairness — thứ tự ai giành lock trước). Nhiều bài toán thực tế cần sự linh hoạt hơn
+thế.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>java.util.concurrent.locks.Lock</code> là một <strong>interface</strong>, biểu diễn tường minh khái niệm "một
+khoá loại trừ lẫn nhau" — tách rời hoàn toàn khỏi cú pháp <code>synchronized</code> (không còn là từ khoá
+ngôn ngữ, mà là một object thông thường với các method <code>lock()</code>, <code>unlock()</code>, <code>tryLock()</code>,
+<code>lockInterruptibly()</code>).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tách "khoá" thành một <strong>object tường minh</strong> (thay vì cú pháp ẩn định gắn với <code>synchronized</code>)
+cho phép linh hoạt hơn nhiều: giành lock ở method này, nhả ở method khác (nếu thiết kế yêu
+cầu — dù hiếm khi nên làm); thử giành lock với <code>tryLock()</code> và <strong>bỏ cuộc ngay</strong> nếu không giành
+được, thay vì <code>BLOCKED</code> vô thời hạn; và quan trọng nhất — cho phép <strong>ngắt</strong> (interrupt) một
+thread đang chờ giành lock, một khả năng <code>synchronized</code> hoàn toàn không có.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.locks.Lock</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.locks.ReentrantLock</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span><span class="w"> </span><span class="c1">// implementation chính, Chapter 10</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">// ... vùng găng (critical section)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="c1">// BẮT BUỘC trong finally — Lock KHÔNG tự nhả như synchronized</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Ba khả năng mà <code>synchronized</code> không có:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="na">tryLock</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="c1">// thử giành NGAY, không chờ nếu không được</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="c1">// làm việc khác thay vì chờ</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="na">lockInterruptibly</span><span class="p">();</span><span class="w">      </span><span class="c1">// chờ giành lock, NHƯNG có thể bị interrupt()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* xử lý việc bị ngắt */</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>synchronized (lock) { ... }        Lock (tường minh)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        │                                  │
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   Phạm vi khoá = khối lệnh          lock()/unlock() TÁCH RỜI,
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>   (cố định theo cú pháp)             linh hoạt hơn (nhưng RỦI RO
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        │                              hơn nếu quên unlock())
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>   Thread BLOCKED chờ:                Thread chờ lockInterruptibly():
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>   KHÔNG interrupt() được             CÓ THỂ interrupt() được
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        │                                  │
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>   KHÔNG có tryLock()                 CÓ tryLock() — thử rồi bỏ cuộc
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Chứng minh trực tiếp hai giới hạn/khả năng đối lập:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.locks.ReentrantLock</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">InterruptibleLockDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">syncLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="w"> </span><span class="n">explicitLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Phần 1: thread BLOCKED trên synchronized KHÔNG THỂ bị ngắt</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">holder1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">syncLock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="n">holder1</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">waiter1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">syncLock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;waiter1 gianh duoc lock&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="n">waiter1</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">        </span><span class="n">waiter1</span><span class="p">.</span><span class="na">interrupt</span><span class="p">();</span><span class="w"> </span><span class="c1">// KHÔNG CÓ TÁC DỤNG</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Da goi interrupt(), trang thai: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">waiter1</span><span class="p">.</span><span class="na">getState</span><span class="p">());</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">        </span><span class="n">waiter1</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">        </span><span class="c1">// Phần 2: thread chờ lockInterruptibly() CÓ THỂ bị ngắt</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">        </span><span class="n">explicitLock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">waiter2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">                </span><span class="n">explicitLock</span><span class="p">.</span><span class="na">lockInterruptibly</span><span class="p">();</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;waiter2 BI NGAT thanh cong!&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="w">        </span><span class="n">waiter2</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="w">        </span><span class="n">waiter2</span><span class="p">.</span><span class="na">interrupt</span><span class="p">();</span><span class="w"> </span><span class="c1">// CÓ TÁC DỤNG</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="w">        </span><span class="n">waiter2</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="w">        </span><span class="n">explicitLock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Da goi interrupt() len waiter1 dang BLOCKED, trang thai: BLOCKED
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>waiter1 gianh duoc lock (khong bao gio interrupt duoc trong luc BLOCKED)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>waiter2 BI NGAT thanh cong trong luc cho lockInterruptibly()!
+</code></pre></div>
+<p><code>waiter1</code> phớt lờ hoàn toàn tín hiệu <code>interrupt()</code>, tiếp tục <code>BLOCKED</code> cho tới khi thực sự
+giành được lock. <code>waiter2</code> phản ứng ngay với <code>interrupt()</code>, thoát khỏi việc chờ bằng
+<code>InterruptedException</code> — khả năng hoàn toàn không có với <code>synchronized</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>unlock()</code> bắt buộc phải nằm trong <code>finally</code>, trong khi <code>synchronized</code> không cần lo
+lắng điều này?</strong> Vì <code>synchronized</code> là cú pháp <strong>ngôn ngữ</strong> — trình biên dịch tự động chèn
+<code>monitorexit</code> (Phase 1... à, Phase 3 Chapter 05 — Source Code Walkthrough) vào mọi đường thoát
+khỏi khối, kể cả khi có exception, không thể quên. <code>Lock</code> chỉ là một <strong>object thông thường</strong> —
+<code>unlock()</code> là một lời gọi method bình thường, hoàn toàn không có gì tự động đảm bảo nó được gọi
+nếu code giữa <code>lock()</code> và <code>unlock()</code> ném exception. Quên <code>unlock()</code> trong <code>finally</code> khiến lock
+đó <strong>không bao giờ được nhả</strong> — mọi thread khác chờ nó sẽ <code>BLOCKED</code>/chờ mãi mãi, một lỗi
+nghiêm trọng hơn hẳn bất kỳ vấn đề nào <code>synchronized</code> có thể gây ra, chính là cái giá phải trả
+cho sự linh hoạt của <code>Lock</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Đánh đổi cốt lõi giữa <code>synchronized</code> và <code>Lock</code> là gì — vì sao không phải lúc nào cũng nên
+dùng <code>Lock</code> "vì nó mạnh hơn"?</strong> <code>synchronized</code> <strong>an toàn hơn theo mặc định</strong> (không thể quên
+nhả lock, cú pháp gọn, dễ đọc) nhưng <strong>kém linh hoạt hơn</strong>. <code>Lock</code> <strong>linh hoạt hơn</strong> (tryLock,
+interrupt, nhiều <code>Condition</code> — Chapter 10) nhưng <strong>rủi ro hơn</strong> (phải tự kỷ luật gọi
+<code>unlock()</code> đúng cách, dễ viết sai hơn nếu không cẩn thận). Đây là đánh đổi kinh điển giữa
+"an toàn mặc định, ít linh hoạt" và "linh hoạt tối đa, cần kỷ luật cao" — xuất hiện lặp đi lặp
+lại trong thiết kế API (một biến thể khác của cùng nguyên tắc đã thấy ở
+<a href="../../phase-01-foundation/11-immutable/">Phase 1 Chapter 11</a>: API càng cho phép làm nhiều thứ,
+càng dễ dùng sai nếu không cẩn thận). Nguyên tắc thực dụng: mặc định <code>synchronized</code> cho phần
+lớn trường hợp đơn giản; chỉ chuyển sang <code>Lock</code> khi thực sự cần một trong các khả năng nó cung
+cấp mà <code>synchronized</code> không có (interrupt, tryLock, nhiều Condition).</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>java.util.concurrent.locks.Lock</code> ra đời cùng đợt JSR 166 (Java 5, 2004) — cùng thời điểm với
+<code>ExecutorService</code> (Chapter 15-16), <code>Atomic</code> (Chapter 12), và toàn bộ <code>java.util.concurrent</code> —
+một nỗ lực tổng thể của Doug Lea và cộng sự nhằm cung cấp các công cụ concurrency cấp cao, tinh
+vi hơn hẳn so với bộ công cụ nguyên thuỷ (<code>synchronized</code>, <code>wait</code>/<code>notify</code>) đã tồn tại từ Java
+1.0 nhưng bộc lộ nhiều giới hạn qua gần một thập kỷ sử dụng thực tế.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>Lock</code> luôn tốt hơn <code>synchronized</code>, nên dùng <code>Lock</code> cho mọi trường hợp."
+  <strong>Reality:</strong> <code>Lock</code> linh hoạt hơn nhưng rủi ro hơn (dễ quên <code>unlock()</code>) — xem Engineering
+  Insight. <code>synchronized</code> vẫn là lựa chọn tốt, đơn giản, an toàn hơn cho phần lớn trường hợp
+  không cần các khả năng đặc biệt của <code>Lock</code>.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Có thể ngắt (interrupt) một thread đang chờ bất kỳ loại khoá nào trong Java."
+  <strong>Reality:</strong> Xem Example — thread <code>BLOCKED</code> trên <code>synchronized</code> <strong>không thể</strong> bị ngắt.
+  Chỉ <code>lockInterruptibly()</code> của <code>Lock</code> mới cho phép điều này.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Quên <code>unlock()</code> trong <code>finally</code></strong> — lock bị giữ vĩnh viễn nếu có exception xảy ra giữa
+  <code>lock()</code> và <code>unlock()</code>, gây "deadlock" thực chất cho mọi thread khác chờ lock đó.</li>
+<li><strong>Gọi <code>unlock()</code> mà chưa từng <code>lock()</code> thành công</strong> (ví dụ đặt <code>unlock()</code> sai vị trí, ngoài
+  khối try tương ứng) — ném <code>IllegalMonitorStateException</code> tương tự lỗi đã gặp ở Chapter 07.</li>
+<li><strong>Dùng <code>Lock</code> khi <code>synchronized</code> là đủ</strong> — thêm độ phức tạp và rủi ro không cần thiết.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn viết theo đúng khuôn mẫu: <code>lock.lock(); try { ... } finally { lock.unlock(); }</code> —
+  không có ngoại lệ.</li>
+<li>Chỉ chuyển từ <code>synchronized</code> sang <code>Lock</code> khi thực sự cần: <code>tryLock()</code>, <code>lockInterruptibly()</code>,
+  hoặc nhiều <code>Condition</code> trên cùng một lock (Chapter 10).</li>
+<li>Không gọi <code>lock()</code> bên trong khối <code>try</code> — nếu <code>lock()</code> tự nó ném exception (hiếm nhưng có
+  thể), <code>finally</code> sẽ cố <code>unlock()</code> một lock chưa từng giành được, gây lỗi.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service dùng <code>ReentrantLock</code> để bảo vệ một tài nguyên dùng chung, thỉnh thoảng
+"treo" hoàn toàn, mọi request liên quan tới tài nguyên đó không bao giờ hoàn thành.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> service không crash, nhưng một nhóm chức năng cụ thể (liên quan tới tài
+  nguyên được bảo vệ bởi lock đó) hoàn toàn ngừng phản hồi.</li>
+<li><strong>Root cause:</strong> một đường thực thi hiếm gặp (exception path) trong code giữa <code>lock()</code> và
+  <code>unlock()</code> không được bọc đúng bằng <code>try-finally</code> — khi exception đó xảy ra, <code>unlock()</code> không
+  bao giờ được gọi, lock bị giữ vĩnh viễn.</li>
+<li><strong>Debug:</strong> thread dump (Chapter 02) cho thấy nhiều thread chờ cùng một lock, nhưng <strong>không
+  thread nào</strong> đang thực sự giữ nó theo cách "đang xử lý bình thường" (thread giữ lock có thể
+  đã kết thúc do exception, không giải phóng lock).</li>
+<li><strong>Solution:</strong> sửa lại đúng khuôn mẫu <code>lock(); try { } finally { unlock(); }</code>, rà soát toàn bộ
+  các nơi dùng <code>Lock</code> trong codebase để đảm bảo tuân thủ.</li>
+<li><strong>Prevention:</strong> static analysis (nhiều công cụ có rule cảnh báo thiếu <code>finally</code> quanh
+  <code>Lock.unlock()</code>); code review nghiêm ngặt cho mọi đoạn code dùng <code>Lock</code> tường minh.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Hệ thống "treo" liên quan tới một tài nguyên cụ thể, không crash? → nghi ngờ lock bị giữ
+      vĩnh viễn do thiếu <code>finally</code>, kiểm tra thread dump.</li>
+<li>[ ] <code>IllegalMonitorStateException</code> khi gọi <code>unlock()</code>? → kiểm tra có đang gọi <code>unlock()</code> mà
+      chưa từng <code>lock()</code> thành công không (vị trí đặt sai so với khối try).</li>
+<li>[ ] Cần huỷ một thao tác chờ lock quá lâu? → xác nhận đang dùng <code>Lock.lockInterruptibly()</code>,
+      không phải <code>synchronized</code> (không hỗ trợ).</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>java.util.concurrent.locks.Lock</code> chỉ là một <strong>interface</strong> — không có hiện thực riêng. Mọi
+hiện thực thực tế (<code>ReentrantLock</code>, <code>ReentrantReadWriteLock</code>, Chapter 10-11) đều xây trên một
+lớp nền tảng chung tên <code>AbstractQueuedSynchronizer</code> (AQS) — một framework nội bộ (do Doug Lea
+thiết kế) cung cấp sẵn cơ chế hàng đợi thread chờ (dựa trên CAS, Chapter 13, không phải
+Monitor của <code>synchronized</code>) mà các lock cụ thể chỉ cần định nghĩa "trạng thái giành được lock
+nghĩa là gì" lên trên đó — một kiến trúc rất được đánh giá cao, sẽ gặp lại chi tiết hơn ở
+Chapter 10.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>java.util.concurrent.locks.Lock</code> (Java 5+) là interface tường minh hoá khái niệm loại trừ lẫn
+nhau, khắc phục ba giới hạn cố hữu của <code>synchronized</code>: cho phép <code>tryLock()</code> (thử rồi bỏ cuộc),
+<code>lockInterruptibly()</code> (có thể bị ngắt khi đang chờ — đã chứng minh <code>synchronized</code> không làm
+được điều này), và phạm vi khoá linh hoạt hơn (không bắt buộc theo cấu trúc khối lệnh). Đổi
+lại, <code>Lock</code> đòi hỏi kỷ luật cao hơn — <code>unlock()</code> phải luôn nằm trong <code>finally</code>, không có gì tự
+động đảm bảo như <code>synchronized</code>. Mặc định vẫn nên chọn <code>synchronized</code> cho trường hợp đơn giản;
+chỉ chuyển sang <code>Lock</code> khi thực sự cần một trong các khả năng đặc biệt của nó.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>Lock</code> (interface) khác <code>synchronized</code> như thế nào?</li>
+<li>Vì sao phải gọi <code>unlock()</code> trong khối <code>finally</code>?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>tryLock()</code> làm gì? Cho một use case cụ thể cần dùng nó thay vì <code>lock()</code> thông thường.</li>
+<li>Chứng minh (bằng lý luận hoặc code) rằng thread <code>BLOCKED</code> trên <code>synchronized</code> không thể bị
+  <code>interrupt()</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Phân tích đánh đổi giữa <code>synchronized</code> (an toàn mặc định, kém linh hoạt) và <code>Lock</code> (linh
+  hoạt, cần kỷ luật cao) — khi nào bạn sẽ chọn cái nào trong một dự án thực tế?</li>
+<li>Một service "treo" do lock bị giữ vĩnh viễn sau một exception hiếm gặp. Trình bày quy trình
+  điều tra và giải pháp phòng ngừa lâu dài.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>InterruptibleLockDemo</code> ở trên, xác nhận kết quả giống hệt.</li>
+<li>[ ] Viết một đoạn code cố tình quên <code>unlock()</code> trong <code>finally</code> (chỉ gọi <code>unlock()</code> ở cuối
+      khối try bình thường), rồi cho một exception xảy ra giữa chừng — quan sát lock bị giữ
+      vĩnh viễn, một thread khác chờ nó <code>BLOCKED</code> mãi mãi.</li>
+<li>[ ] Viết một đoạn code dùng <code>tryLock(500, TimeUnit.MILLISECONDS)</code> (<code>tryLock</code> có timeout) để
+      "thử giành lock trong tối đa 500ms rồi bỏ cuộc" — xác nhận hành vi đúng khi lock đang bị
+      giữ bởi thread khác lâu hơn 500ms.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Khả năng</th>
+<th><code>synchronized</code></th>
+<th><code>Lock</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutual exclusion</td>
+<td>Có</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Tự động nhả lock</td>
+<td>Có (trình biên dịch đảm bảo)</td>
+<td>Không (phải tự <code>finally</code>)</td>
+</tr>
+<tr>
+<td><code>tryLock()</code> (thử rồi bỏ cuộc)</td>
+<td>Không</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Ngắt được khi đang chờ</td>
+<td>Không</td>
+<td>Có (<code>lockInterruptibly()</code>)</td>
+</tr>
+<tr>
+<td>Nhiều điều kiện chờ trên 1 lock</td>
+<td>Không (1 wait set)</td>
+<td>Có (<code>Condition</code>, Chapter 10)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* vùng găng */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// BẮT BUỘC</span>
+</code></pre></div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.locks.Lock</code>.</li>
+<li>JSR 166: Concurrency Utilities.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 13: Explicit Locks.</li>
 </ul>
 
 

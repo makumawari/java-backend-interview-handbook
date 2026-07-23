@@ -2327,7 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2355,7 +2355,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2439,7 +2439,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2467,7 +2467,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -2774,32 +2774,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:virtualthread" class="md-tag">VirtualThread</a>
       
     
   </nav>
@@ -6149,94 +6119,302 @@ Chapter slug: <code>virtual-thread</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Virtual Thread</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Thread</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 15 — Thread Pool</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 16 — Executor</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kiến trúc web server hiệu năng cao (Phase 5, Spring Boot 3+ hỗ trợ Virtual Thread)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../15-thread-pool/">Chapter 15</a> — thread hệ điều hành (platform thread) tốn bộ nhớ
+và thời gian tạo, buộc phải giới hạn số lượng qua thread pool, tái sử dụng thay vì tạo mới
+liên tục.</p>
 </blockquote>
+<p>Nhưng giới hạn số lượng thread cũng đồng nghĩa giới hạn số tác vụ <strong>chạy đồng thời được</strong>. Với
+mô hình "mỗi request một thread" phổ biến trong web server truyền thống, nếu mỗi request chờ
+I/O (gọi API, query DB) mất 100ms, và pool chỉ có 200 thread, tối đa bao nhiêu request có thể xử
+lý cùng lúc? Đo thử thực tế trên JDK 26 (Temurin):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>10000 task tren PLATFORM thread pool (200 thread): 10000 xong, 5200ms
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>10000 task tren VIRTUAL thread (1 moi task): 10000 xong, 152ms
+</code></pre></div>
+<p>Cùng 10.000 tác vụ, mỗi tác vụ chờ 100ms (mô phỏng I/O) — dùng 200 platform thread mất <strong>5200ms</strong>
+(vì phải xử lý theo từng đợt 200), trong khi tạo <strong>10.000 virtual thread riêng</strong> (một cho mỗi
+tác vụ) chỉ mất <strong>152ms</strong> — nhanh hơn khoảng 34 lần.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Virtual Thread là gì? Nó khác Platform Thread (thread hệ điều hành truyền thống) như thế nào,
+và vì sao nó giúp xử lý được số lượng tác vụ I/O-bound lớn hơn nhiều?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt Platform Thread (ánh xạ 1-1 với thread hệ điều hành) và Virtual Thread (do JVM
+      quản lý, nhẹ hơn nhiều)</li>
+<li>[ ] Tự tay đo được: 10.000 tác vụ I/O-bound chạy nhanh hơn ~34 lần với virtual thread so với
+      platform thread pool 200 thread</li>
+<li>[ ] Tự tay chạy được 100.000 virtual thread đồng thời — điều gần như bất khả thi với platform
+      thread</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu thread hệ điều hành truyền thống (platform thread).</li>
+<li>Chapter 15, 16 — hiểu thread pool và lý do phải giới hạn số lượng platform thread.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Kiến trúc web server hiệu năng cao</strong> (Phase 5) — Spring Boot 3.2+ hỗ trợ chạy trên Virtual
+  Thread, thay đổi đáng kể cách suy nghĩ về giới hạn concurrency của một service.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Platform thread ánh xạ <strong>1-1</strong> với thread hệ điều hành — mỗi platform thread tốn bộ nhớ stack
+(mặc định ~1MB) và việc tạo/chuyển ngữ cảnh (context switch) do hệ điều hành quản lý, có chi phí
+đáng kể. Với ứng dụng I/O-bound (phần lớn thời gian mỗi request chờ mạng/disk, không dùng CPU),
+mô hình "mỗi request một platform thread" nhanh chóng chạm giới hạn: hàng chục nghìn thread đồng
+thời có thể tiêu tốn hàng chục GB bộ nhớ chỉ riêng cho stack, và hệ điều hành gặp khó khăn quản
+lý lịch trình cho quá nhiều thread.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Virtual Thread</strong> (JEP 444, chính thức từ Java 21) là thread do <strong>JVM quản lý</strong> (không phải hệ
+điều hành), rất nhẹ (bộ nhớ ban đầu chỉ vài trăm byte thay vì ~1MB), và có thể tạo <strong>hàng triệu</strong>
+virtual thread trong một JVM. Nhiều virtual thread chia sẻ một số lượng nhỏ <strong>carrier thread</strong>
+(platform thread thực sự chạy trên CPU) — khi một virtual thread bị block (ví dụ chờ I/O), JVM
+tự động "gỡ" nó khỏi carrier thread, giải phóng carrier thread đó để chạy virtual thread khác,
+rồi gắn lại khi I/O hoàn thành.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Platform thread bị giới hạn bởi tài nguyên hệ điều hành (bộ nhớ, số lượng thread scheduler có
+thể quản lý hiệu quả). Virtual thread giải quyết đúng giới hạn này bằng cách tách "đơn vị công
+việc logic" (virtual thread) khỏi "tài nguyên thực thi" (carrier thread) — với ứng dụng
+I/O-bound (đa số ứng dụng backend: chờ DB, chờ API, chờ file), phần lớn thời gian virtual thread
+ở trạng thái "chờ", không cần chiếm CPU thực sự. Cho phép hàng chục nghìn virtual thread cùng
+tồn tại (chỉ vài trăm chờ CPU tại một thời điểm bất kỳ) khai thác đúng thực tế này, thay vì lãng
+phí tài nguyên hệ điều hành cho các platform thread phần lớn thời gian không làm gì ngoài chờ.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Thread</span><span class="w"> </span><span class="n">vt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">ofVirtual</span><span class="p">().</span><span class="na">start</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="c1">// logic tac vu, viet y het nhu voi platform thread</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">});</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// Hoac dung ExecutorService chuyen dung</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newVirtualThreadPerTaskExecutor</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* tac vu */</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span><span class="w"> </span><span class="c1">// tu dong shutdown khi ra khoi try-with-resources (tu Java 19+)</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Platform Thread (1-1 voi OS thread):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Virtual &quot;cong viec&quot; ──► Platform Thread ──► OS Thread ──► CPU
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  (gioi han boi so luong OS thread ho tro duoc, ~vai nghin la da nang)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Virtual Thread (M virtual thread : N carrier thread, M &gt;&gt; N):
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  VT1 ──┐
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  VT2 ──┤   chi nhung VT dang THUC SU chay (khong cho I/O)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  VT3 ──┼──► [Carrier Thread 1][Carrier Thread 2]...  ← so luong nho, = platform thread
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  ...   │        │ VT bi block I/O → JVM &quot;go&quot; khoi carrier, carrier ranh chay VT khac
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  VT100000┘       │ I/O xong → JVM &quot;gan lai&quot; VT vao mot carrier ranh
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>100.000 virtual thread đồng thời:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.atomic.AtomicInteger</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VirtualThreadDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100_000</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newVirtualThreadPerTaskExecutor</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">                </span><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">                    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">                    </span><span class="n">completed</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">                </span><span class="p">});</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; virtual thread (moi thread sleep 100ms) hoan thanh: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">completed</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, mat &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (Temurin 26):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>100000 virtual thread (moi thread sleep 100ms) hoan thanh: 100000, mat 478ms
+</code></pre></div>
+<p>100.000 virtual thread, mỗi cái <code>sleep(100ms)</code>, hoàn thành <strong>tất cả</strong> chỉ trong 478ms — nếu
+chạy tuần tự sẽ mất 100.000 × 100ms = 10.000 giây (~2.7 giờ). Với platform thread, tạo 100.000
+thread thật gần như chắc chắn gây lỗi tài nguyên hệ điều hành trên hầu hết máy thông thường.</p>
+<p><strong>So sánh trực tiếp platform thread pool vs virtual thread (10.000 tác vụ):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">platformExec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10_000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="n">platformExec</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// vs</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">virtualExec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newVirtualThreadPerTaskExecutor</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10_000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="n">virtualExec</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (Temurin 26):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>10000 task tren PLATFORM thread pool (200 thread): 10000 xong, 5200ms
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>10000 task tren VIRTUAL thread (1 moi task): 10000 xong, 152ms
+</code></pre></div>
+<p>Với 200 platform thread, 10.000 tác vụ phải xử lý theo từng đợt ~200 (10000/200 = 50 đợt ×
+100ms ≈ 5000ms, khớp với 5200ms đo được). Với virtual thread, toàn bộ 10.000 tác vụ được "gắn"
+vào carrier thread và chạy gần như đồng thời — chỉ mất 152ms, đúng bằng khoảng thời gian
+<code>sleep(100ms)</code> cộng thêm overhead khởi tạo, không bị nhân lên theo số đợt.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Cơ chế "gỡ và gắn lại" (unmount/mount) hoạt động thế nào khi virtual thread gọi
+<code>Thread.sleep()</code> hoặc I/O blocking?</strong> Khi một virtual thread gọi một thao tác blocking mà JDK đã
+được điều chỉnh để nhận biết (<code>Thread.sleep</code>, hầu hết API I/O chuẩn trong <code>java.io</code>/<code>java.net</code>
+từ Java 21), JVM <strong>không</strong> để carrier thread bị block theo kiểu truyền thống (như platform
+thread sẽ làm) — thay vào đó, trạng thái của virtual thread (continuation) được lưu lại, virtual
+thread bị "gỡ" (unmount) khỏi carrier thread, và carrier thread đó được giải phóng để chạy
+virtual thread khác đang chờ. Khi thao tác blocking hoàn thành (ví dụ hết thời gian sleep, hoặc
+dữ liệu I/O đã sẵn sàng), virtual thread được "gắn lại" (mount) vào một carrier thread rảnh
+(không nhất thiết là carrier ban đầu) để tiếp tục chạy.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Virtual Thread có giải quyết được bài toán CPU-bound không?</strong> Không. Virtual Thread chỉ giải
+quyết đúng vấn đề I/O-bound (nhiều tác vụ phần lớn thời gian chờ, không chiếm CPU) — với tác vụ
+CPU-bound (tính toán nặng, không có điểm chờ I/O nào), số carrier thread thực tế vẫn giới hạn
+bởi số lõi CPU vật lý, tạo thêm virtual thread cho công việc CPU-bound không mang lại lợi ích gì
+(vẫn phải xếp hàng chờ CPU, y hệt platform thread). Đây cũng là lý do quan trọng: <strong>không nên
+thay thế <code>ForkJoinPool</code>/công việc CPU-bound</strong> (Chapter 17) bằng virtual thread — chúng phục vụ
+hai mục đích khác nhau hoàn toàn (I/O-bound scale-out vs CPU-bound song song hoá tính toán).</p>
+<p>Một cạm bẫy khác: <strong><code>synchronized</code> block trong virtual thread</strong>. Trước Java 24, nếu một virtual
+thread bị block bên trong một <code>synchronized</code> block/method, nó <strong>không</strong> được "gỡ" khỏi carrier
+thread (khác với <code>Thread.sleep</code>/I/O thông thường) — hiện tượng gọi là "pinning", có thể làm
+giảm hẳn lợi ích scale-out nếu code cũ dùng nhiều <code>synchronized</code> (thay vì <code>ReentrantLock</code>,
+Chapter 05, 10) trong đường dẫn xử lý chính.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Virtual Thread được đề xuất từ Project Loom (khởi động khoảng 2017-2018), trải qua nhiều JEP dự
+thảo (JEP 425 preview ở Java 19, JEP 436 ở Java 20) trước khi chính thức ổn định ở <strong>Java 21</strong>
+(JEP 444, tháng 9/2023). Đây là một trong những thay đổi nền tảng lớn nhất của JVM kể từ khi
+Generics/Lambda ra đời, trực tiếp giải quyết hạn chế "mỗi request một platform thread" đã tồn
+tại từ Java 1.0.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Virtual Thread thay thế hoàn toàn Platform Thread, nên dùng cho mọi trường hợp."
+  <strong>Reality:</strong> Xem Engineering Insight — Virtual Thread không mang lại lợi ích cho tác vụ
+  CPU-bound, và có cạm bẫy "pinning" với <code>synchronized</code> (trước Java 24).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Virtual Thread là một dạng coroutine/green thread giống các ngôn ngữ khác, hoàn
+  toàn không liên quan tới thread hệ điều hành."
+  <strong>Reality:</strong> Virtual Thread vẫn cần <strong>carrier thread</strong> (platform thread thật) để thực sự chạy
+  trên CPU — nó là lớp trừu tượng nhẹ hơn nằm trên platform thread, không phải hoàn toàn độc lập
+  khỏi khái niệm thread hệ điều hành.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tạo thread pool cố định (<code>newFixedThreadPool</code>) chứa virtual thread</strong> — mất hết ý nghĩa;
+  virtual thread được thiết kế để tạo mới cho mỗi tác vụ (<code>newVirtualThreadPerTaskExecutor</code>),
+  không cần tái sử dụng như platform thread (Chapter 15) vì bản thân chúng đã rất rẻ để tạo.</li>
+<li><strong>Dùng virtual thread cho tác vụ CPU-bound, mong đợi tăng tốc</strong> — xem Engineering Insight,
+  không mang lại lợi ích, nên dùng <code>ForkJoinPool</code> (Chapter 17) cho trường hợp này.</li>
+<li><strong>Dùng nhiều <code>synchronized</code> block dài trong code chạy trên virtual thread (trước Java 24)</strong> —
+  gây "pinning", giảm hẳn lợi ích scale-out; cân nhắc <code>ReentrantLock</code> thay thế.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Dùng <code>Executors.newVirtualThreadPerTaskExecutor()</code> cho khối lượng lớn tác vụ I/O-bound (gọi
+  API, query DB, đọc file) — không cần giới hạn/tái sử dụng như platform thread pool.</li>
+<li>Vẫn dùng platform thread pool (<code>ThreadPoolExecutor</code>, Chapter 15) hoặc <code>ForkJoinPool</code> (Chapter
+  17) cho tác vụ CPU-bound.</li>
+<li>Với code chạy trên Java 21-23, rà soát các đoạn <code>synchronized</code> trong đường dẫn xử lý chính
+  nếu dự định chuyển sang virtual thread, cân nhắc đổi sang <code>ReentrantLock</code> để tránh pinning.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Chuyển sang virtual thread nhưng không thấy cải thiện hiệu năng? → xác nhận tác vụ có
+      thực sự I/O-bound không — virtual thread không giúp gì cho tác vụ CPU-bound.</li>
+<li>[ ] Hiệu năng virtual thread thấp hơn mong đợi dưới tải cao (trước Java 24)? → kiểm tra code
+      có dùng nhiều <code>synchronized</code> block gây pinning không.</li>
+<li>[ ] Cần tạo hàng chục nghìn tác vụ đồng thời chờ I/O? → cân nhắc virtual thread thay vì cố
+      tăng kích thước platform thread pool.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Virtual Thread (Java 21, JEP 444) là thread nhẹ do JVM quản lý, nhiều virtual thread chia sẻ một
+số ít carrier thread (platform thread thật) — khi virtual thread block I/O, nó tự động được "gỡ"
+khỏi carrier để carrier chạy việc khác, "gắn lại" khi I/O xong. Đã chứng minh bằng thực nghiệm:
+10.000 tác vụ I/O-bound nhanh hơn ~34 lần với virtual thread (152ms) so với platform pool 200
+thread (5200ms), và 100.000 virtual thread hoàn thành trong 478ms — điều gần như bất khả thi
+với platform thread thật. Chỉ mang lại lợi ích cho tác vụ I/O-bound, không giúp gì cho CPU-bound,
+và có cạm bẫy "pinning" với <code>synchronized</code> (trước Java 24).</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Virtual Thread là gì? Nó khác Platform Thread như thế nào?</li>
+<li>Vì sao Virtual Thread phù hợp cho ứng dụng I/O-bound nhưng không giúp ích cho ứng dụng
+  CPU-bound?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích cơ chế "carrier thread" và quá trình unmount/mount của Virtual Thread khi gặp thao
+  tác blocking.</li>
+<li>Hiện tượng "pinning" với <code>synchronized</code> là gì? Nó ảnh hưởng thế nào tới lợi ích của Virtual
+  Thread, và cách khắc phục?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>VirtualThreadDemo</code> và <code>PlatformVsVirtual</code> ở trên (cần JDK 21+), xác nhận kết
+      quả tương tự trên máy bạn.</li>
+<li>[ ] Thử viết một đoạn code có <code>synchronized</code> block dài chạy trên virtual thread, dùng
+      <code>jcmd &lt;pid&gt; Thread.dump_to_file</code> để quan sát hiện tượng pinning (nếu chạy trên Java &lt; 24).</li>
+<li>[ ] So sánh bộ nhớ sử dụng khi tạo 10.000 platform thread (<code>new Thread()</code>) so với 10.000
+      virtual thread, dùng công cụ theo dõi bộ nhớ JVM (ví dụ <code>jconsole</code>).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Platform Thread</th>
+<th>Virtual Thread</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quản lý bởi</td>
+<td>Hệ điều hành</td>
+<td>JVM</td>
+</tr>
+<tr>
+<td>Bộ nhớ ban đầu</td>
+<td>~1MB (stack)</td>
+<td>Vài trăm byte</td>
+</tr>
+<tr>
+<td>Số lượng thực tế tối đa</td>
+<td>Vài nghìn</td>
+<td>Hàng triệu</td>
+</tr>
+<tr>
+<td>Phù hợp cho</td>
+<td>CPU-bound</td>
+<td>I/O-bound</td>
+</tr>
+<tr>
+<td>Tạo qua</td>
+<td><code>new Thread()</code></td>
+<td><code>Thread.ofVirtual()</code>, <code>newVirtualThreadPerTaskExecutor()</code></td>
+</tr>
+<tr>
+<td>Từ Java</td>
+<td>1.0</td>
+<td>21 (JEP 444)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>JEP 444: Virtual Threads — https://openjdk.org/jeps/444</li>
+<li>Project Loom — https://wiki.openjdk.org/display/loom</li>
+<li>Oracle Java Documentation — Virtual Threads (Java 21+).</li>
 </ul>
 
 

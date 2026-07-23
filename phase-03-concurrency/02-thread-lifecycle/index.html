@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,28 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:lifecycle" class="md-tag">Lifecycle</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:thread" class="md-tag">Thread</a>
       
     
   </nav>
@@ -6149,15 +6170,16 @@ Chapter slug: <code>thread-lifecycle</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thread Lifecycle</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Thread</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">synchronized (Chapter 05) — trạng thái BLOCKED gắn liền với việc chờ monitor lock</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wait()/notify() (Chapter 07-08) — trạng thái WAITING/TIMED_WAITING gắn liền với hai method này</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6187,297 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-thread/">Chapter 01</a> — bạn đã tạo Thread, gọi <code>start()</code>, gọi <code>join()</code>.</p>
 </blockquote>
+<p>Một <code>Thread</code> không chỉ đơn giản "đang chạy" hoặc "đã xong" — nó trải qua nhiều trạng thái rất
+cụ thể, và JVM cho bạn xem trực tiếp trạng thái đó qua <code>Thread.getState()</code>. Chạy đoạn code sau,
+bạn sẽ thấy chính xác 4 trạng thái khác nhau chỉ trong một chương trình nhỏ — mỗi trạng thái
+ứng với một tình huống rất đặc trưng mà bạn sẽ liên tục gặp lại xuyên suốt Phase 3.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Một Thread trong Java có những trạng thái nào? Sự khác biệt giữa <code>BLOCKED</code> và <code>WAITING</code> là
+gì?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Kể tên đủ 6 trạng thái của <code>Thread.State</code>: NEW, RUNNABLE, BLOCKED, WAITING,
+      TIMED_WAITING, TERMINATED</li>
+<li>[ ] Tự tay tái hiện được từng trạng thái bằng code cụ thể, không chỉ học thuộc tên</li>
+<li>[ ] Phân biệt chính xác BLOCKED (chờ monitor lock) với WAITING/TIMED_WAITING (chủ động gọi
+      <code>wait()</code>/<code>join()</code>/<code>sleep()</code>)</li>
+<li>[ ] Biết <code>RUNNABLE</code> trong Java <strong>không</strong> phân biệt "đang thực sự chạy trên CPU" và "sẵn sàng
+      chạy, đang chờ tới lượt"</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — đã biết <code>start()</code> tạo thread mới, <code>join()</code> chờ hoàn thành.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>synchronized</strong> (Chapter 05) — trạng thái <code>BLOCKED</code> xảy ra chính xác khi một thread chờ giữ
+  được monitor lock của <code>synchronized</code>.</li>
+<li><strong>wait()/notify()</strong> (Chapter 07-08) — trạng thái <code>WAITING</code>/<code>TIMED_WAITING</code> gắn liền trực
+  tiếp với hai method này.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khi một chương trình đa luồng "treo" hoặc chạy chậm bất thường, câu hỏi đầu tiên cần trả lời là
+"từng thread đang ở trạng thái gì — đang thực sự làm việc, hay đang bị chặn chờ thứ gì đó?".
+Không có một mô hình trạng thái rõ ràng, không thể chẩn đoán chính xác vấn đề nằm ở đâu.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Thread.State</code> (enum — Phase 1, Chapter 17) định nghĩa 6 trạng thái:</p>
+<ul>
+<li><strong>NEW</strong> — đã tạo (<code>new Thread(...)</code>), chưa gọi <code>start()</code>.</li>
+<li><strong>RUNNABLE</strong> — đã <code>start()</code>, đang chạy <strong>hoặc</strong> đang chờ tới lượt CPU (JVM không phân biệt
+  hai trường hợp này thành hai trạng thái riêng).</li>
+<li><strong>BLOCKED</strong> — đang chờ giành được một monitor lock (<code>synchronized</code>, Chapter 05) mà thread
+  khác đang giữ.</li>
+<li><strong>WAITING</strong> — đang chờ vô thời hạn, do chủ động gọi <code>wait()</code> (không tham số),
+  <code>join()</code> (không tham số), hoặc <code>LockSupport.park()</code>.</li>
+<li><strong>TIMED_WAITING</strong> — giống <code>WAITING</code> nhưng có giới hạn thời gian (<code>sleep(ms)</code>,
+  <code>wait(ms)</code>, <code>join(ms)</code>).</li>
+<li><strong>TERMINATED</strong> — đã chạy xong <code>run()</code> (hoặc kết thúc do exception không bắt được).</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu chỉ có "đang chạy" và "đã xong" (hai trạng thái): không thể phân biệt một thread bị
+<strong>tạm dừng có chủ đích</strong> (đang <code>sleep()</code>, đang chờ dữ liệu qua <code>wait()</code>) với một thread bị
+<strong>chặn ngoài ý muốn</strong> (đang <code>BLOCKED</code> chờ lock, có thể là dấu hiệu deadlock hoặc tranh chấp tài
+nguyên nghiêm trọng). Sự phân biệt rõ ràng giữa <code>BLOCKED</code> và <code>WAITING</code>/<code>TIMED_WAITING</code> chính là
+công cụ chẩn đoán quan trọng nhất khi debug vấn đề đa luồng (xem Production Notes).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>NEW ──start()──▶ RUNNABLE ◀────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                     │                  │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>       chờ lock      │      wait()/join() hết hạn/
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>       (synchronized) │      notify()/interrupt()
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                     ▼                  │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                  BLOCKED           WAITING/TIMED_WAITING
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                     │                  ▲
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                     └── giành được lock ┘
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                     │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                     ▼ (run() kết thúc)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                TERMINATED
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Thread t = new Thread(...)          → NEW
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>t.start()                            → RUNNABLE (đang chạy hoặc chờ CPU)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   trong t.run(): synchronized(lock) → BLOCKED (nếu lock đang bị giữ)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   trong t.run(): lock.wait()        → WAITING
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   trong t.run(): lock.wait(500)     → TIMED_WAITING
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>run() kết thúc                       → TERMINATED
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Tái hiện đủ 4 trạng thái quan sát được (trừ NEW, RUNNABLE là hiển nhiên) trong một chương
+trình:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LifecycleStates</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">                </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Truoc start(): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">getState</span><span class="p">());</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau start(), dang wait(): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">getState</span><span class="p">());</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">blocker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">                </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="n">blocker</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;t2 dang cho lock (BLOCKED): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="na">getState</span><span class="p">());</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">        </span><span class="n">blocker</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau khi xong: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">getState</span><span class="p">());</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Truoc start(): NEW
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Sau start(), dang wait(): TIMED_WAITING
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>t2 dang cho lock (BLOCKED): BLOCKED
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Sau khi xong: TERMINATED
+</code></pre></div>
+<p>Bốn trạng thái, bốn tình huống code cụ thể, khớp chính xác với lý thuyết ở phần Concept —
+<code>t</code> gọi <code>lock.wait(500)</code> (có tham số thời gian) cho <code>TIMED_WAITING</code>; <code>t2</code> cố <code>synchronized</code>
+trong khi <code>blocker</code> đang giữ lock cho <code>BLOCKED</code>.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao Java gộp "đang thực sự chạy trên CPU" và "sẵn sàng chạy, đang xếp hàng chờ CPU" thành
+chung một trạng thái <code>RUNNABLE</code>?</strong> Vì việc CPU nào, lúc nào, thực thi thread nào là quyết định
+của <strong>bộ lập lịch hệ điều hành</strong> (OS scheduler) — JVM không có (và không cần) khả năng biết
+chính xác thời điểm một thread <code>RUNNABLE</code> thực sự đang chiếm CPU hay chỉ đang chờ tới lượt. Cả
+hai đều là "sẵn sàng thực thi, không bị chặn bởi bất kỳ lý do logic nào (lock, wait...)" — đây
+là mức độ chi tiết mà JVM quan tâm; chi tiết lập lịch CPU cụ thể hơn thuộc về tầng hệ điều hành,
+nằm ngoài phạm vi mà <code>Thread.State</code> cần mô tả.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao phân biệt <code>BLOCKED</code> với <code>WAITING</code> lại là công cụ chẩn đoán quan trọng bậc nhất khi
+debug đa luồng?</strong> Vì hai trạng thái này chỉ ra hai <strong>nguyên nhân gốc hoàn toàn khác nhau</strong> khi
+một thread "không làm gì cả": <code>BLOCKED</code> nghĩa là thread <strong>muốn</strong> chạy tiếp nhưng bị <strong>chặn bởi
+tranh chấp tài nguyên</strong> (một thread khác đang giữ lock nó cần) — đây là dấu hiệu trực tiếp cần
+điều tra tranh chấp lock, có thể dẫn tới deadlock. <code>WAITING</code>/<code>TIMED_WAITING</code> nghĩa là thread
+<strong>chủ động</strong> chọn tạm dừng (đang chờ tín hiệu, chờ thời gian, chờ thread khác hoàn thành) — đây
+thường là hành vi <strong>có chủ đích</strong>, không phải dấu hiệu sự cố. Khi lấy thread dump (một kỹ thuật
+debug thực tế, sẽ hữu ích ở Phase 8) để chẩn đoán một hệ thống "treo", việc đầu tiên cần làm là
+đếm xem có bao nhiêu thread đang <code>BLOCKED</code> — nếu có nhiều thread cùng <code>BLOCKED</code> chờ cùng một
+lock, đó gần như chắc chắn là điểm nghẽn (bottleneck) cần điều tra ngay.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Thread.State</code> (enum tường minh, dễ đọc) được thêm vào Java 5 (2004) — trước đó, xác định
+chính xác trạng thái một thread khó khăn hơn nhiều, chủ yếu dựa vào các method rời rạc như
+<code>isAlive()</code>. Việc chuẩn hoá thành 6 trạng thái rõ ràng, có thể truy vấn trực tiếp qua
+<code>getState()</code>, đi cùng đợt với <code>java.util.concurrent</code> (JSR 166, Executor/Future — Chapter
+15-16) — một nỗ lực tổng thể hiện đại hoá công cụ làm việc với đa luồng trong Java.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>BLOCKED</code> và <code>WAITING</code> về cơ bản là một, đều nghĩa là 'thread đang không làm gì
+  cả'."
+  <strong>Reality:</strong> Khác nhau về <strong>nguyên nhân gốc</strong> — <code>BLOCKED</code> là bị chặn ngoài ý muốn bởi tranh
+  chấp lock; <code>WAITING</code> là chủ động tạm dừng. Xem Engineering Insight về ý nghĩa chẩn đoán khác
+  biệt hoàn toàn giữa hai điều này.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>RUNNABLE</code> nghĩa là thread chắc chắn đang thực thi trên CPU ngay lúc này."
+  <strong>Reality:</strong> <code>RUNNABLE</code> chỉ nghĩa là "không bị chặn bởi lý do logic nào" — có thể đang thực
+  sự chạy, hoặc đang xếp hàng chờ CPU, JVM không phân biệt hai trường hợp này.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng vòng lặp kiểm tra <code>getState()</code> liên tục (busy-wait/polling) để "chờ" một thread tới
+  trạng thái mong muốn</strong> — lãng phí CPU, nên dùng <code>join()</code> hoặc cơ chế đồng bộ đúng đắn
+  (<code>wait()</code>/<code>notify()</code>, Chapter 07-08; hoặc <code>CountDownLatch</code>, Chapter 16).</li>
+<li><strong>Nhầm lẫn <code>Thread.State</code> (mức JVM) với trạng thái thật của OS thread bên dưới</strong> — chúng liên
+  quan nhưng không phải luôn ánh xạ 1-1 hoàn toàn (chi tiết OS-level nằm ngoài phạm vi
+  <code>Thread.State</code>).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Dùng <code>getState()</code> chủ yếu cho mục đích quan sát/debug, không dùng nó để điều khiển logic
+  chương trình (ví dụ vòng lặp chờ một trạng thái cụ thể).</li>
+<li>Khi debug hệ thống đa luồng "treo", luôn bắt đầu bằng cách phân loại thread theo trạng thái
+  (đặc biệt đếm số thread <code>BLOCKED</code>) trước khi đi sâu vào từng thread cụ thể.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service đột nhiên không phản hồi bất kỳ request nào, dù process vẫn "sống"
+(không crash), CPU usage gần như bằng 0.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> ứng dụng "treo" hoàn toàn, không log lỗi nào mới, CPU thấp bất thường (nếu
+  cao bất thường thay vào đó, đó là dấu hiệu khác — busy loop, không phải deadlock).</li>
+<li><strong>Root cause:</strong> nghi ngờ hàng đầu là <strong>deadlock</strong> hoặc tranh chấp lock nghiêm trọng — nhiều
+  thread đang <code>BLOCKED</code> chờ lock lẫn nhau (chi tiết đầy đủ về deadlock sẽ học ở Chapter 09-10),
+  hoặc <code>WAITING</code> vô thời hạn chờ một tín hiệu không bao giờ tới.</li>
+<li><strong>Debug:</strong> lấy <strong>thread dump</strong> (<code>jstack &lt;pid&gt;</code> hoặc <code>jcmd &lt;pid&gt; Thread.print</code>) — công cụ này
+  liệt kê trạng thái <strong>và</strong> stack trace của mọi thread tại một thời điểm. Tìm các thread
+  <code>BLOCKED</code>, xem chúng đang chờ lock nào, ai đang giữ lock đó.</li>
+<li><strong>Solution:</strong> tuỳ nguyên nhân cụ thể tìm được qua thread dump — thường là sửa logic khoá
+  (thứ tự giành lock không nhất quán giữa các thread, nguyên nhân kinh điển của deadlock).</li>
+<li><strong>Prevention:</strong> thiết kế logic khoá nhất quán (luôn giành lock theo cùng một thứ tự ở mọi
+  nơi trong codebase); giám sát định kỳ số lượng thread <code>BLOCKED</code> như một chỉ số sức khoẻ hệ
+  thống.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Hệ thống "treo", CPU thấp? → lấy thread dump, đếm thread <code>BLOCKED</code>/<code>WAITING</code>, tìm điểm
+      nghẽn.</li>
+<li>[ ] Nhiều thread cùng <code>BLOCKED</code> chờ cùng một lock? → điều tra ai đang giữ lock đó và tại sao
+      giữ lâu, nghi ngờ deadlock nếu có chu trình chờ lẫn nhau.</li>
+<li>[ ] Thread ở <code>WAITING</code> mãi mãi không tiếp tục? → kiểm tra có <code>notify()</code>/<code>notifyAll()</code> tương
+      ứng nào bị bỏ sót không (Chapter 07-08).</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>Thread.getState()</code> không đơn thuần đọc một field — nó tổng hợp thông tin từ trạng thái nội bộ
+của JVM (bao gồm việc thread có đang giữ/chờ monitor lock cụ thể nào không) tại đúng thời điểm
+gọi. Đây là lý do trạng thái trả về là một "ảnh chụp tức thời" (snapshot) — có thể đã đổi ngay
+sau khi bạn đọc được nó, đặc biệt với các thread <code>RUNNABLE</code> đang hoạt động tích cực.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Thread.State</code> có 6 trạng thái: NEW (đã tạo, chưa start), RUNNABLE (đang chạy hoặc chờ CPU —
+JVM không phân biệt), BLOCKED (chờ giành monitor lock), WAITING/TIMED_WAITING (chủ động tạm
+dừng, vô thời hạn hoặc có giới hạn), TERMINATED (đã xong). Phân biệt BLOCKED (bị chặn ngoài ý
+muốn bởi tranh chấp lock) với WAITING (chủ động tạm dừng) là công cụ chẩn đoán quan trọng nhất
+khi debug hệ thống đa luồng "treo" — thread dump (<code>jstack</code>) là công cụ thực tế để quan sát
+trạng thái này trong production.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Kể tên các trạng thái của một Thread trong Java.</li>
+<li>Trạng thái nào một Thread có ngay sau khi tạo (<code>new Thread(...)</code>), trước khi gọi <code>start()</code>?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Phân biệt <code>BLOCKED</code> và <code>WAITING</code>. Cho ví dụ cụ thể tình huống nào dẫn tới mỗi trạng thái.</li>
+<li><code>RUNNABLE</code> có nghĩa là thread chắc chắn đang chạy trên CPU không? Giải thích.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Một hệ thống production "treo" hoàn toàn. Trình bày quy trình chẩn đoán, bắt đầu từ việc
+  phân loại trạng thái thread.</li>
+<li>Giải thích vì sao Java không có trạng thái riêng biệt cho "đang thực sự chạy trên CPU" khác
+  với "sẵn sàng chạy, đang chờ CPU" — đây là giới hạn thiết kế hay lựa chọn hợp lý?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>LifecycleStates</code> ở trên, xác nhận cả 4 trạng thái quan sát được.</li>
+<li>[ ] Viết một chương trình tạo hai thread cố tình giành lock theo thứ tự ngược nhau (thread A
+      giành lock1 rồi lock2; thread B giành lock2 rồi lock1) — quan sát cả hai bị <code>BLOCKED</code>
+      mãi mãi (deadlock), lấy thread dump bằng <code>jstack</code> để xác nhận.</li>
+<li>[ ] Viết một chương trình có thread ở trạng thái <code>WAITING</code> (gọi <code>wait()</code> không tham số) mà
+      không bao giờ được <code>notify()</code> — quan sát nó "treo" mãi mãi, khác với <code>BLOCKED</code> ở chỗ
+      không có tranh chấp lock nào cả.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Trạng thái</th>
+<th>Khi nào</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NEW</code></td>
+<td>Đã tạo, chưa <code>start()</code></td>
+</tr>
+<tr>
+<td><code>RUNNABLE</code></td>
+<td>Đang chạy hoặc chờ CPU</td>
+</tr>
+<tr>
+<td><code>BLOCKED</code></td>
+<td>Chờ giành monitor lock (<code>synchronized</code>)</td>
+</tr>
+<tr>
+<td><code>WAITING</code></td>
+<td><code>wait()</code>/<code>join()</code> không tham số, chờ vô thời hạn</td>
+</tr>
+<tr>
+<td><code>TIMED_WAITING</code></td>
+<td><code>sleep(ms)</code>/<code>wait(ms)</code>/<code>join(ms)</code>, chờ có giới hạn</td>
+</tr>
+<tr>
+<td><code>TERMINATED</code></td>
+<td><code>run()</code> đã kết thúc</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Công cụ debug:</strong> <code>jstack &lt;pid&gt;</code> / <code>jcmd &lt;pid&gt; Thread.print</code> — thread dump, xem trạng thái +
+stack trace mọi thread.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.lang.Thread.State</code>.</li>
+<li>Oracle: "The Java Tutorials — Thread States".</li>
 </ul>
 
 

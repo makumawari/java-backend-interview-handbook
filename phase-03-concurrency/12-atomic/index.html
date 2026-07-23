@@ -27,7 +27,7 @@
     
     
       
-        <title>Atomic - Java Backend Engineering Handbook</title>
+        <title>Atomic (AtomicInteger, AtomicLong, AtomicReference) - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#atomic" class="md-skip">
+        <a href="#atomic-atomicinteger-atomiclong-atomicreference" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Atomic
+              Atomic (AtomicInteger, AtomicLong, AtomicReference)
             
           </span>
         </div>
@@ -2336,7 +2336,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2354,7 +2354,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:atomic" class="md-tag">Atomic</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
       
     
   </nav>
@@ -6141,7 +6155,7 @@
   
 
 
-<h1 id="atomic">Atomic<a class="headerlink" href="#atomic" title="Permanent link">&para;</a></h1>
+<h1 id="atomic-atomicinteger-atomiclong-atomicreference">Atomic (AtomicInteger, AtomicLong, AtomicReference)<a class="headerlink" href="#atomic-atomicinteger-atomiclong-atomicreference" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 3 — Concurrency
 Chapter slug: <code>atomic</code></p>
@@ -6149,15 +6163,17 @@ Chapter slug: <code>atomic</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Atomic</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — Volatile</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — Synchronized</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 13 — CAS (cơ chế nền tảng bên trong Atomic)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Counter/metric trong ứng dụng production (Phase 8)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6181,271 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../04-volatile/">Chapter 04</a> — <code>volatile</code> đảm bảo <strong>visibility</strong> (nhìn thấy giá trị
+mới nhất) nhưng KHÔNG đảm bảo <strong>atomicity</strong>. Bằng chứng thật đã đo được: <code>counter++</code> dưới 10
+thread dùng biến <code>volatile</code> cho ra <code>240104</code> thay vì <code>1000000</code> mong đợi — vì <code>++</code> thực chất là
+ba bước (đọc, cộng, ghi), và <code>volatile</code> không bảo vệ được chuỗi ba bước đó khỏi bị chen ngang.</p>
 </blockquote>
+<p>Cách "truyền thống" để sửa lỗi này là <code>synchronized</code> (Chapter 05) — nhưng khoá độc quyền cho
+một phép cộng đơn giản là hơi "nặng tay". Có cách nào <strong>nguyên tử hoá đúng thao tác đọc-sửa-ghi
+đó</strong> mà không cần khoá độc quyền toàn phần không?</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>AtomicInteger</code> giải quyết vấn đề gì mà <code>volatile</code> không giải quyết được? Vì sao
+<code>AtomicInteger</code> không cần <code>synchronized</code> mà vẫn đảm bảo đúng dưới nhiều thread?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích vì sao <code>counter++</code> không nguyên tử, kể cả khi biến là <code>volatile</code></li>
+<li>[ ] Tự tay đo được <code>AtomicInteger.incrementAndGet()</code> cho kết quả đúng tuyệt đối dưới 10
+      thread — khác hẳn kết quả sai của Chapter 04</li>
+<li>[ ] Biết <code>compareAndSet()</code> là nền tảng bên dưới mọi thao tác của lớp Atomic</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 04 — hiểu tại sao <code>volatile</code> không đủ cho <code>counter++</code>.</li>
+<li>Chapter 05 — hiểu <code>synchronized</code> là giải pháp "nặng" hơn cho cùng vấn đề.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 13 (CAS)</strong> — cơ chế <code>compareAndSet</code> chính là nền tảng bên trong mọi lớp Atomic.</li>
+<li><strong>Counter/metric trong production</strong> (Phase 8) — đếm request, đếm lỗi thường dùng
+  <code>AtomicLong</code> thay vì <code>synchronized</code> vì hiệu năng cao hơn dưới tải lớn.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>volatile</code> chỉ bảo đảm visibility, không bảo đảm atomicity cho thao tác đọc-sửa-ghi (đã chứng
+minh ở Chapter 04: <code>240104</code> thay vì <code>1000000</code>). <code>synchronized</code> giải quyết đúng nhưng bắt buộc
+độc quyền toàn phần — thread khác phải chờ, kể cả khi thao tác chỉ là một phép cộng cực nhanh.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Lớp <code>Atomic*</code> (<code>AtomicInteger</code>, <code>AtomicLong</code>, <code>AtomicReference</code>, ...) trong gói
+<code>java.util.concurrent.atomic</code> cung cấp các thao tác đọc-sửa-ghi <strong>nguyên tử</strong> (không thể bị chen
+ngang) mà <strong>không cần khoá</strong> — dựa trên lệnh CPU cấp phần cứng gọi là <strong>CAS</strong>
+(Compare-And-Swap, chi tiết ở Chapter 13).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khoá (<code>synchronized</code>/<code>ReentrantLock</code>) hoạt động bằng cách <strong>chặn đứng</strong> các thread khác — buộc
+chúng chờ (blocking). Với thao tác cực đơn giản, cực nhanh như tăng một biến đếm, chi phí "đưa
+thread vào trạng thái chờ, đánh thức lại sau" (context switch) có thể còn tốn kém hơn chính
+bản thân thao tác. CAS cho phép nguyên tử hoá <strong>mà không cần blocking</strong> — thread không thành
+công thì thử lại ngay lập tức (busy-retry, cực nhanh vì không cần hệ điều hành can thiệp) thay
+vì bị đưa vào hàng chờ.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">counter</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w">      </span><span class="c1">// tuong duong ++counter, nhung NGUYEN TU</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">counter</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">                  </span><span class="c1">// doc gia tri hien tai</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">counter</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w">  </span><span class="c1">// neu dang la 10, doi thanh 20; tra ve true/false</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>volatile int counter++ (KHONG nguyen tu — 3 buoc rieng biet):
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Thread A: doc(5) ────────────► cong(6) ──► ghi(6)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  Thread B:       doc(5) ──► cong(6) ──► ghi(6)   ← ca hai doc CUNG gia tri 5, MAT 1 lan tang!
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>AtomicInteger.incrementAndGet() (NGUYEN TU qua CAS):
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  Thread A: CAS(5→6) THANH CONG
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Thread B: CAS(5→6) THAT BAI (gia tri da la 6) → doc lai(6) → CAS(6→7) THANH CONG
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.atomic.AtomicInteger</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AtomicDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">increments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100_000</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="n">threads</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">threads</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">            </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">increments</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">counter</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="p">});</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;AtomicInteger: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">counter</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (mong doi &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">threads</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">increments</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">cas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">success1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cas</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">success2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cas</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;CAS(10-&gt;20) thanh cong: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">success1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, gia tri = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cas</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;CAS(10-&gt;30) thanh cong: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">success2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, gia tri = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cas</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>AtomicInteger: 1000000 (mong doi 1000000)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>CAS(10-&gt;20) thanh cong: true, gia tri = 20
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>CAS(10-&gt;30) thanh cong: false, gia tri = 20
+</code></pre></div>
+<p>So với <code>volatile int</code> ở Chapter 04 (<code>240104</code>/<code>1000000</code> — SAI), <code>AtomicInteger</code> cho ra chính xác
+<code>1000000/1000000</code> dưới cùng điều kiện 10 thread × 100.000 lần tăng — không hề mất phép tăng nào.</p>
+<p><code>compareAndSet(10, 20)</code> thành công vì giá trị hiện tại <strong>đúng là 10</strong> → đổi thành 20. Ngay sau
+đó <code>compareAndSet(10, 30)</code> <strong>thất bại</strong> (trả về <code>false</code>) vì giá trị hiện tại đã là 20 (không
+còn là 10 nữa) — giá trị giữ nguyên 20, không bị đổi thành 30. Đây chính là bản chất của CAS:
+chỉ thành công khi giá trị <strong>chưa bị ai khác thay đổi</strong> kể từ lần đọc gần nhất.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao CAS không cần blocking mà vẫn đúng?</strong> Lệnh CAS ở cấp CPU (<code>cmpxchg</code> trên x86) thực
+hiện "so sánh và đổi" trong <strong>một chu kỳ CPU duy nhất, không thể bị ngắt giữa chừng</strong> — phần
+cứng đảm bảo tính nguyên tử, không phải phần mềm. Khi nhiều thread cùng CAS vào một biến, chỉ
+đúng một thread thành công tại một thời điểm; các thread còn lại nhận <code>false</code> và (do
+<code>incrementAndGet()</code> được cài đặt bằng vòng lặp retry bên trong) tự động đọc lại giá trị mới
+nhất rồi thử CAS lại — lặp đến khi thành công. Không ai bị "chặn đứng" chờ đợi kiểu blocking,
+chỉ đơn giản là thử lại rất nhanh.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Atomic có luôn nhanh hơn <code>synchronized</code> trong mọi trường hợp?</strong> Không. Dưới tranh chấp
+(contention) <strong>rất cao</strong> — rất nhiều thread cùng CAS vào <strong>một</strong> biến duy nhất liên tục — tỉ lệ
+CAS thất bại tăng vọt, mỗi thread phải retry nhiều lần, tổng công việc CPU lãng phí vào các lần
+retry thất bại có thể vượt qua lợi ích "không blocking". Đây là lý do JDK 8 giới thiệu thêm
+<code>LongAdder</code> — chia bộ đếm thành nhiều "ô" riêng biệt, mỗi thread cập nhật một ô ít tranh chấp
+hơn, rồi cộng dồn khi cần đọc tổng — hiệu quả hơn <code>AtomicLong</code> khi có rất nhiều thread cùng ghi
+vào một bộ đếm.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Gói <code>java.util.concurrent.atomic</code> ra đời cùng JSR 166 (Java 5, 2004, do Doug Lea dẫn dắt — cũng
+chính là tác giả của AQS đã nhắc ở Chapter 09-10). <code>LongAdder</code>/<code>DoubleAdder</code> bổ sung ở Java 8
+(2014) để giải quyết đúng hạn chế "tranh chấp cao" của <code>AtomicLong</code> nêu trên.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Atomic classes dùng khoá bên trong, chỉ là khoá 'nhẹ' hơn <code>synchronized</code>."
+  <strong>Reality:</strong> Không dùng khoá (lock) nào cả — dựa hoàn toàn vào lệnh CAS cấp phần cứng, đây
+  gọi là kỹ thuật <strong>lock-free</strong> (không khoá), khác bản chất với khoá "nhẹ".</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>AtomicInteger</code> luôn nhanh hơn <code>synchronized</code> cho mọi bộ đếm."
+  <strong>Reality:</strong> Xem Engineering Insight — dưới tranh chấp cực cao, <code>LongAdder</code> còn nhanh hơn cả
+  <code>AtomicLong</code>.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>get()</code> rồi <code>set()</code> riêng biệt tưởng là nguyên tử</strong> — <code>int x = counter.get(); counter.set(x + 1);</code> KHÔNG nguyên tử (y hệt lỗi <code>counter++</code>), phải dùng <code>incrementAndGet()</code> hoặc
+  <code>updateAndGet()</code>.</li>
+<li><strong>Dùng <code>AtomicInteger</code> cho field không thực sự cần chia sẻ giữa nhiều thread</strong> — nếu chỉ một
+  thread truy cập, <code>int</code> thường là đủ, không cần overhead của Atomic.</li>
+<li><strong>Quên rằng <code>compareAndSet</code> có thể thất bại "hợp lệ"</strong> — code gọi <code>compareAndSet</code> phải luôn
+  kiểm tra giá trị trả về hoặc dùng trong vòng lặp retry, không được giả định luôn thành công.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Dùng <code>Atomic*</code> cho counter/flag đơn giản chia sẻ giữa nhiều thread thay vì <code>synchronized</code> khi
+  thao tác đủ đơn giản để biểu diễn bằng CAS.</li>
+<li>Với bộ đếm bị tranh chấp cực cao (nhiều thread ghi liên tục), cân nhắc <code>LongAdder</code> thay vì
+  <code>AtomicLong</code>.</li>
+<li>Dùng <code>updateAndGet(Function)</code>/<code>accumulateAndGet(...)</code> cho các phép cập nhật phức tạp hơn phép
+  cộng đơn giản, vẫn giữ tính nguyên tử.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service đếm số request xử lý mỗi giây bằng <code>AtomicLong</code> để xuất metric, dưới
+tải cao (hàng chục nghìn request/giây, hàng trăm thread cùng ghi) CPU usage tăng bất thường dù
+logic xử lý request không đổi.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> CPU cao hơn dự kiến khi tải tăng, đặc biệt phần liên quan tới cập nhật
+  counter.</li>
+<li><strong>Root cause:</strong> rất nhiều thread cùng CAS vào <strong>một</strong> biến <code>AtomicLong</code> duy nhất — tranh chấp
+  cực cao khiến tỉ lệ CAS thất bại/retry tăng vọt, lãng phí chu kỳ CPU (đúng giới hạn đã phân
+  tích ở Engineering Insight).</li>
+<li><strong>Debug:</strong> profiling cho thấy phần lớn thời gian CPU nằm trong vòng lặp retry của
+  <code>incrementAndGet()</code>.</li>
+<li><strong>Solution:</strong> đổi sang <code>LongAdder</code> — giảm tranh chấp bằng cách chia bộ đếm thành nhiều ô nội
+  bộ, mỗi thread ghi vào một ô khác nhau (giảm khả năng đụng độ), chỉ cộng dồn khi cần đọc
+  <code>sum()</code>.</li>
+<li><strong>Prevention:</strong> với counter chịu tải ghi rất cao từ nhiều thread, mặc định cân nhắc
+  <code>LongAdder</code> ngay từ đầu thay vì <code>AtomicLong</code>.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Counter cho kết quả sai dưới nhiều thread? → kiểm tra có đang dùng <code>get()</code> + <code>set()</code> tách
+      rời thay vì thao tác nguyên tử (<code>incrementAndGet()</code>) không.</li>
+<li>[ ] CPU cao bất thường liên quan tới cập nhật counter dưới tải lớn? → cân nhắc <code>LongAdder</code>
+      thay vì <code>AtomicLong</code>/<code>AtomicInteger</code>.</li>
+<li>[ ] <code>compareAndSet</code> luôn thất bại? → xác nhận giá trị "expected" truyền vào có đúng là giá
+      trị hiện tại tại thời điểm gọi không — giá trị có thể đã bị thread khác thay đổi.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>AtomicInteger.incrementAndGet()</code> (OpenJDK) về bản chất là một vòng lặp:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Rut gon tu OpenJDK</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">incrementAndGet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="p">();</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">compareAndSet</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">));</span><span class="w"> </span><span class="c1">// that bai thi doc lai va thu lai</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Vòng lặp <code>do-while</code> với <code>compareAndSet</code> bên trong chính là mẫu hình "optimistic retry" chuẩn
+của mọi thao tác lock-free trong gói <code>java.util.concurrent.atomic</code>.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Atomic*</code> cung cấp thao tác đọc-sửa-ghi nguyên tử <strong>không cần khoá</strong>, dựa trên lệnh CAS cấp
+phần cứng — đã chứng minh bằng thực nghiệm: <code>AtomicInteger</code> cho kết quả đúng tuyệt đối
+(<code>1000000/1000000</code>) dưới 10 thread, khác hẳn kết quả sai của <code>volatile int</code> (Chapter 04).
+<code>compareAndSet</code> chỉ thành công khi giá trị chưa bị thay đổi kể từ lần đọc gần nhất — nền tảng
+cho toàn bộ họ lớp Atomic. Dưới tranh chấp cực cao, <code>LongAdder</code> hiệu quả hơn <code>AtomicLong</code>.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>AtomicInteger</code> khác <code>volatile int</code> như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích tại sao <code>compareAndSet</code> không cần khoá mà vẫn đảm bảo đúng dưới nhiều thread.</li>
+<li>Khi nào nên dùng <code>AtomicLong</code>, khi nào nên dùng <code>LongAdder</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Một counter dùng <code>AtomicLong</code> gây CPU cao dưới tải lớn. Giải thích nguyên nhân và cách khắc
+  phục.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>AtomicDemo</code> ở trên, xác nhận kết quả <code>1000000/1000000</code> trên máy bạn.</li>
+<li>[ ] Viết lại cùng bài toán dùng <code>synchronized</code>, so sánh thời gian chạy với <code>AtomicInteger</code>
+      dưới cùng điều kiện (10 thread × 100.000 lần).</li>
+<li>[ ] Tìm hiểu <code>LongAdder</code>, viết benchmark so sánh với <code>AtomicLong</code> dưới 50 thread cùng ghi.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>volatile int</code></th>
+<th><code>AtomicInteger</code></th>
+<th><code>synchronized</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visibility</td>
+<td>Có</td>
+<td>Có</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Atomicity cho <code>++</code></td>
+<td>Không</td>
+<td>Có</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Cơ chế</td>
+<td>Bộ nhớ</td>
+<td>CAS (lock-free)</td>
+<td>Khoá (blocking)</td>
+</tr>
+<tr>
+<td>Tranh chấp cực cao</td>
+<td>N/A</td>
+<td>Suy giảm hiệu năng</td>
+<td>Suy giảm hiệu năng</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.atomic.AtomicInteger</code>, <code>LongAdder</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 15: Atomic Variables and Nonblocking
+  Synchronization.</li>
 </ul>
 
 

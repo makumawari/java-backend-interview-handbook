@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:reentrantlock" class="md-tag">ReentrantLock</a>
       
     
   </nav>
@@ -6149,15 +6163,16 @@ Chapter slug: <code>reentrantlock</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReentrantLock</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Lock (Java-level Locking)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 05 — synchronized (để so sánh tính reentrant)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteLock (Chapter 11) — mở rộng ý tưởng ReentrantLock cho đọc/ghi tách biệt</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6180,322 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../05-synchronized/">Chapter 05 — Deep Dive</a> — <code>synchronized</code> là <strong>reentrant</strong>: một
+thread đã giữ lock có thể giành lại chính nó mà không tự deadlock.</p>
 </blockquote>
+<p><code>ReentrantLock</code> — đúng như tên gọi — mang tính chất đó vào thế giới <code>Lock</code> tường minh (Chapter
+09). Nhưng nó đi xa hơn: <code>ReentrantLock</code> còn <strong>đếm chính xác</strong> số lần một thread đã giành lại
+lock của chính nó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span><span class="w">                    </span><span class="c1">// holdCount = 1</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">reentrant</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w">                   </span><span class="c1">// gọi đệ quy, mỗi lần lock() lại</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">//   depth=2: lock() lại        // holdCount = 2</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">//   depth=1: lock() lại        // holdCount = 3</span>
+</code></pre></div>
+<p><code>getHoldCount()</code> trả về chính xác <code>1</code>, <code>2</code>, <code>3</code> qua từng lớp gọi đệ quy — một khả năng
+<code>synchronized</code> hoàn toàn không có (nó cũng reentrant, nhưng không cho bạn <strong>quan sát</strong> được số
+lớp). Chapter này đi sâu vào <code>ReentrantLock</code> — implementation phổ biến nhất của <code>Lock</code>
+(Chapter 09) — và giải thích chính xác cơ chế tính "hold count" cùng với <code>tryLock()</code> có
+timeout.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>ReentrantLock</code> là gì? "Reentrant" (tái vào) trong tên gọi của nó có ý nghĩa gì, và vì sao
+tính chất này quan trọng?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay xác nhận <code>ReentrantLock</code> cho phép cùng một thread giành lại chính lock nó đang
+      giữ, tăng dần "hold count"</li>
+<li>[ ] Dùng đúng <code>tryLock(timeout, unit)</code> — thử giành lock trong một khoảng thời gian giới hạn</li>
+<li>[ ] Biết <code>ReentrantLock</code> phải nhả đúng số lần đã giành — <code>unlock()</code> không đủ số lần
+      tương ứng sẽ khiến lock <strong>vẫn còn bị giữ</strong></li>
+<li>[ ] Biết khái niệm fairness (<code>new ReentrantLock(true)</code>) và đánh đổi hiệu năng của nó</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 09 — hiểu interface <code>Lock</code> nói chung.</li>
+<li>Chapter 05 — đã biết <code>synchronized</code> cũng reentrant, để so sánh.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>ReadWriteLock</strong> (Chapter 11) — mở rộng cùng ý tưởng, tách biệt lock cho đọc và ghi.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một method <code>synchronized</code> gọi một method <code>synchronized</code> khác trên cùng object (rất phổ biến —
+Chapter 05) không tự deadlock nhờ tính reentrant. <code>Lock</code> (Chapter 09) tường minh cần một
+implementation cụ thể tái tạo đúng hành vi hữu ích này — nếu không, code hiện có dùng nhiều
+lớp gọi lẫn nhau trên cùng một khoá sẽ tự deadlock ngay khi chuyển từ <code>synchronized</code> sang
+<code>Lock</code> tường minh.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ReentrantLock</code> là implementation phổ biến nhất của <code>Lock</code> (Chapter 09) — như tên gọi, nó
+<strong>reentrant</strong>: một thread đã giữ lock có thể gọi <code>lock()</code> thêm nhiều lần nữa mà không bị chặn
+(tăng dần một bộ đếm nội bộ, "hold count"), và phải gọi <code>unlock()</code> đúng <strong>số lần tương ứng</strong> để
+thực sự nhả lock hoàn toàn (khi hold count về 0).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu <code>ReentrantLock</code> không reentrant: bất kỳ thiết kế nào có method A (đã giữ lock) gọi method
+B (cũng cần giữ chính lock đó) trên cùng thread sẽ tự deadlock ngay lập tức — thread tự chờ
+chính lock mà nó đang giữ, không bao giờ thoát ra được. Việc "đếm số lần giành lại" (thay vì
+chỉ ghi nhận "đã giữ hay chưa") đảm bảo lock chỉ thực sự được nhả (cho thread khác dùng) khi
+<strong>mọi lớp</strong> đã gọi <code>unlock()</code> tương ứng — khớp chính xác với cách các lời gọi method lồng
+nhau hoạt động.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ReentrantLock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span><span class="w"> </span><span class="c1">// hold count = 1</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">doSomethingThatAlsoLocks</span><span class="p">();</span><span class="w"> </span><span class="c1">// bên trong lại lock.lock()/unlock() trên CÙNG lock, CÙNG thread</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="c1">// hold count = 0, lock THỰC SỰ được nhả</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// tryLock với timeout — thử giành trong khoảng thời gian giới hạn</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="na">tryLock</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="c1">// không giành được sau 500ms, làm việc khác</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Thread T gọi lock.lock() lần 1  → holdCount = 1, T SỞ HỮU lock
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Thread T gọi lock.lock() lần 2  → holdCount = 2 (T đã sở hữu, KHÔNG bị BLOCKED)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Thread T gọi lock.lock() lần 3  → holdCount = 3
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Thread T gọi lock.unlock() lần 1 → holdCount = 2 (lock VẪN đang bị giữ bởi T)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Thread T gọi lock.unlock() lần 2 → holdCount = 1 (vẫn giữ)
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Thread T gọi lock.unlock() lần 3 → holdCount = 0, LOCK THỰC SỰ ĐƯỢC NHẢ
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                                     → thread khác giờ mới giành được
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Xác nhận trực tiếp hold count qua nhiều lớp gọi đệ quy, và <code>tryLock()</code> với timeout:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.locks.ReentrantLock</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.TimeUnit</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReentrantLockDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Main giu lock, holdCount = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">getHoldCount</span><span class="p">());</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="n">reentrant</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sau khi main unlock, isLocked = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">isLocked</span><span class="p">());</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">                </span><span class="kt">boolean</span><span class="w"> </span><span class="n">acquired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">tryLock</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">);</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Thread khac tryLock() thanh cong: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">acquired</span><span class="p">);</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">acquired</span><span class="p">)</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">            </span><span class="n">other</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">            </span><span class="n">other</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">            </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reentrant</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  reentrant depth=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, holdCount=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">getHoldCount</span><span class="p">());</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">            </span><span class="n">reentrant</span><span class="p">(</span><span class="n">depth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">            </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Main giu lock, holdCount = 1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  reentrant depth=2, holdCount=2
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  reentrant depth=1, holdCount=3
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Sau khi main unlock, isLocked = false
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Thread khac tryLock() thanh cong: false
+</code></pre></div>
+<p><code>holdCount</code> tăng dần đúng 1, 2, 3 qua từng lớp đệ quy — bằng chứng trực tiếp cho tính
+reentrant. <code>tryLock(500ms)</code> từ thread khác trả về <code>false</code> — đúng dự đoán, vì <code>main</code> đang giữ
+lock suốt thời gian đó, không nhả trong 500ms.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>ReentrantLock(boolean fair)</code> có tuỳ chọn "fairness" (công bằng) — mặc định là
+<code>false</code>, tại sao không mặc định <code>true</code>?</strong> Với <code>fair = true</code>, <code>ReentrantLock</code> đảm bảo các thread
+giành được lock theo đúng thứ tự <strong>đã yêu cầu</strong> (giống hàng đợi FIFO — thread chờ lâu nhất
+được ưu tiên). Với <code>fair = false</code> (mặc định), JVM cho phép "chen ngang" (barging) — một thread
+vừa mới tới có thể giành được lock trước cả những thread đã chờ lâu, nếu tình cờ lock vừa được
+nhả đúng lúc nó tới. Nghe có vẻ "không công bằng", nhưng <code>fair = false</code> <strong>nhanh hơn đáng kể</strong>
+trong thực tế — duy trì một hàng đợi FIFO nghiêm ngặt tốn thêm chi phí đồng bộ hoá, và trong
+đa số trường hợp thực tế, thứ tự giành lock chính xác không quan trọng bằng thông lượng
+(throughput) tổng thể. Đây là lý do JDK chọn <code>false</code> làm mặc định — ưu tiên hiệu năng cho
+trường hợp phổ biến, để <code>fairness</code> là một lựa chọn tường minh cho những bài toán thực sự cần nó
+(ví dụ tránh hiện tượng một thread "đói" — starvation — không bao giờ giành được lock vì luôn
+bị các thread khác chen ngang).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>ReentrantLock</code> được cài đặt dựa trên nền tảng nào để đạt hiệu năng tốt mà vẫn linh hoạt hơn
+<code>synchronized</code>?</strong> Nó xây trên <code>AbstractQueuedSynchronizer</code> (AQS, đã nhắc ở
+<a href="../09-lock/">Chapter 09</a>) — một framework nội bộ dùng một biến <code>int state</code> (đại diện cho hold
+count) được cập nhật bằng <strong>CAS</strong> (Compare-And-Swap, sẽ học kỹ ở Chapter 13) thay vì dựa vào cơ
+chế Monitor cấp thấp của JVM (Chapter 06) như <code>synchronized</code>. Khi không có tranh chấp
+(uncontended — trường hợp phổ biến nhất), <code>lock()</code>/<code>unlock()</code> chỉ là một thao tác CAS đơn, cực
+nhanh, không cần "chặn" thread ở tầng hệ điều hành — chỉ khi thực sự có tranh chấp, AQS mới xếp
+thread vào một hàng đợi nội bộ (dùng cấu trúc dữ liệu dạng danh sách liên kết, không phải
+Monitor's wait set) và thực sự "chặn" nó. Đây là kiến trúc chung cho <strong>mọi</strong> lock trong
+<code>java.util.concurrent.locks</code> (<code>ReentrantLock</code>, <code>ReentrantReadWriteLock</code> — Chapter 11), một
+trong những thiết kế có ảnh hưởng lớn nhất của Doug Lea trong lịch sử Java concurrency.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>ReentrantLock</code> ra đời cùng đợt <code>Lock</code> interface — Java 5 (2004), JSR 166. Trước khi có nó,
+tái tạo hành vi "reentrant, có thể interrupt, có tryLock" hoàn toàn bằng tay là công việc rất
+phức tạp, dễ sai sót — <code>ReentrantLock</code> đóng gói sẵn toàn bộ độ phức tạp đó thành một class sẵn
+sàng dùng ngay, dựa trên nền tảng AQS đã được kiểm chứng kỹ lưỡng.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>ReentrantLock</code> luôn nhanh hơn <code>synchronized</code> vì nó 'hiện đại hơn'."
+  <strong>Reality:</strong> Từ Java 6 trở đi (Phase 3, Chapter 06 — biased locking, lock coarsening),
+  hiệu năng <code>synchronized</code> không tranh chấp gần tương đương <code>ReentrantLock</code> trong nhiều
+  trường hợp — sự khác biệt chính không nằm ở hiệu năng thuần tuý, mà ở các khả năng bổ sung
+  (tryLock, interrupt, fairness).</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ cần gọi <code>unlock()</code> một lần là lock chắc chắn được nhả, bất kể gọi <code>lock()</code>
+  bao nhiêu lần."
+  <strong>Reality:</strong> Xem Example — phải gọi <code>unlock()</code> đúng <strong>số lần</strong> đã <code>lock()</code> (hold count phải
+  về 0), nếu không lock vẫn bị giữ.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi <code>unlock()</code> không đủ số lần tương ứng với <code>lock()</code></strong> (đặc biệt khi có nhiều đường thoát/
+  exception giữa các lớp gọi lồng nhau) — lock vẫn bị giữ dù tưởng đã nhả xong, gây "treo" cho
+  thread khác.</li>
+<li><strong>Nhầm lẫn <code>isLocked()</code> (có ai đang giữ lock không) với <code>isHeldByCurrentThread()</code></strong> (thread
+  hiện tại có đang giữ lock không) — hai câu hỏi khác nhau, dễ dùng nhầm khi debug.</li>
+<li><strong>Bật <code>fair = true</code> mà không đo lường hiệu năng thực tế</strong> — chi phí công bằng có thể đáng kể
+  hơn dự tính, nên chỉ bật khi thực sự cần tránh starvation, đã xác nhận là vấn đề thật.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Đảm bảo số lần <code>lock()</code> và <code>unlock()</code> luôn khớp nhau tuyệt đối — mỗi <code>lock()</code> phải có đúng
+  một <code>unlock()</code> tương ứng trong <code>finally</code> (Chapter 09).</li>
+<li>Chỉ bật <code>fair = true</code> khi đã xác nhận cụ thể vấn đề starvation là có thật trong hệ thống,
+  không bật "phòng ngừa" theo cảm tính.</li>
+<li>Dùng <code>tryLock(timeout, unit)</code> cho các bài toán cần giới hạn thời gian chờ, tránh treo vô thời
+  hạn khi tài nguyên bị chiếm dụng bất thường lâu.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service dùng <code>ReentrantLock</code> bảo vệ logic nghiệp vụ có nhiều lớp gọi lồng
+nhau (method A gọi B gọi C, cả ba đều giành cùng lock), sau một lần refactor thêm exception
+path mới, lock bắt đầu bị giữ vĩnh viễn trong một số tình huống hiếm.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> "treo" không thường xuyên, chỉ xảy ra khi đi qua đúng nhánh code mới thêm.</li>
+<li><strong>Root cause:</strong> nhánh code mới có một đường thoát sớm (early return, hoặc một exception mới)
+  nằm <strong>giữa</strong> <code>lock()</code> và khối try tương ứng, hoặc một lớp gọi lồng nhau thiếu <code>finally</code> —
+  khiến số lần <code>unlock()</code> thực tế ít hơn số lần <code>lock()</code> đã xảy ra, hold count không bao giờ về
+  0.</li>
+<li><strong>Debug:</strong> rà soát lại toàn bộ các lớp gọi lồng nhau liên quan tới lock đó, đếm chính xác số
+  <code>lock()</code>/<code>unlock()</code> trên từng đường thực thi có thể xảy ra, đặc biệt các đường mới thêm.</li>
+<li><strong>Solution:</strong> đảm bảo mọi <code>lock()</code> đều có đúng một <code>unlock()</code> tương ứng trong <code>finally</code>, trên
+  <strong>mọi</strong> đường thoát có thể (bao gồm exception mới).</li>
+<li><strong>Prevention:</strong> khi refactor code có dùng <code>Lock</code> lồng nhau nhiều lớp, luôn kiểm tra lại đối
+  xứng <code>lock()</code>/<code>unlock()</code> như một bước bắt buộc trong checklist review.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Lock bị giữ dù tưởng đã nhả xong? → dùng <code>getHoldCount()</code> để kiểm tra chính xác còn bao
+      nhiêu lớp <code>lock()</code> chưa được <code>unlock()</code> tương ứng.</li>
+<li>[ ] Cần biết ai đang giữ lock hiện tại? → <code>isLocked()</code> (có ai giữ không) khác
+      <code>isHeldByCurrentThread()</code> (thread hiện tại có giữ không) — dùng đúng câu hỏi cần trả lời.</li>
+<li>[ ] Nghi ngờ hiện tượng starvation (một thread không bao giờ giành được lock)? → cân nhắc bật
+      <code>fair = true</code>, đo lại hiệu năng trước/sau để xác nhận đánh đổi chấp nhận được.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>ReentrantLock.lock()</code> (không tranh chấp) thực chất là một lệnh CAS đơn trên biến <code>state</code> của
+AQS (Chapter 09 đã nhắc) — từ <code>0</code> (chưa ai giữ) sang <code>1</code> (thread hiện tại giữ, hold count = 1).
+Gọi <code>lock()</code> thêm lần nữa từ <strong>cùng thread</strong> không cần CAS lại — AQS kiểm tra thread hiện tại
+đã là chủ sở hữu (<code>exclusiveOwnerThread</code>), chỉ tăng <code>state</code> lên (không cần thao tác nguyên tử
+phức tạp, vì chỉ có đúng thread sở hữu mới có thể thay đổi giá trị này một cách hợp lệ tại thời
+điểm đó). <code>unlock()</code> giảm <code>state</code>, chỉ khi về <code>0</code> mới thực sự "mở khoá" và đánh thức thread
+tiếp theo (nếu có) trong hàng đợi AQS.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>ReentrantLock</code> (implementation chính của <code>Lock</code>, Chapter 09) mang tính chất <strong>reentrant</strong> vào
+thế giới lock tường minh — một thread đã giữ lock có thể giành lại chính nó nhiều lần, tăng dần
+"hold count" (đã xác nhận trực tiếp: 1, 2, 3 qua các lớp gọi đệ quy), và phải <code>unlock()</code> đúng
+số lần tương ứng để thực sự nhả lock. <code>tryLock(timeout, unit)</code> cho phép chờ giành lock trong
+một khoảng thời gian giới hạn, không treo vô thời hạn. Xây trên nền tảng AQS (dùng CAS, không
+phải Monitor), <code>ReentrantLock</code> đạt hiệu năng tốt trong trường hợp không tranh chấp. Tuỳ chọn
+<code>fair</code> đánh đổi thứ tự FIFO nghiêm ngặt lấy chi phí hiệu năng cao hơn — mặc định <code>false</code> ưu
+tiên throughput.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li><code>ReentrantLock</code> là gì? "Reentrant" nghĩa là gì?</li>
+<li>Gọi <code>lock()</code> hai lần liên tiếp trên cùng thread có bị treo không?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích "hold count" — nó thay đổi thế nào qua các lớp gọi lồng nhau?</li>
+<li><code>tryLock(timeout, unit)</code> khác <code>lock()</code> thông thường như thế nào? Cho use case cụ thể.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích đánh đổi giữa <code>fair = true</code> và <code>fair = false</code> — vì sao JDK chọn <code>false</code> làm mặc
+  định?</li>
+<li>Mô tả kiến trúc AQS đứng sau <code>ReentrantLock</code> ở mức khái niệm — vì sao nó nhanh hơn dựa vào
+  CAS thay vì Monitor trong trường hợp không tranh chấp?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ReentrantLockDemo</code> ở trên, xác nhận hold count đúng 1, 2, 3.</li>
+<li>[ ] Cố tình gọi <code>lock()</code> hai lần nhưng chỉ <code>unlock()</code> một lần — xác nhận lock vẫn bị giữ
+      (<code>isLocked()</code> vẫn <code>true</code>), một thread khác chờ nó sẽ <code>BLOCKED</code>/không giành được.</li>
+<li>[ ] Tạo hai <code>ReentrantLock</code> — một <code>fair = true</code>, một <code>fair = false</code> — với nhiều thread cùng
+      tranh giành liên tục, đo và so sánh thông lượng (throughput) tổng thể giữa hai loại.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lock()</code></td>
+<td>Giành lock, chờ vô thời hạn nếu cần</td>
+</tr>
+<tr>
+<td><code>tryLock()</code></td>
+<td>Thử giành ngay, trả về <code>boolean</code>, không chờ</td>
+</tr>
+<tr>
+<td><code>tryLock(timeout, unit)</code></td>
+<td>Thử giành trong khoảng thời gian giới hạn</td>
+</tr>
+<tr>
+<td><code>lockInterruptibly()</code></td>
+<td>Chờ giành lock, có thể bị <code>interrupt()</code></td>
+</tr>
+<tr>
+<td><code>getHoldCount()</code></td>
+<td>Số lần thread hiện tại đã giành (chưa unlock hết)</td>
+</tr>
+<tr>
+<td><code>isHeldByCurrentThread()</code></td>
+<td>Thread hiện tại có đang giữ lock không</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.locks.ReentrantLock</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 13.1: Lock and ReentrantLock.</li>
+<li>Doug Lea, "The java.util.concurrent Synchronizer Framework" (tài liệu gốc về AQS).</li>
 </ul>
 
 

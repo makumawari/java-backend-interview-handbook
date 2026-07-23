@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:thread" class="md-tag">Thread</a>
       
     
   </nav>
@@ -6149,15 +6163,16 @@ Chapter slug: <code>thread</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thread</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 04 — Runtime Data Areas (mỗi thread có JVM Stack riêng)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 05 — Execution Engine</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Toàn bộ Phase 3 — mọi chapter còn lại xây dựng trên khái niệm Thread ở đây</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6180,266 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../../phase-01-foundation/04-runtime-data-areas/">Phase 1, Chapter 04</a> — mỗi
+thread có JVM Stack <strong>riêng</strong>, PC Register <strong>riêng</strong>, nhưng dùng chung một Heap.</p>
 </blockquote>
+<p>Suốt Phase 1 và Phase 2, mọi ví dụ code đều ngầm định chạy trên <strong>một</strong> thread duy nhất —
+<code>main</code>. Từ Phase 3, giả định đó không còn nữa. Thử đoạn code sau, một lỗi cực kỳ phổ biến với
+người mới:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Chay tren: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">()));</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">t</span><span class="p">.</span><span class="na">run</span><span class="p">();</span><span class="w">  </span><span class="c1">// ⚠️ gọi run() TRỰC TIẾP, không phải start()</span>
+</code></pre></div>
+<p>Kết quả: <code>Chay tren: main</code> — <strong>không</strong> có thread mới nào được tạo ra cả! Gọi <code>run()</code> trực tiếp
+chỉ là một lời gọi method bình thường, chạy ngay trên thread hiện tại, y hệt gọi bất kỳ method
+nào khác. Phải gọi <code>start()</code> mới thực sự tạo một luồng thực thi mới. Sự khác biệt tưởng nhỏ này
+là điểm khởi đầu bắt buộc phải nắm chắc trước khi học bất kỳ khái niệm concurrency nào khác.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Điều gì thực sự xảy ra khi bạn gọi <code>thread.start()</code>? Vì sao gọi trực tiếp <code>thread.run()</code>
+không tạo ra luồng thực thi mới?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tạo Thread bằng hai cách: kế thừa <code>Thread</code> và implement <code>Runnable</code>, biết khi nào dùng
+      cách nào</li>
+<li>[ ] Tự tay chứng minh sự khác biệt giữa <code>start()</code> (tạo thread mới) và <code>run()</code> (chạy trên
+      thread hiện tại)</li>
+<li>[ ] Biết mỗi <code>Thread</code> có JVM Stack riêng (liên hệ Phase 1, Chapter 04) — đây là lý do các
+      thread độc lập với nhau về biến cục bộ</li>
+<li>[ ] Dùng đúng <code>join()</code> để chờ một thread hoàn thành</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 1, Chapter 04 — biết mỗi thread có Stack riêng, dùng chung Heap.</li>
+<li>Phase 1, Chapter 05 — biết Execution Engine thực thi bytecode; mỗi thread có luồng thực thi
+  bytecode độc lập.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
-<ul>
-<li>TODO</li>
-</ul>
+<p>Toàn bộ 18 chapter còn lại của Phase 3 xây dựng trực tiếp trên khái niệm <code>Thread</code> học ở đây —
+từ vòng đời (Chapter 02), tới đồng bộ hoá (Chapter 05-11), tới các mô hình quản lý thread hiện
+đại (Thread Pool, Chapter 15; Virtual Thread, Chapter 19).</p>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một chương trình chỉ chạy trên một thread duy nhất chỉ có thể làm <strong>một việc tại một thời
+điểm</strong> — nếu việc đó chậm (đọc file, gọi API, tính toán nặng), toàn bộ chương trình phải chờ,
+dù CPU hiện đại có nhiều lõi có thể xử lý song song. Cần một cơ chế để chạy nhiều đoạn code
+<strong>đồng thời</strong>, tận dụng phần cứng đa nhân.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Thread</code> là đơn vị thực thi độc lập nhỏ nhất trong JVM. Một chương trình Java luôn có ít nhất
+một thread (<code>main</code>), và có thể tạo thêm các thread khác — mỗi thread chạy code <strong>song song</strong>
+(hoặc xen kẽ, tuỳ số lõi CPU thực tế) với các thread khác, có JVM Stack riêng (Phase 1, Chapter
+04) nhưng dùng chung Heap — đây chính là nguồn gốc của mọi vấn đề concurrency sẽ học trong suốt
+Phase 3: dữ liệu trên Heap có thể bị nhiều thread cùng truy cập.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có Thread: một web server chỉ xử lý được <strong>một</strong> request tại một thời điểm — request
+thứ hai phải chờ request đầu xử lý xong hoàn toàn, dù CPU có 16 lõi đang rảnh rỗi. Thread cho
+phép JVM giao cho hệ điều hành phân bổ nhiều luồng thực thi lên nhiều lõi CPU thực tế, xử lý
+nhiều việc thực sự song song.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Hai cách tạo <code>Thread</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Cách 1: kế thừa Thread, override run()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">class</span> <span class="nc">MyThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Chay trong MyThread&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">new</span><span class="w"> </span><span class="n">MyThread</span><span class="p">().</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Cách 2: implement Runnable, truyền vào Thread (KHUYẾN NGHỊ — xem Engineering Insight)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">Runnable</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Chay trong Runnable&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="na">start</span><span class="p">();</span>
+</code></pre></div>
+<p><code>start()</code> yêu cầu JVM (thông qua hệ điều hành) tạo một <strong>luồng thực thi mới thật sự</strong> — cấp
+Stack riêng, đăng ký với bộ lập lịch (scheduler) của hệ điều hành — rồi luồng mới đó mới gọi
+<code>run()</code>. Gọi <code>run()</code> trực tiếp bỏ qua toàn bộ bước này, chỉ là một lời gọi method bình thường.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>thread.start()
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>      │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>JVM yêu cầu HỆ ĐIỀU HÀNH tạo một OS thread mới
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      ▼
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>OS thread mới được cấp Stack riêng (Phase 1, Chapter 04)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>      │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      ▼
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Bộ lập lịch OS đăng ký thread mới, sẽ được CPU thực thi khi tới lượt
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>      │
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>      ▼
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>Thread MỚI (không phải thread gọi start()) thực thi run()
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>thread.run()  (gọi trực tiếp)
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>      │
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>      ▼
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>CHỈ LÀ MỘT LỜI GỌI METHOD BÌNH THƯỜNG
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>      │
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>      ▼
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>Chạy NGAY trên thread hiện tại — KHÔNG có thread mới nào được tạo
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p>Chứng minh trực tiếp sự khác biệt <code>start()</code> vs <code>run()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreadDemo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Main thread: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;t1 chay tren thread: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">t1</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="n">t1</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--- goi run() truc tiep (KHONG start()) ---&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;t2 chay tren thread: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Main thread: main
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>t1 chay tren thread: Thread-0
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>--- goi run() truc tiep (KHONG start()) ---
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>t2 chay tren thread: main
+</code></pre></div>
+<p><code>t1</code> (gọi <code>start()</code>) chạy trên một thread thật sự mới (<code>Thread-0</code>). <code>t2</code> (gọi <code>run()</code> trực
+tiếp) chạy ngay trên <code>main</code> — xác nhận chính xác điều đã dự đoán ở Story.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong><code>join()</code> làm gì chính xác?</strong> <code>t1.join()</code> khiến thread gọi nó (ở đây là <code>main</code>) <strong>tạm dừng</strong>
+cho tới khi <code>t1</code> kết thúc hoàn toàn (chuyển sang trạng thái <code>TERMINATED</code>, xem
+<a href="../02-thread-lifecycle/">Chapter 02</a>). Nếu không gọi <code>join()</code>, <code>main</code> có thể kết thúc <strong>trước</strong>
+<code>t1</code> kịp in ra bất cứ gì — chương trình Java thoát khi <strong>mọi</strong> thread non-daemon (mặc định) đã
+kết thúc, không phải chỉ riêng <code>main</code>, nhưng thứ tự output giữa các thread không được đảm bảo
+nếu không có <code>join()</code> hoặc cơ chế đồng bộ khác.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao nên implement <code>Runnable</code> thay vì kế thừa <code>Thread</code> (như Cách 2 ở phần How?)?</strong> Vì Java
+không hỗ trợ đa kế thừa class (Phase 1, Chapter 08) — nếu class của bạn đã kế thừa <code>Thread</code>, nó
+<strong>không thể</strong> kế thừa thêm bất kỳ class nào khác. <code>Runnable</code> chỉ là một interface mô tả "một
+việc cần làm" (<code>run()</code>), tách biệt hoàn toàn khỏi khái niệm "là một Thread" — bạn có thể để một
+class vừa kế thừa một class nghiệp vụ khác, vừa implement <code>Runnable</code>, rồi truyền nó cho
+<code>Thread</code> hoặc (thực tế hơn nhiều — xem Chapter 15-16) cho một <code>ExecutorService</code>. Đây cũng chính
+là ứng dụng của nguyên tắc composition-over-inheritance đã học ở
+<a href="../../phase-01-foundation/08-oop-fundamentals/">Phase 1, Chapter 08</a>: <code>Thread</code> <strong>có một</strong>
+<code>Runnable</code> để chạy, thay vì class của bạn <strong>là một</strong> <code>Thread</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Thread</code> tồn tại từ Java 1.0 (1996) — là một trong những API lâu đời nhất của Java, phản ánh
+Java được thiết kế "sẵn sàng cho đa luồng" ngay từ đầu (khác nhiều ngôn ngữ cùng thời). Qua gần
+30 năm, API <code>Thread</code> cơ bản gần như không đổi — điều thay đổi là các công cụ <strong>quản lý</strong> thread
+xây trên nền nó: <code>ExecutorService</code> (Java 5, Chapter 15-16), <code>CompletableFuture</code> (Java 8,
+Chapter 18), và gần đây nhất, Virtual Thread (Java 21, Chapter 19) — thay đổi triệt để nhất
+trong toàn bộ lịch sử threading của Java.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Gọi <code>run()</code> hay <code>start()</code> đều tạo ra một thread mới, chỉ khác cách viết."
+  <strong>Reality:</strong> Xem Example — chỉ <code>start()</code> tạo thread mới. <code>run()</code> là lời gọi method bình
+  thường.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Không gọi <code>join()</code> thì chương trình sẽ chờ tất cả thread daemon lẫn non-daemon
+  trước khi thoát."
+  <strong>Reality:</strong> JVM chỉ chờ các thread <strong>non-daemon</strong> (mặc định của thread tự tạo). Thread
+  daemon (đặt bằng <code>setDaemon(true)</code>) bị JVM <strong>ngắt ngang</strong> khi mọi thread non-daemon đã xong,
+  không đợi chúng hoàn thành.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi <code>run()</code> thay vì <code>start()</code></strong> — lỗi cú pháp hợp lệ (không báo lỗi biên dịch, không
+  exception) nhưng sai hoàn toàn về ý định, rất khó phát hiện nếu không biết rõ sự khác biệt.</li>
+<li><strong>Kế thừa <code>Thread</code> một cách không cần thiết</strong> khi chỉ cần mô tả "một việc cần làm" — nên dùng
+  <code>Runnable</code> (xem Engineering Insight).</li>
+<li><strong>Quên <code>join()</code></strong> rồi ngạc nhiên vì <code>main</code> kết thúc trước khi thread con kịp in kết quả.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Ưu tiên <code>Runnable</code> (hoặc <code>Callable</code>, Chapter 14) hơn kế thừa <code>Thread</code> trực tiếp.</li>
+<li>Trong thực tế production, hiếm khi tự tạo <code>Thread</code> trực tiếp — hầu hết dùng
+  <code>ExecutorService</code> (Chapter 15-16) để quản lý vòng đời thread một cách có kiểm soát.</li>
+<li>Luôn <code>join()</code> (hoặc dùng cơ chế đồng bộ tương đương) nếu cần đảm bảo một thread đã hoàn
+  thành trước khi tiếp tục.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p>Chapter này thuần nền tảng — các vấn đề production cụ thể liên quan tới Thread (race condition,
+deadlock, resource exhaustion khi tạo quá nhiều thread) sẽ được bàn chi tiết ở các chapter tiếp
+theo khi có đủ ngữ cảnh kỹ thuật (Chapter 03 trở đi cho race condition, Chapter 15 cho vấn đề
+tạo quá nhiều thread).</p>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Code trong <code>Runnable</code>/override <code>run()</code> không chạy song song như mong đợi? → kiểm tra có
+      đang gọi <code>run()</code> trực tiếp thay vì <code>start()</code> không.</li>
+<li>[ ] <code>main</code> kết thúc trước khi thread con in xong kết quả? → thiếu <code>join()</code>.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>Thread.start()</code> (native method, hiện thực bằng C++ trong HotSpot) gọi xuống hệ điều hành để
+tạo một OS thread thật sự (<code>pthread_create</code> trên Linux/macOS, tương đương trên Windows) —
+JVM Thread và OS thread có quan hệ 1-1 trong mô hình threading truyền thống của Java (khác
+Virtual Thread, Chapter 19, nơi quan hệ này không còn 1-1). Đây là lý do tạo quá nhiều
+<code>Thread</code> truyền thống tốn kém — mỗi cái đều kéo theo chi phí thật của hệ điều hành, không chỉ
+là một object Java nhẹ nhàng trên Heap.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>Thread</code> là đơn vị thực thi độc lập nhỏ nhất trong JVM, có JVM Stack riêng (Phase 1, Chapter
+04) nhưng dùng chung Heap với các thread khác — nguồn gốc của mọi vấn đề concurrency. <code>start()</code>
+tạo một luồng thực thi mới thật sự (thông qua OS thread); gọi <code>run()</code> trực tiếp chỉ là một lời
+gọi method bình thường trên thread hiện tại — đã chứng minh bằng thực nghiệm. Ưu tiên
+<code>Runnable</code> hơn kế thừa <code>Thread</code> trực tiếp, vì Java không hỗ trợ đa kế thừa. <code>join()</code> chờ một
+thread hoàn thành trước khi tiếp tục.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Junior</strong></p>
+<ul>
+<li>Có mấy cách tạo Thread trong Java? Kể tên.</li>
+<li><code>start()</code> và <code>run()</code> khác nhau như thế nào?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao nên implement <code>Runnable</code> thay vì kế thừa <code>Thread</code> trực tiếp?</li>
+<li><code>join()</code> làm gì? Điều gì xảy ra nếu không gọi nó?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích ở tầng hệ điều hành điều gì xảy ra khi gọi <code>thread.start()</code>.</li>
+<li>So sánh mô hình 1-1 giữa JVM Thread và OS Thread (truyền thống) với mô hình Virtual Thread
+  (Chapter 19, xem trước nếu đã biết) — vì sao sự khác biệt này quan trọng cho khả năng mở
+  rộng?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ThreadDemo</code> ở trên, xác nhận kết quả giống hệt.</li>
+<li>[ ] Tạo 5 Thread, mỗi thread in ra tên của chính nó — chạy nhiều lần, quan sát thứ tự output
+      có luôn giống nhau không (gợi ý: không, vì bộ lập lịch OS không đảm bảo thứ tự).</li>
+<li>[ ] Viết một Thread không gọi <code>join()</code>, quan sát chương trình có thể kết thúc trước khi
+      thread đó kịp in kết quả hay không.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>start()</code></th>
+<th><code>run()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tạo thread mới?</td>
+<td>Có</td>
+<td>Không</td>
+</tr>
+<tr>
+<td>Chạy trên thread nào?</td>
+<td>Thread mới</td>
+<td>Thread hiện tại (gọi nó)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Cách khuyến nghị</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Runnable</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* việc cần làm */</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">t</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">t</span><span class="p">.</span><span class="na">join</span><span class="p">();</span><span class="w"> </span><span class="c1">// chờ hoàn thành</span>
+</code></pre></div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.lang.Thread</code>, <code>java.lang.Runnable</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 1: Introduction.</li>
 </ul>
 
 

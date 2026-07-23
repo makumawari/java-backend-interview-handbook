@@ -2660,7 +2660,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2688,7 +2688,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:wait" class="md-tag">wait</a>
       
     
   </nav>
@@ -6149,15 +6163,16 @@ Chapter slug: <code>wait</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wait()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Monitor</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">notify() (Chapter 08) — luôn đi cùng cặp với wait(), một chapter tách làm hai để không dồn quá nhiều khái niệm</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Executor, Thread Pool (Chapter 15-16) — về sau hầu như luôn dùng công cụ cấp cao hơn thay vì tự viết wait/notify</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20 phút</span>
 </code></pre></div>
 <blockquote>
 <p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
@@ -6165,78 +6180,330 @@ filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
 </blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../06-monitor/">Chapter 06</a> — mỗi Monitor có một <strong>wait set</strong>, nơi thread "chủ động
+nhường lại lock" chờ được đánh thức.</p>
 </blockquote>
+<p>Thử gọi <code>wait()</code> mà quên mất một điều kiện tiên quyết:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// gọi TRỰC TIẾP, không synchronized(lock) trước</span>
+</code></pre></div>
+<p>Kết quả:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>IllegalMonitorStateException - current thread is not owner
+</code></pre></div>
+<p>JVM từ chối thẳng thừng — <code>wait()</code> <strong>bắt buộc</strong> phải được gọi từ bên trong một khối
+<code>synchronized</code> trên <strong>chính object</strong> mà <code>wait()</code> được gọi lên. Đây không phải một ràng buộc tuỳ
+tiện: nó phản ánh đúng bản chất của <code>wait()</code> — "nhường lại lock <strong>tôi đang giữ</strong>" chỉ có ý
+nghĩa nếu bạn thực sự đang giữ lock đó. Chapter này giải thích <code>wait()</code> hoạt động ra sao, và xây
+dựng một bài toán kinh điển — producer-consumer — hoàn toàn từ <code>wait()</code>/<code>notify()</code> thô, trước
+khi Phase 3 giới thiệu các công cụ cấp cao hơn thay thế nó trong thực tế.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>wait()</code> làm gì chính xác? Vì sao nó bắt buộc phải được gọi từ bên trong khối
+<code>synchronized</code>?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
 <p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác <code>wait()</code> làm gì: nhả lock, chuyển thread vào wait set
+      (<code>WAITING</code>/<code>TIMED_WAITING</code>, Chapter 02), chờ được đánh thức</li>
+<li>[ ] Tự tay xác nhận <code>IllegalMonitorStateException</code> khi gọi <code>wait()</code> sai cách</li>
+<li>[ ] Xây dựng hoàn chỉnh bài toán producer-consumer bằng <code>wait()</code></li>
+<li>[ ] Biết vì sao <code>wait()</code> luôn phải đặt trong vòng lặp <code>while</code>, không phải <code>if</code></li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 06 — hiểu Monitor, entry set, wait set.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>notify()</strong> (Chapter 08) — hoàn thiện nốt nửa còn lại của cơ chế: cách đánh thức một thread
+  đang trong wait set.</li>
+<li><strong>Executor, Thread Pool</strong> (Chapter 15-16) — trong thực tế hiện đại, hiếm khi tự viết
+  <code>wait()</code>/<code>notify()</code> thô — các công cụ cấp cao hơn (<code>BlockingQueue</code>, <code>CountDownLatch</code>) che
+  giấu độ phức tạp này, nhưng hiểu nguyên lý gốc vẫn cần thiết để dùng đúng các công cụ đó.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>synchronized</code> (Chapter 05) đảm bảo loại trừ lẫn nhau, nhưng không giải quyết được bài toán:
+"thread A cần <strong>chờ một điều kiện cụ thể</strong> trở thành đúng, do thread B tạo ra, trước khi tiếp
+tục" (ví dụ: consumer chờ có dữ liệu trong buffer trước khi lấy ra). Nếu A giữ lock trong khi
+chờ (ví dụ vòng lặp kiểm tra liên tục — busy-wait), nó sẽ <strong>chặn đứng</strong> B — B không bao giờ
+giành được lock để tạo ra điều kiện mà A đang chờ, gây deadlock tự tạo hoặc lãng phí CPU
+nghiêm trọng.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>wait()</code> (kế thừa từ <code>Object</code>, Phase 1 Chapter 09 — không phải <code>Thread</code>, xem lại
+<a href="../06-monitor/">Chapter 06 — Deep Dive</a>) giải quyết đúng vấn đề trên: khi một thread đang giữ
+lock của một Monitor gọi <code>wait()</code>, nó <strong>nhả lock ngay lập tức</strong> (để thread khác có cơ hội giành
+lock, tạo ra điều kiện mong đợi) <strong>và</strong> tạm dừng chính nó, chuyển vào wait set của Monitor đó
+(trạng thái <code>WAITING</code>/<code>TIMED_WAITING</code>, Chapter 02) — cho tới khi có thread khác gọi
+<code>notify()</code>/<code>notifyAll()</code> (Chapter 08) trên <strong>cùng object</strong>.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Nếu không có <code>wait()</code>: cách duy nhất để "chờ một điều kiện" là <strong>busy-wait</strong> — vòng lặp liên
+tục kiểm tra điều kiện (<code>while (!ready) { }</code>), tốn 100% một lõi CPU chỉ để "chờ", và tệ hơn nếu
+đang giữ lock trong lúc chờ (chặn đứng luôn thread cần tạo ra điều kiện đó). <code>wait()</code> cho phép
+thread <strong>thực sự ngừng chạy</strong> (không tốn CPU) trong lúc chờ, đồng thời <strong>nhường lại lock</strong> cho
+thread khác — giải quyết cả hai vấn đề cùng lúc.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">conditionMet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// LUÔN dùng while, KHÔNG dùng if — xem Deep Dive</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w">          </span><span class="c1">// nhả lock, chờ, khi được đánh thức GIÀNH LẠI lock rồi mới return</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// ... điều kiện đã đúng, xử lý tiếp</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Thread (Consumer)                          Monitor của &quot;lock&quot;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>      │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>synchronized(lock) { ─────────────────▶  GIÀNH LOCK
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   while (buffer rỗng) {
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>       lock.wait() ─────────────────────▶  NHẢ LOCK, vào WAIT SET (WAITING)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                                                    │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                            (Producer giành lock,   │
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                             thêm dữ liệu, notify()) │
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                                                    ▼
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>       [được đánh thức] ◀───────────────────  quay lại ENTRY SET,
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                                TRANH GIÀNH LẠI lock
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>       [giành lại lock, kiểm tra lại điều kiện while]
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>   }
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>   // xử lý dữ liệu
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>}
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong><code>IllegalMonitorStateException</code> khi gọi <code>wait()</code> sai cách:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WaitWithoutLock</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">            </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// GOI wait() MA KHONG synchronized(lock) truoc</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IllegalMonitorStateException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Loi: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; - &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Loi: IllegalMonitorStateException - current thread is not owner
+</code></pre></div>
+<p><strong>Producer-Consumer hoàn chỉnh</strong> — bài toán kinh điển giải quyết trọn vẹn bằng <code>wait()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Queue</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProducerConsumer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">CAPACITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">                </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">                    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CAPACITY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Producer: buffer day, wait()...&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">                        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">                    </span><span class="n">buffer</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Producer: them &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, buffer=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">                    </span><span class="n">lock</span><span class="p">.</span><span class="na">notifyAll</span><span class="p">();</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">                </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">                    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Consumer: buffer rong, wait()...&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">                        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">                    </span><span class="p">}</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Consumer: lay &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, buffer=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">                    </span><span class="n">lock</span><span class="p">.</span><span class="na">notifyAll</span><span class="p">();</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">        </span><span class="n">producer</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">        </span><span class="n">producer</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">        </span><span class="n">consumer</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="p">}</span>
+</code></pre></div>
+<p>Kết quả thật (rút gọn, JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Producer: them 1, buffer=[1]
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Producer: them 2, buffer=[1, 2]
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Producer: them 3, buffer=[1, 2, 3]
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Producer: buffer day, wait()...
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Consumer: lay 1, buffer=[2, 3]
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Producer: them 4, buffer=[2, 3, 4]
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>...
+</code></pre></div>
+<p>Producer tự động dừng lại (<code>wait()</code>) khi buffer đầy, và tự động tiếp tục ngay khi Consumer lấy
+bớt ra — hoàn toàn không có busy-wait, không lãng phí CPU chờ đợi.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao luôn phải dùng <code>while (!condition) { wait(); }</code>, không được dùng <code>if (!condition) { wait(); }</code>?</strong>
+Vì có hiện tượng gọi là <strong>spurious wakeup</strong> (đánh thức giả) — JVM/hệ điều hành <strong>được phép</strong>
+(theo đặc tả) đánh thức một thread đang <code>wait()</code> mà <strong>không có</strong> <code>notify()</code> nào thực sự xảy ra
+tương ứng (một chi tiết hiện thực ở tầng thấp, hiếm nhưng hợp lệ). Nếu dùng <code>if</code>, thread có thể
+"tưởng" điều kiện đã đúng (vì vừa được đánh thức) và tiếp tục xử lý dù thực tế điều kiện <strong>vẫn
+sai</strong>. Ngoài ra, ngay cả khi không có spurious wakeup: với <strong>nhiều</strong> thread cùng chờ trên một
+lock (như nhiều consumer), khi một consumer được đánh thức, một consumer <strong>khác</strong> có thể đã
+"nhanh tay" giành lock trước và lấy mất dữ liệu — buộc thread vừa được đánh thức phải <strong>kiểm
+tra lại</strong> điều kiện, không được giả định nó vẫn đúng. <code>while</code> giải quyết cả hai vấn đề bằng
+cách luôn kiểm tra lại điều kiện <strong>sau khi</strong> được đánh thức, trước khi làm bất cứ điều gì khác.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>wait()</code> "nhả lock rồi chờ" phải là một thao tác nguyên tử (atomic), không phải hai
+bước riêng biệt?</strong> Nếu "nhả lock" và "bắt đầu chờ" là hai bước tách rời (ví dụ nếu lập trình
+viên tự viết <code>unlock(); pause();</code>): có một khoảng hở cực nhỏ giữa hai bước, nơi một thread khác
+có thể <code>notify()</code> <strong>trước khi</strong> thread đầu tiên kịp thực sự vào trạng thái chờ — tín hiệu
+<code>notify()</code> đó sẽ "trôi qua trong hư không", không ai nhận được, và thread đang chờ sẽ chờ <strong>mãi
+mãi</strong> dù điều kiện đã đúng từ lâu (gọi là "missed signal" — tín hiệu bị bỏ lỡ). <code>wait()</code> được
+thiết kế như một thao tác <strong>nguyên tử duy nhất</strong> ở tầng JVM chính xác để loại bỏ khoảng hở nguy
+hiểm này — nhả lock và bắt đầu chờ xảy ra như một hành động không thể chia cắt, không có
+khoảng trống nào cho một <code>notify()</code> "trôi mất".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>wait()</code>/<code>notify()</code>/<code>notifyAll()</code> tồn tại từ Java 1.0 (1996) — là cơ chế điều phối
+(coordination) đa luồng nguyên thuỷ đầu tiên của Java, đi kèm với <code>synchronized</code>. Java 5 (2004)
+bổ sung <code>java.util.concurrent.locks.Condition</code> (gắn với <code>ReentrantLock</code>, Chapter 10) — một
+phiên bản tường minh, linh hoạt hơn của cùng ý tưởng (cho phép nhiều "điều kiện chờ" khác nhau
+trên cùng một lock, thay vì chỉ một wait set duy nhất như Monitor). Từ Java 5 trở đi, cộng đồng
+Java dần chuyển sang dùng các cấu trúc cấp cao hơn hẳn (<code>BlockingQueue</code>, Chapter 15-16) cho
+phần lớn bài toán producer-consumer thực tế, thay vì tự viết <code>wait()</code>/<code>notify()</code> thô như ở
+Example — nhưng hiểu nguyên lý gốc vẫn là nền tảng bắt buộc.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "<code>wait()</code> có thể gọi ở bất kỳ đâu, miễn là trên một object hợp lệ."
+  <strong>Reality:</strong> Xem Example — bắt buộc phải gọi từ bên trong khối <code>synchronized</code> trên đúng
+  object đó, nếu không ném <code>IllegalMonitorStateException</code> ngay lập tức.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Dùng <code>if (!condition) wait();</code> là đủ, vì logic có vẻ tương đương <code>while</code>."
+  <strong>Reality:</strong> Xem Deep Dive về spurious wakeup và tranh chấp giữa nhiều thread — <code>if</code> có thể
+  dẫn tới xử lý sai dù điều kiện thực tế chưa đúng.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Gọi <code>wait()</code> ngoài khối <code>synchronized</code></strong> — <code>IllegalMonitorStateException</code> ngay lập tức.</li>
+<li><strong>Dùng <code>if</code> thay vì <code>while</code></strong> quanh <code>wait()</code> — lỗi tinh vi, có thể không lộ ra ngay (đặc biệt
+  nếu chỉ có đúng một thread chờ, spurious wakeup lại hiếm) nhưng tiềm ẩn nguy cơ nghiêm trọng.</li>
+<li><strong>Quên bắt <code>InterruptedException</code></strong> đúng cách — <code>wait()</code> là checked exception (Phase 1,
+  Chapter 15), việc nuốt exception này mà không xử lý gì có thể che giấu tín hiệu ngắt quan
+  trọng.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn bọc <code>wait()</code> trong vòng lặp <code>while</code> kiểm tra điều kiện, không bao giờ dùng <code>if</code>.</li>
+<li>Luôn gọi <code>wait()</code>/<code>notify()</code>/<code>notifyAll()</code> bên trong khối <code>synchronized</code> trên đúng object.</li>
+<li>Trong code production hiện đại, ưu tiên <code>BlockingQueue</code> (Chapter 15-16) hoặc các cấu trúc
+  <code>java.util.concurrent</code> cấp cao thay vì tự viết <code>wait()</code>/<code>notify()</code> thô — dễ viết đúng hơn
+  nhiều, ít cạm bẫy hơn.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một hệ thống dùng <code>wait()</code>/<code>notify()</code> tự viết cho hàng đợi xử lý task nội bộ,
+thỉnh thoảng có task "kẹt" vô thời hạn dù rõ ràng có task mới liên tục được thêm vào.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> một số worker thread ở trạng thái <code>WAITING</code> mãi mãi (Chapter 02), dù hàng
+  đợi có dữ liệu mới liên tục.</li>
+<li><strong>Root cause:</strong> thường là dùng <code>notify()</code> (chỉ đánh thức <strong>một</strong> thread ngẫu nhiên trong wait
+  set) thay vì <code>notifyAll()</code> khi có nhiều thread cùng chờ — thread bị đánh thức "nhầm" có thể
+  không phải thread cần được đánh thức để xử lý đúng task đang chờ, dẫn tới tín hiệu bị "lãng
+  phí" — chi tiết đầy đủ về <code>notify()</code> vs <code>notifyAll()</code> ở <a href="../08-notify/">Chapter 08</a>.</li>
+<li><strong>Debug:</strong> thread dump (Chapter 02) cho thấy nhiều thread <code>WAITING</code> đồng thời, trong khi
+  logic mong đợi ít nhất một trong số chúng phải được đánh thức.</li>
+<li><strong>Solution:</strong> đổi <code>notify()</code> thành <code>notifyAll()</code> nếu có nhiều loại điều kiện chờ khác nhau
+  trên cùng một lock — chi tiết đầy đủ ở Chapter 08.</li>
+<li><strong>Prevention:</strong> mặc định dùng <code>notifyAll()</code> trừ khi có lý do rõ ràng và đã kiểm chứng kỹ để
+  dùng <code>notify()</code> (chỉ an toàn khi mọi thread chờ đều tương đương nhau — hiếm khi đúng trong
+  thực tế phức tạp).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] <code>IllegalMonitorStateException</code> khi gọi <code>wait()</code>? → kiểm tra có đang gọi từ bên trong
+      đúng khối <code>synchronized</code> trên đúng object không.</li>
+<li>[ ] Thread kẹt ở <code>WAITING</code> mãi mãi dù điều kiện đã đúng? → kiểm tra có <code>notify()</code>/
+      <code>notifyAll()</code> tương ứng được gọi không, và nếu dùng <code>notify()</code>, xem có đang đánh thức
+      nhầm thread không (Chapter 08).</li>
+<li>[ ] Nghi ngờ code dùng <code>if</code> thay vì <code>while</code> quanh <code>wait()</code>? → sửa ngay, đây luôn là lỗi tiềm
+      ẩn dù chưa lộ ra.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p><code>Object.wait()</code> là một <code>native</code> method (Phase 1, Chapter 09) — hiện thực thật nằm trong HotSpot
+C++, thao tác trực tiếp lên cấu trúc <code>ObjectMonitor</code> (đã nhắc ở Chapter 06): nhả lock hiện tại
+(giảm "recursion count" — vì reentrant, Chapter 05, một thread có thể giữ lock nhiều lớp; JVM
+nhớ số lớp để trả lại đúng khi được đánh thức), thêm chính thread vào wait set, rồi chặn thread
+ở tầng hệ điều hành cho tới khi được đánh thức hoặc hết thời gian chờ (nếu dùng <code>wait(ms)</code>).</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>wait()</code> (kế thừa từ <code>Object</code>) khiến thread hiện tại <strong>nhả lock</strong> đang giữ và tạm dừng
+(<code>WAITING</code>/<code>TIMED_WAITING</code>, Chapter 02), chuyển vào wait set của Monitor (Chapter 06) — bắt
+buộc phải gọi từ bên trong <code>synchronized</code> trên đúng object, nếu không ném
+<code>IllegalMonitorStateException</code> (đã xác nhận thực nghiệm). Luôn đặt <code>wait()</code> trong vòng lặp
+<code>while</code> kiểm tra điều kiện, không dùng <code>if</code>, vì spurious wakeup và tranh chấp giữa nhiều thread
+chờ có thể khiến điều kiện chưa thực sự đúng dù vừa được đánh thức. Kết hợp <code>wait()</code> với
+<code>notify()</code>/<code>notifyAll()</code> (Chapter 08) giải quyết trọn vẹn bài toán producer-consumer kinh điển
+— đã xây dựng và chạy đúng bằng thực nghiệm.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Junior</strong></p>
 <ul>
-<li>wait() khác sleep() như thế nào?</li>
+<li><code>wait()</code> làm gì? Nó có giải phóng lock đang giữ không?</li>
+<li>Điều gì xảy ra nếu gọi <code>wait()</code> mà không có <code>synchronized</code> bao quanh?</li>
+</ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Vì sao phải dùng <code>while</code> thay vì <code>if</code> quanh <code>wait()</code>?</li>
+<li>Cài đặt bài toán producer-consumer bằng <code>wait()</code>/<code>notify()</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Giải thích "spurious wakeup" và "missed signal" — vì sao thiết kế <code>wait()</code> là một thao tác
+  nguyên tử (nhả lock + chờ) lại quan trọng để tránh missed signal?</li>
+<li>So sánh <code>wait()</code>/<code>notify()</code> (Monitor, nguyên thuỷ) với <code>Condition</code> (gắn với
+  <code>ReentrantLock</code>, Chapter 10) — <code>Condition</code> giải quyết hạn chế gì của Monitor truyền thống?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại đúng ví dụ <code>WaitWithoutLock</code>, xác nhận <code>IllegalMonitorStateException</code>.</li>
+<li>[ ] Chạy lại đúng ví dụ <code>ProducerConsumer</code> ở trên, quan sát Producer tự dừng khi buffer đầy
+      và tự tiếp tục khi Consumer lấy bớt.</li>
+<li>[ ] Cố tình đổi <code>while</code> thành <code>if</code> trong ví dụ <code>ProducerConsumer</code> với nhiều hơn 1 consumer —
+      thử tái hiện tình huống một consumer bị lỗi (<code>NoSuchElementException</code> khi <code>poll()</code> trên
+      buffer rỗng) do điều kiện không được kiểm tra lại sau khi thức dậy.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">conditionMet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// LUÔN while, không if</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span><span class="w">          </span><span class="c1">// nhả lock, chờ, giành lại lock khi được đánh thức</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c1">// xử lý khi điều kiện đã đúng</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Yêu cầu</th>
+<th>Bắt buộc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gọi trong <code>synchronized</code> trên đúng object</td>
+<td>Có (nếu không: <code>IllegalMonitorStateException</code>)</td>
+</tr>
+<tr>
+<td>Bọc trong <code>while</code>, không <code>if</code></td>
+<td>Có (spurious wakeup, tranh chấp nhiều thread)</td>
+</tr>
+<tr>
+<td>Xử lý <code>InterruptedException</code></td>
+<td>Có (checked exception)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.lang.Object#wait()</code>.</li>
+<li>Java Language Specification (JLS) — Chapter 17.2: Wait Sets and Notification.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 14: Building Custom Synchronizers.</li>
 </ul>
 
 

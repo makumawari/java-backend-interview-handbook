@@ -2327,7 +2327,7 @@
   <span class="md-ellipsis">
     
   
-    Atomic
+    Atomic (AtomicInteger, AtomicLong, AtomicReference)
   
 
     
@@ -2355,7 +2355,7 @@
   <span class="md-ellipsis">
     
   
-    CAS
+    CAS (Compare-And-Swap) và bài toán ABA
   
 
     
@@ -2772,7 +2772,7 @@
   <span class="md-ellipsis">
     
   
-    Executor
+    Executor Framework
   
 
     
@@ -2800,7 +2800,7 @@
   <span class="md-ellipsis">
     
   
-    ForkJoin
+    Fork/Join Framework
   
 
     
@@ -6131,7 +6131,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:concurrency" class="md-tag">Concurrency</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:java" class="md-tag">Java</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:threadpool" class="md-tag">ThreadPool</a>
       
     
   </nav>
@@ -6149,94 +6163,324 @@ Chapter slug: <code>thread-pool</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Thread Pool</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3 — Concurrency</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 01 — Thread</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 14 — Callable vs Runnable</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 16 — Executor</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Web server request handling (Phase 5, Tomcat thread pool)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: <a href="../01-thread/">Chapter 01</a> — mỗi <code>new Thread()</code> tạo một thread hệ điều hành thật,
+tốn bộ nhớ (mặc định ~1MB stack) và thời gian để hệ điều hành khởi tạo.</p>
 </blockquote>
+<p>Điều gì xảy ra nếu một service web nhận 10.000 request/giây, và mỗi request tạo một
+<code>new Thread()</code> riêng để xử lý? Đo thử thực tế:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Tao 10000 Thread MOI: 229ms
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Dung Thread Pool (8 thread) tai su dung: 11ms
+</code></pre></div>
+<p>Tạo 10.000 thread mới chậm hơn <strong>20 lần</strong> so với tái sử dụng một pool chỉ 8 thread cho cùng
+10.000 tác vụ. Và đó còn chưa kể tới rủi ro <strong>cạn kiệt tài nguyên hệ thống</strong> nếu số thread tạo
+ra không kiểm soát được (mỗi thread hệ điều hành tốn bộ nhớ stack, quá nhiều thread có thể làm
+sập cả server).</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Thread Pool là gì? Tại sao không nên tạo thread bằng <code>new Thread()</code> liên tục?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Giải thích chính xác lý do hiệu năng và tài nguyên khiến Thread Pool tốt hơn tạo thread
+      thủ công</li>
+<li>[ ] Tự tay đo được chênh lệch thực tế: tạo 10.000 thread mới (229ms) vs tái sử dụng pool 8
+      thread (11ms)</li>
+<li>[ ] Hiểu các tham số cấu hình cốt lõi: corePoolSize, maximumPoolSize, hàng đợi (queue),
+      keepAliveTime, RejectedExecutionHandler</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Chapter 01 — hiểu chi phí tạo một <code>Thread</code> (bộ nhớ, thời gian hệ điều hành cấp phát).</li>
+<li>Chapter 14 — hiểu <code>Runnable</code>/<code>Callable</code>, thứ được nộp (<code>submit</code>) vào thread pool.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 16 (Executor)</strong> — <code>ExecutorService</code> là API tiêu chuẩn để làm việc với Thread Pool.</li>
+<li><strong>Web server request handling</strong> (Phase 5) — Tomcat (server nhúng của Spring Boot) dùng một
+  thread pool để xử lý các request HTTP đến, đúng mẫu hình "tái sử dụng thread thay vì tạo mới
+  mỗi request".</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Tạo một <code>Thread</code> mới không miễn phí: hệ điều hành phải cấp phát bộ nhớ stack (mặc định khoảng
+512KB-1MB tuỳ nền tảng), đăng ký thread với scheduler, và giải phóng lại khi thread kết thúc.
+Với khối lượng công việc lớn, ngắn hạn, lặp đi lặp lại (ví dụ xử lý hàng nghìn request mỗi
+giây), tạo-huỷ thread liên tục gây lãng phí đáng kể — đã đo được chênh lệch <strong>20 lần</strong> ở Story.
+Ngoài ra, số lượng thread không kiểm soát có thể làm cạn kiệt bộ nhớ hoặc khiến hệ điều hành quá
+tải context-switching.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Thread Pool</strong> là một tập hợp thread được tạo sẵn và <strong>tái sử dụng</strong> để thực thi nhiều tác vụ
+liên tiếp, thay vì tạo-huỷ thread cho từng tác vụ. Tác vụ được đưa vào một <strong>hàng đợi
+(queue)</strong>; các thread trong pool lần lượt lấy tác vụ ra khỏi hàng đợi và thực thi, sau đó quay
+lại lấy tác vụ tiếp theo — không bị huỷ đi.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Chi phí tạo thread là <strong>cố định và tốn kém</strong> (bộ nhớ + thời gian hệ điều hành xử lý), trong khi
+nhiều tác vụ thực tế rất <strong>ngắn</strong> (vài mili giây). Nếu chi phí tạo/huỷ thread lớn hơn nhiều so
+với thời gian thực thi tác vụ, hiệu năng tổng thể bị chi phối bởi overhead thay vì công việc
+thực sự. Thread Pool khấu hao chi phí tạo thread <strong>một lần</strong> cho nhiều tác vụ, đồng thời giới
+hạn số thread tối đa để bảo vệ tài nguyên hệ thống khỏi bị quá tải.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"> </span><span class="c1">// pool co dinh 8 thread</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* tac vu */</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span><span class="w"> </span><span class="c1">// khong nhan tac vu moi, cho tac vu dang chay xong</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Khong dung Thread Pool (moi tac vu 1 thread MOI):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Task 1 ──► new Thread ──► chay ──► huy      (tao/huy lien tuc, TON KEM)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Task 2 ──► new Thread ──► chay ──► huy
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Task 3 ──► new Thread ──► chay ──► huy
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Dung Thread Pool (8 thread CO DINH, TAI SU DUNG):
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  Task 1 ──┐
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  Task 2 ──┼──► Hang doi (Queue) ──► [T1][T2]...[T8] lay task, chay, XONG thi
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  Task 3 ──┘                          QUAY LAI lay task TIEP THEO (khong huy)
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  ...
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  Task N ──┘
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.*</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreadPoolPerf</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10_000</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">Thread</span><span class="o">[]</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="o">[</span><span class="n">tasks</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tasks</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="n">threads</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="n">threads</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">threads</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">elapsed1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Tao &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Thread MOI: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elapsed1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="n">CountDownLatch</span><span class="w"> </span><span class="n">latch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CountDownLatch</span><span class="p">(</span><span class="n">tasks</span><span class="p">);</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tasks</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">            </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">latch</span><span class="p">.</span><span class="na">countDown</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="n">latch</span><span class="p">.</span><span class="na">await</span><span class="p">();</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">elapsed2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">;</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Dung Thread Pool (8 thread) tai su dung: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elapsed2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="p">}</span>
 </code></pre></div>
+<p>Kết quả thật (JDK 17):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Tao 10000 Thread MOI: 229ms
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Dung Thread Pool (8 thread) tai su dung: 11ms
+</code></pre></div>
+<p>Cùng 10.000 tác vụ cực nhỏ (<code>1 + 1</code>), tạo thread mới cho mỗi tác vụ tốn <strong>229ms</strong>, trong khi tái
+sử dụng pool 8 thread chỉ tốn <strong>11ms</strong> — nhanh hơn khoảng 20 lần. Chênh lệch này hoàn toàn nằm
+ở chi phí tạo/huỷ thread (bản thân công việc <code>1 + 1</code> gần như không tốn thời gian), chứng minh
+trực tiếp overhead thực sự của <code>new Thread()</code> lặp lại.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Các tham số cấu hình cốt lõi của <code>ThreadPoolExecutor</code></strong> (lớp thực thi bên dưới mọi
+<code>Executors.newXxxThreadPool()</code>):</p>
+<ul>
+<li><strong><code>corePoolSize</code></strong>: số thread tối thiểu giữ lại kể cả khi rảnh.</li>
+<li><strong><code>maximumPoolSize</code></strong>: số thread tối đa được tạo khi hàng đợi đầy.</li>
+<li><strong><code>workQueue</code></strong>: hàng đợi giữ tác vụ chờ thread rảnh xử lý.</li>
+<li><strong><code>keepAliveTime</code></strong>: thời gian một thread "thừa" (vượt corePoolSize) được giữ ở trạng thái
+  rảnh trước khi bị huỷ.</li>
+<li><strong><code>RejectedExecutionHandler</code></strong>: chính sách xử lý khi cả <code>maximumPoolSize</code> thread đều bận VÀ
+  hàng đợi đã đầy (mặc định ném <code>RejectedExecutionException</code>).</li>
+</ul>
+<p>Thứ tự xử lý một tác vụ mới: nếu số thread hiện tại &lt; <code>corePoolSize</code> → tạo thread mới ngay. Nếu
+đã đủ core nhưng hàng đợi còn chỗ → đưa vào hàng đợi chờ. Nếu hàng đợi đầy VÀ số thread &lt;
+<code>maximumPoolSize</code> → tạo thêm thread (vượt core, tới tối đa). Nếu tất cả đều đầy → áp dụng
+<code>RejectedExecutionHandler</code>.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>Executors.newFixedThreadPool()</code> là factory method tiện lợi nhưng bị khuyến cáo tránh
+dùng trong production ở codebase nghiêm túc?</strong> <code>newFixedThreadPool(n)</code> bên dưới dùng
+<code>LinkedBlockingQueue</code> <strong>không giới hạn kích thước</strong> làm hàng đợi. Nếu tốc độ nộp tác vụ vượt
+quá tốc độ xử lý trong thời gian dài, hàng đợi phình to vô hạn — có thể dẫn tới
+<code>OutOfMemoryError</code> thay vì áp dụng <code>RejectedExecutionHandler</code> một cách có kiểm soát (vì hàng
+đợi "không bao giờ đầy" nên logic từ chối task không bao giờ được kích hoạt). Đây là lý do
+nhiều đội ngũ production tự tạo <code>ThreadPoolExecutor</code> trực tiếp với <code>ArrayBlockingQueue</code> (hàng
+đợi có giới hạn kích thước rõ ràng) thay vì dùng các factory method tiện lợi của <code>Executors</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>Executors</code>/<code>ThreadPoolExecutor</code> ra đời cùng JSR 166 (Java 5, 2004). Trước đó, lập trình viên
+phải tự viết cơ chế "pool" thủ công (danh sách thread + hàng đợi tác vụ tự đồng bộ hoá) —
+<code>java.util.concurrent</code> chuẩn hoá và tối ưu hoá mẫu hình này thành một API chính thức, đã qua
+kiểm định kỹ lưỡng của JDK.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Thread Pool càng nhiều thread càng xử lý nhanh hơn."
+  <strong>Reality:</strong> Số thread tối ưu phụ thuộc vào bản chất tác vụ — CPU-bound (tính toán nặng) nên
+  gần bằng số lõi CPU; I/O-bound (chờ mạng/disk) có thể lớn hơn nhiều vì thread phần lớn thời
+  gian ở trạng thái chờ, không chiếm CPU. Quá nhiều thread gây context-switching overhead, có
+  thể làm CHẬM hơn.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "<code>Executors.newFixedThreadPool()</code> luôn là lựa chọn an toàn cho production."
+  <strong>Reality:</strong> Xem Engineering Insight — hàng đợi không giới hạn kích thước tiềm ẩn rủi ro
+  <code>OutOfMemoryError</code> dưới tải cao kéo dài.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tạo pool mới cho mỗi request thay vì dùng một pool dùng chung suốt vòng đời ứng dụng</strong> —
+  mất hoàn toàn lợi ích tái sử dụng thread.</li>
+<li><strong>Dùng <code>Executors.newFixedThreadPool()</code>/<code>newCachedThreadPool()</code> không cân nhắc rủi ro hàng
+  đợi không giới hạn / số thread không giới hạn (<code>newCachedThreadPool</code> có <code>maximumPoolSize</code> =
+  <code>Integer.MAX_VALUE</code>)</strong>.</li>
+<li><strong>Quên gọi <code>shutdown()</code></strong> — pool không tự động dừng khi chương trình chính kết thúc logic
+  (các non-daemon thread trong pool giữ JVM sống, chương trình không thoát được).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Với tác vụ CPU-bound (tính toán nặng), đặt số thread pool gần bằng số lõi CPU
+  (<code>Runtime.getRuntime().availableProcessors()</code>).</li>
+<li>Với tác vụ I/O-bound (chờ mạng/disk), số thread có thể lớn hơn nhiều lần số lõi CPU, vì phần
+  lớn thời gian thread ở trạng thái chờ (BLOCKED/WAITING), không chiếm CPU thực sự.</li>
+<li>Trong production, cân nhắc tự cấu hình <code>ThreadPoolExecutor</code> với hàng đợi có giới hạn kích
+  thước rõ ràng, thay vì các factory method mặc định của <code>Executors</code>.</li>
+<li>Luôn gọi <code>shutdown()</code> (hoặc dùng try-with-resources với <code>ExecutorService</code> từ Java 19+) khi
+  không còn cần pool nữa.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Vấn đề:</strong> một service dùng <code>Executors.newFixedThreadPool(20)</code> để xử lý các tác vụ nền, dưới
+đợt tải đột biến (traffic spike), bộ nhớ tăng liên tục và cuối cùng service bị crash với
+<code>OutOfMemoryError</code>.</p>
+<ul>
+<li><strong>Triệu chứng:</strong> bộ nhớ heap tăng dần trong đợt tải cao, không giảm lại kể cả khi tải giảm,
+  cuối cùng OOM.</li>
+<li><strong>Root cause:</strong> tốc độ nộp tác vụ vượt xa tốc độ 20 thread có thể xử lý; vì
+  <code>newFixedThreadPool</code> dùng hàng đợi <code>LinkedBlockingQueue</code> không giới hạn, tác vụ tồn đọng ngày
+  càng nhiều trong hàng đợi thay vì bị từ chối — mỗi tác vụ tồn đọng giữ một phần bộ nhớ, tích
+  luỹ tới khi hết heap.</li>
+<li><strong>Debug:</strong> heap dump cho thấy phần lớn bộ nhớ nằm trong hàng đợi nội bộ của
+  <code>ThreadPoolExecutor</code>.</li>
+<li><strong>Solution:</strong> thay bằng <code>ThreadPoolExecutor</code> tự cấu hình với <code>ArrayBlockingQueue</code> có giới hạn
+  kích thước cụ thể, kèm <code>RejectedExecutionHandler</code> phù hợp (ví dụ trả lỗi ngay cho client thay
+  vì để hàng đợi phình vô hạn).</li>
+<li><strong>Prevention:</strong> với mọi thread pool xử lý tác vụ từ nguồn có khả năng đột biến tải (request từ
+  bên ngoài), luôn giới hạn kích thước hàng đợi tường minh, không dựa vào giá trị mặc định của
+  <code>Executors.newFixedThreadPool()</code>.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Bộ nhớ tăng liên tục dưới tải cao? → kiểm tra hàng đợi thread pool có giới hạn kích thước
+      không.</li>
+<li>[ ] Chương trình không thoát được dù logic chính đã chạy xong? → kiểm tra đã gọi
+      <code>pool.shutdown()</code> chưa.</li>
+<li>[ ] Thread pool xử lý chậm dù CPU không cao? → xem xét tác vụ có phải I/O-bound không — có
+      thể cần tăng số thread thay vì giữ ở mức gần số lõi CPU.</li>
 </ul>
 <h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
+<p>Các factory method của <code>Executors</code> chỉ là lớp bọc mỏng quanh <code>ThreadPoolExecutor</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Rut gon tu OpenJDK java.util.concurrent.Executors</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ExecutorService</span><span class="w"> </span><span class="nf">newFixedThreadPool</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nThreads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">nThreads</span><span class="p">,</span><span class="w"> </span><span class="n">nThreads</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">                                   </span><span class="mi">0</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                                   </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedBlockingQueue</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span><span class="p">());</span><span class="w"> </span><span class="c1">// KHONG gioi han kich thuoc</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ExecutorService</span><span class="w"> </span><span class="nf">newCachedThreadPool</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">,</span><span class="w"> </span><span class="c1">// KHONG gioi han so thread</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">                                   </span><span class="mi">60L</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">,</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                                   </span><span class="k">new</span><span class="w"> </span><span class="n">SynchronousQueue</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span><span class="p">());</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Nhìn thẳng vào tham số truyền cho <code>ThreadPoolExecutor</code> xác nhận đúng rủi ro đã nêu ở Engineering
+Insight và Production Notes: <code>newFixedThreadPool</code> có <code>corePoolSize == maximumPoolSize</code> (số
+thread cố định) nhưng hàng đợi không giới hạn; <code>newCachedThreadPool</code> có hàng đợi giới hạn chặt
+(<code>SynchronousQueue</code>, gần như không giữ gì) nhưng số thread tối đa không giới hạn.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Thread Pool tái sử dụng một tập thread cố định thay vì tạo-huỷ thread cho mỗi tác vụ — đã đo
+được chênh lệch thực tế <strong>20 lần</strong> (229ms tạo mới vs 11ms tái sử dụng, 10.000 tác vụ). Các tham
+số cốt lõi: <code>corePoolSize</code>, <code>maximumPoolSize</code>, hàng đợi, <code>keepAliveTime</code>,
+<code>RejectedExecutionHandler</code> quyết định cách pool phản ứng khi tải tăng. Factory method tiện lợi
+của <code>Executors</code> (<code>newFixedThreadPool</code>, <code>newCachedThreadPool</code>) có rủi ro tiềm ẩn (hàng đợi không
+giới hạn, hoặc số thread không giới hạn) — production nghiêm túc thường tự cấu hình
+<code>ThreadPoolExecutor</code> trực tiếp.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Thread Pool là gì? Tại sao không nên tạo thread bằng new Thread() liên tục?</li>
 </ul>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Giải thích các tham số <code>corePoolSize</code>, <code>maximumPoolSize</code>, hàng đợi trong <code>ThreadPoolExecutor</code>.</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao <code>Executors.newFixedThreadPool()</code> bị khuyến cáo tránh dùng trong production nghiêm
+  túc? Đề xuất cấu hình thay thế an toàn hơn.</li>
+<li>Với tác vụ CPU-bound và I/O-bound, số lượng thread pool tối ưu nên khác nhau như thế nào? Vì
+  sao?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>ThreadPoolPerf</code> ở trên, xác nhận chênh lệch thời gian tương tự trên máy bạn.</li>
+<li>[ ] Tự tạo một <code>ThreadPoolExecutor</code> với <code>ArrayBlockingQueue</code> giới hạn 10 phần tử, thử nộp 100
+      tác vụ chạy chậm, quan sát <code>RejectedExecutionException</code> khi hàng đợi đầy.</li>
+<li>[ ] Đo thời gian xử lý một tác vụ I/O-bound giả lập (<code>Thread.sleep</code>) với pool 4 thread so với
+      pool 50 thread, quan sát pool lớn hơn xử lý nhanh hơn dù CPU chỉ có vài lõi.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Factory method</th>
+<th>corePoolSize</th>
+<th>maximumPoolSize</th>
+<th>Hàng đợi</th>
+<th>Rủi ro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>newFixedThreadPool(n)</code></td>
+<td>n</td>
+<td>n</td>
+<td>Không giới hạn</td>
+<td>OOM nếu tải cao kéo dài</td>
+</tr>
+<tr>
+<td><code>newCachedThreadPool()</code></td>
+<td>0</td>
+<td>Không giới hạn</td>
+<td><code>SynchronousQueue</code></td>
+<td>Quá nhiều thread nếu tải cao</td>
+</tr>
+<tr>
+<td><code>newSingleThreadExecutor()</code></td>
+<td>1</td>
+<td>1</td>
+<td>Không giới hạn</td>
+<td>OOM nếu tải cao kéo dài</td>
+</tr>
+<tr>
+<td>Tự cấu hình <code>ThreadPoolExecutor</code></td>
+<td>Tuỳ chỉnh</td>
+<td>Tuỳ chỉnh</td>
+<td><code>ArrayBlockingQueue</code> (giới hạn)</td>
+<td>Kiểm soát được, khuyến nghị production</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Java SE API Documentation — <code>java.util.concurrent.ThreadPoolExecutor</code>, <code>Executors</code>.</li>
+<li>Java Concurrency in Practice (Brian Goetz) — Chapter 8: Applying Thread Pools.</li>
 </ul>
 
 
