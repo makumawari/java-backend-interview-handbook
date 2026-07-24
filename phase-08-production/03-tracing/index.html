@@ -27,7 +27,7 @@
     
     
       
-        <title>Tracing - Java Backend Engineering Handbook</title>
+        <title>Tracing: Distributed Tracing với Micrometer Tracing - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tracing" class="md-skip">
+        <a href="#tracing-distributed-tracing-voi-micrometer-tracing" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tracing
+              Tracing: Distributed Tracing với Micrometer Tracing
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4465,7 +4465,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4483,7 +4483,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4707,32 +4707,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4817,7 +4795,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4845,7 +4823,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4873,7 +4851,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4929,7 +4907,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4935,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:micrometer-tracing" class="md-tag">Micrometer Tracing</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:observability" class="md-tag">Observability</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:tracing" class="md-tag">Tracing</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="tracing">Tracing<a class="headerlink" href="#tracing" title="Permanent link">&para;</a></h1>
+<h1 id="tracing-distributed-tracing-voi-micrometer-tracing">Tracing: Distributed Tracing với Micrometer Tracing<a class="headerlink" href="#tracing-distributed-tracing-voi-micrometer-tracing" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>tracing</code></p>
@@ -6149,94 +6119,303 @@ Chapter slug: <code>tracing</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tracing</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 01 — Logging</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 02 — Metrics</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Kafka</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Messaging</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Một endpoint <code>/api/tracing-demo/order</code> gọi sang một endpoint khác <code>/api/tracing-demo/payment</code>
+qua HTTP, dùng <code>RestTemplate</code> tự khởi tạo bằng <code>new RestTemplate()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RestTemplate</span><span class="w"> </span><span class="n">restTemplate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RestTemplate</span><span class="p">();</span><span class="w"> </span><span class="c1">// tu khoi tao</span>
+</code></pre></div>
+<p>Log thật của hai request (cùng một luồng xử lý nghiệp vụ, nhưng khác thread):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[traceId=6a6313f833522927d32a06c255bae710] [correlationId=57e02d11] Bat dau xu ly don hang (span goc)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[traceId=6a6313f8ec95914f7bb8bb1c30d0df4d] [correlationId=8dcf5b0b] Dang xu ly thanh toan (span con, goi tu order)
+</code></pre></div>
+<p>Hai <code>traceId</code> <strong>khác nhau hoàn toàn</strong>! Về mặt nghiệp vụ, đây là <strong>một</strong> luồng xử lý duy nhất (tạo
+đơn hàng → thanh toán), nhưng hệ thống tracing ghi nhận thành <strong>hai trace tách biệt</strong>, không có
+liên kết nào giữa chúng. Nguyên nhân: <code>new RestTemplate()</code> tự khởi tạo <strong>không được Spring Boot
+tự động instrument</strong> — nó không đính kèm bất kỳ header truyền ngữ cảnh trace nào vào request đi
+ra. Đổi sang <code>RestTemplateBuilder</code> (được Spring Boot tự động cấu hình sẵn instrumentation khi có
+<code>micrometer-tracing-bridge-brave</code> trên classpath) sửa triệt để vấn đề — xem Deep Dive.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Trong một hệ thống microservices, làm sao để biết một request cụ thể đã đi qua những service
+nào và service nào là nguyên nhân gây chậm? Vì sao chỉ dùng correlation ID (Chapter 01) là chưa
+đủ?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt đúng <code>traceId</code> (xuyên suốt toàn bộ luồng xử lý, có thể qua nhiều service) và
+      <code>spanId</code> (một đoạn xử lý cụ thể trong luồng đó)</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: một cuộc gọi HTTP nội bộ không được instrument đúng cách
+      sẽ phá vỡ chuỗi trace, và cách khắc phục</li>
+<li>[ ] Đọc hiểu định dạng header W3C <code>traceparent</code> mà Micrometer Tracing dùng để truyền ngữ cảnh
+      trace giữa các service</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 8, Chapter 01 — correlation ID gắn vào MDC, nền tảng để so sánh với <code>traceId</code>.</li>
+<li>Phase 8, Chapter 02 — Micrometer là hạ tầng chung cho cả metrics và tracing.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 06 (Kafka)</strong>, <strong>Chapter 07 (Messaging)</strong> — trace context cần được truyền tay qua
+  message header khi giao tiếp bất đồng bộ, không tự động như HTTP.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>correlationId</code> (Chapter 01) là một chuỗi <strong>tự đặt</strong>, chỉ có ý nghĩa nếu chính ứng dụng gán và
+truyền tay nó đi khắp nơi — bao gồm cả sang service khác. Trong một hệ thống nhiều service, mỗi
+service có thể tự sinh <code>correlationId</code> riêng cho request nó nhận, dẫn tới log của cùng một luồng
+xử lý nghiệp vụ nhưng bị gắn nhiều correlation ID khác nhau ở mỗi service, không thể nối lại thành
+một bức tranh hoàn chỉnh nếu không có cơ chế <strong>chuẩn hoá và tự động lan truyền</strong>.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Distributed tracing</strong> giải quyết đúng vấn đề đó bằng hai khái niệm chuẩn hoá:</p>
+<ul>
+<li><strong>Trace</strong> — đại diện cho <strong>toàn bộ hành trình</strong> của một request, xuyên suốt mọi service nó đi
+  qua, định danh bằng một <code>traceId</code> duy nhất.</li>
+<li><strong>Span</strong> — đại diện cho <strong>một đơn vị công việc cụ thể</strong> trong hành trình đó (ví dụ: "Controller
+  A xử lý", "gọi HTTP sang Service B", "query database"), mỗi span có <code>spanId</code> riêng nhưng dùng
+  chung <code>traceId</code> của toàn bộ trace, và biết span cha của mình (parent span).</li>
+</ul>
+<p>Micrometer Tracing (dùng Brave hoặc OpenTelemetry làm bridge) tự động tạo span cho các thao tác
+phổ biến (nhận HTTP request, gọi HTTP request đi, query JDBC...) và <strong>tự động truyền <code>traceId</code></strong>
+sang service tiếp theo qua HTTP header — miễn là client HTTP được dùng đúng cách (xem Deep Dive).</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì <code>correlationId</code> tự đặt không có cơ chế lan truyền chuẩn hoá, hai service độc lập không có cách
+nào biết chúng đang xử lý "cùng một request logic" trừ khi tự thống nhất một giao thức truyền tay.
+Distributed tracing giải quyết vấn đề này ở tầng hạ tầng: <code>traceId</code> được sinh một lần ở điểm vào
+hệ thống (edge service) và <strong>tự động đính kèm</strong> vào mọi request đi ra tiếp theo thông qua
+instrumentation chuẩn của framework — không cần code nghiệp vụ tự truyền tay như <code>correlationId</code>.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TracingDemoController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RestTemplate</span><span class="w"> </span><span class="n">restTemplate</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TracingDemoController</span><span class="p">(</span><span class="n">RestTemplateBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">restTemplate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"> </span><span class="c1">// QUAN TRONG: dung Builder, khong new RestTemplate()</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/tracing-demo/order&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Bat dau xu ly don hang (span goc)&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restTemplate</span><span class="p">.</span><span class="na">getForObject</span><span class="p">(</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">            </span><span class="s">&quot;http://localhost:8080/api/tracing-demo/payment&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;order-done + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">management.tracing.sampling.probability</span><span class="o">=</span><span class="s">1.0</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">&lt;!-- logback-spring.xml --&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">&lt;pattern&gt;</span>...<span class="w"> </span>[traceId=%X{traceId},spanId=%X{spanId}]<span class="w"> </span>...%msg%n<span class="nt">&lt;/pattern&gt;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Trace (traceId=6a631464...):
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  Span goc  (spanId=b84ab4cf..) : GET /api/tracing-demo/order      [http-nio-8080-exec-1]
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    └─ Span con (spanId=a0bb57..): GET /api/tracing-demo/payment   [http-nio-8080-exec-2]
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>                                    (spanId cha = b84ab4cf..)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Header HTTP truyen di kem request con:
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  traceparent: 00-6a631464...-a0bb57...-01
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>               │  │            │         └ flags (sampled)
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>               │  │            └ spanId cua span nay
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>               │  └ traceId (GIONG span cha)
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>               └ version
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Trace hoạt động đúng — dùng <code>RestTemplateBuilder</code> (auto-instrumented):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>http://localhost:8080/api/tracing-demo/order
 </code></pre></div>
+<p>Log thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[http-nio-8080-exec-1] [traceId=6a6314641ffd61ebff7aae9dfcbf612b,spanId=b84ab4cf79c922b9] [correlationId=0c8b88a2] Bat dau xu ly don hang (span goc)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>[http-nio-8080-exec-2] [traceId=6a6314641ffd61ebff7aae9dfcbf612b,spanId=a0bb5750010d5fb6] [correlationId=dca210a7] Dang xu ly thanh toan (span con, goi tu order). Header tracing nhan duoc: [traceparent=00-6a6314641ffd61ebff7aae9dfcbf612b-fc3bc6de1fb53214-01]
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>[http-nio-8080-exec-1] [traceId=6a6314641ffd61ebff7aae9dfcbf612b,spanId=b84ab4cf79c922b9] [correlationId=0c8b88a2] Don hang hoan tat, ket qua thanh toan: payment-ok
+</code></pre></div>
+<p>Ba điều xác nhận được bằng dữ liệu thật:</p>
+<ol>
+<li><strong><code>traceId</code> giống hệt nhau</strong> ở cả hai span (<code>6a6314641ffd61ebff7aae9dfcbf612b</code>) — dù chạy trên
+   hai thread khác nhau (<code>exec-1</code> và <code>exec-2</code>), Micrometer Tracing tự nối chúng vào cùng một trace.</li>
+<li><strong><code>spanId</code> khác nhau</strong> ở mỗi span — mỗi đơn vị xử lý có định danh riêng.</li>
+<li>Request nội bộ mang theo header <strong><code>traceparent</code></strong> (chuẩn W3C Trace Context) với định dạng
+   <code>00-{traceId}-{spanId của span cha}-{flags}</code> — chính là cơ chế Micrometer Tracing dùng để "báo"
+   cho service nhận biết nó thuộc trace nào và span cha là ai.</li>
+<li><strong><code>correlationId</code> (Chapter 01) vẫn khác nhau</strong> ở mỗi hop (<code>0c8b88a2</code> rồi <code>dca210a7</code>) — vì
+   <code>CorrelationIdFilter</code> tự viết không biết gì về tracing, nó vẫn tạo correlation ID mới cho mỗi
+   HTTP request độc lập. <code>traceId</code> mới là thứ thực sự nối liền hai request thành một luồng.</li>
+</ol>
+<p><strong>Trace bị gãy — dùng <code>new RestTemplate()</code> tự khởi tạo (KHÔNG được instrument):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[http-nio-8080-exec-1] [traceId=6a6313f833522927d32a06c255bae710] Bat dau xu ly don hang (span goc)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[http-nio-8080-exec-2] [traceId=6a6313f8ec95914f7bb8bb1c30d0df4d] Dang xu ly thanh toan (span con, goi tu order)
+</code></pre></div>
+<p>Hai <code>traceId</code> khác nhau — request sang <code>/payment</code> không mang theo bất kỳ header trace nào, nên
+service nhận (dù là cùng một ứng dụng) tự sinh một trace <strong>hoàn toàn mới</strong>, không có liên kết nào
+với trace gốc.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>new RestTemplate()</code> không được instrument, còn <code>RestTemplateBuilder</code> thì có?</strong> Spring
+Boot tự động cấu hình một <code>RestTemplateBuilder</code> bean (<code>RestTemplateAutoConfiguration</code>) — khi
+<code>micrometer-tracing-bridge-brave</code> có mặt trên classpath, Spring Boot đăng ký thêm một
+<code>ObservationRestTemplateCustomizer</code> áp dụng cho <strong>mọi <code>RestTemplate</code> được tạo qua builder này</strong>,
+tự động thêm một <code>ClientHttpRequestInterceptor</code> chèn header <code>traceparent</code> vào mọi request đi ra.
+Khi tự gọi <code>new RestTemplate()</code>, đối tượng này <strong>không đi qua bất kỳ customizer nào</strong> của Spring
+Boot — nó là một <code>RestTemplate</code> "trần", không có interceptor nào được gắn, nên không có cách nào
+để framework "chèn thêm" hành vi instrumentation vào sau khi đối tượng đã được tạo bằng <code>new</code>. Đây
+chính là lý do tổng quát vì sao Spring Boot luôn khuyến nghị lấy các client HTTP/DB qua
+auto-configured builder/bean thay vì tự <code>new</code> — không chỉ tracing, mà cả metrics
+(<code>http.client.requests</code>, Chapter 02) cũng bị mất theo cùng cơ chế.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>traceparent</code> là gì, và vì sao nó là một chuẩn W3C chứ không phải thứ riêng của Spring?</strong> Dữ
+liệu thật ở Example cho thấy định dạng <code>00-6a6314641ffd61ebff7aae9dfcbf612b-fc3bc6de1fb53214-01</code>
+gồm 4 phần: <code>version-traceId-parentSpanId-flags</code>. Đây là chuẩn <strong>W3C Trace Context</strong>
+(<code>traceparent</code> header), được thiết kế để nhiều hệ thống tracing khác nhau (Zipkin, Jaeger, AWS
+X-Ray, Datadog) có thể <strong>liên thông</strong> với nhau mà không cần biết implementation cụ thể của bên
+kia — miễn cả hai đều hiểu định dạng header chuẩn này. Trước W3C Trace Context, hệ sinh thái Java
+chủ yếu dùng định dạng <strong>B3</strong> (<code>X-B3-TraceId</code>, <code>X-B3-SpanId</code>) do Zipkin định nghĩa — Micrometer
+Tracing (qua Brave) hỗ trợ cả hai, có thể cấu hình qua <code>management.tracing.propagation.type</code>,
+nhưng mặc định ở Spring Boot 3.x là W3C.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Distributed tracing xuất phát từ paper <strong>Dapper</strong> của Google (2010), mô tả hệ thống tracing nội bộ
+cho hạ tầng quy mô lớn. Ý tưởng này ảnh hưởng trực tiếp tới Zipkin (Twitter, sinh ra định dạng B3)
+và OpenTracing/OpenTelemetry sau này. Spring Cloud Sleuth (thế hệ trước của Micrometer Tracing,
+đã ngừng phát triển từ Spring Boot 3) từng là lựa chọn mặc định cho tracing trong hệ sinh thái
+Spring — Micrometer Tracing kế thừa vai trò đó nhưng tách biệt rõ ràng khỏi Spring Cloud, theo
+đúng triết lý facade chung với Micrometer Metrics (Chapter 02).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Chỉ cần thêm dependency <code>micrometer-tracing-bridge-brave</code> là mọi HTTP call tự động
+  được trace đúng."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — chỉ các bean HTTP client được Spring Boot
+  auto-configure (qua <code>RestTemplateBuilder</code>, <code>WebClient.Builder</code>) mới tự động instrument;
+  <code>new RestTemplate()</code> tự khởi tạo hoàn toàn nằm ngoài cơ chế này.</li>
+<li><strong>Myth:</strong> "correlationId (Chapter 01) và traceId là một khái niệm, chỉ khác tên."
+  <strong>Reality:</strong> correlationId là chuỗi tự đặt theo request HTTP riêng lẻ (khác nhau mỗi hop, như đã
+  thấy ở Example); traceId được framework tự sinh và tự lan truyền xuyên suốt nhiều service/hop.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Tự khởi tạo HTTP client bằng <code>new RestTemplate()</code>/<code>new OkHttpClient()</code></strong> thay vì lấy qua bean
+  auto-configured — mất cả tracing lẫn metrics tự động (<code>http.client.requests</code>).</li>
+<li><strong>Nhầm lẫn traceId với correlationId tự viết</strong> — dẫn tới việc duy trì hai hệ thống định danh
+  song song không cần thiết, trong khi traceId đã đủ để nối log/trace xuyên service.</li>
+<li><strong>Không đặt <code>management.tracing.sampling.probability</code></strong> — mặc định Spring Boot chỉ sample 10%
+  request (<code>0.1</code>), khiến phần lớn trace "biến mất" trong môi trường dev/test khi cố gắng debug một
+  request cụ thể.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn lấy HTTP client qua bean auto-configured (<code>RestTemplateBuilder</code>, <code>WebClient.Builder</code>), để
+  tận dụng tự động cả tracing và metrics.</li>
+<li>Đặt <code>management.tracing.sampling.probability=1.0</code> ở môi trường dev/staging để debug dễ dàng;
+  giảm xuống một tỉ lệ nhỏ (ví dụ <code>0.1</code>) ở production để tránh overhead.</li>
+<li>Kết hợp <code>traceId</code> vào log pattern (như Chapter 01) để có thể nhảy từ một dòng log bất thường
+  sang toàn bộ trace liên quan trên hệ thống tracing backend (Zipkin/Jaeger).</li>
+<li>Với giao tiếp bất đồng bộ (message queue, Chapter 06/07), chủ động đọc/ghi <code>traceparent</code> vào
+  message header vì instrumentation tự động không bao phủ hết mọi loại giao thức.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Trace của một luồng xử lý nhiều service bị "gãy" thành nhiều trace rời rạc? → nghi ngờ hàng
+      đầu là HTTP client không được auto-configure đúng cách — kiểm tra có <code>new RestTemplate()</code>
+      hay tương đương ở đâu đó trong đường đi.</li>
+<li>[ ] Không thấy trace nào trong hệ thống tracing backend dù ứng dụng có traffic? → kiểm tra
+      <code>management.tracing.sampling.probability</code>, mặc định chỉ 10%.</li>
+<li>[ ] <code>traceId</code> xuất hiện trong log nhưng rỗng (<code>traceId=</code>)? → request đó chưa đi qua một span nào
+      (thường là log phát sinh trong giai đoạn khởi động ứng dụng, ngoài vòng đời request).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Distributed tracing dùng <code>traceId</code> (xuyên suốt toàn bộ luồng xử lý qua nhiều service) và <code>spanId</code>
+(một đơn vị công việc cụ thể) để giải quyết vấn đề mà <code>correlationId</code> tự viết (Chapter 01) không
+làm được: liên kết log của nhiều service thành một bức tranh hoàn chỉnh, tự động, không cần truyền
+tay. Đã chứng minh bằng thực nghiệm: hai HTTP call nội bộ dùng <code>RestTemplateBuilder</code> (auto-
+instrumented) giữ đúng <code>traceId</code> xuyên suốt, mang theo header chuẩn W3C <code>traceparent</code>; cùng kịch
+bản đó nhưng dùng <code>new RestTemplate()</code> tự khởi tạo làm gãy trace thành hai trace độc lập hoàn
+toàn, vì đối tượng tự tạo không đi qua cơ chế auto-configuration của Spring Boot.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sự khác biệt giữa trace và span trong distributed tracing?</li>
+<li>Sự khác biệt giữa <code>correlationId</code> tự viết (Chapter 01) và <code>traceId</code> do Micrometer Tracing quản
+  lý?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao <code>new RestTemplate()</code> tự khởi tạo không được instrument tracing, dù dependency
+  <code>micrometer-tracing-bridge-brave</code> đã có trên classpath? Cách khắc phục?</li>
+<li><code>traceparent</code> header (W3C Trace Context) có cấu trúc như thế nào? So sánh với định dạng B3 cũ
+  của Zipkin.</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Đổi <code>TracingDemoController</code> sang dùng <code>new RestTemplate()</code>, gọi lại <code>/api/tracing-demo/order</code>
+      và xác nhận <code>traceId</code> của hai span khác nhau — tái hiện đúng lỗi ở Story.</li>
+<li>[ ] Đặt <code>management.tracing.sampling.probability=0.0</code>, gọi API, xác nhận <code>traceId</code>/<code>spanId</code>
+      trong log trở thành rỗng do request không được sample.</li>
+<li>[ ] Thêm một endpoint thứ ba, gọi tuần tự order → payment → shipping, xác nhận cả ba span dùng
+      chung một <code>traceId</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>correlationId (Chapter 01)</th>
+<th>traceId (Chapter 03)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ai sinh ra?</td>
+<td>Code tự viết (<code>CorrelationIdFilter</code>)</td>
+<td>Micrometer Tracing tự động</td>
+</tr>
+<tr>
+<td>Lan truyền sang service khác?</td>
+<td>Chỉ khi tự truyền tay qua header</td>
+<td>Tự động qua <code>traceparent</code> (nếu client được instrument)</td>
+</tr>
+<tr>
+<td>Phạm vi</td>
+<td>Một request HTTP đơn lẻ</td>
+<td>Toàn bộ luồng xử lý, nhiều service/hop</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>HTTP client</th>
+<th>Được instrument tự động?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new RestTemplate()</code></td>
+<td>Không</td>
+</tr>
+<tr>
+<td><code>restTemplateBuilder.build()</code></td>
+<td>Có</td>
+</tr>
+<tr>
+<td><code>WebClient.builder().build()</code> (auto-configured builder)</td>
+<td>Có</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Micrometer Tracing Documentation.</li>
+<li>W3C Trace Context Specification — <code>traceparent</code> header.</li>
+<li>Google Dapper Paper (2010) — nguồn gốc distributed tracing hiện đại.</li>
+<li>Spring Boot Documentation — <code>RestTemplateAutoConfiguration</code>, Observability.</li>
 </ul>
 
 

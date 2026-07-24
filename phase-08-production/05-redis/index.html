@@ -27,7 +27,7 @@
     
     
       
-        <title>Redis - Java Backend Engineering Handbook</title>
+        <title>Redis: RedisTemplate và Serialization - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#redis" class="md-skip">
+        <a href="#redis-redistemplate-va-serialization" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Redis
+              Redis: RedisTemplate và Serialization
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4521,7 +4521,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4539,7 +4539,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4763,32 +4763,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4873,7 +4851,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4929,7 +4907,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4935,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:redis" class="md-tag">Redis</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:redistemplate" class="md-tag">RedisTemplate</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:serialization" class="md-tag">Serialization</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="redis">Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h1>
+<h1 id="redis-redistemplate-va-serialization">Redis: RedisTemplate và Serialization<a class="headerlink" href="#redis-redistemplate-va-serialization" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>redis</code></p>
@@ -6149,94 +6119,302 @@ Chapter slug: <code>redis</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Redis</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 5, Chapter 16 — Cache</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 7, Chapter 10 — NoSQL</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 06 — Kafka</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — Performance Tuning</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Lưu một object xuống Redis bằng <code>RedisTemplate&lt;Object, Object&gt;</code> <strong>tự động cấu hình mặc định</strong>
+của Spring Boot (không tuỳ chỉnh serializer):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">redisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;order:default:ORD-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">);</span>
+</code></pre></div>
+<p>Đọc lại đúng qua chính <code>RedisTemplate</code> — hoàn toàn bình thường:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>read back: OrderDto[id=ORD-1, item=Ban phim co, amount=1500000.0]
+</code></pre></div>
+<p>Nhưng thử liệt kê key trực tiếp bằng <code>redis-cli</code> — công cụ chuẩn của chính Redis:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>--no-raw<span class="w"> </span>KEYS<span class="w"> </span><span class="s1">&#39;*&#39;</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1) &quot;\xac\xed\x00\x05t\x00\x13order:default:ORD-1&quot;
+</code></pre></div>
+<p>Đây <strong>không phải</strong> key <code>"order:default:ORD-1"</code> — nó là một chuỗi byte bắt đầu bằng
+<code>\xac\xed\x00\x05</code> (chính là <strong>magic header của Java serialization stream</strong>: <code>0xACED</code> +
+version <code>0x0005</code>), theo sau là <code>t\x00\x13</code> (tag kiểu String + độ dài 19), rồi mới tới nội dung
+thật. Hệ quả: <code>redis-cli GET "order:default:ORD-1"</code> (với key literal, không có byte header) trả về
+<code>(nil)</code> — Redis, một ứng dụng ngôn ngữ-độc-lập, <strong>không thể đọc được key</strong> do chính ứng dụng Java
+này ghi, vì <code>RedisTemplate</code> mặc định serialize cả <strong>key lẫn value</strong> bằng
+<code>JdkSerializationRedisSerializer</code>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p><code>RedisTemplate</code> và <code>StringRedisTemplate</code> khác nhau ở điểm nào? Vì sao dữ liệu Java lưu vào Redis
+qua <code>RedisTemplate</code> mặc định lại không đọc được bằng <code>redis-cli</code> hay ứng dụng viết bằng ngôn ngữ
+khác?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: <code>RedisTemplate&lt;Object, Object&gt;</code> mặc định serialize key
+      bằng JDK serialization, tạo ra key nhị phân không tương thích với công cụ/ngôn ngữ khác</li>
+<li>[ ] Cấu hình đúng <code>RedisTemplate</code> với <code>StringRedisSerializer</code> (key) và
+      <code>GenericJackson2JsonRedisSerializer</code> (value) để dữ liệu đọc được bằng mọi client</li>
+<li>[ ] Đọc hiểu cơ chế TTL (Time To Live) của Redis qua dữ liệu thật, bao gồm trạng thái sau khi
+      key hết hạn</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 5, Chapter 16 — khái niệm cache, <code>@Cacheable</code>, vấn đề dữ liệu cũ (stale data).</li>
+<li>Phase 7, Chapter 10 — Redis là một trong các hệ NoSQL đã giới thiệu (key-value store).</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 06 (Kafka)</strong> — cùng nhóm hạ tầng "message/data broker" cần Docker container thật.</li>
+<li><strong>Chapter 12 (Performance Tuning)</strong> — Redis thường là lớp cache đầu tiên được cân nhắc khi tối
+  ưu độ trễ đọc dữ liệu.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Redis lưu trữ dữ liệu dưới dạng <strong>byte thô</strong> — bản thân Redis không biết và không quan tâm dữ liệu
+là String, JSON, hay object Java serialize. Client (Spring Data Redis) phải tự quyết định cách
+<strong>chuyển đổi</strong> đối tượng Java thành byte trước khi gửi đi, và ngược lại. Nếu chọn sai cách chuyển
+đổi, dữ liệu tuy vẫn hoạt động đúng <strong>trong nội bộ ứng dụng Java đó</strong>, nhưng trở nên vô dụng với
+bất kỳ ai/công cụ nào khác cố đọc trực tiếp từ Redis.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong><code>RedisTemplate&lt;K, V&gt;</code></strong> là API tổng quát của Spring Data Redis, cho phép tuỳ chỉnh <strong>serializer</strong>
+riêng cho key, value, hash key, hash value. Mặc định (không cấu hình gì thêm), Spring Boot dùng
+<code>JdkSerializationRedisSerializer</code> — tức <code>ObjectOutputStream</code> tiêu chuẩn của Java — cho cả key lẫn
+value. <strong><code>StringRedisTemplate</code></strong> là một <code>RedisTemplate&lt;String, String&gt;</code> được cấu hình sẵn dùng
+<code>StringRedisSerializer</code> (UTF-8 thuần) cho mọi thành phần — đây là lựa chọn an toàn khi dữ liệu vốn
+đã là String.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì Redis được dùng phổ biến như một hạ tầng <strong>chia sẻ</strong> giữa nhiều service (có thể viết bằng ngôn
+ngữ khác nhau) hoặc được thao tác trực tiếp qua <code>redis-cli</code>/công cụ giám sát khi debug, dữ liệu cần
+ở dạng <strong>con người và hệ thống khác đọc được</strong> (text/JSON), không phải định dạng binary đặc thù
+của một JVM cụ thể. <code>JdkSerializationRedisSerializer</code> (mặc định) chỉ Java mới giải mã được, và tệ
+hơn nữa — áp dụng cho <strong>cả key</strong> khiến ngay cả việc liệt kê/tìm key bằng <code>redis-cli KEYS</code>/<code>SCAN</code>
+cũng trở nên vô nghĩa với người vận hành.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RedisConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">jsonRedisTemplate</span><span class="p">(</span><span class="n">RedisConnectionFactory</span><span class="w"> </span><span class="n">factory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">RedisTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RedisTemplate</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">template</span><span class="p">.</span><span class="na">setConnectionFactory</span><span class="p">(</span><span class="n">factory</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">template</span><span class="p">.</span><span class="na">setKeySerializer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringRedisSerializer</span><span class="p">());</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">template</span><span class="p">.</span><span class="na">setValueSerializer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GenericJackson2JsonRedisSerializer</span><span class="p">());</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">template</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">jsonRedisTemplate</span><span class="p">.</span><span class="na">opsForValue</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;order:json:ORD-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>RedisTemplate&lt;Object,Object&gt; MAC DINH (JdkSerializationRedisSerializer ca key va value):
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Java: redisTemplate.opsForValue().set(&quot;order:default:ORD-1&quot;, order)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                                            │
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                                            ▼
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  Redis luu key that su: \xac\xed\x00\x05 t \x00\x13 order:default:ORD-1
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>                          └──── header JDK serialization ────┘  └── noi dung ──┘
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  redis-cli GET &quot;order:default:ORD-1&quot;  -&gt;  (nil)   &lt;- KHONG KHOP!
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>RedisTemplate TUY CHINH (StringRedisSerializer key + GenericJackson2JsonRedisSerializer value):
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  Redis luu key that su: order:json:ORD-2                              &lt;- KHOP CHINH XAC
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  Redis luu value that su: {&quot;@class&quot;:&quot;...OrderDto&quot;,&quot;id&quot;:&quot;ORD-2&quot;,...}   &lt;- JSON doc duoc
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Key bị mã hoá JDK serialization — dữ liệu thật:</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>--no-raw<span class="w"> </span>KEYS<span class="w"> </span><span class="s1">&#39;*&#39;</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>1) &quot;\xac\xed\x00\x05t\x00\x13order:default:ORD-1&quot;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>2) &quot;order:string:ORD-1&quot;
+</code></pre></div></p>
+<p>Key thứ hai (<code>order:string:ORD-1</code>, lưu qua <code>StringRedisTemplate</code>) hoàn toàn sạch, đọc được trực
+tiếp — vì <code>StringRedisTemplate</code> dùng <code>StringRedisSerializer</code> cho key.</p>
+<p><strong>Sau khi cấu hình <code>StringRedisSerializer</code> (key) + <code>GenericJackson2JsonRedisSerializer</code> (value):</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>GET<span class="w"> </span>order:json:ORD-2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span><span class="nt">&quot;@class&quot;</span><span class="p">:</span><span class="s2">&quot;com.handbook.demo.logging.RedisDemoController$OrderDto&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ORD-2&quot;</span><span class="p">,</span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Man hinh&quot;</span><span class="p">,</span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="mf">4200000.0</span><span class="p">}</span>
+</code></pre></div></p>
+<p>Key sạch (<code>order:json:ORD-2</code>, tìm được bằng <code>KEYS</code>/<code>SCAN</code> bình thường), value là JSON đọc được bởi
+bất kỳ ngôn ngữ/công cụ nào — <code>GenericJackson2JsonRedisSerializer</code> tự thêm field <code>@class</code> để giữ
+thông tin kiểu, phục vụ deserialize đa hình (polymorphic) khi đọc lại bằng chính Spring Data Redis.</p>
+<p><strong>TTL (Time To Live) — dữ liệu thật, set với TTL=3 giây:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>http://localhost:8080/api/redis-demo/ttl-demo<span class="w">   </span><span class="c1"># set voi Duration.ofSeconds(3)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>TTL<span class="w"> </span>session:demo<span class="w">     </span><span class="c1"># ngay sau khi set</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>sleep<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>TTL<span class="w"> </span>session:demo
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>sleep<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>TTL<span class="w"> </span>session:demo
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis-demo<span class="w"> </span>redis-cli<span class="w"> </span>GET<span class="w"> </span>session:demo
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>TTL ngay sau khi set: 3
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>TTL sau 2 giay:       1
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>TTL sau 4 giay:       -2    &lt;- key da het han VA bi xoa
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>GET session:demo:     (nil)
+</code></pre></div>
+<p><code>-2</code> là giá trị đặc biệt của lệnh <code>TTL</code> trong Redis, nghĩa là <strong>key không tồn tại</strong> (đã hết hạn và
+bị dọn dẹp) — khác với <code>-1</code> (key tồn tại nhưng không có TTL nào được đặt).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao đúng 4 byte đầu <code>\xac\xed\x00\x05</code> xuất hiện ở mọi key/value dùng
+<code>JdkSerializationRedisSerializer</code>, không phải ngẫu nhiên?</strong> Đây chính là <strong><code>STREAM_MAGIC</code></strong>
+(<code>0xACED</code>) và <strong><code>STREAM_VERSION</code></strong> (<code>0x0005</code>) — hai giá trị hằng số cố định mở đầu <strong>mọi</strong>
+<code>ObjectOutputStream</code> trong Java, được định nghĩa trong chính <code>java.io.ObjectStreamConstants</code>. Bất
+kỳ dữ liệu nào serialize bằng cơ chế Java serialization tiêu chuẩn đều mang "chữ ký" này ở đầu —
+đây là cách nhanh nhất để nhận diện một blob dữ liệu có phải Java-serialized hay không, kể cả khi
+không có source code, một kỹ năng debug hữu ích khi gặp dữ liệu binary lạ trong bất kỳ hệ thống
+lưu trữ nào (không riêng Redis).</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong><code>GenericJackson2JsonRedisSerializer</code> tự thêm field <code>@class</code> vào JSON — đây có phải hành vi mong
+muốn trong mọi trường hợp?</strong> Field <code>@class</code> (thấy trong Example) cho phép Spring Data Redis
+<strong>deserialize đúng kiểu cụ thể</strong> khi đọc lại dữ liệu (quan trọng nếu <code>RedisTemplate&lt;String, Object&gt;</code>
+lưu nhiều kiểu object khác nhau dưới cùng một cấu trúc key). Nhưng đây cũng là <strong>con dao hai lưỡi</strong>:
+(1) nó gắn chặt dữ liệu lưu trong Redis với <strong>tên class Java đầy đủ</strong> (<code>com.handbook.demo....</code>) —
+đổi tên hoặc di chuyển class sẽ làm hỏng khả năng đọc lại dữ liệu cũ; (2) nó làm dữ liệu <strong>không
+còn thuần JSON chuẩn</strong> theo góc nhìn của một service khác (Node.js, Python) đọc cùng key — field
+<code>@class</code> trở thành nhiễu không cần thiết. Với dữ liệu cần chia sẻ liên ngôn ngữ, nên dùng
+<code>Jackson2JsonRedisSerializer</code> (chỉ định rõ class cụ thể, không kèm <code>@class</code>) thay vì
+<code>GenericJackson2JsonRedisSerializer</code>.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>JdkSerializationRedisSerializer</code> là serializer <strong>mặc định</strong> của Spring Data Redis từ những phiên
+bản đầu tiên (kế thừa thói quen serialization "an toàn, không cần cấu hình gì" phổ biến trong hệ
+sinh thái Java giai đoạn 2010s, ví dụ session replication, RMI). Khi Redis ngày càng được dùng như
+một hạ tầng chia sẻ đa ngôn ngữ/đa service, cộng đồng dần chuyển sang khuyến nghị JSON serializer
+làm best practice mặc định trong mọi hướng dẫn cấu hình Spring Data Redis hiện đại — dù bản thân
+Spring Boot <strong>chưa</strong> đổi default vì lý do tương thích ngược.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Đọc lại dữ liệu đúng qua chính <code>RedisTemplate</code> nghĩa là cấu hình serialize đã đúng."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — dữ liệu đọc lại đúng <strong>trong nội bộ cùng một JVM</strong>
+  dùng cùng serializer, nhưng key/value hoàn toàn không tương thích với <code>redis-cli</code> hay bất kỳ
+  client/ngôn ngữ nào khác.</li>
+<li><strong>Myth:</strong> "<code>StringRedisTemplate</code> và <code>RedisTemplate&lt;String, String&gt;</code> tự tạo là giống hệt nhau."
+  <strong>Reality:</strong> Về kiểu generic thì giống, nhưng <code>StringRedisTemplate</code> được Spring Boot <strong>cấu hình
+  sẵn</strong> <code>StringRedisSerializer</code> cho mọi thành phần; tự tạo <code>RedisTemplate&lt;String, String&gt;</code> bằng
+  <code>new RedisTemplate&lt;&gt;()</code> mà không set serializer vẫn rơi vào mặc định JDK serialization.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Dùng <code>RedisTemplate&lt;Object, Object&gt;</code> mặc định mà không cấu hình serializer</strong> — dữ liệu hoạt
+  động "đúng" trong test nội bộ nhưng không đọc được bằng công cụ giám sát Redis hay service khác.</li>
+<li><strong>Chọn <code>GenericJackson2JsonRedisSerializer</code> cho dữ liệu cần chia sẻ với hệ thống không phải
+  Java</strong> — field <code>@class</code> gắn chặt với tên class Java, gây khó hiểu/không tương thích phía nhận.</li>
+<li><strong>Không kiểm tra dữ liệu thật trong Redis bằng <code>redis-cli</code></strong> khi debug — chỉ test qua chính
+  <code>RedisTemplate</code> của ứng dụng có thể che giấu vấn đề serialization vì cùng cấu hình đọc/ghi khớp
+  nhau, như đã thấy ở Story.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn cấu hình tường minh <code>keySerializer</code>/<code>valueSerializer</code> cho <code>RedisTemplate</code>, ưu tiên
+  <code>StringRedisSerializer</code> cho key và JSON serializer cho value.</li>
+<li>Dùng <code>redis-cli</code> (hoặc RedisInsight) để xác minh trực tiếp dữ liệu thật trong Redis khi debug,
+  không chỉ tin vào việc đọc lại qua chính ứng dụng.</li>
+<li>Luôn đặt TTL rõ ràng cho dữ liệu cache (như <code>Duration.ofSeconds(...)</code>) — dữ liệu không có TTL
+  tồn tại vĩnh viễn, dễ gây phình bộ nhớ Redis theo thời gian.</li>
+<li>Với dữ liệu chia sẻ đa ngôn ngữ/đa service, tránh <code>GenericJackson2JsonRedisSerializer</code> (có
+  <code>@class</code>), cân nhắc <code>Jackson2JsonRedisSerializer</code> chỉ định class cụ thể hoặc tự định nghĩa schema
+  JSON.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Dữ liệu trong Redis không đọc được bằng <code>redis-cli</code>/công cụ khác dù ứng dụng Java hoạt động
+      bình thường? → nghi ngờ hàng đầu là <code>RedisTemplate</code> đang dùng
+      <code>JdkSerializationRedisSerializer</code> mặc định — kiểm tra 4 byte đầu <code>\xac\xed\x00\x05</code>.</li>
+<li>[ ] Key tìm bằng <code>KEYS</code>/<code>SCAN</code> không khớp với key ứng dụng dùng? → cùng nguyên nhân, key cũng bị
+      serialize nhị phân, không phải chuỗi thuần.</li>
+<li>[ ] Dữ liệu cache "sống" quá lâu, không tự xoá? → kiểm tra có set TTL khi ghi hay không; <code>TTL
+      key</code> trả về <code>-1</code> nghĩa là key không có thời gian hết hạn.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><code>RedisTemplate</code> mặc định (không cấu hình) dùng <code>JdkSerializationRedisSerializer</code> cho <strong>cả key lẫn
+value</strong> — đã chứng minh bằng thực nghiệm: key lưu thực tế trong Redis mang theo magic header Java
+serialization (<code>\xac\xed\x00\x05</code>), khiến <code>redis-cli GET</code> với key literal trả về <code>(nil)</code>, dù đọc
+lại đúng qua chính <code>RedisTemplate</code> của ứng dụng. Cấu hình tường minh <code>StringRedisSerializer</code> (key)
+và <code>GenericJackson2JsonRedisSerializer</code> (value) tạo ra dữ liệu sạch, đọc được bởi mọi công cụ/ngôn
+ngữ — đã xác nhận qua key <code>order:json:ORD-2</code> và value JSON đọc được trực tiếp. TTL trong Redis
+giảm dần theo thời gian thực (<code>TTL</code> trả về số giây còn lại), và trả về <code>-2</code> khi key đã hết hạn và
+bị xoá, <code>-1</code> khi key tồn tại nhưng không có TTL.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li><code>RedisTemplate</code> và <code>StringRedisTemplate</code> khác nhau ở điểm nào?</li>
+<li>TTL của một key trong Redis hoạt động như thế nào? Ý nghĩa của giá trị <code>-1</code> và <code>-2</code> khi gọi lệnh
+  <code>TTL</code>?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao dữ liệu lưu bằng <code>RedisTemplate</code> mặc định không đọc được bằng <code>redis-cli</code>? Cách khắc
+  phục?</li>
+<li><code>GenericJackson2JsonRedisSerializer</code> và <code>Jackson2JsonRedisSerializer</code> khác nhau ở điểm nào? Khi
+  nào nên tránh dùng loại có field <code>@class</code>?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy <code>redis-cli --no-raw KEYS '*'</code> trước và sau khi đổi <code>RedisTemplate</code> sang dùng
+      <code>StringRedisSerializer</code>, so sánh trực tiếp định dạng key.</li>
+<li>[ ] Set một key với TTL rất ngắn (1 giây), viết vòng lặp gọi <code>TTL</code> mỗi 200ms để quan sát giá trị
+      giảm dần tới <code>-2</code>.</li>
+<li>[ ] Serialize cùng một object bằng <code>Jackson2JsonRedisSerializer</code> (chỉ định class cụ thể) thay vì
+      <code>GenericJackson2JsonRedisSerializer</code>, xác nhận JSON kết quả không còn field <code>@class</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Serializer</th>
+<th>Key/Value dạng gì trong Redis?</th>
+<th>Đọc được bằng <code>redis-cli</code>?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>JdkSerializationRedisSerializer</code> (mặc định của <code>RedisTemplate</code>)</td>
+<td>Binary, có magic header <code>\xac\xed</code></td>
+<td>Không</td>
+</tr>
+<tr>
+<td><code>StringRedisSerializer</code></td>
+<td>Text thuần</td>
+<td>Có</td>
+</tr>
+<tr>
+<td><code>GenericJackson2JsonRedisSerializer</code></td>
+<td>JSON kèm <code>@class</code></td>
+<td>Có (nhưng có field thừa nếu đọc từ ngôn ngữ khác)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Giá trị lệnh <code>TTL key</code></th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt; 0</code></td>
+<td>Số giây còn lại trước khi hết hạn</td>
+</tr>
+<tr>
+<td><code>-1</code></td>
+<td>Key tồn tại, không có TTL</td>
+</tr>
+<tr>
+<td><code>-2</code></td>
+<td>Key không tồn tại (đã hết hạn/chưa từng có)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Spring Data Redis Documentation — Serializers.</li>
+<li>Redis Documentation — <code>EXPIRE</code>, <code>TTL</code>.</li>
+<li><code>java.io.ObjectStreamConstants</code> — <code>STREAM_MAGIC</code>, <code>STREAM_VERSION</code>.</li>
 </ul>
 
 

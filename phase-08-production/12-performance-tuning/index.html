@@ -27,7 +27,7 @@
     
     
       
-        <title>Performance Tuning - Java Backend Engineering Handbook</title>
+        <title>Performance Tuning: Điều tra Độ trễ Production - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-tuning" class="md-skip">
+        <a href="#performance-tuning-ieu-tra-o-tre-production" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance Tuning
+              Performance Tuning: Điều tra Độ trễ Production
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4512,7 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4540,7 +4540,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4596,7 +4596,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4624,7 +4624,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4652,7 +4652,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -4680,7 +4680,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -4717,7 +4717,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -4735,7 +4735,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -4959,32 +4959,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:lock-contention" class="md-tag">Lock Contention</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:performance-tuning" class="md-tag">Performance Tuning</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:thread-dump" class="md-tag">Thread Dump</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="performance-tuning">Performance Tuning<a class="headerlink" href="#performance-tuning" title="Permanent link">&para;</a></h1>
+<h1 id="performance-tuning-ieu-tra-o-tre-production">Performance Tuning: Điều tra Độ trễ Production<a class="headerlink" href="#performance-tuning-ieu-tra-o-tre-production" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>performance-tuning</code></p>
@@ -6149,94 +6119,339 @@ Chapter slug: <code>performance-tuning</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Performance Tuning</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 05 — synchronized</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 01 — Logging</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 02 — Metrics</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 04 — HikariCP</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 11 — JVM Tuning</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Một endpoint, test đơn lẻ cục bộ, phản hồi nhanh:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>http://localhost:8080/api/perf-demo/slow
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>slow-done in 305ms, counter=1
+</code></pre></div>
+<p>Gửi 25 request <strong>đồng thời</strong> (mô phỏng traffic thật ở production) tới đúng endpoint đó:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">25</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>curl<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{time_total}s &quot;</span><span class="w"> </span>http://localhost:8080/api/perf-demo/slow<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="k">done</span><span class="p">;</span><span class="w"> </span><span class="nb">wait</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>0.36s 0.66s 0.96s 1.27s 1.57s 1.88s 2.18s 2.48s 2.79s 3.09s 3.40s 3.70s 4.00s
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>4.30s 4.59s 4.89s 5.20s 5.50s 5.80s 6.10s 6.41s 6.71s 7.01s 7.32s 7.63s
+</code></pre></div>
+<p>Request cuối cùng mất <strong>7.63 giây</strong> — gần đúng với triệu chứng kinh điển "300ms local, 8 giây
+production". Cùng một endpoint, cùng một đoạn code, <strong>không hề chậm hơn về mặt tính toán</strong> — vấn đề
+chỉ xuất hiện khi có nhiều request cùng lúc. Lấy thread dump thật ngay giữa lúc burst 15 request
+đồng thời:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>jstack<span class="w"> </span>&lt;pid&gt;<span class="w"> </span>&gt;<span class="w"> </span>threaddump.txt
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;BLOCKED (on object monitor)&quot;</span><span class="w"> </span>threaddump.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>10
+</code></pre></div>
+<p><strong>10 thread</strong> đang ở trạng thái <code>BLOCKED</code>, tất cả cùng chờ khoá <strong>một object monitor duy nhất</strong>,
+tại đúng một dòng code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&quot;http-nio-8080-exec-3&quot; ... java.lang.Thread.State: BLOCKED (on object monitor)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    at com.handbook.demo.logging.PerfDemoController.slowEndpoint(PerfDemoController.java:21)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    - waiting to lock &lt;0x000000070227ceb0&gt; (a java.lang.Object)
+</code></pre></div>
+<p>Nguyên nhân: một khối <code>synchronized</code> bọc quanh <strong>toàn bộ</strong> logic xử lý (bao gồm cả
+<code>Thread.sleep(300)</code> mô phỏng công việc), khiến 300ms "công việc" của mỗi request buộc phải chạy
+<strong>tuần tự</strong>, không phải song song — độ trễ tích luỹ tuyến tính theo số request đồng thời.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>An API is suddenly taking 8 seconds in production, but only 300ms locally. Where do you start
+debugging?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay tái hiện chính xác kịch bản "nhanh khi test đơn lẻ, chậm dần dưới tải đồng thời" bằng
+      một lock contention thật</li>
+<li>[ ] Dùng <code>jstack</code> để lấy thread dump thật, đọc đúng trạng thái <code>BLOCKED</code> và xác định chính xác
+      dòng code gây tranh chấp</li>
+<li>[ ] Áp dụng đúng quy trình điều tra hệ thống, tận dụng mọi công cụ đã học trong Phase 8
+      (logging, metrics, tracing, connection pool) theo đúng thứ tự ưu tiên</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 3, Chapter 05 — <code>synchronized</code>, monitor, nền tảng để hiểu trạng thái <code>BLOCKED</code>.</li>
+<li>Phase 8, Chapter 01, 02, 04, 11 — toàn bộ công cụ quan sát/chẩn đoán đã xây dựng xuyên suốt
+  phase này, được tổng hợp lại thành một quy trình điều tra có hệ thống ở chapter này.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
-<ul>
-<li>TODO</li>
-</ul>
+<p>Đây là chapter cuối cùng của Phase 8 — kiến thức được dùng xuyên suốt mọi phase sau trong công
+việc thực tế.</p>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>"Chậm ở production nhưng nhanh khi test cục bộ" là một trong những triệu chứng khó chịu nhất trong
+vận hành hệ thống thực tế — nó <strong>không tái hiện được</strong> bằng cách chạy lại đúng request đó một lần
+duy nhất trên máy cá nhân, vì bản chất vấn đề không nằm ở logic tính toán của request, mà nằm ở
+<strong>tương tác giữa nhiều request chạy đồng thời</strong> — một điều kiện chỉ xuất hiện dưới tải thật.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khi nhiều thread cùng cố giữ một <strong>monitor lock</strong> (<code>synchronized</code>), chỉ một thread được vào tại một
+thời điểm — các thread còn lại chuyển sang trạng thái <strong><code>BLOCKED</code></strong>, xếp hàng chờ. Nếu công việc
+bên trong khối khoá có <strong>thời lượng cố định</strong> (như <code>Thread.sleep(300)</code>), tổng thời gian một thread
+phải chờ tỉ lệ <strong>tuyến tính</strong> với số thread đang xếp hàng trước nó — request thứ N phải chờ
+khoảng <code>(N-1) × 300ms</code> trước khi được xử lý, cộng thêm 300ms xử lý chính nó.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì mục đích của <code>synchronized</code> là bảo vệ <strong>trạng thái chia sẻ</strong> (shared mutable state) khỏi truy
+cập đồng thời không an toàn, nó <strong>cố ý</strong> buộc các thread chạy tuần tự qua đoạn code được bảo vệ.
+Vấn đề chỉ nảy sinh khi phạm vi khoá (critical section) <strong>rộng hơn mức cần thiết</strong> — bọc luôn cả
+phần công việc tốn thời gian mà đáng lẽ không cần bảo vệ, khiến toàn bộ hệ thống mất khả năng xử lý
+song song một cách không cần thiết, biến một endpoint vốn có thể chạy hoàn toàn độc lập giữa các
+request thành một hàng đợi tuần tự trá hình.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// TRUOC: toan bo cong viec nam trong synchronized -&gt; tranh chap khong can thiet</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/perf-demo/slow&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">slowEndpoint</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">LOCK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;cong viec&quot; khong can bao ve, nhung van bi khoa</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">slowCounter</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;...&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1">// SAU: chi phan thuc su can dong bo (tang counter) moi dung synchronized/Atomic</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/perf-demo/fast&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">fastEndpoint</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span><span class="w">              </span><span class="c1">// chay SONG SONG binh thuong</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fastCounter</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w"> </span><span class="c1">// AtomicLong, khong can lock rieng</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;...&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>jstack<span class="w"> </span>&lt;pid&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A3<span class="w"> </span><span class="s2">&quot;BLOCKED (on object monitor)&quot;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>25 request dong thoi, /slow (synchronized bao ca cong viec):
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  Req 1: [====300ms====]
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  Req 2:                [====300ms====]         &lt;- phai CHO Req 1 xong
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  Req 3:                               [====300ms====]  &lt;- cho ca 2 request truoc
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  ...
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  Req 25:                                                        [====300ms====]
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>                                                                  ↑ ~7.6s sau khi bat dau
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>25 request dong thoi, /fast (khong khoa toan cuc):
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  Req 1:  [====300ms====]
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>  Req 2:  [====300ms====]     &lt;- chay SONG SONG that
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>  Req 3:  [====300ms====]
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>  ...
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  Req 25: [====300ms====]
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>                          ↑ tat ca hoan tat trong ~1s (gioi han boi thread pool, khong phai lock)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>So sánh trực tiếp — cùng 25 request đồng thời, một bên có lock toàn cục, một bên không:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Request nhanh nhất</th>
+<th>Request chậm nhất</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/perf-demo/slow</code> (có <code>synchronized</code> bao công việc)</td>
+<td>0.36s</td>
+<td><strong>7.63s</strong></td>
+</tr>
+<tr>
+<td><code>/api/perf-demo/fast</code> (không khoá, <code>AtomicLong</code>)</td>
+<td>0.39s</td>
+<td><strong>1.04s</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Thread dump thật, chụp giữa lúc 15 request đồng thời đang chạy:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>&quot;http-nio-8080-exec-2&quot; ... java.lang.Thread.State: BLOCKED (on object monitor)
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    at com.handbook.demo.logging.PerfDemoController.slowEndpoint(PerfDemoController.java:21)
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    - waiting to lock &lt;0x000000070227ceb0&gt; (a java.lang.Object)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>&quot;http-nio-8080-exec-3&quot; ... java.lang.Thread.State: BLOCKED (on object monitor)
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    at com.handbook.demo.logging.PerfDemoController.slowEndpoint(PerfDemoController.java:21)
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    - waiting to lock &lt;0x000000070227ceb0&gt; (a java.lang.Object)
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>&quot;http-nio-8080-exec-7&quot; ... java.lang.Thread.State: TIMED_WAITING (sleeping)
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    at java.lang.Thread.sleep(java.base@17.0.12/Native Method)
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    at com.handbook.demo.logging.PerfDemoController.slowEndpoint(PerfDemoController.java:21)
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    - locked &lt;0x000000070227ceb0&gt; (a java.lang.Object)
 </code></pre></div>
+<p>10 thread <code>BLOCKED</code>, tất cả <code>waiting to lock</code> <strong>đúng cùng một địa chỉ monitor</strong>
+(<code>&lt;0x000000070227ceb0&gt;</code>), tại <strong>đúng một dòng code</strong> (<code>PerfDemoController.java:21</code>) — bằng chứng
+trực tiếp, không cần suy đoán, về nguyên nhân chính xác của độ trễ.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao độ trễ tăng gần như tuyến tính hoàn hảo (0.3s một bậc, như thấy trong dữ liệu thật ở
+Story) thay vì tăng đột biến hay hỗn loạn?</strong> Vì tất cả 25 request có <strong>cùng thời lượng công việc cố
+định</strong> (300ms) và cùng tranh chấp <strong>một</strong> monitor duy nhất, hàng đợi chờ khoá hoạt động giống hệt
+một hàng đợi FIFO đơn giản: request thứ N chỉ có thể bắt đầu phần việc của nó sau khi (N-1) request
+trước hoàn tất — tạo ra cấp số cộng chính xác với bước nhảy 300ms, đúng như log thật thể hiện
+(0.36s, 0.66s, 0.96s...). Trong hệ thống thực tế phức tạp hơn (thời lượng công việc mỗi request
+khác nhau, nhiều loại lock khác nhau tương tác), độ trễ vẫn tăng theo tải nhưng ít khi đều đặn như
+vậy — sự đều đặn ở đây là dấu hiệu đặc trưng của <strong>một</strong> điểm tranh chấp lock duy nhất, đơn giản.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Quy trình điều tra thực tế đúng thứ tự khi gặp "nhanh local, chậm production" — tổng hợp mọi
+công cụ đã học trong Phase 8 — là gì?</strong></p>
+<ol>
+<li><strong>Xác nhận đây là vấn đề do tải (concurrency), không phải do dữ liệu khác nhau</strong> — chạy lại
+   chính request đó với dữ liệu production thật trên máy local; nếu vẫn nhanh, loại trừ nguyên nhân
+   do input, tập trung vào hành vi dưới tải đồng thời.</li>
+<li><strong>Kiểm tra <code>http.server.requests</code></strong> (Chapter 02) theo <code>uri</code> cụ thể — xác nhận độ trễ tăng có
+   tương quan với thời điểm traffic cao hay không.</li>
+<li><strong>Kiểm tra <code>hikaricp.connections.*</code></strong> (Chapter 04) — loại trừ khả năng nghẽn cổ chai ở tầng
+   connection pool database trước khi nghi ngờ tới lock ở tầng ứng dụng.</li>
+<li><strong>Lấy thread dump thật</strong> (<code>jstack</code>, như Story) khi hệ thống đang chậm — đây là bằng chứng
+   <strong>trực tiếp nhất</strong>, cho biết chính xác thread đang chờ gì, ở dòng code nào, không cần suy đoán.
+   Nếu thấy nhiều thread <code>BLOCKED</code> cùng chờ một monitor, đã tìm ra nguyên nhân gốc.</li>
+<li><strong>Kiểm tra log GC</strong> (Chapter 11) nếu thread dump không cho thấy lock contention rõ ràng — độ
+   trễ đôi khi tới từ GC pause dồn dập dưới tải cao, không phải lock.</li>
+<li><strong>Sửa bằng cách thu hẹp phạm vi khoá</strong> — chỉ bảo vệ đúng phần thao tác trên trạng thái chia sẻ
+   (như <code>fastEndpoint</code> ở How?), không bọc cả phần công việc độc lập.</li>
+</ol>
+<p>Thứ tự này ưu tiên các nguồn dữ liệu <strong>rẻ và nhanh</strong> (metrics) trước, chỉ dùng công cụ <strong>tốn kém
+hơn nhưng chính xác tuyệt đối</strong> (thread dump) khi các bước trước đã thu hẹp phạm vi nghi vấn.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><code>jstack</code> (và cơ chế thread dump nói chung, có thể lấy qua tín hiệu <code>SIGQUIT</code>/<code>kill -3</code> từ những
+phiên bản JVM rất sớm) là một trong những công cụ chẩn đoán lâu đời nhất của nền tảng Java — tồn
+tại từ trước cả khi có JVisualVM, JFR (Java Flight Recorder, JDK 11+ miễn phí), hay các APM
+thương mại hiện đại (Datadog, New Relic). Dù công cụ giám sát đã phát triển rất nhiều, thread dump
+vẫn là kỹ thuật <strong>nhanh nhất và trực tiếp nhất</strong> để trả lời câu hỏi "ngay bây giờ, các thread đang
+làm gì" — không cần cài đặt agent, không cần cấu hình trước, chỉ cần quyền truy cập vào tiến trình.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Nếu code chạy nhanh khi test một request duy nhất, code đó không có vấn đề về hiệu
+  năng."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — đúng cùng đoạn code, cùng 305ms khi chạy đơn lẻ,
+  nhưng tạo ra độ trễ 7.6 giây dưới 25 request đồng thời. Test đơn lẻ hoàn toàn không phát hiện
+  được lock contention.</li>
+<li><strong>Myth:</strong> "Độ trễ cao ở production luôn do database chậm hoặc network chậm."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — nguyên nhân ở đây hoàn toàn nằm trong tầng ứng
+  dụng (một khối <code>synchronized</code> quá rộng), không liên quan gì tới database hay network.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Bọc <code>synchronized</code>/lock quanh cả những thao tác không cần đồng bộ</strong> (I/O, <code>Thread.sleep</code>, gọi
+  service khác) — biến một đoạn code có thể song song thành hàng đợi tuần tự, như đã tái hiện.</li>
+<li><strong>Chỉ test hiệu năng bằng một request đơn lẻ</strong> trước khi triển khai — không phát hiện được các
+  vấn đề chỉ xuất hiện dưới tải đồng thời như lock contention.</li>
+<li><strong>Bỏ qua thread dump, chỉ dựa vào suy đoán</strong> khi gặp độ trễ bất thường — thread dump cho bằng
+  chứng trực tiếp, chính xác hơn nhiều so với phỏng đoán dựa trên đọc code tĩnh.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Giữ phạm vi <code>synchronized</code>/lock <strong>càng hẹp càng tốt</strong> — chỉ bảo vệ đúng thao tác đọc/ghi trạng
+  thái chia sẻ, không bao gồm I/O hay tính toán độc lập.</li>
+<li>Ưu tiên cấu trúc dữ liệu concurrent có sẵn (<code>AtomicLong</code>, <code>ConcurrentHashMap</code> — Phase 2/3) thay
+  vì tự viết <code>synchronized</code> thủ công khi có thể.</li>
+<li>Luôn test hiệu năng dưới <strong>tải đồng thời thật</strong> (dù chỉ mô phỏng bằng vài chục request song song
+  như ở Story) trước khi coi một endpoint là "đủ nhanh", không chỉ test một request đơn lẻ.</li>
+<li>Thiết lập sẵn quy trình lấy thread dump nhanh (<code>jstack &lt;pid&gt;</code>) như một phản xạ đầu tiên khi gặp
+  độ trễ bất thường ở production, trước khi thử các giả thuyết phức tạp hơn.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Endpoint nhanh khi test đơn lẻ nhưng chậm ở production? → nghi ngờ hàng đầu là vấn đề chỉ
+      xuất hiện dưới tải đồng thời (lock contention, connection pool cạn kiệt — Chapter 04, GC
+      pause dồn dập — Chapter 11), không phải logic tính toán.</li>
+<li>[ ] Nghi ngờ lock contention? → lấy thread dump thật (<code>jstack</code>) ngay lúc hệ thống đang chậm, tìm
+      nhiều thread <code>BLOCKED</code> cùng chờ một địa chỉ monitor.</li>
+<li>[ ] Đã xác định đúng dòng code gây tranh chấp? → kiểm tra phạm vi khối <code>synchronized</code> có bao gồm
+      thao tác không cần đồng bộ hay không (I/O, sleep, gọi service ngoài).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>"Nhanh local, chậm production" (300ms → 8 giây) là triệu chứng kinh điển của một vấn đề <strong>chỉ xuất
+hiện dưới tải đồng thời</strong>, không nằm trong logic tính toán của bản thân request — đã tái hiện chính
+xác bằng thực nghiệm: một khối <code>synchronized</code> bọc cả công việc không cần đồng bộ khiến 25 request
+đồng thời phải xếp hàng tuần tự, độ trễ request cuối leo tới 7.63 giây, trong khi cùng công việc
+không có lock toàn cục chỉ mất 1.04 giây dưới cùng tải. Thread dump thật (<code>jstack</code>) là công cụ chẩn
+đoán trực tiếp và chính xác nhất cho lớp vấn đề này — 10 thread <code>BLOCKED</code> cùng chờ một địa chỉ
+monitor, tại đúng một dòng code, xác định nguyên nhân ngay lập tức. Quy trình điều tra hệ thống nên
+đi từ công cụ rẻ (metrics — Chapter 02, connection pool — Chapter 04) tới công cụ chính xác nhưng
+tốn kém hơn (thread dump), tổng hợp toàn bộ công cụ quan sát đã xây dựng xuyên suốt Phase 8.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Mid</strong></p>
 <ul>
-<li>An API is suddenly taking 8 seconds in production, but only 300ms locally. Where do you start debugging?</li>
+<li>Trạng thái <code>BLOCKED</code> của một thread trong thread dump nghĩa là gì?</li>
+<li>Vì sao một endpoint nhanh khi test đơn lẻ có thể chậm hẳn dưới tải đồng thời?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>An API is suddenly taking 8 seconds in production, but only 300ms locally. Where do you start
+  debugging?</li>
+<li>Đọc một thread dump thật có nhiều thread <code>BLOCKED</code>, làm sao xác định chính xác nguyên nhân gốc
+  và đề xuất hướng sửa?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Sửa <code>slowEndpoint</code> theo mẫu <code>fastEndpoint</code> (thu hẹp phạm vi lock), lặp lại bài test 25
+      request đồng thời, xác nhận độ trễ tối đa giảm từ ~7.6s xuống gần 1s.</li>
+<li>[ ] Lấy thread dump khi hệ thống <strong>không</strong> có tải, xác nhận không còn thread nào ở trạng thái
+      <code>BLOCKED</code> chờ cùng monitor.</li>
+<li>[ ] Thử với số lượng request đồng thời khác nhau (10, 50, 100), vẽ biểu đồ độ trễ tối đa theo số
+      request, xác nhận mối quan hệ tuyến tính đã phân tích ở Deep Dive.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Cho biết gì</th>
+<th>Chi phí</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metrics (<code>http.server.requests</code>, Chapter 02)</td>
+<td>Độ trễ có tăng theo tải không</td>
+<td>Rất rẻ, luôn bật</td>
+</tr>
+<tr>
+<td><code>hikaricp.connections.*</code> (Chapter 04)</td>
+<td>Có nghẽn ở connection pool không</td>
+<td>Rất rẻ, luôn bật</td>
+</tr>
+<tr>
+<td>Log GC (Chapter 11)</td>
+<td>Có GC pause dồn dập không</td>
+<td>Rẻ, luôn bật</td>
+</tr>
+<tr>
+<td>Thread dump (<code>jstack</code>)</td>
+<td>Chính xác thread nào đang chờ gì, dòng code nào</td>
+<td>Tức thời, cần truy cập tiến trình</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Trạng thái thread</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BLOCKED (on object monitor)</code></td>
+<td>Đang chờ vào một khối <code>synchronized</code></td>
+</tr>
+<tr>
+<td><code>TIMED_WAITING (sleeping)</code></td>
+<td>Đang <code>Thread.sleep()</code> hoặc chờ có thời hạn</td>
+</tr>
+<tr>
+<td><code>RUNNABLE</code></td>
+<td>Đang thực thi hoặc sẵn sàng thực thi</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Oracle — <code>jstack</code> Documentation.</li>
+<li>OpenJDK — Thread State Definitions (<code>java.lang.Thread.State</code>).</li>
+<li>Phase 3, Chapter 05 (<code>synchronized</code>) và Chapter 06 (Monitor) — nền tảng lý thuyết.</li>
 </ul>
 
 

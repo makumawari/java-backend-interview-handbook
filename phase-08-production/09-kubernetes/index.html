@@ -27,7 +27,7 @@
     
     
       
-        <title>Kubernetes - Java Backend Engineering Handbook</title>
+        <title>Kubernetes: Deployment, Service, và Health Probes - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kubernetes" class="md-skip">
+        <a href="#kubernetes-deployment-service-va-health-probes" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kubernetes
+              Kubernetes: Deployment, Service, và Health Probes
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4512,7 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4540,7 +4540,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4596,7 +4596,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4633,7 +4633,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4651,7 +4651,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4875,32 +4875,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:kubernetes" class="md-tag">Kubernetes</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:liveness-probe" class="md-tag">Liveness Probe</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:readiness-probe" class="md-tag">Readiness Probe</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h1>
+<h1 id="kubernetes-deployment-service-va-health-probes">Kubernetes: Deployment, Service, và Health Probes<a class="headerlink" href="#kubernetes-deployment-service-va-health-probes" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>kubernetes</code></p>
@@ -6149,94 +6119,349 @@ Chapter slug: <code>kubernetes</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kubernetes</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 08 — Docker</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 10 — CI/CD</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Deploy 3 replica của image <code>demo-app:multistage</code> (Chapter 08) lên một cluster Kubernetes thật
+(tạo bằng <code>kind</code>, chạy cục bộ), với readiness/liveness probe trỏ tới
+<code>/actuator/health/readiness</code> và <code>/actuator/health/liveness</code> — <strong>hai endpoint không hề được cấu
+hình tường minh</strong> trong <code>application.properties</code> của ứng dụng. Chạy đúng cùng image này bằng
+<code>docker run</code> thông thường (không phải Kubernetes):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8082</span>:8080<span class="w"> </span>demo-app:multistage
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl<span class="w"> </span>http://localhost:8082/actuator/health/readiness
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>readiness: 404
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>liveness: 404
+</code></pre></div>
+<p>Hai endpoint <strong>không tồn tại</strong>. Nhưng deploy chính image đó vào cluster Kubernetes thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>deployment.yaml
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>NAME                        READY   STATUS    RESTARTS   AGE
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>demo-app-689f6bf669-426nx   1/1     Running   0          77s
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>demo-app-689f6bf669-fxh54   1/1     Running   0          77s
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>demo-app-689f6bf669-jbc52   1/1     Running   0          77s
+</code></pre></div>
+<p>Cả 3 pod đạt trạng thái <code>1/1 Running</code> — readiness/liveness probe <strong>hoạt động bình thường</strong>, dù
+không có bất kỳ dòng cấu hình nào được thêm vào ứng dụng giữa hai lần chạy. Kiểm tra biến môi
+trường bên trong pod:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;pod&gt;<span class="w"> </span>--<span class="w"> </span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>KUBERNETES_SERVICE_HOST
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>KUBERNETES_SERVICE_HOST=10.96.0.1
+</code></pre></div>
+<p>Chính biến môi trường này — <strong>tự động được Kubernetes tiêm vào mọi pod</strong> — là nguyên nhân: Spring
+Boot Actuator tự phát hiện đang chạy trong môi trường Kubernetes và tự động bật nhóm health-check
+<code>readiness</code>/<code>liveness</code>, điều <strong>không xảy ra</strong> khi cùng image chạy như một container Docker đơn
+thuần.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Readiness probe và liveness probe trong Kubernetes khác nhau ở điểm nào? Vì sao một ứng dụng
+Spring Boot có thể hoạt động bình thường khi test cục bộ bằng Docker nhưng readiness probe của
+nó vẫn "vô hình" (404) cho tới khi thực sự chạy trong Kubernetes?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay deploy một ứng dụng Spring Boot thật lên cluster Kubernetes thật (tạo bằng <code>kind</code>),
+      xác nhận Deployment/Service/Pod hoạt động đúng bằng dữ liệu thật</li>
+<li>[ ] Chứng minh bằng thực nghiệm cơ chế Spring Boot tự phát hiện môi trường Kubernetes qua biến
+      môi trường <code>KUBERNETES_SERVICE_HOST</code>, tự động bật health probe groups</li>
+<li>[ ] Đọc hiểu đúng <code>resources.requests</code>/<code>resources.limits</code> và mối liên hệ trực tiếp với cơ chế
+      JVM container-aware đã học ở Chapter 08</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 8, Chapter 08 — image Docker <code>demo-app:multistage</code> được dùng trực tiếp trong chapter này;
+  cơ chế JVM đọc giới hạn bộ nhớ cgroup áp dụng y hệt khi giới hạn đó tới từ
+  <code>resources.limits.memory</code> của Kubernetes thay vì <code>docker run --memory</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 10 (CI/CD)</strong> — pipeline CI/CD thường kết thúc bằng bước <code>kubectl apply</code> triển khai
+  manifest đã viết ở đây.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Chạy một container Docker đơn lẻ (Chapter 08) đủ cho môi trường phát triển, nhưng production cần
+nhiều thứ hơn: chạy <strong>nhiều bản sao</strong> (replica) để chịu tải và chịu lỗi, tự động <strong>khởi động lại</strong>
+container bị crash, tự động <strong>ngừng gửi traffic</strong> tới một instance chưa sẵn sàng hoặc đang gặp sự
+cố, và một địa chỉ <strong>ổn định</strong> để các service khác gọi tới dù các pod phía sau liên tục thay đổi
+(restart, scale, rolling update). Đây chính là những vấn đề Kubernetes giải quyết ở tầng
+orchestration, phía trên lớp container hoá của Docker.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Deployment</strong> — khai báo "tôi muốn N bản sao (replica) của Pod này luôn chạy", Kubernetes tự
+  động tạo, giám sát, và khởi động lại Pod khi cần để duy trì đúng số lượng.</li>
+<li><strong>Pod</strong> — đơn vị triển khai nhỏ nhất, chứa một hoặc nhiều container cùng chia sẻ network/storage.</li>
+<li><strong>Service</strong> — một địa chỉ mạng <strong>ổn định</strong> (không đổi dù Pod phía sau bị thay thế), tự động load
+  balance traffic tới các Pod đang khớp label selector.</li>
+<li><strong>Readiness Probe</strong> — kiểm tra định kỳ "Pod này đã sẵn sàng nhận traffic chưa?"; nếu thất bại,
+  Kubernetes <strong>ngừng gửi traffic</strong> tới Pod đó qua Service (Pod vẫn chạy, chỉ bị loại khỏi danh sách
+  nhận traffic).</li>
+<li><strong>Liveness Probe</strong> — kiểm tra định kỳ "Pod này còn sống/hoạt động đúng không?"; nếu thất bại liên
+  tục, Kubernetes <strong>khởi động lại</strong> container đó.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì Pod có thể "còn sống" (tiến trình chưa crash) nhưng <strong>chưa sẵn sàng</strong> xử lý request (ví dụ đang
+khởi tạo connection pool, đang warm-up cache) — hoặc ngược lại, "sẵn sàng lúc khởi động" nhưng sau
+đó rơi vào trạng thái treo (deadlock, kẹt vòng lặp) mà vẫn chưa crash hẳn — hai khái niệm readiness
+và liveness được tách riêng để Kubernetes phản ứng đúng với từng tình huống: readiness thất bại chỉ
+cần <strong>tạm ngừng nhận traffic</strong> (không cần khởi động lại gì cả, tự phục hồi khi sẵn sàng trở lại),
+trong khi liveness thất bại thật sự cần <strong>khởi động lại</strong> để thoát khỏi trạng thái treo.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo-app</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> app</span><span class="p">:</span><span class="w"> </span><span class="nv">demo-app</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> app</span><span class="p">:</span><span class="w"> </span><span class="nv">demo-app</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo-app</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo-app:multistage</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[{</span><span class="nt"> containerPort</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}]</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">          </span><span class="nt">resources</span><span class="p">:</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span><span class="p p-Indicator">,</span><span class="nt"> cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;250m&quot;</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">            </span><span class="nt">limits</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span><span class="p p-Indicator">,</span><span class="nt"> cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000m&quot;</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">          </span><span class="nt">readinessProbe</span><span class="p">:</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/actuator/health/readiness</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">          </span><span class="nt">livenessProbe</span><span class="p">:</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/actuator/health/liveness</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="nn">---</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="nt">metadata</span><span class="p">:</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo-app-svc</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="nt">spec</span><span class="p">:</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> app</span><span class="p">:</span><span class="w"> </span><span class="nv">demo-app</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[{</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="nt"> targetPort</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>demo-cluster
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>kind<span class="w"> </span>load<span class="w"> </span>docker-image<span class="w"> </span>demo-app:multistage<span class="w"> </span>--name<span class="w"> </span>demo-cluster
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>deployment.yaml<span class="w"> </span>-f<span class="w"> </span>service.yaml
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Docker container don thuan (docker run):
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  Khong co KUBERNETES_SERVICE_HOST --&gt; Spring Boot KHONG bat probe groups
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  /actuator/health/readiness --&gt; 404
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  /actuator/health/liveness  --&gt; 404
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Pod trong Kubernetes that:
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  KUBERNETES_SERVICE_HOST=10.96.0.1 (tu dong duoc tiem vao MOI pod)
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>                    │
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>                    ▼
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>  Spring Boot tu phat hien &quot;dang chay trong Kubernetes&quot;
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>                    │
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>                    ▼
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  Tu dong bat probe groups
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  /actuator/health/readiness --&gt; 200 {&quot;status&quot;:&quot;UP&quot;}
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>  /actuator/health/liveness  --&gt; 200 {&quot;status&quot;:&quot;UP&quot;}
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Deploy thật, 3 replica, tất cả đạt trạng thái Ready:</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>NAME                        READY   STATUS    RESTARTS   AGE
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>demo-app-689f6bf669-426nx   1/1     Running   0          77s
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>demo-app-689f6bf669-fxh54   1/1     Running   0          77s
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>demo-app-689f6bf669-jbc52   1/1     Running   0          77s
+</code></pre></div></p>
+<p><strong>Sự kiện thật lúc khởi động — readiness probe thất bại NGẮN trước khi ứng dụng kịp lắng nghe
+port, đây là hành vi bình thường, không phải lỗi:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Warning  Unhealthy  21s  kubelet  Readiness probe failed: Get &quot;http://10.244.0.6:8080/actuator/health/readiness&quot;:
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>                                  dial tcp 10.244.0.6:8080: connect: connection refused
+</code></pre></div>
+<p>Vài giây sau, Spring Boot khởi động xong, probe bắt đầu thành công, Pod chuyển sang <code>1/1 Running</code>
+— đúng như thiết kế: <code>initialDelaySeconds</code>/<code>periodSeconds</code> tồn tại chính để cho phép vài lần thất
+bại ban đầu trong lúc ứng dụng khởi động.</p>
+<p><strong><code>resources.requests</code>/<code>limits</code> áp dụng thật, xác nhận qua <code>kubectl describe</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Limits:
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  cpu:     1
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  memory:  512Mi
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Requests:
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  cpu:        250m
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  memory:     512Mi
+</code></pre></div>
+<p><strong>Truy cập qua Service (load balancing thật qua cả 3 Pod):</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/demo-app-svc<span class="w"> </span><span class="m">8090</span>:80
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>curl<span class="w"> </span>http://localhost:8090/api/products
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>curl<span class="w"> </span>http://localhost:8090/actuator/health/readiness
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>via Service: 200
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>{&quot;status&quot;:&quot;UP&quot;}
+</code></pre></div></p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Cơ chế chính xác nào khiến Spring Boot tự bật <code>/actuator/health/readiness</code> và
+<code>/actuator/health/liveness</code> chỉ khi chạy trong Kubernetes?</strong> Spring Boot Actuator có logic phát
+hiện nền tảng đám mây (<code>CloudPlatform</code> detection) — với Kubernetes, nó kiểm tra sự tồn tại của cặp
+biến môi trường <code>KUBERNETES_SERVICE_HOST</code>/<code>KUBERNETES_SERVICE_PORT</code>. Đây là cặp biến môi trường mà
+<strong>chính Kubernetes</strong> tự động tiêm vào <strong>mọi</strong> container chạy trong cluster (phục vụ service
+discovery kiểu cũ, trước khi DNS-based discovery phổ biến) — không phải thứ ứng dụng hay
+Dockerfile tự thêm vào. Khi phát hiện các biến này tồn tại, Spring Boot tự động bật
+<code>management.endpoint.health.probes.enabled=true</code> một cách ngầm định, expose thêm hai nhóm health
+indicator <code>readiness</code> và <code>liveness</code>. Chạy cùng image bằng <code>docker run</code> thông thường không có các
+biến môi trường này (vì không có Kubernetes nào tiêm vào), nên hành vi tự động này <strong>không kích
+hoạt</strong> — giải thích chính xác sự khác biệt 404 vs 200 đã quan sát ở Story.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao readiness probe ban đầu thất bại (<code>connection refused</code>) không làm Pod bị đánh dấu lỗi
+hay bị khởi động lại, trong khi liveness probe thất bại liên tục lại khiến container bị restart?</strong>
+Đây chính là điểm khác biệt cốt lõi giữa hai loại probe: readiness probe <strong>chỉ điều khiển việc có
+đưa Pod vào danh sách nhận traffic của Service hay không</strong> — thất bại không kích hoạt bất kỳ hành
+động "sửa chữa" nào từ phía Kubernetes, nó chỉ đơn giản chờ và thử lại theo <code>periodSeconds</code>. Đây là
+lý do <code>initialDelaySeconds</code> của readiness probe (10s trong ví dụ) thường đặt <strong>ngắn hơn</strong> liveness
+probe (30s) — sẵn sàng nhận traffic sớm ngay khi có thể, nhưng cho phép nhiều thời gian hơn trước
+khi kết luận "container này thực sự có vấn đề cần khởi động lại". Nếu đảo ngược hai giá trị này
+(liveness kiểm tra sớm hơn readiness), một ứng dụng khởi động chậm (như Spring Boot với nhiều
+auto-configuration) có nguy cơ bị Kubernetes <strong>khởi động lại liên tục</strong> ngay trong lúc đang khởi
+động bình thường — một lỗi cấu hình thực tế khá phổ biến gọi là "crash loop do liveness probe quá
+sớm".</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Khái niệm liveness/readiness probe tách biệt xuất hiện từ phiên bản Kubernetes rất sớm (trước
+1.0), phản ánh trực tiếp kinh nghiệm vận hành hệ thống phân tán quy mô lớn của Google (tiền thân
+Borg) — nơi phân biệt rõ "tiến trình còn chạy" và "tiến trình sẵn sàng phục vụ" là yêu cầu vận hành
+cơ bản, không phải tính năng "thêm sau". Spring Boot Actuator bổ sung hỗ trợ health groups
+<code>readiness</code>/<code>liveness</code> tường minh (thay vì chỉ dùng health indicator tổng hợp chung) từ Spring Boot
+2.3 (2020), đúng thời điểm container hoá và Kubernetes trở thành tiêu chuẩn triển khai phổ biến
+trong hệ sinh thái Spring.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Chỉ cần thêm <code>readinessProbe</code>/<code>livenessProbe</code> trỏ đúng path là đủ, không cần quan tâm
+  ứng dụng có thực sự expose các endpoint đó hay không trong mọi môi trường."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — cùng một image, cùng path, nhưng endpoint chỉ tồn
+  tại khi chạy thật trong Kubernetes (nhờ tự phát hiện qua biến môi trường), trả về 404 khi chạy
+  Docker thông thường. Test "local bằng Docker" không đại diện đầy đủ cho hành vi thật trong
+  cluster.</li>
+<li><strong>Myth:</strong> "<code>kubectl apply --dry-run=client</code> luôn chạy được hoàn toàn offline, không cần cluster
+  nào cả."
+  <strong>Reality:</strong> Đã xác nhận trong quá trình chuẩn bị chapter này — kubectl phiên bản hiện đại (1.33)
+  vẫn cần <strong>liên lạc được với một API server</strong> để thực hiện discovery (nhận diện loại resource),
+  dù không thực sự tạo resource nào; nếu không có cluster nào khả dụng, <code>--dry-run=client</code> cũng báo
+  lỗi kết nối, không phải hoàn toàn "client-only" như tên gọi gợi ý.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Test readiness/liveness endpoint chỉ bằng <code>docker run</code> cục bộ rồi kết luận chúng hoạt động
+  đúng</strong> — như đã thấy, hành vi có thể khác hẳn khi thực sự chạy trong Kubernetes.</li>
+<li><strong>Đặt <code>initialDelaySeconds</code> của liveness probe quá ngắn</strong> cho một ứng dụng khởi động chậm — gây
+  crash loop do Kubernetes khởi động lại container ngay khi nó còn đang khởi tạo bình thường.</li>
+<li><strong>Không đặt <code>resources.limits</code></strong> — Pod có thể dùng tài nguyên không giới hạn, ảnh hưởng tới các
+  Pod khác cùng node; đồng thời JVM (Chapter 08) sẽ không có cơ sở cgroup rõ ràng để tự tính
+  <code>MaxHeapSize</code> hợp lý.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn đặt <code>initialDelaySeconds</code> của liveness probe <strong>lớn hơn</strong> readiness probe, và đủ lớn so với
+  thời gian khởi động thực tế đo được của ứng dụng (không đoán mò).</li>
+<li>Kiểm tra hành vi probe <strong>trong môi trường gần giống production nhất có thể</strong> (cluster Kubernetes
+  thật, dù chỉ là <code>kind</code> cục bộ), không chỉ dựa vào <code>docker run</code> đơn thuần.</li>
+<li>Luôn đặt cả <code>resources.requests</code> và <code>resources.limits</code> — không chỉ để Kubernetes lập lịch đúng,
+  mà còn để JVM (Chapter 08) tính <code>MaxHeapSize</code> dựa trên giới hạn thực tế thay vì bộ nhớ toàn node.</li>
+<li>Dùng Service (không phải gọi trực tiếp IP của Pod) để giao tiếp giữa các thành phần — địa chỉ ổn
+  định dù Pod phía sau liên tục thay đổi qua các lần deploy/scale.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Readiness/liveness probe trả về 404 dù ứng dụng chạy bình thường? → kiểm tra có đang test
+      ngoài môi trường Kubernetes thật hay không (thiếu biến <code>KUBERNETES_SERVICE_HOST</code>); trong
+      Kubernetes thật, kiểm tra biến này có được tiêm đúng vào Pod không.</li>
+<li>[ ] Pod liên tục bị restart (crash loop) ngay sau khi deploy? → kiểm tra <code>initialDelaySeconds</code>
+      của liveness probe có đủ lớn so với thời gian khởi động thực tế của ứng dụng không.</li>
+<li>[ ] Pod chạy (<code>Running</code>) nhưng không nhận được traffic qua Service? → kiểm tra trạng thái
+      readiness (<code>READY</code> cột trong <code>kubectl get pods</code>), không chỉ trạng thái <code>STATUS</code>.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Kubernetes Deployment quản lý số lượng replica mong muốn, Service cung cấp địa chỉ ổn định kèm
+load balancing, readiness/liveness probe kiểm soát việc Pod có nhận traffic hay có cần khởi động
+lại hay không — đã triển khai thật lên cluster tạo bằng <code>kind</code>, xác nhận 3 Pod đạt <code>1/1 Running</code>,
+Service phân phối traffic đúng. Phát hiện quan trọng nhất từ thực nghiệm: Spring Boot Actuator chỉ
+tự động expose <code>/actuator/health/readiness</code> và <code>/actuator/health/liveness</code> khi phát hiện biến môi
+trường <code>KUBERNETES_SERVICE_HOST</code> (do chính Kubernetes tự động tiêm vào mọi Pod) — cùng image chạy
+bằng <code>docker run</code> thông thường trả về 404 ở cả hai endpoint này, một khác biệt hành vi dễ gây bất
+ngờ nếu chỉ test cục bộ bằng Docker mà không thử trong môi trường Kubernetes thật.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sự khác biệt giữa Readiness Probe và Liveness Probe trong Kubernetes?</li>
+<li>Vì sao dùng Service thay vì gọi trực tiếp IP của Pod?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Một ứng dụng Spring Boot hoạt động bình thường khi test cục bộ bằng Docker, nhưng readiness
+  probe trả về 404 khi deploy lên Kubernetes bị đảo ngược lại — hoặc ngược lại, hoạt động đúng
+  trong Kubernetes nhưng không hoạt động khi test Docker cục bộ. Giải thích nguyên nhân.</li>
+<li><code>initialDelaySeconds</code> của liveness probe đặt quá ngắn gây ra hậu quả gì? Cách chẩn đoán một crash
+  loop do nguyên nhân này?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Đặt <code>livenessProbe.initialDelaySeconds</code> rất ngắn (ví dụ 2 giây) cho một ứng dụng Spring Boot
+      khởi động chậm, quan sát crash loop thật bằng <code>kubectl get pods -w</code>.</li>
+<li>[ ] Xoá <code>resources.limits.memory</code>, deploy lại, so sánh <code>MaxHeapSize</code> JVM đọc được (Chapter 08)
+      trước và sau khi có giới hạn tường minh.</li>
+<li>[ ] Scale Deployment lên 5 replica (<code>kubectl scale deployment demo-app --replicas=5</code>), xác nhận
+      Service tự động phân phối traffic tới toàn bộ 5 Pod mới.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Readiness Probe</th>
+<th>Liveness Probe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thất bại thì sao?</td>
+<td>Loại khỏi danh sách nhận traffic của Service</td>
+<td>Khởi động lại container</td>
+</tr>
+<tr>
+<td><code>initialDelaySeconds</code> khuyến nghị</td>
+<td>Ngắn hơn (sẵn sàng nhận traffic sớm)</td>
+<td>Dài hơn (tránh restart trong lúc khởi động bình thường)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Môi trường chạy</th>
+<th><code>/actuator/health/readiness</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker run</code> thông thường</td>
+<td>404 (không tồn tại)</td>
+</tr>
+<tr>
+<td>Pod trong Kubernetes thật</td>
+<td>200, tự động bật nhờ <code>KUBERNETES_SERVICE_HOST</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Kubernetes Documentation — Liveness, Readiness, and Startup Probes.</li>
+<li>Kubernetes Documentation — Deployments, Services.</li>
+<li>Spring Boot Documentation — Kubernetes Probes (<code>management.endpoint.health.probes</code>).</li>
+<li><code>kind</code> (Kubernetes IN Docker) Documentation.</li>
 </ul>
 
 

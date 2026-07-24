@@ -27,7 +27,7 @@
     
     
       
-        <title>Kafka - Java Backend Engineering Handbook</title>
+        <title>Kafka: Producer, Consumer, và Offset Reset - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kafka" class="md-skip">
+        <a href="#kafka-producer-consumer-va-offset-reset" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kafka
+              Kafka: Producer, Consumer, và Offset Reset
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4512,7 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4549,7 +4549,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4567,7 +4567,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4747,17 +4747,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historical-note" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Historical Note
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#myth-vs-reality" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4791,32 +4780,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4929,7 +4896,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4924,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4952,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4980,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5008,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -5979,17 +5946,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#historical-note" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Historical Note
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#myth-vs-reality" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6023,32 +5979,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6065,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:consumer-group" class="md-tag">Consumer Group</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:kafka" class="md-tag">Kafka</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:offset" class="md-tag">Offset</a>
       
     
   </nav>
@@ -6141,7 +6089,7 @@
   
 
 
-<h1 id="kafka">Kafka<a class="headerlink" href="#kafka" title="Permanent link">&para;</a></h1>
+<h1 id="kafka-producer-consumer-va-offset-reset">Kafka: Producer, Consumer, và Offset Reset<a class="headerlink" href="#kafka-producer-consumer-va-offset-reset" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>kafka</code></p>
@@ -6149,94 +6097,279 @@ Chapter slug: <code>kafka</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kafka</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 15 — Thread Pool</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 05 — Redis</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 07 — Messaging</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Sản xuất 2 message vào một topic <strong>trước khi</strong> bất kỳ consumer group nào từng tồn tại:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">producer</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ProducerRecord</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">TOPIC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;key1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message-1-truoc-khi-co-consumer&quot;</span><span class="p">)).</span><span class="na">get</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">producer</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ProducerRecord</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">TOPIC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;key2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message-2-truoc-khi-co-consumer&quot;</span><span class="p">)).</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+<p>Sau đó tạo <strong>hai</strong> consumer group hoàn toàn mới, chỉ khác nhau ở <code>auto.offset.reset</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Properties</span><span class="w"> </span><span class="n">earliestProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">consumerProps</span><span class="p">(</span><span class="s">&quot;group-earliest-demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;earliest&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Properties</span><span class="w"> </span><span class="n">latestProps</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">consumerProps</span><span class="p">(</span><span class="s">&quot;group-latest-demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;latest&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Kết quả thật khi cả hai cùng subscribe rồi <code>poll()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[earliest] So message doc duoc: 2
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>[earliest] nhan duoc: key=key1, offset=0
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[earliest] nhan duoc: key=key2, offset=1
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>[latest]   So message doc duoc TRUOC khi co message moi: 0
+</code></pre></div>
+<p>Cùng một topic, cùng hai message đã tồn tại sẵn — nhưng group <code>earliest</code> đọc được <strong>cả hai</strong>,
+còn group <code>latest</code> đọc được <strong>con số 0</strong>. Sau đó, sản xuất thêm một message thứ ba:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[latest] So message doc duoc SAU khi co message moi: 1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>[latest] nhan duoc: key=key3, offset=2
+</code></pre></div>
+<p>Group <code>latest</code> giờ nhận được đúng <strong>message mới</strong>, không phải hai message cũ. Đây chính là hành
+vi nền tảng gây ra vô số bug thực tế dạng "consumer của tôi không nhận được message dù producer đã
+gửi thành công".</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Một consumer group mới được deploy, kết nối vào một topic đã có sẵn dữ liệu — nhưng không nhận
+được bất kỳ message cũ nào. Producer log xác nhận gửi thành công. Nguyên nhân là gì?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm sự khác biệt giữa <code>auto.offset.reset=earliest</code> và
+      <code>latest</code> với cùng một tập dữ liệu</li>
+<li>[ ] Dùng thành thạo <code>KafkaTemplate</code> để gửi message và <code>@KafkaListener</code> để nhận message trong
+      Spring Boot</li>
+<li>[ ] Hiểu đúng khái niệm offset và consumer group — nền tảng để debug mọi vấn đề "message bị
+      thiếu"/"message bị đọc lại" trong hệ thống Kafka thực tế</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 3, Chapter 15 — mô hình thread pool, nền tảng để hiểu consumer poll loop chạy trên thread
+  riêng, tách biệt với thread xử lý HTTP request.</li>
+<li>Phase 8, Chapter 05 — Redis đã giới thiệu khái niệm hạ tầng chạy bằng Docker container thật.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 07 (Messaging)</strong> — Kafka là một trong các hệ message broker được so sánh với
+  JMS/RabbitMQ.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Khác với gọi HTTP đồng bộ (request-response), giao tiếp qua message broker là <strong>bất đồng bộ</strong> —
+producer gửi message xong không biết (và không cần biết) khi nào, hay liệu có consumer nào đọc nó
+hay không. Khi một consumer <strong>mới</strong> tham gia hệ thống (deploy lần đầu, hoặc đổi group ID), nó cần
+một quy tắc rõ ràng: bắt đầu đọc từ đâu trong lịch sử message đã có sẵn trên topic?</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Kafka lưu message trên mỗi partition theo <strong>offset</strong> tăng dần (0, 1, 2, ...) — một con số định vị
+tuyệt đối vị trí message trong log của partition đó. Một <strong>consumer group</strong> (định danh bằng
+<code>group.id</code>) theo dõi vị trí nó đã đọc tới bằng cách <strong>commit offset</strong>. Khi một group <strong>hoàn toàn
+mới</strong> (chưa từng commit offset nào) subscribe vào topic, <code>auto.offset.reset</code> quyết định điểm bắt
+đầu:</p>
+<ul>
+<li><strong><code>earliest</code></strong> — bắt đầu từ offset <strong>cũ nhất còn tồn tại</strong> trên topic (đọc lại toàn bộ lịch sử).</li>
+<li><strong><code>latest</code></strong> (mặc định) — bắt đầu từ <strong>cuối</strong> topic, chỉ nhận message phát sinh <strong>sau</strong> thời
+  điểm subscribe.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì Kafka không "đẩy" (push) message tới consumer như một hàng đợi truyền thống mà để consumer chủ
+động "kéo" (pull) và tự quản lý vị trí đọc, <code>auto.offset.reset</code> là cơ chế bắt buộc để trả lời câu
+hỏi "consumer hoàn toàn mới nên bắt đầu từ đâu". Giá trị mặc định <code>latest</code> phù hợp với các hệ thống
+streaming thời gian thực (chỉ quan tâm dữ liệu mới), trong khi <code>earliest</code> phù hợp khi cần xử lý lại
+toàn bộ lịch sử (ví dụ rebuild một read model, hoặc consumer group phục vụ mục đích audit).</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">KafkaDemoController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">KafkaTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kafkaTemplate</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/kafka-demo/send&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="s">&quot;demo-app-topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;sent: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nd">@KafkaListener</span><span class="p">(</span><span class="n">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;demo-app-topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">groupId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;demo-app-group&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">listen</span><span class="p">(</span><span class="n">ConsumerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">record</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Consumer nhan duoc: partition={}, offset={}, value={}&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="kd">record</span><span class="err">.</span><span class="nc">partition</span><span class="p">(),</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">offset</span><span class="p">(),</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">value</span><span class="p">());</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">spring.kafka.consumer.group-id</span><span class="o">=</span><span class="s">demo-app-group</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">spring.kafka.consumer.auto-offset-reset</span><span class="o">=</span><span class="s">earliest</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Topic (1 partition), da co san 2 message (offset 0, 1):
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  offset:  0                1                2 (chua co)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>           [message-1]      [message-2]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  Group &quot;earliest&quot; (MOI, chua tung commit offset):
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    subscribe -&gt; bat dau doc tu offset 0 -&gt; nhan CA 2 message cu
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  Group &quot;latest&quot; (MOI, chua tung commit offset):
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    subscribe -&gt; bat dau doc tu offset 2 (cuoi topic) -&gt; KHONG nhan 2 message cu
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    ... san xuat message-3 (offset 2) ...
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    poll() -&gt; nhan duoc message-3 (offset 2)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Roundtrip Spring Boot thật — <code>KafkaTemplate</code> gửi, <code>@KafkaListener</code> nhận:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/api/kafka-demo/send?message=hello-tu-controller&quot;</span>
 </code></pre></div>
+<p>Log thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>c.h.demo.logging.KafkaDemoController - Da gui message len topic demo-app-topic: hello-tu-controller
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>c.h.demo.logging.KafkaDemoController - Consumer nhan duoc message: partition=0, offset=0, value=hello-tu-controller
+</code></pre></div>
+<p><strong>Bằng chứng offset reset — dữ liệu thật (JUnit test dùng <code>KafkaProducer</code>/<code>KafkaConsumer</code> thô,
+không qua Spring, để kiểm soát chính xác thời điểm mỗi group được tạo):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Da san xuat 2 message TRUOC khi bat ky consumer group nao subscribe
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>[earliest] So message doc duoc: 2
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>[earliest] nhan duoc: key=key1, value=message-1-truoc-khi-co-consumer, offset=0
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>[earliest] nhan duoc: key=key2, value=message-2-truoc-khi-co-consumer, offset=1
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>[latest] So message doc duoc TRUOC khi co message moi: 0
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>[latest] So message doc duoc SAU khi co message moi: 1
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>[latest] nhan duoc: key=key3, value=message-3-SAU-khi-co-consumer, offset=2
+</code></pre></div>
+<p>Group <code>group-earliest-demo</code> và <code>group-latest-demo</code> cùng subscribe vào <strong>cùng một topic</strong>, cùng
+thời điểm tồn tại 2 message có sẵn — nhưng chỉ group <code>earliest</code> đọc được chúng. Group <code>latest</code>
+chỉ bắt đầu nhận dữ liệu <strong>kể từ message được sản xuất sau khi nó đã subscribe</strong> (<code>offset=2</code>).</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>auto.offset.reset</code> chỉ có tác dụng với group hoàn toàn mới, không ảnh hưởng gì tới một
+group đã từng chạy trước đó?</strong> Cấu hình này <strong>chỉ được Kafka tham khảo khi không tìm thấy offset
+đã commit</strong> cho cặp (group, partition) đó — tức là lần đầu tiên một <code>group.id</code> cụ thể subscribe
+vào một partition cụ thể. Nếu group đã từng commit offset (dù chỉ một lần, dù consumer instance cũ
+đã dừng từ lâu), lần subscribe tiếp theo của <strong>cùng group.id đó</strong> sẽ tiếp tục từ offset đã commit,
+bất kể <code>auto.offset.reset</code> được đặt là gì. Đây là lý do một lỗi debug thường gặp: đổi
+<code>auto.offset.reset</code> từ <code>latest</code> sang <code>earliest</code> trong config rồi restart consumer, nhưng <strong>không
+thấy gì thay đổi</strong> — vì group đó đã có offset commit từ trước, cấu hình mới không được áp dụng.
+Cách khắc phục thực tế: đổi sang một <code>group.id</code> mới, hoặc dùng công cụ
+<code>kafka-consumer-groups.sh --reset-offsets</code> để chủ động đặt lại vị trí offset của group hiện tại.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
-<h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p><strong>Vì sao thiết kế Kafka lại yêu cầu consumer tự quản lý offset (pull-based), thay vì broker tự
+đẩy message và tự theo dõi trạng thái từng consumer (push-based) như nhiều message queue truyền
+thống?</strong> Với mô hình push-based, broker phải tự quyết định tốc độ gửi cho từng consumer (dễ làm
+consumer chậm bị quá tải) và phải lưu trạng thái "đã gửi cho ai" cho <strong>từng consumer riêng lẻ</strong>.
+Với mô hình pull-based của Kafka, broker chỉ cần lưu <strong>một con trỏ offset duy nhất cho mỗi
+partition</strong> trong log tuần tự — cực kỳ đơn giản và có thể lưu trữ vô cùng lâu dài mà không tốn
+thêm chi phí theo số lượng consumer. Hệ quả trực tiếp: nhiều consumer group <strong>độc lập</strong> có thể đọc
+lại <strong>cùng một dữ liệu lịch sử</strong> theo tốc độ riêng của mình (như demo ở Story, group <code>earliest</code>
+đọc lại toàn bộ dữ liệu cũ mà không ảnh hưởng gì tới các consumer khác) — điều gần như không thể
+làm hiệu quả với hầu hết message queue kiểu push-based truyền thống.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Đổi <code>auto.offset.reset</code> và restart consumer là đủ để thay đổi vị trí bắt đầu đọc."
+  <strong>Reality:</strong> Đã phân tích ở Deep Dive — cấu hình này <strong>chỉ</strong> áp dụng khi group chưa từng commit
+  offset; với group đã tồn tại, cần dùng công cụ reset offset chuyên dụng hoặc đổi <code>group.id</code>.</li>
+<li><strong>Myth:</strong> "Kafka là một hàng đợi (queue) — mỗi message chỉ được xử lý một lần, bởi một consumer
+  duy nhất."
+  <strong>Reality:</strong> Đã chứng minh ở Engineering Insight — nhiều consumer group độc lập có thể cùng đọc
+  toàn bộ lịch sử của cùng một topic, mỗi group theo tốc độ và vị trí offset riêng của mình.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Deploy consumer group mới với <code>auto.offset.reset=latest</code> (giá trị mặc định) khi thực chất cần
+  xử lý dữ liệu lịch sử</strong> — bỏ lỡ toàn bộ message đã tồn tại trước đó, như đã tái hiện ở Story.</li>
+<li><strong>Đổi <code>auto.offset.reset</code> để "sửa" hành vi của một consumer group đang chạy</strong> — không có tác
+  dụng vì group đã có offset commit; cần reset offset tường minh hoặc đổi group ID.</li>
+<li><strong>Không đặt <code>group.id</code> khi chỉ muốn test nhanh, dẫn tới Kafka tự sinh group ID ngẫu nhiên mỗi
+  lần chạy</strong> — mỗi lần chạy lại được coi là group hoàn toàn mới, dễ nhầm lẫn khi debug vì hành vi
+  không nhất quán giữa các lần chạy.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Chọn <code>auto.offset.reset</code> dựa trên use case: <code>earliest</code> cho các luồng xử lý cần đầy đủ lịch sử
+  (audit, rebuild read model), <code>latest</code> cho các luồng chỉ quan tâm sự kiện thời gian thực.</li>
+<li>Đặt <code>group.id</code> tường minh, ổn định qua các lần deploy — tránh để framework tự sinh ngẫu nhiên.</li>
+<li>Khi cần "phát lại" (replay) dữ liệu cho một group đã tồn tại, dùng công cụ reset offset chính
+  thức (<code>kafka-consumer-groups.sh --reset-offsets</code>) thay vì chỉ đổi config rồi restart.</li>
+<li>Dùng <code>record.offset()</code>/<code>record.partition()</code> trong log (như <code>KafkaDemoController</code>) để luôn có đủ
+  thông tin định vị chính xác một message khi cần debug.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Consumer group mới không nhận được message cũ dù producer xác nhận gửi thành công? → kiểm
+      tra <code>auto.offset.reset</code>, mặc định là <code>latest</code>.</li>
+<li>[ ] Đổi <code>auto.offset.reset</code> nhưng consumer vẫn hành xử như cũ sau restart? → group đã có offset
+      commit từ trước — cần reset offset tường minh, không chỉ đổi config.</li>
+<li>[ ] Cần xác định chính xác một message nằm ở vị trí nào để điều tra? → dùng cặp
+      (partition, offset) log được ở mỗi message nhận, không chỉ dựa vào nội dung message.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Kafka lưu message theo <code>offset</code> tuần tự trên mỗi partition; một consumer group hoàn toàn mới quyết
+định điểm bắt đầu đọc dựa trên <code>auto.offset.reset</code> — <code>earliest</code> đọc lại toàn bộ lịch sử,
+<code>latest</code> (mặc định) chỉ nhận message phát sinh sau thời điểm subscribe. Đã chứng minh bằng thực
+nghiệm: với cùng 2 message đã tồn tại sẵn trên topic, group <code>earliest</code> đọc được cả hai, group
+<code>latest</code> đọc được 0 message cho tới khi có message mới phát sinh sau đó. Cấu hình này <strong>chỉ</strong> có
+tác dụng với group chưa từng commit offset — một group đã tồn tại sẽ luôn tiếp tục từ offset đã
+commit bất kể <code>auto.offset.reset</code> được đặt lại là gì, một cạm bẫy debug rất phổ biến trong thực tế.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sự khác biệt giữa <code>auto.offset.reset=earliest</code> và <code>latest</code>?</li>
+<li>Offset trong Kafka có ý nghĩa gì? Nó được lưu ở cấp độ nào (topic, partition, hay message)?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Một consumer group mới không nhận được message cũ dù producer xác nhận gửi thành công. Nguyên
+  nhân là gì?</li>
+<li>Vì sao đổi <code>auto.offset.reset</code> rồi restart consumer đôi khi không có tác dụng gì? Cách reset
+  offset đúng cách cho một group đã tồn tại?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại kịch bản ở Story, sau đó chạy thêm một lần nữa <strong>cùng group ID</strong> <code>group-latest-demo</code>
+      — xác nhận nó tiếp tục từ offset đã commit trước đó, không quay lại đọc từ đầu dù topic vẫn
+      còn dữ liệu cũ.</li>
+<li>[ ] Dùng <code>kafka-consumer-groups.sh --describe --group demo-app-group</code> để xem offset hiện tại và
+      lag (số message chưa được đọc) của consumer group trong <code>KafkaDemoController</code>.</li>
+<li>[ ] Gửi 5 message liên tiếp, xác nhận <code>@KafkaListener</code> nhận đúng thứ tự offset tăng dần.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th><code>auto.offset.reset</code></th>
+<th>Group mới bắt đầu đọc từ đâu?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>earliest</code></td>
+<td>Offset cũ nhất còn tồn tại (toàn bộ lịch sử)</td>
+</tr>
+<tr>
+<td><code>latest</code> (mặc định)</td>
+<td>Cuối topic (chỉ message mới, sau thời điểm subscribe)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Tình huống</th>
+<th><code>auto.offset.reset</code> có tác dụng không?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group hoàn toàn mới, chưa từng commit offset</td>
+<td>Có</td>
+</tr>
+<tr>
+<td>Group đã tồn tại, đã từng commit offset</td>
+<td>Không — cần reset offset tường minh</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Apache Kafka Documentation — Consumer Configs (<code>auto.offset.reset</code>, <code>group.id</code>).</li>
+<li>Apache Kafka Documentation — Consumer Groups và Offset Management.</li>
+<li>Spring for Apache Kafka Documentation — <code>KafkaTemplate</code>, <code>@KafkaListener</code>.</li>
 </ul>
 
 

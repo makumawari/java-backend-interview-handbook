@@ -27,7 +27,7 @@
     
     
       
-        <title>Metrics - Java Backend Engineering Handbook</title>
+        <title>Metrics: Micrometer và Actuator - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metrics" class="md-skip">
+        <a href="#metrics-micrometer-va-actuator" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Metrics
+              Metrics: Micrometer và Actuator
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4437,7 +4437,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4455,7 +4455,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4679,32 +4679,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4789,7 +4767,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4817,7 +4795,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4845,7 +4823,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4873,7 +4851,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4929,7 +4907,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4935,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:metrics" class="md-tag">Metrics</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:micrometer" class="md-tag">Micrometer</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:observability" class="md-tag">Observability</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h1>
+<h1 id="metrics-micrometer-va-actuator">Metrics: Micrometer và Actuator<a class="headerlink" href="#metrics-micrometer-va-actuator" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>metrics</code></p>
@@ -6149,94 +6119,379 @@ Chapter slug: <code>metrics</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Metrics</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 01 — Logging</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6, Chapter 04 — Multi-Datasource (HikariCP xuất hiện trong metrics)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Tracing</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 04 — HikariCP</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Một <code>Gauge</code> được đăng ký để theo dõi độ dài hàng đợi xử lý đơn hàng:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="nf">MetricsDemoController</span><span class="p">(</span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">queueSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// bien local!</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">registry</span><span class="p">.</span><span class="na">gauge</span><span class="p">(</span><span class="s">&quot;demo.orders.queue.size&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">queueSize</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Gọi API tạo đơn hàng vài lần rồi kiểm tra giá trị Gauge thật qua Actuator:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8080/actuator/metrics/demo.orders.queue.size
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo.orders.queue.size&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;measurements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NaN&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;availableTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>NaN</code> — dù <code>AtomicInteger</code> khởi tạo bằng <code>0</code>, chưa từng bị set về giá trị bất thường nào.
+<code>Counter</code> và <code>Timer</code> đăng ký cùng constructor này hoạt động hoàn toàn bình thường. Vấn đề nằm ở
+chỗ <code>queueSize</code> chỉ là <strong>biến local</strong>, không được gán vào field của class — và <code>Gauge</code> của
+Micrometer <strong>không giữ tham chiếu mạnh (strong reference)</strong> tới state object nó theo dõi.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Sự khác biệt giữa Counter, Gauge, và Timer trong Micrometer là gì? Vì sao một <code>Gauge</code> được
+đăng ký đúng cú pháp vẫn có thể âm thầm trả về <code>NaN</code> trong production?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Phân biệt đúng ba loại metric cơ bản của Micrometer: Counter, Gauge, Timer — và biết khi
+      nào dùng loại nào</li>
+<li>[ ] Đọc hiểu metric tự động (auto-instrumented) mà Spring Boot Actuator cung cấp sẵn, đặc biệt
+      <code>http.server.requests</code></li>
+<li>[ ] Tự tay tái hiện lỗi Gauge trả về <code>NaN</code> do state object bị Garbage Collector thu hồi, và biết
+      cách khắc phục</li>
+<li>[ ] Đọc hiểu định dạng Prometheus exposition format mà Micrometer xuất ra</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 8, Chapter 01 — correlation ID và mối quan hệ giữa logging/metrics/tracing.</li>
+<li>Phase 6, Chapter 04 — HikariCP connection pool, nguồn gốc của nhóm metric <code>hikaricp.*</code>.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 03 (Tracing)</strong> — metrics trả lời "cái gì/bao nhiêu", tracing trả lời "ở đâu/tại sao
+  chậm"; cả hai cùng dùng chung hạ tầng Micrometer.</li>
+<li><strong>Chapter 04 (HikariCP)</strong> — debug connection pool dựa trực tiếp vào nhóm metric
+  <code>hikaricp.connections.*</code> đã thấy ở đây.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Log (Chapter 01) trả lời câu hỏi "chuyện gì đã xảy ra với <strong>một</strong> request cụ thể". Nhưng khi cần
+trả lời "hệ thống đang khoẻ không <strong>nói chung</strong>" — có bao nhiêu request/giây, độ trễ trung bình là
+bao nhiêu, connection pool có đang cạn kiệt không — đọc từng dòng log là bất khả thi ở quy mô
+production. Cần một cơ chế tổng hợp <strong>số liệu theo thời gian</strong> (metrics) mà không cần đọc log chi
+tiết.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>Micrometer</strong> là facade đo lường (giống vai trò SLF4J với logging) mà Spring Boot Actuator dùng
+để thu thập số liệu, hỗ trợ nhiều backend export (Prometheus, Datadog, CloudWatch...). Ba loại
+metric cốt lõi:</p>
+<ul>
+<li><strong>Counter</strong> — số đếm chỉ <strong>tăng</strong>, không bao giờ giảm (ví dụ: tổng số đơn hàng đã tạo).</li>
+<li><strong>Gauge</strong> — giá trị <strong>tức thời</strong> tại thời điểm đọc, có thể tăng/giảm (ví dụ: số connection đang
+  active, độ dài hàng đợi hiện tại).</li>
+<li><strong>Timer</strong> — đo <strong>số lần xảy ra + tổng thời gian + giá trị lớn nhất</strong> của một thao tác có thời
+  lượng (ví dụ: thời gian xử lý một đơn hàng).</li>
+</ul>
+<p>Spring Boot Actuator tự động đăng ký hàng chục metric (<code>jvm.*</code>, <code>http.server.requests</code>,
+<code>hikaricp.*</code>, <code>executor.*</code>, <code>tomcat.*</code>) mà không cần viết thêm code.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì Counter/Gauge/Timer có ngữ nghĩa toán học khác nhau, việc chọn sai loại tạo ra số liệu vô
+nghĩa: dùng Counter cho "số connection đang active" sẽ chỉ tăng mãi (sai — connection có thể đóng
+lại), dùng Gauge cho "tổng số request" sẽ mất dữ liệu khi giá trị bị ghi đè giữa hai lần đọc (sai
+— cần cộng dồn). Actuator tự động instrument các thành phần hạ tầng (Tomcat, HikariCP, JVM) vì
+những con số này <strong>luôn cần thiết</strong> ở mọi ứng dụng Spring Boot, không có lý do gì bắt mỗi team tự
+viết lại.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MetricsDemoController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">orderCreatedCounter</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Timer</span><span class="w"> </span><span class="n">processingTimer</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MetricsDemoController</span><span class="p">(</span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">orderCreatedCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;demo.orders.created&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;So don hang da tao&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;channel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;web&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">registry</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">processingTimer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Timer</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;demo.orders.processing.time&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Thoi gian xu ly don hang&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">registry</span><span class="p">);</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/metrics-demo/create-order&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="n">orderCreatedCounter</span><span class="p">.</span><span class="na">increment</span><span class="p">();</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="n">processingTimer</span><span class="p">.</span><span class="na">record</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">ignored</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;order created, counter = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">orderCreatedCounter</span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">}</span>
+</code></pre></div>
+<p>Đọc metric qua Actuator: <code>GET /actuator/metrics/{tên metric}</code>, hoặc toàn bộ ở định dạng Prometheus
+qua <code>GET /actuator/prometheus</code>.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Counter (chi tang):        0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 3 -&gt; 4       (khong bao gio giam)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Gauge (tuc thoi):          5 -&gt; 3 -&gt; 8 -&gt; 1 -&gt; 0             (len xuong tu do)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Timer (moi lan goi ghi 2 con so):
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  goi 1: count=1, total=0.050s, max=0.050s
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  goi 2: count=2, total=0.098s, max=0.050s
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  goi 3: count=3, total=0.178s, max=0.060s   &lt;- max cap nhat khi co gia tri lon hon
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Danh sách toàn bộ metric Actuator tự động đăng ký (thật, Spring Boot 3.3.4):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;names&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="s2">&quot;executor.active&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;executor.completed&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;executor.pool.core&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;executor.pool.max&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="s2">&quot;hikaricp.connections&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hikaricp.connections.active&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hikaricp.connections.idle&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="s2">&quot;hikaricp.connections.max&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hikaricp.connections.pending&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hikaricp.connections.usage&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="s2">&quot;http.server.requests&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http.server.requests.active&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="s2">&quot;jvm.memory.used&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jvm.gc.pause&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;jvm.threads.live&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="s2">&quot;tomcat.sessions.active.current&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="s2">&quot;demo.orders.created&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;demo.orders.processing.time&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;demo.orders.queue.size&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>demo.orders.*</code> — ba metric tự viết — nằm chung danh sách với các metric hạ tầng tự động, không
+cần cấu hình gì thêm ngoài <code>.register(registry)</code>.</p>
+<p><strong><code>http.server.requests</code> thật, sau nhiều request thật tới nhiều endpoint khác nhau:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>http://localhost:8080/api/log-demo<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Correlation-Id: metrics-evidence-1&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>curl<span class="w"> </span>http://localhost:8080/api/log-demo<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Correlation-Id: metrics-evidence-2&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/actuator/metrics/http.server.requests&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http.server.requests&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">&quot;baseUnit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">&quot;measurements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TOTAL_TIME&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.288220583</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAX&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.020365292</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nt">&quot;availableTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;method&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">            </span><span class="s2">&quot;/actuator/metrics/{requiredMetricName}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/api/log-demo&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">            </span><span class="s2">&quot;/api/metrics-demo/create-order&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/actuator/metrics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/actuator/prometheus&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;200&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;outcome&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>Lọc riêng theo một <code>uri</code> cụ thể bằng query param <code>tag</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/actuator/metrics/http.server.requests?tag=uri:/api/log-demo&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">&quot;measurements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TOTAL_TIME&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00547025</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAX&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.003293208</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>http.server.requests</code> là <strong>một Timer duy nhất</strong> cho toàn bộ ứng dụng, với các <strong>tag</strong> (<code>uri</code>,
+<code>method</code>, <code>status</code>, <code>outcome</code>) cho phép lọc/nhóm theo chiều bất kỳ — không phải một metric riêng
+cho mỗi endpoint.</p>
+<p><strong>Counter và Timer tự viết, dữ liệu thật sau 3 lần gọi:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span>http://localhost:8080/api/metrics-demo/create-order<span class="w">   </span><span class="c1"># x3</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/actuator/metrics/demo.orders.created&quot;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/actuator/metrics/demo.orders.processing.time&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo.orders.created&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">&quot;measurements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">&quot;availableTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;channel&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;web&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo.orders.processing.time&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">&quot;baseUnit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="nt">&quot;measurements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TOTAL_TIME&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.177543707</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MAX&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.060049625</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>processingTimer.record(...)</code> bọc quanh <code>Thread.sleep(50)</code> — kết quả thật xác nhận đúng: 3 lần
+gọi, tổng thời gian ~0.177s (~59ms/lần, hợp lý với <code>sleep(50)</code> cộng overhead), max ~0.06s.</p>
+<p><strong>Cùng dữ liệu đó, ở định dạng Prometheus exposition (<code>/actuator/prometheus</code>):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># HELP demo_orders_total So don hang da tao
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a># TYPE demo_orders_total counter
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>demo_orders_total{channel=&quot;web&quot;} 3.0
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a># HELP demo_orders_processing_time_seconds Thoi gian xu ly don hang
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a># TYPE demo_orders_processing_time_seconds summary
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>demo_orders_processing_time_seconds_count 3
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>demo_orders_processing_time_seconds_sum 0.177543707
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a># TYPE demo_orders_processing_time_seconds_max gauge
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>demo_orders_processing_time_seconds_max 0.0
+</code></pre></div>
+<p>Chú ý: <code>demo.orders.created</code> (Counter) tự động đổi tên thành <code>demo_orders_total</code> — Micrometer
+<strong>tự thêm hậu tố <code>_total</code></strong> cho Counter theo đúng quy ước đặt tên của Prometheus.</p>
+<p><strong>Lỗi Gauge trả về <code>NaN</code> — tái hiện thật (đã mô tả ở Story):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo.orders.queue.size&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nt">&quot;measurements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statistic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NaN&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao Gauge trả về <code>NaN</code> dù <code>AtomicInteger</code> khởi tạo đúng bằng <code>0</code>?</strong> <code>MeterRegistry.gauge(...)</code>
+chỉ giữ một <strong>weak reference</strong> tới state object được truyền vào — đây là thiết kế <strong>cố ý</strong> của
+Micrometer để Gauge không gây rò rỉ bộ nhớ (nếu Gauge giữ strong reference, object nó theo dõi sẽ
+không bao giờ được GC dọn, kể cả khi phần còn lại của ứng dụng không còn dùng tới nó nữa). Trong
+<code>MetricsDemoController</code>, <code>queueSize</code> là <strong>biến local trong constructor</strong>, không được gán vào field
+— sau khi constructor kết thúc, không còn bất kỳ strong reference nào khác trỏ tới nó ngoài chính
+Gauge (weak). Garbage Collector thu hồi nó ở lần GC tiếp theo, và khi Actuator đọc giá trị Gauge,
+Micrometer phát hiện state object đã bị GC và trả về <code>NaN</code> thay vì ném exception. Đây không phải
+lỗi lý thuyết — nó đã xảy ra thật trong chính demo ở Story.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Sửa lỗi Gauge <code>NaN</code> như thế nào, và tại sao cách sửa lại chính là "vi phạm" nguyên tắc thiết kế
+ban đầu?</strong> Cách sửa đúng là đảm bảo state object được giữ <strong>strong reference</strong> ở nơi khác — thường
+là gán vào <strong>field của class</strong> đăng ký Gauge:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">queueSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// FIELD, khong phai local</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kd">public</span><span class="w"> </span><span class="nf">MetricsDemoController</span><span class="p">(</span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="n">registry</span><span class="p">.</span><span class="na">gauge</span><span class="p">(</span><span class="s">&quot;demo.orders.queue.size&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">queueSize</span><span class="p">);</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Giờ <code>queueSize</code> được giữ sống bởi chính instance của <code>MetricsDemoController</code> (một Spring bean,
+sống suốt vòng đời ứng dụng), nên Gauge luôn đọc được giá trị thật. Bài học rộng hơn: <strong>API dùng
+weak reference luôn đặt gánh nặng "giữ đối tượng sống" lên người gọi</strong> — một lỗi rất dễ mắc phải
+vì code biên dịch hoàn toàn bình thường, không có warning, và chỉ lộ ra khi GC chạy (có thể vài
+giây, vài phút sau khi ứng dụng khởi động), khiến việc debug trở nên khó hiểu nếu không biết trước
+cơ chế này.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Micrometer ra đời năm 2018, tách ra từ Spring Boot 1.x's metrics module (<code>spring-boot-actuator</code>
+cũ dùng <code>CounterService</code>/<code>GaugeService</code> riêng, gắn chặt với Spring). Micrometer được thiết kế lại
+theo mô hình facade giống SLF4J — cho phép cùng một bộ code instrument xuất ra nhiều backend khác
+nhau (Prometheus, Datadog, New Relic, CloudWatch) chỉ bằng cách đổi dependency registry, không đổi
+code nghiệp vụ.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Đăng ký một Gauge đúng cú pháp là đủ để nó luôn phản ánh giá trị thật."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — Gauge dùng weak reference; nếu state object không
+  được giữ sống ở nơi khác, nó bị GC thu hồi và Gauge âm thầm trả về <code>NaN</code>, không có exception hay
+  warning nào.</li>
+<li><strong>Myth:</strong> "<code>http.server.requests</code> là một metric riêng cho mỗi endpoint."
+  <strong>Reality:</strong> Đã xác nhận — đó là <strong>một</strong> Timer duy nhất cho toàn ứng dụng, phân biệt theo
+  endpoint bằng tag <code>uri</code>, lọc bằng query param <code>?tag=uri:...</code>.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đăng ký Gauge với state object là biến local, không gán vào field</strong> — gây lỗi <code>NaN</code> sau khi
+  GC chạy, như đã tái hiện ở Story/Deep Dive.</li>
+<li><strong>Dùng Counter cho giá trị có thể giảm</strong> (ví dụ số connection đang mở) — ngữ nghĩa sai, nên dùng
+  Gauge.</li>
+<li><strong>Tạo Counter/Timer mới trong mỗi lần gọi method thay vì đăng ký một lần</strong> — mỗi lần
+  <code>Counter.builder(...).register(registry)</code> được gọi lại sẽ trả về cùng một Counter đã đăng ký
+  (Micrometer dedupe theo tên+tag), nhưng tạo lại builder liên tục trong hot path vẫn tốn overhead
+  không cần thiết — nên đăng ký một lần và giữ tham chiếu (như <code>orderCreatedCounter</code> ở trên).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn gán state object của Gauge vào <strong>field</strong>, không phải biến local — tránh lỗi <code>NaN</code> do GC.</li>
+<li>Đăng ký Counter/Timer/Gauge <strong>một lần</strong> (constructor hoặc <code>@PostConstruct</code>), giữ tham chiếu làm
+  field, không tạo lại mỗi request.</li>
+<li>Dùng tag (<code>channel</code>, <code>status</code>...) để phân nhóm thay vì tạo nhiều metric riêng biệt cho từng biến
+  thể — giữ số lượng "tên metric" gốc nhỏ, tận dụng khả năng lọc/nhóm theo tag của Prometheus.</li>
+<li>Đặt tên metric theo quy ước <code>noun.noun</code> (ví dụ <code>demo.orders.created</code>), để Micrometer tự dịch
+  đúng sang định dạng backend (Prometheus tự thêm <code>_total</code> cho Counter).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Một Gauge trả về <code>NaN</code> hoặc giá trị không đổi bất thường? → nghi ngờ hàng đầu là state
+      object bị GC do chỉ được giữ bởi weak reference — kiểm tra nó có phải field hay không.</li>
+<li>[ ] Cần biết độ trễ/tỉ lệ lỗi của một endpoint cụ thể? → dùng
+      <code>/actuator/metrics/http.server.requests?tag=uri:...</code>, không cần tự viết Timer riêng.</li>
+<li>[ ] Cần xuất số liệu cho Prometheus scrape? → xác nhận dependency
+      <code>micrometer-registry-prometheus</code> có trong classpath và endpoint <code>/actuator/prometheus</code> khả
+      dụng.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Micrometer cung cấp ba loại metric cốt lõi — Counter (chỉ tăng), Gauge (tức thời, lên xuống tự
+do), Timer (đếm số lần + tổng thời gian + max) — và Spring Boot Actuator tự động đăng ký hàng chục
+metric hạ tầng (<code>http.server.requests</code>, <code>hikaricp.*</code>, <code>jvm.*</code>) mà không cần cấu hình. Đã chứng
+minh bằng thực nghiệm: <code>http.server.requests</code> là một Timer duy nhất phân biệt theo tag <code>uri</code>, không
+phải nhiều metric riêng; Counter tự viết được Prometheus tự thêm hậu tố <code>_total</code>. Đã tái hiện một
+lỗi thật: Gauge đăng ký với state object là biến local (không giữ strong reference ở nơi khác) bị
+Garbage Collector thu hồi, khiến <code>/actuator/metrics/...</code> trả về <code>NaN</code> — sửa bằng cách gán state
+object vào field của class.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sự khác biệt giữa Counter, Gauge, và Timer trong Micrometer là gì?</li>
+<li>Actuator tự động cung cấp những nhóm metric nào mà không cần viết thêm code?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao một Gauge đăng ký đúng cú pháp vẫn có thể trả về <code>NaN</code>? Cách khắc phục?</li>
+<li><code>http.server.requests</code> được tổ chức thành một metric hay nhiều metric? Làm sao lọc theo một
+  endpoint cụ thể?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Viết một Gauge với state object là biến local (không gán field), gọi <code>System.gc()</code> rồi kiểm
+      tra <code>/actuator/metrics/...</code> — xác nhận tái hiện được <code>NaN</code>, sau đó sửa bằng cách gán field.</li>
+<li>[ ] Gọi <code>/actuator/metrics/http.server.requests</code> với <code>?tag=status:200</code> và <code>?tag=method:GET</code> để
+      xác nhận cơ chế lọc theo tag hoạt động độc lập với <code>uri</code>.</li>
+<li>[ ] So sánh cùng một Counter đọc qua <code>/actuator/metrics/{name}</code> (JSON) và <code>/actuator/prometheus</code>
+      (text) — xác nhận tên metric bị đổi (<code>demo.orders.created</code> → <code>demo_orders_total</code>).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Loại metric</th>
+<th>Có thể giảm?</th>
+<th>Ví dụ</th>
+<th>Endpoint đọc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Counter</td>
+<td>Không, chỉ tăng</td>
+<td><code>demo.orders.created</code></td>
+<td><code>/actuator/metrics/{name}</code></td>
+</tr>
+<tr>
+<td>Gauge</td>
+<td>Có</td>
+<td><code>hikaricp.connections.active</code></td>
+<td><code>/actuator/metrics/{name}</code></td>
+</tr>
+<tr>
+<td>Timer</td>
+<td>N/A (đo thời lượng)</td>
+<td><code>http.server.requests</code></td>
+<td><code>/actuator/metrics/{name}</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Local variable</th>
+<th>Field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gauge state object</td>
+<td>Bị GC → <code>NaN</code></td>
+<td>Giữ sống → đúng giá trị</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Micrometer Documentation — Concepts (Counter, Gauge, Timer).</li>
+<li>Micrometer Documentation — Gauges (weak reference behavior).</li>
+<li>Spring Boot Actuator Documentation — Metrics.</li>
+<li>Prometheus Documentation — Exposition Formats.</li>
 </ul>
 
 

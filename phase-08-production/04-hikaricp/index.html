@@ -27,7 +27,7 @@
     
     
       
-        <title>HikariCP - Java Backend Engineering Handbook</title>
+        <title>HikariCP: Connection Pool Tuning và Debug - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hikaricp" class="md-skip">
+        <a href="#hikaricp-connection-pool-tuning-va-debug" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HikariCP
+              HikariCP: Connection Pool Tuning và Debug
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4493,7 +4493,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4511,7 +4511,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4757,17 +4757,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4845,7 +4834,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4873,7 +4862,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4929,7 +4918,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4946,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4974,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +5002,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5030,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6045,17 +6034,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6131,7 +6109,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:connection-pool" class="md-tag">Connection Pool</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:hikaricp" class="md-tag">HikariCP</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:production" class="md-tag">Production</a>
       
     
   </nav>
@@ -6141,7 +6133,7 @@
   
 
 
-<h1 id="hikaricp">HikariCP<a class="headerlink" href="#hikaricp" title="Permanent link">&para;</a></h1>
+<h1 id="hikaricp-connection-pool-tuning-va-debug">HikariCP: Connection Pool Tuning và Debug<a class="headerlink" href="#hikaricp-connection-pool-tuning-va-debug" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>hikaricp</code></p>
@@ -6149,94 +6141,314 @@ Chapter slug: <code>hikaricp</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HikariCP</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 02 — Metrics</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 6, Chapter 04 — Multi-Datasource</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 11 — JVM Tuning</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 12 — Performance Tuning</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Một pool HikariCP cấu hình <code>maximum-pool-size=2</code>, <code>connection-timeout=1000</code>ms. Gửi 3 request
+đồng thời, mỗi request giữ connection trong 5 giây:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>curl<span class="w"> </span>http://localhost:8080/api/hikari-demo/hold<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="k">done</span><span class="p">;</span><span class="w"> </span><span class="nb">wait</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HTTP:200 - held-and-released after 0ms wait
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HTTP:200 - held-and-released after 0ms wait
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>HTTP:200 - FAILED after 1015ms: HikariDemoPool - Connection is not available,
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>           request timed out after 1010ms (total=2, active=2, idle=0, waiting=0)
+</code></pre></div>
+<p>Hai request đầu lấy connection ngay lập tức (<code>0ms wait</code>) vì pool có 2 connection. Request thứ ba
+<strong>thất bại</strong> sau đúng 1010ms — bằng <code>connection-timeout</code> đã cấu hình — với thông báo lỗi kinh điển
+<code>Connection is not available</code>, kèm theo trạng thái pool tại thời điểm timeout ngay trong message:
+<code>total=2, active=2, idle=0, waiting=0</code>.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>HikariCP starts throwing "Connection is not available" errors during peak traffic. What would
+you investigate?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay tái hiện lỗi "Connection is not available" bằng cách cố ý làm cạn kiệt pool, đọc
+      hiểu từng con số trong thông báo lỗi</li>
+<li>[ ] Dùng <code>leak-detection-threshold</code> để tự động phát hiện connection bị giữ quá lâu, kể cả khi nó
+      cuối cùng vẫn được trả lại</li>
+<li>[ ] Biết chính xác các bước điều tra khi gặp lỗi này ở production, dựa trên metric
+      <code>hikaricp.connections.*</code> (Chapter 02)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 8, Chapter 02 — nhóm metric <code>hikaricp.connections.*</code> đã thấy trong danh sách Actuator.</li>
+<li>Phase 6, Chapter 04 — cấu hình multi-datasource, nền tảng để hiểu vì sao mỗi <code>DataSource</code> có
+  một <code>HikariPool</code> riêng.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 11 (JVM Tuning)</strong>, <strong>Chapter 12 (Performance Tuning)</strong> — connection pool là một trong
+  những "nghi phạm" hàng đầu khi điều tra độ trễ bất thường ở production.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một connection tới database là tài nguyên <strong>đắt</strong> (bắt tay TCP, xác thực, cấp phát bộ nhớ phía
+DB) — tạo mới cho mỗi request là quá chậm. Connection pool (HikariCP) giải quyết việc này bằng
+cách giữ sẵn một số connection đã mở, tái sử dụng giữa các request. Nhưng pool có <strong>kích thước
+giới hạn</strong> — khi số request đồng thời cần connection vượt quá kích thước pool, các request sau
+phải <strong>chờ</strong>, và nếu chờ quá lâu, bị từ chối hẳn.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>HikariCP</strong> là connection pool mặc định của Spring Boot từ 2.x trở đi (thay thế Tomcat JDBC
+Pool), nổi tiếng vì hiệu năng cao và cấu hình tối giản. Các tham số cốt lõi:</p>
+<ul>
+<li><code>maximum-pool-size</code> — số connection tối đa pool giữ.</li>
+<li><code>connection-timeout</code> — thời gian tối đa một thread <strong>chờ</strong> để lấy được connection trước khi bị
+  ném exception.</li>
+<li><code>leak-detection-threshold</code> — nếu một connection bị giữ (không trả lại pool) lâu hơn ngưỡng này,
+  HikariCP log một <strong>cảnh báo</strong> kèm stack trace nơi connection được lấy ra — dù connection đó cuối
+  cùng có được trả lại hay không.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì connection là tài nguyên hữu hạn, giá trị <code>maximum-pool-size</code> quá nhỏ khiến traffic cao gây
+nghẽn cổ chai (request phải chờ), nhưng quá lớn lại có thể <strong>áp đảo</strong> chính database (mỗi
+connection tốn bộ nhớ/thread phía DB server, và hầu hết database có giới hạn connection tối đa
+riêng). <code>connection-timeout</code> tồn tại để <strong>thất bại nhanh</strong> thay vì để request treo vô thời hạn khi
+pool cạn kiệt — một request lỗi rõ ràng sau 1 giây dễ xử lý hơn nhiều so với một request "treo"
+không rõ nguyên nhân trong 30 giây.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">app.datasource.hikaridemo.maximum-pool-size</span><span class="o">=</span><span class="s">2</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">app.datasource.hikaridemo.connection-timeout</span><span class="o">=</span><span class="s">1000</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">app.datasource.hikaridemo.leak-detection-threshold</span><span class="o">=</span><span class="s">2000</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@RestController</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HikariDemoController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">hikariDemoDataSource</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/api/hikari-demo/hold&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">holdConnection</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hikariDemoDataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// co the nem exception o day</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;held-and-released&quot;</span><span class="p">;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Pool (maximum-pool-size=2):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>t=0ms    Request 1 -&gt; lay connection A (active=1, idle=1)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>t=0ms    Request 2 -&gt; lay connection B (active=2, idle=0)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>t=0ms    Request 3 -&gt; KHONG con connection -&gt; CHO...
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>t=1010ms Request 3 -&gt; het connection-timeout -&gt; EXCEPTION
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>                        &quot;Connection is not available ... (total=2, active=2, idle=0, waiting=0)&quot;
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>t=5000ms Request 1, 2 tra connection ve pool (active=0, idle=2)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Lỗi cạn kiệt pool — dữ liệu thật, 3 request đồng thời, pool size 2:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>FAILED after 1015ms: HikariDemoPool - Connection is not available,
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    request timed out after 1010ms (total=2, active=2, idle=0, waiting=0)
 </code></pre></div>
+<p>Đọc đúng các con số trong thông báo lỗi: <code>total=2</code> (tổng connection trong pool, bằng
+<code>maximum-pool-size</code>), <code>active=2</code> (đang bị giữ, <strong>bằng total</strong> — pool cạn kiệt hoàn toàn),
+<code>idle=0</code> (không còn connection rảnh), <code>waiting=0</code> (số thread khác đang chờ, tại đúng thời điểm
+log dòng này thì request hiện tại đã hết hạn nên không còn "waiting" nữa).</p>
+<p><strong>Leak detection — cùng lúc đó, dữ liệu thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>WARN c.zaxxer.hikari.pool.ProxyLeakTask - Connection leak detection triggered for conn11:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    url=jdbc:h2:mem:hikari_demo user= on thread http-nio-8080-exec-2, stack trace follows
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>java.lang.Exception: Apparent connection leak detected
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:127)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    at com.handbook.demo.logging.HikariDemoController.holdConnection(HikariDemoController.java:24)
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>...
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>INFO c.zaxxer.hikari.pool.ProxyLeakTask - Previously reported leaked connection conn11:
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    ... was returned to the pool (unleaked)
+</code></pre></div>
+<p><code>leak-detection-threshold=2000</code>ms nhưng connection bị giữ 5000ms (<code>Thread.sleep(5000)</code>) — HikariCP
+cảnh báo ở mốc 2000ms kèm <strong>chính xác vị trí code</strong> đã lấy connection ra (rất hữu ích khi debug
+connection leak thật trong production, nơi code phức tạp hơn nhiều). Khi connection cuối cùng được
+trả lại (đóng đúng cách qua <code>try-with-resources</code>), HikariCP tự log tiếp "was returned to the pool
+(unleaked)" — xác nhận đây <strong>không phải leak thật</strong>, chỉ là giữ lâu.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao thông báo lỗi có định dạng chính xác <code>(total=X, active=Y, idle=Z, waiting=W)</code> mà không
+phải một exception message tối giản?</strong> HikariCP cố tình in kèm <strong>trạng thái pool tại thời điểm
+timeout</strong> ngay trong exception message — đây là quyết định thiết kế hướng tới khả năng debug: một
+kỹ sư đọc log production, chỉ với một dòng log duy nhất, đã biết ngay được: pool có đang bị cạn
+kiệt hoàn toàn không (<code>active</code> gần bằng <code>total</code>)? Có nhiều thread khác cũng đang bị nghẽn theo
+không (<code>waiting</code> cao)? Điều này loại bỏ nhu cầu phải tra cứu riêng metric <code>hikaricp.connections.*</code>
+(Chapter 02) chỉ để xác nhận "pool có đang full không" trong tình huống khẩn cấp.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Với câu hỏi phỏng vấn trung tâm — "Connection is not available" khi traffic cao — quy trình
+điều tra thực tế theo đúng thứ tự ưu tiên là gì?</strong></p>
+<ol>
+<li><strong>Đọc chính exception message</strong> (như Deep Dive) — nếu <code>active ≈ total</code>, pool thực sự cạn kiệt;
+   nếu <code>waiting</code> rất cao, vấn đề là <strong>tốc độ giải phóng</strong> connection chậm hơn tốc độ request đến.</li>
+<li><strong>Kiểm tra <code>hikaricp.connections.usage</code></strong> (Timer, Chapter 02) — biết connection thường bị giữ
+   bao lâu; nếu thời gian giữ tăng đột biến đúng lúc traffic cao, nghi ngờ query chậm hoặc
+   transaction giữ connection quá lâu (N+1, Phase 6 Chapter 10), không phải pool quá nhỏ.</li>
+<li><strong>Bật <code>leak-detection-threshold</code></strong> ở mức thấp (như demo: 2000ms) tạm thời — nếu thấy cảnh báo
+   "Apparent connection leak" xuất hiện kèm stack trace <strong>luôn trỏ về cùng một vị trí code</strong>, đó
+   là dấu hiệu leak thật (thiếu <code>close()</code>/<code>try-with-resources</code>), không phải do traffic cao đơn
+   thuần.</li>
+<li><strong>Chỉ tăng <code>maximum-pool-size</code> sau khi loại trừ (2) và (3)</strong> — tăng pool size mà không giải
+   quyết nguyên nhân gốc (query chậm, leak) chỉ trì hoãn vấn đề, đồng thời có nguy cơ làm quá tải
+   chính database (mỗi connection tốn tài nguyên phía server, và hầu hết RDBMS giới hạn tổng số
+   connection đồng thời).</li>
+</ol>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>HikariCP ra đời năm 2013, được viết lại từ đầu với mục tiêu tối thiểu hoá overhead so với các
+connection pool trước đó (Apache DBCP, C3P0, Tomcat JDBC Pool) — tên "Hikari" (光, tiếng Nhật
+nghĩa là "ánh sáng") phản ánh triết lý thiết kế "nhẹ và nhanh". Spring Boot chuyển sang dùng
+HikariCP làm connection pool mặc định từ Spring Boot 2.0 (2018), thay thế Tomcat JDBC Pool.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Gặp lỗi 'Connection is not available' thì cứ tăng <code>maximum-pool-size</code> là xong."
+  <strong>Reality:</strong> Đã phân tích ở Engineering Insight — tăng pool size mà không kiểm tra
+  <code>active</code>/<code>waiting</code> và không loại trừ connection leak có thể chỉ che giấu vấn đề gốc, thậm chí
+  làm quá tải database.</li>
+<li><strong>Myth:</strong> "<code>leak-detection-threshold</code> chỉ cảnh báo khi connection thực sự bị mất (không bao giờ
+  trả lại)."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — nó cảnh báo bất kỳ khi nào connection bị giữ lâu
+  hơn ngưỡng, kể cả khi sau đó vẫn được trả lại đúng cách (log "was returned to the pool
+  (unleaked)" xác nhận điều này).</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đặt <code>maximum-pool-size</code> quá lớn "cho chắc"</strong> — có thể làm database vượt quá giới hạn connection
+  tối đa của chính nó khi nhiều instance ứng dụng cùng chạy.</li>
+<li><strong>Không set <code>leak-detection-threshold</code> ở môi trường staging/dev</strong> — bỏ lỡ cơ hội phát hiện sớm
+  connection leak trước khi lên production.</li>
+<li><strong>Giữ connection mở trong lúc gọi một service/API bên ngoài (network call) thay vì chỉ trong lúc
+  chạy query</strong> — kéo dài thời gian giữ connection không cần thiết, dễ gây cạn kiệt pool khi service
+  bên ngoài chậm.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li>Luôn dùng <code>try-with-resources</code> khi làm việc trực tiếp với <code>Connection</code> — đảm bảo trả lại pool kể
+  cả khi có exception.</li>
+<li>Đặt <code>connection-timeout</code> ở mức đủ ngắn (vài giây) để request thất bại nhanh, không "treo" vô
+  thời hạn khi pool cạn kiệt.</li>
+<li>Theo dõi <code>hikaricp.connections.active</code> và <code>hikaricp.connections.pending</code> (Chapter 02) như một
+  chỉ số sức khoẻ chính, đặt alert khi <code>active</code> áp sát <code>maximum-pool-size</code> trong thời gian dài.</li>
+<li>Công thức khởi điểm phổ biến cho <code>maximum-pool-size</code>: <code>connections = ((core_count * 2) + effective_spindle_count)</code> (khuyến nghị chính thức của HikariCP wiki) — cần benchmark thực tế, không đoán mò.</li>
+</ul>
 <h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<p><strong>Problem:</strong> API bắt đầu trả lỗi 500 hàng loạt trong giờ cao điểm, log đầy thông báo
+"Connection is not available".</p>
+<p><strong>Symptoms:</strong> Latency tăng đột biến ngay trước khi lỗi xuất hiện; lỗi xảy ra theo cụm (burst),
+không rải đều.</p>
+<p><strong>Root Cause (một trong các khả năng, xác nhận theo Engineering Insight):</strong> (a) pool quá nhỏ so
+với traffic thực tế, (b) một query/transaction cụ thể trở nên chậm bất thường (thiếu index, lock
+contention — Phase 7), giữ connection lâu hơn bình thường, hoặc (c) connection leak thật do thiếu
+<code>close()</code> ở một nhánh code hiếm khi chạy (ví dụ nhánh xử lý exception).</p>
+<p><strong>Debug:</strong> Đọc exception message để lấy <code>active</code>/<code>waiting</code>; đối chiếu với
+<code>hikaricp.connections.usage</code> (thời gian giữ trung bình) trước và trong lúc sự cố; bật tạm
+<code>leak-detection-threshold</code> thấp nếu nghi ngờ leak.</p>
+<p><strong>Solution:</strong> Tối ưu query/transaction chậm nếu đó là nguyên nhân; sửa leak nếu phát hiện; chỉ
+tăng pool size như biện pháp cuối cùng, có benchmark.</p>
+<p><strong>Prevention:</strong> Alert chủ động trên <code>hikaricp.connections.pending</code> &gt; 0 kéo dài, thay vì chờ tới
+khi connection-timeout xảy ra hàng loạt.</p>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Thấy lỗi "Connection is not available"? → đọc ngay <code>active</code>/<code>idle</code>/<code>waiting</code> trong chính
+      exception message, đây là bước đầu tiên, nhanh nhất.</li>
+<li>[ ] <code>active</code> áp sát <code>total</code> liên tục, không chỉ lúc traffic cao? → nghi ngờ connection leak hoặc
+      query/transaction chậm bất thường, không phải pool quá nhỏ.</li>
+<li>[ ] Cần xác định vị trí code đang giữ connection quá lâu? → bật <code>leak-detection-threshold</code> tạm
+      thời, đọc stack trace trong log cảnh báo.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>HikariCP quản lý một số lượng connection giới hạn (<code>maximum-pool-size</code>); khi request đồng thời
+vượt quá số connection khả dụng, các request sau phải chờ tới <code>connection-timeout</code> rồi thất bại
+với lỗi "Connection is not available" — đã tái hiện bằng thực nghiệm với pool size 2 và 3 request
+đồng thời, thông báo lỗi thật cho thấy chính xác trạng thái pool (<code>total=2, active=2, idle=0</code>) tại
+thời điểm timeout. <code>leak-detection-threshold</code> cảnh báo khi một connection bị giữ quá lâu, kèm stack
+trace nơi nó được lấy ra, và tự xác nhận "unleaked" nếu connection cuối cùng vẫn được trả lại đúng
+cách. Điều tra lỗi này ở production nên bắt đầu từ việc đọc exception message và metric
+<code>hikaricp.connections.usage</code>, chỉ tăng pool size sau khi loại trừ nguyên nhân query chậm/leak.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
+<p><strong>Mid</strong></p>
 <ul>
-<li>HikariCP starts throwing "Connection is not available" errors during peak traffic. What would you investigate?</li>
+<li><code>maximum-pool-size</code> và <code>connection-timeout</code> của HikariCP có ý nghĩa gì?</li>
+<li>HikariCP starts throwing "Connection is not available" errors during peak traffic. What would
+  you investigate?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li><code>leak-detection-threshold</code> hoạt động như thế nào? Nó có phân biệt được connection leak thật với
+  connection chỉ đơn giản bị giữ lâu không?</li>
+<li>Vì sao tăng <code>maximum-pool-size</code> không phải lúc nào cũng là giải pháp đúng khi gặp lỗi "Connection
+  is not available"?</li>
 </ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại kịch bản ở Story với <code>maximum-pool-size=5</code> thay vì 2, xác nhận cả 3 request đều
+      thành công (pool đủ lớn cho traffic đó).</li>
+<li>[ ] Đặt <code>leak-detection-threshold=500</code> (thấp hơn cả thời gian request bình thường), xác nhận cả
+      những connection dùng bình thường cũng bị cảnh báo (false positive) — hiểu vì sao ngưỡng cần
+      đặt hợp lý.</li>
+<li>[ ] So sánh <code>hikaricp.connections.usage</code> (Chapter 02) trước và trong lúc chạy kịch bản cạn kiệt
+      pool ở Story.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Ý nghĩa</th>
+<th>Hậu quả nếu sai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maximum-pool-size</code></td>
+<td>Số connection tối đa</td>
+<td>Quá nhỏ → nghẽn; quá lớn → quá tải DB</td>
+</tr>
+<tr>
+<td><code>connection-timeout</code></td>
+<td>Thời gian chờ tối đa trước khi thất bại</td>
+<td>Quá lớn → request "treo" lâu</td>
+</tr>
+<tr>
+<td><code>leak-detection-threshold</code></td>
+<td>Ngưỡng cảnh báo giữ connection quá lâu</td>
+<td>Không đặt → khó phát hiện leak sớm</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Trong exception message</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>total</code></td>
+<td>Tổng connection trong pool (= <code>maximum-pool-size</code>)</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td>Đang bị giữ bởi request khác</td>
+</tr>
+<tr>
+<td><code>idle</code></td>
+<td>Đang rảnh, sẵn sàng cấp phát</td>
+</tr>
+<tr>
+<td><code>waiting</code></td>
+<td>Số thread khác đang xếp hàng chờ</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>HikariCP GitHub Wiki — "About Pool Sizing".</li>
+<li>HikariCP GitHub Wiki — Configuration (<code>connectionTimeout</code>, <code>leakDetectionThreshold</code>).</li>
+<li>Spring Boot Documentation — DataSource Configuration.</li>
 </ul>
 
 

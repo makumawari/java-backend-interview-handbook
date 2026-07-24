@@ -27,7 +27,7 @@
     
     
       
-        <title>Logging - Java Backend Engineering Handbook</title>
+        <title>Logging: Structured Logging và MDC - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#logging" class="md-skip">
+        <a href="#logging-structured-logging-va-mdc" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Logging
+              Logging: Structured Logging và MDC
             
           </span>
         </div>
@@ -4409,7 +4409,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4427,7 +4427,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4651,32 +4651,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4761,7 +4739,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4789,7 +4767,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4817,7 +4795,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4845,7 +4823,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4873,7 +4851,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4929,7 +4907,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4935,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:logging" class="md-tag">Logging</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:mdc" class="md-tag">MDC</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:observability" class="md-tag">Observability</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h1>
+<h1 id="logging-structured-logging-va-mdc">Logging: Structured Logging và MDC<a class="headerlink" href="#logging-structured-logging-va-mdc" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>logging</code></p>
@@ -6149,94 +6119,280 @@ Chapter slug: <code>logging</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Logging</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 01 — Thread</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 3, Chapter 15 — Thread Pool</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">Used Later</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 02 — Metrics</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 03 — Tracing</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
+<p>Xem lại: Phase 3, Chapter 15 (Thread Pool) — thread trong pool được <strong>tái sử dụng</strong> cho nhiều
+tác vụ khác nhau, không bị huỷ sau mỗi tác vụ. Điều này tạo ra một cạm bẫy nguy hiểm với
+logging: nếu dữ liệu "gắn vào thread hiện tại" không được dọn dẹp, nó có thể <strong>rò rỉ</strong> sang
+tác vụ tiếp theo dùng lại đúng thread đó.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// &quot;Request 1&quot;: dat MDC, KHONG don dep</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">MDC</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;request-1-id&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Request 1 dang xu ly...&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">// QUEN MDC.clear()</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">});</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// &quot;Request 2&quot;: KHONG dat MDC gi ca</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Request 2, MDC hien tai: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MDC</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">));</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">});</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[correlationId=request-1-id] Request 1 dang xu ly, thread: pool-2-thread-1
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[correlationId=request-1-id] Request 2 dang xu ly, thread: pool-2-thread-1, MDC hien tai: request-1-id
+</code></pre></div>
+<p>"Request 2" <strong>chưa bao giờ</strong> đặt <code>correlationId</code> — nhưng log của nó vẫn hiện
+<code>request-1-id</code>, vì cả hai chạy trên <strong>cùng một thread</strong> (<code>pool-2-thread-1</code>) và không ai dọn dẹp.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>MDC (Mapped Diagnostic Context) là gì? Vì sao quên dọn dẹp MDC có thể gây ra log sai lệch
+nghiêm trọng trong một ứng dụng dùng thread pool?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Dùng thành thạo MDC để gắn correlation ID vào mọi dòng log của một request</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm: hai request xử lý bởi hai thread khác nhau có
+      correlation ID tách biệt hoàn toàn đúng</li>
+<li>[ ] Tự tay tái hiện lỗi rò rỉ MDC khi tái sử dụng thread không dọn dẹp, và chứng minh
+      <code>try/finally</code> khắc phục triệt để</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 3, Chapter 01 — hiểu thread cơ bản.</li>
+<li>Phase 3, Chapter 15 — hiểu thread pool, nền tảng của cạm bẫy rò rỉ MDC.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 02 (Metrics)</strong>, <strong>Chapter 03 (Tracing)</strong> — logging, metrics, tracing là "ba trụ cột"
+  của observability, correlation ID (chapter này) chính là sợi chỉ nối liền cả ba.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một ứng dụng backend xử lý hàng nghìn request đồng thời — log của các request khác nhau <strong>trộn
+lẫn</strong> vào cùng một luồng output (console/file). Nếu không có cách nào "gắn nhãn" mỗi dòng log
+thuộc về request nào, việc debug một lỗi cụ thể (ví dụ "request của khách hàng X bị lỗi 500") trở
+thành việc tìm kim đáy bể giữa hàng nghìn dòng log không liên quan.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p><strong>MDC (Mapped Diagnostic Context)</strong> là một <code>Map</code> <strong>gắn theo từng thread</strong> (dựa trên
+<code>ThreadLocal</code>, Phase 3) — mọi giá trị đặt vào MDC (ví dụ <code>correlationId</code>) tự động xuất hiện
+trong <strong>mọi</strong> dòng log tiếp theo được ghi <strong>trên cùng thread đó</strong>, cho tới khi bị xoá. Trong một
+ứng dụng web, gắn một <strong>correlation ID</strong> (mã định danh duy nhất) vào MDC ngay khi request bắt
+đầu cho phép lọc/gom nhóm toàn bộ log liên quan tới đúng một request cụ thể.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì MDC dựa trên <code>ThreadLocal</code> (Phase 3), nó tận dụng đúng mô hình "mỗi request một thread" phổ
+biến của Spring MVC (Phase 5, Chapter 09) — không cần truyền correlation ID qua tham số của mọi
+phương thức, chỉ cần đặt một lần vào MDC lúc bắt đầu request, mọi lời gọi <code>log.info(...)</code> sau đó
+(dù ở tầng Controller, Service, hay Repository) tự động "thấy" được giá trị đó. Nhưng chính vì
+dựa trên thread, và thread trong thread pool <strong>được tái sử dụng</strong> (Phase 3, Chapter 15), MDC
+<strong>bắt buộc</strong> phải được dọn dẹp tường minh khi request kết thúc — nếu không, giá trị cũ "sống
+sót" sang tác vụ tiếp theo dùng lại đúng thread đó, gây log sai lệch nghiêm trọng.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Component</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">class</span> <span class="nc">CorrelationIdFilter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">OncePerRequestFilter</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doFilterInternal</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">FilterChain</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">correlationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">().</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">MDC</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">correlationId</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="n">chain</span><span class="p">.</span><span class="na">doFilter</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="n">MDC</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// BAT BUOC</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- logback-spring.xml --&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS}<span class="w"> </span>[%thread]<span class="w"> </span>%-5level<span class="w"> </span>[correlationId=%X{correlationId}]<span class="w"> </span>%logger<span class="w"> </span>-<span class="w"> </span>%msg%n<span class="nt">&lt;/pattern&gt;</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>KHONG don dep MDC (LOI):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Thread pool-2-thread-1:
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    Task 1: MDC.put(&quot;id&quot;, &quot;req-1&quot;) ──► log (thay &quot;req-1&quot;) ──► [QUEN xoa]
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    Task 2: (khong dat gi)         ──► log (VAN thay &quot;req-1&quot; - RO RI!)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>CO don dep (try/finally):
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  Thread pool-3-thread-1:
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    Task 3: MDC.put(&quot;id&quot;, &quot;req-3&quot;) ──► log (thay &quot;req-3&quot;) ──► finally: MDC.clear()
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    Task 4: (khong dat gi)         ──► log (thay null - DUNG)
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>HTTP thật, hai request với correlation ID khác nhau, xử lý bởi hai thread khác nhau:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Correlation-Id: abc12345&quot;</span><span class="w"> </span>http://localhost:8080/api/log-demo
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Correlation-Id: xyz98765&quot;</span><span class="w"> </span>http://localhost:8080/api/log-demo
 </code></pre></div>
+<p>Log thật (Logback, Spring Boot 3.3.4):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[http-nio-8080-exec-2] INFO [correlationId=abc12345] LogDemoController - Bat dau xu ly request
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[http-nio-8080-exec-2] INFO [correlationId=abc12345] LogDemoController - Dang chay logic nghiep vu
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>[http-nio-8080-exec-3] INFO [correlationId=xyz98765] LogDemoController - Bat dau xu ly request
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>[http-nio-8080-exec-3] INFO [correlationId=xyz98765] LogDemoController - Dang chay logic nghiep vu
+</code></pre></div>
+<p>Mỗi request giữ đúng correlation ID của mình xuyên suốt mọi dòng log, kể cả log phát sinh từ một
+phương thức private khác (<code>doBusinessLogic()</code>) — không cần truyền tham số nào.</p>
+<p><strong>Log DEBUG bị lọc đúng theo cấu hình:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">log</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;Day la log DEBUG - se KHONG hien thi vi root level la INFO&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Dòng này <strong>hoàn toàn không xuất hiện</strong> trong log thật — xác nhận cấu hình <code>&lt;root level="INFO"&gt;</code>
+lọc đúng theo mức độ đã khai báo.</p>
+<p><strong>Rò rỉ MDC khi tái sử dụng thread không dọn dẹp:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// CHI 1 thread -&gt; DAM BAO tai su dung</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">MDC</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;request-1-id&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Request 1 dang xu ly, thread: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c1">// QUEN MDC.clear()</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">});</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Request 2, thread: {}, MDC hien tai: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">MDC</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">));</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">});</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[pool-2-thread-1] INFO [correlationId=request-1-id] Request 1 dang xu ly, thread: pool-2-thread-1
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>[pool-2-thread-1] INFO [correlationId=request-1-id] Request 2 dang xu ly, thread: pool-2-thread-1, MDC hien tai: request-1-id
+</code></pre></div>
+<p>"Request 2" chưa bao giờ gọi <code>MDC.put()</code> nhưng vẫn thấy <code>correlationId=request-1-id</code> — bằng
+chứng trực tiếp về rò rỉ. Sửa bằng <code>try { ... } finally { MDC.clear(); }</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[pool-3-thread-1] INFO [correlationId=request-3-id] Request 3 dang xu ly
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>[pool-3-thread-1] INFO [correlationId=] Request 4 dang xu ly, MDC hien tai: null
+</code></pre></div>
+<p>"Request 4" giờ đúng <code>null</code> — không còn rò rỉ.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao <code>MDC.remove()</code>/<code>MDC.clear()</code> phải nằm trong <code>finally</code>, không phải chỉ cuối phương thức
+(sau logic chính)?</strong> Nếu logic chính ném exception (ví dụ lỗi xử lý request), luồng thực thi
+<strong>nhảy thẳng</strong> ra khỏi phương thức, bỏ qua mọi câu lệnh sau logic chính mà không nằm trong
+<code>finally</code> — MDC sẽ <strong>không bao giờ</strong> được dọn dẹp trong trường hợp lỗi, dẫn tới rò rỉ chính xác ở
+những request <strong>thất bại</strong> (thường là những request quan trọng nhất cần debug đúng!). <code>finally</code>
+đảm bảo dọn dẹp chạy <strong>bất kể</strong> phương thức kết thúc bình thường hay ném exception — đây là ứng
+dụng trực tiếp của kiến thức exception handling (Phase 1, Chapter 15) vào một tình huống thực tế
+cụ thể.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>MDC (dựa trên <code>ThreadLocal</code>) gặp vấn đề gì khi kết hợp với lập trình bất đồng bộ
+(<code>@Async</code>, Phase 5 Chapter 14, hoặc reactive, Phase 5 Chapter 18)?</strong> Vì MDC gắn với <strong>thread cụ
+thể</strong>, khi một tác vụ được giao cho thread khác xử lý (<code>@Async</code> chạy trên thread pool riêng,
+reactive code có thể nhảy qua nhiều thread khác nhau trong cùng một luồng xử lý logic), MDC đặt
+ở thread gốc <strong>không tự động</strong> theo sang thread mới — log trên thread mới sẽ <strong>thiếu</strong>
+correlation ID, dù về mặt logic nghiệp vụ nó vẫn thuộc về cùng một request. Giải quyết vấn đề
+này đòi hỏi kỹ thuật <strong>truyền tay MDC context</strong>: đọc <code>MDC.getCopyOfContextMap()</code> trên thread gốc
+trước khi giao việc, rồi <code>MDC.setContextMap(...)</code> ngay đầu tác vụ trên thread mới (một số thư
+viện, ví dụ <code>TaskDecorator</code> của Spring, tự động hoá việc này cho <code>@Async</code>) — nếu không xử lý,
+log của các luồng xử lý bất đồng bộ/reactive sẽ mất khả năng theo dõi theo request, một vấn đề
+thực tế phổ biến khi hệ thống chuyển từ đồng bộ sang bất đồng bộ.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>MDC là một tính năng của Log4j/Logback/SLF4J, xuất hiện từ khá sớm trong lịch sử logging Java
+(Log4j 1.x, cuối thập niên 1990) — ý tưởng "gắn ngữ cảnh chẩn đoán theo thread" phản ánh đúng mô
+hình xử lý phổ biến thời kỳ đó (mỗi request một thread, servlet container truyền thống). Sự phát
+triển của lập trình bất đồng bộ/reactive (Phase 5, Chapter 14, 18) những năm gần đây bộc lộ rõ
+hạn chế cố hữu của mô hình dựa trên <code>ThreadLocal</code> này, thúc đẩy các giải pháp mới như
+context propagation trong OpenTelemetry (Chapter 03).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li>
+<p><strong>Myth:</strong> "Chỉ cần dùng MDC là tự động có correlation ID đúng cho mọi log, không cần lo lắng
+  gì thêm."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — quên dọn dẹp khi tái sử dụng thread gây rò rỉ
+  nghiêm trọng; MDC cũng không tự động "theo" sang thread khác trong code bất đồng bộ.</p>
+</li>
+<li>
+<p><strong>Myth:</strong> "Log DEBUG luôn được ghi lại, chỉ là ẩn đi trên console."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — với <code>root level="INFO"</code>, log DEBUG hoàn toàn
+  không được tạo ra, không phải chỉ ẩn hiển thị.</p>
+</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đặt <code>MDC.remove()</code>/<code>clear()</code> ở cuối phương thức thay vì trong <code>finally</code></strong> — mất tác dụng dọn
+  dẹp khi có exception xảy ra giữa chừng.</li>
+<li><strong>Dùng <code>MDC.clear()</code> khi chỉ nên <code>MDC.remove("key")</code> cụ thể</strong> — <code>clear()</code> xoá <strong>toàn bộ</strong> MDC,
+  có thể xoá nhầm dữ liệu context khác đang được dùng bởi phần code khác trên cùng thread.</li>
+<li><strong>Quên truyền MDC context khi giao việc cho <code>@Async</code>/thread khác</strong> — log của tác vụ bất đồng bộ
+  mất correlation ID, khó truy vết theo request gốc.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Luôn dùng <code>try { ... } finally { MDC.remove(...) hoặc clear(); }</code> khi làm việc trực tiếp với
+  MDC.</li>
+<li>Dùng một <code>Filter</code>/<code>Interceptor</code> tập trung (như <code>CorrelationIdFilter</code>) để tự động gắn/dọn dẹp
+  MDC cho mọi request, không rải rác logic này khắp các Controller.</li>
+<li>Với <code>@Async</code>/reactive, chủ động truyền tay MDC context hoặc dùng <code>TaskDecorator</code> để tránh mất
+  correlation ID.</li>
+<li>Log theo định dạng <strong>có cấu trúc</strong> (structured logging — JSON) trong môi trường production để
+  dễ dàng tìm kiếm/lọc bằng công cụ log aggregation (ELK, Loki).</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Log của một request hiện correlation ID của request khác? → nghi ngờ hàng đầu là rò rỉ MDC
+      do tái sử dụng thread không dọn dẹp — kiểm tra có <code>finally { MDC.remove/clear() }</code> chưa.</li>
+<li>[ ] Log DEBUG không xuất hiện dù đã thêm code log? → kiểm tra cấu hình mức log hiện tại
+      (<code>root level</code>), có thể đang lọc DEBUG.</li>
+<li>[ ] Log của tác vụ <code>@Async</code> thiếu correlation ID? → cần truyền tay MDC context sang thread
+      mới, xem Engineering Insight.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>MDC gắn dữ liệu ngữ cảnh (như correlation ID) vào <strong>thread hiện tại</strong> — tự động xuất hiện trong
+mọi log ghi trên thread đó cho tới khi bị xoá. Đã chứng minh bằng thực nghiệm: hai request HTTP
+xử lý bởi hai thread khác nhau giữ đúng correlation ID tách biệt hoàn toàn; nhưng khi hai tác vụ
+chạy tuần tự trên <strong>cùng một thread</strong> (thread pool tái sử dụng, Phase 3 Chapter 15) mà không dọn
+dẹp, tác vụ sau <strong>kế thừa nhầm</strong> giá trị MDC của tác vụ trước — sửa bằng <code>try/finally</code>. Log DEBUG
+bị lọc hoàn toàn (không chỉ ẩn) khi mức log cấu hình cao hơn. MDC dựa trên <code>ThreadLocal</code> nên
+không tự động "theo" sang thread khác trong code <code>@Async</code>/reactive, cần truyền tay context nếu
+cần giữ correlation ID xuyên suốt luồng xử lý bất đồng bộ.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>MDC (Mapped Diagnostic Context) là gì?</li>
+<li>Vì sao quên dọn dẹp MDC có thể gây ra log sai lệch nghiêm trọng trong một ứng dụng dùng thread
+  pool?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>MDC gặp vấn đề gì khi kết hợp với <code>@Async</code>/reactive? Cách khắc phục?</li>
+<li>Vì sao <code>MDC.remove()</code> phải nằm trong <code>finally</code>, không phải cuối phương thức?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy lại <code>MdcLeakTest</code> ở trên, xác nhận rò rỉ xảy ra khi không dọn dẹp và biến mất khi
+      dùng <code>try/finally</code>.</li>
+<li>[ ] Gọi hai request HTTP thật liên tiếp với hai <code>X-Correlation-Id</code> khác nhau, xác nhận log
+      tách biệt đúng theo từng request.</li>
+<li>[ ] Viết một <code>TaskDecorator</code> truyền MDC context sang thread <code>@Async</code>, xác nhận log của tác vụ
+      bất đồng bộ giữ đúng correlation ID của request gốc.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Không dọn dẹp MDC</th>
+<th>Có <code>try/finally</code> dọn dẹp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Request/tác vụ sau trên cùng thread</td>
+<td>Kế thừa nhầm giá trị cũ (rò rỉ)</td>
+<td>Sạch, đúng giá trị mới hoặc <code>null</code></td>
+</tr>
+<tr>
+<td>An toàn khi có exception?</td>
+<td>Không</td>
+<td>Có (finally luôn chạy)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>SLF4J/Logback Documentation — Mapped Diagnostic Context (MDC).</li>
+<li>Spring Framework Documentation — <code>TaskDecorator</code>.</li>
 </ul>
 
 

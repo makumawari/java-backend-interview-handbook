@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4512,7 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4540,7 +4540,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4819,32 +4819,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4929,7 +4907,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4957,7 +4935,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:jms" class="md-tag">JMS</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:messaging" class="md-tag">Messaging</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:queue-vs-topic" class="md-tag">Queue vs Topic</a>
       
     
   </nav>
@@ -6149,94 +6119,342 @@ Chapter slug: <code>messaging</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Messaging (JMS, RabbitMQ, Spring Integration)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8, Chapter 06 — Kafka</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 08 — Docker</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Cấu hình một <code>JmsTemplate</code> tuỳ chỉnh để gửi vào Topic:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Bean</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">JmsTemplate</span><span class="w"> </span><span class="nf">topicJmsTemplate</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">JmsTemplate</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JmsTemplate</span><span class="p">(</span><span class="n">connectionFactory</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">template</span><span class="p">.</span><span class="na">setPubSubDomain</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">template</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>JmsDemoController</code> inject <strong>hai</strong> <code>JmsTemplate</code> — một để gửi Queue (<code>jmsTemplate</code>, dùng bean mặc
+định của Spring Boot), một để gửi Topic (<code>topicJmsTemplate</code>). Gửi thử tới Queue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/api/jms-demo/send-queue?message=queue-msg-1&quot;</span>
+</code></pre></div>
+<p>Kết quả thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="s2">&quot;Internal Server Error&quot;</span><span class="p">,</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="s2">&quot;/api/jms-demo/send-queue&quot;</span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>jakarta.jms.InvalidDestinationException: Destination demo.queue exists, but does not support MULTICAST routing
+</code></pre></div>
+<p>Kiểm tra <code>/actuator/beans</code> — chỉ có <strong>một</strong> bean kiểu <code>JmsTemplate</code> tồn tại: <code>topicJmsTemplate</code>.
+Bean <code>jmsTemplate</code> mặc định của Spring Boot <strong>chưa từng được tạo</strong>. Nguyên nhân: cấu hình
+<code>JmsTemplate</code> tự viết (kiểu <code>JmsTemplate</code>, bất kể đặt tên gì) đã thoả mãn điều kiện
+<code>@ConditionalOnMissingBean(JmsTemplate.class)</code> mà Spring Boot dùng để quyết định có tự tạo bean
+<code>jmsTemplate</code> mặc định hay không — Spring Boot thấy <strong>đã có</strong> một bean kiểu <code>JmsTemplate</code> (dù tên
+khác) nên bỏ qua việc tạo bean mặc định. Hệ quả: tham số constructor tên <code>jmsTemplate</code> (không khớp
+tên bean nào) rơi về match theo kiểu, và vì chỉ còn đúng một bean <code>JmsTemplate</code> tồn tại
+(<code>topicJmsTemplate</code>), <strong>cả hai tham số constructor cùng nhận về đúng một bean đó</strong> — request gửi
+"tới Queue" thực chất đang dùng template có <code>pubSubDomain=true</code>, gây lỗi.</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>Sự khác biệt cốt lõi giữa mô hình Queue (point-to-point) và Topic (publish-subscribe) trong JMS
+là gì? Vì sao tự định nghĩa một bean <code>JmsTemplate</code> tuỳ chỉnh trong Spring Boot đôi khi làm hỏng
+hành vi gửi message ở nơi khác trong cùng ứng dụng?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm sự khác biệt giữa Queue (point-to-point, nhiều consumer
+      cạnh tranh) và Topic (publish-subscribe, mọi subscriber đều nhận)</li>
+<li>[ ] Hiểu đúng cơ chế <code>@ConditionalOnMissingBean</code> của Spring Boot và cách nó có thể vô tình vô
+      hiệu hoá bean autoconfigure mặc định khi tự định nghĩa bean cùng kiểu</li>
+<li>[ ] So sánh mô hình phân phối message của JMS Queue/Topic với mô hình consumer group của Kafka
+      (Chapter 06)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 8, Chapter 06 — mô hình consumer group của Kafka, dùng làm nền so sánh trực tiếp.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 08 (Docker)</strong> — đóng gói broker message (Artemis/RabbitMQ) thành container trong một
+  hệ thống triển khai thực tế.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Có hai nhu cầu phân phối message hoàn toàn khác nhau trong thực tế: (1) một tác vụ (ví dụ "gửi
+email xác nhận đơn hàng") chỉ cần được xử lý <strong>đúng một lần</strong>, bởi <strong>một</strong> worker bất kỳ trong số
+nhiều worker đang chạy song song; (2) một sự kiện (ví dụ "đơn hàng đã được tạo") cần được <strong>mọi</strong>
+thành phần quan tâm trong hệ thống biết tới (cả service gửi email, cả service cập nhật kho, cả
+service ghi log audit). Dùng sai mô hình cho một trong hai nhu cầu này dẫn tới hậu quả nghiêm
+trọng: hoặc một tác vụ bị xử lý nhiều lần không cần thiết, hoặc một sự kiện chỉ tới được một trong
+nhiều bên cần biết.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JMS (Jakarta Messaging) định nghĩa hai mô hình phân phối tách biệt:</p>
+<ul>
+<li><strong>Queue (point-to-point)</strong> — mỗi message chỉ được <strong>một</strong> consumer nhận, dù có bao nhiêu
+  consumer cùng lắng nghe trên queue đó (các consumer <strong>cạnh tranh</strong> với nhau).</li>
+<li><strong>Topic (publish-subscribe)</strong> — mỗi message được gửi tới <strong>tất cả</strong> subscriber đang lắng nghe
+  tại thời điểm gửi, mỗi subscriber nhận được <strong>bản sao riêng</strong> của message.</li>
+</ul>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì hai nhu cầu ở Problem về bản chất khác nhau — "chia việc" (mỗi việc xử lý một lần) đối lập
+hoàn toàn với "thông báo sự kiện" (mọi bên quan tâm đều cần biết) — JMS tách hẳn thành hai mô hình
+API riêng biệt (<code>Queue</code>/<code>Topic</code>) thay vì gộp chung, để tránh nhầm lẫn ngay từ lúc thiết kế: một
+consumer khai báo lắng nghe Queue biết chắc nó đang <strong>chia sẻ tải</strong> với các consumer khác cùng
+queue; một subscriber khai báo lắng nghe Topic biết chắc nó sẽ nhận <strong>mọi</strong> message, không phải
+chỉ một phần.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Configuration</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@EnableJms</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JmsConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">JmsTemplate</span><span class="w"> </span><span class="nf">queueJmsTemplate</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">cf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">JmsTemplate</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JmsTemplate</span><span class="p">(</span><span class="n">cf</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setPubSubDomain</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// Queue</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">JmsTemplate</span><span class="w"> </span><span class="nf">topicJmsTemplate</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">cf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="n">JmsTemplate</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JmsTemplate</span><span class="p">(</span><span class="n">cf</span><span class="p">);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">setPubSubDomain</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// Topic</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="nd">@Bean</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DefaultJmsListenerContainerFactory</span><span class="w"> </span><span class="nf">topicListenerFactory</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">cf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">        </span><span class="n">DefaultJmsListenerContainerFactory</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DefaultJmsListenerContainerFactory</span><span class="p">();</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">setConnectionFactory</span><span class="p">(</span><span class="n">cf</span><span class="p">);</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">f</span><span class="p">.</span><span class="na">setPubSubDomain</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@JmsListener</span><span class="p">(</span><span class="n">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;demo.queue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">containerFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jmsListenerContainerFactory&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">queueConsumerA</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nd">@JmsListener</span><span class="p">(</span><span class="n">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;demo.topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">containerFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;topicListenerFactory&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">topicConsumerA</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QUEUE &quot;demo.queue&quot; (point-to-point) - 4 message gui vao:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Producer --&gt; [msg1, msg2, msg3, msg4] --&gt; Queue
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                                              │
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                        ┌─────────────────────┴─────────────────────┐
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>                        ▼                                           ▼
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>                  Consumer A (canh tranh)                    Consumer B (canh tranh)
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>                  nhan: msg2, msg4 (2/4)                      nhan: msg1, msg3 (2/4)
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>                  TONG: moi message CHI 1 consumer nhan
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>TOPIC &quot;demo.topic&quot; (publish-subscribe) - 3 message gui vao:
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  Producer --&gt; [msg1, msg2, msg3] --&gt; Topic
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>                                        │
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>                    ┌───────────────────┴───────────────────┐
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>                    ▼                                       ▼
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>              Subscriber A                            Subscriber B
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>              nhan: msg1, msg2, msg3 (3/3)             nhan: msg1, msg2, msg3 (3/3)
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>              TONG: MOI subscriber nhan DU ca 3 message
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Queue — dữ liệu thật, gửi 4 message, hai consumer cùng lắng nghe <code>demo.queue</code>:</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/api/jms-demo/send-queue?message=queue-msg-</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>curl<span class="w"> </span>http://localhost:8080/api/jms-demo/counts
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>queueA=2, queueB=2, topicA=0, topicB=0
+</code></pre></div></p>
+<p>Log thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[QUEUE-Consumer-B] nhan duoc (lan thu 1): queue-msg-1
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>[QUEUE-Consumer-A] nhan duoc (lan thu 1): queue-msg-2
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>[QUEUE-Consumer-B] nhan duoc (lan thu 2): queue-msg-3
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>[QUEUE-Consumer-A] nhan duoc (lan thu 2): queue-msg-4
+</code></pre></div>
+<p>4 message, chia đều 2/2 cho hai consumer — <strong>không</strong> consumer nào nhận cả 4.</p>
+<p><strong>Topic — dữ liệu thật, gửi 3 message, hai subscriber cùng lắng nghe <code>demo.topic</code>:</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://localhost:8080/api/jms-demo/send-topic?message=topic-msg-</span><span class="nv">$i</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>curl<span class="w"> </span>http://localhost:8080/api/jms-demo/counts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>queueA=2, queueB=2, topicA=3, topicB=3
+</code></pre></div></p>
+<p>Log thật:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[TOPIC-Consumer-A] nhan duoc (lan thu 1): topic-msg-1
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>[TOPIC-Consumer-B] nhan duoc (lan thu 1): topic-msg-1
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>[TOPIC-Consumer-A] nhan duoc (lan thu 2): topic-msg-2
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>[TOPIC-Consumer-B] nhan duoc (lan thu 2): topic-msg-2
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>[TOPIC-Consumer-A] nhan duoc (lan thu 3): topic-msg-3
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>[TOPIC-Consumer-B] nhan duoc (lan thu 3): topic-msg-3
+</code></pre></div>
+<p>3 message, <strong>cả hai</strong> subscriber đều nhận đủ cả 3 — hoàn toàn trái ngược với Queue.</p>
+<p><strong>Bug thật khi chỉ có một <code>JmsTemplate</code> tự định nghĩa — <code>/actuator/beans</code> trước khi sửa:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>topicJmsTemplate -&gt; org.springframework.jms.core.JmsTemplate
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>(KHONG co bean &quot;jmsTemplate&quot; mac dinh nao khac)
+</code></pre></div>
+<p>Sau khi thêm tường minh bean <code>queueJmsTemplate</code> (thay vì trông chờ Spring Boot tự tạo
+<code>jmsTemplate</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>topicJmsTemplate -&gt; org.springframework.jms.core.JmsTemplate
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>queueJmsTemplate -&gt; org.springframework.jms.core.JmsTemplate
+</code></pre></div>
+<p>Cả hai bean cùng tồn tại tường minh — request gửi Queue hoạt động đúng trở lại.</p>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao chỉ định nghĩa MỘT bean <code>JmsTemplate</code> tuỳ chỉnh lại xoá mất bean <code>jmsTemplate</code> mặc định
+của toàn bộ ứng dụng, thay vì chỉ đơn giản "thêm một bean nữa"?</strong> <code>JmsAutoConfiguration</code> của Spring
+Boot đăng ký bean <code>jmsTemplate</code> mặc định với điều kiện <code>@ConditionalOnMissingBean(JmsTemplate.class)</code>
+— điều kiện này kiểm tra theo <strong>kiểu</strong> (<code>JmsTemplate.class</code>), không phải theo tên bean. Khi ứng
+dụng tự định nghĩa bất kỳ bean nào kiểu <code>JmsTemplate</code> (như <code>topicJmsTemplate</code> ở Story) trước khi
+autoconfiguration chạy, Spring Boot thấy điều kiện "đã tồn tại ít nhất một bean kiểu này" được thoả
+mãn và <strong>bỏ qua hoàn toàn</strong> việc tạo bean mặc định — bất kể tên bean tự định nghĩa là gì. Đây là
+hành vi <strong>có chủ đích</strong> của <code>@ConditionalOnMissingBean</code> (tôn trọng cấu hình tuỳ chỉnh của người
+dùng thay vì áp đặt), nhưng dễ gây bất ngờ khi lập trình viên nghĩ rằng mình chỉ đang "thêm một
+template phụ cho Topic" mà không nhận ra nó đã âm thầm loại bỏ template mặc định dùng cho Queue ở
+những nơi khác trong ứng dụng.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Bài học tổng quát nào rút ra được từ bug này, áp dụng cho mọi loại <code>@ConditionalOnMissingBean</code>
+trong Spring Boot, không riêng gì JMS?</strong> Bất cứ khi nào định nghĩa một bean tuỳ chỉnh có <strong>cùng
+kiểu</strong> với một bean mà Spring Boot autoconfigure sẵn (<code>RestTemplate</code>, <code>ObjectMapper</code>,
+<code>RedisTemplate</code> — đã thấy ở Chapter 05, <code>JmsTemplate</code>...), cần tự hỏi: "bean mặc định này có đang
+được nơi khác trong ứng dụng dựa vào không?" Nếu có, giải pháp an toàn là định nghĩa <strong>tường minh
+tất cả</strong> các bean cùng kiểu cần dùng (như đã sửa ở Story: <code>queueJmsTemplate</code> + <code>topicJmsTemplate</code>),
+thay vì để một cấu hình tuỳ chỉnh "vô tình" trở thành bean duy nhất tồn tại. Đây là cùng một lớp
+vấn đề với bug <code>RestTemplate</code>/tracing đã gặp ở Chapter 03 — Spring Boot's autoconfiguration mang
+lại sự tiện lợi "không cấu hình gì cũng chạy", nhưng ẩn dưới đó luôn là các điều kiện
+<code>@ConditionalOnMissingBean</code> có thể bị vô hiệu hoá một cách không chủ ý.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>JMS (Java Message Service) ra đời từ năm 2001 (JSR 914), là API tiêu chuẩn hoá đầu tiên cho
+messaging trong hệ sinh thái Java, được các broker thương mại lớn thời kỳ đó (IBM MQSeries,
+TIBCO) triển khai. Mô hình Queue/Topic của JMS ảnh hưởng trực tiếp tới thiết kế của rất nhiều hệ
+thống messaging sau này. RabbitMQ (dựa trên chuẩn AMQP, không phải JMS) tổng quát hoá mô hình này
+hơn nữa bằng khái niệm "exchange" định tuyến linh hoạt tới nhiều queue. Kafka (Chapter 06) là một
+thiết kế khác hẳn — không phân biệt Queue/Topic ở tầng API, mà đạt được <strong>cả hai hành vi</strong> cùng lúc
+thông qua khái niệm consumer group (xem Myth vs Reality).</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "Kafka không có khái niệm Queue hay Topic riêng biệt như JMS, nên nó chỉ hỗ trợ một
+  trong hai mô hình phân phối."
+  <strong>Reality:</strong> Kafka thực chất đạt được <strong>cả hai hành vi cùng lúc</strong>, chỉ bằng một cơ chế duy nhất
+  — consumer group (Chapter 06): nhiều consumer <strong>cùng group</strong> cạnh tranh đọc các partition (giống
+  hệt hành vi Queue vừa chứng minh ở đây), trong khi nhiều consumer ở <strong>các group khác nhau</strong> đều
+  nhận được toàn bộ message độc lập với nhau (giống hệt hành vi Topic).</li>
+<li><strong>Myth:</strong> "Thêm một <code>@Bean</code> tuỳ chỉnh chỉ đơn thuần bổ sung thêm lựa chọn, không ảnh hưởng gì
+  tới các bean autoconfigure khác."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — một bean tuỳ chỉnh cùng kiểu có thể vô hiệu hoá
+  hoàn toàn bean autoconfigure mặc định do cơ chế <code>@ConditionalOnMissingBean</code>.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Định nghĩa một bean tuỳ chỉnh cùng kiểu với bean autoconfigure mặc định mà không kiểm tra xem
+  bean mặc định có đang được dùng ở nơi khác hay không</strong> — như đã tái hiện ở Story.</li>
+<li><strong>Dùng Queue cho một sự kiện cần nhiều bên cùng biết</strong> — chỉ một consumer nhận được, các bên còn
+  lại "mất" sự kiện hoàn toàn mà không có lỗi rõ ràng nào báo hiệu.</li>
+<li><strong>Dùng Topic cho một tác vụ cần xử lý đúng một lần</strong> — mọi subscriber đều nhận và xử lý, dẫn tới
+  tác vụ bị lặp lại (ví dụ gửi email trùng nhiều lần).</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Khi cần nhiều <code>JmsTemplate</code>/bean cùng kiểu với các cấu hình khác nhau (Queue vs Topic), định
+  nghĩa <strong>tường minh tất cả</strong>, không dựa vào bean autoconfigure mặc định cho một số nơi và bean tự
+  định nghĩa cho nơi khác.</li>
+<li>Chọn Queue khi mục tiêu là <strong>chia tải công việc</strong> giữa nhiều worker; chọn Topic khi mục tiêu là
+  <strong>thông báo sự kiện</strong> cho nhiều bên độc lập.</li>
+<li>Sau khi thêm bất kỳ <code>@Bean</code> tuỳ chỉnh nào trùng kiểu với thành phần autoconfigure, kiểm tra
+  <code>/actuator/beans</code> để xác nhận không có bean mặc định nào bị âm thầm biến mất.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Message gửi tới một destination nhưng consumer nhận sai loại hành vi (ví dụ tưởng gửi Queue
+      nhưng hành xử như Topic, hoặc ngược lại)? → kiểm tra xem có đúng một bean <code>JmsTemplate</code> được
+      autowire vào đúng chỗ hay không, dùng <code>/actuator/beans</code> để xác nhận số lượng và cấu hình
+      từng bean.</li>
+<li>[ ] Một chức năng dùng <code>JmsTemplate</code>/<code>RestTemplate</code>/bean autoconfigure khác đột nhiên lỗi sau khi
+      thêm một <code>@Configuration</code> mới? → nghi ngờ hàng đầu là <code>@ConditionalOnMissingBean</code> bị vô hiệu
+      hoá bởi bean tuỳ chỉnh cùng kiểu.</li>
+<li>[ ] Một sự kiện chỉ tới được một trong nhiều service cần nhận? → kiểm tra destination đó có phải
+      Queue (point-to-point) trong khi đáng lẽ cần Topic (publish-subscribe).</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JMS phân biệt rõ hai mô hình phân phối: Queue (point-to-point, nhiều consumer cạnh tranh, mỗi
+message chỉ tới một consumer) và Topic (publish-subscribe, mỗi message tới toàn bộ subscriber) —
+đã chứng minh bằng thực nghiệm: 4 message gửi vào Queue chia đều 2/2 cho hai consumer, trong khi 3
+message gửi vào Topic được cả hai subscriber nhận đủ. Kafka (Chapter 06) đạt được cả hai hành vi
+này cùng lúc chỉ bằng khái niệm consumer group, không cần API tách biệt như JMS. Một bug thật đã
+gặp trong quá trình cấu hình: định nghĩa một bean <code>JmsTemplate</code> tuỳ chỉnh (cho Topic) đã vô tình vô
+hiệu hoá bean <code>jmsTemplate</code> mặc định của Spring Boot (do <code>@ConditionalOnMissingBean</code> theo kiểu),
+khiến cả hai nơi trong ứng dụng cùng dùng nhầm một template — bài học tổng quát cho mọi loại bean
+autoconfigure trong Spring Boot.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>Sự khác biệt giữa Queue (point-to-point) và Topic (publish-subscribe) trong JMS?</li>
+<li>Kafka có khái niệm Queue/Topic tách biệt như JMS không? Nó đạt được các hành vi tương đương bằng
+  cách nào?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Vì sao tự định nghĩa một bean <code>JmsTemplate</code> tuỳ chỉnh có thể vô tình vô hiệu hoá bean
+  <code>jmsTemplate</code> mặc định của Spring Boot ở những nơi khác trong ứng dụng?</li>
+<li>So sánh mô hình consumer group của Kafka với mô hình Queue/Topic của JMS — trường hợp nào một
+  consumer group của Kafka hành xử giống Queue, trường hợp nào giống Topic?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Gọi <code>/actuator/beans</code> trước và sau khi thêm bean <code>queueJmsTemplate</code> tường minh, xác nhận số
+      lượng bean kiểu <code>JmsTemplate</code> thay đổi từ 1 lên 2.</li>
+<li>[ ] Thêm consumer thứ ba vào <code>demo.queue</code>, gửi 6 message, quan sát cách 3 consumer chia tải
+      (không nhất thiết chia đều tuyệt đối, do cơ chế cạnh tranh phụ thuộc thời điểm poll).</li>
+<li>[ ] Với <code>demo.topic</code>, tắt một trong hai subscriber (dừng container) trước khi gửi message, xác
+      nhận subscriber đã tắt <strong>không</strong> nhận lại được message đó sau khi bật lại (khác với consumer
+      group <code>earliest</code> của Kafka ở Chapter 06).</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Queue (point-to-point)</th>
+<th>Topic (publish-subscribe)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nhiều consumer cùng lắng nghe</td>
+<td>Cạnh tranh, mỗi message tới 1 consumer</td>
+<td>Mỗi subscriber nhận mọi message</td>
+</tr>
+<tr>
+<td>Dùng khi nào</td>
+<td>Chia tải công việc</td>
+<td>Thông báo sự kiện cho nhiều bên</td>
+</tr>
+<tr>
+<td>Tương đương trong Kafka</td>
+<td>Nhiều consumer CÙNG group</td>
+<td>Nhiều consumer KHÁC group</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>@ConditionalOnMissingBean(Type.class)</code></th>
+<th>Hành vi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chưa có bean nào kiểu đó</td>
+<td>Spring Boot tự tạo bean mặc định</td>
+</tr>
+<tr>
+<td>Đã có ít nhất 1 bean kiểu đó (bất kể tên)</td>
+<td>Spring Boot bỏ qua, KHÔNG tạo bean mặc định</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>Jakarta Messaging (JMS) Specification — Point-to-Point và Publish-Subscribe Domains.</li>
+<li>Spring Framework Documentation — <code>JmsTemplate</code>, <code>@JmsListener</code>.</li>
+<li>Spring Boot Documentation — <code>@ConditionalOnMissingBean</code>.</li>
 </ul>
 
 

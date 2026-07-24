@@ -27,7 +27,7 @@
     
     
       
-        <title>Docker - Java Backend Engineering Handbook</title>
+        <title>Docker: Đóng gói ứng dụng Java và JVM trong Container - Java Backend Engineering Handbook</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#docker-ong-goi-ung-dung-java-va-jvm-trong-container" class="md-skip">
           Bỏ qua
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Docker: Đóng gói ứng dụng Java và JVM trong Container
             
           </span>
         </div>
@@ -4400,7 +4400,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging: Structured Logging và MDC
   
 
     
@@ -4428,7 +4428,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    Metrics: Micrometer và Actuator
   
 
     
@@ -4456,7 +4456,7 @@
   <span class="md-ellipsis">
     
   
-    Tracing
+    Tracing: Distributed Tracing với Micrometer Tracing
   
 
     
@@ -4484,7 +4484,7 @@
   <span class="md-ellipsis">
     
   
-    HikariCP
+    HikariCP: Connection Pool Tuning và Debug
   
 
     
@@ -4512,7 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    Redis
+    Redis: RedisTemplate và Serialization
   
 
     
@@ -4540,7 +4540,7 @@
   <span class="md-ellipsis">
     
   
-    Kafka
+    Kafka: Producer, Consumer, và Offset Reset
   
 
     
@@ -4605,7 +4605,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4623,7 +4623,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    Docker: Đóng gói ứng dụng Java và JVM trong Container
   
 
     
@@ -4847,32 +4847,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -4957,7 +4935,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    Kubernetes: Deployment, Service, và Health Probes
   
 
     
@@ -4985,7 +4963,7 @@
   <span class="md-ellipsis">
     
   
-    CI/CD
+    CI/CD: GitHub Actions cho ứng dụng Java
   
 
     
@@ -5013,7 +4991,7 @@
   <span class="md-ellipsis">
     
   
-    JVM Tuning
+    JVM Tuning: Chọn và Cấu hình Garbage Collector
   
 
     
@@ -5041,7 +5019,7 @@
   <span class="md-ellipsis">
     
   
-    Performance Tuning
+    Performance Tuning: Điều tra Độ trễ Production
   
 
     
@@ -6023,32 +6001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#production-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#debug-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debug Checklist
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code-walkthrough" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Code Walkthrough
       
     </span>
   </a>
@@ -6131,7 +6087,21 @@
       
       
       
-        <a href="../../tags/#tag:todo" class="md-tag">TODO</a>
+        <a href="../../tags/#tag:container" class="md-tag">Container</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:docker" class="md-tag">Docker</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:jvm-ergonomics" class="md-tag">JVM Ergonomics</a>
       
     
   </nav>
@@ -6141,7 +6111,7 @@
   
 
 
-<h1 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
+<h1 id="docker-ong-goi-ung-dung-java-va-jvm-trong-container">Docker: Đóng gói ứng dụng Java và JVM trong Container<a class="headerlink" href="#docker-ong-goi-ung-dung-java-va-jvm-trong-container" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Phase: Phase 8 — Production
 Chapter slug: <code>docker</code></p>
@@ -6149,94 +6119,320 @@ Chapter slug: <code>docker</code></p>
 <h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Chapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docker</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">Phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 8 — Production</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO (★ to ★★★★★ — xem spec/part-4-roadmap.md §3.1, quyết định mức áp dụng template ở spec/part-2-chapter-standard.md §25)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO %</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Difficulty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">Importance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">★★★★</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">Interview Frequency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65%</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">Prerequisites</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phase 1, Chapter 07 — Garbage Collection</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">Used Later</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TODO</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 09 — Kubernetes</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chapter 11 — JVM Tuning</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">Estimated Reading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15 phút</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">Estimated Practice</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12 phút</span>
 </code></pre></div>
-<blockquote>
-<p>Tags: xem front matter ở đầu file (spec/part-5-knowledge-graph.md §17) — dùng cho tag
-filter trên site MkDocs, không lặp lại trong block Metadata này.</p>
-</blockquote>
 <h2 id="story">Story<a class="headerlink" href="#story" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — mở đầu bằng một tình huống/câu hỏi thực tế, không mở đầu bằng định nghĩa (xem spec/part-2-chapter-standard.md §3).</p>
-</blockquote>
+<p>Chạy image ứng dụng Spring Boot trong container với giới hạn bộ nhớ khác nhau, rồi kiểm tra
+<code>MaxHeapSize</code> thật mà JVM tự chọn:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>java<span class="w"> </span>demo-app:multistage<span class="w"> </span>-XX:+PrintFlagsFinal<span class="w"> </span>-version<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>MaxHeapSize
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--memory<span class="o">=</span>512m<span class="w"> </span>--entrypoint<span class="w"> </span>java<span class="w"> </span>demo-app:multistage<span class="w"> </span>-XX:+PrintFlagsFinal<span class="w"> </span>-version<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>MaxHeapSize
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--memory<span class="o">=</span>1g<span class="w"> </span>--entrypoint<span class="w"> </span>java<span class="w"> </span>demo-app:multistage<span class="w"> </span>-XX:+PrintFlagsFinal<span class="w"> </span>-version<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>MaxHeapSize
+</code></pre></div>
+<p>Kết quả thật (máy host có 16GB RAM, Docker VM được cấp 7.82GB):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Khong gioi han:        MaxHeapSize = 2099249152   (~1.955 GB, = 1/4 cua 7.82GB Docker VM)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>--memory=512m:          MaxHeapSize = 134217728    (128MB, = 1/4 cua 512MB)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>--memory=1g:            MaxHeapSize = 268435456    (256MB, = 1/4 cua 1024MB)
+</code></pre></div>
+<p>JVM (JDK 17) <strong>không</strong> dùng bộ nhớ của máy host (16GB) hay toàn bộ Docker VM (7.82GB) khi có giới
+hạn <code>--memory</code> — nó đọc đúng <strong>giới hạn cgroup của chính container</strong>, và tự động đặt heap bằng
+đúng 1/4 giới hạn đó trong mọi trường hợp thử nghiệm. Đây là bằng chứng trực tiếp, đo được, rằng
+JVM hiện đại <strong>nhận biết container</strong> một cách chính xác — một hành vi không phải lúc nào cũng đúng
+với các phiên bản Java cũ hơn (xem Deep Dive).</p>
 <h2 id="interview-question-central">Interview Question (Central)<a class="headerlink" href="#interview-question-central" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>TODO — câu hỏi trung tâm mà toàn bộ chapter phải xoay quanh để trả lời. Viết dạng câu hỏi
-theo spec/part-3-book-wide-standard.md §2.1 (title khác slug).</p>
+<p>JVM có tự động nhận biết giới hạn bộ nhớ của container Docker hay không? Nếu không cấu hình gì
+thêm, một ứng dụng Java chạy trong container với <code>--memory=512m</code> có nguy cơ bị OOM-killed không?</p>
 </blockquote>
 <h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">&para;</a></h2>
-<p>Sau chapter này bạn sẽ:</p>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Tự tay chứng minh bằng thực nghiệm JVM (JDK 17) tự động điều chỉnh <code>MaxHeapSize</code> theo đúng
+      giới hạn bộ nhớ cgroup của container, không phải bộ nhớ vật lý của host</li>
+<li>[ ] Viết multi-stage Dockerfile giảm kích thước image thực tế, đo bằng số liệu thật</li>
+<li>[ ] Chạy container với user không phải root, xác nhận bằng lệnh <code>id</code> thật bên trong container</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li>Phase 1, Chapter 07 — cơ chế Garbage Collection, nền tảng để hiểu vì sao kích thước heap ảnh
+  hưởng trực tiếp tới tần suất/độ trễ GC.</li>
 </ul>
 <h2 id="used-later">Used Later<a class="headerlink" href="#used-later" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO</li>
+<li><strong>Chapter 09 (Kubernetes)</strong> — giới hạn bộ nhớ container (<code>resources.limits.memory</code>) là nền tảng
+  trực tiếp cho khái niệm này ở tầng Kubernetes.</li>
+<li><strong>Chapter 11 (JVM Tuning)</strong> — hiểu đúng cách JVM đặt heap mặc định là bước đầu tiên trước khi
+  tinh chỉnh thủ công bằng <code>-Xmx</code>.</li>
 </ul>
 <h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Một tiến trình Java chạy trong container thực chất vẫn là một tiến trình bình thường trên <strong>cùng
+kernel Linux</strong> với host — container không phải máy ảo, nó chỉ là tiến trình bị giới hạn tài nguyên
+bằng cơ chế <strong>cgroup</strong> (control group) của kernel. Nếu JVM không biết đọc giới hạn cgroup này, nó
+sẽ tự đặt kích thước heap dựa trên bộ nhớ <strong>của toàn bộ host</strong> (có thể lớn hơn giới hạn container
+rất nhiều) — dẫn tới heap được cấp phát vượt quá giới hạn thực tế, và container bị kernel <strong>OOM
+Killed</strong> ngay khi JVM cố dùng nhiều bộ nhớ hơn mức cho phép, dù bản thân ứng dụng chưa thực sự
+"leak" gì cả.</p>
 <h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Từ <strong>JDK 10</strong> trở đi (và được backport về JDK 8u191), JVM có tính năng <strong>container-aware
+ergonomics</strong>, bật mặc định qua cờ <code>-XX:+UseContainerSupport</code>. Khi khởi động, JVM tự đọc giới hạn bộ
+nhớ từ cgroup (<code>/sys/fs/cgroup/memory.max</code> hoặc tương đương) thay vì gọi API bộ nhớ vật lý của
+toàn hệ điều hành. Mặc định, <code>MaxHeapSize</code> được đặt bằng <strong>25%</strong> (<code>MaxRAMPercentage</code>) giới hạn bộ
+nhớ phát hiện được — chính xác như đã đo ở Story.</p>
 <h2 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Vì container là cơ chế <strong>giới hạn tài nguyên ở tầng kernel</strong>, không phải cô lập bộ nhớ vật lý,
+tiến trình bên trong container vẫn về mặt kỹ thuật "nhìn thấy" tổng bộ nhớ của host nếu chỉ gọi
+API bộ nhớ hệ điều hành thông thường. JVM container-aware phải chủ động đọc <strong>file cgroup</strong> (một
+cơ chế riêng của Linux, khác hẳn API bộ nhớ tiêu chuẩn) để biết giới hạn <strong>thực sự áp dụng cho nó</strong>
+— đây là lý do tính năng này cần được thêm tường minh vào JVM (không tự động "có sẵn" từ đầu), và
+vì sao các phiên bản JDK cũ hơn JDK 8u191 hoàn toàn không có khả năng này, dẫn tới OOM Kill phổ
+biến khi mới bắt đầu container hoá ứng dụng Java trong giai đoạn 2014-2018.</p>
 <h2 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c"># Multi-stage: stage 1 build, stage 2 chi chua runtime + jar</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">maven:3.9-eclipse-temurin-17</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">COPY</span><span class="w"> </span>pom.xml<span class="w"> </span>.
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>-q<span class="w"> </span>dependency:go-offline
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>./src
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>-q<span class="w"> </span>package<span class="w"> </span>-DskipTests
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">FROM</span><span class="w"> </span><span class="s">eclipse-temurin:17-jre-jammy</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">RUN</span><span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>appgroup<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-g<span class="w"> </span>appgroup<span class="w"> </span>appuser
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/demo-0.0.1-SNAPSHOT.jar<span class="w"> </span>app.jar
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.jar&quot;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>demo-app:multistage<span class="w"> </span>.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--memory<span class="o">=</span>512m<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>demo-app:multistage
+</code></pre></div>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>TODO — ASCII trước, Mermaid nếu phức tạp (xem spec/part-3-book-wide-standard.md §4-6)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Khong container-aware (JDK cu, hoac tat UseContainerSupport):
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Host 16GB RAM --&gt; JVM doc &quot;tong bo nho he thong&quot; --&gt; MaxHeapSize dua tren 16GB
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  Container gioi han --memory=512m --&gt; JVM co dung &gt; 512MB --&gt; KERNEL OOM-KILL container
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Co container-aware (JDK 10+, mac dinh bat):
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  Container gioi han --memory=512m --&gt; JVM doc cgroup memory.max = 512MB
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>                                    --&gt; MaxHeapSize = 25% x 512MB = 128MB
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                                    --&gt; JVM tu gioi han minh, KHONG vuot qua 512MB
 </code></pre></div>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// TODO — code phải chạy được, không dùng pseudo code</span>
+<p><strong>Bằng chứng JVM đọc đúng giới hạn cgroup, không phải bộ nhớ host — 4 kịch bản thật:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Giới hạn container</th>
+<th><code>MaxHeapSize</code> thật đo được</th>
+<th>Tỉ lệ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Không giới hạn (Docker VM 7.82GB)</td>
+<td>2099249152 bytes (~1.955 GB)</td>
+<td>~25.0% của 7.82GB</td>
+</tr>
+<tr>
+<td><code>--memory=1g</code></td>
+<td>268435456 bytes (256 MB)</td>
+<td>25.0% của 1024MB</td>
+</tr>
+<tr>
+<td><code>--memory=512m</code></td>
+<td>134217728 bytes (128 MB)</td>
+<td>25.0% của 512MB</td>
+</tr>
+<tr>
+<td><code>--memory=256m</code></td>
+<td>132120576 bytes (~126 MB)</td>
+<td>~49.3% của 256MB</td>
+</tr>
+</tbody>
+</table>
+<p>Ba dòng đầu khớp chính xác tỉ lệ mặc định 25% (<code>MaxRAMPercentage</code>). Dòng cuối (<code>256m</code>) lại cho tỉ
+lệ ~49%, gần gấp đôi — xem giải thích ở Deep Dive.</p>
+<p><strong>Multi-stage build giảm kích thước image thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>Dockerfile.naive<span class="w"> </span>-t<span class="w"> </span>demo-app:naive<span class="w"> </span>.<span class="w">      </span><span class="c1"># KHONG multi-stage</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>Dockerfile<span class="w"> </span>-t<span class="w"> </span>demo-app:multistage<span class="w"> </span>.<span class="w">        </span><span class="c1"># CO multi-stage</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>demo-app
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>demo-app:naive         811MB
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>demo-app:multistage    367MB
+</code></pre></div>
+<p>Image <code>naive</code> (build và chạy cùng trong image <code>maven:3.9-eclipse-temurin-17</code>, giữ nguyên toàn bộ
+JDK + Maven + cache dependency) nặng gấp hơn 2 lần image <code>multistage</code> (chỉ giữ JRE + file jar đã
+build, loại bỏ hoàn toàn công cụ build khỏi image cuối).</p>
+<p><strong>Container chạy với user không phải root — dữ liệu thật:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>whoami<span class="w"> </span>demo-app:multistage
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>id<span class="w"> </span>demo-app:multistage
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>appuser
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>uid=999(appuser) gid=999(appgroup) groups=999(appgroup)
 </code></pre></div>
 <h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★ — xem spec/part-2-chapter-standard.md §25)</p>
+<p><strong>Vì sao giới hạn <code>256MB</code> cho tỉ lệ heap ~49% thay vì đúng 25% như các giới hạn khác?</strong> JVM có một
+cơ chế bảo vệ bổ sung: nếu tổng bộ nhớ phát hiện được <strong>quá nhỏ</strong>, áp dụng đúng 25%
+(<code>MaxRAMPercentage</code>) sẽ tạo ra heap quá bé để chạy bất kỳ ứng dụng thực tế nào (ví dụ 25% của
+100MB chỉ là 25MB). Để tránh trường hợp này, JVM có tham số <code>MinRAMPercentage</code> (mặc định 50%),
+được áp dụng khi tổng bộ nhớ phát hiện được nằm dưới một ngưỡng nhỏ (mặc định khoảng 256MB). Dữ
+liệu thật ở Example xác nhận đúng: <code>--memory=256m</code> nằm ngay ngưỡng này, kết quả ~49% (gần khớp
+50%) thay vì 25% — đây không phải sai số đo lường, mà là hành vi ergonomics <strong>có chủ đích</strong>, giúp
+container cực nhỏ vẫn có heap đủ dùng thay vì bị "bóp" xuống mức phi thực tế.</p>
 <h2 id="engineering-insight">Engineering Insight<a class="headerlink" href="#engineering-insight" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★)</p>
+<p><strong>Vì sao chọn build multi-stage với base image runtime là <code>eclipse-temurin:17-jre-jammy</code> (JRE)
+thay vì tiếp tục dùng chính image <code>maven:3.9-eclipse-temurin-17</code> (đầy đủ JDK + Maven) cho cả hai
+giai đoạn?</strong> Số liệu thật ở Example (811MB → 367MB) định lượng chính xác lý do: image dùng để
+<strong>chạy</strong> ứng dụng production không cần trình biên dịch Java (<code>javac</code>, chỉ cần JVM để thực thi
+bytecode đã biên dịch sẵn), không cần Maven, không cần cache dependency (<code>.m2</code>) hay source code.
+Toàn bộ những thứ đó chỉ cần thiết ở <strong>giai đoạn build</strong> — multi-stage build tách hẳn giai đoạn
+build (dùng image đầy đủ công cụ) khỏi giai đoạn runtime (chỉ copy đúng một file <code>.jar</code> kết quả
+sang một base image tối giản hơn). Lợi ích không chỉ là kích thước: image nhỏ hơn cũng đồng nghĩa
+<strong>diện tích tấn công bảo mật nhỏ hơn</strong> (ít package/binary hơn = ít lỗ hổng tiềm ẩn hơn) và thời
+gian <code>docker pull</code> khi triển khai nhanh hơn đáng kể ở quy mô nhiều node.</p>
 <h2 id="historical-note">Historical Note<a class="headerlink" href="#historical-note" title="Permanent link">&para;</a></h2>
-<p>TODO (tùy chọn, chỉ viết nếu có insight thật)</p>
+<p>Trước JDK 8u191 (phát hành cuối 2018) và JDK 10, JVM hoàn toàn <strong>không nhận biết cgroup</strong> — đây là
+giai đoạn đầu của việc container hoá ứng dụng Java trở nên phổ biến, và là nguồn gốc của rất nhiều
+sự cố OOM Kill nổi tiếng trong cộng đồng (một tiến trình Java "khoẻ mạnh" theo log ứng dụng nhưng
+bị kernel giết đột ngột không rõ lý do). Giải pháp tạm thời thời kỳ đó là cờ thử nghiệm
+<code>-XX:+UnlockExperimentalVMOptions -XX:+UseCgroupMemoryLimitForHeap</code>. Từ JDK 10 trở đi, khả năng
+này được đưa vào chính thức và bật mặc định (<code>-XX:+UseContainerSupport</code>), khiến việc "chạy Java
+trong container mà không cấu hình <code>-Xmx</code> gì cả" trở thành thực hành an toàn và phổ biến như hiện
+tại.</p>
 <h2 id="myth-vs-reality">Myth vs Reality<a class="headerlink" href="#myth-vs-reality" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Myth: TODO</li>
-<li>Reality: TODO</li>
+<li><strong>Myth:</strong> "JVM không hiểu Docker, nên luôn phải tự set <code>-Xmx</code> thủ công khi chạy trong container,
+  nếu không sẽ bị OOM Kill."
+  <strong>Reality:</strong> Đã chứng minh bằng thực nghiệm — với JDK 10+ (bao gồm JDK 17 dùng trong demo), JVM
+  tự động đọc đúng giới hạn cgroup và đặt <code>MaxHeapSize</code> hợp lý (25% giới hạn container) mà không
+  cần cấu hình gì thêm. Điều này <strong>chỉ đúng với JDK cũ</strong> (trước 8u191).</li>
+<li><strong>Myth:</strong> "Multi-stage build chỉ giúp Dockerfile gọn hơn về mặt tổ chức, không ảnh hưởng nhiều
+  tới kích thước image cuối cùng."
+  <strong>Reality:</strong> Đã đo bằng số liệu thật — giảm từ 811MB xuống 367MB, hơn 55%, chỉ bằng cách tách
+  giai đoạn build khỏi giai đoạn runtime.</li>
 </ul>
 <h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<ul>
+<li><strong>Đặt <code>-Xmx</code> cố định quá lớn</strong> (ví dụ theo thói quen từ môi trường không container hoá) mà không
+  đối chiếu với giới hạn <code>--memory</code>/<code>resources.limits.memory</code> thực tế của container — vô hiệu hoá
+  cơ chế tự bảo vệ mặc định của JVM, dễ gây OOM Kill trở lại.</li>
+<li><strong>Build image production từ base image đầy đủ JDK + công cụ build</strong> (không multi-stage) — image
+  nặng hơn không cần thiết, như đã đo ở Example.</li>
+<li><strong>Chạy container với user mặc định là root</strong> — vi phạm nguyên tắc least privilege; nếu ứng dụng
+  bị khai thác lỗ hổng, tiến trình bên trong container có quyền root ngay từ đầu.</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
-<h2 id="production-notes">Production Notes<a class="headerlink" href="#production-notes" title="Permanent link">&para;</a></h2>
-<p>TODO (nếu phù hợp — theo template: Problem → Symptoms → Root Cause → Debug → Solution → Prevention)</p>
+<ul>
+<li>Không set <code>-Xmx</code> thủ công trừ khi có lý do cụ thể (xem Chapter 11, JVM Tuning) — để JVM
+  container-aware tự tính toán hợp lý dựa trên giới hạn container thực tế.</li>
+<li>Luôn dùng multi-stage build cho ứng dụng Java production, tách rõ giai đoạn build (đầy đủ công
+  cụ) khỏi giai đoạn runtime (tối giản).</li>
+<li>Luôn tạo và chuyển sang user không phải root (<code>USER appuser</code>) trong Dockerfile trước khi
+  <code>ENTRYPOINT</code> chạy ứng dụng.</li>
+<li>Khi đặt giới hạn <code>--memory</code> rất nhỏ (dưới ~256MB), lưu ý JVM chuyển sang <code>MinRAMPercentage</code>
+  (mặc định 50%) thay vì 25% — tính toán heap dự kiến dựa trên hành vi thực tế này, không giả định
+  luôn là 25%.</li>
+</ul>
 <h2 id="debug-checklist">Debug Checklist<a class="headerlink" href="#debug-checklist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO (nếu phù hợp)</li>
+<li>[ ] Container Java bị kernel OOM-killed dù log ứng dụng không báo lỗi gì? → kiểm tra phiên bản
+      JDK có hỗ trợ <code>UseContainerSupport</code> không (JDK 10+, hoặc 8u191+); kiểm tra có đang set
+      <code>-Xmx</code> thủ công lớn hơn giới hạn container không.</li>
+<li>[ ] Cần xác nhận JVM đang đọc đúng giới hạn container? → chạy
+      <code>java -XX:+PrintFlagsFinal -version | grep MaxHeapSize</code> bên trong container, đối chiếu với
+      giới hạn <code>--memory</code>/<code>resources.limits.memory</code> đã đặt.</li>
+<li>[ ] Image quá nặng, deploy chậm? → kiểm tra Dockerfile có dùng multi-stage build hay không, có
+      đang copy dư thừa công cụ build vào image cuối hay không.</li>
 </ul>
-<h2 id="source-code-walkthrough">Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permanent link">&para;</a></h2>
-<p>TODO (bắt buộc nếu Importance ★★★★/★★★★★, nếu phù hợp)</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>JVM hiện đại (JDK 10+, bao gồm JDK 17) có khả năng <strong>container-aware</strong> — tự động đọc giới hạn bộ
+nhớ cgroup của container thay vì bộ nhớ vật lý toàn host, và mặc định đặt <code>MaxHeapSize</code> bằng 25%
+(<code>MaxRAMPercentage</code>) giới hạn đó, chuyển sang 50% (<code>MinRAMPercentage</code>) khi giới hạn rất nhỏ (~dưới
+256MB) — đã chứng minh bằng thực nghiệm với 4 mức giới hạn bộ nhớ khác nhau, kết quả khớp chính xác
+với tỉ lệ lý thuyết. Multi-stage build giảm kích thước image thực tế hơn 55% (811MB → 367MB) bằng
+cách tách giai đoạn build (cần đầy đủ JDK/Maven) khỏi giai đoạn runtime (chỉ cần JRE + jar). Chạy
+container với user không phải root (<code>USER appuser</code>, xác nhận bằng <code>id</code> thật cho uid=999) là thực
+hành bảo mật cơ bản, độc lập với các tối ưu về JVM/kích thước image.</p>
 <h2 id="interview-questions">Interview Questions<a class="headerlink" href="#interview-questions" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>TODO — chưa có câu hỏi nào từ spec/raw-interview-questions.md map vào đây.</p>
-</blockquote>
+<p><strong>Mid</strong></p>
+<ul>
+<li>JVM có tự động nhận biết giới hạn bộ nhớ của container Docker hay không?</li>
+<li>Multi-stage build trong Dockerfile giải quyết vấn đề gì?</li>
+</ul>
+<p><strong>Senior</strong></p>
+<ul>
+<li>Container Java bị OOM-killed dù chưa cấu hình <code>-Xmx</code> — nguyên nhân có thể là gì, và cách điều
+  tra?</li>
+<li><code>MaxRAMPercentage</code> và <code>MinRAMPercentage</code> khác nhau ở điểm nào? Khi nào JVM chuyển từ dùng cái này
+  sang cái kia?</li>
+</ul>
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] TODO</li>
+<li>[ ] Chạy <code>java -XX:+PrintFlagsFinal -version | grep MaxHeapSize</code> với các giới hạn <code>--memory</code>
+      khác nhau (128m, 2g, 4g), xác nhận tỉ lệ 25%/50% theo đúng ngưỡng đã mô tả ở Deep Dive.</li>
+<li>[ ] So sánh kích thước image khi dùng base runtime <code>eclipse-temurin:17-jre-jammy</code> (Ubuntu) với
+      một base tối giản hơn (ví dụ Alpine, nếu tương thích kiến trúc máy).</li>
+<li>[ ] Thử đặt <code>-Xmx4g</code> thủ công trong <code>ENTRYPOINT</code> rồi chạy với <code>--memory=512m</code>, quan sát hành vi
+      khi ứng dụng cố cấp phát bộ nhớ vượt giới hạn container.</li>
 </ul>
 <h2 id="cheat-sheet">Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<table>
+<thead>
+<tr>
+<th>Tham số JVM</th>
+<th>Ý nghĩa</th>
+<th>Giá trị mặc định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-XX:+UseContainerSupport</code></td>
+<td>Bật nhận biết cgroup (mặc định từ JDK 10+)</td>
+<td>Bật</td>
+</tr>
+<tr>
+<td><code>-XX:MaxRAMPercentage</code></td>
+<td>% bộ nhớ phát hiện được dùng làm <code>MaxHeapSize</code> (trường hợp thường)</td>
+<td>25.0</td>
+</tr>
+<tr>
+<td><code>-XX:MinRAMPercentage</code></td>
+<td>% dùng khi tổng bộ nhớ phát hiện được rất nhỏ</td>
+<td>50.0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Dockerfile</th>
+<th>Kích thước image (demo thật)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Không multi-stage (build + runtime chung image JDK/Maven)</td>
+<td>811MB</td>
+</tr>
+<tr>
+<td>Multi-stage (runtime chỉ có JRE + jar)</td>
+<td>367MB</td>
+</tr>
+</tbody>
+</table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>TODO (ưu tiên JLS / JVM Spec / OpenJDK / Spring Docs / Hibernate Docs — xem spec/part-2-chapter-standard.md §23)</li>
+<li>OpenJDK — JEP liên quan container awareness (JDK-8146115 và các cải tiến JDK 10+).</li>
+<li>Oracle/Eclipse Temurin Documentation — <code>-XX:+UseContainerSupport</code>, <code>MaxRAMPercentage</code>.</li>
+<li>Docker Documentation — Multi-stage builds.</li>
 </ul>
 
 
